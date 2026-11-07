@@ -1,0 +1,1025 @@
+{
+  "slug": "hardware-order-kit",
+  "title": "Build a specified hardware kit from a mixed assortment",
+  "instruction": "Fill the kit tray with the two long blue pins, two orange spacers and the wide green plate. Leave all short pins, the narrow plate and the spare spacer outside the tray.",
+  "context": "An order-fulfillment prototype with count, geometry and identity checks across a mixed assortment.",
+  "control_hz": 20,
+  "run_limit": 3600,
+  "table_top": 0.7475,
+  "hold_seconds": 1.0,
+  "penetration_limit": 0.002,
+  "assemblies": [
+    {
+      "name": "kit_tray_asset",
+      "origin": [
+        0.29,
+        0,
+        0.7475
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "kit_tray",
+          "pos": [
+            0.29,
+            0,
+            0.7475
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.003
+              ],
+              "size": [
+                0.19,
+                0.17,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.085,
+                0.02
+              ],
+              "size": [
+                0.19,
+                0.004,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.085,
+                0.02
+              ],
+              "size": [
+                0.19,
+                0.004,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.095,
+                0,
+                0.02
+              ],
+              "size": [
+                0.004,
+                0.17,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.095,
+                0,
+                0.02
+              ],
+              "size": [
+                0.004,
+                0.17,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.5,
+          "anchor": true,
+          "half_extent": [
+            0.097,
+            0.08700000000000001,
+            0.04
+          ],
+          "bounds_min": [
+            -0.097,
+            -0.08700000000000001,
+            0.0
+          ],
+          "bounds_max": [
+            0.097,
+            0.08700000000000001,
+            0.04
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "pin_long_0_asset",
+      "origin": [
+        0.18,
+        0.27,
+        0.78
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "pin_long_0",
+          "pos": [
+            0.18,
+            0.27,
+            0.78
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "radius": 0.009,
+              "height": 0.065,
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.04,
+          "anchor": false,
+          "half_extent": [
+            0.009,
+            0.009,
+            0.0325
+          ],
+          "bounds_min": [
+            -0.009,
+            -0.009,
+            -0.0325
+          ],
+          "bounds_max": [
+            0.009,
+            0.009,
+            0.0325
+          ],
+          "material": "steel pin surrogate"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "pin_long_1_asset",
+      "origin": [
+        0.26,
+        0.27,
+        0.78
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "pin_long_1",
+          "pos": [
+            0.26,
+            0.27,
+            0.78
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "radius": 0.009,
+              "height": 0.065,
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.04,
+          "anchor": false,
+          "half_extent": [
+            0.009,
+            0.009,
+            0.0325
+          ],
+          "bounds_min": [
+            -0.009,
+            -0.009,
+            -0.0325
+          ],
+          "bounds_max": [
+            0.009,
+            0.009,
+            0.0325
+          ],
+          "material": "steel pin surrogate"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "pin_short_asset",
+      "origin": [
+        0.33999999999999997,
+        0.27,
+        0.765
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "pin_short",
+          "pos": [
+            0.33999999999999997,
+            0.27,
+            0.765
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "radius": 0.009,
+              "height": 0.035,
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.04,
+          "anchor": false,
+          "half_extent": [
+            0.009,
+            0.009,
+            0.0175
+          ],
+          "bounds_min": [
+            -0.009,
+            -0.009,
+            -0.0175
+          ],
+          "bounds_max": [
+            0.009,
+            0.009,
+            0.0175
+          ],
+          "material": "steel pin surrogate"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "spacer_0_asset",
+      "origin": [
+        0.18,
+        -0.27,
+        0.7595000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "spacer_0",
+          "pos": [
+            0.18,
+            -0.27,
+            0.7595000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.027,
+                0.027,
+                0.024
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.02,
+          "anchor": false,
+          "half_extent": [
+            0.0135,
+            0.0135,
+            0.012
+          ],
+          "bounds_min": [
+            -0.0135,
+            -0.0135,
+            -0.012
+          ],
+          "bounds_max": [
+            0.0135,
+            0.0135,
+            0.012
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "spacer_1_asset",
+      "origin": [
+        0.26,
+        -0.27,
+        0.7595000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "spacer_1",
+          "pos": [
+            0.26,
+            -0.27,
+            0.7595000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.027,
+                0.027,
+                0.024
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.02,
+          "anchor": false,
+          "half_extent": [
+            0.0135,
+            0.0135,
+            0.012
+          ],
+          "bounds_min": [
+            -0.0135,
+            -0.0135,
+            -0.012
+          ],
+          "bounds_max": [
+            0.0135,
+            0.0135,
+            0.012
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "spacer_2_asset",
+      "origin": [
+        0.33999999999999997,
+        -0.27,
+        0.7595000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "spacer_2",
+          "pos": [
+            0.33999999999999997,
+            -0.27,
+            0.7595000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.027,
+                0.027,
+                0.024
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.02,
+          "anchor": false,
+          "half_extent": [
+            0.0135,
+            0.0135,
+            0.012
+          ],
+          "bounds_min": [
+            -0.0135,
+            -0.0135,
+            -0.012
+          ],
+          "bounds_max": [
+            0.0135,
+            0.0135,
+            0.012
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "plate_wide_asset",
+      "origin": [
+        0.4,
+        0.17,
+        0.7535000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "plate_wide",
+          "pos": [
+            0.4,
+            0.17,
+            0.7535000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.07,
+                0.036,
+                0.012
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.15,
+                0.7,
+                0.28
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.08,
+          "anchor": false,
+          "half_extent": [
+            0.035,
+            0.018,
+            0.006
+          ],
+          "bounds_min": [
+            -0.035,
+            -0.018,
+            -0.006
+          ],
+          "bounds_max": [
+            0.035,
+            0.018,
+            0.006
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "plate_narrow_asset",
+      "origin": [
+        0.4,
+        -0.17,
+        0.7535000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "plate_narrow",
+          "pos": [
+            0.4,
+            -0.17,
+            0.7535000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.07,
+                0.018,
+                0.012
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.15,
+                0.7,
+                0.28
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.04,
+          "anchor": false,
+          "half_extent": [
+            0.035,
+            0.009,
+            0.006
+          ],
+          "bounds_min": [
+            -0.035,
+            -0.009,
+            -0.006
+          ],
+          "bounds_max": [
+            0.035,
+            0.009,
+            0.006
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    }
+  ],
+  "goals": [
+    {
+      "name": "pin_long_0_packed",
+      "all": [
+        {
+          "kind": "region",
+          "body": "pin_long_0",
+          "min": [
+            0.19799999999999998,
+            -0.082,
+            0.7535000000000001
+          ],
+          "max": [
+            0.382,
+            0.082,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "pin_long_0",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "pin_long_1_packed",
+      "all": [
+        {
+          "kind": "region",
+          "body": "pin_long_1",
+          "min": [
+            0.19799999999999998,
+            -0.082,
+            0.7535000000000001
+          ],
+          "max": [
+            0.382,
+            0.082,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "pin_long_1",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "spacer_0_packed",
+      "all": [
+        {
+          "kind": "region",
+          "body": "spacer_0",
+          "min": [
+            0.19799999999999998,
+            -0.082,
+            0.7535000000000001
+          ],
+          "max": [
+            0.382,
+            0.082,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "spacer_0",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "spacer_1_packed",
+      "all": [
+        {
+          "kind": "region",
+          "body": "spacer_1",
+          "min": [
+            0.19799999999999998,
+            -0.082,
+            0.7535000000000001
+          ],
+          "max": [
+            0.382,
+            0.082,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "spacer_1",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "plate_wide_packed",
+      "all": [
+        {
+          "kind": "region",
+          "body": "plate_wide",
+          "min": [
+            0.19799999999999998,
+            -0.082,
+            0.7535000000000001
+          ],
+          "max": [
+            0.382,
+            0.082,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "plate_wide",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    }
+  ],
+  "threads": [],
+  "invariants": [],
+  "collision_exclusions": [],
+  "novelty_status": "HOLD_NOT_CLEARED",
+  "implementation_status": "ENGINEERING_DRAFT_UNVALIDATED",
+  "limitations": [
+    "This generic kitting candidate fails the current novelty screen and is retained only as reusable scorer/scene code. Replace before submission.",
+    "Arm-separated supply locations induce use of both workspaces but do not establish sustained bimanual coordination."
+  ],
+  "closest_prs": [
+    326,
+    327,
+    329,
+    384,
+    113,
+    57
+  ],
+  "expert_operations": [
+    {
+      "kind": "transfer",
+      "body": "pin_long_0",
+      "side": "left",
+      "pick": [
+        0.18,
+        0.27,
+        0.78
+      ],
+      "place": [
+        0.24,
+        0.04,
+        0.7865000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "pin_long_1",
+      "side": "left",
+      "pick": [
+        0.26,
+        0.27,
+        0.78
+      ],
+      "place": [
+        0.3,
+        0.04,
+        0.7865000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "spacer_0",
+      "side": "right",
+      "pick": [
+        0.18,
+        -0.27,
+        0.7595000000000001
+      ],
+      "place": [
+        0.24,
+        -0.04,
+        0.7665000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "spacer_1",
+      "side": "right",
+      "pick": [
+        0.26,
+        -0.27,
+        0.7595000000000001
+      ],
+      "place": [
+        0.29,
+        -0.04,
+        0.7665000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "plate_wide",
+      "side": "left",
+      "pick": [
+        0.4,
+        0.17,
+        0.7535000000000001
+      ],
+      "place": [
+        0.35,
+        -0.02,
+        0.7605000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    }
+  ],
+  "forbidden_regions": [
+    {
+      "body": "pin_short",
+      "min": [
+        0.19799999999999998,
+        -0.082,
+        0.7535000000000001
+      ],
+      "max": [
+        0.382,
+        0.082,
+        0.8375
+      ]
+    },
+    {
+      "body": "spacer_2",
+      "min": [
+        0.19799999999999998,
+        -0.082,
+        0.7535000000000001
+      ],
+      "max": [
+        0.382,
+        0.082,
+        0.8375
+      ]
+    },
+    {
+      "body": "plate_narrow",
+      "min": [
+        0.19799999999999998,
+        -0.082,
+        0.7535000000000001
+      ],
+      "max": [
+        0.382,
+        0.082,
+        0.8375
+      ]
+    }
+  ]
+}

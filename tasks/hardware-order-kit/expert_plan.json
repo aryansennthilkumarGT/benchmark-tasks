@@ -1,0 +1,529 @@
+{
+  "status": "EXECUTABLE_DRAFT_UNVALIDATED",
+  "kind": "ROBOT_WAYPOINTS_NOT_EVIDENCE",
+  "limitations": "Nominal top grasps only. Access-opening, latch actuation, threading, handoffs and collision avoidance require task-specific controller completion on the actual robot.",
+  "planned_seconds": 56.5,
+  "arms": {
+    "left": [
+      {
+        "duration": 1.5,
+        "pos": [
+          0.18,
+          0.27,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "pin_long_0: approach",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.18,
+          0.27,
+          0.788
+        ],
+        "open": true,
+        "label": "pin_long_0: descend",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.18,
+          0.27,
+          0.788
+        ],
+        "open": false,
+        "label": "pin_long_0: grasp",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.3,
+        "pos": [
+          0.18,
+          0.27,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "pin_long_0: lift",
+        "yaw": 0.0
+      },
+      {
+        "duration": 2.0,
+        "pos": [
+          0.24,
+          0.04,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "pin_long_0: transfer",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.24,
+          0.04,
+          0.7945000000000001
+        ],
+        "open": false,
+        "label": "pin_long_0: seat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.24,
+          0.04,
+          0.7945000000000001
+        ],
+        "open": true,
+        "label": "pin_long_0: release",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.24,
+          0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "pin_long_0: retreat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.26,
+          0.27,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "pin_long_1: approach",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.26,
+          0.27,
+          0.788
+        ],
+        "open": true,
+        "label": "pin_long_1: descend",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.26,
+          0.27,
+          0.788
+        ],
+        "open": false,
+        "label": "pin_long_1: grasp",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.3,
+        "pos": [
+          0.26,
+          0.27,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "pin_long_1: lift",
+        "yaw": 0.0
+      },
+      {
+        "duration": 2.0,
+        "pos": [
+          0.3,
+          0.04,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "pin_long_1: transfer",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.3,
+          0.04,
+          0.7945000000000001
+        ],
+        "open": false,
+        "label": "pin_long_1: seat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.3,
+          0.04,
+          0.7945000000000001
+        ],
+        "open": true,
+        "label": "pin_long_1: release",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.24,
+          0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "pin_long_1: retreat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 10.9,
+        "pos": [
+          0.24,
+          0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "wait for spacer_0",
+        "yaw": 0
+      },
+      {
+        "duration": 10.9,
+        "pos": [
+          0.24,
+          0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "wait for spacer_1",
+        "yaw": 0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.4,
+          0.17,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "plate_wide: approach",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.4,
+          0.17,
+          0.7615000000000001
+        ],
+        "open": true,
+        "label": "plate_wide: descend",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.4,
+          0.17,
+          0.7615000000000001
+        ],
+        "open": false,
+        "label": "plate_wide: grasp",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.3,
+        "pos": [
+          0.4,
+          0.17,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "plate_wide: lift",
+        "yaw": 0.0
+      },
+      {
+        "duration": 2.0,
+        "pos": [
+          0.35,
+          -0.02,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "plate_wide: transfer",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.35,
+          -0.02,
+          0.7685000000000001
+        ],
+        "open": false,
+        "label": "plate_wide: seat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.35,
+          -0.02,
+          0.7685000000000001
+        ],
+        "open": true,
+        "label": "plate_wide: release",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.24,
+          0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "plate_wide: retreat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 2.0,
+        "pos": [
+          0.24,
+          0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "final release hold",
+        "yaw": 0
+      }
+    ],
+    "right": [
+      {
+        "duration": 10.9,
+        "pos": [
+          0.24,
+          -0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "wait for pin_long_0",
+        "yaw": 0
+      },
+      {
+        "duration": 10.9,
+        "pos": [
+          0.24,
+          -0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "wait for pin_long_1",
+        "yaw": 0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.18,
+          -0.27,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "spacer_0: approach",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.18,
+          -0.27,
+          0.7675000000000001
+        ],
+        "open": true,
+        "label": "spacer_0: descend",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.18,
+          -0.27,
+          0.7675000000000001
+        ],
+        "open": false,
+        "label": "spacer_0: grasp",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.3,
+        "pos": [
+          0.18,
+          -0.27,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "spacer_0: lift",
+        "yaw": 0.0
+      },
+      {
+        "duration": 2.0,
+        "pos": [
+          0.24,
+          -0.04,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "spacer_0: transfer",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.24,
+          -0.04,
+          0.7745000000000001
+        ],
+        "open": false,
+        "label": "spacer_0: seat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.24,
+          -0.04,
+          0.7745000000000001
+        ],
+        "open": true,
+        "label": "spacer_0: release",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.24,
+          -0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "spacer_0: retreat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.26,
+          -0.27,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "spacer_1: approach",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.26,
+          -0.27,
+          0.7675000000000001
+        ],
+        "open": true,
+        "label": "spacer_1: descend",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.26,
+          -0.27,
+          0.7675000000000001
+        ],
+        "open": false,
+        "label": "spacer_1: grasp",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.3,
+        "pos": [
+          0.26,
+          -0.27,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "spacer_1: lift",
+        "yaw": 0.0
+      },
+      {
+        "duration": 2.0,
+        "pos": [
+          0.29,
+          -0.04,
+          0.8975000000000001
+        ],
+        "open": false,
+        "label": "spacer_1: transfer",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.29,
+          -0.04,
+          0.7745000000000001
+        ],
+        "open": false,
+        "label": "spacer_1: seat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 0.8,
+        "pos": [
+          0.29,
+          -0.04,
+          0.7745000000000001
+        ],
+        "open": true,
+        "label": "spacer_1: release",
+        "yaw": 0.0
+      },
+      {
+        "duration": 1.5,
+        "pos": [
+          0.24,
+          -0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "spacer_1: retreat",
+        "yaw": 0.0
+      },
+      {
+        "duration": 10.9,
+        "pos": [
+          0.24,
+          -0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "wait for plate_wide",
+        "yaw": 0
+      },
+      {
+        "duration": 2.0,
+        "pos": [
+          0.24,
+          -0.25,
+          0.8975000000000001
+        ],
+        "open": true,
+        "label": "final release hold",
+        "yaw": 0
+      }
+    ]
+  }
+}

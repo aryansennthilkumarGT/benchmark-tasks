@@ -1,0 +1,35 @@
+{
+  "status": "OFFLINE_DRAFT_NOT_READY",
+  "physics": null,
+  "expert_trials": [],
+  "dream": null,
+  "media_id": null,
+  "novelty": "HOLD_NOT_CLEARED",
+  "native_adapter": "NOT_EXECUTED",
+  "offline_tests": {
+    "passed": 29,
+    "skipped_not_applicable": 6,
+    "failed": 0,
+    "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+    "python": "3.11.15"
+  },
+  "known_gaps": [
+    "This generic kitting candidate fails the current novelty screen and is retained only as reusable scorer/scene code. Replace before submission.",
+    "Arm-separated supply locations induce use of both workspaces but do not establish sustained bimanual coordination."
+  ],
+  "usd_structure": {
+    "status": "PASS",
+    "tool": "usd-core 25.11",
+    "physics_executed": false
+  },
+  "source_loader": {
+    "slug": "hardware-order-kit",
+    "kind": "OFFLINE_SOURCE_LOAD_AND_GEOMETRY_ONLY",
+    "task_loader": "PASS",
+    "source_commit": "bd62771e60320433893bd1d2df0fc79b5ddcd6d1",
+    "objects": 9,
+    "expert_plan_seconds": 56.5,
+    "plan_fits_budget": true,
+    "initial_overlaps": []
+  }
+}
