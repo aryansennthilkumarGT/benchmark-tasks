@@ -2,14 +2,55 @@
   "schema_version": 1,
   "checkpoint_date": "2026-11-07",
   "mission": "Eight independently validated RoboCurve tasks",
-  "status": "HOST_IDENTITY_VERIFICATION_REQUIRED",
+  "status": "OFFLINE_DRAFT_PROGRESS_SAVED_GPU_WORK_DEFERRED",
   "complete": false,
   "upstream": "robocurve/benchmark-tasks",
   "fork": "aryansennthilkumarGT/benchmark-tasks",
   "upstream_baseline": "7df8bd8ad8cb19df51718e5ff46d4d610a9da6f1",
   "fork_main_at_inspection": "13262554900dcb2626c2cc54e2ef75c7a3df8ee7",
   "handoff_branch": "handoff/robocurve-eight-tasks",
-  "source_branches": [],
+  "source_branches": [
+    {
+      "branch": "draft/eight-nut-bracket",
+      "commit": "6d630d99b4c30d3b95a8f266177554a6baa2f676",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket"
+    },
+    {
+      "branch": "draft/fault-module-repair",
+      "commit": "f10b74cf3c28bcee3094711baa0d78cd542b8376",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair"
+    },
+    {
+      "branch": "draft/hardware-order-kit",
+      "commit": "2f6cc1a8b699e43150627c9a24bbc52f03711848",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit"
+    },
+    {
+      "branch": "draft/hinged-chassis-drive",
+      "commit": "85036aa7e52e14665bb4a088038feb33cdebc69a",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive"
+    },
+    {
+      "branch": "draft/node-service-closeout",
+      "commit": "64e92f3f1f8c4a4b84483abcf0df45631935bf9a",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout"
+    },
+    {
+      "branch": "draft/remote-battery-service",
+      "commit": "64a4e23386b1d3bdffb72716d3ee6efd1f53506c",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service"
+    },
+    {
+      "branch": "draft/switch-map-rework",
+      "commit": "32b345fbcf3207ab5a379c53f0635ca5ed1e50c0",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework"
+    },
+    {
+      "branch": "draft/twelve-cell-pack",
+      "commit": "15a17647c5aa12986b2325e8faa2ec6ee58366c0",
+      "url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack"
+    }
+  ],
   "counts": {
     "selected": 0,
     "implemented": 0,
@@ -18,7 +59,11 @@
     "expert_demonstrations": 0,
     "dream_evaluations": 0,
     "media_uploads": 0,
-    "ready": 0
+    "ready": 0,
+    "draft_packages": 8,
+    "remote_draft_branches_verified": 8,
+    "offline_unit_tests_passed": 245,
+    "offline_unit_tests_skipped_not_applicable": 35
   },
   "selected_tasks": [],
   "scores": null,
@@ -32,7 +77,12 @@
     "Task board displayed 18 accepted and 964 pending entries; team page displayed zero accepted and zero pending.",
     "Preliminary board searches covered battery, switch, drive, nut and kit; GitHub PR searches covered recent tasks, battery, chassis and ethernet.",
     "No simulator installed or executed in this session; no evaluation or media evidence exists.",
-    "User confirmed the target endpoint and shared account. Three bounded SSH attempts were rejected before authentication because all saved host-key types differ. No remote diagnostic or workload ran."
+    "User confirmed the target endpoint and shared account. Three bounded SSH attempts were rejected before authentication because all saved host-key types differ. No remote diagnostic or workload ran.",
+    "Eleven targeted public PR searches covered 294 distinct matches; eight nearby PR receipt/comment threads inspected. This is a negative novelty screen, not clearance.",
+    "Eight original draft task packages with procedural USD assets, deterministic scorers, adversarial synthetic tests, nominal robot waypoint plans, native adapter hooks and reproduction documentation were pushed to separate draft branches.",
+    "245 applicable offline unit tests passed; 35 inapplicable cases skipped. USD structure, source-loader compatibility, command dry runs and guards passed. No physics engine or Dream service was executed.",
+    "Exact remote commits fetched into independent clean worktrees. Every diff adds exactly its own task folder; normalized source checksums match; remote source tests pass.",
+    "Native feasibility, several central mechanisms/controllers, novelty, real evaluations, screenshots/videos and media uploads remain unresolved."
   ],
   "required_stack": {
     "framework": "Isaac Lab-Arena",
@@ -52,44 +102,43 @@
   },
   "blockers": [
     {
-      "id": "host_identity",
-      "blocking_now": true,
-      "detail": "ED25519, ECDSA and RSA server fingerprints all differ from saved keys. Strict checking blocked login. Await a public fingerprint verified through the workstation console or a trusted lab administrator."
+      "id": "gpu_deferred",
+      "blocking_now": false,
+      "detail": "Remote execution deferred by user; saved SSH keys remain untouched. This blocks native validation, not offline editing."
     },
     {
-      "id": "remote_stack",
-      "blocking_now": true,
-      "detail": "Hardware, drivers, resources and installed simulator remain unverified until a trusted SSH connection succeeds."
+      "id": "unfinished_native_implementation",
+      "blocking_now": false,
+      "detail": "Task-specific gaps are listed in each README and draft manifest."
+    },
+    {
+      "id": "novelty_hold",
+      "blocking_now": false,
+      "detail": "No candidate is selected or novelty-cleared; several original proposals have strong overlap."
     },
     {
       "id": "credentials",
       "blocking_now": false,
-      "detail": "RoboCurve uploader token and Dream API key are absent from the controller process/user/machine environment; the standard local Dream credentials file is absent. Credentials on the target workstation are not yet inspected. Browser board authentication works."
-    },
-    {
-      "id": "novelty",
-      "blocking_now": false,
-      "detail": "Candidate matrix is preliminary. Complete per-candidate review of six named benchmarks, relevant rejected PRs/reviews and current board before final selection."
+      "detail": "Real model/uploader credentials remain unverified on the workstation; no values were requested or recorded."
     }
   ],
   "next_actions": [
-    "Obtain out-of-band verification of the workstation ED25519 public host fingerprint. Preserve strict checking; do not blindly delete saved keys or trust ssh-keyscan output by itself.",
-    "After identity verification, use the confirmed authorized shared account and existing configured SSH identity. Run hostname, whoami, nvidia-smi, free -h and df -h, then lab_preflight.py with explicit expected host and user.",
-    "Inspect existing project and isolated simulator installations before changing anything. Do not run a system-wide desktop/driver installer.",
-    "Read the official setup script and pin compatible source revisions; install or activate the supported stack within the authorized account.",
-    "Verify uploader and Dream credentials through the approved secure mechanism without writing values to code or logs.",
-    "Run the official station scripted example twice, score it, verify actions/reset/observations and render/decode its video; then run a short real Dream smoke test.",
-    "Finish novelty screening; choose one manageable distinct task and complete all review gates before scaling to the remaining seven.",
-    "Create each submission branch independently from the recorded or deliberately refreshed upstream baseline; exactly one new task folder per branch.",
-    "Complete actual demos, Dream evaluations, uploads and clean-checkout audits before marking any task READY.",
-    "Prepare the final teammate submission script only with validated manifests. The assistant must never execute it or open upstream PRs."
+    "Continue from the exact branch commits in draft-manifest.json. These are provisional engineering candidates, not eight selected submission tasks.",
+    "Resolve the novelty hold first: generic kitting and fault replacement need replacement or substantial redesign; count alone does not distinguish the battery-pack or nut tasks.",
+    "Complete missing mechanics before running evaluations: flexible cable continuity, retaining captures, distinct module interfaces, visible polarity cues and task-specific access/regrasp controllers. Read each task README and validation.json.",
+    "SSH is deferred at the user request. Do not connect, modify saved keys or bypass verification. Resume remote work only after safe host identity verification.",
+    "On the confirmed workstation, verify hostname/account/RTX 4090/resources and inspect existing isolated installations. Activate the supported stack without system changes.",
+    "Run the official station smoke test first. Then run and debug one task at a time, with native reset/contact/reach/retention/adversarial tests and two full-score expert trials.",
+    "Use genuine Dream-1 only after native mechanisms and expert feasibility are established. Record the actual result, including zero scores. Upload verified native media through the official uploader.",
+    "Refresh the novelty/ownership screen, repeat exact remote-commit audits and mark READY only when every hard gate has evidence. No upstream PRs may be opened by the agent."
   ],
   "boundaries": [
     "No official upstream pull requests",
     "No CPU substitute for required GPU simulation",
     "No invented scores/media IDs",
-    "No task branch until a genuine task package exists",
-    "No credentials or private workstation details in public handoff files"
+    "No credentials or private workstation details in public handoff files",
+    "Draft branches are development snapshots and must not be submitted",
+    "Do not equate offline semantic tests or USD parsing with native simulation evidence"
   ],
   "source_urls": [
     "https://github.com/robocurve/benchmark-tasks/blob/7df8bd8ad8cb19df51718e5ff46d4d610a9da6f1/AGENTS.md",
@@ -108,5 +157,23 @@
     "known_hosts_modified": false,
     "remote_commands_executed": false,
     "details": "ED25519, ECDSA and RSA server fingerprints all differ from saved keys. Strict checking blocked login. Await a public fingerprint verified through the workstation console or a trusted lab administrator."
+  },
+  "draft_tasks": [
+    "eight-nut-bracket",
+    "fault-module-repair",
+    "hardware-order-kit",
+    "hinged-chassis-drive",
+    "node-service-closeout",
+    "remote-battery-service",
+    "switch-map-rework",
+    "twelve-cell-pack"
+  ],
+  "counts_note": "implemented means a complete native task, not a provisional code package; score_validated means native score/physics evidence, not synthetic unit tests.",
+  "latest_user_instruction": "Defer SSH and preserve saved keys. Continue research, code, offline tests, documentation and fork pushes; reserve real simulations/evaluations for the verified workstation.",
+  "checkpoint_verification": "Eight remote draft task branches verified; this coordination snapshot is identified by its containing Git commit.",
+  "previous_checkpoint_commit": null,
+  "coordination_tests": {
+    "passed": 6,
+    "readiness_guard": "Blocks all eight incomplete drafts without creating PRs"
   }
 }

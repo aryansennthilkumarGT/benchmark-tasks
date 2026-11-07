@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "status": "EIGHT_DRAFT_BRANCHES_PUSHED_AND_SOURCE_VERIFIED_NOT_READY",
+  "date": "2026-11-07",
+  "base_commit": "7df8bd8ad8cb19df51718e5ff46d4d610a9da6f1",
+  "base_tree": "cb9b20fcab3ae269a9f2b6244df3ba7e68222fdc",
+  "fork": "aryansennthilkumarGT/benchmark-tasks",
+  "tasks": [
+    {
+      "slug": "eight-nut-bracket",
+      "title": "Thread eight nuts onto a supported bracket",
+      "branch": "draft/eight-nut-bracket",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket",
+      "commit": "6d630d99b4c30d3b95a8f266177554a6baa2f676",
+      "task_folder": "tasks/eight-nut-bracket",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 31,
+        "skipped_not_applicable": 4,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "Box-segment helical collision surfaces are an unvalidated coarse approximation. Clearance, handedness, friction, crest overlap and two-turn retention need native tests.",
+        "The expert plan currently positions nuts; repeated wrist rotation and regrasp control are not calibrated or validated.",
+        "RoboDojo Fasten Screws and existing multi-stud tasks create a high novelty risk. Eight fasteners alone is not a substantive distinction."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "eight-nut-bracket",
+        "commit": "6d630d99b4c30d3b95a8f266177554a6baa2f676",
+        "parent": "71f707e581c1d8c0638598630924812efd908989",
+        "changed_files": 26,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    },
+    {
+      "slug": "fault-module-repair",
+      "title": "Replace a fault-marked module and preserve healthy modules",
+      "branch": "draft/fault-module-repair",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
+      "commit": "f10b74cf3c28bcee3094711baa0d78cd542b8376",
+      "task_folder": "tasks/fault-module-repair",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 30,
+        "skipped_not_applicable": 5,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "This candidate is too close to existing visible-fault drive replacement tasks and is not selected for submission.",
+        "Retaining-bar capture features, extraction resistance and a fault-state model beyond static visible markings remain unimplemented."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "fault-module-repair",
+        "commit": "f10b74cf3c28bcee3094711baa0d78cd542b8376",
+        "parent": "0f82464381a495957309a9e61ba0c7d84ede1df4",
+        "changed_files": 24,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    },
+    {
+      "slug": "hardware-order-kit",
+      "title": "Build a specified hardware kit from a mixed assortment",
+      "branch": "draft/hardware-order-kit",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit",
+      "commit": "2f6cc1a8b699e43150627c9a24bbc52f03711848",
+      "task_folder": "tasks/hardware-order-kit",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 29,
+        "skipped_not_applicable": 6,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "This generic kitting candidate fails the current novelty screen and is retained only as reusable scorer/scene code. Replace before submission.",
+        "Arm-separated supply locations induce use of both workspaces but do not establish sustained bimanual coordination."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "hardware-order-kit",
+        "commit": "2f6cc1a8b699e43150627c9a24bbc52f03711848",
+        "parent": "8aa2064f57f6451958d41a8e86460bf77e111947",
+        "changed_files": 26,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    },
+    {
+      "slug": "hinged-chassis-drive",
+      "title": "Install and retain a drive under a gravity-closing lid",
+      "branch": "draft/hinged-chassis-drive",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
+      "commit": "85036aa7e52e14665bb4a088038feb33cdebc69a",
+      "task_folder": "tasks/hinged-chassis-drive",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 31,
+        "skipped_not_applicable": 4,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "The gravity-loaded lid and its contact clearances require native validation. The draft expert only includes a lid-handle approach, not a calibrated hinge-following motion.",
+        "Retainer guide bosses and a physically verified extraction-resistance test are still required. Novelty beyond drive-carrier and held-lid tasks is unresolved."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "hinged-chassis-drive",
+        "commit": "85036aa7e52e14665bb4a088038feb33cdebc69a",
+        "parent": "9292d2e22071d36b7ccafb551d3dc02eae79e0eb",
+        "changed_files": 20,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    },
+    {
+      "slug": "node-service-closeout",
+      "title": "Exchange two internal modules and close out an enclosure",
+      "branch": "draft/node-service-closeout",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
+      "commit": "64e92f3f1f8c4a4b84483abcf0df45631935bf9a",
+      "task_folder": "tasks/node-service-closeout",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 31,
+        "skipped_not_applicable": 4,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "The gravity-loaded lid and its contact clearances require native validation. The draft expert only includes a lid-handle approach, not a calibrated hinge-following motion.",
+        "The two modules currently share proxy geometry; component-specific interfaces, keys and retainers must be implemented before claiming a heterogeneous servicing construct.",
+        "An independent novelty case beyond concatenating existing maintenance tasks remains unresolved."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "node-service-closeout",
+        "commit": "64e92f3f1f8c4a4b84483abcf0df45631935bf9a",
+        "parent": "76df2c78c93d85b3a2039b4453f39053efe3e107",
+        "changed_files": 24,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    },
+    {
+      "slug": "remote-battery-service",
+      "title": "Replace both cells and close a handheld controller",
+      "branch": "draft/remote-battery-service",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
+      "commit": "64a4e23386b1d3bdffb72716d3ee6efd1f53506c",
+      "task_folder": "tasks/remote-battery-service",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 31,
+        "skipped_not_applicable": 4,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "Contact springs and end clearance need tuning on PhysX. Cover rail retention and anti-pry resistance are not demonstrated.",
+        "Whole-workflow novelty is not established relative to existing cell removal and replacement tasks."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "remote-battery-service",
+        "commit": "64a4e23386b1d3bdffb72716d3ee6efd1f53506c",
+        "parent": "3b880a5c4c98b5af80383e0818e03a142ebae448",
+        "changed_files": 23,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    },
+    {
+      "slug": "switch-map-rework",
+      "title": "Correct two latched patch connections while preserving a third",
+      "branch": "draft/switch-map-rework",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework",
+      "commit": "32b345fbcf3207ab5a379c53f0635ca5ed1e50c0",
+      "task_folder": "tasks/switch-map-rework",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 32,
+        "skipped_not_applicable": 3,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "Flexible cable bodies and connector-end continuity are NOT implemented. The present native assets are a connector/latch fixture, not a complete network recabling simulation.",
+        "Latch hook interference, pressing access and retention must be validated. This candidate cannot advance to construct-validity approval until a real compliant cable model is added.",
+        "Novelty relative to mapped patching and accepted plug reseating remains unresolved."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "switch-map-rework",
+        "commit": "32b345fbcf3207ab5a379c53f0635ca5ed1e50c0",
+        "parent": "f63b46b454f5802fc2c5190d87fa848ca3bb0d75",
+        "changed_files": 23,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    },
+    {
+      "slug": "twelve-cell-pack",
+      "title": "Load and retain twelve polarity-marked cells",
+      "branch": "draft/twelve-cell-pack",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
+      "commit": "15a17647c5aa12986b2325e8faa2ec6ee58366c0",
+      "task_folder": "tasks/twelve-cell-pack",
+      "status": "OFFLINE_DRAFT_NOT_READY",
+      "ready": false,
+      "novelty": "HOLD_NOT_CLEARED",
+      "expert_scores": [],
+      "dream_score": null,
+      "media_id": null,
+      "offline_tests": {
+        "passed": 30,
+        "skipped_not_applicable": 5,
+        "failed": 0,
+        "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+        "python": "3.11.15"
+      },
+      "known_gaps": [
+        "A positive capture for the retaining plate is missing. Cell polarity marks on the holder and contact-compression tolerances require completion before model evaluation.",
+        "Twelve repetitions alone do not clear novelty; an independently justified task redesign is required."
+      ],
+      "remote_verified": true,
+      "remote_verification": {
+        "slug": "twelve-cell-pack",
+        "commit": "15a17647c5aa12986b2325e8faa2ec6ee58366c0",
+        "parent": "d49db35af60cc1bea0fb41ecfd0fa7ad6990c8a3",
+        "changed_files": 31,
+        "exactly_one_task_folder": true,
+        "content_hashes": "MATCH",
+        "clean_checkout": true,
+        "checks": {
+          "unit_tests": "PASS",
+          "usd_structure": "PASS",
+          "task_source_load": "PASS",
+          "dream_dry_run": "PASS",
+          "unfinished_dream_run_rejected": "PASS"
+        },
+        "kind": "REMOTE_SOURCE_VERIFICATION_ONLY_NOT_PHYSICS",
+        "ready": false
+      },
+      "physics": null,
+      "expert_trials": [],
+      "dream": null,
+      "media_verified": false,
+      "suggested_pr_title": null,
+      "suggested_pr_body": null
+    }
+  ],
+  "counts": {
+    "draft_packages": 8,
+    "offline_tests_passed": 245,
+    "skipped_not_applicable": 35,
+    "selected_for_submission": 0,
+    "ready": 0,
+    "physics_runs": 0,
+    "expert_demonstrations": 0,
+    "dream_evaluations": 0,
+    "media_uploads": 0
+  }
+}
