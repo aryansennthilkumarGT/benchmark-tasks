@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "checkpoint_date": "2026-11-07",
+  "mission": "Eight independently validated RoboCurve tasks",
+  "status": "AWAITING_COMPUTE_ENDPOINT",
+  "complete": false,
+  "upstream": "robocurve/benchmark-tasks",
+  "fork": "aryansennthilkumarGT/benchmark-tasks",
+  "upstream_baseline": "7df8bd8ad8cb19df51718e5ff46d4d610a9da6f1",
+  "fork_main_at_inspection": "13262554900dcb2626c2cc54e2ef75c7a3df8ee7",
+  "handoff_branch": "handoff/robocurve-eight-tasks",
+  "source_branches": [],
+  "counts": {
+    "selected": 0,
+    "implemented": 0,
+    "physics_validated": 0,
+    "score_validated": 0,
+    "expert_demonstrations": 0,
+    "dream_evaluations": 0,
+    "media_uploads": 0,
+    "ready": 0
+  },
+  "selected_tasks": [],
+  "scores": null,
+  "media_ids": [],
+  "evidence": [
+    "Authenticated GitHub connector has push permission to the fork.",
+    "Upstream main fetched and a clean local reference checkout created.",
+    "Read AGENTS.md, README.md, examples/task.json and tools/upload_media.py.",
+    "Read authenticated task-board guide, review checklist, FAQ and current simulation walkthrough.",
+    "Read YAM adapter README and stack_cubes.py example; inspected accepted task code and run instructions.",
+    "Task board displayed 18 accepted and 964 pending entries; team page displayed zero accepted and zero pending.",
+    "Preliminary board searches covered battery, switch, drive, nut and kit; GitHub PR searches covered recent tasks, battery, chassis and ethernet.",
+    "No simulator installed or executed in this session; no evaluation or media evidence exists."
+  ],
+  "required_stack": {
+    "framework": "Isaac Lab-Arena",
+    "adapter": "yam_arena",
+    "robot": "Bimanual I2RT YAM, parallel grippers",
+    "documented_arena_version": "0.3.1",
+    "documented_isaac_lab_version": "3.0",
+    "documented_isaac_sim_version": "6.1",
+    "inspect_robots_requirement": "Current walkthrough updated for inspect-robots 1.0 on November 5; pin actual compatible versions after host inspection.",
+    "model": "dreamlabs/dream-1-beta; actual configured identifier must be recorded per run",
+    "control_hz": 20,
+    "policy_camera_size": [
+      320,
+      176
+    ],
+    "note": "These are documentation findings, not installed or executed versions."
+  },
+  "blockers": [
+    {
+      "id": "compute_endpoint",
+      "blocking_now": true,
+      "detail": "Required RTX 4090 workstation hostname/IP is unknown. Existing SSH aliases do not establish the intended host/account. No remote login attempted."
+    },
+    {
+      "id": "remote_stack",
+      "blocking_now": true,
+      "detail": "Remote hardware, drivers, GPU availability, storage, Python, simulator and workload access are unverified until the endpoint is supplied."
+    },
+    {
+      "id": "credentials",
+      "blocking_now": false,
+      "detail": "RoboCurve uploader token and Dream API key are absent from the controller process/user/machine environment; the standard local Dream credentials file is absent. Credentials on the target workstation are not yet inspected. Browser board authentication works."
+    },
+    {
+      "id": "novelty",
+      "blocking_now": false,
+      "detail": "Candidate matrix is preliminary. Complete per-candidate review of six named benchmarks, relevant rejected PRs/reviews and current board before final selection."
+    }
+  ],
+  "next_actions": [
+    "Obtain the exact lab SSH endpoint and any required jump host; do not guess addresses or use a different account.",
+    "Connect as the authorized account; verify actual hostname/account and run lab_preflight.py plus current nvidia-smi resource checks.",
+    "Inspect existing project and isolated simulator installations before changing anything. Do not run a system-wide desktop/driver installer.",
+    "Read the official setup script and pin compatible source revisions; install or activate the supported stack within the authorized account.",
+    "Verify uploader and Dream credentials through the approved secure mechanism without writing values to code or logs.",
+    "Run the official station scripted example twice, score it, verify actions/reset/observations and render/decode its video; then run a short real Dream smoke test.",
+    "Finish novelty screening; choose one manageable distinct task and complete all review gates before scaling to the remaining seven.",
+    "Create each submission branch independently from the recorded or deliberately refreshed upstream baseline; exactly one new task folder per branch.",
+    "Complete actual demos, Dream evaluations, uploads and clean-checkout audits before marking any task READY.",
+    "Prepare the final teammate submission script only with validated manifests. The assistant must never execute it or open upstream PRs."
+  ],
+  "boundaries": [
+    "No official upstream pull requests",
+    "No CPU substitute for required GPU simulation",
+    "No invented scores/media IDs",
+    "No task branch until a genuine task package exists",
+    "No credentials or private workstation details in public handoff files"
+  ],
+  "source_urls": [
+    "https://github.com/robocurve/benchmark-tasks/blob/7df8bd8ad8cb19df51718e5ff46d4d610a9da6f1/AGENTS.md",
+    "https://tasks.robocurve.org/",
+    "https://tasks.robocurve.org/walkthrough",
+    "https://tasks.robocurve.org/board",
+    "https://github.com/kairosiann/yam-isaac-lab-arena",
+    "https://github.com/robocurve/inspect-robots"
+  ]
+}

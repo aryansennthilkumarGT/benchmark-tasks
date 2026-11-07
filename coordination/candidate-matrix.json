@@ -1,0 +1,143 @@
+{
+  "status": "PRELIMINARY_NOT_SELECTED",
+  "research_limit": "Board/PR matches indicate overlap risks; neither novelty clearance nor physical feasibility is established. All six benchmark catalogs and detailed rejected-task feedback remain to be checked.",
+  "candidates": [
+    {
+      "idea": "Hinged-chassis drive installation",
+      "decision": "REDESIGN_OR_JUSTIFY",
+      "risk": "High",
+      "overlap": [
+        "TK-PLJPH7: Seat a hot-swap drive carrier with its cam handle",
+        "TK-AYDCCR: Load a wafer under a continuously held lid",
+        "TK-GAUQTC: Reset a breaker under a spring-shut cover"
+      ],
+      "required_distinction": "The coupled support/insertion/retention workflow must add a meaningful capability beyond combining familiar operations.",
+      "physical_gate": "A passive falling lid, authentic guide and latch contacts, reachable sled grasps."
+    },
+    {
+      "idea": "Complete remote battery replacement",
+      "decision": "INVESTIGATE",
+      "risk": "High",
+      "overlap": [
+        "TK-ATKRUQ: Insert a cell and latch a welder lid",
+        "TK-6FB8W7: Open a welder lid and remove its cell",
+        "TK-7J2DJG: Insert a flashlight battery with polarity and close its threaded cap"
+      ],
+      "required_distinction": "Complete removal, disposal, replacement identities/polarity and closure need defensible workflow novelty.",
+      "physical_gate": "AA cell size, dense bay clearance, spring contacts and parallel-gripper accessibility."
+    },
+    {
+      "idea": "Switch re-cabling from target port map",
+      "decision": "REDESIGN_OR_REPLACE",
+      "risk": "Very high",
+      "overlap": [
+        "TK-7ZYLQV: Patch cords per port-map card",
+        "TK-ZMCVFD: Accepted half-inserted plug correction"
+      ],
+      "required_distinction": "Correcting an existing mapping through real latch release must be substantively different from mapped patching; compare DataCenterBench.",
+      "physical_gate": "Contact-driven latch actuation, flexible cable routing, visible map and end-to-end connection identity."
+    },
+    {
+      "idea": "Hardware parts-order kitting",
+      "decision": "REPLACE_UNLESS_DISTINCT_MECHANISM_FOUND",
+      "risk": "Very high",
+      "overlap": [
+        "TK-FYCWVH: Kit fasteners for two bracket assemblies",
+        "TK-BV9LXS: Kit with approved substitute",
+        "TK-VN35AJ: Pick-light kitting",
+        "TK-Q65SGP: Hazard-aware kitting"
+      ],
+      "required_distinction": "A new order card or more distractors is insufficient. Physically necessary coordinated handling remains unspecified.",
+      "physical_gate": "Meaningful two-arm dependency, visible identity/count and no hidden-order leakage."
+    },
+    {
+      "idea": "Twelve-cell battery-pack assembly",
+      "decision": "REDESIGN_OR_REPLACE",
+      "risk": "High",
+      "overlap": [
+        "Existing cell-insertion tasks above; twelve-cell exact match not established"
+      ],
+      "required_distinction": "Count alone does not make a distinct benchmark. Need a credible sustained assembly dependency.",
+      "physical_gate": "Twelve real seating/contact/polarity checks within reachable layout and budget."
+    },
+    {
+      "idea": "Eight-nut fastening",
+      "decision": "HIGH_RISK_BACKUP",
+      "risk": "High",
+      "overlap": [
+        "TK-25G7NE: Six-stud flange nuts in star order",
+        "TK-78D7SX: Hold nut and turn screw through plate",
+        "Previous cohort: Tighten a nut onto a bolt"
+      ],
+      "required_distinction": "Physical thread engagement differs from placing nuts, but repetition alone is insufficient.",
+      "physical_gate": "Alignment, angular engagement, axial travel and fixture stabilization without snapping to a thread state."
+    },
+    {
+      "idea": "Fault-indicated component replacement",
+      "decision": "REPLACE_OR_SUBSTANTIALLY_REDESIGN",
+      "risk": "Very high",
+      "overlap": [
+        "TK-NNACEF: Red-lamp failed drive sled replacement",
+        "TK-EJE8YC: Offset-indicated failed drive replacement",
+        "TK-7FS22W: Failed optical transceiver swap",
+        "TK-HDFYC4: Diagnose and replace circuit components"
+      ],
+      "required_distinction": "Generic visible fault plus replacement already exists.",
+      "physical_gate": "Observable fault/identity, valid release/insertion and unaffected healthy components."
+    },
+    {
+      "idea": "Multi-component node servicing",
+      "decision": "INVESTIGATE_WITH_STRICT_NOVELTY_GATE",
+      "risk": "High",
+      "overlap": [
+        "TK-YDCFUE: Transfer server drives preserving bay numbers",
+        "TK-3EKMNV: Processor socket open/install/close",
+        "Multiple module, drive and optical servicing tasks"
+      ],
+      "required_distinction": "A meaningful dependency graph with distinct skills, not a compilation of protected tasks.",
+      "physical_gate": "Reachable lid/components/retainers; stable reset; end-to-end action budget."
+    }
+  ],
+  "backup_screen": [
+    {
+      "idea": "Incomplete connector detection and correction",
+      "decision": "REJECT_AS_PROPOSED",
+      "reason": "Direct accepted overlap TK-ZMCVFD."
+    },
+    {
+      "idea": "Drive sled insertion and locking",
+      "decision": "REJECT_AS_PROPOSED",
+      "reason": "Pending overlap TK-PLJPH7."
+    },
+    {
+      "idea": "Generic SFP installation/replacement",
+      "decision": "HIGH_DUPLICATE_RISK",
+      "reason": "Pending optical replacement TK-7FS22W; DataCenterBench review outstanding."
+    },
+    {
+      "idea": "Simple one-battery insertion",
+      "decision": "REJECT_AS_PROPOSED",
+      "reason": "Pending flashlight and welder cell-insertion tasks."
+    },
+    {
+      "idea": "One-nut threading",
+      "decision": "HIGH_DUPLICATE_RISK",
+      "reason": "Previous-cohort nut tightening and pending nut/screw tasks."
+    },
+    {
+      "idea": "Mechanically constrained cable routing",
+      "decision": "NEEDS_SUBSTANTIAL_DIFFERENCE",
+      "reason": "Accepted curved channel, panel grommet and cable-length tasks."
+    },
+    {
+      "idea": "Target-configuration repair",
+      "decision": "INVESTIGATE",
+      "reason": "Must specify a distinct physical repair mechanism; no clearance yet."
+    },
+    {
+      "idea": "Dependency-ordered assembly",
+      "decision": "INVESTIGATE",
+      "reason": "Pending stepped-shaft ring ordering and interlock-chain tasks create overlap risk."
+    }
+  ]
+}
