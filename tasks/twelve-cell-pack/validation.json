@@ -1,35 +1,75 @@
 {
-  "status": "OFFLINE_DRAFT_NOT_READY",
-  "physics": null,
+  "schema_version": 2,
+  "status": "STATIC_TESTS_PASSED",
+  "ready": false,
+  "verified_at": "2026-11-07T23:47:00.898679+00:00",
+  "offline_tests": {
+    "slug": "twelve-cell-pack",
+    "python": "3.12.13",
+    "tests_run": 63,
+    "skipped": 4,
+    "passed": 59,
+    "unit_exit": 0,
+    "usd_exit": 0
+  },
+  "offline_audits": {
+    "control": {
+      "passed": true,
+      "evidence": "offline-evidence/control.json"
+    },
+    "geometry": {
+      "passed": true,
+      "evidence": "offline-evidence/geometry.json"
+    },
+    "grasps": {
+      "passed": true,
+      "evidence": "offline-evidence/grasps.json"
+    },
+    "motion": {
+      "passed": true,
+      "evidence": "offline-evidence/motion.json"
+    },
+    "threads": {
+      "passed": true,
+      "evidence": "offline-evidence/threads.json"
+    }
+  },
+  "usd_structure": {
+    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
+    "assemblies": 15,
+    "bodies": 27,
+    "joints": 12,
+    "spawn_transforms_and_anchors": "PASS",
+    "initial_joint_frames": "PASS"
+  },
+  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
+  "native_physics": "NOT_RUN",
+  "robot_control": "NOT_RUN",
   "expert_trials": [],
   "dream": null,
   "media_id": null,
-  "novelty": "HOLD_NOT_CLEARED",
-  "native_adapter": "NOT_EXECUTED",
-  "offline_tests": {
-    "passed": 30,
-    "skipped_not_applicable": 5,
-    "failed": 0,
-    "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
-    "python": "3.11.15"
+  "media_verified": false,
+  "run_limit": 12000,
+  "native_cases_planned": {
+    "physics": 5,
+    "control": 2
   },
-  "known_gaps": [
-    "A positive capture for the retaining plate is missing. Cell polarity marks on the holder and contact-compression tolerances require completion before model evaluation.",
-    "Twelve repetitions alone do not clear novelty; an independently justified task redesign is required."
+  "physics_runs": 0,
+  "expert_runs": 0,
+  "model_runs": 0,
+  "media_uploads": 0,
+  "remaining": [
+    "Native mechanism and reset probes",
+    "Real robot control tests",
+    "Two full-score expert episodes",
+    "Genuine Dream-1 evaluation",
+    "Media visual review and official upload",
+    "Runtime publication verification"
   ],
-  "usd_structure": {
-    "status": "PASS",
-    "tool": "usd-core 25.11",
-    "physics_executed": false
-  },
-  "source_loader": {
-    "slug": "twelve-cell-pack",
-    "kind": "OFFLINE_SOURCE_LOAD_AND_GEOMETRY_ONLY",
-    "task_loader": "PASS",
-    "source_commit": "bd62771e60320433893bd1d2df0fc79b5ddcd6d1",
-    "objects": 14,
-    "expert_plan_seconds": 143.7,
-    "plan_fits_budget": true,
-    "initial_overlaps": []
-  }
+  "limitations": [
+    "Rigid contact shoes approximate spring terminals; conductivity is inferred from orientation, seating and measured spring compression.",
+    "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope.",
+    "Contact preload, capture-key insertion and expert execution have not yet been tested in native PhysX."
+  ],
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
 }

@@ -36,9 +36,69 @@ def target_frame():
                 f['bodies'][p['body']]['quat']=list(S.multiply(ref['quat'],p['quat'])) if ref else p['quat'].copy()
             elif p['kind']=='joint':f['joints'][p['joint']]=(p['min']+p['max'])/2
             elif p['kind']=='region' and p['body'] not in assigned:
-                f['bodies'][p['body']]['pos']=[(a+b)/2 for a,b in zip(p['min'],p['max'])]
+                bounds=next(b for a in SPEC['assemblies'] for b in a['bodies'] if b['name']==p['body'])
+                centre=S.rotate(f['bodies'][p['body']]['quat'],[(a+b)/2 for a,b in zip(bounds['bounds_min'],bounds['bounds_max'])])
+                f['bodies'][p['body']]['pos']=[(a+b)/2-c for a,b,c in zip(p['min'],p['max'],centre)]
                 assigned.add(p['body'])
+    for g in SPEC['goals']:
+        for p in g['all']:
+            if p['kind']=='axis':
+                import numpy as np
+                a=np.array(p.get('local_axis',[0,0,1]),dtype=float);b=np.array(p['direction'],dtype=float)
+                if np.dot(a,b)<-0.9999:
+                    axis=np.cross(a,[0,0,1] if abs(a[2])<.9 else [0,1,0]);axis/=np.linalg.norm(axis);q=[*axis,0]
+                else:
+                    q=np.r_[np.cross(a,b),1+np.dot(a,b)];q=(q/np.linalg.norm(q)).tolist()
+                if p.get('relative_to'):q=S.multiply(f['bodies'][p['relative_to']]['quat'],q)
+                f['bodies'][p['body']]['quat']=list(q)
+    if SPEC.get("continuity"):
+        fit_cables(f)
     return f
+
+
+def fit_cables(frame):
+    """Geometric continuity fixture for scorer tests, NOT a dynamic cable replay.
+
+    FABRIK preserves segment lengths and the two fixed endpoints. This tests the
+    scorer's continuity logic; native tests separately exercise constrained joints.
+    """
+    import numpy as np
+    from feedback import rotate,conjugate
+    for assembly in SPEC['assemblies']:
+        links=[b for b in assembly['bodies'] if '_link_' in b['name']]
+        if not links:continue
+        joints=assembly['joints'];anchor=assembly['bodies'][0];plug=next(b for b in assembly['bodies'] if b['name'].startswith('plug_'))
+        twists=[next(j for j in joints if j['child']==b['name']) for b in links]
+        ends=[next(j for j in joints if j['parent']==b['name']) for b in links]
+        points=[np.array(anchor['pos'])]+[np.array(b['pos'])+np.array(j['pivot_parent']) for b,j in zip(links,ends)]
+        original=np.array(points);lengths=np.linalg.norm(np.diff(original,axis=0),axis=1)
+        terminal=next(j for j in joints if j['child']==plug['name'])
+        target=np.array(frame['bodies'][plug['name']]['pos'])+rotate(frame['bodies'][plug['name']]['quat'],terminal['pivot_child'])
+        if np.linalg.norm(target-original[0])>=sum(lengths):raise ValueError('Cable fixture cannot reach target')
+        points=np.array(points);root=points[0].copy()
+        for _ in range(2000):
+            points[-1]=target
+            for i in range(len(lengths)-1,-1,-1):
+                d=points[i]-points[i+1];points[i]=points[i+1]+d*lengths[i]/np.linalg.norm(d)
+            points[0]=root
+            for i,length in enumerate(lengths):
+                d=points[i+1]-points[i];points[i+1]=points[i]+d*length/np.linalg.norm(d)
+            if np.linalg.norm(points[-1]-target)<1e-7:break
+        else:raise ValueError('Cable fixture did not converge')
+        for i,(body,joint,end) in enumerate(zip(links,twists,ends)):
+            a=original[i+1]-original[i];b=points[i+1]-points[i];a/=np.linalg.norm(a);b/=np.linalg.norm(b)
+            q=np.r_[np.cross(a,b),1+np.dot(a,b)];q/=np.linalg.norm(q)
+            frame['bodies'][body['name']]['quat']=q.tolist()
+            frame['bodies'][body['name']]['pos']=(points[i]-rotate(q,joint['pivot_child'])).tolist()
+        for joint in joints:
+            child=joint['child']
+            if child.startswith('cable_') and '_link_' not in child:
+                parent=frame['bodies'][joint['parent']]
+                frame['bodies'][child]['pos']=(np.array(parent['pos'])+rotate(parent['quat'],joint['pivot_parent'])).tolist()
+        latch=next((j for j in joints if j['kind']=='prismatic'),None)
+        if latch:
+            parent=frame['bodies'][latch['parent']]
+            frame['bodies'][latch['child']]['pos']=(np.array(parent['pos'])+rotate(parent['quat'],latch['pivot_parent'])+[0,0,frame['joints'][latch['name']]]).tolist()
 
 
 def finish(sc,f=None):
@@ -46,16 +106,18 @@ def finish(sc,f=None):
     dt=1/SPEC['control_hz']
     t=0. if sc.last_time is None else sc.last_time+dt
     if SPEC['threads']:
-        for k in range(81):
-            phase=k/80
+        turns=math.ceil(max(p['min'] for g in SPEC['goals'] for p in g['all'] if p['kind']=='turns')*8)/8
+        samples=math.ceil(turns*40)
+        for k in range(samples+1):
+            phase=k/samples
             for thread in SPEC['threads']:
                 name=thread['body'];p=next(p for g in SPEC['goals'] for p in g['all'] if p['kind']=='pose' and p['body']==name)
                 ref=f['bodies'][thread['reference']]
-                local=p['pos'].copy();local[2]+=(1-phase)*2*thread['pitch']
+                local=p['pos'].copy();local[2]+=(1-phase)*turns*thread['pitch']
                 f['bodies'][name]['pos']=list(S.add(ref['pos'],S.rotate(ref['quat'],local)))
-                f['bodies'][name]['quat']=[0,0,math.sin(-4*math.pi*phase/2),math.cos(-4*math.pi*phase/2)]
+                f['bodies'][name]['quat']=[0,0,math.sin(-2*turns*math.pi*phase/2),math.cos(-2*turns*math.pi*phase/2)]
             f['time']=t;sc.update(f);t+=dt
-    for k in range(22):
+    for k in range(math.ceil(SPEC['hold_seconds']/dt)+3):
         f['time']=t;result=sc.update(f);t+=dt
     return result,f
 
@@ -200,6 +262,51 @@ class SemanticTests(unittest.TestCase):
         a=([0,0,0],[.01,.02,.03],[(1,0,0),(0,1,0),(0,0,1)])
         self.assertEqual(G.penetration(a,([1,0,0],a[1],a[2])),0.)
         self.assertAlmostEqual(G.penetration(a,([.019,0,0],a[1],a[2])),.001)
+
+    def test_every_pose_rejects_near_miss_and_wrong_target(self):
+        for goal in SPEC['goals']:
+            for p in goal['all']:
+                if p['kind']!='pose':continue
+                with self.subTest(goal=goal['name'],body=p['body']):
+                    f=target_frame();body=f['bodies'][p['body']]
+                    self.assertTrue(self.sc.predicate(p,f))
+                    body['pos'][0]+=p['tolerance']+.00001
+                    self.assertFalse(self.sc.predicate(p,f))
+                    body['pos'][0]+=.05;self.assertFalse(self.sc.predicate(p,f))
+
+    def test_every_axis_rejects_reversed_polarity(self):
+        for goal in SPEC['goals']:
+            for p in goal['all']:
+                if p['kind']!='axis':continue
+                with self.subTest(body=p['body']):
+                    f=target_frame();self.assertTrue(self.sc.predicate(p,f))
+                    local=p.get('local_axis',[0,0,1]);flip=[0,1,0,0] if abs(local[1])<.9 else [1,0,0,0]
+                    f['bodies'][p['body']]['quat']=list(S.multiply(f['bodies'][p['body']]['quat'],flip))
+                    self.assertFalse(self.sc.predicate(p,f))
+
+    def test_completed_component_displacement_removes_credit(self):
+        result,f=finish(self.sc);self.assertTrue(result.success)
+        predicate=next((p for g in SPEC['goals'] for p in g['all'] if p['kind'] in ('pose','region')),None)
+        if predicate is None:self.skipTest('No movable goal body')
+        f['time']+=1/SPEC['control_hz'];f['bodies'][predicate['body']]['pos'][0]+=.10
+        result=self.sc.update(f);self.assertLess(result.score,1);self.assertFalse(result.success)
+
+    def test_broken_connection_cannot_earn_partial_credit(self):
+        for connection in SPEC.get('continuity',[])[:1]:
+            f=initial();joint=self.sc.joint_specs[connection['joint']]
+            f['bodies'][joint['child']]['pos'][0]+=connection['tolerance']+.00001
+            result=self.sc.update(f);self.assertEqual(result.score,0)
+            self.assertTrue(result.failure.startswith('broken_connection:'))
+
+    def test_forced_catch_is_irreversible(self):
+        guards=SPEC.get('latch_release_guards',[])
+        if not guards:return
+        # Isolate the catch crossing rule from the independently tested cable graph.
+        spec=copy.deepcopy(SPEC);spec['continuity']=[];sc=S.Scorer(spec)
+        f=initial();sc.update(f);guard=guards[0]
+        f['time']=.05;f['bodies'][guard['body']]['pos'][1]+=guard['catch_distance']+.0001
+        result=sc.update(f);self.assertEqual(result.score,0)
+        self.assertEqual(result.failure,'catch_forced_without_release:'+guard['body'])
 
 
 if __name__=='__main__':unittest.main()

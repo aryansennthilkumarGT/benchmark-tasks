@@ -5,9 +5,7 @@
     upAxis = "Z"
 )
 
-def Xform "Asset" (
-    prepend apiSchemas = ["PhysicsArticulationRootAPI"]
-)
+def Xform "Asset"
 {
     def Material "Material" (
         prepend apiSchemas = ["PhysicsMaterialAPI"]
@@ -377,10 +375,211 @@ def Xform "Asset" (
             double3 xformOp:translate = (0.136, 0.028, 0.025)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
+
+        def Cube "shape_27"
+        {
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (-0.112, -0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_28"
+        {
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (-0.062, -0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_29"
+        {
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (-0.011999999999999995, -0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_30"
+        {
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (0.03800000000000002, -0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_31"
+        {
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (0.08800000000000001, -0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_32"
+        {
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (0.138, -0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_33"
+        {
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (-0.112, 0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_34"
+        {
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (-0.062, 0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_35"
+        {
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (-0.011999999999999995, 0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_36"
+        {
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (0.03800000000000002, 0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_37"
+        {
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (0.08800000000000001, 0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_38"
+        {
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.018, 0.0004)
+            double3 xformOp:translate = (0.138, 0.028, 0.0502)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_39" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.05, 0.016, 0.004)
+            double3 xformOp:translate = (0, -0.069, 0.0642)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_40" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.05, 0.016, 0.004)
+            double3 xformOp:translate = (0, -0.069, 0.0825)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_41" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.05, 0.006, 0.022)
+            double3 xformOp:translate = (0, -0.08, 0.0734)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_42" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.05, 0.016, 0.004)
+            double3 xformOp:translate = (0, 0.069, 0.0642)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_43" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.05, 0.016, 0.004)
+            double3 xformOp:translate = (0, 0.069, 0.0825)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_44" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.05, 0.006, 0.022)
+            double3 xformOp:translate = (0, 0.08, 0.0734)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
     }
 
-    def PhysicsFixedJoint "fix_holder"
+    def PhysicsFixedJoint "fix_holder" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
     {
+        rel physics:body0 = </Asset>
         rel physics:body1 = </Asset/holder>
         point3f physics:localPos0 = (0, 0, 0)
         quatf physics:localRot0 = (1, 0, 0, 0)
@@ -678,8 +877,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -688,7 +887,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (-0.125, -0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -696,8 +897,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -706,7 +907,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (-0.075, -0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -714,8 +917,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -724,7 +927,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (-0.025, -0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -732,8 +937,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -742,7 +947,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (0.025, -0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -750,8 +957,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -760,7 +967,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (0.075, -0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -768,8 +977,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -778,7 +987,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (0.125, -0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -786,8 +997,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -796,7 +1007,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (-0.125, 0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -804,8 +1017,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -814,7 +1027,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (-0.075, 0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -822,8 +1037,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -832,7 +1047,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (-0.025, 0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -840,8 +1057,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -850,7 +1067,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (0.025, 0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -858,8 +1077,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -868,7 +1087,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (0.075, 0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 
@@ -876,8 +1097,8 @@ def Xform "Asset" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.2
-        float drive:linear:physics:stiffness = 30
+        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:stiffness = 500
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
@@ -886,7 +1107,9 @@ def Xform "Asset" (
         bool physics:collisionEnabled = 0
         point3f physics:localPos0 = (0.125, 0.028, 0.008)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.0015
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.002
         float physics:upperLimit = 0
     }
 }
