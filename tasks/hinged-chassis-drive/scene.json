@@ -1,0 +1,712 @@
+{
+  "slug": "hinged-chassis-drive",
+  "title": "Install and retain a drive under a gravity-closing lid",
+  "instruction": "Install the blue drive carrier in the chassis, insert the orange retaining bar, and leave the lid closed with both arms clear.",
+  "context": "A proposed service workflow combining access support, guided carrier placement and mechanical closeout.",
+  "control_hz": 20,
+  "run_limit": 3600,
+  "table_top": 0.7475,
+  "hold_seconds": 1.0,
+  "penetration_limit": 0.002,
+  "assemblies": [
+    {
+      "name": "chassis_asset",
+      "origin": [
+        0.3,
+        0.0,
+        0.7475
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "chassis",
+          "pos": [
+            0.3,
+            0.0,
+            0.7475
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.004
+              ],
+              "size": [
+                0.22,
+                0.18,
+                0.008
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.087,
+                0.03
+              ],
+              "size": [
+                0.22,
+                0.006,
+                0.06
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.087,
+                0.03
+              ],
+              "size": [
+                0.22,
+                0.006,
+                0.06
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.107,
+                0,
+                0.03
+              ],
+              "size": [
+                0.006,
+                0.17,
+                0.06
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.045,
+                0.015
+              ],
+              "size": [
+                0.18,
+                0.006,
+                0.022
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.045,
+                0.015
+              ],
+              "size": [
+                0.18,
+                0.006,
+                0.022
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.9,
+          "anchor": true,
+          "half_extent": [
+            0.11,
+            0.09,
+            0.06
+          ],
+          "bounds_min": [
+            -0.11,
+            -0.09,
+            0.0
+          ],
+          "bounds_max": [
+            0.11,
+            0.09,
+            0.06
+          ],
+          "material": "aluminium"
+        },
+        {
+          "name": "lid",
+          "pos": [
+            0.4,
+            0,
+            0.8115000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                -0.1,
+                0,
+                0
+              ],
+              "size": [
+                0.208,
+                0.174,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.19,
+                0,
+                0.013
+              ],
+              "size": [
+                0.012,
+                0.04,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.18,
+          "anchor": false,
+          "half_extent": [
+            0.20400000000000001,
+            0.087,
+            0.026
+          ],
+          "bounds_min": [
+            -0.20400000000000001,
+            -0.087,
+            -0.003
+          ],
+          "bounds_max": [
+            0.00399999999999999,
+            0.087,
+            0.026
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": [
+        {
+          "name": "lid_hinge",
+          "parent": "chassis",
+          "child": "lid",
+          "axis": "Y",
+          "lower": 0.0,
+          "upper": 1.35,
+          "pivot_parent": [
+            0.1,
+            0,
+            0.064
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "revolute",
+          "stiffness": 0.0,
+          "damping": 0.003
+        }
+      ]
+    },
+    {
+      "name": "drive_asset",
+      "origin": [
+        0.22,
+        0.27,
+        0.7655000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "drive",
+          "pos": [
+            0.22,
+            0.27,
+            0.7655000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.11,
+                0.076,
+                0.016
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.047,
+                0,
+                0.018
+              ],
+              "size": [
+                0.014,
+                0.04,
+                0.022
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.039,
+                -0.003
+              ],
+              "size": [
+                0.1,
+                0.004,
+                0.01
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.039,
+                -0.003
+              ],
+              "size": [
+                0.1,
+                0.004,
+                0.01
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.22,
+          "anchor": false,
+          "half_extent": [
+            0.055,
+            0.041,
+            0.028999999999999998
+          ],
+          "bounds_min": [
+            -0.055,
+            -0.041,
+            -0.008
+          ],
+          "bounds_max": [
+            0.055,
+            0.041,
+            0.028999999999999998
+          ],
+          "material": "aluminium carrier with plastic handle"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "retainer_asset",
+      "origin": [
+        0.31,
+        -0.25,
+        0.7595000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "retainer",
+          "pos": [
+            0.31,
+            -0.25,
+            0.7595000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.018,
+                0.095,
+                0.016
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.06,
+          "anchor": false,
+          "half_extent": [
+            0.009,
+            0.0475,
+            0.008
+          ],
+          "bounds_min": [
+            -0.009,
+            -0.0475,
+            -0.008
+          ],
+          "bounds_max": [
+            0.009,
+            0.0475,
+            0.008
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    }
+  ],
+  "goals": [
+    {
+      "name": "carrier_seated",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "drive",
+          "pos": [
+            0,
+            0,
+            0.018
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "drive",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.3333333333333333
+    },
+    {
+      "name": "carrier_retained",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "drive",
+          "pos": [
+            0,
+            0,
+            0.018
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "pose",
+          "body": "retainer",
+          "pos": [
+            -0.073,
+            0,
+            0.025
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "retainer",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.3333333333333333
+    },
+    {
+      "name": "enclosure_closed",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "drive",
+          "pos": [
+            0,
+            0,
+            0.018
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "pose",
+          "body": "retainer",
+          "pos": [
+            -0.073,
+            0,
+            0.025
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0,
+          "max": 0.04
+        }
+      ],
+      "weight": 0.3333333333333333
+    }
+  ],
+  "threads": [],
+  "invariants": [],
+  "collision_exclusions": [],
+  "novelty_status": "HOLD_NOT_CLEARED",
+  "implementation_status": "ENGINEERING_DRAFT_UNVALIDATED",
+  "limitations": [
+    "The gravity-loaded lid and its contact clearances require native validation. The draft expert only includes a lid-handle approach, not a calibrated hinge-following motion.",
+    "Retainer guide bosses and a physically verified extraction-resistance test are still required. Novelty beyond drive-carrier and held-lid tasks is unresolved."
+  ],
+  "closest_prs": [
+    146,
+    938,
+    341
+  ],
+  "expert_operations": [
+    {
+      "kind": "transfer",
+      "body": "drive",
+      "side": "left",
+      "pick": [
+        0.22,
+        0.27,
+        0.7655000000000001
+      ],
+      "place": [
+        0.3,
+        0,
+        0.7655000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "retainer",
+      "side": "right",
+      "pick": [
+        0.31,
+        -0.25,
+        0.7595000000000001
+      ],
+      "place": [
+        0.227,
+        0,
+        0.7725000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    }
+  ]
+}

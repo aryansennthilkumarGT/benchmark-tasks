@@ -1,0 +1,35 @@
+{
+  "status": "OFFLINE_DRAFT_NOT_READY",
+  "physics": null,
+  "expert_trials": [],
+  "dream": null,
+  "media_id": null,
+  "novelty": "HOLD_NOT_CLEARED",
+  "native_adapter": "NOT_EXECUTED",
+  "offline_tests": {
+    "passed": 31,
+    "skipped_not_applicable": 4,
+    "failed": 0,
+    "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+    "python": "3.11.15"
+  },
+  "known_gaps": [
+    "The gravity-loaded lid and its contact clearances require native validation. The draft expert only includes a lid-handle approach, not a calibrated hinge-following motion.",
+    "Retainer guide bosses and a physically verified extraction-resistance test are still required. Novelty beyond drive-carrier and held-lid tasks is unresolved."
+  ],
+  "usd_structure": {
+    "status": "PASS",
+    "tool": "usd-core 25.11",
+    "physics_executed": false
+  },
+  "source_loader": {
+    "slug": "hinged-chassis-drive",
+    "kind": "OFFLINE_SOURCE_LOAD_AND_GEOMETRY_ONLY",
+    "task_loader": "PASS",
+    "source_commit": "bd62771e60320433893bd1d2df0fc79b5ddcd6d1",
+    "objects": 3,
+    "expert_plan_seconds": 23.8,
+    "plan_fits_budget": true,
+    "initial_overlaps": []
+  }
+}
