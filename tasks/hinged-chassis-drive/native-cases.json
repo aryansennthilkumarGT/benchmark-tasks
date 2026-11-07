@@ -1,0 +1,191 @@
+{
+  "physics": [
+    {
+      "name": "gravity_lid_returns_to_stop",
+      "initialize_joints": [
+        {
+          "assembly": "chassis_asset",
+          "joint": "lid_hinge",
+          "value": 0.65
+        }
+      ],
+      "steps": 120,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": -0.005,
+          "max": 0.035
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "guide_blocks_vertical_shortcut",
+      "initialize_bodies": [
+        {
+          "assembly": "drive_asset",
+          "pos": [
+            0.3,
+            0,
+            0.8025000000000001
+          ]
+        }
+      ],
+      "steps": 80,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "drive",
+          "axis": 2,
+          "min": 0.7775000000000001,
+          "max": 0.8125
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "goal",
+          "name": "carrier_seated",
+          "completed": false
+        }
+      ],
+      "initialize_joints": [
+        {
+          "assembly": "chassis_asset",
+          "joint": "lid_hinge",
+          "value": 1.15
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "chassis_asset",
+          "body": "lid",
+          "torque": [
+            0,
+            0.8,
+            0
+          ]
+        }
+      ],
+      "settle_steps": 0
+    },
+    {
+      "name": "fixture_resists_service_load",
+      "forces": [
+        {
+          "assembly": "chassis_asset",
+          "body": "chassis",
+          "force": [
+            2,
+            1,
+            1
+          ]
+        }
+      ],
+      "steps": 40,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "chassis",
+          "min": 0,
+          "max": 0.001
+        }
+      ]
+    },
+    {
+      "name": "closed_lid_captures_bar",
+      "initialize_bodies": [
+        {
+          "assembly": "retainer_asset",
+          "pos": [
+            0.235,
+            0,
+            0.7725000000000001
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "retainer_asset",
+          "body": "retainer",
+          "force": [
+            0,
+            0,
+            3
+          ]
+        }
+      ],
+      "steps": 60,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "retainer",
+          "axis": 2,
+          "min": 0.7675000000000001,
+          "max": 0.8015000000000001
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "lid_grasp_and_hinge_follow",
+      "through_phase": 2,
+      "max_steps": 1000,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0.82,
+          "max": 0.89
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Open and support the gravity lid"
+    },
+    {
+      "name": "drive_lift_after_access",
+      "through_phase": 5,
+      "max_steps": 1600,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "drive",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.06,
+          "max": 0.11
+        },
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0.82,
+          "max": 0.89
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Lift and verify the drive grasp"
+    }
+  ]
+}

@@ -1,0 +1,966 @@
+{
+  "schema": 2,
+  "status": "FEEDBACK_CONTROLLER_UNVALIDATED_IN_PHYSICS",
+  "phases": [
+    {
+      "kind": "move",
+      "label": "Approach lid handle",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.19,
+          0.145,
+          0.8525
+        ],
+        "quat": [
+          -0.6123724356957947,
+          0.6123724356957946,
+          -0.3535533905932738,
+          0.35355339059327373
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp raised lid handle",
+      "side": "left",
+      "body": "lid",
+      "offset": [
+        -0.185,
+        0.145,
+        0.024
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "width": [
+        0.02,
+        0.038
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Open and support the gravity lid",
+      "side": "left",
+      "body": "lid",
+      "joint": "lid_hinge",
+      "value": 0.85,
+      "increment": 0.012,
+      "keep_hold": true,
+      "timeout": 30
+    },
+    {
+      "kind": "move",
+      "label": "Approach drive handle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.173,
+          -0.24,
+          0.8725
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp drive by its raised handle",
+      "side": "right",
+      "body": "drive",
+      "offset": [
+        -0.047,
+        0,
+        0.022
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.03,
+        0.046
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift and verify the drive grasp",
+      "side": "right",
+      "body": "drive",
+      "target": {
+        "pos": [
+          0.22,
+          -0.24,
+          0.8375
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Move ahead of guide entrances",
+      "side": "right",
+      "body": "drive",
+      "target": {
+        "pos": [
+          0.125,
+          0,
+          0.8375
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "carry",
+      "label": "Align with horizontal guide channels",
+      "side": "right",
+      "body": "drive",
+      "target": {
+        "pos": [
+          0.125,
+          0,
+          0.7655000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "insert",
+      "label": "Advance drive along capped channels",
+      "side": "right",
+      "body": "drive",
+      "target": {
+        "pos": [
+          0.3,
+          0,
+          0.7655000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 35,
+      "tolerance": 0.001
+    },
+    {
+      "kind": "release",
+      "label": "Release seated drive",
+      "side": "right",
+      "opening": 0.6389776357827476
+    },
+    {
+      "kind": "move",
+      "label": "Clear the drive entrance",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.17,
+          -0.07,
+          0.8725
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.6389776357827476
+    },
+    {
+      "kind": "move",
+      "label": "Approach retaining bar",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.36,
+          -0.23,
+          0.8725
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp retaining bar across its narrow dimension",
+      "side": "right",
+      "body": "retainer",
+      "offset": [
+        0,
+        0,
+        0.012
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.012,
+        0.024
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift and verify retaining bar",
+      "side": "right",
+      "body": "retainer",
+      "target": {
+        "pos": [
+          0.36,
+          -0.23,
+          0.8525
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align retaining bar above both pockets",
+      "side": "right",
+      "body": "retainer",
+      "target": {
+        "pos": [
+          0.235,
+          0,
+          0.8375
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "insert",
+      "label": "Lower retaining bar into pockets",
+      "side": "right",
+      "body": "retainer",
+      "target": {
+        "pos": [
+          0.235,
+          0,
+          0.7725000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 20
+    },
+    {
+      "kind": "release",
+      "label": "Release bar into supporting pockets",
+      "side": "right",
+      "opening": 0.40468583599574015
+    },
+    {
+      "kind": "move",
+      "label": "Lift clear of retainer pockets",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.235,
+          0,
+          0.8625
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "opening": 0.40468583599574015
+    },
+    {
+      "kind": "move",
+      "label": "Clear the closing lid",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.22,
+          -0.25,
+          0.8775000000000001
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.40468583599574015
+    },
+    {
+      "kind": "joint",
+      "label": "Close lid to capture retaining bar",
+      "side": "left",
+      "body": "lid",
+      "joint": "lid_hinge",
+      "value": 0,
+      "increment": 0.012,
+      "clear_hold": true,
+      "timeout": 30
+    },
+    {
+      "kind": "release",
+      "label": "Release lid handle",
+      "side": "left",
+      "opening": 0.5537806176783813
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw left arm",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.22,
+          0.24,
+          0.8575
+        ],
+        "quat": [
+          -0.6123724356957947,
+          0.6123724356957946,
+          -0.3535533905932738,
+          0.35355339059327373
+        ]
+      },
+      "opening": 0.5537806176783813
+    },
+    {
+      "kind": "hold",
+      "label": "Verify released mechanism is stable",
+      "side": "left",
+      "seconds": 1.5,
+      "opening": 1
+    }
+  ],
+  "audit_tcp_targets": [
+    {
+      "label": "Approach lid handle",
+      "side": "left",
+      "pos": [
+        0.19,
+        0.145,
+        0.8525
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp raised lid handle",
+      "side": "left",
+      "pos": [
+        0.21500000000000002,
+        0.145,
+        0.8355000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 1/8",
+      "side": "left",
+      "pos": [
+        0.21858846113411456,
+        0.145,
+        0.8549839460756649
+      ],
+      "quat": [
+        -0.6302821903182952,
+        0.6302821903182951,
+        -0.3205376117830363,
+        0.3205376117830363
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 2/8",
+      "side": "left",
+      "pos": [
+        0.22422296255868826,
+        0.145,
+        0.8739774608027221
+      ],
+      "quat": [
+        -0.6464135395010845,
+        0.6464135395010844,
+        -0.2866174034312642,
+        0.2866174034312642
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 3/8",
+      "side": "left",
+      "pos": [
+        0.23183995585225128,
+        0.145,
+        0.8922663268462
+      ],
+      "quat": [
+        -0.6607209669983012,
+        0.6607209669983011,
+        -0.2518884748630432,
+        0.2518884748630432
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 4/8",
+      "side": "left",
+      "pos": [
+        0.241353533165346,
+        0.145,
+        0.9096442742134305
+      ],
+      "quat": [
+        -0.6731641029450179,
+        0.6731641029450177,
+        -0.21644881728997636,
+        0.21644881728997634
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 5/8",
+      "side": "left",
+      "pos": [
+        0.25265639612758933,
+        0.145,
+        0.9259153066590748
+      ],
+      "quat": [
+        -0.6837078377649295,
+        0.6837078377649294,
+        -0.1803984273179928,
+        0.18039842731799277
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 6/8",
+      "side": "left",
+      "pos": [
+        0.2656210660065761,
+        0.145,
+        0.9408959122182422
+      ],
+      "quat": [
+        -0.6923224212356012,
+        0.6923224212356011,
+        -0.1438390247967325,
+        0.1438390247967325
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 7/8",
+      "side": "left",
+      "pos": [
+        0.28010132146991074,
+        0.14499999999999996,
+        0.954417132936322
+      ],
+      "quat": [
+        -0.6989835464317535,
+        0.6989835464317533,
+        -0.10687376580662275,
+        0.10687376580662272
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support the gravity lid 8/8",
+      "side": "left",
+      "pos": [
+        0.29593384773464537,
+        0.145,
+        0.9663264704521939
+      ],
+      "quat": [
+        -0.7036724183097294,
+        0.7036724183097292,
+        -0.06960695159348357,
+        0.06960695159348357
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Approach drive handle",
+      "side": "right",
+      "pos": [
+        0.173,
+        -0.24,
+        0.8725
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp drive by its raised handle",
+      "side": "right",
+      "pos": [
+        0.173,
+        -0.24,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Lift and verify the drive grasp",
+      "side": "right",
+      "pos": [
+        0.173,
+        -0.24,
+        0.8595
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Move ahead of guide entrances",
+      "side": "right",
+      "pos": [
+        0.078,
+        0.0,
+        0.8595
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Align with horizontal guide channels",
+      "side": "right",
+      "pos": [
+        0.078,
+        0.0,
+        0.7875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Advance drive along capped channels",
+      "side": "right",
+      "pos": [
+        0.253,
+        0.0,
+        0.7875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Release seated drive",
+      "side": "right",
+      "pos": [
+        0.253,
+        0.0,
+        0.7875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.6389776357827476
+    },
+    {
+      "label": "Clear the drive entrance",
+      "side": "right",
+      "pos": [
+        0.17,
+        -0.07,
+        0.8725
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.6389776357827476
+    },
+    {
+      "label": "Approach retaining bar",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.23,
+        0.8725
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp retaining bar across its narrow dimension",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.23,
+        0.7677
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1916932907348243
+    },
+    {
+      "label": "Lift and verify retaining bar",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.23,
+        0.8645
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1916932907348243
+    },
+    {
+      "label": "Align retaining bar above both pockets",
+      "side": "right",
+      "pos": [
+        0.235,
+        0.0,
+        0.8495
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1916932907348243
+    },
+    {
+      "label": "Lower retaining bar into pockets",
+      "side": "right",
+      "pos": [
+        0.235,
+        0.0,
+        0.7845000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1916932907348243
+    },
+    {
+      "label": "Release bar into supporting pockets",
+      "side": "right",
+      "pos": [
+        0.235,
+        0.0,
+        0.7845000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Lift clear of retainer pockets",
+      "side": "right",
+      "pos": [
+        0.235,
+        0.0,
+        0.8625
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Clear the closing lid",
+      "side": "right",
+      "pos": [
+        0.22,
+        -0.25,
+        0.8775000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.40468583599574015
+    },
+    {
+      "label": "Close lid to capture retaining bar 1/8",
+      "side": "left",
+      "pos": [
+        0.28010132146991074,
+        0.145,
+        0.954417132936322
+      ],
+      "quat": [
+        -0.6989835464317536,
+        0.6989835464317534,
+        -0.10687376580662278,
+        0.10687376580662278
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid to capture retaining bar 2/8",
+      "side": "left",
+      "pos": [
+        0.2656210660065761,
+        0.145,
+        0.9408959122182423
+      ],
+      "quat": [
+        -0.6923224212356013,
+        0.6923224212356011,
+        -0.14383902479673255,
+        0.14383902479673252
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid to capture retaining bar 3/8",
+      "side": "left",
+      "pos": [
+        0.2526563961275893,
+        0.145,
+        0.925915306659075
+      ],
+      "quat": [
+        -0.6837078377649295,
+        0.6837078377649293,
+        -0.18039842731799288,
+        0.18039842731799283
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid to capture retaining bar 4/8",
+      "side": "left",
+      "pos": [
+        0.24135353316534597,
+        0.145,
+        0.9096442742134305
+      ],
+      "quat": [
+        -0.6731641029450179,
+        0.6731641029450177,
+        -0.21644881728997645,
+        0.2164488172899764
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid to capture retaining bar 5/8",
+      "side": "left",
+      "pos": [
+        0.23183995585225126,
+        0.145,
+        0.8922663268462001
+      ],
+      "quat": [
+        -0.6607209669983013,
+        0.6607209669983011,
+        -0.25188847486304333,
+        0.2518884748630432
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid to capture retaining bar 6/8",
+      "side": "left",
+      "pos": [
+        0.22422296255868823,
+        0.145,
+        0.8739774608027222
+      ],
+      "quat": [
+        -0.6464135395010846,
+        0.6464135395010844,
+        -0.2866174034312642,
+        0.28661740343126413
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid to capture retaining bar 7/8",
+      "side": "left",
+      "pos": [
+        0.21858846113411456,
+        0.14499999999999996,
+        0.854983946075665
+      ],
+      "quat": [
+        -0.6302821903182952,
+        0.630282190318295,
+        -0.32053761178303636,
+        0.32053761178303625
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid to capture retaining bar 8/8",
+      "side": "left",
+      "pos": [
+        0.21499999999999997,
+        0.145,
+        0.8355000000000001
+      ],
+      "quat": [
+        -0.6123724356957948,
+        0.6123724356957946,
+        -0.35355339059327384,
+        0.35355339059327373
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Release lid handle",
+      "side": "left",
+      "pos": [
+        0.21499999999999997,
+        0.145,
+        0.8355000000000001
+      ],
+      "quat": [
+        -0.6123724356957948,
+        0.6123724356957946,
+        -0.35355339059327384,
+        0.35355339059327373
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Withdraw left arm",
+      "side": "left",
+      "pos": [
+        0.22,
+        0.24,
+        0.8575
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.5537806176783813
+    }
+  ]
+}

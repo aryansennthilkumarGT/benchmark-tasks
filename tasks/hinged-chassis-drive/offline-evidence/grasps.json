@@ -1,0 +1,33 @@
+{
+  "kind": "OFFLINE_URDF_GRASP_GEOMETRY",
+  "physics_executed": false,
+  "actual_grasp_verified": false,
+  "flexible_cable_path_excluded": false,
+  "checks": [
+    {
+      "phase": 1,
+      "label": "Grasp raised lid handle",
+      "nominal_jaw_width_m": 0.028999999999999998,
+      "forbidden_intersections": [],
+      "table_intersections": [],
+      "passed": true
+    },
+    {
+      "phase": 4,
+      "label": "Grasp drive by its raised handle",
+      "nominal_jaw_width_m": 0.038,
+      "forbidden_intersections": [],
+      "table_intersections": [],
+      "passed": true
+    },
+    {
+      "phase": 12,
+      "label": "Grasp retaining bar across its narrow dimension",
+      "nominal_jaw_width_m": 0.018000000000000002,
+      "forbidden_intersections": [],
+      "table_intersections": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}
