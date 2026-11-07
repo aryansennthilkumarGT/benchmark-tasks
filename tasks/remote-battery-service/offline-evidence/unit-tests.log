@@ -21,6 +21,10 @@ test_cartesian_step_is_bounded (test_control.GeometryTests.test_cartesian_step_i
 test_invalid_quaternion_is_rejected (test_control.GeometryTests.test_invalid_quaternion_is_rejected) ... ok
 test_quaternion_shortest_path_across_sign (test_control.GeometryTests.test_quaternion_shortest_path_across_sign) ... ok
 test_rotation_preserves_length (test_control.GeometryTests.test_rotation_preserves_length) ... ok
+test_changing_stud_resets_accumulated_turns (test_interchangeability.InterchangeabilityTests.test_changing_stud_resets_accumulated_turns) ... skipped 'No threaded components'
+test_one_body_cannot_earn_two_slot_credits (test_interchangeability.InterchangeabilityTests.test_one_body_cannot_earn_two_slot_credits) ... ok
+test_permutation_does_not_bypass_axis_requirement (test_interchangeability.InterchangeabilityTests.test_permutation_does_not_bypass_axis_requirement) ... ok
+test_valid_permuted_parts_reach_semantic_goal (test_interchangeability.InterchangeabilityTests.test_valid_permuted_parts_reach_semantic_goal) ... ok
 test_broken_connection_cannot_earn_partial_credit (test_scoring.SemanticTests.test_broken_connection_cannot_earn_partial_credit) ... ok
 test_completed_component_displacement_removes_credit (test_scoring.SemanticTests.test_completed_component_displacement_removes_credit) ... ok
 test_conflicting_same_timestamp_invalidates (test_scoring.SemanticTests.test_conflicting_same_timestamp_invalidates) ... ok
@@ -63,6 +67,6 @@ test_wrong_joint_position_loses_condition (test_scoring.SemanticTests.test_wrong
 test_wrong_orientation_fails_pose (test_scoring.SemanticTests.test_wrong_orientation_fails_pose) ... skipped 'No oriented pose in this scene'
 
 ----------------------------------------------------------------------
-Ran 63 tests in 0.890s
+Ran 67 tests in 0.946s
 
-OK (skipped=5)
+OK (skipped=6)
