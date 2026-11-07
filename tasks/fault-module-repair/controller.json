@@ -1,0 +1,862 @@
+{
+  "schema": 2,
+  "status": "FEEDBACK_CONTROLLER_UNVALIDATED_IN_PHYSICS",
+  "phases": [
+    {
+      "kind": "move",
+      "label": "Approach moving arm handle",
+      "side": "left",
+      "target": {
+        "pos": [
+          -0.11,
+          0.2,
+          0.075
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ],
+        "relative_to": "service_arm"
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp arm support handle",
+      "side": "left",
+      "body": "service_arm",
+      "offset": [
+        -0.11,
+        0.2,
+        0.035
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.024,
+        0.036
+      ],
+      "quat_relative_to_body": true
+    },
+    {
+      "kind": "joint",
+      "label": "Support the arm level",
+      "side": "left",
+      "body": "service_arm",
+      "joint": "arm_pivot",
+      "value": 0,
+      "increment": 0.008,
+      "keep_hold": true,
+      "timeout": 25
+    },
+    {
+      "kind": "move",
+      "label": "Orient right hand outside the mechanism",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.25,
+          -0.2,
+          0.8975000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "move",
+      "label": "Approach counterweight handle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.25,
+          -0.041,
+          0.9075000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp counterweight slider",
+      "side": "right",
+      "body": "counterweight",
+      "offset": [
+        0,
+        -0.041,
+        0.016
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.018,
+        0.03
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Slide counterweight to the pin index",
+      "side": "right",
+      "body": "counterweight",
+      "joint": "weight_slide",
+      "value": -0.031,
+      "increment": 0.0006,
+      "tolerance": 0.0004,
+      "timeout": 25
+    },
+    {
+      "kind": "release",
+      "label": "Release aligned counterweight",
+      "side": "right",
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "move",
+      "label": "Clear counterweight",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.2,
+          0.9175000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "move",
+      "label": "Approach locking pin",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.32,
+          -0.24,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp locking pin head",
+      "side": "right",
+      "body": "locking_pin",
+      "offset": [
+        0,
+        0,
+        0.032
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.016,
+        0.027
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift locking pin from its stand",
+      "side": "right",
+      "body": "locking_pin",
+      "target": {
+        "pos": [
+          0.32,
+          -0.24,
+          0.8675
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Route pin around the counterweight handle",
+      "side": "right",
+      "body": "locking_pin",
+      "target": {
+        "pos": [
+          0.14,
+          0,
+          0.9035000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "carry",
+      "label": "Align pin above both holes",
+      "side": "right",
+      "body": "locking_pin",
+      "target": {
+        "pos": [
+          0.219,
+          0,
+          0.9035000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "insert",
+      "label": "Insert pin through counterweight and arm",
+      "side": "right",
+      "body": "locking_pin",
+      "target": {
+        "pos": [
+          -0.066,
+          0,
+          -0.004
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "relative_to": "service_arm"
+      },
+      "tolerance": 0.001,
+      "timeout": 25
+    },
+    {
+      "kind": "release",
+      "label": "Release seated locking pin",
+      "side": "right",
+      "opening": 0.43663471778487756
+    },
+    {
+      "kind": "move",
+      "label": "Clear the pin and slider",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.23,
+          0.9175000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.43663471778487756
+    },
+    {
+      "kind": "release",
+      "label": "Remove support from the balanced arm",
+      "side": "left",
+      "clear_hold": true,
+      "opening": 0.5324813631522897
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from service arm",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.18,
+          0.26,
+          0.9175000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5324813631522897
+    },
+    {
+      "kind": "hold",
+      "label": "Observe three-second passive balance",
+      "side": "left",
+      "seconds": 3.5,
+      "opening": 1
+    }
+  ],
+  "audit_tcp_targets": [
+    {
+      "label": "Approach moving arm handle",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.9225
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp arm support handle",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 1/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 2/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 3/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 4/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 5/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 6/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 7/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Support the arm level 8/8",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Orient right hand outside the mechanism",
+      "side": "right",
+      "pos": [
+        0.25,
+        -0.2,
+        0.8975000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Approach counterweight handle",
+      "side": "right",
+      "pos": [
+        0.25,
+        -0.041,
+        0.9075000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp counterweight slider",
+      "side": "right",
+      "pos": [
+        0.25,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 1/8",
+      "side": "right",
+      "pos": [
+        0.246125,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 2/8",
+      "side": "right",
+      "pos": [
+        0.24225,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 3/8",
+      "side": "right",
+      "pos": [
+        0.238375,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 4/8",
+      "side": "right",
+      "pos": [
+        0.2345,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 5/8",
+      "side": "right",
+      "pos": [
+        0.230625,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 6/8",
+      "side": "right",
+      "pos": [
+        0.22675,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 7/8",
+      "side": "right",
+      "pos": [
+        0.222875,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Slide counterweight to the pin index 8/8",
+      "side": "right",
+      "pos": [
+        0.219,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Release aligned counterweight",
+      "side": "right",
+      "pos": [
+        0.219,
+        -0.041,
+        0.8835000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Clear counterweight",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.2,
+        0.9175000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Approach locking pin",
+      "side": "right",
+      "pos": [
+        0.32,
+        -0.24,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp locking pin head",
+      "side": "right",
+      "pos": [
+        0.32,
+        -0.24,
+        0.8077000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.22896698615548455
+    },
+    {
+      "label": "Lift locking pin from its stand",
+      "side": "right",
+      "pos": [
+        0.32,
+        -0.24,
+        0.8995000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.22896698615548455
+    },
+    {
+      "label": "Route pin around the counterweight handle",
+      "side": "right",
+      "pos": [
+        0.14,
+        0.0,
+        0.9355000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.22896698615548455
+    },
+    {
+      "label": "Align pin above both holes",
+      "side": "right",
+      "pos": [
+        0.219,
+        0.0,
+        0.9355000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.22896698615548455
+    },
+    {
+      "label": "Insert pin through counterweight and arm",
+      "side": "right",
+      "pos": [
+        0.21899999999999997,
+        0.0,
+        0.8755000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.22896698615548455
+    },
+    {
+      "label": "Release seated locking pin",
+      "side": "right",
+      "pos": [
+        0.21899999999999997,
+        0.0,
+        0.8755000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.43663471778487756
+    },
+    {
+      "label": "Clear the pin and slider",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.23,
+        0.9175000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.43663471778487756
+    },
+    {
+      "label": "Remove support from the balanced arm",
+      "side": "left",
+      "pos": [
+        0.175,
+        0.2,
+        0.8825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5324813631522897
+    },
+    {
+      "label": "Withdraw from service arm",
+      "side": "left",
+      "pos": [
+        0.18,
+        0.26,
+        0.9175000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5324813631522897
+    }
+  ]
+}

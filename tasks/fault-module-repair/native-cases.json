@@ -1,0 +1,174 @@
+{
+  "physics": [
+    {
+      "name": "unbalanced_arm_falls_to_stop",
+      "steps": 200,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "arm_pivot",
+          "min": 0.2,
+          "max": 0.31
+        },
+        {
+          "kind": "score",
+          "max": 0.95,
+          "success": false
+        }
+      ]
+    },
+    {
+      "name": "correct_counterweight_and_pin_balance_by_gravity",
+      "initialize_joints": [
+        {
+          "assembly": "counterbalance_asset",
+          "joint": "weight_slide",
+          "value": -0.031
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "locking_pin_asset",
+          "pos": [
+            0.219,
+            0,
+            0.8435
+          ]
+        }
+      ],
+      "steps": 300,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "arm_pivot",
+          "min": -0.04,
+          "max": 0.04
+        },
+        {
+          "kind": "joint",
+          "joint": "weight_slide",
+          "min": -0.0325,
+          "max": -0.0295
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "pin_retains_slider_under_load",
+      "initialize_joints": [
+        {
+          "assembly": "counterbalance_asset",
+          "joint": "weight_slide",
+          "value": -0.031
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "locking_pin_asset",
+          "pos": [
+            0.219,
+            0,
+            0.8435
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "counterbalance_asset",
+          "body": "counterweight",
+          "force": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "weight_slide",
+          "min": -0.033,
+          "max": -0.029
+        }
+      ]
+    },
+    {
+      "name": "unlocked_slider_is_not_retained",
+      "initialize_joints": [
+        {
+          "assembly": "counterbalance_asset",
+          "joint": "weight_slide",
+          "value": -0.031
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "counterbalance_asset",
+          "body": "counterweight",
+          "force": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "weight_slide",
+          "min": -0.02,
+          "max": 0.0005
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "grasp_and_level_loaded_arm",
+      "through_phase": 2,
+      "max_steps": 1500,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "arm_pivot",
+          "min": -0.025,
+          "max": 0.025
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Support the arm level"
+    },
+    {
+      "name": "adjust_counterweight_while_supporting_arm",
+      "through_phase": 6,
+      "max_steps": 2200,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "arm_pivot",
+          "min": -0.025,
+          "max": 0.025
+        },
+        {
+          "kind": "joint",
+          "joint": "weight_slide",
+          "min": -0.032,
+          "max": -0.03
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Slide counterweight to the pin index"
+    }
+  ]
+}

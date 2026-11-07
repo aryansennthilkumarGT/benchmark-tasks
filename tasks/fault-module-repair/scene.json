@@ -1,35 +1,35 @@
 {
   "slug": "fault-module-repair",
-  "title": "Replace a fault-marked module and preserve healthy modules",
-  "instruction": "Replace the red-marked middle module with the blue spare. Put the removed module in the collection tray. Keep both green modules seated and finish with the retaining bar installed.",
-  "context": "A condition-dependent module replacement prototype with explicit unaffected-component preservation.",
+  "title": "Balance and lock a counterweighted service arm",
+  "instruction": "Support the loaded arm, slide its counterweight until the pin holes align at the orange index, insert the locking pin through both holes, and leave the arm level with both hands clear.",
+  "context": "Commissioning a passive instrument arm requires balancing its load and retaining the movable counterweight before support is removed.",
   "control_hz": 20,
-  "run_limit": 3600,
+  "run_limit": 4800,
   "table_top": 0.7475,
-  "hold_seconds": 1.0,
+  "hold_seconds": 3.0,
   "penetration_limit": 0.002,
   "assemblies": [
     {
-      "name": "rack_asset",
+      "name": "counterbalance_asset",
       "origin": [
-        0.31,
+        0.285,
         0,
         0.7475
       ],
       "fixed": true,
       "bodies": [
         {
-          "name": "rack",
+          "name": "pedestal",
           "pos": [
-            0.31,
+            0.285,
             0,
             0.7475
           ],
           "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
+            0,
+            0,
+            0,
+            1
           ],
           "shapes": [
             {
@@ -37,18 +37,18 @@
               "pos": [
                 0,
                 0,
-                0.004
+                0.006
               ],
               "size": [
-                0.17,
-                0.22,
-                0.008
+                0.13,
+                0.12,
+                0.012
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -61,94 +61,19 @@
               "kind": "box",
               "pos": [
                 0,
-                -0.09,
-                0.025
+                0,
+                0.055
               ],
               "size": [
-                0.15,
-                0.006,
-                0.042
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.52,
-                0.55,
-                0.6
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                0,
-                -0.03,
-                0.025
-              ],
-              "size": [
-                0.15,
-                0.006,
-                0.042
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.52,
-                0.55,
-                0.6
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                0,
+                0.024,
                 0.03,
-                0.025
-              ],
-              "size": [
-                0.15,
-                0.006,
-                0.042
+                0.098
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.52,
-                0.55,
-                0.6
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
                 0,
-                0.09,
-                0.025
-              ],
-              "size": [
-                0.15,
-                0.006,
-                0.042
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -158,431 +83,55 @@
               "collision": true
             }
           ],
-          "mass": 1.0,
+          "mass": 1.2,
           "anchor": true,
-          "half_extent": [
-            0.085,
-            0.11,
-            0.046
-          ],
           "bounds_min": [
-            -0.085,
-            -0.11,
+            -0.065,
+            -0.06,
             0.0
           ],
           "bounds_max": [
-            0.085,
-            0.11,
-            0.046
-          ],
-          "material": "rigid engineering plastic"
-        }
-      ],
-      "joints": []
-    },
-    {
-      "name": "healthy_0_asset",
-      "origin": [
-        0.31,
-        -0.06,
-        0.7735000000000001
-      ],
-      "fixed": false,
-      "bodies": [
-        {
-          "name": "healthy_0",
-          "pos": [
-            0.31,
-            -0.06,
-            0.7735000000000001
-          ],
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "shapes": [
-            {
-              "kind": "box",
-              "pos": [
-                0,
-                0,
-                0
-              ],
-              "size": [
-                0.11,
-                0.044,
-                0.032
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.15,
-                0.7,
-                0.28
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                -0.06,
-                0,
-                0.005
-              ],
-              "size": [
-                0.012,
-                0.026,
-                0.025
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.15,
-                0.7,
-                0.28
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                0.04,
-                0.023,
-                0
-              ],
-              "size": [
-                0.015,
-                0.004,
-                0.014
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.95,
-                0.42,
-                0.06
-              ],
-              "collision": true
-            }
-          ],
-          "mass": 0.15,
-          "anchor": false,
-          "half_extent": [
-            0.066,
-            0.025,
-            0.0175
-          ],
-          "bounds_min": [
-            -0.066,
-            -0.022,
-            -0.016
-          ],
-          "bounds_max": [
-            0.055,
-            0.025,
-            0.0175
-          ],
-          "material": "rigid engineering plastic"
-        }
-      ],
-      "joints": []
-    },
-    {
-      "name": "faulty_asset",
-      "origin": [
-        0.31,
-        0,
-        0.7735000000000001
-      ],
-      "fixed": false,
-      "bodies": [
-        {
-          "name": "faulty",
-          "pos": [
-            0.31,
-            0,
-            0.7735000000000001
-          ],
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "shapes": [
-            {
-              "kind": "box",
-              "pos": [
-                0,
-                0,
-                0
-              ],
-              "size": [
-                0.11,
-                0.044,
-                0.032
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.85,
-                0.1,
-                0.1
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                -0.06,
-                0,
-                0.005
-              ],
-              "size": [
-                0.012,
-                0.026,
-                0.025
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.85,
-                0.1,
-                0.1
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                0.04,
-                0.023,
-                0
-              ],
-              "size": [
-                0.015,
-                0.004,
-                0.014
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.95,
-                0.42,
-                0.06
-              ],
-              "collision": true
-            }
-          ],
-          "mass": 0.15,
-          "anchor": false,
-          "half_extent": [
-            0.066,
-            0.025,
-            0.0175
-          ],
-          "bounds_min": [
-            -0.066,
-            -0.022,
-            -0.016
-          ],
-          "bounds_max": [
-            0.055,
-            0.025,
-            0.0175
-          ],
-          "material": "rigid engineering plastic"
-        }
-      ],
-      "joints": []
-    },
-    {
-      "name": "healthy_1_asset",
-      "origin": [
-        0.31,
-        0.06,
-        0.7735000000000001
-      ],
-      "fixed": false,
-      "bodies": [
-        {
-          "name": "healthy_1",
-          "pos": [
-            0.31,
+            0.065,
             0.06,
-            0.7735000000000001
+            0.10400000000000001
           ],
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "shapes": [
-            {
-              "kind": "box",
-              "pos": [
-                0,
-                0,
-                0
-              ],
-              "size": [
-                0.11,
-                0.044,
-                0.032
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.15,
-                0.7,
-                0.28
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                -0.06,
-                0,
-                0.005
-              ],
-              "size": [
-                0.012,
-                0.026,
-                0.025
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.15,
-                0.7,
-                0.28
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                0.04,
-                0.023,
-                0
-              ],
-              "size": [
-                0.015,
-                0.004,
-                0.014
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.95,
-                0.42,
-                0.06
-              ],
-              "collision": true
-            }
-          ],
-          "mass": 0.15,
-          "anchor": false,
           "half_extent": [
-            0.066,
-            0.025,
-            0.0175
-          ],
-          "bounds_min": [
-            -0.066,
-            -0.022,
-            -0.016
-          ],
-          "bounds_max": [
-            0.055,
-            0.025,
-            0.0175
-          ],
-          "material": "rigid engineering plastic"
-        }
-      ],
-      "joints": []
-    },
-    {
-      "name": "spare_asset",
-      "origin": [
-        0.24,
-        0.25,
-        0.7645000000000001
-      ],
-      "fixed": false,
-      "bodies": [
+            0.065,
+            0.06,
+            0.10400000000000001
+          ]
+        },
         {
-          "name": "spare",
+          "name": "service_arm",
           "pos": [
-            0.24,
-            0.25,
-            0.7645000000000001
+            0.285,
+            0,
+            0.8475
           ],
           "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
+            0,
+            0,
+            0,
+            1
           ],
           "shapes": [
             {
               "kind": "box",
               "pos": [
                 0,
-                0,
+                -0.018,
                 0
               ],
               "size": [
-                0.11,
-                0.044,
-                0.032
+                0.29,
+                0.012,
+                0.012
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.08,
@@ -594,20 +143,20 @@
             {
               "kind": "box",
               "pos": [
-                -0.06,
                 0,
-                0.005
+                0.018,
+                0
               ],
               "size": [
+                0.29,
                 0.012,
-                0.026,
-                0.025
+                0.012
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.08,
@@ -619,91 +168,538 @@
             {
               "kind": "box",
               "pos": [
-                0.04,
-                0.023,
-                0
+                0.11,
+                0,
+                0.016
               ],
               "size": [
-                0.015,
-                0.004,
-                0.014
+                0.045,
+                0.062,
+                0.036
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
-                0.95,
-                0.42,
-                0.06
+                0.52,
+                0.55,
+                0.6
               ],
               "collision": true
-            }
-          ],
-          "mass": 0.15,
-          "anchor": false,
-          "half_extent": [
-            0.066,
-            0.025,
-            0.0175
-          ],
-          "bounds_min": [
-            -0.066,
-            -0.022,
-            -0.016
-          ],
-          "bounds_max": [
-            0.055,
-            0.025,
-            0.0175
-          ],
-          "material": "rigid engineering plastic"
-        }
-      ],
-      "joints": []
-    },
-    {
-      "name": "retaining_bar_asset",
-      "origin": [
-        0.25,
-        -0.24,
-        0.7575000000000001
-      ],
-      "fixed": false,
-      "bodies": [
-        {
-          "name": "retaining_bar",
-          "pos": [
-            0.25,
-            -0.24,
-            0.7575000000000001
-          ],
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "shapes": [
+            },
             {
               "kind": "box",
               "pos": [
+                -0.11,
+                0.1,
+                0.01
+              ],
+              "size": [
+                0.016,
+                0.2,
+                0.012
+              ],
+              "quat": [
                 0,
                 0,
-                0
+                0,
+                1
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.11,
+                0.2,
+                0.015
               ],
               "size": [
                 0.018,
-                0.19,
-                0.018
+                0.03,
+                0.028
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.078,
+                0,
+                -0.01
+              ],
+              "size": [
+                0.013999999999999999,
+                0.038,
+                0.006
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.054000000000000006,
+                0,
+                -0.01
+              ],
+              "size": [
+                0.013999999999999999,
+                0.038,
+                0.006
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.066,
+                -0.012,
+                -0.01
+              ],
+              "size": [
+                0.01,
+                0.013999999999999999,
+                0.006
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.066,
+                0.012,
+                -0.01
+              ],
+              "size": [
+                0.01,
+                0.013999999999999999,
+                0.006
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.1,
+                0.027,
+                0.0062
+              ],
+              "size": [
+                0.002,
+                0.007,
+                0.0004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": false
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.08,
+                0.027,
+                0.0062
+              ],
+              "size": [
+                0.002,
+                0.007,
+                0.0004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": false
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.066,
+                0.027,
+                0.0062
+              ],
+              "size": [
+                0.002,
+                0.007,
+                0.0004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": false
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.05,
+                0.027,
+                0.0062
+              ],
+              "size": [
+                0.002,
+                0.007,
+                0.0004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.36,
+          "anchor": false,
+          "bounds_min": [
+            -0.145,
+            -0.031,
+            -0.013000000000000001
+          ],
+          "bounds_max": [
+            0.145,
+            0.21500000000000002,
+            0.034
+          ],
+          "half_extent": [
+            0.145,
+            0.21500000000000002,
+            0.034
+          ],
+          "center_of_mass": [
+            0.0595833333333333,
+            0,
+            -0.006
+          ],
+          "diagonal_inertia": [
+            0.0008,
+            0.0024,
+            0.0025
+          ]
+        },
+        {
+          "name": "counterweight",
+          "pos": [
+            0.25,
+            0,
+            0.8675
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                -0.0135,
+                0,
+                0
+              ],
+              "size": [
+                0.016999999999999998,
+                0.05,
+                0.008
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.0135,
+                0,
+                0
+              ],
+              "size": [
+                0.016999999999999998,
+                0.05,
+                0.008
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.015000000000000001,
+                0
+              ],
+              "size": [
+                0.01,
+                0.02,
+                0.008
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.015000000000000001,
+                0
+              ],
+              "size": [
+                0.01,
+                0.02,
+                0.008
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.034,
+                -0.038
+              ],
+              "size": [
+                0.04,
+                0.022,
+                0.035
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.034,
+                -0.038
+              ],
+              "size": [
+                0.04,
+                0.022,
+                0.035
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.027,
+                -0.015
+              ],
+              "size": [
+                0.02,
+                0.008,
+                0.04
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.027,
+                -0.015
+              ],
+              "size": [
+                0.02,
+                0.008,
+                0.04
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.041,
+                0.016
+              ],
+              "size": [
+                0.014,
+                0.024,
+                0.028
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.95,
@@ -713,49 +709,101 @@
               "collision": true
             }
           ],
-          "mass": 0.08,
+          "mass": 0.3,
           "anchor": false,
-          "half_extent": [
-            0.009,
-            0.095,
-            0.009
-          ],
           "bounds_min": [
-            -0.009,
-            -0.095,
-            -0.009
+            -0.022,
+            -0.053000000000000005,
+            -0.0555
           ],
           "bounds_max": [
-            0.009,
-            0.095,
-            0.009
+            0.022,
+            0.045,
+            0.03
           ],
-          "material": "rigid engineering plastic"
+          "half_extent": [
+            0.022,
+            0.053000000000000005,
+            0.0555
+          ],
+          "center_of_mass": [
+            0,
+            0,
+            -0.03
+          ],
+          "diagonal_inertia": [
+            0.00022,
+            0.00016,
+            0.00018
+          ]
         }
       ],
-      "joints": []
+      "joints": [
+        {
+          "name": "arm_pivot",
+          "parent": "pedestal",
+          "child": "service_arm",
+          "kind": "revolute",
+          "axis": "Y",
+          "pivot_parent": [
+            0,
+            0,
+            0.1
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "lower": -0.3,
+          "upper": 0.3,
+          "stiffness": 0,
+          "damping": 0.004
+        },
+        {
+          "name": "weight_slide",
+          "parent": "service_arm",
+          "child": "counterweight",
+          "kind": "prismatic",
+          "axis": "X",
+          "pivot_parent": [
+            -0.035,
+            0,
+            0.02
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "lower": -0.075,
+          "upper": 0,
+          "stiffness": 0,
+          "damping": 0.02
+        }
+      ]
     },
     {
-      "name": "collection_asset",
+      "name": "locking_pin_asset",
       "origin": [
-        0.39,
-        -0.25,
-        0.7475
+        0.32,
+        -0.24,
+        0.7757000000000001
       ],
-      "fixed": true,
+      "fixed": false,
       "bodies": [
         {
-          "name": "collection",
+          "name": "locking_pin",
           "pos": [
-            0.39,
-            -0.25,
-            0.7475
+            0.32,
+            -0.24,
+            0.7757000000000001
           ],
           "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
+            0,
+            0,
+            0,
+            1
           ],
           "shapes": [
             {
@@ -763,18 +811,18 @@
               "pos": [
                 0,
                 0,
-                0.003
+                0
               ],
               "size": [
-                0.14,
-                0.12,
-                0.006
+                0.008,
+                0.008,
+                0.056
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -787,19 +835,114 @@
               "kind": "box",
               "pos": [
                 0,
-                0.06,
-                0.02
+                0,
+                0.032
               ],
               "size": [
-                0.14,
-                0.004,
-                0.04
+                0.022,
+                0.022,
+                0.008
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.025,
+          "anchor": false,
+          "bounds_min": [
+            -0.011,
+            -0.011,
+            -0.028
+          ],
+          "bounds_max": [
+            0.011,
+            0.011,
+            0.036000000000000004
+          ],
+          "half_extent": [
+            0.011,
+            0.011,
+            0.036000000000000004
+          ]
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "pin_stand_asset",
+      "origin": [
+        0.32,
+        -0.24,
+        0.7475
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "pin_stand",
+          "pos": [
+            0.32,
+            -0.24,
+            0.7475
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                -0.008,
+                0,
+                0.007
+              ],
+              "size": [
+                0.006,
+                0.022,
+                0.014
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.008,
+                0,
+                0.007
+              ],
+              "size": [
+                0.006,
+                0.022,
+                0.014
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -812,19 +955,19 @@
               "kind": "box",
               "pos": [
                 0,
-                -0.06,
-                0.02
+                -0.008,
+                0.007
               ],
               "size": [
-                0.14,
-                0.004,
-                0.04
+                0.01,
+                0.006,
+                0.014
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -836,45 +979,20 @@
             {
               "kind": "box",
               "pos": [
-                0.07,
                 0,
-                0.02
+                0.008,
+                0.007
               ],
               "size": [
-                0.004,
-                0.12,
-                0.04
+                0.01,
+                0.006,
+                0.014
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
-              ],
-              "color": [
-                0.52,
-                0.55,
-                0.6
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                -0.07,
                 0,
-                0.02
-              ],
-              "size": [
-                0.004,
-                0.12,
-                0.04
-              ],
-              "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -884,24 +1002,23 @@
               "collision": true
             }
           ],
-          "mass": 0.5,
+          "mass": 0.12,
           "anchor": true,
-          "half_extent": [
-            0.07200000000000001,
-            0.062,
-            0.04
-          ],
           "bounds_min": [
-            -0.07200000000000001,
-            -0.062,
+            -0.011,
+            -0.011,
             0.0
           ],
           "bounds_max": [
-            0.07200000000000001,
-            0.062,
-            0.04
+            0.011,
+            0.011,
+            0.014
           ],
-          "material": "rigid engineering plastic"
+          "half_extent": [
+            0.011,
+            0.011,
+            0.014
+          ]
         }
       ],
       "joints": []
@@ -909,252 +1026,131 @@
   ],
   "goals": [
     {
-      "name": "faulty_collected",
+      "name": "counterweight_aligned",
+      "weight": 0.3,
       "all": [
         {
-          "kind": "region",
-          "body": "faulty",
-          "min": [
-            0.323,
-            -0.307,
-            0.7535000000000001
-          ],
-          "max": [
-            0.457,
-            -0.193,
-            0.8375
-          ]
+          "kind": "joint",
+          "joint": "weight_slide",
+          "min": -0.032,
+          "max": -0.03
         },
         {
           "kind": "still",
-          "body": "faulty",
+          "body": "counterweight",
           "speed": 0.01,
           "spin": 0.2
         }
-      ],
-      "weight": 0.3333333333333333
+      ]
     },
     {
-      "name": "spare_seated",
+      "name": "counterweight_pinned",
+      "weight": 0.3,
       "all": [
         {
-          "kind": "pose",
-          "body": "spare",
-          "pos": [
-            0,
-            0,
-            0.026
-          ],
-          "relative_to": "rack",
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "tolerance": 0.003,
-          "angle": 0.10471975511965978
+          "kind": "joint",
+          "joint": "weight_slide",
+          "min": -0.032,
+          "max": -0.03
         },
         {
           "kind": "still",
-          "body": "spare",
+          "body": "counterweight",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "locking_pin",
+          "pos": [
+            -0.066,
+            0,
+            -0.004
+          ],
+          "relative_to": "service_arm",
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "tolerance": 0.0015,
+          "angle": 0.105
+        },
+        {
+          "kind": "still",
+          "body": "locking_pin",
           "speed": 0.01,
           "spin": 0.2
         }
-      ],
-      "weight": 0.3333333333333333
+      ]
     },
     {
-      "name": "retained",
+      "name": "released_arm_balanced",
+      "weight": 0.4,
       "all": [
         {
-          "kind": "region",
-          "body": "faulty",
-          "min": [
-            0.323,
-            -0.307,
-            0.7535000000000001
-          ],
-          "max": [
-            0.457,
-            -0.193,
-            0.8375
-          ]
+          "kind": "joint",
+          "joint": "weight_slide",
+          "min": -0.032,
+          "max": -0.03
         },
         {
           "kind": "still",
-          "body": "faulty",
+          "body": "counterweight",
           "speed": 0.01,
           "spin": 0.2
         },
         {
           "kind": "pose",
-          "body": "spare",
+          "body": "locking_pin",
           "pos": [
+            -0.066,
             0,
-            0,
-            0.026
+            -0.004
           ],
-          "relative_to": "rack",
+          "relative_to": "service_arm",
           "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
+            0,
+            0,
+            0,
+            1
           ],
-          "tolerance": 0.003,
-          "angle": 0.10471975511965978
+          "tolerance": 0.0015,
+          "angle": 0.105
         },
         {
           "kind": "still",
-          "body": "spare",
+          "body": "locking_pin",
           "speed": 0.01,
           "spin": 0.2
         },
         {
-          "kind": "pose",
-          "body": "retaining_bar",
-          "pos": [
-            -0.071,
-            0,
-            0.027
-          ],
-          "relative_to": "rack",
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "tolerance": 0.003,
-          "angle": 0.10471975511965978
+          "kind": "joint",
+          "joint": "arm_pivot",
+          "min": -0.04,
+          "max": 0.04
         },
         {
           "kind": "still",
-          "body": "retaining_bar",
+          "body": "service_arm",
           "speed": 0.01,
           "spin": 0.2
         }
-      ],
-      "weight": 0.3333333333333333
+      ]
     }
   ],
+  "invariants": [],
   "threads": [],
-  "invariants": [
-    {
-      "name": "healthy_0_disturbed",
-      "all": [
-        {
-          "kind": "pose",
-          "body": "healthy_0",
-          "pos": [
-            0,
-            -0.06,
-            0.026
-          ],
-          "relative_to": "rack",
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "tolerance": 0.005,
-          "angle": 0.13962634015954636
-        }
-      ]
-    },
-    {
-      "name": "healthy_1_disturbed",
-      "all": [
-        {
-          "kind": "pose",
-          "body": "healthy_1",
-          "pos": [
-            0,
-            0.06,
-            0.026
-          ],
-          "relative_to": "rack",
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "tolerance": 0.005,
-          "angle": 0.13962634015954636
-        }
-      ]
-    }
-  ],
+  "forbidden_regions": [],
   "collision_exclusions": [],
-  "novelty_status": "HOLD_NOT_CLEARED",
-  "implementation_status": "ENGINEERING_DRAFT_UNVALIDATED",
+  "engineering_revision": "counterbalance-commissioning-replacement-v1",
   "limitations": [
-    "This candidate is too close to existing visible-fault drive replacement tasks and is not selected for submission.",
-    "Retaining-bar capture features, extraction resistance and a fault-state model beyond static visible markings remain unimplemented."
+    "The payload is rigidly mounted; its mass distribution is explicitly specified on the arm, including the handling fixture.",
+    "Prismatic guidance approximates the counterweight rail. A real free pin through two collision-defined holes locks translation.",
+    "The unpowered pivot has damping but no centering spring. Gravity balance and pin load retention require native tests."
   ],
-  "closest_prs": [
-    807,
-    639,
-    611,
-    73
-  ],
-  "expert_operations": [
-    {
-      "kind": "transfer",
-      "body": "faulty",
-      "side": "right",
-      "pick": [
-        0.31,
-        0,
-        0.7735000000000001
-      ],
-      "place": [
-        0.39,
-        -0.25,
-        0.7705000000000001
-      ],
-      "yaw": 0.0,
-      "place_yaw": 0.0,
-      "grasp_offset": 0.008
-    },
-    {
-      "kind": "transfer",
-      "body": "spare",
-      "side": "left",
-      "pick": [
-        0.24,
-        0.25,
-        0.7645000000000001
-      ],
-      "place": [
-        0.31,
-        0,
-        0.7735000000000001
-      ],
-      "yaw": 0.0,
-      "place_yaw": 0.0,
-      "grasp_offset": 0.008
-    },
-    {
-      "kind": "transfer",
-      "body": "retaining_bar",
-      "side": "right",
-      "pick": [
-        0.25,
-        -0.24,
-        0.7575000000000001
-      ],
-      "place": [
-        0.239,
-        0,
-        0.7745000000000001
-      ],
-      "yaw": 0.0,
-      "place_yaw": 0.0,
-      "grasp_offset": 0.008
-    }
-  ]
+  "arm_clearance_revision": "support-handles-and-idle-parking-v1",
+  "novelty_status": "INTERNAL_REVIEW_CLEARED_FOR_VALIDATION_NOT_ACCEPTANCE",
+  "implementation_status": "MECHANICS_IMPLEMENTED_NATIVE_TESTS_PENDING"
 }

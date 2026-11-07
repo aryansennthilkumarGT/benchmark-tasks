@@ -32,7 +32,9 @@ def compile_assets(spec, directory):
             q = b['quat']
             body.AddOrientOp().Set(Gf.Quatf(q[3], Gf.Vec3f(*q[:3])))
             UsdPhysics.RigidBodyAPI.Apply(body.GetPrim())
-            UsdPhysics.MassAPI.Apply(body.GetPrim()).CreateMassAttr(b['mass'])
+            mass=UsdPhysics.MassAPI.Apply(body.GetPrim());mass.CreateMassAttr(b['mass'])
+            if 'center_of_mass' in b:mass.CreateCenterOfMassAttr(Gf.Vec3f(*b['center_of_mass']))
+            if 'diagonal_inertia' in b:mass.CreateDiagonalInertiaAttr(Gf.Vec3f(*b['diagonal_inertia']))
             for i, s in enumerate(b['shapes']):
                 shape_path = body_path + f'/shape_{i}'
                 if s['kind'] == 'box':
@@ -60,6 +62,9 @@ def compile_assets(spec, directory):
                     UsdShade.MaterialBindingAPI.Apply(shape.GetPrim()).Bind(material, materialPurpose='physics')
             if b.get('anchor'):
                 fixed = UsdPhysics.FixedJoint.Define(stage, '/Asset/fix_' + b['name'])
+                # Attach to the asset's static Xform, so reference/spawn transforms
+                # move the anchor too. An absent body0 means the absolute world.
+                fixed.CreateBody0Rel().SetTargets([Sdf.Path('/Asset')])
                 fixed.CreateBody1Rel().SetTargets([Sdf.Path(body_path)])
                 fixed.CreateLocalPos0Attr(Gf.Vec3f(*(v-o for v, o in zip(b['pos'], origin))))
                 fixed.CreateLocalRot0Attr(Gf.Quatf(b['quat'][3], Gf.Vec3f(*b['quat'][:3])))
@@ -82,6 +87,9 @@ def compile_assets(spec, directory):
             joint.CreateBody1Rel().SetTargets([Sdf.Path('/Asset/'+j['child'])])
             joint.CreateLocalPos0Attr(Gf.Vec3f(*j['pivot_parent']))
             joint.CreateLocalPos1Attr(Gf.Vec3f(*j['pivot_child']))
+            for index in (0,1):
+                q=j.get('rotation_'+str(index),[0,0,0,1])
+                getattr(joint,'CreateLocalRot'+str(index)+'Attr')(Gf.Quatf(q[3],Gf.Vec3f(*q[:3])))
             joint.CreateCollisionEnabledAttr(False)
             if unit is not None:
                 joint.CreateAxisAttr(j['axis'])
@@ -92,7 +100,20 @@ def compile_assets(spec, directory):
                 drive.CreateTargetPositionAttr(j.get('rest', 0.0) * unit)
                 drive.CreateStiffnessAttr(j.get('stiffness', 0.0))
                 drive.CreateDampingAttr(j.get('damping', 0.02))
-        if assembly.get('joints') or any(b.get('anchor') for b in assembly['bodies']):
+        # Only explicitly listed, physically adjacent cable links may overlap at
+        # their common bend joint. Other cable/fixture/robot collisions stay on.
+        names={b['name'] for b in assembly['bodies']}
+        for first,second in spec.get('collision_exclusions',[]):
+            if first in names and second in names:
+                api=UsdPhysics.FilteredPairsAPI.Apply(stage.GetPrimAtPath('/Asset/'+first))
+                api.CreateFilteredPairsRel().AddTarget(Sdf.Path('/Asset/'+second))
+        anchors=[b for b in assembly['bodies'] if b.get('anchor')]
+        if anchors:
+            if len(anchors)!=1:raise ValueError('Each fixed articulation needs one explicit root anchor')
+            # Fixed-base articulation root belongs to the world/root fixed joint.
+            # Keep the static reference Xform outside the articulated subtree.
+            UsdPhysics.ArticulationRootAPI.Apply(stage.GetPrimAtPath('/Asset/fix_'+anchors[0]['name']))
+        elif assembly.get('joints'):
             UsdPhysics.ArticulationRootAPI.Apply(root.GetPrim())
         stage.GetRootLayer().Save()
 
