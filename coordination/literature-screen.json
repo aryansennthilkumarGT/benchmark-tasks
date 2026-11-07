@@ -1,6 +1,6 @@
 {
   "date": "2026-11-07",
-  "status": "PRELIMINARY_SCREEN_NOT_NOVELTY_CLEARANCE",
+  "status": "INTERNAL_ENGINEERING_COMPARISON_COMPLETE_NOT_EXTERNAL_ACCEPTANCE",
   "sources": [
     {
       "benchmark": "DataCenterBench",
@@ -18,37 +18,35 @@
     },
     {
       "benchmark": "LIBERO",
-      "url": "https://libero-project.github.io/main.html",
-      "reviewed": "Project overview only.",
-      "findings": "The project targets knowledge transfer in lifelong robot learning.",
-      "implication": "Task-definition catalog has not been audited; no no-overlap claim is justified."
+      "url": "https://github.com/Lifelong-Robot-Learning/LIBERO/blob/master/libero/libero/benchmark/libero_suite_task_map.py",
+      "reviewed": "All five suite name lists in the primary task map; blob 08144b4dd01d91fb0ca40e2c1d93ccaa85025fbc.",
+      "findings": "Placement, drawers, cabinet/microwave closure and stove actions overlap at the primitive level. No hardware-service mechanism was identified in this catalog.",
+      "implication": "Do not claim novelty from sequencing access and placement; distinguish physical retention dependencies."
     },
     {
       "benchmark": "RoboCasa",
-      "url": "https://robocasa.ai/",
-      "reviewed": "Project overview and current task-suite summary.",
-      "findings": "Kitchen-focused suite with 65 atomic tasks and 300 composite tasks. Atomic capabilities include insertion and opening/closing lids, and composite tasks sequence practical workflows.",
-      "implication": "A generic long sequence is not by itself a new capability. Individual task definitions still need comparison."
+      "url": "https://github.com/robocasa/robocasa/blob/main/robocasa/__init__.py",
+      "reviewed": "Current primary registered-task imports, blob 2bdf3224717694d19143ad500e06202f7d2fcff8, plus atomic/composite documentation.",
+      "findings": "Lids, doors, racks and multi-step kitchen activities are already represented.",
+      "implication": "Sustained mechanical support and load capture distinguish these fixtures; long horizon alone does not."
     },
     {
       "benchmark": "SimplerEnv",
-      "url": "https://simpler-env.github.io/",
-      "reviewed": "Project overview and displayed task examples.",
-      "findings": "Examples include drawer operations, placing household objects, stacking blocks and moving a can near fruit; the work studies simulation-to-real policy evaluation.",
-      "implication": "The visible examples do not establish a direct hardware-maintenance duplicate, but the full source task catalog remains unchecked."
+      "url": "https://github.com/simpler-env/SimplerEnv#current-environments",
+      "reviewed": "Primary README current-environment table and named variants; blob c50eefbe64cc50ad218808a7a8c16d32d4353e6a.",
+      "findings": "Ten named task families cover picking, proximity, drawers, placement and stacking.",
+      "implication": "The maintenance mechanisms differ from listed tasks; this is a catalog comparison, not an exhaustive research claim."
     },
     {
       "benchmark": "BEHAVIOR",
-      "url": "https://behavior.stanford.edu/knowledgebase/",
-      "reviewed": "Project overview and knowledgebase dashboard.",
-      "findings": "Large collection of full household activities and long-horizon mobile manipulation; the dashboard lists 1016 task definitions across its scope.",
-      "implication": "Detailed definitions and synonyms must be searched before claiming absence of battery/device-service overlaps."
+      "url": "https://behavior.stanford.edu/knowledgebase/tasks/index.html",
+      "reviewed": "1016-entry index, searches for battery/repair/screw and full definitions of assembling_furniture, attach_a_camera_to_a_tripod and set_up_a_webcam.",
+      "findings": "Relevant assembly definitions use attachment goals. No matching battery-service or thread/preload dependency was identified in the checked definitions.",
+      "implication": "Search absence is not proof of no overlap. Compare each actual mechanism and its retention requirements."
     }
   ],
   "outstanding": [
-    "Full per-candidate catalog and semantic comparison",
-    "Relevant rejected PR reviews and revision holds",
-    "Physics and embodiment feasibility on the verified GPU host"
+    "Refresh current board ownership before official submission",
+    "Demonstrate native feasibility and mechanism fidelity"
   ]
 }
-

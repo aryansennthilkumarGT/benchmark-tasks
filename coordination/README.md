@@ -1,57 +1,85 @@
-# Offline development checkpoint
+# Eight-task engineering handoff
 
-**Eight engineering drafts are pushed and source-verified. Zero tasks are ready.**
+This branch coordinates eight independent task branches. Source engineering and offline checks are recorded in `draft-manifest.json`; native physics, expert demonstrations, Dream-1 and media are still unexecuted. No task is currently ready for an official PR. The user deferred GPU execution; these scripts do not provision compute.
 
-The user deferred SSH and requested continued offline work. Saved SSH keys were not changed.
-No native physics, full-score demonstration, Dream evaluation, media recording or upload occurred.
+## One entry point
 
-This branch contains development coordination only. Each task branch independently adds one folder
-to upstream `7df8bd8ad8cb19df51718e5ff46d4d610a9da6f1`. Read `draft-manifest.json` for
-the exact commit hashes, test counts, status and known gaps. `remote-verification.json` records the
-clean-checkout audit. The 245 passing tests use synthetic states; the 35 skipped tests concern
-mechanisms absent from the relevant task. USD parsing and source loading did not run a simulator.
+From this handoff checkout in the authorized official Linux GPU environment:
 
-## Draft branches
-
-- [eight-nut-bracket](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket) — `6d630d99b4c30d3b95a8f266177554a6baa2f676`
-- [fault-module-repair](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair) — `f10b74cf3c28bcee3094711baa0d78cd542b8376`
-- [hardware-order-kit](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit) — `2f6cc1a8b699e43150627c9a24bbc52f03711848`
-- [hinged-chassis-drive](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive) — `85036aa7e52e14665bb4a088038feb33cdebc69a`
-- [node-service-closeout](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout) — `64e92f3f1f8c4a4b84483abcf0df45631935bf9a`
-- [remote-battery-service](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service) — `64a4e23386b1d3bdffb72716d3ee6efd1f53506c`
-- [switch-map-rework](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework) — `32b345fbcf3207ab5a379c53f0635ca5ed1e50c0`
-- [twelve-cell-pack](https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack) — `15a17647c5aa12986b2325e8faa2ec6ee58366c0`
-
-## What remains
-
-The candidates are not novelty-cleared. Generic kitting and visible-fault replacement overlap strongly
-with pending tasks; more batteries or fasteners alone does not establish a distinct task. Other workflows
-also have close neighbors. `novelty-search-update.json` records 294 distinct PR matches and eight
-receipt/comment checks. Catalog overview checks are not exhaustive mechanism-level review.
-
-These packages are incomplete prototypes, not polished tasks awaiting only GPU time. Flexible cables,
-retaining captures, distinct module interfaces, some visual cues and task-specific expert controllers
-remain unfinished. Each README and `validation.json` states its gaps. The native adapter was inspected
-against a pinned source revision but has not been executed under Isaac Sim. Complete these issues and
-validate native mechanics before spending model credits. The launcher rejects Dream execution until
-physics and two full-score expert trials are recorded as verified.
-
-After safe workstation verification, begin with the official station smoke test. Then validate one task
-end to end before scaling: reset, reach, contacts, adversarial strategies, two expert trials, real Dream,
-media inspection/upload and final exact-commit audit. Keep raw run artifacts and credentials outside Git.
-
-## Read-only readiness check
-
-```sh
-python coordination/verify_readiness.py
-python -m unittest discover -s coordination -p test_readiness.py -v
+```bash
+bash coordination/bootstrap_and_run.sh --all
 ```
 
-The first command intentionally exits 2 and explains missing evidence. It never opens PRs. The teammate
-must not submit these draft revisions. The final PR titles, bodies and submission script remain pending
-until the eight tasks genuinely pass all gates. The agent must not open official upstream PRs.
+The default run directory is `.robocurve-runs` and the provider budget receipt is `.robocurve-budget.json`, both ignored by Git. Configure `ROBOCURVE_RUN_ROOT` and `ROBOCURVE_BUDGET_FILE` to use persistent storage outside the checkout. The runner itself needs Python 3.10+ and Git; the isolated official stack uses Python 3.12. No source editing or manual branch switching is required.
 
-`development/` preserves the original offline package generator and templates. It is an engineering
-snapshot, not the source of later branch edits. Running it regenerates draft files and resets their
-validation metadata; do not run it over edited packages. Actual task branches are independently complete
-as source snapshots and do not import anything from this coordination branch.
+Before executing, the operator/agent supplies actual provider price, credit balance, instance start time, prior spend, instance ID and GPU UUID. `record_budget.py --help` records these facts without credentials. Dream credentials use the official secure configuration; uploads read `ROBOCURVE_TOKEN` and set `ROBOCURVE_TEAM=T-06` only in the uploader process. Git credentials must permit pushes to the fork. No credentials belong in a task folder, receipt, command argument or commit.
+
+Useful modes:
+
+```bash
+bash coordination/bootstrap_and_run.sh --dry-run
+bash coordination/bootstrap_and_run.sh --preflight
+bash coordination/bootstrap_and_run.sh --task hinged-chassis-drive
+bash coordination/bootstrap_and_run.sh --resume
+bash coordination/bootstrap_and_run.sh --all --no-upload
+bash coordination/bootstrap_and_run.sh --all --offline
+```
+
+`--dry-run` performs no network, installation, simulator or model work. `--preflight` reports hardware and credential presence without starting evaluation. `--offline` requires NumPy, usd-core and the pinned YAM adapter importable in the current Python; it never advances past static checks. The GPU bootstrap installs the official stack once, validates its pins and performs the official apple/bowl smoke trial before any task. Each task is fetched at its manifest SHA into its own clean detached worktree. The diff must remain under that one task folder.
+
+## Required environment
+
+Use the official walkthrough launchable and the commits in `stack-lock.json`. Hardware profiles: L40S / RTX 4090 / RTX 5090, at least 16 GiB free VRAM, 32 GB system RAM with 24 GiB available, and 250 GiB free disk. The driver check follows Isaac Lab's Linux recommendation 580.95.05; Isaac Sim 6.1 lists 595.58.03 as tested. The bootstrap uses the official pinned installer in an isolated project directory and preserves existing vendor EULA acceptance. It does not update drivers, alter system Python, connect SSH/VPN, deploy Brev or stop another user's jobs.
+
+The launchable, adapter, Arena, IsaacLab, Inspect Robots and Dream plugin revisions are documented in the lock. Arena's release branch is named 0.3.1 although its distribution metadata says 0.3.0. Isaac Sim 6.1.0.0 and NumPy 2.3.1 come from that supported stack; no assumed compatibility with an old 5.1 environment. The same production asset-bucket correction used by the official launchable is applied explicitly.
+
+GPU work is sequential. The cost monitor counts instance wall time, including idle time, and refuses a stage whose timeout would exceed $170 total charges or the $30 reserve. It checks during subprocess execution and terminates its own process group at the limit. This is not cloud billing shutdown: the operator/agent must stop the authorized instance when finished. No model cost or compute price is fabricated. Retain provider receipts for reconciliation.
+
+## Evidence and failure behavior
+
+Each stage has an immutable attempt directory and a receipt containing input revision, predecessor keys and artifact hashes. Successful evidence survives independent task failures. `--resume` verifies hashes and reuses success; it does not rerun successful GPU work. An unchanged failed stage stops without spending again. One explicit `--retry-failed 'diagnostic reason'` is allowed; a genuine code fix should be committed, pushed and pinned as a new revision. Never edit an evaluated worktree or modify old receipts. Fixes create new attempt paths and preserve old trajectories.
+
+The stages are implementation review, static/unit/USD/URDF audits, native physics, robot-control prefixes, expert episode 1, expert episode 2, Dream, media rendering, visual verification, upload, exact remote commit verification and ready handoff. Native cases must all pass after two independent resets. Two distinct expert records must each score 1.0 within the action limit. Dream cannot start until their native traces, actions and all three observation streams are checked against the pinned Inspect format and the same source revision. A real Dream score of zero is retained truthfully.
+
+Raw native probes explicitly distinguish controlled fixture initialization/force application from demonstrations. Expert and model episodes never teleport task objects, automatically attach parts or alter score state. Physics probes are not media evidence. Every task branch includes its own bootstrap, native runner, feedback expert, scorer, ledger, evidence validator and media exporter, so reviewers need no other branch.
+
+## Media review and upload
+
+The official exporter generates all camera videos; the task package uses the top-camera model run, successful demo and initial screenshot. Both expert videos are retained. Validation fully decodes H.264 yuv420p, matches frame counts to the action log, enforces 50 MB per video / 10 MB screenshot, checks nonblank samples and native initial camera coverage, and scans public text for identifying information. No overlays or identifying textures are added.
+
+Pixel statistics cannot establish visual quality. The runner preserves rendered media and stops before upload until an actual agent/reviewer has inspected the setup, both demos, model video and contact sheets. This is review of finished results, not manual media generation. Locate and record that review with:
+
+```bash
+python coordination/review_media.py .robocurve-runs --task <slug>
+# After actually inspecting the displayed directory and all listed checks:
+python coordination/review_media.py .robocurve-runs --task <slug> --confirm-reviewed
+bash coordination/bootstrap_and_run.sh --resume
+```
+
+The attestation is bound to exact media bytes and source SHA. There is no preapproved/placeholder review. The official uploader is called only after that gate and genuine validation. It operates on a disposable metadata copy, never on the evaluated checkout. Publication permits only `task.json`, `validation.json` and `source_manifest.json` metadata changes; executable code remains identical to the evaluated commit. A lease protects concurrent branch changes. The pushed commit is fetched back and checked.
+
+## Reports, status and teammate submission
+
+Read `.robocurve-runs/report.json` for every task, failure diagnostic and cost estimate. `ready-handoff.json` contains only fully verified tasks. Exit 0 means all requested runtime stages passed, or explicitly requested offline checks passed; offline success never means submission readiness. Exit 2 means requested tasks are incomplete, exit 3 means an environment/configuration blocker, and argparse uses exit 2 for invalid options. Dry-run exit 0 means only that a plan was printed.
+
+The agent must not execute upstream PR creation. After all requirements pass, the teammate authenticates the GitHub account registered with RoboCurve and previews:
+
+```bash
+python coordination/submit_ready.py .robocurve-runs/ready-handoff.json
+```
+
+Then the teammate alone may run:
+
+```bash
+python coordination/submit_ready.py .robocurve-runs/ready-handoff.json --execute --registered-account <registered-login>
+```
+
+The script checks every required immutable receipt and current remote SHA, refuses unfinished tasks, reuses an existing open/merged PR and stops on a closed prior PR for review. It supplies concrete titles and evidence-based bodies. No official PR has been created by this work.
+
+## Engineering recovery
+
+The canonical task revisions are the manifest SHAs and their self-contained folders. Do not rerun the historical draft generator: it would discard the later mechanism/controller changes. Preserve this handoff checkout and persistent run root. To recover, use the same manifest/stack/code and `--resume`. A new pipeline implementation hash invalidates stage reuse conservatively; keep the exact handoff revision used by a paid run unless deliberately investigating a defect.
+
+Offline evidence includes numerical scorer counterexamples, measured-state controller unit tests, USD structure, warm-start IK, camera projection, nominal body paths, official convex YAM grasp/thread envelopes, and sampled table/inter-arm trajectories. It does not certify contact forces, flexible cable trajectories, actuator tracking, grasp robustness or successful full episodes. All five review criteria are recorded per task; physical feasibility remains pending. Novelty is an internal mechanism comparison, not an external acceptance guarantee. The current board must be refreshed before submission.
+
+Run coordinator tests with `python -m unittest discover -s coordination -p 'test_*.py' -v`. They include real temporary Git checkouts and subprocesses, intentional Task 3 failure, preservation/resume, changed-revision recovery, tamper rejection, native case coverage and media review binding. Test fixtures are explicitly not physics or Dream evidence.

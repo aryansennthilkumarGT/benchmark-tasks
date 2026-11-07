@@ -1,144 +1,326 @@
-{
-  "status": "PRELIMINARY_NOT_SELECTED",
-  "research_limit": "Board/PR matches indicate overlap risks; neither novelty clearance nor physical feasibility is established. All six benchmark catalogs and detailed rejected-task feedback remain to be checked.",
-  "candidates": [
-    {
-      "idea": "Hinged-chassis drive installation",
-      "decision": "REDESIGN_OR_JUSTIFY",
-      "risk": "High",
-      "overlap": [
-        "TK-PLJPH7: Seat a hot-swap drive carrier with its cam handle",
-        "TK-AYDCCR: Load a wafer under a continuously held lid",
-        "TK-GAUQTC: Reset a breaker under a spring-shut cover"
+[
+  {
+    "slug": "hinged-chassis-drive",
+    "title": "Install and retain a drive under a gravity-closing lid",
+    "importance": "Service access and retention are coupled: the lid closes under gravity, capped rails require horizontal entry, and closing the lid captures the retaining bar. The fixture represents nonenergized enclosure maintenance.",
+    "nearest": [
+      [
+        146,
+        "Carrier insertion overlaps. That task uses a cam lever to seat a connector; this task requires sustained lid support and a separate captured bar."
       ],
-      "required_distinction": "The coupled support/insertion/retention workflow must add a meaningful capability beyond combining familiar operations.",
-      "physical_gate": "A passive falling lid, authentic guide and latch contacts, reachable sled grasps."
-    },
-    {
-      "idea": "Complete remote battery replacement",
-      "decision": "INVESTIGATE",
-      "risk": "High",
-      "overlap": [
-        "TK-ATKRUQ: Insert a cell and latch a welder lid",
-        "TK-6FB8W7: Open a welder lid and remove its cell",
-        "TK-7J2DJG: Insert a flashlight battery with polarity and close its threaded cap"
+      [
+        938,
+        "Sustained lid support overlaps. That task handles wafers in a coating fixture; this one tests rail entry, removal restraint and enclosure closeout."
       ],
-      "required_distinction": "Complete removal, disposal, replacement identities/polarity and closure need defensible workflow novelty.",
-      "physical_gate": "AA cell size, dense bay clearance, spring contacts and parallel-gripper accessibility."
-    },
-    {
-      "idea": "Switch re-cabling from target port map",
-      "decision": "REDESIGN_OR_REPLACE",
-      "risk": "Very high",
-      "overlap": [
-        "TK-7ZYLQV: Patch cords per port-map card",
-        "TK-ZMCVFD: Accepted half-inserted plug correction"
-      ],
-      "required_distinction": "Correcting an existing mapping through real latch release must be substantively different from mapped patching; compare DataCenterBench.",
-      "physical_gate": "Contact-driven latch actuation, flexible cable routing, visible map and end-to-end connection identity."
-    },
-    {
-      "idea": "Hardware parts-order kitting",
-      "decision": "REPLACE_UNLESS_DISTINCT_MECHANISM_FOUND",
-      "risk": "Very high",
-      "overlap": [
-        "TK-FYCWVH: Kit fasteners for two bracket assemblies",
-        "TK-BV9LXS: Kit with approved substitute",
-        "TK-VN35AJ: Pick-light kitting",
-        "TK-Q65SGP: Hazard-aware kitting"
-      ],
-      "required_distinction": "A new order card or more distractors is insufficient. Physically necessary coordinated handling remains unspecified.",
-      "physical_gate": "Meaningful two-arm dependency, visible identity/count and no hidden-order leakage."
-    },
-    {
-      "idea": "Twelve-cell battery-pack assembly",
-      "decision": "REDESIGN_OR_REPLACE",
-      "risk": "High",
-      "overlap": [
-        "Existing cell-insertion tasks above; twelve-cell exact match not established"
-      ],
-      "required_distinction": "Count alone does not make a distinct benchmark. Need a credible sustained assembly dependency.",
-      "physical_gate": "Twelve real seating/contact/polarity checks within reachable layout and budget."
-    },
-    {
-      "idea": "Eight-nut fastening",
-      "decision": "HIGH_RISK_BACKUP",
-      "risk": "High",
-      "overlap": [
-        "TK-25G7NE: Six-stud flange nuts in star order",
-        "TK-78D7SX: Hold nut and turn screw through plate",
-        "Previous cohort: Tighten a nut onto a bolt",
-        "RoboDojo Fasten Screws: three matching pairs, rotational depth and release"
-      ],
-      "required_distinction": "Full threading already appears in RoboDojo; eight operations alone is insufficient. A distinct mechanical dependency would need justification.",
-      "physical_gate": "Alignment, angular engagement, axial travel and fixture stabilization without snapping to a thread state."
-    },
-    {
-      "idea": "Fault-indicated component replacement",
-      "decision": "REPLACE_OR_SUBSTANTIALLY_REDESIGN",
-      "risk": "Very high",
-      "overlap": [
-        "TK-NNACEF: Red-lamp failed drive sled replacement",
-        "TK-EJE8YC: Offset-indicated failed drive replacement",
-        "TK-7FS22W: Failed optical transceiver swap",
-        "TK-HDFYC4: Diagnose and replace circuit components"
-      ],
-      "required_distinction": "Generic visible fault plus replacement already exists.",
-      "physical_gate": "Observable fault/identity, valid release/insertion and unaffected healthy components."
-    },
-    {
-      "idea": "Multi-component node servicing",
-      "decision": "INVESTIGATE_WITH_STRICT_NOVELTY_GATE",
-      "risk": "High",
-      "overlap": [
-        "TK-YDCFUE: Transfer server drives preserving bay numbers",
-        "TK-3EKMNV: Processor socket open/install/close",
-        "Multiple module, drive and optical servicing tasks"
-      ],
-      "required_distinction": "A meaningful dependency graph with distinct skills, not a compilation of protected tasks.",
-      "physical_gate": "Reachable lid/components/retainers; stable reset; end-to-end action budget."
+      [
+        341,
+        "Spring-cover access is a shared primitive. A held cover alone is not the novelty claim; the lid mechanically captures the retention hardware here."
+      ]
+    ],
+    "risk": "Moderate overlap in component insertion and held access; acceptance depends on the real retention dependency being visible and validated.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
     }
-  ],
-  "backup_screen": [
-    {
-      "idea": "Incomplete connector detection and correction",
-      "decision": "REJECT_AS_PROPOSED",
-      "reason": "Direct accepted overlap TK-ZMCVFD."
-    },
-    {
-      "idea": "Drive sled insertion and locking",
-      "decision": "REJECT_AS_PROPOSED",
-      "reason": "Pending overlap TK-PLJPH7."
-    },
-    {
-      "idea": "Generic SFP installation/replacement",
-      "decision": "HIGH_DUPLICATE_RISK",
-      "reason": "Pending optical replacement TK-7FS22W; DataCenterBench review outstanding."
-    },
-    {
-      "idea": "Simple one-battery insertion",
-      "decision": "REJECT_AS_PROPOSED",
-      "reason": "Pending flashlight and welder cell-insertion tasks."
-    },
-    {
-      "idea": "One-nut threading",
-      "decision": "HIGH_DUPLICATE_RISK",
-      "reason": "Previous-cohort nut tightening and pending nut/screw tasks."
-    },
-    {
-      "idea": "Mechanically constrained cable routing",
-      "decision": "NEEDS_SUBSTANTIAL_DIFFERENCE",
-      "reason": "Accepted curved channel, panel grommet and cable-length tasks."
-    },
-    {
-      "idea": "Target-configuration repair",
-      "decision": "INVESTIGATE",
-      "reason": "Must specify a distinct physical repair mechanism; no clearance yet."
-    },
-    {
-      "idea": "Dependency-ordered assembly",
-      "decision": "INVESTIGATE",
-      "reason": "Pending stepped-shaft ring ordering and interlock-chain tasks create overlap risk."
+  },
+  {
+    "slug": "remote-battery-service",
+    "title": "Replace opposed-polarity cells under a spring-return service cover",
+    "importance": "The task measures replacement under sustained access support: two used identities must leave, opposite polarities must match spring contacts, and the spring-return cover must close. It is a bench service fixture, not a replica of a particular remote.",
+    "nearest": [
+      [
+        615,
+        "Battery polarity and lid closure overlap with a welder-battery task. This fixture requires both used-cell removal and replacement while holding a spring-return sliding cover."
+      ],
+      [
+        281,
+        "Flashlight battery polarity overlaps, but its screw-cap closure is a different mechanism."
+      ],
+      [
+        234,
+        "Robot battery swapping is a close maintenance neighbor. More cells alone is insufficient; the access-support and opposed-contact constraints are the contribution."
+      ]
+    ],
+    "risk": "Higher thematic overlap with battery service. The physical access dependency and full identity-preserving exchange must remain central; cosmetic differences are not evidence of novelty.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
     }
-  ]
-}
+  },
+  {
+    "slug": "switch-map-rework",
+    "title": "Correct two latched patch connections while preserving a third",
+    "importance": "Correcting an existing mispatch while preserving a working link tests maintenance rework. Both releasable catches and anchored continuous cable paths constrain the operation; a temporary parking cradle frees the occupied destination.",
+    "nearest": [
+      [
+        136,
+        "Color-to-port mapping and flexible cords overlap. Its task is insertion; this task starts mispatched and requires catch release, temporary parking and preservation of a third link."
+      ],
+      [
+        22,
+        "The accepted Ethernet tester task connects two latchless ends. Here each tether remains anchored and the retention catches must be released before withdrawal."
+      ]
+    ],
+    "risk": "Moderate mapping overlap and substantial dynamic risk: articulated cable self-contact and coordinated release require native proof. Offline cable endpoint slack is not a collision-free flexible trajectory.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "slug": "node-service-closeout",
+    "title": "Exchange two internal modules and close out an enclosure",
+    "importance": "The cooling shroud blocks storage removal, storage enters through capped rails, keyed cooler feet occupy a different interface, and lid closure retains the cooler. Correct replacement identities and collection of both removed parts are required.",
+    "nearest": [
+      [
+        422,
+        "Drive-bay identity mapping overlaps, but that task uses open gravity slots. This fixture imposes removal and installation dependencies through a keyed cooler and horizontal rails."
+      ],
+      [
+        969,
+        "Heatsink handling overlaps, but that task requires adhesive release without pulling a CPU. This cooler is a removable keyed obstruction; no adhesive or thermal claim is made."
+      ],
+      [
+        908,
+        "Housing closure after internal assembly is a shared pattern; the storage/cooler access dependency defines this maintenance workflow."
+      ]
+    ],
+    "risk": "Moderate maintenance overlap; dependencies must be physical rather than enforced solely by a scripted order. Native obstruction and retention probes are required.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "slug": "twelve-cell-pack",
+    "title": "Preload and retain a twelve-cell service pack",
+    "importance": "The contribution is compressing twelve independent contact springs with a plate and transferring their load to a cross-key while preserving cell polarity. Cell count provides sustained progress but is not the novelty argument.",
+    "nearest": [
+      [
+        688,
+        "UPS string replacement is a close battery-maintenance neighbor. This task tests individual polarity, spring compression and mechanically captured common preload rather than whole-module grouping."
+      ],
+      [
+        986,
+        "Spring preload manipulation is shared, but here a plate distributes load across independent electrical-contact proxies and a transverse key retains it."
+      ]
+    ],
+    "risk": "Repetition alone would be weak. The spring-load transfer and successful release of the pressure plate are mandatory evidence.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "slug": "eight-nut-bracket",
+    "title": "Fasten a spring-loaded access plate while maintaining its preload",
+    "importance": "A spring-loaded access plate can rise and tip until the threaded nuts capture its load. The expert transfers support between hands to reach both rows, turns and regrips every nut, and releases a level, compressed plate. This replaces an independent-nut repetition task.",
+    "nearest": [
+      [
+        330,
+        "The pending star-pattern flange task places solid nut props on stud tops. Here real thread contact, axial advance and retained spring preload are required; stud count is not the distinction."
+      ],
+      [
+        618,
+        "Holding a nut while turning a screw overlaps in bimanual threading. Here the hand supports a separate spring-loaded plate while nuts advance on fixed studs and eventually carry the plate load."
+      ]
+    ],
+    "risk": "Highest contact and runtime risk. Fine compound thread collision, repeated regrasping and load transfer must pass native probes before any paid model trial. RoboDojo already tests independent threaded pairs.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "slug": "fault-module-repair",
+    "title": "Balance and lock a counterweighted service arm",
+    "importance": "The redesigned task balances a freely pivoted loaded service arm by changing the counterweight moment, then pins the sliding weight against drift. The robot must support the arm during adjustment and leave it balanced after release.",
+    "nearest": [
+      [
+        236,
+        "The indexed arm-angle lock task supports a loaded arm and clamps its pivot. This task leaves the pivot free and changes the center of mass; the pin locks the counterweight, not the arm angle."
+      ],
+      [
+        80,
+        "Counterweighted overhang placement shares static equilibrium, but this task uses a captive rail, a free rotary degree of freedom and pin retention of the tuned mass position."
+      ],
+      [
+        799,
+        "Board balancing is a related principle; the guided counterweight and independent locking operation define the service task."
+      ]
+    ],
+    "risk": "Moderate overlap in balancing. Correct behavior must come from gravitational moments and the free pin rather than a hidden centering actuator.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
+    }
+  },
+  {
+    "slug": "hardware-order-kit",
+    "title": "Fit and pin a hinged collar around a captive shaft",
+    "importance": "A collar cannot slide over the shaft's fixed flanges. The robot must open its hinge, support both halves around the captive shaft, close the seam and insert a transverse key through three lugs. This replaces generic kitting.",
+    "nearest": [
+      [
+        708,
+        "Clamp-on valve lockout is the closest physical neighbor: two halves and a lock surround hardware. Here a hinged shaft collar must bypass fixed end flanges and capture an interleaved seam with a cross-pin; there is no valve or padlock."
+      ],
+      [
+        1027,
+        "Collar-on-guide manipulation overlaps in name, but that task transports an already-threaded opaque collar without touching a curved guide. Here opening, fitting, contact and seam retention are the challenge."
+      ],
+      [
+        994,
+        "Clevis pin retention is a shared primitive, but the captive-shaft split-access dependency adds the substantive workflow."
+      ]
+    ],
+    "risk": "Moderate-to-high overlap with clamp-on lockout. The captive-shaft access constraint and pin-captured seam must be demonstrated, and reviewer acceptance cannot be guaranteed.",
+    "criteria": {
+      "importance": {
+        "status": "INTERNAL_REVIEW_PASS",
+        "evidence": "NOVELTY.md"
+      },
+      "construct_validity": {
+        "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "scene.json, native-cases.json, SETUP.md"
+      },
+      "scoring": {
+        "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
+        "evidence": "SCORING.md, test_scoring.py"
+      },
+      "clarity_and_reproducibility": {
+        "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
+        "evidence": "README.md, SETUP.md, source_manifest.json"
+      },
+      "feasibility": {
+        "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+        "evidence": null
+      }
+    }
+  }
+]
