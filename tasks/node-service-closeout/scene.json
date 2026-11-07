@@ -1,0 +1,1281 @@
+{
+  "slug": "node-service-closeout",
+  "title": "Exchange two internal modules and close out an enclosure",
+  "instruction": "Replace the grey storage module and grey cooling module with their blue matching spares. Collect the removed modules in the tray, secure the orange retaining bar, and close the lid.",
+  "context": "A compositional-horizon prototype covering access, two distinct replacements, segregation and closeout.",
+  "control_hz": 20,
+  "run_limit": 6000,
+  "table_top": 0.7475,
+  "hold_seconds": 1.0,
+  "penetration_limit": 0.002,
+  "assemblies": [
+    {
+      "name": "chassis_asset",
+      "origin": [
+        0.3,
+        0.0,
+        0.7475
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "chassis",
+          "pos": [
+            0.3,
+            0.0,
+            0.7475
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.004
+              ],
+              "size": [
+                0.22,
+                0.18,
+                0.008
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.087,
+                0.03
+              ],
+              "size": [
+                0.22,
+                0.006,
+                0.06
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.087,
+                0.03
+              ],
+              "size": [
+                0.22,
+                0.006,
+                0.06
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.107,
+                0,
+                0.03
+              ],
+              "size": [
+                0.006,
+                0.17,
+                0.06
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.045,
+                0.015
+              ],
+              "size": [
+                0.18,
+                0.006,
+                0.022
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.045,
+                0.015
+              ],
+              "size": [
+                0.18,
+                0.006,
+                0.022
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.9,
+          "anchor": true,
+          "half_extent": [
+            0.11,
+            0.09,
+            0.06
+          ],
+          "bounds_min": [
+            -0.11,
+            -0.09,
+            0.0
+          ],
+          "bounds_max": [
+            0.11,
+            0.09,
+            0.06
+          ],
+          "material": "aluminium"
+        },
+        {
+          "name": "lid",
+          "pos": [
+            0.4,
+            0,
+            0.8115000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                -0.1,
+                0,
+                0
+              ],
+              "size": [
+                0.208,
+                0.174,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.19,
+                0,
+                0.013
+              ],
+              "size": [
+                0.012,
+                0.04,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.18,
+          "anchor": false,
+          "half_extent": [
+            0.20400000000000001,
+            0.087,
+            0.026
+          ],
+          "bounds_min": [
+            -0.20400000000000001,
+            -0.087,
+            -0.003
+          ],
+          "bounds_max": [
+            0.00399999999999999,
+            0.087,
+            0.026
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": [
+        {
+          "name": "lid_hinge",
+          "parent": "chassis",
+          "child": "lid",
+          "axis": "Y",
+          "lower": 0.0,
+          "upper": 1.35,
+          "pivot_parent": [
+            0.1,
+            0,
+            0.064
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "revolute",
+          "stiffness": 0.0,
+          "damping": 0.003
+        }
+      ]
+    },
+    {
+      "name": "old_storage_asset",
+      "origin": [
+        0.3,
+        -0.023,
+        0.7685000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "old_storage",
+          "pos": [
+            0.3,
+            -0.023,
+            0.7685000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.075,
+                0.034,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.028,
+                0,
+                0.02
+              ],
+              "size": [
+                0.015,
+                0.02,
+                0.02
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.1,
+          "anchor": false,
+          "half_extent": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "bounds_min": [
+            -0.0375,
+            -0.017,
+            -0.013
+          ],
+          "bounds_max": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "old_cooler_asset",
+      "origin": [
+        0.3,
+        0.023,
+        0.7685000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "old_cooler",
+          "pos": [
+            0.3,
+            0.023,
+            0.7685000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.075,
+                0.034,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.028,
+                0,
+                0.02
+              ],
+              "size": [
+                0.015,
+                0.02,
+                0.02
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.1,
+          "anchor": false,
+          "half_extent": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "bounds_min": [
+            -0.0375,
+            -0.017,
+            -0.013
+          ],
+          "bounds_max": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "new_storage_asset",
+      "origin": [
+        0.22,
+        0.23,
+        0.7615000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "new_storage",
+          "pos": [
+            0.22,
+            0.23,
+            0.7615000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.075,
+                0.034,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.028,
+                0,
+                0.02
+              ],
+              "size": [
+                0.015,
+                0.02,
+                0.02
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.1,
+          "anchor": false,
+          "half_extent": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "bounds_min": [
+            -0.0375,
+            -0.017,
+            -0.013
+          ],
+          "bounds_max": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "new_cooler_asset",
+      "origin": [
+        0.22,
+        -0.23,
+        0.7615000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "new_cooler",
+          "pos": [
+            0.22,
+            -0.23,
+            0.7615000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.075,
+                0.034,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.028,
+                0,
+                0.02
+              ],
+              "size": [
+                0.015,
+                0.02,
+                0.02
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.1,
+          "anchor": false,
+          "half_extent": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "bounds_min": [
+            -0.0375,
+            -0.017,
+            -0.013
+          ],
+          "bounds_max": [
+            0.0375,
+            0.017,
+            0.03
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "service_bar_asset",
+      "origin": [
+        0.4,
+        -0.14,
+        0.7575000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "service_bar",
+          "pos": [
+            0.4,
+            -0.14,
+            0.7575000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.014,
+                0.08,
+                0.018
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.05,
+          "anchor": false,
+          "half_extent": [
+            0.007,
+            0.04,
+            0.009
+          ],
+          "bounds_min": [
+            -0.007,
+            -0.04,
+            -0.009
+          ],
+          "bounds_max": [
+            0.007,
+            0.04,
+            0.009
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "removed_parts_asset",
+      "origin": [
+        0.4,
+        0.24,
+        0.7475
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "removed_parts",
+          "pos": [
+            0.4,
+            0.24,
+            0.7475
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.003
+              ],
+              "size": [
+                0.14,
+                0.13,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.065,
+                0.02
+              ],
+              "size": [
+                0.14,
+                0.004,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.065,
+                0.02
+              ],
+              "size": [
+                0.14,
+                0.004,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.07,
+                0,
+                0.02
+              ],
+              "size": [
+                0.004,
+                0.13,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.07,
+                0,
+                0.02
+              ],
+              "size": [
+                0.004,
+                0.13,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.5,
+          "anchor": true,
+          "half_extent": [
+            0.07200000000000001,
+            0.067,
+            0.04
+          ],
+          "bounds_min": [
+            -0.07200000000000001,
+            -0.067,
+            0.0
+          ],
+          "bounds_max": [
+            0.07200000000000001,
+            0.067,
+            0.04
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    }
+  ],
+  "goals": [
+    {
+      "name": "old_storage_collected",
+      "all": [
+        {
+          "kind": "region",
+          "body": "old_storage",
+          "min": [
+            0.333,
+            0.178,
+            0.7535000000000001
+          ],
+          "max": [
+            0.467,
+            0.302,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_storage",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "new_storage_seated",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "new_storage",
+          "pos": [
+            0,
+            -0.023,
+            0.021
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_storage",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "old_cooler_collected",
+      "all": [
+        {
+          "kind": "region",
+          "body": "old_cooler",
+          "min": [
+            0.333,
+            0.178,
+            0.7535000000000001
+          ],
+          "max": [
+            0.467,
+            0.302,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_cooler",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "new_cooler_seated",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "new_cooler",
+          "pos": [
+            0,
+            0.023,
+            0.021
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_cooler",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "service_closed_out",
+      "all": [
+        {
+          "kind": "region",
+          "body": "old_storage",
+          "min": [
+            0.333,
+            0.178,
+            0.7535000000000001
+          ],
+          "max": [
+            0.467,
+            0.302,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_storage",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "new_storage",
+          "pos": [
+            0,
+            -0.023,
+            0.021
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_storage",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "region",
+          "body": "old_cooler",
+          "min": [
+            0.333,
+            0.178,
+            0.7535000000000001
+          ],
+          "max": [
+            0.467,
+            0.302,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_cooler",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "new_cooler",
+          "pos": [
+            0,
+            0.023,
+            0.021
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_cooler",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "service_bar",
+          "pos": [
+            -0.05,
+            0,
+            0.028
+          ],
+          "relative_to": "chassis",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.003,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0,
+          "max": 0.04
+        }
+      ],
+      "weight": 0.2
+    }
+  ],
+  "threads": [],
+  "invariants": [],
+  "collision_exclusions": [],
+  "novelty_status": "HOLD_NOT_CLEARED",
+  "implementation_status": "ENGINEERING_DRAFT_UNVALIDATED",
+  "limitations": [
+    "The gravity-loaded lid and its contact clearances require native validation. The draft expert only includes a lid-handle approach, not a calibrated hinge-following motion.",
+    "The two modules currently share proxy geometry; component-specific interfaces, keys and retainers must be implemented before claiming a heterogeneous servicing construct.",
+    "An independent novelty case beyond concatenating existing maintenance tasks remains unresolved."
+  ],
+  "closest_prs": [
+    422,
+    908,
+    969,
+    146
+  ],
+  "expert_operations": [
+    {
+      "kind": "transfer",
+      "body": "old_storage",
+      "side": "left",
+      "pick": [
+        0.3,
+        -0.023,
+        0.7685000000000001
+      ],
+      "place": [
+        0.38,
+        0.24,
+        0.7675000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "new_storage",
+      "side": "left",
+      "pick": [
+        0.22,
+        0.23,
+        0.7615000000000001
+      ],
+      "place": [
+        0.3,
+        -0.023,
+        0.7685000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "old_cooler",
+      "side": "left",
+      "pick": [
+        0.3,
+        0.023,
+        0.7685000000000001
+      ],
+      "place": [
+        0.43,
+        0.24,
+        0.7675000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "new_cooler",
+      "side": "right",
+      "pick": [
+        0.22,
+        -0.23,
+        0.7615000000000001
+      ],
+      "place": [
+        0.3,
+        0.023,
+        0.7685000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "service_bar",
+      "side": "right",
+      "pick": [
+        0.4,
+        -0.14,
+        0.7575000000000001
+      ],
+      "place": [
+        0.25,
+        0,
+        0.7755000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    }
+  ]
+}
