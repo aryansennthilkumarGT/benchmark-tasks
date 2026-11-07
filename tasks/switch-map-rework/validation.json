@@ -1,0 +1,36 @@
+{
+  "status": "OFFLINE_DRAFT_NOT_READY",
+  "physics": null,
+  "expert_trials": [],
+  "dream": null,
+  "media_id": null,
+  "novelty": "HOLD_NOT_CLEARED",
+  "native_adapter": "NOT_EXECUTED",
+  "offline_tests": {
+    "passed": 32,
+    "skipped_not_applicable": 3,
+    "failed": 0,
+    "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+    "python": "3.11.15"
+  },
+  "known_gaps": [
+    "Flexible cable bodies and connector-end continuity are NOT implemented. The present native assets are a connector/latch fixture, not a complete network recabling simulation.",
+    "Latch hook interference, pressing access and retention must be validated. This candidate cannot advance to construct-validity approval until a real compliant cable model is added.",
+    "Novelty relative to mapped patching and accepted plug reseating remains unresolved."
+  ],
+  "usd_structure": {
+    "status": "PASS",
+    "tool": "usd-core 25.11",
+    "physics_executed": false
+  },
+  "source_loader": {
+    "slug": "switch-map-rework",
+    "kind": "OFFLINE_SOURCE_LOAD_AND_GEOMETRY_ONLY",
+    "task_loader": "PASS",
+    "source_commit": "bd62771e60320433893bd1d2df0fc79b5ddcd6d1",
+    "objects": 6,
+    "expert_plan_seconds": 23.8,
+    "plan_fits_budget": true,
+    "initial_overlaps": []
+  }
+}

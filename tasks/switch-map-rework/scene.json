@@ -1,0 +1,1282 @@
+{
+  "slug": "switch-map-rework",
+  "title": "Correct two latched patch connections while preserving a third",
+  "instruction": "Swap the blue and orange patch plugs to the matching blue and orange socket marks. Leave the green connection seated. Release each latch before withdrawing its plug.",
+  "context": "A configuration-repair draft requiring extraction and re-insertion without disturbing a correct neighboring connection.",
+  "control_hz": 20,
+  "run_limit": 3600,
+  "table_top": 0.7475,
+  "hold_seconds": 1.0,
+  "penetration_limit": 0.002,
+  "assemblies": [
+    {
+      "name": "port_0_asset",
+      "origin": [
+        0.22,
+        -0.1,
+        0.7825000000000001
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "port_0",
+          "pos": [
+            0.22,
+            -0.1,
+            0.7825000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                -0.014
+              ],
+              "size": [
+                0.038,
+                0.05,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.016,
+                0,
+                0
+              ],
+              "size": [
+                0.006,
+                0.05,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.016,
+                0,
+                0
+              ],
+              "size": [
+                0.006,
+                0.05,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.022,
+                0
+              ],
+              "size": [
+                0.026,
+                0.006,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.015,
+                0.014
+              ],
+              "size": [
+                0.026,
+                0.012,
+                0.004
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.01,
+                0.016
+              ],
+              "size": [
+                0.02,
+                0.015,
+                0.001
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.2,
+          "anchor": true,
+          "half_extent": [
+            0.019,
+            0.025,
+            0.017
+          ],
+          "bounds_min": [
+            -0.019,
+            -0.025,
+            -0.017
+          ],
+          "bounds_max": [
+            0.019,
+            0.025,
+            0.016
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "port_1_asset",
+      "origin": [
+        0.32,
+        -0.1,
+        0.7825000000000001
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "port_1",
+          "pos": [
+            0.32,
+            -0.1,
+            0.7825000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                -0.014
+              ],
+              "size": [
+                0.038,
+                0.05,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.016,
+                0,
+                0
+              ],
+              "size": [
+                0.006,
+                0.05,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.016,
+                0,
+                0
+              ],
+              "size": [
+                0.006,
+                0.05,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.022,
+                0
+              ],
+              "size": [
+                0.026,
+                0.006,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.015,
+                0.014
+              ],
+              "size": [
+                0.026,
+                0.012,
+                0.004
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.01,
+                0.016
+              ],
+              "size": [
+                0.02,
+                0.015,
+                0.001
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.2,
+          "anchor": true,
+          "half_extent": [
+            0.019,
+            0.025,
+            0.017
+          ],
+          "bounds_min": [
+            -0.019,
+            -0.025,
+            -0.017
+          ],
+          "bounds_max": [
+            0.019,
+            0.025,
+            0.016
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "port_2_asset",
+      "origin": [
+        0.42,
+        -0.1,
+        0.7825000000000001
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "port_2",
+          "pos": [
+            0.42,
+            -0.1,
+            0.7825000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                -0.014
+              ],
+              "size": [
+                0.038,
+                0.05,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.016,
+                0,
+                0
+              ],
+              "size": [
+                0.006,
+                0.05,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.016,
+                0,
+                0
+              ],
+              "size": [
+                0.006,
+                0.05,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.022,
+                0
+              ],
+              "size": [
+                0.026,
+                0.006,
+                0.026
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.015,
+                0.014
+              ],
+              "size": [
+                0.026,
+                0.012,
+                0.004
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.01,
+                0.016
+              ],
+              "size": [
+                0.02,
+                0.015,
+                0.001
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.15,
+                0.7,
+                0.28
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.2,
+          "anchor": true,
+          "half_extent": [
+            0.019,
+            0.025,
+            0.017
+          ],
+          "bounds_min": [
+            -0.019,
+            -0.025,
+            -0.017
+          ],
+          "bounds_max": [
+            0.019,
+            0.025,
+            0.016
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "plug_0_asset",
+      "origin": [
+        0.32,
+        -0.1,
+        0.7825000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "plug_0",
+          "pos": [
+            0.32,
+            -0.1,
+            0.7825000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.022,
+                0.034,
+                0.019
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.022,
+                0
+              ],
+              "size": [
+                0.014,
+                0.015,
+                0.014
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.016,
+          "anchor": false,
+          "half_extent": [
+            0.011,
+            0.0295,
+            0.0095
+          ],
+          "bounds_min": [
+            -0.011,
+            -0.017,
+            -0.0095
+          ],
+          "bounds_max": [
+            0.011,
+            0.0295,
+            0.0095
+          ],
+          "material": "rigid engineering plastic"
+        },
+        {
+          "name": "latch_0",
+          "pos": [
+            0.32,
+            -0.09100000000000001,
+            0.7935000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.012,
+                0.028,
+                0.003
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.002,
+          "anchor": false,
+          "half_extent": [
+            0.006,
+            0.014,
+            0.0015
+          ],
+          "bounds_min": [
+            -0.006,
+            -0.014,
+            -0.0015
+          ],
+          "bounds_max": [
+            0.006,
+            0.014,
+            0.0015
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": [
+        {
+          "name": "latch_slide_0",
+          "parent": "plug_0",
+          "child": "latch_0",
+          "axis": "Z",
+          "lower": -0.004,
+          "upper": 0,
+          "pivot_parent": [
+            0,
+            0.009,
+            0.011
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "prismatic",
+          "stiffness": 150,
+          "damping": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plug_1_asset",
+      "origin": [
+        0.22,
+        -0.1,
+        0.7825000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "plug_1",
+          "pos": [
+            0.22,
+            -0.1,
+            0.7825000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.022,
+                0.034,
+                0.019
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.022,
+                0
+              ],
+              "size": [
+                0.014,
+                0.015,
+                0.014
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.016,
+          "anchor": false,
+          "half_extent": [
+            0.011,
+            0.0295,
+            0.0095
+          ],
+          "bounds_min": [
+            -0.011,
+            -0.017,
+            -0.0095
+          ],
+          "bounds_max": [
+            0.011,
+            0.0295,
+            0.0095
+          ],
+          "material": "rigid engineering plastic"
+        },
+        {
+          "name": "latch_1",
+          "pos": [
+            0.22,
+            -0.09100000000000001,
+            0.7935000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.012,
+                0.028,
+                0.003
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.002,
+          "anchor": false,
+          "half_extent": [
+            0.006,
+            0.014,
+            0.0015
+          ],
+          "bounds_min": [
+            -0.006,
+            -0.014,
+            -0.0015
+          ],
+          "bounds_max": [
+            0.006,
+            0.014,
+            0.0015
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": [
+        {
+          "name": "latch_slide_1",
+          "parent": "plug_1",
+          "child": "latch_1",
+          "axis": "Z",
+          "lower": -0.004,
+          "upper": 0,
+          "pivot_parent": [
+            0,
+            0.009,
+            0.011
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "prismatic",
+          "stiffness": 150,
+          "damping": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plug_2_asset",
+      "origin": [
+        0.42,
+        -0.1,
+        0.7825000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "plug_2",
+          "pos": [
+            0.42,
+            -0.1,
+            0.7825000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.022,
+                0.034,
+                0.019
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.15,
+                0.7,
+                0.28
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.022,
+                0
+              ],
+              "size": [
+                0.014,
+                0.015,
+                0.014
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.15,
+                0.7,
+                0.28
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.016,
+          "anchor": false,
+          "half_extent": [
+            0.011,
+            0.0295,
+            0.0095
+          ],
+          "bounds_min": [
+            -0.011,
+            -0.017,
+            -0.0095
+          ],
+          "bounds_max": [
+            0.011,
+            0.0295,
+            0.0095
+          ],
+          "material": "rigid engineering plastic"
+        },
+        {
+          "name": "latch_2",
+          "pos": [
+            0.42,
+            -0.09100000000000001,
+            0.7935000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.012,
+                0.028,
+                0.003
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.002,
+          "anchor": false,
+          "half_extent": [
+            0.006,
+            0.014,
+            0.0015
+          ],
+          "bounds_min": [
+            -0.006,
+            -0.014,
+            -0.0015
+          ],
+          "bounds_max": [
+            0.006,
+            0.014,
+            0.0015
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": [
+        {
+          "name": "latch_slide_2",
+          "parent": "plug_2",
+          "child": "latch_2",
+          "axis": "Z",
+          "lower": -0.004,
+          "upper": 0,
+          "pivot_parent": [
+            0,
+            0.009,
+            0.011
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "prismatic",
+          "stiffness": 150,
+          "damping": 0.5
+        }
+      ]
+    }
+  ],
+  "goals": [
+    {
+      "name": "link_0_correct",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "plug_0",
+          "pos": [
+            0.22,
+            -0.1,
+            0.7825000000000001
+          ],
+          "relative_to": null,
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.002,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "joint",
+          "joint": "latch_slide_0",
+          "min": -0.0005,
+          "max": 0
+        },
+        {
+          "kind": "still",
+          "body": "plug_0",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.5
+    },
+    {
+      "name": "link_1_correct",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "plug_1",
+          "pos": [
+            0.32,
+            -0.1,
+            0.7825000000000001
+          ],
+          "relative_to": null,
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.002,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "joint",
+          "joint": "latch_slide_1",
+          "min": -0.0005,
+          "max": 0
+        },
+        {
+          "kind": "still",
+          "body": "plug_1",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.5
+    }
+  ],
+  "threads": [],
+  "invariants": [
+    {
+      "name": "healthy_link_disturbed",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "plug_2",
+          "pos": [
+            0.42,
+            -0.1,
+            0.7825000000000001
+          ],
+          "relative_to": null,
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.006,
+          "angle": 0.20943951023931956
+        }
+      ]
+    }
+  ],
+  "collision_exclusions": [],
+  "novelty_status": "HOLD_NOT_CLEARED",
+  "implementation_status": "ENGINEERING_DRAFT_UNVALIDATED",
+  "limitations": [
+    "Flexible cable bodies and connector-end continuity are NOT implemented. The present native assets are a connector/latch fixture, not a complete network recabling simulation.",
+    "Latch hook interference, pressing access and retention must be validated. This candidate cannot advance to construct-validity approval until a real compliant cable model is added.",
+    "Novelty relative to mapped patching and accepted plug reseating remains unresolved."
+  ],
+  "closest_prs": [
+    136,
+    22
+  ],
+  "expert_operations": [
+    {
+      "kind": "transfer",
+      "body": "plug_0",
+      "side": "right",
+      "pick": [
+        0.32,
+        -0.1,
+        0.7825000000000001
+      ],
+      "place": [
+        0.22,
+        -0.1,
+        0.7825000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "plug_1",
+      "side": "right",
+      "pick": [
+        0.22,
+        -0.1,
+        0.7825000000000001
+      ],
+      "place": [
+        0.32,
+        -0.1,
+        0.7825000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    }
+  ]
+}
