@@ -1,0 +1,220 @@
+{
+  "physics": [
+    {
+      "name": "opposed_springs_contact_existing_cells",
+      "steps": 80,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "spring_0",
+          "min": -0.0017,
+          "max": -0.00015
+        },
+        {
+          "kind": "joint",
+          "joint": "spring_1",
+          "min": 0.00015,
+          "max": 0.0017
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "negative_contact_returns_after_displacement",
+      "initialize_joints": [
+        {
+          "assembly": "controller_asset",
+          "joint": "spring_0",
+          "value": -0.0018
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "old_cell_0_asset",
+          "pos": [
+            0.18,
+            -0.16,
+            0.7555000000000001
+          ]
+        }
+      ],
+      "steps": 100,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "spring_0",
+          "min": -0.00015,
+          "max": 0.00015
+        }
+      ]
+    },
+    {
+      "name": "cover_guide_rejects_vertical_lift",
+      "forces": [
+        {
+          "assembly": "controller_asset",
+          "body": "cover",
+          "force": [
+            0,
+            0,
+            2
+          ]
+        }
+      ],
+      "steps": 60,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "cover",
+          "axis": 2,
+          "min": 0.7805000000000001,
+          "max": 0.7825000000000001
+        }
+      ]
+    },
+    {
+      "name": "fixture_stays_fixed",
+      "forces": [
+        {
+          "assembly": "controller_asset",
+          "body": "controller",
+          "force": [
+            2,
+            1,
+            0
+          ]
+        }
+      ],
+      "steps": 40,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "controller",
+          "min": 0,
+          "max": 0.001
+        }
+      ]
+    },
+    {
+      "name": "reversed_replacement_polarity_never_scores",
+      "initialize_joints": [
+        {
+          "assembly": "controller_asset",
+          "joint": "cover_slide",
+          "value": 0.105
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "old_cell_1_asset",
+          "pos": [
+            0.4,
+            -0.27,
+            0.755
+          ]
+        },
+        {
+          "assembly": "new_cell_1_asset",
+          "pos": [
+            0.29,
+            0.033,
+            0.76275
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "steps": 60,
+      "assertions": [
+        {
+          "kind": "goal",
+          "name": "new_cell_1_installed",
+          "completed": false
+        },
+        {
+          "kind": "score",
+          "max": 0.95,
+          "success": false
+        }
+      ]
+    },
+    {
+      "name": "service_cover_returns_when_released",
+      "initialize_joints": [
+        {
+          "assembly": "controller_asset",
+          "joint": "cover_slide",
+          "value": 0.105
+        }
+      ],
+      "steps": 160,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "cover_slide",
+          "min": -0.0005,
+          "max": 0.003
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "cover_grasp_and_slide",
+      "through_phase": 2,
+      "max_steps": 1000,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "cover_slide",
+          "min": 0.102,
+          "max": 0.108
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Slide cover open and support it"
+    },
+    {
+      "name": "used_cell_lift_with_cover_supported",
+      "through_phase": 5,
+      "max_steps": 1600,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "old_cell_0",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.08,
+          "max": 0.13
+        },
+        {
+          "kind": "joint",
+          "joint": "cover_slide",
+          "min": 0.1,
+          "max": 0.11
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Verify lift of old_cell_0"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "slug": "remote-battery-service",
-  "title": "Replace both cells and close a handheld controller",
-  "instruction": "Put both grey used cells in the grey collection tray. Fit the two blue replacement cells with their orange positive ends matching the orange bay marks, then close the cover.",
+  "title": "Replace opposed-polarity cells under a spring-return service cover",
+  "instruction": "Open the sliding cover. Put both grey used cells in the grey collection tray. Install the two blue replacements with each orange positive end at its orange terminal, then close the cover.",
   "context": "A complete consumable-replacement workflow with removal, segregation, polarity-sensitive insertion and closure.",
   "control_hz": 20,
   "run_limit": 3600,
@@ -41,14 +41,14 @@
               ],
               "size": [
                 0.13,
-                0.082,
+                0.132,
                 0.008
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -61,19 +61,19 @@
               "kind": "box",
               "pos": [
                 0,
-                0.037,
+                0.063,
                 0.016
               ],
               "size": [
                 0.13,
-                0.008,
+                0.006,
                 0.032
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -86,19 +86,19 @@
               "kind": "box",
               "pos": [
                 0,
-                -0.037,
+                -0.063,
                 0.016
               ],
               "size": [
                 0.13,
-                0.008,
+                0.006,
                 0.032
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -116,14 +116,14 @@
               ],
               "size": [
                 0.004,
-                0.066,
+                0.12,
                 0.02
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -141,14 +141,14 @@
               ],
               "size": [
                 0.004,
-                0.066,
+                0.12,
                 0.02
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -170,10 +170,10 @@
                 0.02
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.52,
@@ -181,23 +181,123 @@
                 0.6
               ],
               "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.0276,
+                -0.033,
+                0.01525
+              ],
+              "size": [
+                0.002,
+                0.01,
+                0.01
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.043,
+                -0.033,
+                0.0082
+              ],
+              "size": [
+                0.015,
+                0.017,
+                0.0004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": false
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.0276,
+                0.033,
+                0.01525
+              ],
+              "size": [
+                0.002,
+                0.01,
+                0.01
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.043,
+                0.033,
+                0.0082
+              ],
+              "size": [
+                0.015,
+                0.017,
+                0.0004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": false
             }
           ],
           "mass": 0.18,
           "anchor": true,
           "half_extent": [
             0.065,
-            0.041,
+            0.066,
             0.032
           ],
           "bounds_min": [
             -0.065,
-            -0.041,
+            -0.066,
             0.0
           ],
           "bounds_max": [
             0.065,
-            0.041,
+            0.066,
             0.032
           ],
           "material": "rigid engineering plastic"
@@ -225,14 +325,14 @@
               ],
               "size": [
                 0.126,
-                0.078,
+                0.13,
                 0.004
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.08,
@@ -245,24 +345,49 @@
               "kind": "box",
               "pos": [
                 -0.05,
-                0,
+                0.23,
                 0.014
               ],
               "size": [
                 0.014,
-                0.03,
+                0.024,
                 0.025
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
                 0.95,
                 0.42,
                 0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.05,
+                0.14,
+                0
+              ],
+              "size": [
+                0.014,
+                0.2,
+                0.004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
               ],
               "collision": true
             }
@@ -271,17 +396,17 @@
           "anchor": false,
           "half_extent": [
             0.063,
-            0.039,
+            0.24200000000000002,
             0.026500000000000003
           ],
           "bounds_min": [
             -0.063,
-            -0.039,
+            -0.065,
             -0.002
           ],
           "bounds_max": [
             0.063,
-            0.039,
+            0.24200000000000002,
             0.026500000000000003
           ],
           "material": "rigid engineering plastic"
@@ -289,8 +414,8 @@
         {
           "name": "contact_0",
           "pos": [
-            0.319,
-            -0.017,
+            0.26449999999999996,
+            -0.033,
             0.76275
           ],
           "quat": [
@@ -308,20 +433,20 @@
                 0
               ],
               "size": [
-                0.003,
+                0.002,
                 0.014,
                 0.013
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
-                0.95,
-                0.42,
-                0.06
+                0.25,
+                0.25,
+                0.28
               ],
               "collision": true
             }
@@ -329,17 +454,17 @@
           "mass": 0.002,
           "anchor": false,
           "half_extent": [
-            0.0015,
+            0.001,
             0.007,
             0.0065
           ],
           "bounds_min": [
-            -0.0015,
+            -0.001,
             -0.007,
             -0.0065
           ],
           "bounds_max": [
-            0.0015,
+            0.001,
             0.007,
             0.0065
           ],
@@ -348,8 +473,8 @@
         {
           "name": "contact_1",
           "pos": [
-            0.319,
-            0.017,
+            0.3155,
+            0.033,
             0.76275
           ],
           "quat": [
@@ -367,20 +492,20 @@
                 0
               ],
               "size": [
-                0.003,
+                0.002,
                 0.014,
                 0.013
               ],
               "quat": [
-                0.0,
-                0.0,
-                0.0,
-                1.0
+                0,
+                0,
+                0,
+                1
               ],
               "color": [
-                0.95,
-                0.42,
-                0.06
+                0.25,
+                0.25,
+                0.28
               ],
               "collision": true
             }
@@ -388,17 +513,17 @@
           "mass": 0.002,
           "anchor": false,
           "half_extent": [
-            0.0015,
+            0.001,
             0.007,
             0.0065
           ],
           "bounds_min": [
-            -0.0015,
+            -0.001,
             -0.007,
             -0.0065
           ],
           "bounds_max": [
-            0.0015,
+            0.001,
             0.007,
             0.0065
           ],
@@ -424,19 +549,19 @@
             0
           ],
           "kind": "prismatic",
-          "stiffness": 0.2,
-          "damping": 0.04
+          "stiffness": 2.5,
+          "damping": 0.1
         },
         {
           "name": "spring_0",
           "parent": "controller",
           "child": "contact_0",
           "axis": "X",
-          "lower": 0,
-          "upper": 0.0015,
+          "lower": -0.002,
+          "upper": 0,
           "pivot_parent": [
-            0.029,
-            -0.017,
+            -0.0255,
+            -0.033,
             0.01525
           ],
           "pivot_child": [
@@ -445,8 +570,8 @@
             0
           ],
           "kind": "prismatic",
-          "stiffness": 50,
-          "damping": 0.5
+          "stiffness": 200,
+          "damping": 0.4
         },
         {
           "name": "spring_1",
@@ -454,10 +579,10 @@
           "child": "contact_1",
           "axis": "X",
           "lower": 0,
-          "upper": 0.0015,
+          "upper": 0.002,
           "pivot_parent": [
-            0.029,
-            0.017,
+            0.0255,
+            0.033,
             0.01525
           ],
           "pivot_child": [
@@ -466,15 +591,15 @@
             0
           ],
           "kind": "prismatic",
-          "stiffness": 50,
-          "damping": 0.5
+          "stiffness": 200,
+          "damping": 0.4
         }
       ]
     },
     {
       "name": "used_cell_tray_asset",
       "origin": [
-        0.28,
+        0.39,
         -0.24,
         0.7475
       ],
@@ -483,7 +608,7 @@
         {
           "name": "used_cell_tray",
           "pos": [
-            0.28,
+            0.39,
             -0.24,
             0.7475
           ],
@@ -646,7 +771,7 @@
       "name": "old_cell_0_asset",
       "origin": [
         0.29,
-        -0.017,
+        -0.033,
         0.76275
       ],
       "fixed": false,
@@ -655,7 +780,7 @@
           "name": "old_cell_0",
           "pos": [
             0.29,
-            -0.017,
+            -0.033,
             0.76275
           ],
           "quat": [
@@ -739,18 +864,18 @@
           "anchor": false,
           "half_extent": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "bounds_min": [
-            -0.02525000000000001,
-            -0.00725,
-            -0.007250000000000007
+            -0.025250000000000005,
+            -0.007250000000000002,
+            -0.007250000000000003
           ],
           "bounds_max": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "material": "rigid AA cell surrogate; no electrical or chemical simulation"
         }
@@ -760,18 +885,18 @@
     {
       "name": "new_cell_0_asset",
       "origin": [
-        0.22,
-        0.24,
-        0.7555000000000001
+        0.16,
+        -0.24,
+        0.75495
       ],
       "fixed": false,
       "bodies": [
         {
           "name": "new_cell_0",
           "pos": [
-            0.22,
-            0.24,
-            0.7555000000000001
+            0.16,
+            -0.24,
+            0.75495
           ],
           "quat": [
             0.0,
@@ -854,18 +979,18 @@
           "anchor": false,
           "half_extent": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "bounds_min": [
-            -0.02525000000000001,
-            -0.00725,
-            -0.007250000000000007
+            -0.025250000000000005,
+            -0.007250000000000002,
+            -0.007250000000000003
           ],
           "bounds_max": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "material": "rigid AA cell surrogate; no electrical or chemical simulation"
         }
@@ -876,7 +1001,7 @@
       "name": "old_cell_1_asset",
       "origin": [
         0.29,
-        0.017,
+        0.033,
         0.76275
       ],
       "fixed": false,
@@ -885,7 +1010,7 @@
           "name": "old_cell_1",
           "pos": [
             0.29,
-            0.017,
+            0.033,
             0.76275
           ],
           "quat": [
@@ -969,18 +1094,18 @@
           "anchor": false,
           "half_extent": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "bounds_min": [
-            -0.02525000000000001,
-            -0.00725,
-            -0.007250000000000007
+            -0.025250000000000005,
+            -0.007250000000000002,
+            -0.007250000000000003
           ],
           "bounds_max": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "material": "rigid AA cell surrogate; no electrical or chemical simulation"
         }
@@ -990,18 +1115,18 @@
     {
       "name": "new_cell_1_asset",
       "origin": [
-        0.31,
         0.24,
-        0.7555000000000001
+        -0.24,
+        0.75495
       ],
       "fixed": false,
       "bodies": [
         {
           "name": "new_cell_1",
           "pos": [
-            0.31,
             0.24,
-            0.7555000000000001
+            -0.24,
+            0.75495
           ],
           "quat": [
             0.0,
@@ -1084,18 +1209,18 @@
           "anchor": false,
           "half_extent": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "bounds_min": [
-            -0.02525000000000001,
-            -0.00725,
-            -0.007250000000000007
+            -0.025250000000000005,
+            -0.007250000000000002,
+            -0.007250000000000003
           ],
           "bounds_max": [
             0.02655,
-            0.00725,
-            0.007250000000000007
+            0.007250000000000002,
+            0.007250000000000003
           ],
           "material": "rigid AA cell surrogate; no electrical or chemical simulation"
         }
@@ -1106,19 +1231,20 @@
   "goals": [
     {
       "name": "old_cell_0_collected",
+      "weight": 0.2,
       "all": [
         {
           "kind": "region",
           "body": "old_cell_0",
           "min": [
-            0.21300000000000002,
+            0.323,
             -0.287,
-            0.7535000000000001
+            0.7533000000000001
           ],
           "max": [
-            0.34700000000000003,
+            0.457,
             -0.193,
-            0.8375
+            0.8275
           ]
         },
         {
@@ -1127,54 +1253,24 @@
           "speed": 0.01,
           "spin": 0.2
         }
-      ],
-      "weight": 0.2
-    },
-    {
-      "name": "new_cell_0_installed",
-      "all": [
-        {
-          "kind": "pose",
-          "body": "new_cell_0",
-          "pos": [
-            0,
-            -0.017,
-            0.01525
-          ],
-          "relative_to": "controller",
-          "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          "tolerance": 0.0015,
-          "angle": 0.10471975511965978
-        },
-        {
-          "kind": "still",
-          "body": "new_cell_0",
-          "speed": 0.01,
-          "spin": 0.2
-        }
-      ],
-      "weight": 0.2
+      ]
     },
     {
       "name": "old_cell_1_collected",
+      "weight": 0.2,
       "all": [
         {
           "kind": "region",
           "body": "old_cell_1",
           "min": [
-            0.21300000000000002,
+            0.323,
             -0.287,
-            0.7535000000000001
+            0.7533000000000001
           ],
           "max": [
-            0.34700000000000003,
+            0.457,
             -0.193,
-            0.8375
+            0.8275
           ]
         },
         {
@@ -1183,29 +1279,103 @@
           "speed": 0.01,
           "spin": 0.2
         }
-      ],
-      "weight": 0.2
+      ]
+    },
+    {
+      "name": "new_cell_0_installed",
+      "weight": 0.2,
+      "all": [
+        {
+          "kind": "pose",
+          "body": "new_cell_0",
+          "pos": [
+            0,
+            -0.033,
+            0.01525
+          ],
+          "relative_to": "controller",
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "tolerance": 0.001,
+          "angle": 3.141592653589793
+        },
+        {
+          "kind": "axis",
+          "body": "new_cell_0",
+          "relative_to": "controller",
+          "local_axis": [
+            1,
+            0,
+            0
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "joint",
+          "joint": "spring_0",
+          "min": -0.0016,
+          "max": -0.00025
+        },
+        {
+          "kind": "still",
+          "body": "new_cell_0",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ]
     },
     {
       "name": "new_cell_1_installed",
+      "weight": 0.2,
       "all": [
         {
           "kind": "pose",
           "body": "new_cell_1",
           "pos": [
             0,
-            0.017,
+            0.033,
             0.01525
           ],
           "relative_to": "controller",
           "quat": [
-            0.0,
-            0.0,
-            1.0,
-            6.123233995736766e-17
+            0,
+            0,
+            0,
+            1
           ],
-          "tolerance": 0.0015,
-          "angle": 0.10471975511965978
+          "tolerance": 0.001,
+          "angle": 3.141592653589793
+        },
+        {
+          "kind": "axis",
+          "body": "new_cell_1",
+          "relative_to": "controller",
+          "local_axis": [
+            1,
+            0,
+            0
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "joint",
+          "joint": "spring_1",
+          "min": 0.00025,
+          "max": 0.0016
         },
         {
           "kind": "still",
@@ -1213,29 +1383,49 @@
           "speed": 0.01,
           "spin": 0.2
         }
-      ],
-      "weight": 0.2
+      ]
     },
     {
       "name": "cover_closed",
+      "weight": 0.2,
       "all": [
         {
           "kind": "region",
           "body": "old_cell_0",
           "min": [
-            0.21300000000000002,
+            0.323,
             -0.287,
-            0.7535000000000001
+            0.7533000000000001
           ],
           "max": [
-            0.34700000000000003,
+            0.457,
             -0.193,
-            0.8375
+            0.8275
           ]
         },
         {
           "kind": "still",
           "body": "old_cell_0",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "region",
+          "body": "old_cell_1",
+          "min": [
+            0.323,
+            -0.287,
+            0.7533000000000001
+          ],
+          "max": [
+            0.457,
+            -0.193,
+            0.8275
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_cell_1",
           "speed": 0.01,
           "spin": 0.2
         },
@@ -1244,42 +1434,44 @@
           "body": "new_cell_0",
           "pos": [
             0,
-            -0.017,
+            -0.033,
             0.01525
           ],
           "relative_to": "controller",
           "quat": [
-            0.0,
-            0.0,
-            0.0,
-            1.0
+            0,
+            0,
+            0,
+            1
           ],
-          "tolerance": 0.0015,
-          "angle": 0.10471975511965978
+          "tolerance": 0.001,
+          "angle": 3.141592653589793
+        },
+        {
+          "kind": "axis",
+          "body": "new_cell_0",
+          "relative_to": "controller",
+          "local_axis": [
+            1,
+            0,
+            0
+          ],
+          "direction": [
+            1,
+            0,
+            0
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "joint",
+          "joint": "spring_0",
+          "min": -0.0016,
+          "max": -0.00025
         },
         {
           "kind": "still",
           "body": "new_cell_0",
-          "speed": 0.01,
-          "spin": 0.2
-        },
-        {
-          "kind": "region",
-          "body": "old_cell_1",
-          "min": [
-            0.21300000000000002,
-            -0.287,
-            0.7535000000000001
-          ],
-          "max": [
-            0.34700000000000003,
-            -0.193,
-            0.8375
-          ]
-        },
-        {
-          "kind": "still",
-          "body": "old_cell_1",
           "speed": 0.01,
           "spin": 0.2
         },
@@ -1288,18 +1480,40 @@
           "body": "new_cell_1",
           "pos": [
             0,
-            0.017,
+            0.033,
             0.01525
           ],
           "relative_to": "controller",
           "quat": [
-            0.0,
-            0.0,
-            1.0,
-            6.123233995736766e-17
+            0,
+            0,
+            0,
+            1
           ],
-          "tolerance": 0.0015,
-          "angle": 0.10471975511965978
+          "tolerance": 0.001,
+          "angle": 3.141592653589793
+        },
+        {
+          "kind": "axis",
+          "body": "new_cell_1",
+          "relative_to": "controller",
+          "local_axis": [
+            1,
+            0,
+            0
+          ],
+          "direction": [
+            -1,
+            0,
+            0
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "joint",
+          "joint": "spring_1",
+          "min": 0.00025,
+          "max": 0.0016
         },
         {
           "kind": "still",
@@ -1313,18 +1527,19 @@
           "min": 0,
           "max": 0.002
         }
-      ],
-      "weight": 0.2
+      ]
     }
   ],
   "threads": [],
   "invariants": [],
   "collision_exclusions": [],
-  "novelty_status": "HOLD_NOT_CLEARED",
-  "implementation_status": "ENGINEERING_DRAFT_UNVALIDATED",
+  "novelty_status": "INTERNAL_REVIEW_CLEARED_FOR_VALIDATION_NOT_ACCEPTANCE",
+  "implementation_status": "MECHANICS_IMPLEMENTED_NATIVE_TESTS_PENDING",
   "limitations": [
-    "Contact springs and end clearance need tuning on PhysX. Cover rail retention and anti-pry resistance are not demonstrated.",
-    "Whole-workflow novelty is not established relative to existing cell removal and replacement tasks."
+    "Rigid cells and flat spring-contact shoes approximate compliant terminals; no electrochemical simulation.",
+    "Electrical readiness is a geometric contact-compression and polarity proxy, not a measured voltage.",
+    "Native friction, spring preload, cover retention and robot grasps await GPU execution.",
+    "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
   ],
   "closest_prs": [
     615,
@@ -1405,5 +1620,7 @@
       "place_yaw": 0.0,
       "grasp_offset": 0.008
     }
-  ]
+  ],
+  "engineering_revision": "opposed-contact-bays-feedback-v1",
+  "arm_clearance_revision": "support-handles-and-idle-parking-v1"
 }
