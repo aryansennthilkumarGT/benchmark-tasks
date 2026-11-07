@@ -5,9 +5,7 @@
     upAxis = "Z"
 )
 
-def Xform "Asset" (
-    prepend apiSchemas = ["PhysicsArticulationRootAPI"]
-)
+def Xform "Asset"
 {
     def Material "Material" (
         prepend apiSchemas = ["PhysicsMaterialAPI"]
@@ -18,13 +16,1747 @@ def Xform "Asset" (
         float physics:staticFriction = 0.65
     }
 
+    def Xform "anchor_0" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_0>,
+            </Asset/cable_0_0_Z>,
+        ]
+        float physics:mass = 0.08
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.014, 0.012, 0.008)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsFixedJoint "fix_anchor_0" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
+    {
+        rel physics:body0 = </Asset>
+        rel physics:body1 = </Asset/anchor_0>
+        point3f physics:localPos0 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+    }
+
+    def Xform "cable_0_0_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_0>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_0_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_0" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_1>,
+            </Asset/cable_0_1_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.005607635641931952, -0.007500000000000007, 4.410027898416047e-12)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.01872918337703654
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.70710677, 0.56631416, 0.42342445, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_1_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_1>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.011215271283863903, -0.014999999999999986, 8.819944774529631e-12)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_1_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.011215271283863903, -0.014999999999999986, 8.819944774529631e-12)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_1" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_2>,
+            </Asset/cable_0_2_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.016704125017885152, -0.02250000000000002, 5.688838289330533e-10)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.01858790093727415
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7071068, 0.57061857, 0.41760558, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_2_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_2>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.022192978751906345, -0.030000000000000027, 1.1289478241138795e-9)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_2_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.022192978751906345, -0.030000000000000027, 1.1289478241138795e-9)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_2" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_3>,
+            </Asset/cable_0_3_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.027446686727212344, -0.03750000000000003, 1.0209040279818282e-8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.018314087199735173
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7071071, 0.5791496, 0.40569106, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_3_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_3>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.03270039470251829, -0.04500000000000001, 1.9289132624500382e-8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_3_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.03270039470251829, -0.04500000000000001, 1.9289132624500382e-8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_3" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_4>,
+            </Asset/cable_0_4_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.03760737995784774, -0.05250000000000002, 8.189722933149568e-8)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.017925234090515
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7071093, 0.59171134, 0.38713586, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_4_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_4>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.04251436521317714, -0.060000000000000026, 1.4450532603849098e-7)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_4_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.04251436521317714, -0.060000000000000026, 1.4450532603849098e-7)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_4" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_5>,
+            </Asset/cable_0_5_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.046970109061981624, -0.0675, 4.167802082344352e-7)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.017447481574174823
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7071178, 0.6079064, 0.3611567, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_5_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_5>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.05142585291078611, -0.07500000000000001, 6.890550904303794e-7)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_5_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.05142585291078611, -0.07500000000000001, 6.890550904303794e-7)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_5" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_6>,
+            </Asset/cable_0_6_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.055335022640281284, -0.08250000000000002, 0.0000015790320302411232)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.01691527224327888
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.70714396, 0.6270099, 0.32681176, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_6_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_6>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.05924419236977646, -0.09, 0.000002469008970051867)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_6_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.05924419236977646, -0.09, 0.000002469008970051867)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_6" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_7>,
+            </Asset/cable_0_7_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06252258194005755, -0.09749999999999998, 0.000004866290061356082)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.016370442134711498
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7072103, 0.6478169, 0.28317282, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_7_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_7>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06580097151033865, -0.10499999999999998, 0.00000726357115277132)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_7_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06580097151033865, -0.10499999999999998, 0.00000726357115277132)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_7" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_8>,
+            </Asset/cable_0_8_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06837721574652272, -0.11249999999999999, 0.000012880126446401796)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.015860273126294552
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.70735717, 0.6685161, 0.22963476, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_8_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_8>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07095345998270686, -0.12, 0.000018496681740032273)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_8_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07095345998270686, -0.12, 0.000018496681740032273)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_8" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_9>,
+            </Asset/cable_0_9_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07277048736409325, -0.1275, 0.000030341007344669713)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.015433953322821374
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.70764923, 0.68669844, 0.16636664, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_9_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_9>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.0745875147454797, -0.135, 0.00004218533294930715)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_9_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.0745875147454797, -0.135, 0.00004218533294930715)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_9" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_10>,
+            </Asset/cable_0_10_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07560370921713083, -0.14250000000000002, 0.00006519219226008843)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.015137130576141517
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.70818067, 0.69963837, 0.09479582, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_10_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_10>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07661990368878191, -0.15000000000000002, 0.00008819905157086971)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_10_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07661990368878191, -0.15000000000000002, 0.00008819905157086971)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_10" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_11>,
+            </Asset/cable_0_11_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07680995184439093, -0.15750000000000003, 0.00013003702578551213)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.015005048312822813
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7090756, 0.70490617, 0.017862149, -0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_11_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_11>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07700000000000001, -0.165, 0.00017187500000004352)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_11_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07700000000000001, -0.165, 0.00017187500000004352)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_11" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_12>,
+            </Asset/cable_0_12_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07635540638984556, -0.1725, 0.00024395407408350778)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.015055988352170391
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7104839, 0.70112866, -0.060259078, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_12_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_12>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07571081277969105, -0.18, 0.00031603314816708306)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_12_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07571081277969105, -0.18, 0.00031603314816708306)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_12" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_13>,
+            </Asset/cable_0_13_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07424007285349449, -0.1875, 0.00043473455842757414)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.015287532954052042
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.71257603, 0.6884821, -0.13501042, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_13_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_13>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07276933292729787, -0.195, 0.0005534359686880652)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_13_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07276933292729787, -0.195, 0.0005534359686880652)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_13" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_14>,
+            </Asset/cable_0_14_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.07049776009136599, -0.2025, 0.0007415865381222853)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.015677428843496228
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.71554273, 0.6685761, -0.20249592, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_14_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_14>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06822618725543411, -0.21, 0.0009297371075565053)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_14_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06822618725543411, -0.21, 0.0009297371075565053)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_14" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_15>,
+            </Asset/cable_0_15_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06519539756470455, -0.2175, 0.0012183502951281788)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.01618875952276426
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.71960264, 0.64380586, -0.26016536, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_15_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_15>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06216460787397504, -0.22499999999999998, 0.0015069634826997413)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_15_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.06216460787397504, -0.22499999999999998, 0.0015069634826997413)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_15" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_16>,
+            </Asset/cable_0_16_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.058431672849148464, -0.2325, 0.0019372693727099932)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.016777361778128826
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7250159, 0.6165809, -0.30688754, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_16_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_16>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.05469873782432194, -0.24000000000000002, 0.002367575262720245)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_16_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.05469873782432194, -0.24000000000000002, 0.002367575262720245)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_16" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_17>,
+            </Asset/cable_0_17_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.05033502264028128, -0.2475, 0.0029933617204331853)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.017399266524550268
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.73209715, 0.5887916, -0.34257585, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_17_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_17>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.04597130745624062, -0.255, 0.0036191481781462365)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_17_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.04597130745624062, -0.255, 0.0036191481781462365)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_17" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_18>,
+            </Asset/cable_0_18_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.041061018152890705, -0.2625, 0.004509435397828554)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.018017053296932033
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7412244, 0.5616009, -0.36768305, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_18_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_18>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.03615072884954079, -0.27, 0.0053997226175107604)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_18_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.03615072884954079, -0.27, 0.0053997226175107604)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_18" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_19>,
+            </Asset/cable_0_19_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.030789198139665908, -0.2775, 0.0066417932890470155)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.018605241315932643
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7528341, 0.5354596, -0.38278437, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_19_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_19>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.02542766742979108, -0.28500000000000003, 0.007883863960583382)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_19_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.02542766742979108, -0.28500000000000003, 0.007883863960583382)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_19" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_20>,
+            </Asset/cable_0_20_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.01971941399993965, -0.2925, 0.009586671280829462)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.01915554332189974
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.7673941, 0.51020926, -0.3883205, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_20_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_20>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.014011160570088166, -0.3, 0.011289478601075542)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_20_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.014011160570088166, -0.3, 0.011289478601075542)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_20" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/cable_0_link_21>,
+            </Asset/cable_0_21_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.008067761381521488, -0.3075, 0.013587454356108752)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.01968295572167713
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.78533405, 0.48519525, -0.38449454, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_21_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/cable_0_link_21>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.002124362192954865, -0.31500000000000006, 0.015885430111142074)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_21_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.002124362192954865, -0.31500000000000006, 0.015885430111142074)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_link_21" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = [
+            </Asset/plug_0>,
+            </Asset/cable_0_connector_Z>,
+        ]
+        float physics:mass = 0.0015
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (-0.003937818903522572, -0.3225, 0.01894271505557099)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cylinder "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.020233341877002955
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.0025
+            quatf xformOp:orient = (0.8069085, 0.4593771, -0.3713103, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def Xform "cable_0_connector_X" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI", "PhysicsFilteredPairsAPI"]
+    )
+    {
+        prepend rel physics:filteredPairs = </Asset/plug_0>
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (-0.010000000000000009, -0.33, 0.02200000000000002)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "cable_0_connector_Z" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.0002
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (-0.010000000000000009, -0.33, 0.02200000000000002)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.001, 0.001, 0.001)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
     def Xform "plug_0" (
         prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
         float physics:mass = 0.016
         quatf xformOp:orient = (1, 0, 0, 0)
-        double3 xformOp:translate = (0, 0, 0)
+        double3 xformOp:translate = (-0.010000000000000009, -0.36, 0.031000000000000028)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
 
         def Cube "shape_0" (
@@ -48,8 +1780,8 @@ def Xform "Asset" (
             color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.014, 0.015, 0.014)
-            double3 xformOp:translate = (0, 0.022, 0)
+            float3 xformOp:scale = (0.014, 0.036, 0.014)
+            double3 xformOp:translate = (0, 0.04, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
@@ -60,7 +1792,7 @@ def Xform "Asset" (
     {
         float physics:mass = 0.002
         quatf xformOp:orient = (1, 0, 0, 0)
-        double3 xformOp:translate = (0, 0.008999999999999994, 0.01100000000000001)
+        double3 xformOp:translate = (-0.010000000000000009, -0.36, 0.045499999999999985)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
 
         def Cube "shape_0" (
@@ -71,17 +1803,1423 @@ def Xform "Asset" (
             color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.012, 0.028, 0.003)
+            float3 xformOp:scale = (0.012, 0.008, 0.004)
             double3 xformOp:translate = (0, 0, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
+
+        def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.21, 0.003)
+            double3 xformOp:translate = (0, 0.105, -0.007)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.014, 0.024, 0.02)
+            double3 xformOp:translate = (0, 0.2, 0.008)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def PhysicsRevoluteJoint "cable_0_0_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/anchor_0>
+        rel physics:body1 = </Asset/cable_0_0_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_0_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_0_X>
+        rel physics:body1 = </Asset/cable_0_0_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_0_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_0_Z>
+        rel physics:body1 = </Asset/cable_0_link_0>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.0056076357, 0.0075, -4.410028e-12)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_1_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_0>
+        rel physics:body1 = </Asset/cable_0_1_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.0056076357, -0.0075, 4.409917e-12)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_1_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_1_X>
+        rel physics:body1 = </Asset/cable_0_1_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_1_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_1_Z>
+        rel physics:body1 = </Asset/cable_0_link_1>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.005488854, 0.0075, -5.600639e-10)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_2_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_1>
+        rel physics:body1 = </Asset/cable_0_2_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.005488854, -0.0075, 5.60064e-10)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_2_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_2_X>
+        rel physics:body1 = </Asset/cable_0_2_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_2_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_2_Z>
+        rel physics:body1 = </Asset/cable_0_link_2>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.005253708, 0.0075, -9.080092e-9)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_3_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_2>
+        rel physics:body1 = </Asset/cable_0_3_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.005253708, -0.0075, 9.080092e-9)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_3_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_3_X>
+        rel physics:body1 = </Asset/cable_0_3_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_3_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_3_Z>
+        rel physics:body1 = </Asset/cable_0_link_3>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.0049069854, 0.0075, -6.2608095e-8)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_4_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_3>
+        rel physics:body1 = </Asset/cable_0_4_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.0049069854, -0.0075, 6.2608095e-8)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_4_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_4_X>
+        rel physics:body1 = </Asset/cable_0_4_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_4_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_4_Z>
+        rel physics:body1 = </Asset/cable_0_link_4>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.004455744, 0.0075, -2.722749e-7)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_5_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_4>
+        rel physics:body1 = </Asset/cable_0_5_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.004455744, -0.0075, 2.722749e-7)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_5_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_5_X>
+        rel physics:body1 = </Asset/cable_0_5_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_5_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_5_Z>
+        rel physics:body1 = </Asset/cable_0_link_5>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.0039091697, 0.0075, -8.8997695e-7)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_6_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_5>
+        rel physics:body1 = </Asset/cable_0_6_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.0039091697, -0.0075, 8.8997695e-7)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_6_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_6_X>
+        rel physics:body1 = </Asset/cable_0_6_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_6_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_6_Z>
+        rel physics:body1 = </Asset/cable_0_link_6>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.0032783896, 0.0075, -0.0000023972812)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_7_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_6>
+        rel physics:body1 = </Asset/cable_0_7_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.0032783896, -0.0075, 0.0000023972812)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_7_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_7_X>
+        rel physics:body1 = </Asset/cable_0_7_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_7_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_7_Z>
+        rel physics:body1 = </Asset/cable_0_link_7>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.0025762443, 0.0075, -0.0000056165554)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_8_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_7>
+        rel physics:body1 = </Asset/cable_0_8_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.0025762443, -0.0075, 0.0000056165554)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_8_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_8_X>
+        rel physics:body1 = </Asset/cable_0_8_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_8_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_8_Z>
+        rel physics:body1 = </Asset/cable_0_link_8>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.0018170273, 0.0075, -0.000011844326)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_9_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_8>
+        rel physics:body1 = </Asset/cable_0_9_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.0018170273, -0.0075, 0.000011844326)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_9_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_9_X>
+        rel physics:body1 = </Asset/cable_0_9_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_9_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_9_Z>
+        rel physics:body1 = </Asset/cable_0_link_9>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.0010161945, 0.0075, -0.00002300686)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_10_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_9>
+        rel physics:body1 = </Asset/cable_0_10_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.0010161945, -0.0075, 0.00002300686)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_10_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_10_X>
+        rel physics:body1 = </Asset/cable_0_10_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_10_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_10_Z>
+        rel physics:body1 = </Asset/cable_0_link_10>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (-0.00019004816, 0.0075, -0.000041837975)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_11_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_10>
+        rel physics:body1 = </Asset/cable_0_11_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0.00019004816, -0.0075, 0.000041837975)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_11_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_11_X>
+        rel physics:body1 = </Asset/cable_0_11_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_11_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_11_Z>
+        rel physics:body1 = </Asset/cable_0_link_11>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.0006445936, 0.0075, -0.00007207908)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_12_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_11>
+        rel physics:body1 = </Asset/cable_0_12_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.0006445936, -0.0075, 0.00007207908)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_12_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_12_X>
+        rel physics:body1 = </Asset/cable_0_12_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_12_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_12_Z>
+        rel physics:body1 = </Asset/cable_0_link_12>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.00147074, 0.0075, -0.00011870141)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_13_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_12>
+        rel physics:body1 = </Asset/cable_0_13_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.00147074, -0.0075, 0.00011870141)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_13_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_13_X>
+        rel physics:body1 = </Asset/cable_0_13_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_13_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_13_Z>
+        rel physics:body1 = </Asset/cable_0_link_13>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.0022715728, 0.0075, -0.00018815057)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_14_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_13>
+        rel physics:body1 = </Asset/cable_0_14_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.0022715728, -0.0075, 0.00018815057)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_14_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_14_X>
+        rel physics:body1 = </Asset/cable_0_14_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_14_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_14_Z>
+        rel physics:body1 = </Asset/cable_0_link_14>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.0030307898, 0.0075, -0.0002886132)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_15_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_14>
+        rel physics:body1 = </Asset/cable_0_15_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.0030307898, -0.0075, 0.0002886132)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_15_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_15_X>
+        rel physics:body1 = </Asset/cable_0_15_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_15_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_15_Z>
+        rel physics:body1 = </Asset/cable_0_link_15>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.003732935, 0.0075, -0.0004303059)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_16_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_15>
+        rel physics:body1 = </Asset/cable_0_16_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.003732935, -0.0075, 0.0004303059)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_16_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_16_X>
+        rel physics:body1 = </Asset/cable_0_16_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_16_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_16_Z>
+        rel physics:body1 = </Asset/cable_0_link_16>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.004363715, 0.0075, -0.00062578643)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_17_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_16>
+        rel physics:body1 = </Asset/cable_0_17_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.004363715, -0.0075, 0.00062578643)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_17_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_17_X>
+        rel physics:body1 = </Asset/cable_0_17_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_17_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_17_Z>
+        rel physics:body1 = </Asset/cable_0_link_17>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.0049102893, 0.0075, -0.0008902872)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_18_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_17>
+        rel physics:body1 = </Asset/cable_0_18_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.0049102893, -0.0075, 0.0008902872)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_18_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_18_X>
+        rel physics:body1 = </Asset/cable_0_18_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_18_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_18_Z>
+        rel physics:body1 = </Asset/cable_0_link_18>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.005361531, 0.0075, -0.0012420707)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_19_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_18>
+        rel physics:body1 = </Asset/cable_0_19_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.005361531, -0.0075, 0.0012420707)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_19_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_19_X>
+        rel physics:body1 = </Asset/cable_0_19_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_19_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_19_Z>
+        rel physics:body1 = </Asset/cable_0_link_19>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.0057082535, 0.0075, -0.0017028074)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_20_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_19>
+        rel physics:body1 = </Asset/cable_0_20_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.0057082535, -0.0075, 0.0017028074)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_20_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_20_X>
+        rel physics:body1 = </Asset/cable_0_20_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_20_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_20_Z>
+        rel physics:body1 = </Asset/cable_0_link_20>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.0059433994, 0.0075, -0.0022979758)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_21_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_20>
+        rel physics:body1 = </Asset/cable_0_21_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.0059433994, -0.0075, 0.0022979758)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_21_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_21_X>
+        rel physics:body1 = </Asset/cable_0_21_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_21_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_21_Z>
+        rel physics:body1 = </Asset/cable_0_link_21>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0.006062181, 0.0075, -0.003057285)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
+    }
+
+    def PhysicsRevoluteJoint "cable_0_connector_X_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "X"
+        rel physics:body0 = </Asset/cable_0_link_21>
+        rel physics:body1 = </Asset/cable_0_connector_X>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (-0.006062181, -0.0075, 0.003057285)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_connector_Z_bend" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00008
+        float drive:angular:physics:stiffness = 0.0007
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Z"
+        rel physics:body0 = </Asset/cable_0_connector_X>
+        rel physics:body1 = </Asset/cable_0_connector_Z>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -74.48451
+        float physics:upperLimit = 74.48451
+    }
+
+    def PhysicsRevoluteJoint "cable_0_connector_twist" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00005
+        float drive:angular:physics:stiffness = 0.0002
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/cable_0_connector_Z>
+        rel physics:body1 = </Asset/plug_0>
+        bool physics:collisionEnabled = 0
+        point3f physics:localPos0 = (0, 0, 0)
+        point3f physics:localPos1 = (0, 0.03, -0.009)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -160.42818
+        float physics:upperLimit = 160.42818
     }
 
     def PhysicsPrismaticJoint "latch_slide_0" (
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.5
+        float drive:linear:physics:damping = 0.4
         float drive:linear:physics:stiffness = 150
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
@@ -89,9 +3227,11 @@ def Xform "Asset" (
         rel physics:body0 = </Asset/plug_0>
         rel physics:body1 = </Asset/latch_0>
         bool physics:collisionEnabled = 0
-        point3f physics:localPos0 = (0, 0.009, 0.011)
+        point3f physics:localPos0 = (0, 0, 0.0145)
         point3f physics:localPos1 = (0, 0, 0)
-        float physics:lowerLimit = -0.004
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -0.006
         float physics:upperLimit = 0
     }
 }

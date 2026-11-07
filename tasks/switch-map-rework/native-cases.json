@@ -1,0 +1,164 @@
+{
+  "physics": [
+    {
+      "name": "cables_settle_without_breaking_or_unplugging",
+      "steps": 120,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "displacement",
+          "body": "plug_2",
+          "min": 0,
+          "max": 0.005
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "catch_blocks_undeformed_withdrawal",
+      "forces": [
+        {
+          "assembly": "plug_0_asset",
+          "body": "plug_0",
+          "force": [
+            0,
+            0.35,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "plug_0",
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "min": -0.002,
+          "max": 0.008
+        }
+      ]
+    },
+    {
+      "name": "pressed_catch_permits_withdrawal",
+      "initialize_joints": [
+        {
+          "assembly": "plug_0_asset",
+          "joint": "latch_slide_0",
+          "value": -0.0055
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "plug_0_asset",
+          "body": "latch_0",
+          "force": [
+            0,
+            0,
+            -1
+          ]
+        },
+        {
+          "assembly": "plug_0_asset",
+          "body": "plug_0",
+          "force": [
+            0,
+            0.35,
+            0
+          ]
+        }
+      ],
+      "steps": 100,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "plug_0",
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "min": 0.025,
+          "max": 0.14
+        }
+      ]
+    },
+    {
+      "name": "released_catch_springs_back",
+      "initialize_joints": [
+        {
+          "assembly": "plug_0_asset",
+          "joint": "latch_slide_0",
+          "value": -0.0055
+        }
+      ],
+      "steps": 100,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "latch_slide_0",
+          "min": -0.0006,
+          "max": 0
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "two_arm_catch_release",
+      "through_phase": 4,
+      "max_steps": 1600,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "latch_slide_0",
+          "min": -0.006,
+          "max": -0.0045
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Depress catch 0"
+    },
+    {
+      "name": "withdrawal_with_continuous_cable",
+      "through_phase": 5,
+      "max_steps": 2200,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "plug_0",
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "min": 0.07,
+          "max": 0.08
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Withdraw blue plug past the catch"
+    }
+  ]
+}

@@ -5,9 +5,7 @@
     upAxis = "Z"
 )
 
-def Xform "Asset" (
-    prepend apiSchemas = ["PhysicsArticulationRootAPI"]
-)
+def Xform "Asset"
 {
     def Material "Material" (
         prepend apiSchemas = ["PhysicsMaterialAPI"]
@@ -103,8 +101,11 @@ def Xform "Asset" (
         }
     }
 
-    def PhysicsFixedJoint "fix_port_1"
+    def PhysicsFixedJoint "fix_port_1" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
     {
+        rel physics:body0 = </Asset>
         rel physics:body1 = </Asset/port_1>
         point3f physics:localPos0 = (0, 0, 0)
         quatf physics:localRot0 = (1, 0, 0, 0)

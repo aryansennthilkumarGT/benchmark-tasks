@@ -1,206 +1,46 @@
 # Correct two latched patch connections while preserving a third
 
-**ENGINEERING DRAFT — NOT READY FOR SUBMISSION.** No GPU execution, full-score demonstration,
-Dream-1 result or uploaded media exists. Synthetic unit-test frames never count as trial evidence.
-The source includes unfinished mechanisms and controller steps listed below; passing offline tests
-does not establish construct validity or feasibility. No upstream PR should be opened for this revision.
+Correct the crossed blue and orange patch leads so each occupies its matching port. Release each catch before withdrawing the plug, and leave each catch engaged afterward. Keep the green link connected throughout.
 
-Swap the blue and orange patch plugs to the matching blue and orange socket marks. Leave the green connection seated. Release each latch before withdrawing its plug.
+Engineering implementation. `validation.json` records exact executed evidence. A checkout without the required native, expert, model and media records is not ready for an official PR. No unexecuted score is claimed.
 
-## Reproduce offline checks
+## Independent reproduction
 
-From this task folder, using Python 3.11 or later:
+This folder is self-contained; it never imports another task or the handoff branch. In an authorized official Linux x86-64 YAM/Arena GPU environment, run from the repository root:
 
-```sh
-python -m unittest -v test_scoring.py
-python -m pip install usd-core==25.11
-python build_assets.py
-python verify_assets.py
+```bash
+python3 tasks/switch-map-rework/bootstrap_task.py --output /data/switch-map-rework-evidence --budget-file /data/compute-budget.json --execute --model
 ```
 
-`scene.json` is the authoritative geometry, initial poses, masses, constraints and tolerances.
-`INVENTORY.txt` lists every rigid body. Each assembly USD is generated from original primitives.
-Friction is 0.65 static / 0.5 dynamic; restitution is zero. Robot controls never write task poses.
-USD structural validation is not a PhysX simulation test. AABB/OBB overlap checks use conservative
-cylinder bounds and can reject valid corner contacts; calibrate against real contact telemetry.
+Without `--execute`, this command previews only. Add `--resume` to reuse hash-verified outputs. The bootstrap uses the pinned official installer in the evidence directory, validates the official apple/bowl smoke trial, runs static checks, then native probes and two independent full-score expert episodes. `--model` adds genuine Dream-1 and media only after those succeed. It never uploads media or opens PRs. See the shared eight-task runner on the handoff branch for upload and submission gates.
 
-## Native execution (pending)
+If the exact pinned environment is already installed, use its Python directly:
 
-Activate an existing isolated Isaac Lab-Arena environment on the verified RTX 4090.
-Do not install or modify system drivers. The inspected adapter is
-`kairosiann/yam-isaac-lab-arena@bd62771e60320433893bd1d2df0fc79b5ddcd6d1`;
-its documented stack is Arena 0.3.1 / Isaac Lab 3.0 / Isaac Sim 6.1 / Python 3.12.
-Inspect Robots 1.0 compatibility and the actual lab installation remain unverified.
-No third-party adapter code is vendored. Use the upstream setup documentation after inspecting it.
-
-```sh
-source "$ARENA_DIR/yam.env"
-python run.py --mode expert --output "$RUN_ROOT/switch-map-rework/expert-1"
-python run.py --mode dream --output "$RUN_ROOT/switch-map-rework/dream-1"
+```bash
+python tasks/switch-map-rework/static_check.py
+python tasks/switch-map-rework/task_runner.py --output /data/switch-map-rework-trials --execute --model
 ```
 
-These commands print the concrete command and pending gates. They execute only with `--execute`;
-execution requires an RTX 4090, existing simulator dependencies and explicit output directory.
-The expert plan is a runnable nominal pick/place prototype, **not a completed expert controller**.
-It lacks the task-specific access, contact and regrasp operations below. Tune and complete it before
-attempting a full-score demonstration. Never evaluate Dream against an unfinished mechanism.
-The Dream mode uses the real Inspect Robots policy interface, not a mock policy. Check the installed
-CLI help and model identifier before an authorized paid-credit trial. Do not run this launcher on
-the controller laptop as a replacement for the required GPU machine.
+Evidence must be outside this Git checkout, and the checkout must be clean. The same command without `--execute` is a dry run. `--retry-failed REASON` allows one documented retry of an unchanged failed stage; a code fix should produce a new commit. A failed task preserves previous evidence. Never reuse an expert video as model evidence.
 
-Control frequency: 20 Hz. Provisional limit: 3600 actions / 180 s.
-Native wall-clock runtime: unmeasured. Seed: 0, no initial jitter. Human reference time: unmeasured.
-Record the actual versions, GPU identity, seed, actions, per-stage timestamps and all three native
-cameras for every trial. `ROBOCURVE_TRACE` is private scorer telemetry, never model input.
-Run two fresh resets for the expert, one genuine Dream evaluation, then native adversarial trials.
+## Environment and cost
 
-## Exact scoring
+`stack-lock.json` pins the official launchable, adapter, Arena release, Inspect Robots and Dream plugin commits. It uses Python 3.12, Isaac Sim 6.1.0.0, NumPy 2.3.1 and the official bimanual I2RT YAM station. The adapter's 14-D action is left six absolute joints + normalized jaw opening, then right six + opening. Physics is 240 Hz; control is 20 Hz; observations are the three official 320x176 RGB cameras and robot joints.
 
-Positions are metres; quaternion order is XYZW; angular tolerances are radians. Pose tolerance is
-Euclidean distance, not an axiswise box. Region checks contain the entire rotated collision envelope.
-Each goal weighs 1/2; no prescribed ordering is imposed on independent goals. Historical first
-completion timestamps are analytics only. Current-state regression loses credit. Loss or invalid
-geometry permanently invalidates that episode. Release and stability must be observed continuously.
+Use an RTX 4090/5090 or L40S ray-tracing GPU, >=16 GiB free VRAM, >=32 GB RAM with >=24 GiB available, and >=250 GiB free disk. Drivers are checked against the documented Linux recommendation 580.95.05; Isaac Sim 6.1 lists 595.58.03 as tested. The script does not modify drivers, system Python, VPN, SSH configuration or other jobs. Vendor EULA acceptance must already be configured by the authorized launchable/operator. `uv` and `git` must be present. Dream credentials stay in the official secure configuration.
 
-### link_0_correct
+The budget receipt describes actual provider facts: `hourly_usd`, `balance_usd`, `spent_before_start_usd`, `instance_started_unix`, `instance_id`, `gpu_uuid`, and `provider_evidence`. No price or credit is assumed. The launcher monitors instance wall time, including idle time, with a $170 charge cap and $30 reserve. Exiting a script does not stop provider billing. Evidence and raw observations are retained.
 
-```json
-[
-  {
-    "kind": "pose",
-    "body": "plug_0",
-    "pos": [
-      0.22,
-      -0.1,
-      0.7825000000000001
-    ],
-    "relative_to": null,
-    "quat": [
-      0.0,
-      0.0,
-      0.0,
-      1.0
-    ],
-    "tolerance": 0.002,
-    "angle": 0.10471975511965978
-  },
-  {
-    "kind": "joint",
-    "joint": "latch_slide_0",
-    "min": -0.0005,
-    "max": 0
-  },
-  {
-    "kind": "still",
-    "body": "plug_0",
-    "speed": 0.01,
-    "spin": 0.2
-  }
-]
-```
-### link_1_correct
+## Trials and scoring
 
-```json
-[
-  {
-    "kind": "pose",
-    "body": "plug_1",
-    "pos": [
-      0.32,
-      -0.1,
-      0.7825000000000001
-    ],
-    "relative_to": null,
-    "quat": [
-      0.0,
-      0.0,
-      0.0,
-      1.0
-    ],
-    "tolerance": 0.002,
-    "angle": 0.10471975511965978
-  },
-  {
-    "kind": "joint",
-    "joint": "latch_slide_1",
-    "min": -0.0005,
-    "max": 0
-  },
-  {
-    "kind": "still",
-    "body": "plug_1",
-    "speed": 0.01,
-    "spin": 0.2
-  }
-]
-```
+Seed 0 and `object_jitter=0` are fixed for both expert repeats and the model. Maximum 9600 actions (480 simulated seconds). Real wall time is unmeasured and depends on physics/rendering/model latency. The scorer recomputes partial credit and requires 1 s of final stability and released-arm clearance. Read [SCORING.md](SCORING.md) for every numerical condition and [SETUP.md](SETUP.md) for every body, material, mass, dimension and pose.
 
+Native probes: 4 physics cases and 2 real robot-control cases, each repeated after independent resets. Physics probes may initialize mechanism poses and apply forces for controlled measurements; those probes are explicitly excluded from demonstration/media evidence. Control probes use only robot actions. Two full expert episodes separately establish feasibility before model spending.
 
-Preservation invariants (violation invalidates the entire episode):
+## Implementation and limits
 
-```json
-[
-  {
-    "name": "healthy_link_disturbed",
-    "all": [
-      {
-        "kind": "pose",
-        "body": "plug_2",
-        "pos": [
-          0.42,
-          -0.1,
-          0.7825000000000001
-        ],
-        "relative_to": null,
-        "quat": [
-          0.0,
-          0.0,
-          0.0,
-          1.0
-        ],
-        "tolerance": 0.006,
-        "angle": 0.20943951023931956
-      }
-    ]
-  }
-]
-```
+Each cable is a continuous 22-segment rigid chain with passive bend/twist joints. Collision-defined catches use enlarged service paddles for parallel jaws, not exact RJ45 clips. Joint continuity and contact-defined seating proxy link continuity; packet transmission and microscopic elasticity are omitted.
 
-Forbidden kit occupancy and helical-engagement definitions, when applicable:
+Read [CONTROLLER.md](CONTROLLER.md), [NOVELTY.md](NOVELTY.md), and `mechanics-review.json` for the feedback strategy, comparison review and five criteria. Rigid USD parse checks, synthetic scoring tests and ideal IK replay are offline evidence only. Native contacts, camera rendering, reliable reset and complete action execution require separate runtime evidence.
 
-```json
-{
-  "forbidden_regions": [],
-  "threads": []
-}
-```
-
-Fixed bodies must remain within 5 mm and 3 degrees of their documented initial pose. A body whose
-lowest collision-bound corner crosses 25 mm below the tabletop is lost. Mechanical joint limits
-allow only a 0.5 mm prismatic / 0.01 rad revolute measurement margin. Nut rotation counts only while
-coaxially engaged and coupled cumulatively to axial advance at the declared pitch; spinning in place
-and dropping an unturned nut onto a stud do not count. Conservative bounds and thresholds require
-comparison with native contact data before review approval.
-
-## Unresolved review gates
-
-- Flexible cable bodies and connector-end continuity are NOT implemented. The present native assets are a connector/latch fixture, not a complete network recabling simulation.
-- Latch hook interference, pressing access and retention must be validated. This candidate cannot advance to construct-validity approval until a real compliant cable model is added.
-- Novelty relative to mapped patching and accepted plug reseating remains unresolved.
-- Native reset, robot reach, gripper clearance, collision stability, force response and contact fidelity.
-- Two genuine full-score expert trials; complete actual Dream evaluation; required media upload.
-- Current novelty and ownership review. See NOVELTY.md; no acceptance claim is made.
-
-## Media and final handoff
-
-Keep raw logs and videos outside this branch. Once the task is actually validated, render H.264 MP4,
-check duration, critical interactions and blind-review anonymity, then use the official root uploader:
-
-```sh
-python tools/upload_media.py tasks/switch-map-rework --video "$DREAM_MP4" --demo "$DEMO_MP4" --screenshot "$SETUP_PNG"
-```
-
-Run that command from the repository root with the team's securely supplied environment credentials.
-The empty media field is intentional: no invented ID or accidental prior-upload fallback is acceptable.
-Record the real score and returned ID only after successful execution/upload. The teammate alone opens
-the official PR after all review gates pass. This revision must remain on a draft branch.
+`build_assets.py` deterministically derives included `.usda` assets from `scene.json`; run it only when intentionally changing the scene, then update hashes and commit. `source_manifest.json` hashes LF-normalized source and asset bytes. `run.py` launches one official trial, `task_runner.py` preserves/gates native evidence, `validate_rollout.py` cross-checks logs/actions/frames/scorer replay, and `render_media.py` exports and fully decodes H.264 yuv420p media. A zero Dream score is valid evidence when the required successful demonstrations exist. Public media require visual inspection for framing, mechanical outcome and blind-review compliance before upload.

@@ -168,6 +168,7 @@ class Scorer:
             self.failed = self.failed or 'nonmonotonic_or_conflicting_frame'
         if self.last_time is not None and now - self.last_time > 1.5 / self.spec['control_hz']:
             self.hold_start = None  # an unobserved time gap cannot prove stability.
+        previous_frame=self.last_frame
         import copy
         self.last_time, self.last_frame = now, copy.deepcopy(frame)
         for name, bs in self.body_specs.items():
@@ -189,6 +190,23 @@ class Scorer:
             margin = 0.01 if j['kind']=='revolute' else 0.0005
             if not j['lower']-margin <= frame['joints'][name] <= j['upper']+margin:
                 self.failed = self.failed or f'joint_limit_violation:{name}'
+        for connection in self.spec.get('continuity',[]):
+            joint=self.joint_specs[connection['joint']]
+            parent=frame['bodies'][joint['parent']];child=frame['bodies'][joint['child']]
+            left=add(parent['pos'],rotate(parent['quat'],joint['pivot_parent']))
+            right=add(child['pos'],rotate(child['quat'],joint['pivot_child']))
+            if norm(sub(left,right))>connection['tolerance']:
+                self.failed=self.failed or 'broken_connection:'+connection['joint']
+        if previous_frame is not None:
+            for guard in self.spec.get('latch_release_guards',[]):
+                body=guard['body'];name=guard['joint']
+                for port in guard['ports']:
+                    before,_=relative(previous_frame['bodies'][body],previous_frame['bodies'][port])
+                    after,_=relative(frame['bodies'][body],frame['bodies'][port])
+                    crosses=(abs(before[0])<.004 and abs(before[2])<.006
+                             and -.004<=before[1]<=guard['catch_distance']<after[1])
+                    if crosses and min(previous_frame['joints'][name],frame['joints'][name])>guard['release_below']:
+                        self.failed=self.failed or 'catch_forced_without_release:'+body
         for guard in self.spec.get('invariants', []):
             if not all(self.predicate(p, frame) for p in guard['all']):
                 self.failed = self.failed or guard['name']

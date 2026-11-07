@@ -1,13 +1,5 @@
-# Source and asset provenance
+# Asset and software provenance
 
-All task-specific source and primitive scene definitions in this folder were authored for this
-development effort. USD assets are deterministic exports of `scene.json` by `build_assets.py`.
-There are no downloaded object meshes, textures, vendor logos or third-party task assets.
+All task geometry is original primitive USD construction from scene.json; no third-party task assets or identifying textures are embedded. Official robot/station dependencies are fetched at the commits in stack-lock.json. Robot collision audits use the adapter's actual convex YAM URDF. The scripts, controller, scorer, tests and native probes in this folder are the task implementation. Physical results are recorded in validation.json only after actual execution.
 
-The external `yam_arena` adapter and robot are dependencies, not vendored code. API conventions
-were inspected in the public adapter and the official accepted examples. The adapter's own license
-and the I2RT robot asset license must be checked when installing/distributing those dependencies.
-No license for third-party assets is inferred from their availability on GitHub.
-
-This folder contains no simulation outputs. The unit tests deliberately construct synthetic states
-to exercise predicates; their 1.0 values are mathematical fixtures, not expert demonstrations.
+Fixture anchors reference the asset static Xform, with fixed-base articulation roots on the root joint, following the [OpenUSD joint reference-frame example](https://openusd.org/release/api/usd_physics_page_front.html). Offline USD checks compose the whole task at its spawn transforms and inspect real physics descriptors. The validator uses one USD worker to avoid a reproduced Windows usd-core 25.11 parallel-parser crash; this is not a native simulation setting.

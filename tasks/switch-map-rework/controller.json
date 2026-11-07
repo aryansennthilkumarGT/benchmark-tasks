@@ -1,0 +1,1871 @@
+{
+  "schema": 2,
+  "status": "FEEDBACK_CONTROLLER_UNVALIDATED_IN_PHYSICS",
+  "phases": [
+    {
+      "kind": "move",
+      "label": "Approach plug 0",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.3,
+          -0.05,
+          0.8575
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp plug 0",
+      "side": "right",
+      "body": "plug_0",
+      "offset": [
+        0,
+        0.05,
+        0.012
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "kind": "move",
+      "label": "Approach release paddle 0",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.3,
+          0.09999999999999999,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.6532814824381883,
+          0.6532814824381883,
+          -0.2705980500730985,
+          0.2705980500730985
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp release paddle 0",
+      "side": "left",
+      "body": "latch_0",
+      "offset": [
+        0,
+        0.2,
+        0.012
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "width": [
+        0.018,
+        0.03
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Depress catch 0",
+      "side": "left",
+      "body": "latch_0",
+      "joint": "latch_slide_0",
+      "value": -0.0055,
+      "increment": 0.0004,
+      "tolerance": 0.00035,
+      "keep_hold": true,
+      "hold_relative_to": "plug_0"
+    },
+    {
+      "kind": "insert",
+      "label": "Withdraw blue plug past the catch",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.3,
+          -0.025,
+          0.7825000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_displacement": true,
+      "timeout": 25
+    },
+    {
+      "kind": "release",
+      "label": "Release catch 0",
+      "side": "left",
+      "clear_hold": true,
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "move",
+      "label": "Clear catch 0",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.19,
+          0.24,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "carry",
+      "label": "Lift blue plug toward parking cradle",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.3,
+          -0.025,
+          0.8125
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Move blue plug to parking cradle",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.25,
+          -0.025,
+          0.8125
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "insert",
+      "label": "Lower blue plug onto parking cradle",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.25,
+          -0.025,
+          0.769
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "release",
+      "label": "Release parked blue plug",
+      "side": "right",
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Clear parked blue plug",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.25,
+          0.025,
+          0.8575
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Approach plug 1",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.05,
+          0.8575
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp plug 1",
+      "side": "right",
+      "body": "plug_1",
+      "offset": [
+        0,
+        0.05,
+        0.012
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "kind": "move",
+      "label": "Approach release paddle 1",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.2,
+          0.09999999999999999,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.6532814824381883,
+          0.6532814824381883,
+          -0.2705980500730985,
+          0.2705980500730985
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp release paddle 1",
+      "side": "left",
+      "body": "latch_1",
+      "offset": [
+        0,
+        0.2,
+        0.012
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "width": [
+        0.018,
+        0.03
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Depress catch 1",
+      "side": "left",
+      "body": "latch_1",
+      "joint": "latch_slide_1",
+      "value": -0.0055,
+      "increment": 0.0004,
+      "tolerance": 0.00035,
+      "keep_hold": true,
+      "hold_relative_to": "plug_1"
+    },
+    {
+      "kind": "insert",
+      "label": "Withdraw orange plug past the catch",
+      "side": "right",
+      "body": "plug_1",
+      "target": {
+        "pos": [
+          0.2,
+          -0.025,
+          0.7825000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_displacement": true,
+      "timeout": 25
+    },
+    {
+      "kind": "carry",
+      "label": "Lift orange lead with its catch supported",
+      "side": "right",
+      "body": "plug_1",
+      "target": {
+        "pos": [
+          0.2,
+          -0.025,
+          0.8125
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Move orange lead to matching port",
+      "side": "right",
+      "body": "plug_1",
+      "target": {
+        "pos": [
+          0.3,
+          -0.025,
+          0.8125
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "carry",
+      "label": "Align orange plug at port mouth",
+      "side": "right",
+      "body": "plug_1",
+      "target": {
+        "pos": [
+          0.3,
+          -0.025,
+          0.7825000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "insert",
+      "label": "Insert orange plug beneath the catch lip",
+      "side": "right",
+      "body": "plug_1",
+      "target": {
+        "pos": [
+          0.3,
+          -0.1,
+          0.7825000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 25
+    },
+    {
+      "kind": "release",
+      "label": "Release catch 1",
+      "side": "left",
+      "clear_hold": true,
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "move",
+      "label": "Clear catch 1",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.19,
+          0.24,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "release",
+      "label": "Release correctly latched orange plug",
+      "side": "right",
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Clear orange connector",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.3,
+          -0.04999999999999999,
+          0.8575
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Approach plug 0",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.25,
+          0.025,
+          0.8575
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp plug 0",
+      "side": "right",
+      "body": "plug_0",
+      "offset": [
+        0,
+        0.05,
+        0.012
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.01,
+        0.02
+      ]
+    },
+    {
+      "kind": "move",
+      "label": "Approach release paddle 0",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.25,
+          0.175,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.6532814824381883,
+          0.6532814824381883,
+          -0.2705980500730985,
+          0.2705980500730985
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp release paddle 0",
+      "side": "left",
+      "body": "latch_0",
+      "offset": [
+        0,
+        0.2,
+        0.012
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "width": [
+        0.018,
+        0.03
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Depress catch 0",
+      "side": "left",
+      "body": "latch_0",
+      "joint": "latch_slide_0",
+      "value": -0.0055,
+      "increment": 0.0004,
+      "tolerance": 0.00035,
+      "keep_hold": true,
+      "hold_relative_to": "plug_0"
+    },
+    {
+      "kind": "carry",
+      "label": "Lift parked blue plug",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.25,
+          -0.025,
+          0.8125
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Move blue plug to its matching port",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.2,
+          -0.025,
+          0.8125
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "carry",
+      "label": "Align blue plug at port mouth",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.2,
+          -0.025,
+          0.7825000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "insert",
+      "label": "Insert blue plug beneath catch lip",
+      "side": "right",
+      "body": "plug_0",
+      "target": {
+        "pos": [
+          0.2,
+          -0.1,
+          0.7825000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 25
+    },
+    {
+      "kind": "release",
+      "label": "Release catch 0",
+      "side": "left",
+      "clear_hold": true,
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "move",
+      "label": "Clear catch 0",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.19,
+          0.24,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.4685835995740149
+    },
+    {
+      "kind": "release",
+      "label": "Release correctly latched blue plug",
+      "side": "right",
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw right arm",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.26,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw left arm",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.2,
+          0.26,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "hold",
+      "label": "Observe released terminal stability",
+      "side": "left",
+      "seconds": 1.5,
+      "opening": 1
+    }
+  ],
+  "audit_tcp_targets": [
+    {
+      "label": "Approach plug 0",
+      "side": "right",
+      "pos": [
+        0.3,
+        -0.05,
+        0.8575
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp plug 0",
+      "side": "right",
+      "pos": [
+        0.3,
+        -0.05,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Approach release paddle 0",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.09999999999999999,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp release paddle 0",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.809
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 1/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.8083125000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 2/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.807625
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 3/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.8069375000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 4/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.80625
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 5/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.8055625000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 6/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.804875
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 7/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.8041875
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 8/8",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Withdraw blue plug past the catch",
+      "side": "right",
+      "pos": [
+        0.3,
+        0.025,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Withdraw blue plug past the catch concurrent support",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.17500000000000002,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Release catch 0",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.17500000000000002,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Clear catch 0",
+      "side": "left",
+      "pos": [
+        0.19,
+        0.24,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Lift blue plug toward parking cradle",
+      "side": "right",
+      "pos": [
+        0.3,
+        0.025,
+        0.8245
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Move blue plug to parking cradle",
+      "side": "right",
+      "pos": [
+        0.25,
+        0.025,
+        0.8245
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Lower blue plug onto parking cradle",
+      "side": "right",
+      "pos": [
+        0.25,
+        0.025,
+        0.781
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Release parked blue plug",
+      "side": "right",
+      "pos": [
+        0.25,
+        0.025,
+        0.781
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Clear parked blue plug",
+      "side": "right",
+      "pos": [
+        0.25,
+        0.025,
+        0.8575
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Approach plug 1",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.05,
+        0.8575
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp plug 1",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.05,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Approach release paddle 1",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.09999999999999999,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp release paddle 1",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.809
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 1/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.8083125000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 2/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.807625
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 3/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.8069375000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 4/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.80625
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 5/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.8055625000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 6/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.804875
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 7/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.8041875
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 1 8/8",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Withdraw orange plug past the catch",
+      "side": "right",
+      "pos": [
+        0.2,
+        0.025,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Withdraw orange plug past the catch concurrent support",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.17500000000000002,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Lift orange lead with its catch supported",
+      "side": "right",
+      "pos": [
+        0.2,
+        0.025,
+        0.8245
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Lift orange lead with its catch supported concurrent support",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.17500000000000002,
+        0.8335
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Move orange lead to matching port",
+      "side": "right",
+      "pos": [
+        0.3,
+        0.025,
+        0.8245
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Move orange lead to matching port concurrent support",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.17500000000000002,
+        0.8335
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Align orange plug at port mouth",
+      "side": "right",
+      "pos": [
+        0.3,
+        0.025,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Align orange plug at port mouth concurrent support",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.17500000000000002,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Insert orange plug beneath the catch lip",
+      "side": "right",
+      "pos": [
+        0.3,
+        -0.05,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Insert orange plug beneath the catch lip concurrent support",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Release catch 1",
+      "side": "left",
+      "pos": [
+        0.3,
+        0.1,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Clear catch 1",
+      "side": "left",
+      "pos": [
+        0.19,
+        0.24,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Release correctly latched orange plug",
+      "side": "right",
+      "pos": [
+        0.3,
+        -0.05,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Clear orange connector",
+      "side": "right",
+      "pos": [
+        0.3,
+        -0.04999999999999999,
+        0.8575
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Approach plug 0",
+      "side": "right",
+      "pos": [
+        0.25,
+        0.025,
+        0.8575
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp plug 0",
+      "side": "right",
+      "pos": [
+        0.25,
+        0.025,
+        0.781
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Approach release paddle 0",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.175,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp release paddle 0",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 1/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 2/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 3/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 4/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 5/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 6/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 7/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Depress catch 0 8/8",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.79
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Lift parked blue plug",
+      "side": "right",
+      "pos": [
+        0.25,
+        0.025,
+        0.8245
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Lift parked blue plug concurrent support",
+      "side": "left",
+      "pos": [
+        0.25,
+        0.17500000000000002,
+        0.8335
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Move blue plug to its matching port",
+      "side": "right",
+      "pos": [
+        0.2,
+        0.025,
+        0.8245
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Move blue plug to its matching port concurrent support",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.17500000000000002,
+        0.8335
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Align blue plug at port mouth",
+      "side": "right",
+      "pos": [
+        0.2,
+        0.025,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Align blue plug at port mouth concurrent support",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.17500000000000002,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Insert blue plug beneath catch lip",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.05,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.1597444089456869
+    },
+    {
+      "label": "Insert blue plug beneath catch lip concurrent support",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.25559105431309903
+    },
+    {
+      "label": "Release catch 0",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.1,
+        0.8035000000000001
+      ],
+      "quat": [
+        -0.6532814824381883,
+        0.6532814824381883,
+        -0.2705980500730985,
+        0.2705980500730985
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Clear catch 0",
+      "side": "left",
+      "pos": [
+        0.19,
+        0.24,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4685835995740149
+    },
+    {
+      "label": "Release correctly latched blue plug",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.05,
+        0.7945000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Withdraw right arm",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.26,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Withdraw left arm",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.26,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    }
+  ]
+}
