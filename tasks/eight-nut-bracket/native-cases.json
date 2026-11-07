@@ -1,0 +1,411 @@
+{
+  "physics": [
+    {
+      "name": "unfastened_plate_returns_after_compression",
+      "initialize_joints": [
+        {
+          "assembly": "bracket_asset",
+          "joint": "plate_preload",
+          "value": -0.012
+        }
+      ],
+      "steps": 120,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "plate_preload",
+          "min": -0.005,
+          "max": -0.001
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "fasteners_retain_compressed_plate_after_release",
+      "initialize_joints": [
+        {
+          "assembly": "bracket_asset",
+          "joint": "plate_preload",
+          "value": -0.012
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "nut_0_asset",
+          "pos": [
+            0.17500000000000002,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_1_asset",
+          "pos": [
+            0.23500000000000001,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_2_asset",
+          "pos": [
+            0.29500000000000004,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_3_asset",
+          "pos": [
+            0.355,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_4_asset",
+          "pos": [
+            0.17500000000000002,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_5_asset",
+          "pos": [
+            0.23500000000000001,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_6_asset",
+          "pos": [
+            0.29500000000000004,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_7_asset",
+          "pos": [
+            0.355,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        }
+      ],
+      "steps": 120,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "plate_preload",
+          "min": -0.013,
+          "max": -0.0108
+        },
+        {
+          "kind": "joint",
+          "joint": "plate_tilt_x",
+          "min": -0.035,
+          "max": 0.035
+        },
+        {
+          "kind": "joint",
+          "joint": "plate_tilt_y",
+          "min": -0.035,
+          "max": 0.035
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "threaded_retention_resists_upward_plate_load",
+      "initialize_joints": [
+        {
+          "assembly": "bracket_asset",
+          "joint": "plate_preload",
+          "value": -0.012
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "nut_0_asset",
+          "pos": [
+            0.17500000000000002,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_1_asset",
+          "pos": [
+            0.23500000000000001,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_2_asset",
+          "pos": [
+            0.29500000000000004,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_3_asset",
+          "pos": [
+            0.355,
+            -0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_4_asset",
+          "pos": [
+            0.17500000000000002,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_5_asset",
+          "pos": [
+            0.23500000000000001,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_6_asset",
+          "pos": [
+            0.29500000000000004,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        },
+        {
+          "assembly": "nut_7_asset",
+          "pos": [
+            0.355,
+            0.05,
+            0.7687
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            -4.286263797015736e-16
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "bracket_asset",
+          "body": "pressure_plate",
+          "force": [
+            0,
+            0,
+            2
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "plate_preload",
+          "min": -0.013,
+          "max": -0.0105
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "nut_cannot_drop_axially_through_stud",
+      "initialize_bodies": [
+        {
+          "assembly": "nut_0_asset",
+          "pos": [
+            0.17500000000000002,
+            -0.05,
+            0.7827000000000001
+          ]
+        }
+      ],
+      "steps": 100,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "nut_0",
+          "axis": 2,
+          "min": 0.7785000000000001,
+          "max": 0.7855000000000001
+        },
+        {
+          "kind": "goal",
+          "name": "nut_0_threaded",
+          "completed": false
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "compress_and_level_the_access_plate",
+      "through_label": "Compress and level the access plate",
+      "through_phase": 2,
+      "max_steps": 1800,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "plate_preload",
+          "min": -0.013,
+          "max": -0.0108
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "lift_nut_0",
+      "through_label": "Lift nut_0",
+      "through_phase": 5,
+      "max_steps": 1800,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "plate_preload",
+          "min": -0.013,
+          "max": -0.0108
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "withdraw_from_nut_0",
+      "through_label": "Withdraw from nut_0",
+      "through_phase": 10,
+      "max_steps": 6500,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "plate_preload",
+          "min": -0.013,
+          "max": -0.0108
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "goal",
+          "name": "nut_0_threaded",
+          "completed": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9616 @@
+{
+  "schema": 2,
+  "status": "FEEDBACK_CONTROLLER_UNVALIDATED_IN_PHYSICS",
+  "phases": [
+    {
+      "kind": "move",
+      "label": "Approach plate stabilizing handle",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.265,
+          0.112,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Stabilize the spring-loaded plate",
+      "side": "left",
+      "body": "pressure_plate",
+      "offset": [
+        0,
+        0.112,
+        0.018
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.035,
+        0.048
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Compress and level the access plate",
+      "side": "left",
+      "body": "pressure_plate",
+      "joint": "plate_preload",
+      "value": -0.012,
+      "increment": 0.0005,
+      "tolerance": 0.0003,
+      "keep_hold": true,
+      "timeout": 30
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_0",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.15,
+          -0.18,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_0",
+      "side": "right",
+      "body": "nut_0",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_0",
+      "side": "right",
+      "body": "nut_0",
+      "target": {
+        "pos": [
+          0.15,
+          -0.18,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_0 above stud",
+      "side": "right",
+      "body": "nut_0",
+      "target": {
+        "pos": [
+          0.17500000000000002,
+          -0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_0",
+      "side": "right",
+      "body": "nut_0",
+      "target": {
+        "pos": [
+          0.17500000000000002,
+          -0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_0",
+      "side": "right",
+      "body": "nut_0",
+      "reference": "bracket",
+      "xy": [
+        -0.09,
+        -0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_0",
+      "side": "right",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_0",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.17500000000000002,
+          -0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_1",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.22,
+          -0.18,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_1",
+      "side": "right",
+      "body": "nut_1",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_1",
+      "side": "right",
+      "body": "nut_1",
+      "target": {
+        "pos": [
+          0.22,
+          -0.18,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_1 above stud",
+      "side": "right",
+      "body": "nut_1",
+      "target": {
+        "pos": [
+          0.23500000000000001,
+          -0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_1",
+      "side": "right",
+      "body": "nut_1",
+      "target": {
+        "pos": [
+          0.23500000000000001,
+          -0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_1",
+      "side": "right",
+      "body": "nut_1",
+      "reference": "bracket",
+      "xy": [
+        -0.03,
+        -0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_1",
+      "side": "right",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_1",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23500000000000001,
+          -0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_2",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.29000000000000004,
+          -0.18,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_2",
+      "side": "right",
+      "body": "nut_2",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_2",
+      "side": "right",
+      "body": "nut_2",
+      "target": {
+        "pos": [
+          0.29000000000000004,
+          -0.18,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_2 above stud",
+      "side": "right",
+      "body": "nut_2",
+      "target": {
+        "pos": [
+          0.29500000000000004,
+          -0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_2",
+      "side": "right",
+      "body": "nut_2",
+      "target": {
+        "pos": [
+          0.29500000000000004,
+          -0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_2",
+      "side": "right",
+      "body": "nut_2",
+      "reference": "bracket",
+      "xy": [
+        0.03,
+        -0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_2",
+      "side": "right",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_2",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.29500000000000004,
+          -0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_3",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.36,
+          -0.18,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_3",
+      "side": "right",
+      "body": "nut_3",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_3",
+      "side": "right",
+      "body": "nut_3",
+      "target": {
+        "pos": [
+          0.36,
+          -0.18,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_3 above stud",
+      "side": "right",
+      "body": "nut_3",
+      "target": {
+        "pos": [
+          0.355,
+          -0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_3",
+      "side": "right",
+      "body": "nut_3",
+      "target": {
+        "pos": [
+          0.355,
+          -0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_3",
+      "side": "right",
+      "body": "nut_3",
+      "reference": "bracket",
+      "xy": [
+        0.09,
+        -0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_3",
+      "side": "right",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_3",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.355,
+          -0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Approach right stabilizing handle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.265,
+          -0.112,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Take plate support with right hand",
+      "side": "right",
+      "body": "pressure_plate",
+      "offset": [
+        0,
+        -0.112,
+        0.018
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.035,
+        0.048
+      ],
+      "keep_hold": true
+    },
+    {
+      "kind": "release",
+      "label": "Release left support after handover",
+      "side": "left",
+      "clear_hold": true,
+      "opening": 0.6602768903088392
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_4",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.15,
+          0.23,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.6602768903088392
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_4",
+      "side": "left",
+      "body": "nut_4",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_4",
+      "side": "left",
+      "body": "nut_4",
+      "target": {
+        "pos": [
+          0.15,
+          0.23,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_4 above stud",
+      "side": "left",
+      "body": "nut_4",
+      "target": {
+        "pos": [
+          0.17500000000000002,
+          0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_4",
+      "side": "left",
+      "body": "nut_4",
+      "target": {
+        "pos": [
+          0.17500000000000002,
+          0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_4",
+      "side": "left",
+      "body": "nut_4",
+      "reference": "bracket",
+      "xy": [
+        -0.09,
+        0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_4",
+      "side": "left",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_4",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.17500000000000002,
+          0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_5",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.22,
+          0.23,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_5",
+      "side": "left",
+      "body": "nut_5",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_5",
+      "side": "left",
+      "body": "nut_5",
+      "target": {
+        "pos": [
+          0.22,
+          0.23,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_5 above stud",
+      "side": "left",
+      "body": "nut_5",
+      "target": {
+        "pos": [
+          0.23500000000000001,
+          0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_5",
+      "side": "left",
+      "body": "nut_5",
+      "target": {
+        "pos": [
+          0.23500000000000001,
+          0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_5",
+      "side": "left",
+      "body": "nut_5",
+      "reference": "bracket",
+      "xy": [
+        -0.03,
+        0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_5",
+      "side": "left",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_5",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.23500000000000001,
+          0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_6",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.29000000000000004,
+          0.23,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_6",
+      "side": "left",
+      "body": "nut_6",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_6",
+      "side": "left",
+      "body": "nut_6",
+      "target": {
+        "pos": [
+          0.29000000000000004,
+          0.23,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_6 above stud",
+      "side": "left",
+      "body": "nut_6",
+      "target": {
+        "pos": [
+          0.29500000000000004,
+          0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_6",
+      "side": "left",
+      "body": "nut_6",
+      "target": {
+        "pos": [
+          0.29500000000000004,
+          0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_6",
+      "side": "left",
+      "body": "nut_6",
+      "reference": "bracket",
+      "xy": [
+        0.03,
+        0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_6",
+      "side": "left",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_6",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.29500000000000004,
+          0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Approach nut_7",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.36,
+          0.23,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp nut_7",
+      "side": "left",
+      "body": "nut_7",
+      "offset": [
+        0,
+        0,
+        0.009
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.028,
+        0.04
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift nut_7",
+      "side": "left",
+      "body": "nut_7",
+      "target": {
+        "pos": [
+          0.36,
+          0.23,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align nut_7 above stud",
+      "side": "left",
+      "body": "nut_7",
+      "target": {
+        "pos": [
+          0.355,
+          0.05,
+          0.8425
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Find thread lead for nut_7",
+      "side": "left",
+      "body": "nut_7",
+      "target": {
+        "pos": [
+          0.355,
+          0.05,
+          0.7827000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "tolerance": 0.0005
+    },
+    {
+      "kind": "thread",
+      "label": "Rotate and regrasp nut_7",
+      "side": "left",
+      "body": "nut_7",
+      "reference": "bracket",
+      "xy": [
+        0.09,
+        0.05
+      ],
+      "pitch": 0.004,
+      "turns": 3.45,
+      "seat_z": 0.0172,
+      "grasp_width_max": 0.04,
+      "timeout": 220
+    },
+    {
+      "kind": "release",
+      "label": "Release seated nut_7",
+      "side": "left",
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from nut_7",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.355,
+          0.05,
+          0.8525
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5750798722044729
+    },
+    {
+      "kind": "move",
+      "label": "Clear fasteners with left hand",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.2,
+          0.25,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "release",
+      "label": "Release right plate support",
+      "side": "right",
+      "clear_hold": true,
+      "opening": 0.6602768903088392
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw right arm",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.26,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.6602768903088392
+    },
+    {
+      "kind": "hold",
+      "label": "Observe released threaded assembly",
+      "side": "left",
+      "seconds": 2.5,
+      "opening": 1
+    }
+  ],
+  "audit_tcp_targets": [
+    {
+      "label": "Approach plate stabilizing handle",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Stabilize the spring-loaded plate",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7915000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 1/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7900000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 2/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7885000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 3/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7870000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 4/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7855000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 5/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7840000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 6/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7825000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 7/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7810000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Compress and level the access plate 8/8",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7795000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Approach nut_0",
+      "side": "right",
+      "pos": [
+        0.15,
+        -0.18,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp nut_0",
+      "side": "right",
+      "pos": [
+        0.15,
+        -0.18,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_0",
+      "side": "right",
+      "pos": [
+        0.15,
+        -0.18,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_0 above stud",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_0",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 1/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 1/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 2/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 2/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 3/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 3/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 4/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 4/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 5/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 5/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 6/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 6/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 7/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 7/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 8/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 8/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 9/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 9/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 10/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 10/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 11/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 11/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 12/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 12/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 13/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 13/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 14/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 14/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 15/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 15/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 16/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 16/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 17/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 17/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 18/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 18/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 19/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 19/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 20/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 20/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 21/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 21/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 22/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 22/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 23/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 23/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 24/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 24/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 25/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 25/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 26/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 26/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 27/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 27/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_0 turn 28/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_0 regrasp 28/28",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_0",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_0",
+      "side": "right",
+      "pos": [
+        0.17500000000000002,
+        -0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Approach nut_1",
+      "side": "right",
+      "pos": [
+        0.22,
+        -0.18,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp nut_1",
+      "side": "right",
+      "pos": [
+        0.22,
+        -0.18,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_1",
+      "side": "right",
+      "pos": [
+        0.22,
+        -0.18,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_1 above stud",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_1",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 1/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 1/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 2/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 2/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 3/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 3/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 4/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 4/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 5/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 5/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 6/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 6/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 7/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 7/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 8/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 8/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 9/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 9/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 10/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 10/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 11/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 11/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 12/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 12/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 13/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 13/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 14/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 14/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 15/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 15/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 16/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 16/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 17/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 17/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 18/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 18/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 19/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 19/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 20/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 20/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 21/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 21/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 22/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 22/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 23/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 23/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 24/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 24/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 25/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 25/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 26/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 26/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 27/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 27/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_1 turn 28/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_1 regrasp 28/28",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_1",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_1",
+      "side": "right",
+      "pos": [
+        0.23500000000000001,
+        -0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Approach nut_2",
+      "side": "right",
+      "pos": [
+        0.29000000000000004,
+        -0.18,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp nut_2",
+      "side": "right",
+      "pos": [
+        0.29000000000000004,
+        -0.18,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_2",
+      "side": "right",
+      "pos": [
+        0.29000000000000004,
+        -0.18,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_2 above stud",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_2",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 1/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 1/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 2/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 2/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 3/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 3/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 4/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 4/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 5/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 5/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 6/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 6/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 7/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 7/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 8/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 8/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 9/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 9/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 10/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 10/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 11/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 11/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 12/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 12/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 13/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 13/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 14/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 14/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 15/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 15/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 16/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 16/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 17/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 17/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 18/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 18/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 19/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 19/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 20/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 20/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 21/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 21/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 22/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 22/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 23/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 23/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 24/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 24/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 25/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 25/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 26/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 26/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 27/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 27/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_2 turn 28/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_2 regrasp 28/28",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_2",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_2",
+      "side": "right",
+      "pos": [
+        0.29500000000000004,
+        -0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Approach nut_3",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.18,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp nut_3",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.18,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_3",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.18,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_3 above stud",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_3",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 1/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 1/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 2/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 2/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 3/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 3/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 4/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 4/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 5/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 5/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 6/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 6/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 7/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 7/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 8/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 8/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 9/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 9/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 10/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 10/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 11/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 11/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 12/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 12/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 13/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 13/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 14/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 14/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 15/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 15/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 16/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 16/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 17/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 17/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 18/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 18/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 19/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 19/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 20/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 20/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 21/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 21/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 22/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 22/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 23/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 23/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 24/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 24/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 25/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 25/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 26/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 26/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 27/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 27/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_3 turn 28/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_3 regrasp 28/28",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_3",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_3",
+      "side": "right",
+      "pos": [
+        0.355,
+        -0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Approach right stabilizing handle",
+      "side": "right",
+      "pos": [
+        0.265,
+        -0.112,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Take plate support with right hand",
+      "side": "right",
+      "pos": [
+        0.265,
+        -0.112,
+        0.7795000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.4419595314164005
+    },
+    {
+      "label": "Release left support after handover",
+      "side": "left",
+      "pos": [
+        0.265,
+        0.112,
+        0.7795000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.6602768903088392
+    },
+    {
+      "label": "Approach nut_4",
+      "side": "left",
+      "pos": [
+        0.15,
+        0.23,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.6602768903088392
+    },
+    {
+      "label": "Grasp nut_4",
+      "side": "left",
+      "pos": [
+        0.15,
+        0.23,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_4",
+      "side": "left",
+      "pos": [
+        0.15,
+        0.23,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_4 above stud",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_4",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 1/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 1/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 2/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 2/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 3/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 3/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 4/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 4/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 5/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 5/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 6/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 6/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 7/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 7/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 8/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 8/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 9/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 9/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 10/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 10/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 11/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 11/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 12/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 12/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 13/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 13/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 14/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 14/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 15/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 15/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 16/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 16/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 17/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 17/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 18/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 18/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 19/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 19/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 20/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 20/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 21/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 21/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 22/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 22/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 23/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 23/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 24/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 24/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 25/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 25/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 26/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 26/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 27/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 27/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_4 turn 28/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_4 regrasp 28/28",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_4",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_4",
+      "side": "left",
+      "pos": [
+        0.17500000000000002,
+        0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Approach nut_5",
+      "side": "left",
+      "pos": [
+        0.22,
+        0.23,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp nut_5",
+      "side": "left",
+      "pos": [
+        0.22,
+        0.23,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_5",
+      "side": "left",
+      "pos": [
+        0.22,
+        0.23,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_5 above stud",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_5",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 1/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 1/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 2/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 2/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 3/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 3/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 4/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 4/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 5/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 5/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 6/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 6/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 7/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 7/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 8/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 8/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 9/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 9/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 10/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 10/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 11/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 11/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 12/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 12/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 13/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 13/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 14/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 14/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 15/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 15/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 16/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 16/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 17/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 17/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 18/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 18/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 19/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 19/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 20/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 20/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 21/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 21/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 22/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 22/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 23/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 23/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 24/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 24/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 25/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 25/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 26/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 26/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 27/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 27/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_5 turn 28/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_5 regrasp 28/28",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_5",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_5",
+      "side": "left",
+      "pos": [
+        0.23500000000000001,
+        0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Approach nut_6",
+      "side": "left",
+      "pos": [
+        0.29000000000000004,
+        0.23,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp nut_6",
+      "side": "left",
+      "pos": [
+        0.29000000000000004,
+        0.23,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_6",
+      "side": "left",
+      "pos": [
+        0.29000000000000004,
+        0.23,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_6 above stud",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_6",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 1/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 1/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 2/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 2/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 3/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 3/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 4/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 4/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 5/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 5/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 6/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 6/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 7/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 7/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 8/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 8/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 9/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 9/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 10/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 10/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 11/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 11/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 12/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 12/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 13/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 13/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 14/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 14/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 15/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 15/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 16/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 16/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 17/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 17/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 18/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 18/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 19/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 19/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 20/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 20/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 21/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 21/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 22/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 22/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 23/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 23/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 24/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 24/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 25/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 25/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 26/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 26/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 27/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 27/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_6 turn 28/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_6 regrasp 28/28",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_6",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_6",
+      "side": "left",
+      "pos": [
+        0.29500000000000004,
+        0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Approach nut_7",
+      "side": "left",
+      "pos": [
+        0.36,
+        0.23,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp nut_7",
+      "side": "left",
+      "pos": [
+        0.36,
+        0.23,
+        0.7617
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift nut_7",
+      "side": "left",
+      "pos": [
+        0.36,
+        0.23,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Align nut_7 above stud",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.8515
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Find thread lead for nut_7",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7917000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 1/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 1/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7912000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 2/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 2/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7907000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 3/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 3/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7902000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 4/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 4/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7897000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 5/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 5/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7892000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 6/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 6/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 7/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 7/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7882000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 8/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 8/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7877000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 9/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 9/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7872000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 10/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 10/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7867000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 11/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 11/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7862000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 12/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 12/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7857000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 13/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 13/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7852000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 14/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 14/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7847000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 15/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 15/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7842000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 16/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 16/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7837000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 17/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 17/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7832000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 18/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 18/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7827000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 19/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 19/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7822000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 20/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 20/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 21/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 21/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7812000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 22/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 22/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7807000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 23/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 23/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7802000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 24/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 24/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7797000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 25/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 25/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7792000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 26/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 26/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7787000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 27/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 27/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7782000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Rotate and regrasp nut_7 turn 28/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.3826834323650899,
+        0.9238795325112868,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Rotate and regrasp nut_7 regrasp 28/28",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Release seated nut_7",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.7777000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Withdraw from nut_7",
+      "side": "left",
+      "pos": [
+        0.355,
+        0.05,
+        0.8525
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5750798722044729
+    },
+    {
+      "label": "Clear fasteners with left hand",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.25,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Release right plate support",
+      "side": "right",
+      "pos": [
+        0.265,
+        -0.112,
+        0.7795000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.6602768903088392
+    },
+    {
+      "label": "Withdraw right arm",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.26,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.6602768903088392
+    }
+  ]
+}
