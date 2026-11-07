@@ -1,0 +1,252 @@
+{
+  "physics": [
+    {
+      "name": "closed_collar_settles_at_source",
+      "steps": 100,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -0.04,
+          "max": 0.005
+        }
+      ]
+    },
+    {
+      "name": "closed_collar_cannot_slide_through_end_flange",
+      "initialize_bodies": [
+        {
+          "assembly": "collar_asset",
+          "pos": [
+            0.33,
+            0,
+            0.8225
+          ],
+          "free_articulation_root": true
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "collar_asset",
+          "body": "lower_collar",
+          "force": [
+            0,
+            0.6,
+            0
+          ]
+        },
+        {
+          "assembly": "collar_asset",
+          "body": "upper_collar",
+          "force": [
+            0,
+            0.6,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "lower_collar",
+          "axis": 1,
+          "min": -0.01,
+          "max": 0.09
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "unpowered_collar_hinge_returns_closed",
+      "initialize_joints": [
+        {
+          "assembly": "collar_asset",
+          "joint": "collar_hinge",
+          "value": -0.6
+        }
+      ],
+      "steps": 140,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -0.05,
+          "max": 0.005
+        }
+      ]
+    },
+    {
+      "name": "key_retains_collar_against_opening_torque",
+      "initialize_bodies": [
+        {
+          "assembly": "collar_asset",
+          "pos": [
+            0.33,
+            0,
+            0.8225
+          ],
+          "free_articulation_root": true
+        },
+        {
+          "assembly": "collar_key_asset",
+          "pos": [
+            0.375,
+            0.006,
+            0.8225
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "collar_asset",
+          "body": "upper_collar",
+          "torque": [
+            0,
+            -0.06,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -0.035,
+          "max": 0.005
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "unkeyed_collar_opens_under_same_torque",
+      "initialize_bodies": [
+        {
+          "assembly": "collar_asset",
+          "pos": [
+            0.33,
+            0,
+            0.8225
+          ],
+          "free_articulation_root": true
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "collar_asset",
+          "body": "upper_collar",
+          "torque": [
+            0,
+            -0.06,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -1.36,
+          "max": -0.1
+        },
+        {
+          "kind": "score",
+          "max": 0.95,
+          "success": false
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "two_arm_collar_opening",
+      "through_phase": 4,
+      "max_steps": 1800,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -1.28,
+          "max": -1.22
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Open the split collar"
+    },
+    {
+      "name": "place_and_close_collar_around_shaft",
+      "through_phase": 8,
+      "max_steps": 3000,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -0.03,
+          "max": 0.005
+        },
+        {
+          "kind": "pose",
+          "body": "lower_collar",
+          "pos": [
+            0.33,
+            0,
+            0.8225
+          ],
+          "tolerance": 0.002
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Close upper half over the shaft"
+    },
+    {
+      "name": "key_capture_and_release",
+      "through_phase": 22,
+      "max_steps": 5000,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -0.03,
+          "max": 0.005
+        },
+        {
+          "kind": "pose",
+          "body": "collar_key",
+          "pos": [
+            0.375,
+            0.006,
+            0.8225
+          ],
+          "tolerance": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Withdraw left arm"
+    }
+  ]
+}

@@ -5,9 +5,7 @@
     upAxis = "Z"
 )
 
-def Xform "Asset" (
-    prepend apiSchemas = ["PhysicsArticulationRootAPI"]
-)
+def Xform "Asset"
 {
     def Material "Material" (
         prepend apiSchemas = ["PhysicsMaterialAPI"]
@@ -18,52 +16,55 @@ def Xform "Asset" (
         float physics:staticFriction = 0.65
     }
 
-    def Xform "kit_tray" (
+    def Xform "captive_shaft" (
         prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
-        float physics:mass = 0.5
+        float physics:mass = 1.2
         quatf xformOp:orient = (1, 0, 0, 0)
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
 
-        def Cube "shape_0" (
+        def Cylinder "shape_0" (
             prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
         )
         {
+            uniform token axis = "Z"
+            double height = 0.22
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double size = 1
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.19, 0.17, 0.006)
-            double3 xformOp:translate = (0, 0, 0.003)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            double radius = 0.01
+            quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
-        def Cube "shape_1" (
+        def Cylinder "shape_1" (
             prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
         )
         {
+            uniform token axis = "Z"
+            double height = 0.01
             rel material:binding:physics = </Asset/Material>
-            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double size = 1
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.19, 0.004, 0.04)
-            double3 xformOp:translate = (0, 0.085, 0.02)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.026
+            quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
+            double3 xformOp:translate = (0, -0.1, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
-        def Cube "shape_2" (
+        def Cylinder "shape_2" (
             prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
         )
         {
+            uniform token axis = "Z"
+            double height = 0.01
             rel material:binding:physics = </Asset/Material>
-            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double size = 1
-            quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.19, 0.004, 0.04)
-            double3 xformOp:translate = (0, -0.085, 0.02)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double radius = 0.026
+            quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
+            double3 xformOp:translate = (0, 0.1, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
         def Cube "shape_3" (
@@ -74,8 +75,8 @@ def Xform "Asset" (
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.004, 0.17, 0.04)
-            double3 xformOp:translate = (0.095, 0, 0.02)
+            float3 xformOp:scale = (0.05, 0.02, 0.08)
+            double3 xformOp:translate = (0, -0.115, -0.035)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -87,15 +88,18 @@ def Xform "Asset" (
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.004, 0.17, 0.04)
-            double3 xformOp:translate = (-0.095, 0, 0.02)
+            float3 xformOp:scale = (0.05, 0.02, 0.08)
+            double3 xformOp:translate = (0, 0.115, -0.035)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
 
-    def PhysicsFixedJoint "fix_kit_tray"
+    def PhysicsFixedJoint "fix_captive_shaft" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
     {
-        rel physics:body1 = </Asset/kit_tray>
+        rel physics:body0 = </Asset>
+        rel physics:body1 = </Asset/captive_shaft>
         point3f physics:localPos0 = (0, 0, 0)
         quatf physics:localRot0 = (1, 0, 0, 0)
     }

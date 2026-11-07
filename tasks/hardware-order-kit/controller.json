@@ -1,0 +1,1055 @@
+{
+  "schema": 2,
+  "status": "FEEDBACK_CONTROLLER_UNVALIDATED_IN_PHYSICS",
+  "phases": [
+    {
+      "kind": "move",
+      "label": "Approach lower collar handle",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.135,
+          0.145,
+          0.8675
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Support lower collar",
+      "side": "left",
+      "body": "lower_collar",
+      "offset": [
+        -0.05,
+        0.145,
+        0.01
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.022,
+        0.034
+      ],
+      "keep_hold": true
+    },
+    {
+      "kind": "move",
+      "label": "Approach upper collar handle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.255,
+          -0.22,
+          0.8675
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp upper collar handle",
+      "side": "right",
+      "body": "upper_collar",
+      "offset": [
+        0.07,
+        -0.22,
+        0.043
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.022,
+        0.034
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Open the split collar",
+      "side": "right",
+      "body": "upper_collar",
+      "joint": "collar_hinge",
+      "value": -1.25,
+      "increment": 0.01,
+      "keep_hold": true,
+      "hold_relative_to": "lower_collar",
+      "timeout": 30
+    },
+    {
+      "kind": "carry",
+      "label": "Lift the open collar",
+      "side": "left",
+      "body": "lower_collar",
+      "target": {
+        "pos": [
+          0.185,
+          0,
+          0.7975000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true,
+      "clear_hold": true
+    },
+    {
+      "kind": "carry",
+      "label": "Bring open collar beneath captive shaft",
+      "side": "left",
+      "body": "lower_collar",
+      "target": {
+        "pos": [
+          0.33,
+          0,
+          0.7975000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Lift lower half around the shaft",
+      "side": "left",
+      "body": "lower_collar",
+      "target": {
+        "pos": [
+          0.33,
+          0,
+          0.8225
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "keep_hold": true,
+      "timeout": 25
+    },
+    {
+      "kind": "joint",
+      "label": "Close upper half over the shaft",
+      "side": "right",
+      "body": "upper_collar",
+      "joint": "collar_hinge",
+      "value": 0,
+      "increment": 0.01,
+      "clear_hold": true,
+      "timeout": 30
+    },
+    {
+      "kind": "release",
+      "label": "Release closed upper collar",
+      "side": "right",
+      "opening": 0.5111821086261981
+    },
+    {
+      "kind": "move",
+      "label": "Clear upper handle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.24,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5111821086261981
+    },
+    {
+      "kind": "move",
+      "label": "Approach transverse key head",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.36,
+          -0.29,
+          0.8675
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp transverse key head",
+      "side": "right",
+      "body": "collar_key",
+      "offset": [
+        0,
+        -0.05,
+        0.01
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "width": [
+        0.016,
+        0.028
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift transverse key",
+      "side": "right",
+      "body": "collar_key",
+      "target": {
+        "pos": [
+          0.36,
+          -0.24,
+          0.8575
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align key in front of the three lugs",
+      "side": "right",
+      "body": "collar_key",
+      "target": {
+        "pos": [
+          0.375,
+          -0.09,
+          0.8225
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "kind": "insert",
+      "label": "Pass key through interleaved lugs",
+      "side": "right",
+      "body": "collar_key",
+      "target": {
+        "pos": [
+          0.045,
+          0.006,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "relative_to": "lower_collar"
+      },
+      "tolerance": 0.001,
+      "timeout": 30
+    },
+    {
+      "kind": "release",
+      "label": "Release seated transverse key",
+      "side": "right",
+      "opening": 0.44728434504792336
+    },
+    {
+      "kind": "move",
+      "label": "Lift above captive shaft",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.375,
+          -0.044,
+          0.8525
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "opening": 0.44728434504792336
+    },
+    {
+      "kind": "move",
+      "label": "Retreat past shaft flange",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.415,
+          -0.19,
+          0.8525
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "opening": 0.44728434504792336
+    },
+    {
+      "kind": "move",
+      "label": "Clear retained collar",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.24,
+          -0.24,
+          0.8875000000000001
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.44728434504792336
+    },
+    {
+      "kind": "release",
+      "label": "Release lower collar support",
+      "side": "left",
+      "clear_hold": true,
+      "opening": 0.5111821086261981
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw right arm",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.26,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw left arm",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.2,
+          0.26,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5111821086261981
+    },
+    {
+      "kind": "hold",
+      "label": "Observe released terminal stability",
+      "side": "left",
+      "seconds": 1.5,
+      "opening": 1
+    }
+  ],
+  "audit_tcp_targets": [
+    {
+      "label": "Approach lower collar handle",
+      "side": "left",
+      "pos": [
+        0.135,
+        0.145,
+        0.8675
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Support lower collar",
+      "side": "left",
+      "pos": [
+        0.135,
+        0.145,
+        0.7817000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Approach upper collar handle",
+      "side": "right",
+      "pos": [
+        0.255,
+        -0.22,
+        0.8675
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp upper collar handle",
+      "side": "right",
+      "pos": [
+        0.255,
+        -0.22,
+        0.8147000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 1/8",
+      "side": "right",
+      "pos": [
+        0.24709033369238428,
+        -0.22,
+        0.829737663981464
+      ],
+      "quat": [
+        -0.7049499598936921,
+        0.704949959893692,
+        -0.05518653862928908,
+        0.05518653862928907
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 2/8",
+      "side": "right",
+      "pos": [
+        0.23693693867786084,
+        -0.21999999999999997,
+        0.8433612732241096
+      ],
+      "quat": [
+        -0.6984926535132945,
+        0.6984926535132944,
+        -0.11003641664447708,
+        0.11003641664447707
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 3/8",
+      "side": "right",
+      "pos": [
+        0.22478719666255703,
+        -0.21999999999999997,
+        0.8552388962219493
+      ],
+      "quat": [
+        -0.6877742542737034,
+        0.6877742542737033,
+        -0.164215027199862,
+        0.16421502719986197
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 4/8",
+      "side": "right",
+      "pos": [
+        0.21093712921408192,
+        -0.22000000000000003,
+        0.8650811414327707
+      ],
+      "quat": [
+        -0.6728601488246311,
+        0.672860148824631,
+        -0.21739185845770662,
+        0.2173918584577066
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 5/8",
+      "side": "right",
+      "pos": [
+        0.195724185364063,
+        -0.22000000000000003,
+        0.8726482081387948
+      ],
+      "quat": [
+        -0.6538413193516606,
+        0.6538413193516605,
+        -0.26924250984656956,
+        0.2692425098465695
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 6/8",
+      "side": "right",
+      "pos": [
+        0.1795190198540379,
+        -0.21999999999999997,
+        0.877755729055046
+      ],
+      "quat": [
+        -0.6308337885474427,
+        0.6308337885474425,
+        -0.3194506710383947,
+        0.31945067103839464
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 7/8",
+      "side": "right",
+      "pos": [
+        0.16271646234307263,
+        -0.22000000000000003,
+        0.8802792623335964
+      ],
+      "quat": [
+        -0.6039779118254873,
+        0.6039779118254872,
+        -0.367710051571784,
+        0.36771005157178394
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Open the split collar 8/8",
+      "side": "right",
+      "pos": [
+        0.14572589760723662,
+        -0.22000000000000003,
+        0.8801573235185552
+      ],
+      "quat": [
+        -0.5734375210943362,
+        0.5734375210943362,
+        -0.41372624934995716,
+        0.4137262493499571
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Lift the open collar",
+      "side": "left",
+      "pos": [
+        0.135,
+        0.145,
+        0.8075000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Lift the open collar concurrent support",
+      "side": "right",
+      "pos": [
+        0.14572589760723662,
+        -0.22000000000000003,
+        0.9059573235185553
+      ],
+      "quat": [
+        -0.5734375210943362,
+        0.5734375210943362,
+        -0.41372624934995716,
+        0.4137262493499571
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Bring open collar beneath captive shaft",
+      "side": "left",
+      "pos": [
+        0.28,
+        0.145,
+        0.8075000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Bring open collar beneath captive shaft concurrent support",
+      "side": "right",
+      "pos": [
+        0.29072589760723666,
+        -0.22000000000000003,
+        0.9059573235185553
+      ],
+      "quat": [
+        -0.5734375210943362,
+        0.5734375210943362,
+        -0.41372624934995716,
+        0.4137262493499571
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Lift lower half around the shaft",
+      "side": "left",
+      "pos": [
+        0.28,
+        0.145,
+        0.8325
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Lift lower half around the shaft concurrent support",
+      "side": "right",
+      "pos": [
+        0.29072589760723666,
+        -0.22000000000000003,
+        0.9309573235185552
+      ],
+      "quat": [
+        -0.5734375210943362,
+        0.5734375210943362,
+        -0.41372624934995716,
+        0.4137262493499571
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 1/8",
+      "side": "right",
+      "pos": [
+        0.3077164623430727,
+        -0.22000000000000003,
+        0.9310792623335964
+      ],
+      "quat": [
+        -0.6039779118254873,
+        0.6039779118254873,
+        -0.367710051571784,
+        0.36771005157178394
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 2/8",
+      "side": "right",
+      "pos": [
+        0.32451901985403797,
+        -0.22,
+        0.9285557290550459
+      ],
+      "quat": [
+        -0.6308337885474427,
+        0.6308337885474427,
+        -0.3194506710383947,
+        0.31945067103839464
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 3/8",
+      "side": "right",
+      "pos": [
+        0.340724185364063,
+        -0.22,
+        0.9234482081387948
+      ],
+      "quat": [
+        -0.6538413193516606,
+        0.6538413193516606,
+        -0.26924250984656956,
+        0.2692425098465695
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 4/8",
+      "side": "right",
+      "pos": [
+        0.35593712921408194,
+        -0.22000000000000006,
+        0.9158811414327707
+      ],
+      "quat": [
+        -0.6728601488246311,
+        0.6728601488246311,
+        -0.21739185845770664,
+        0.2173918584577066
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 5/8",
+      "side": "right",
+      "pos": [
+        0.36978719666255705,
+        -0.22000000000000003,
+        0.9060388962219492
+      ],
+      "quat": [
+        -0.6877742542737034,
+        0.6877742542737034,
+        -0.16421502719986203,
+        0.16421502719986197
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 6/8",
+      "side": "right",
+      "pos": [
+        0.3819369386778609,
+        -0.22000000000000003,
+        0.8941612732241095
+      ],
+      "quat": [
+        -0.6984926535132945,
+        0.6984926535132945,
+        -0.11003641664447711,
+        0.11003641664447705
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 7/8",
+      "side": "right",
+      "pos": [
+        0.39209033369238433,
+        -0.22000000000000006,
+        0.8805376639814639
+      ],
+      "quat": [
+        -0.7049499598936921,
+        0.7049499598936921,
+        -0.05518653862928907,
+        0.05518653862928902
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Close upper half over the shaft 8/8",
+      "side": "right",
+      "pos": [
+        0.4000000000000001,
+        -0.22000000000000003,
+        0.8655
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865477,
+        0.0,
+        -5.551115123125783e-17
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Release closed upper collar",
+      "side": "right",
+      "pos": [
+        0.4000000000000001,
+        -0.22000000000000003,
+        0.8655
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865477,
+        0.0,
+        -5.551115123125783e-17
+      ],
+      "opening": 0.5111821086261981
+    },
+    {
+      "label": "Clear upper handle",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.24,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5111821086261981
+    },
+    {
+      "label": "Approach transverse key head",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.29,
+        0.8675
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp transverse key head",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.29,
+        0.7687
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.23429179978700745
+    },
+    {
+      "label": "Lift transverse key",
+      "side": "right",
+      "pos": [
+        0.36,
+        -0.29,
+        0.8675
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.23429179978700745
+    },
+    {
+      "label": "Align key in front of the three lugs",
+      "side": "right",
+      "pos": [
+        0.375,
+        -0.14,
+        0.8325
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.23429179978700745
+    },
+    {
+      "label": "Pass key through interleaved lugs",
+      "side": "right",
+      "pos": [
+        0.375,
+        -0.044000000000000004,
+        0.8325
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.23429179978700745
+    },
+    {
+      "label": "Release seated transverse key",
+      "side": "right",
+      "pos": [
+        0.375,
+        -0.044000000000000004,
+        0.8325
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.44728434504792336
+    },
+    {
+      "label": "Lift above captive shaft",
+      "side": "right",
+      "pos": [
+        0.375,
+        -0.044,
+        0.8525
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.44728434504792336
+    },
+    {
+      "label": "Retreat past shaft flange",
+      "side": "right",
+      "pos": [
+        0.415,
+        -0.19,
+        0.8525
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.44728434504792336
+    },
+    {
+      "label": "Clear retained collar",
+      "side": "right",
+      "pos": [
+        0.24,
+        -0.24,
+        0.8875000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.44728434504792336
+    },
+    {
+      "label": "Release lower collar support",
+      "side": "left",
+      "pos": [
+        0.28,
+        0.145,
+        0.8325
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5111821086261981
+    },
+    {
+      "label": "Withdraw right arm",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.26,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Withdraw left arm",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.26,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5111821086261981
+    }
+  ]
+}

@@ -16,11 +16,11 @@ def Xform "Asset"
         float physics:staticFriction = 0.65
     }
 
-    def Xform "spacer_0" (
+    def Xform "collar_key" (
         prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
-        float physics:mass = 0.02
+        float physics:mass = 0.025
         quatf xformOp:orient = (1, 0, 0, 0)
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
@@ -30,11 +30,24 @@ def Xform "Asset"
         )
         {
             rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.072, 0.008)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.027, 0.027, 0.024)
-            double3 xformOp:translate = (0, 0, 0)
+            float3 xformOp:scale = (0.022, 0.024, 0.022)
+            double3 xformOp:translate = (0, -0.045, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
