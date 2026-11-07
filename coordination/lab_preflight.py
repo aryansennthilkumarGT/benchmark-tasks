@@ -26,7 +26,7 @@ def command(args):
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--expected-host", required=True, help="Actual confirmed hostname; not an unverified SSH alias.")
-    ap.add_argument("--expected-user", default="asenthil74")
+    ap.add_argument("--expected-user", required=True, help="Confirmed authorized workstation account.")
     args = ap.parse_args()
     host = socket.gethostname()
     user = getpass.getuser()
@@ -84,3 +84,4 @@ def main():
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "checkpoint_date": "2026-11-07",
   "mission": "Eight independently validated RoboCurve tasks",
-  "status": "AWAITING_COMPUTE_ENDPOINT",
+  "status": "HOST_IDENTITY_VERIFICATION_REQUIRED",
   "complete": false,
   "upstream": "robocurve/benchmark-tasks",
   "fork": "aryansennthilkumarGT/benchmark-tasks",
@@ -31,7 +31,8 @@
     "Read YAM adapter README and stack_cubes.py example; inspected accepted task code and run instructions.",
     "Task board displayed 18 accepted and 964 pending entries; team page displayed zero accepted and zero pending.",
     "Preliminary board searches covered battery, switch, drive, nut and kit; GitHub PR searches covered recent tasks, battery, chassis and ethernet.",
-    "No simulator installed or executed in this session; no evaluation or media evidence exists."
+    "No simulator installed or executed in this session; no evaluation or media evidence exists.",
+    "User confirmed the target endpoint and shared account. Three bounded SSH attempts were rejected before authentication because all saved host-key types differ. No remote diagnostic or workload ran."
   ],
   "required_stack": {
     "framework": "Isaac Lab-Arena",
@@ -51,14 +52,14 @@
   },
   "blockers": [
     {
-      "id": "compute_endpoint",
+      "id": "host_identity",
       "blocking_now": true,
-      "detail": "Required RTX 4090 workstation hostname/IP is unknown. Existing SSH aliases do not establish the intended host/account. No remote login attempted."
+      "detail": "ED25519, ECDSA and RSA server fingerprints all differ from saved keys. Strict checking blocked login. Await a public fingerprint verified through the workstation console or a trusted lab administrator."
     },
     {
       "id": "remote_stack",
       "blocking_now": true,
-      "detail": "Remote hardware, drivers, GPU availability, storage, Python, simulator and workload access are unverified until the endpoint is supplied."
+      "detail": "Hardware, drivers, resources and installed simulator remain unverified until a trusted SSH connection succeeds."
     },
     {
       "id": "credentials",
@@ -72,8 +73,8 @@
     }
   ],
   "next_actions": [
-    "Obtain the exact lab SSH endpoint and any required jump host; do not guess addresses or use a different account.",
-    "Connect as the authorized account; verify actual hostname/account and run lab_preflight.py plus current nvidia-smi resource checks.",
+    "Obtain out-of-band verification of the workstation ED25519 public host fingerprint. Preserve strict checking; do not blindly delete saved keys or trust ssh-keyscan output by itself.",
+    "After identity verification, use the confirmed authorized shared account and existing configured SSH identity. Run hostname, whoami, nvidia-smi, free -h and df -h, then lab_preflight.py with explicit expected host and user.",
     "Inspect existing project and isolated simulator installations before changing anything. Do not run a system-wide desktop/driver installer.",
     "Read the official setup script and pin compatible source revisions; install or activate the supported stack within the authorized account.",
     "Verify uploader and Dream credentials through the approved secure mechanism without writing values to code or logs.",
@@ -97,5 +98,15 @@
     "https://tasks.robocurve.org/board",
     "https://github.com/kairosiann/yam-isaac-lab-arena",
     "https://github.com/robocurve/inspect-robots"
-  ]
+  ],
+  "connection_status": {
+    "endpoint_confirmed_by_user": true,
+    "shared_account_authorized_by_user": true,
+    "ssh_service_reachable": true,
+    "ssh_authenticated": false,
+    "host_key_verified": false,
+    "known_hosts_modified": false,
+    "remote_commands_executed": false,
+    "details": "ED25519, ECDSA and RSA server fingerprints all differ from saved keys. Strict checking blocked login. Await a public fingerprint verified through the workstation console or a trusted lab administrator."
+  }
 }

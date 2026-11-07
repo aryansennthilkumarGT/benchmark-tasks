@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-07",
+  "status": "PRELIMINARY_SCREEN_NOT_NOVELTY_CLEARANCE",
+  "sources": [
+    {
+      "benchmark": "DataCenterBench",
+      "url": "https://robocurve.org/datacenterbench/",
+      "reviewed": "Overview and all 19 listed candidate operations.",
+      "findings": "Ten selected tasks include Ethernet plug/coupler connection, a cable clip, protective cover and equipment controls. The nine excluded candidates include latched network disconnection, nut fastening, polarity-sensitive battery insertion and fault repair. Complete maintenance workflows are outside the reported benchmark scope.",
+      "implication": "Simple connector, battery and nut operations cannot claim novelty from object relabeling. A substantive workflow dependency might distinguish a task but still needs current board clearance."
+    },
+    {
+      "benchmark": "RoboDojo",
+      "url": "https://robodojo-benchmark.com/doc/sim-tasks/fasten-screws/",
+      "reviewed": "Real-task catalog, simulation navigation catalog and Fasten Screws task details.",
+      "findings": "Fasten Screws uses three matching screw/nut pairs and checks alignment, rotational depth and gripper release, with partial credit by completed pairs.",
+      "implication": "Eight threaded nuts adds count to an established mechanism. Repetition alone remains inadequate; consider replacement or a distinct mechanically necessary assembly dependency."
+    },
+    {
+      "benchmark": "LIBERO",
+      "url": "https://libero-project.github.io/main.html",
+      "reviewed": "Project overview only.",
+      "findings": "The project targets knowledge transfer in lifelong robot learning.",
+      "implication": "Task-definition catalog has not been audited; no no-overlap claim is justified."
+    },
+    {
+      "benchmark": "RoboCasa",
+      "url": "https://robocasa.ai/",
+      "reviewed": "Project overview and current task-suite summary.",
+      "findings": "Kitchen-focused suite with 65 atomic tasks and 300 composite tasks. Atomic capabilities include insertion and opening/closing lids, and composite tasks sequence practical workflows.",
+      "implication": "A generic long sequence is not by itself a new capability. Individual task definitions still need comparison."
+    },
+    {
+      "benchmark": "SimplerEnv",
+      "url": "https://simpler-env.github.io/",
+      "reviewed": "Project overview and displayed task examples.",
+      "findings": "Examples include drawer operations, placing household objects, stacking blocks and moving a can near fruit; the work studies simulation-to-real policy evaluation.",
+      "implication": "The visible examples do not establish a direct hardware-maintenance duplicate, but the full source task catalog remains unchecked."
+    },
+    {
+      "benchmark": "BEHAVIOR",
+      "url": "https://behavior.stanford.edu/knowledgebase/",
+      "reviewed": "Project overview and knowledgebase dashboard.",
+      "findings": "Large collection of full household activities and long-horizon mobile manipulation; the dashboard lists 1016 task definitions across its scope.",
+      "implication": "Detailed definitions and synonyms must be searched before claiming absence of battery/device-service overlaps."
+    }
+  ],
+  "outstanding": [
+    "Full per-candidate catalog and semantic comparison",
+    "Relevant rejected PR reviews and revision holds",
+    "Physics and embodiment feasibility on the verified GPU host"
+  ]
+}
+
