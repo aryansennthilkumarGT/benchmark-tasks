@@ -1,6 +1,7 @@
 """Original adapter extension for compound USD bodies and passive mechanisms.
 
-Inspected against yam-arena bd62771; native integration has NOT been executed.
+Adapter contract: yam-arena 0059d02a1a91bc6834c1d0846022891df0c78730.
+Native integration evidence is recorded in validation.json.
 Read-only telemetry hooks: this module never writes object poses or joint states.
 """
 from dataclasses import dataclass
@@ -13,13 +14,24 @@ from pathlib import Path
 import sys
 
 from yam_arena.task_file import Box
-from .geometry import maximum_penetration
+from .geometry import maximum_penetration, robot_clearance, box
 from .scoring import add, sub, rotate, norm
 
 
 def array(value):
     value = getattr(value, 'torch', value)
     return value.detach().cpu().numpy()
+
+
+LATEST = None
+
+
+def collision_link(stage,root_name,link_name):
+    from pxr import UsdPhysics
+    matches=[p for p in stage.Traverse() if p.GetName()==link_name
+             and root_name in str(p.GetPath()).split('/') and p.HasAPI(UsdPhysics.RigidBodyAPI)]
+    if len(matches)!=1:raise RuntimeError(f'Cannot identify unique {root_name} collision link {link_name}')
+    return matches[0]
 
 
 def install(spec, scorer, here):
@@ -95,22 +107,16 @@ def install(spec, scorer, here):
                 vel = array(asset.data.root_link_vel_w)[0]
                 bodies[a['bodies'][0]['name']] = {'pos': (pose[:3]-origin).tolist(), 'quat': pose[3:].tolist(),
                                                  'linear': vel[:3].tolist(), 'angular': vel[3:].tolist()}
-        clearance = math.inf
+        robot_boxes = []
         for side in ('left', 'right'):
             robot = env.scene[f'{side}_robot']
             poses = array(robot.data.body_link_pose_w)[0]
             for i, name in enumerate(robot.body_names):
-                centre_local, radius = robot_bounds[(side, name)]
-                centre = add(sub(poses[i, :3].tolist(), origin.tolist()), rotate(poses[i, 3:].tolist(), centre_local))
-                for a in spec['assemblies']:
-                    for b in a['bodies']:
-                        if b.get('anchor'):
-                            continue
-                        state = bodies[b['name']]
-                        # A sphere encloses each robot collision link; a sphere encloses each task body.
-                        clearance = min(clearance, norm(sub(centre, state['pos']))-radius-norm(b['half_extent']))
-        if not math.isfinite(clearance):
-            raise RuntimeError('No robot collision bounds; release cannot be measured')
+                centre_local, half = robot_bounds[(side, name)]
+                state = {'pos': (poses[i, :3]-origin).tolist(), 'quat': poses[i, 3:].tolist()}
+                robot_boxes.append(box(state, {'kind': 'box', 'pos': centre_local,
+                                              'size': [2*v for v in half], 'quat': [0,0,0,1]}))
+        clearance = robot_clearance(robot_boxes, spec, bodies)
         return {'schema': 1, 'time': float(emb._t), 'bodies': bodies, 'joints': joints,
                 'robot_clearance': clearance, 'max_penetration': maximum_penetration(spec, bodies)}
 
@@ -123,11 +129,10 @@ def install(spec, scorer, here):
         for side in ('left', 'right'):
             asset = emb._env.unwrapped.scene[f'{side}_robot']
             for name in asset.body_names:
-                matches = [p for p in stage.Traverse() if p.GetName() == name
-                           and f'{side}_robot' in str(p.GetPath()) and p.HasAPI(UsdPhysics.RigidBodyAPI)]
-                if len(matches) != 1:
-                    raise RuntimeError(f'Cannot identify unique {side} collision link {name}')
-                prim = matches[0]
+                # Arena scene keys are left_robot/right_robot, but the pinned
+                # adapter spawns USD roots LeftArm/RightArm. Read the actual cfg.
+                root_name=asset.cfg.prim_path.rstrip('/').rsplit('/',1)[-1]
+                prim=collision_link(stage,root_name,name)
                 inverse = UsdGeom.Xformable(prim).ComputeLocalToWorldTransform(0).GetInverse()
                 points = []
                 from pxr import Usd
@@ -142,7 +147,7 @@ def install(spec, scorer, here):
                 hi = [max(p[i] for p in points) for i in range(3)]
                 centre = [(x+y)/2 for x, y in zip(lo, hi)]
                 radius = max(norm(sub(list(p), centre)) for p in points)
-                robot_bounds[(side, name)] = (centre, radius)
+                robot_bounds[(side, name)] = (centre, [(y-x)/2 for x,y in zip(lo,hi)])
 
     def patch_scene(module):
         original = module.task_object
@@ -164,6 +169,8 @@ def install(spec, scorer, here):
                 record(collect(self))
             return obs
         def record(frame):
+            global LATEST
+            LATEST = frame
             result = scorer.update(frame)
             destination = os.environ.get('ROBOCURVE_TRACE')
             if destination:
