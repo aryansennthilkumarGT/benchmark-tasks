@@ -1,0 +1,36 @@
+{
+  "status": "OFFLINE_DRAFT_NOT_READY",
+  "physics": null,
+  "expert_trials": [],
+  "dream": null,
+  "media_id": null,
+  "novelty": "HOLD_NOT_CLEARED",
+  "native_adapter": "NOT_EXECUTED",
+  "offline_tests": {
+    "passed": 31,
+    "skipped_not_applicable": 4,
+    "failed": 0,
+    "kind": "SYNTHETIC_SCORER_AND_GEOMETRY_UNIT_TESTS_NOT_ROLLOUTS",
+    "python": "3.11.15"
+  },
+  "known_gaps": [
+    "Box-segment helical collision surfaces are an unvalidated coarse approximation. Clearance, handedness, friction, crest overlap and two-turn retention need native tests.",
+    "The expert plan currently positions nuts; repeated wrist rotation and regrasp control are not calibrated or validated.",
+    "RoboDojo Fasten Screws and existing multi-stud tasks create a high novelty risk. Eight fasteners alone is not a substantive distinction."
+  ],
+  "usd_structure": {
+    "status": "PASS",
+    "tool": "usd-core 25.11",
+    "physics_executed": false
+  },
+  "source_loader": {
+    "slug": "eight-nut-bracket",
+    "kind": "OFFLINE_SOURCE_LOAD_AND_GEOMETRY_ONLY",
+    "task_loader": "PASS",
+    "source_commit": "bd62771e60320433893bd1d2df0fc79b5ddcd6d1",
+    "objects": 9,
+    "expert_plan_seconds": 89.2,
+    "plan_fits_budget": true,
+    "initial_overlaps": []
+  }
+}

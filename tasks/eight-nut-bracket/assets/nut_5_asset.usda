@@ -1,0 +1,2005 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    def Material "Material" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.5
+        float physics:restitution = 0
+        float physics:staticFriction = 0.65
+    }
+
+    def Xform "nut_5" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        float physics:mass = 0.024
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (0.013, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9238795, 0, 0, 0.38268343)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (0.009192388155425118, 0.009192388155425118, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.70710677, 0, 0, 0.70710677)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (7.960204194457796e-19, 0.013, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_3" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.38268343, 0, 0, 0.9238795)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (-0.009192388155425116, 0.009192388155425118, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_4" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (6.123234e-17, 0, 0, 1)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (-0.013, 1.5920408388915591e-18, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_5" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.38268343, 0, 0, 0.9238795)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (-0.00919238815542512, -0.009192388155425116, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_6" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.70710677, 0, 0, 0.70710677)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (-2.3880612583373385e-18, -0.013, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_7" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9238795, 0, 0, 0.38268343)
+            float3 xformOp:scale = (0.008, 0.011, 0.014)
+            double3 xformOp:translate = (0.009192388155425115, -0.00919238815542512, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_8" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9994646, 0, 0, 0.032719083)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009280087986119012, 0.0006082491018403304, -0.005958333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_9" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9951847, 0, 0, 0.09801714)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009121303107750042, 0.0018143399947499925, -0.005875)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_10" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9866433, 0, 0, 0.16289547)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008806450204304482, 0.0029893870273194024, -0.005791666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_11" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.97387695, 0, 0, 0.22707626)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008340916496254002, 0.004113284819036711, -0.0057083333333333335)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_12" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.95694035, 0, 0, 0.29028466)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0077326673944136705, 0.0051668031670823, -0.005625)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_13" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.93590593, 0, 0, 0.35225004)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006992110209554489, 0.00613191608043064, -0.005541666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_14" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9108638, 0, 0, 0.41270703)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.00613191608043064, 0.006992110209554489, -0.005458333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_15" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.8819213, 0, 0, 0.47139674)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.005166803167082302, 0.007732667394413669, -0.0053750000000000004)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_16" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.84920216, 0, 0, 0.5280678)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.004113284819036711, 0.008340916496254002, -0.005291666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_17" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.81284666, 0, 0, 0.5824777)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0029893870273194037, 0.008806450204304482, -0.005208333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_18" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.77301043, 0, 0, 0.6343933)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0018143399947499934, 0.009121303107750042, -0.005125)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_19" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.72986406, 0, 0, 0.6835923)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0006082491018403323, 0.009280087986119012, -0.0050416666666666665)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_20" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.6835923, 0, 0, 0.72986406)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0006082491018403312, 0.009280087986119012, -0.004958333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_21" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.6343933, 0, 0, 0.77301043)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0018143399947499921, 0.009121303107750042, -0.004875)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_22" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.5824777, 0, 0, 0.81284666)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0029893870273194024, 0.008806450204304482, -0.004791666666666666)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_23" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.5280678, 0, 0, 0.84920216)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.00411328481903671, 0.008340916496254002, -0.0047083333333333335)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_24" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.47139674, 0, 0, 0.8819213)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0051668031670823004, 0.007732667394413669, -0.004625)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_25" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.41270703, 0, 0, 0.9108638)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.00613191608043064, 0.006992110209554489, -0.004541666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_26" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.35225004, 0, 0, 0.93590593)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006992110209554488, 0.006131916080430641, -0.004458333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_27" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.29028466, 0, 0, 0.95694035)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.007732667394413668, 0.005166803167082303, -0.004375)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_28" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.22707626, 0, 0, 0.97387695)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008340916496253998, 0.004113284819036715, -0.004291666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_29" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.16289547, 0, 0, 0.9866433)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008806450204304482, 0.002989387027319404, -0.004208333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_30" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.09801714, 0, 0, 0.9951847)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009121303107750042, 0.0018143399947499917, -0.004125)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_31" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.032719083, 0, 0, 0.9994646)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009280087986119012, 0.0006082491018403309, -0.004041666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_32" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.032719083, 0, 0, 0.9994646)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009280087986119012, -0.0006082491018403286, -0.003958333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_33" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.09801714, 0, 0, 0.9951847)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009121303107750044, -0.0018143399947499895, -0.0038750000000000004)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_34" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.16289547, 0, 0, 0.9866433)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008806450204304482, -0.002989387027319402, -0.0037916666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_35" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.22707626, 0, 0, 0.97387695)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008340916496254, -0.0041132848190367135, -0.0037083333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_36" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.29028466, 0, 0, 0.95694035)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.007732667394413672, -0.005166803167082298, -0.003625)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_37" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.35225004, 0, 0, 0.93590593)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006992110209554489, -0.00613191608043064, -0.003541666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_38" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.41270703, 0, 0, 0.9108638)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006131916080430642, -0.006992110209554488, -0.0034583333333333337)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_39" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.47139674, 0, 0, 0.8819213)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0051668031670823, -0.0077326673944136705, -0.003375)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_40" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.5280678, 0, 0, 0.84920216)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.004113284819036713, -0.008340916496254, -0.0032916666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_41" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.5824777, 0, 0, 0.81284666)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0029893870273194046, -0.008806450204304482, -0.003208333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_42" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.6343933, 0, 0, 0.77301043)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0018143399947499964, -0.00912130310775004, -0.003125)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_43" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.6835923, 0, 0, 0.72986406)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0006082491018403273, -0.009280087986119012, -0.0030416666666666665)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_44" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.72986406, 0, 0, 0.6835923)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.000608249101840324, -0.009280087986119012, -0.0029583333333333336)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_45" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.77301043, 0, 0, 0.6343933)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.001814339994749993, -0.009121303107750042, -0.002875)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_46" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.81284666, 0, 0, 0.5824777)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0029893870273194015, -0.008806450204304482, -0.0027916666666666663)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_47" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.84920216, 0, 0, 0.5280678)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.004113284819036709, -0.008340916496254002, -0.0027083333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_48" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.8819213, 0, 0, 0.47139674)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.005166803167082297, -0.007732667394413672, -0.002625)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_49" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9108638, 0, 0, 0.41270703)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006131916080430642, -0.006992110209554487, -0.0025416666666666665)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_50" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.93590593, 0, 0, 0.35225004)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.00699211020955449, -0.006131916080430639, -0.0024583333333333336)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_51" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.95694035, 0, 0, 0.29028466)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.007732667394413665, -0.005166803167082307, -0.0023750000000000004)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_52" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.97387695, 0, 0, 0.22707626)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008340916496254, -0.004113284819036713, -0.0022916666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_53" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9866433, 0, 0, 0.16289547)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008806450204304482, -0.002989387027319405, -0.0022083333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_54" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9951847, 0, 0, 0.09801714)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.00912130310775004, -0.0018143399947499969, -0.0021250000000000006)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_55" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9994646, 0, 0, 0.032719083)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009280087986119012, -0.000608249101840328, -0.0020416666666666665)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_56" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9994646, -0, -0, -0.032719083)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009280087986119012, 0.0006082491018403233, -0.0019583333333333336)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_57" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9951847, -0, -0, -0.09801714)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009121303107750042, 0.0018143399947499925, -0.001875)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_58" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9866433, -0, -0, -0.16289547)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008806450204304482, 0.002989387027319401, -0.001791666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_59" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.97387695, -0, -0, -0.22707626)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008340916496254002, 0.004113284819036708, -0.0017083333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_60" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.95694035, -0, -0, -0.29028466)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.007732667394413668, 0.005166803167082303, -0.0016249999999999997)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_61" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.93590593, -0, -0, -0.35225004)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006992110209554493, 0.0061319160804306355, -0.0015416666666666669)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_62" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9108638, -0, -0, -0.41270703)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006131916080430646, 0.006992110209554485, -0.001458333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_63" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.8819213, -0, -0, -0.47139674)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0051668031670823004, 0.0077326673944136705, -0.0013750000000000004)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_64" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.84920216, -0, -0, -0.5280678)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0041132848190367135, 0.008340916496254, -0.0012916666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_65" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.81284666, -0, -0, -0.5824777)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.002989387027319398, 0.008806450204304483, -0.001208333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_66" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.77301043, -0, -0, -0.6343933)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0018143399947499975, 0.00912130310775004, -0.0011250000000000001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_67" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.72986406, -0, -0, -0.6835923)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0006082491018403368, 0.009280087986119012, -0.0010416666666666673)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_68" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.6835923, -0, -0, -0.72986406)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.000608249101840331, 0.009280087986119012, -0.0009583333333333336)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_69" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.6343933, -0, -0, -0.77301043)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0018143399947499839, 0.009121303107750044, -0.0008750000000000008)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_70" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.5824777, -0, -0, -0.81284666)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0029893870273194002, 0.008806450204304483, -0.0007916666666666671)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_71" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.5280678, -0, -0, -0.84920216)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.004113284819036716, 0.008340916496253998, -0.0007083333333333325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_72" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.47139674, -0, -0, -0.8819213)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.005166803167082296, 0.007732667394413673, -0.0006249999999999997)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_73" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.41270703, -0, -0, -0.9108638)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006131916080430641, 0.006992110209554488, -0.000541666666666666)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_74" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.35225004, -0, -0, -0.93590593)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006992110209554484, 0.006131916080430646, -0.00045833333333333316)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_75" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.29028466, -0, -0, -0.95694035)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.007732667394413669, 0.0051668031670823004, -0.00037500000000000033)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_76" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.22707626, -0, -0, -0.97387695)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008340916496254003, 0.0041132848190367065, -0.00029166666666666664)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_77" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.16289547, -0, -0, -0.9866433)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008806450204304482, 0.0029893870273194063, -0.0002083333333333338)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_78" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.09801714, -0, -0, -0.9951847)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.00912130310775004, 0.0018143399947500062, -0.00012500000000000098)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_79" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.032719083, -0, -0, -0.9994646)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009280087986119012, 0.0006082491018403372, -0.00004166666666666728)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_80" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.032719083, -0, -0, -0.9994646)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009280087986119012, -0.0006082491018403304, 0.00004166666666666728)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_81" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.09801714, -0, -0, -0.9951847)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.00912130310775004, -0.0018143399947499995, 0.00012500000000000098)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_82" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.16289547, -0, -0, -0.9866433)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008806450204304483, -0.0029893870273194, 0.0002083333333333338)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_83" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.22707626, -0, -0, -0.97387695)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008340916496254007, -0.0041132848190367005, 0.00029166666666666577)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_84" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.29028466, -0, -0, -0.95694035)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.007732667394413673, -0.005166803167082296, 0.00037499999999999947)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_85" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.35225004, -0, -0, -0.93590593)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006992110209554488, -0.006131916080430641, 0.00045833333333333316)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_86" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.41270703, -0, -0, -0.9108638)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006131916080430646, -0.006992110209554484, 0.000541666666666666)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_87" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.47139674, -0, -0, -0.8819213)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.005166803167082302, -0.007732667394413669, 0.0006249999999999997)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_88" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.5280678, -0, -0, -0.84920216)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.004113284819036721, -0.008340916496253997, 0.0007083333333333325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_89" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.5824777, -0, -0, -0.81284666)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0029893870273194068, -0.00880645020430448, 0.0007916666666666671)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_90" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.6343933, -0, -0, -0.77301043)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0018143399947500069, -0.009121303107750039, 0.0008749999999999999)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_91" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.6835923, -0, -0, -0.72986406)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0006082491018403214, -0.009280087986119012, 0.0009583333333333345)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_92" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.72986406, -0, -0, -0.6835923)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.00060824910184033, -0.009280087986119012, 0.0010416666666666673)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_93" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.77301043, -0, -0, -0.6343933)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0018143399947499828, -0.009121303107750044, 0.0011249999999999993)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_94" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.81284666, -0, -0, -0.5824777)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0029893870273193994, -0.008806450204304483, 0.001208333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_95" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.84920216, -0, -0, -0.5280678)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0041132848190367, -0.008340916496254007, 0.0012916666666666658)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_96" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.8819213, -0, -0, -0.47139674)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.005166803167082309, -0.007732667394413665, 0.0013750000000000004)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_97" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9108638, -0, -0, -0.41270703)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006131916080430641, -0.006992110209554489, 0.0014583333333333332)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_98" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.93590593, -0, -0, -0.35225004)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006992110209554483, -0.006131916080430647, 0.0015416666666666669)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_99" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.95694035, -0, -0, -0.29028466)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.007732667394413669, -0.005166803167082302, 0.0016250000000000006)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_100" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.97387695, -0, -0, -0.22707626)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008340916496253995, -0.004113284819036722, 0.0017083333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_101" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9866433, -0, -0, -0.16289547)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008806450204304485, -0.0029893870273193916, 0.001791666666666668)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_102" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9951847, -0, -0, -0.09801714)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009121303107750044, -0.001814339994749991, 0.001875)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_103" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9994646, -0, -0, -0.032719083)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009280087986119012, -0.0006082491018403384, 0.0019583333333333328)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_104" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9994646, 0, 0, 0.032719083)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009280087986119012, 0.0006082491018403294, 0.0020416666666666673)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_105" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9951847, 0, 0, 0.09801714)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009121303107750044, 0.0018143399947499821, 0.0021249999999999984)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_106" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9866433, 0, 0, 0.16289547)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008806450204304489, 0.002989387027319383, 0.0022083333333333312)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_107" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.97387695, 0, 0, 0.22707626)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008340916496253998, 0.004113284819036714, 0.0022916666666666675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_108" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.95694035, 0, 0, 0.29028466)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.007732667394413674, 0.005166803167082294, 0.0023750000000000004)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_109" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.93590593, 0, 0, 0.35225004)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006992110209554489, 0.00613191608043064, 0.002458333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_110" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.9108638, 0, 0, 0.41270703)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006131916080430647, 0.006992110209554483, 0.002541666666666666)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_111" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.8819213, 0, 0, 0.47139674)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.005166803167082316, 0.00773266739441366, 0.002624999999999999)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_112" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.84920216, 0, 0, 0.5280678)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.004113284819036708, 0.008340916496254002, 0.0027083333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_113" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.81284666, 0, 0, 0.5824777)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0029893870273194076, 0.00880645020430448, 0.0027916666666666663)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_114" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.77301043, 0, 0, 0.6343933)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0018143399947499915, 0.009121303107750042, 0.002875000000000001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_115" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.72986406, 0, 0, 0.6835923)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.000608249101840339, 0.009280087986119012, 0.002958333333333332)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_116" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.6835923, 0, 0, 0.72986406)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0006082491018403123, 0.009280087986119012, 0.0030416666666666665)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_117" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.6343933, 0, 0, 0.77301043)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0018143399947499978, 0.00912130310775004, 0.003125000000000001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_118" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.5824777, 0, 0, 0.81284666)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0029893870273193985, 0.008806450204304483, 0.003208333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_119" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.5280678, 0, 0, 0.84920216)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0041132848190367135, 0.008340916496253998, 0.0032916666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_120" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.47139674, 0, 0, 0.8819213)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0051668031670822935, 0.007732667394413674, 0.0033749999999999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_121" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.41270703, 0, 0, 0.9108638)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006131916080430628, 0.006992110209554501, 0.0034583333333333324)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_122" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.35225004, 0, 0, 0.93590593)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006992110209554482, 0.006131916080430648, 0.003541666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_123" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.29028466, 0, 0, 0.95694035)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.007732667394413668, 0.005166803167082303, 0.0036249999999999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_124" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.22707626, 0, 0, 0.97387695)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008340916496254002, 0.004113284819036708, 0.0037083333333333343)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_125" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.16289547, 0, 0, 0.9866433)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.00880645020430448, 0.002989387027319408, 0.003791666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_126" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.09801714, 0, 0, 0.9951847)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009121303107750039, 0.0018143399947500084, 0.003875)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_127" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (0.032719083, 0, 0, 0.9994646)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009280087986119012, 0.0006082491018403396, 0.003958333333333333)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_128" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.032719083, 0, 0, 0.9994646)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.009280087986119012, -0.0006082491018403282, 0.004041666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_129" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.09801714, 0, 0, 0.9951847)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.00912130310775004, -0.001814339994749997, 0.004125000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_130" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.16289547, 0, 0, 0.9866433)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008806450204304483, -0.002989387027319397, 0.004208333333333335)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_131" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.22707626, 0, 0, 0.97387695)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.008340916496254, -0.0041132848190367135, 0.004291666666666668)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_132" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.29028466, 0, 0, 0.95694035)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0077326673944136835, -0.0051668031670822805, 0.004374999999999999)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_133" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.35225004, 0, 0, 0.93590593)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006992110209554479, -0.006131916080430651, 0.004458333333333335)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_134" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.41270703, 0, 0, 0.9108638)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.006131916080430648, -0.006992110209554482, 0.004541666666666666)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_135" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.47139674, 0, 0, 0.8819213)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.005166803167082304, -0.007732667394413668, 0.004624999999999999)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_136" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.5280678, 0, 0, 0.84920216)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.004113284819036709, -0.008340916496254002, 0.0047083333333333335)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_137" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.5824777, 0, 0, 0.81284666)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0029893870273194245, -0.008806450204304475, 0.0047916666666666646)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_138" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.6343933, 0, 0, 0.77301043)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0018143399947500088, -0.009121303107750039, 0.004874999999999999)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_139" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.6835923, 0, 0, 0.72986406)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (-0.0006082491018403401, -0.009280087986119012, 0.004958333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_140" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.72986406, 0, 0, 0.6835923)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0006082491018403276, -0.009280087986119012, 0.0050416666666666665)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_141" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.77301043, 0, 0, 0.6343933)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0018143399947499967, -0.00912130310775004, 0.005125000000000001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_142" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.81284666, 0, 0, 0.5824777)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.002989387027319381, -0.008806450204304489, 0.005208333333333332)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_143" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.84920216, 0, 0, 0.5280678)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.004113284819036698, -0.008340916496254007, 0.005291666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_144" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.8819213, 0, 0, 0.47139674)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.0051668031670822935, -0.007732667394413675, 0.005375)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_145" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9108638, 0, 0, 0.41270703)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006131916080430639, -0.00699211020955449, 0.005458333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_146" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.93590593, 0, 0, 0.35225004)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.006992110209554492, -0.0061319160804306355, 0.005541666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_147" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.95694035, 0, 0, 0.29028466)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.007732667394413658, -0.005166803167082318, 0.005625)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_148" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.97387695, 0, 0, 0.22707626)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008340916496253993, -0.004113284819036724, 0.005708333333333334)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_149" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9866433, 0, 0, 0.16289547)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.008806450204304478, -0.0029893870273194094, 0.005791666666666667)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_150" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9951847, 0, 0, 0.09801714)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009121303107750042, -0.0018143399947499934, 0.005875000000000002)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_151" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
+            double size = 1
+            quatf xformOp:orient = (-0.9994646, 0, 0, 0.032719083)
+            float3 xformOp:scale = (0.0015, 0.0013391039, 0.0012)
+            double3 xformOp:translate = (0.009280087986119012, -0.0006082491018403242, 0.005958333333333335)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+}
+
