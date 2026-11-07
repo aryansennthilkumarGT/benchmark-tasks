@@ -1,0 +1,1409 @@
+{
+  "slug": "remote-battery-service",
+  "title": "Replace both cells and close a handheld controller",
+  "instruction": "Put both grey used cells in the grey collection tray. Fit the two blue replacement cells with their orange positive ends matching the orange bay marks, then close the cover.",
+  "context": "A complete consumable-replacement workflow with removal, segregation, polarity-sensitive insertion and closure.",
+  "control_hz": 20,
+  "run_limit": 3600,
+  "table_top": 0.7475,
+  "hold_seconds": 1.0,
+  "penetration_limit": 0.002,
+  "assemblies": [
+    {
+      "name": "controller_asset",
+      "origin": [
+        0.29,
+        0,
+        0.7475
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "controller",
+          "pos": [
+            0.29,
+            0,
+            0.7475
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.004
+              ],
+              "size": [
+                0.13,
+                0.082,
+                0.008
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.037,
+                0.016
+              ],
+              "size": [
+                0.13,
+                0.008,
+                0.032
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.037,
+                0.016
+              ],
+              "size": [
+                0.13,
+                0.008,
+                0.032
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.032,
+                0,
+                0.014
+              ],
+              "size": [
+                0.004,
+                0.066,
+                0.02
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.032,
+                0,
+                0.014
+              ],
+              "size": [
+                0.004,
+                0.066,
+                0.02
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.014
+              ],
+              "size": [
+                0.064,
+                0.004,
+                0.02
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.18,
+          "anchor": true,
+          "half_extent": [
+            0.065,
+            0.041,
+            0.032
+          ],
+          "bounds_min": [
+            -0.065,
+            -0.041,
+            0.0
+          ],
+          "bounds_max": [
+            0.065,
+            0.041,
+            0.032
+          ],
+          "material": "rigid engineering plastic"
+        },
+        {
+          "name": "cover",
+          "pos": [
+            0.29,
+            0,
+            0.7815000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.126,
+                0.078,
+                0.004
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.05,
+                0,
+                0.014
+              ],
+              "size": [
+                0.014,
+                0.03,
+                0.025
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.06,
+          "anchor": false,
+          "half_extent": [
+            0.063,
+            0.039,
+            0.026500000000000003
+          ],
+          "bounds_min": [
+            -0.063,
+            -0.039,
+            -0.002
+          ],
+          "bounds_max": [
+            0.063,
+            0.039,
+            0.026500000000000003
+          ],
+          "material": "rigid engineering plastic"
+        },
+        {
+          "name": "contact_0",
+          "pos": [
+            0.319,
+            -0.017,
+            0.76275
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.003,
+                0.014,
+                0.013
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.002,
+          "anchor": false,
+          "half_extent": [
+            0.0015,
+            0.007,
+            0.0065
+          ],
+          "bounds_min": [
+            -0.0015,
+            -0.007,
+            -0.0065
+          ],
+          "bounds_max": [
+            0.0015,
+            0.007,
+            0.0065
+          ],
+          "material": "rigid engineering plastic"
+        },
+        {
+          "name": "contact_1",
+          "pos": [
+            0.319,
+            0.017,
+            0.76275
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.003,
+                0.014,
+                0.013
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.002,
+          "anchor": false,
+          "half_extent": [
+            0.0015,
+            0.007,
+            0.0065
+          ],
+          "bounds_min": [
+            -0.0015,
+            -0.007,
+            -0.0065
+          ],
+          "bounds_max": [
+            0.0015,
+            0.007,
+            0.0065
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": [
+        {
+          "name": "cover_slide",
+          "parent": "controller",
+          "child": "cover",
+          "axis": "X",
+          "lower": 0,
+          "upper": 0.11,
+          "pivot_parent": [
+            0,
+            0,
+            0.034
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "prismatic",
+          "stiffness": 0.2,
+          "damping": 0.04
+        },
+        {
+          "name": "spring_0",
+          "parent": "controller",
+          "child": "contact_0",
+          "axis": "X",
+          "lower": 0,
+          "upper": 0.0015,
+          "pivot_parent": [
+            0.029,
+            -0.017,
+            0.01525
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "prismatic",
+          "stiffness": 50,
+          "damping": 0.5
+        },
+        {
+          "name": "spring_1",
+          "parent": "controller",
+          "child": "contact_1",
+          "axis": "X",
+          "lower": 0,
+          "upper": 0.0015,
+          "pivot_parent": [
+            0.029,
+            0.017,
+            0.01525
+          ],
+          "pivot_child": [
+            0,
+            0,
+            0
+          ],
+          "kind": "prismatic",
+          "stiffness": 50,
+          "damping": 0.5
+        }
+      ]
+    },
+    {
+      "name": "used_cell_tray_asset",
+      "origin": [
+        0.28,
+        -0.24,
+        0.7475
+      ],
+      "fixed": true,
+      "bodies": [
+        {
+          "name": "used_cell_tray",
+          "pos": [
+            0.28,
+            -0.24,
+            0.7475
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.003
+              ],
+              "size": [
+                0.14,
+                0.1,
+                0.006
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0.05,
+                0.02
+              ],
+              "size": [
+                0.14,
+                0.004,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                -0.05,
+                0.02
+              ],
+              "size": [
+                0.14,
+                0.004,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.07,
+                0,
+                0.02
+              ],
+              "size": [
+                0.004,
+                0.1,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.07,
+                0,
+                0.02
+              ],
+              "size": [
+                0.004,
+                0.1,
+                0.04
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.5,
+          "anchor": true,
+          "half_extent": [
+            0.07200000000000001,
+            0.052000000000000005,
+            0.04
+          ],
+          "bounds_min": [
+            -0.07200000000000001,
+            -0.052000000000000005,
+            0.0
+          ],
+          "bounds_max": [
+            0.07200000000000001,
+            0.052000000000000005,
+            0.04
+          ],
+          "material": "rigid engineering plastic"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "old_cell_0_asset",
+      "origin": [
+        0.29,
+        -0.017,
+        0.76275
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "old_cell_0",
+          "pos": [
+            0.29,
+            -0.017,
+            0.76275
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "radius": 0.00725,
+              "height": 0.0505,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                0.0258,
+                0,
+                0
+              ],
+              "radius": 0.0028,
+              "height": 0.0015,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.0074
+              ],
+              "size": [
+                0.022,
+                0.005,
+                0.0002
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.024,
+          "anchor": false,
+          "half_extent": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "bounds_min": [
+            -0.02525000000000001,
+            -0.00725,
+            -0.007250000000000007
+          ],
+          "bounds_max": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "material": "rigid AA cell surrogate; no electrical or chemical simulation"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "new_cell_0_asset",
+      "origin": [
+        0.22,
+        0.24,
+        0.7555000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "new_cell_0",
+          "pos": [
+            0.22,
+            0.24,
+            0.7555000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "shapes": [
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "radius": 0.00725,
+              "height": 0.0505,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                0.0258,
+                0,
+                0
+              ],
+              "radius": 0.0028,
+              "height": 0.0015,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.0074
+              ],
+              "size": [
+                0.022,
+                0.005,
+                0.0002
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.024,
+          "anchor": false,
+          "half_extent": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "bounds_min": [
+            -0.02525000000000001,
+            -0.00725,
+            -0.007250000000000007
+          ],
+          "bounds_max": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "material": "rigid AA cell surrogate; no electrical or chemical simulation"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "old_cell_1_asset",
+      "origin": [
+        0.29,
+        0.017,
+        0.76275
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "old_cell_1",
+          "pos": [
+            0.29,
+            0.017,
+            0.76275
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ],
+          "shapes": [
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "radius": 0.00725,
+              "height": 0.0505,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                0.0258,
+                0,
+                0
+              ],
+              "radius": 0.0028,
+              "height": 0.0015,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.0074
+              ],
+              "size": [
+                0.022,
+                0.005,
+                0.0002
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.024,
+          "anchor": false,
+          "half_extent": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "bounds_min": [
+            -0.02525000000000001,
+            -0.00725,
+            -0.007250000000000007
+          ],
+          "bounds_max": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "material": "rigid AA cell surrogate; no electrical or chemical simulation"
+        }
+      ],
+      "joints": []
+    },
+    {
+      "name": "new_cell_1_asset",
+      "origin": [
+        0.31,
+        0.24,
+        0.7555000000000001
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "new_cell_1",
+          "pos": [
+            0.31,
+            0.24,
+            0.7555000000000001
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ],
+          "shapes": [
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "radius": 0.00725,
+              "height": 0.0505,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.08,
+                0.35,
+                0.85
+              ],
+              "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                0.0258,
+                0,
+                0
+              ],
+              "radius": 0.0028,
+              "height": 0.0015,
+              "quat": [
+                0.0,
+                0.7071067811865476,
+                0.0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.95,
+                0.42,
+                0.06
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.0074
+              ],
+              "size": [
+                0.022,
+                0.005,
+                0.0002
+              ],
+              "quat": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "color": [
+                0.9,
+                0.9,
+                0.9
+              ],
+              "collision": false
+            }
+          ],
+          "mass": 0.024,
+          "anchor": false,
+          "half_extent": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "bounds_min": [
+            -0.02525000000000001,
+            -0.00725,
+            -0.007250000000000007
+          ],
+          "bounds_max": [
+            0.02655,
+            0.00725,
+            0.007250000000000007
+          ],
+          "material": "rigid AA cell surrogate; no electrical or chemical simulation"
+        }
+      ],
+      "joints": []
+    }
+  ],
+  "goals": [
+    {
+      "name": "old_cell_0_collected",
+      "all": [
+        {
+          "kind": "region",
+          "body": "old_cell_0",
+          "min": [
+            0.21300000000000002,
+            -0.287,
+            0.7535000000000001
+          ],
+          "max": [
+            0.34700000000000003,
+            -0.193,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_cell_0",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "new_cell_0_installed",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "new_cell_0",
+          "pos": [
+            0,
+            -0.017,
+            0.01525
+          ],
+          "relative_to": "controller",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.0015,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_cell_0",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "old_cell_1_collected",
+      "all": [
+        {
+          "kind": "region",
+          "body": "old_cell_1",
+          "min": [
+            0.21300000000000002,
+            -0.287,
+            0.7535000000000001
+          ],
+          "max": [
+            0.34700000000000003,
+            -0.193,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_cell_1",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "new_cell_1_installed",
+      "all": [
+        {
+          "kind": "pose",
+          "body": "new_cell_1",
+          "pos": [
+            0,
+            0.017,
+            0.01525
+          ],
+          "relative_to": "controller",
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ],
+          "tolerance": 0.0015,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_cell_1",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ],
+      "weight": 0.2
+    },
+    {
+      "name": "cover_closed",
+      "all": [
+        {
+          "kind": "region",
+          "body": "old_cell_0",
+          "min": [
+            0.21300000000000002,
+            -0.287,
+            0.7535000000000001
+          ],
+          "max": [
+            0.34700000000000003,
+            -0.193,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_cell_0",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "new_cell_0",
+          "pos": [
+            0,
+            -0.017,
+            0.01525
+          ],
+          "relative_to": "controller",
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "tolerance": 0.0015,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_cell_0",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "region",
+          "body": "old_cell_1",
+          "min": [
+            0.21300000000000002,
+            -0.287,
+            0.7535000000000001
+          ],
+          "max": [
+            0.34700000000000003,
+            -0.193,
+            0.8375
+          ]
+        },
+        {
+          "kind": "still",
+          "body": "old_cell_1",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "new_cell_1",
+          "pos": [
+            0,
+            0.017,
+            0.01525
+          ],
+          "relative_to": "controller",
+          "quat": [
+            0.0,
+            0.0,
+            1.0,
+            6.123233995736766e-17
+          ],
+          "tolerance": 0.0015,
+          "angle": 0.10471975511965978
+        },
+        {
+          "kind": "still",
+          "body": "new_cell_1",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "joint",
+          "joint": "cover_slide",
+          "min": 0,
+          "max": 0.002
+        }
+      ],
+      "weight": 0.2
+    }
+  ],
+  "threads": [],
+  "invariants": [],
+  "collision_exclusions": [],
+  "novelty_status": "HOLD_NOT_CLEARED",
+  "implementation_status": "ENGINEERING_DRAFT_UNVALIDATED",
+  "limitations": [
+    "Contact springs and end clearance need tuning on PhysX. Cover rail retention and anti-pry resistance are not demonstrated.",
+    "Whole-workflow novelty is not established relative to existing cell removal and replacement tasks."
+  ],
+  "closest_prs": [
+    615,
+    587,
+    281,
+    234
+  ],
+  "expert_operations": [
+    {
+      "kind": "transfer",
+      "body": "old_cell_0",
+      "side": "right",
+      "pick": [
+        0.29,
+        -0.017,
+        0.76275
+      ],
+      "place": [
+        0.26,
+        -0.24,
+        0.7615000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "new_cell_0",
+      "side": "left",
+      "pick": [
+        0.22,
+        0.24,
+        0.7555000000000001
+      ],
+      "place": [
+        0.29,
+        -0.017,
+        0.76275
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "old_cell_1",
+      "side": "right",
+      "pick": [
+        0.29,
+        0.017,
+        0.76275
+      ],
+      "place": [
+        0.3,
+        -0.24,
+        0.7615000000000001
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    },
+    {
+      "kind": "transfer",
+      "body": "new_cell_1",
+      "side": "left",
+      "pick": [
+        0.31,
+        0.24,
+        0.7555000000000001
+      ],
+      "place": [
+        0.29,
+        0.017,
+        0.76275
+      ],
+      "yaw": 0.0,
+      "place_yaw": 0.0,
+      "grasp_offset": 0.008
+    }
+  ]
+}
