@@ -169,6 +169,22 @@ def native(python, folder, out, mode, commit, budget):
     return report
 
 
+def publication_record(previous,runtime,evidence,media_id):
+    """Replace offline pending fields only with the completed runtime receipts."""
+    public_keys=('kind','mode','score','steps','run_limit','seed','commit','record_id','log_sha256','simulated_seconds','duration_s','camera_streams','native_failure')
+    public_run=lambda value:{key:value[key] for key in public_keys if key in value}
+    physics=evidence['NATIVE_PHYSICS_PASSED']['result']
+    control=evidence['ROBOT_CONTROL_PASSED']['result']
+    value=dict(previous)
+    value.update(status='MEDIA_UPLOADED',ready=False,physics='PASS',native_physics='PASS',robot_control='PASS',
+        expert_trials=[public_run(v) for v in runtime['experts']],dream=public_run(runtime['dream']),
+        native_physics_episodes=physics['reset_count'],robot_control_episodes=control['reset_count'],
+        physics_runs=physics['reset_count']+control['reset_count'],expert_runs=len(runtime['experts']),model_runs=1,
+        media_uploads=1,media_id=media_id,media_verified=True,runtime_verified_at=utc(),
+        evidence_digest=fingerprint(evidence),remaining=['Exact remote publication verification; see the runtime ready-handoff.json'])
+    return value
+
+
 def publish(task, folder, media, out, args, evidence, runtime):
     require(not args.no_push,'Push deliberately disabled; exact remote publication incomplete')
     # Publish from a NEW worktree. The evaluated checkout is never edited.
@@ -176,11 +192,7 @@ def publish(task, folder, media, out, args, evidence, runtime):
     execute(['git','worktree','add','--detach',str(dest),task['commit']],cache,out/'publication-checkout.log',120)
     target=dest/task['task_folder']
     shutil.copyfile(media/'upload/task.json',target/'task.json')
-    validation=read(target/'validation.json')
-    public_keys=('kind','mode','score','steps','run_limit','seed','commit','record_id','log_sha256','simulated_seconds','duration_s','camera_streams','native_failure')
-    public_run=lambda value:{key:value[key] for key in public_keys if key in value}
-    validation.update(status='MEDIA_UPLOADED',physics='PASS',expert_trials=[public_run(v) for v in runtime['experts']],dream=public_run(runtime['dream']),
-                      media_id=read(target/'task.json')['media'],evidence_digest=fingerprint(evidence))
+    validation=publication_record(read(target/'validation.json'),runtime,evidence,read(target/'task.json')['media'])
     atomic(target/'validation.json',validation)
     source=read(target/'source_manifest.json')
     for key in ('files','sha256'):
@@ -193,14 +205,14 @@ def publish(task, folder, media, out, args, evidence, runtime):
     execute(['git','-c','user.name=Benchmark validation','-c','user.email=benchmark-validation@localhost',
              '-c','commit.gpgsign=false','commit','-m','Record validated rollouts and official media'],dest,out/'metadata-commit.log',60)
     head=capture(['git','rev-parse','HEAD'],dest)
+    diff=capture(['git','diff','--name-only',task['commit'],head],dest).splitlines()
+    require(set(diff)<={task['task_folder']+'/'+x for x in ('task.json','validation.json','source_manifest.json')},
+            'Publication changed evaluated executable code')
     # Lease prevents overwriting engineering changes made during a long run.
     execute(['git','push','origin',f'HEAD:refs/heads/{task["branch"]}',
              f'--force-with-lease=refs/heads/{task["branch"]}:{task["commit"]}'],dest,out/'push.log',300)
     execute(['git','fetch','origin',task['branch']],dest,out/'verify-fetch.log',300)
     require(capture(['git','rev-parse','FETCH_HEAD'],dest)==head,'Fetched remote commit differs')
-    diff=capture(['git','diff','--name-only',task['commit'],head],dest).splitlines()
-    require(set(diff)<={task['task_folder']+'/'+x for x in ('task.json','validation.json','source_manifest.json')},
-            'Publication changed evaluated executable code')
     atomic(out/'remote-verified.json',{'commit':head,'evaluated_commit':task['commit'],'metadata_only_diff':diff})
     return {'commit':head,'evaluated_commit':task['commit'],'branch':task['branch'],'verified':True}
 

@@ -61,6 +61,15 @@ class PipelineIntegration(unittest.TestCase):
         self.assertIn('dirty',read(self.runs/'report.json')['tasks'][0]['error'])
 
 class NativeCoverageTests(unittest.TestCase):
+    def test_publication_replaces_pending_fields_without_private_paths(self):
+        old=dict(native_physics='NOT_RUN',robot_control='NOT_RUN',physics_runs=0,expert_runs=0,model_runs=0,media_uploads=0,media_verified=False)
+        run=dict(score=1.,mode='expert',record_id='FORMAT-FIXTURE',log='/private/source/log.json',frames='/private/frames')
+        value=pipeline.publication_record(old,{'experts':[run,run],'dream':dict(run,score=0.,mode='dream')},
+             {'NATIVE_PHYSICS_PASSED':{'result':{'reset_count':8}},'ROBOT_CONTROL_PASSED':{'result':{'reset_count':4}}},'FORMAT-ONLY')
+        self.assertEqual((value['physics_runs'],value['expert_runs'],value['model_runs'],value['media_uploads']),(12,2,1,1))
+        self.assertEqual(value['native_physics'],'PASS');self.assertEqual(value['robot_control'],'PASS')
+        self.assertTrue(value['media_verified']);self.assertFalse(value['ready'])
+        self.assertNotIn('/private/',json.dumps(value));self.assertEqual(old['expert_runs'],0)
     def test_missing_or_duplicate_native_case_cannot_pass(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);atomic(root/'native-cases.json',{'physics':[{'name':'a','steps':1},{'name':'b','steps':1}]})
