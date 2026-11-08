@@ -1,0 +1,193 @@
+{
+  "schema": 1,
+  "kind": "ACTUAL_ONE_COMMAND_OFFLINE_VERIFICATION",
+  "verified_at": "2026-11-08T00:22:26.747721+00:00",
+  "tested_handoff_commit": "e0d86252229284c3a0ff20c95f80e8dd3e095a5b",
+  "command": "bash coordination/bootstrap_and_run.sh --all --offline --resume",
+  "exit_code": 0,
+  "task_tests": {
+    "passed": 484,
+    "not_applicable": 32,
+    "failed": 0
+  },
+  "coordinator_tests_passed": 35,
+  "composed_usd_packages_passed": 8,
+  "audit_programs_executed": 40,
+  "applicable_audits_passed": 33,
+  "thread_audits_not_applicable": 7,
+  "python": "3.12.13",
+  "numpy": "2.3.1",
+  "usd_core": "25.11",
+  "inspect_robots": "1.0.0",
+  "inspect_robots_yam": "0.38.0",
+  "adapter_commit": "0059d02a1a91bc6834c1d0846022891df0c78730",
+  "tasks": [
+    {
+      "slug": "hinged-chassis-drive",
+      "commit": "d30695151966e69ef5575c3e28150520a9824960",
+      "status": "PASS",
+      "receipt_key": "33ec926ffb7b11b7b8a39a45f1a2db0cad3428a2d55e1778b037e2e5dc9ca4a2",
+      "receipt_sha256": "eb533c510ff03aded259fba32a715071fb0965c3da32be3548c5065b2140935b",
+      "artifacts": {
+        "audit_geometry.json": "f008cf07cd6f4a2fcafd8e89f23069916423e716ac1cddb7c4b3e8b06ffcfb79",
+        "audit_grasps.json": "538702037c9b144197c6f5939d3c6f5a364172537cf53738b4a127e653ae85b7",
+        "audit_motion.json": "a38b60a919cfde53d546ec5951629c7ea44cc395137b7c5a9aa2ee8dd80bbfaa",
+        "audit_threads.json": "862d19551b5c27fa05f82d5547543c76073d87a899df004d41e37635b18aac7b",
+        "kinematics.log": "ed3fbc2773cf8f8d3c641fd0b6014218935e54376fa57f220c2225739a6238e0",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "b29865cf77901d4aba8d1ef628c7410a9c48ccb3bad7098fca560e41b0581166",
+        "usd-structure.log": "eb3a4fbf466432e3ed8d56492befb4834a62169f153bc901e382cec6882c05ea"
+      },
+      "unit_tests_passed": 59,
+      "unit_tests_not_applicable": 4
+    },
+    {
+      "slug": "remote-battery-service",
+      "commit": "7c973b3b4d20147deba56a30b348924dfd193553",
+      "status": "PASS",
+      "receipt_key": "8d9f6eb065a58165640490228e789911bab8e8d80efe05d9172e5ca108eee4f5",
+      "receipt_sha256": "1f3cb04ca105d5d1a0592704c0e8f7f23775ab29fda5353b0e94a059add7c69e",
+      "artifacts": {
+        "audit_geometry.json": "33c701739a972fe9e9004859de7fc789a5869ba99833ece37d9a8c073dbd0660",
+        "audit_grasps.json": "0e8299b12134fe7709ed90622bc674dea27a5f1b51d10ee3a8ebcd7e0f70bdfc",
+        "audit_motion.json": "478f99ca68aada805e983aaf030591757208d51ba0b06308298e917ab38e0555",
+        "audit_threads.json": "862d19551b5c27fa05f82d5547543c76073d87a899df004d41e37635b18aac7b",
+        "kinematics.log": "1c27da1660a58501b1af0fed6ff5e58c7a38b021e08b7f7c84746628bad1d13d",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "4387b305912e8f3390a6824f5f87ac6acb9b17cf170529056787eb0c3ecec40f",
+        "usd-structure.log": "721016c06764e036f7b6da6a14175b14c745359b878bb88fab8c5a2ecef8e22b"
+      },
+      "unit_tests_passed": 61,
+      "unit_tests_not_applicable": 6
+    },
+    {
+      "slug": "switch-map-rework",
+      "commit": "3a02a07352e3fde823f5a79c5b069b3863c58c36",
+      "status": "PASS",
+      "receipt_key": "d2e9e6b63169c35d4e1080a58f55d950b1a9555d8011f7ffdb6e8bb2c61f6d01",
+      "receipt_sha256": "3de6ec7278343e6285546cac01279ec1d7a583caa34da91ab32c5f0076237e03",
+      "artifacts": {
+        "audit_geometry.json": "21d9a2fcb2be69ec6603025e6c8fb5142ca8fcede1ea684221a855ec14b10981",
+        "audit_grasps.json": "ba111c4d55440e758178929591953519e28ae83cafdd1d2b2f1a2b1923922dc5",
+        "audit_motion.json": "1ce8760cfb056eb87437253630f2ec097530f49fa6bfb933e4f510adfb6896b5",
+        "audit_threads.json": "862d19551b5c27fa05f82d5547543c76073d87a899df004d41e37635b18aac7b",
+        "kinematics.log": "3c5c9f0b1e381556e3226da03f216bf169ae5febbf9ae3d401279591a61d781f",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "1fc85e15efe17867ab3c2a7698b4e4b3abf74e1c0d326589664fd4c6b08ee486",
+        "usd-structure.log": "2156e213cfd102f79848f06ec951943f55c98759550f2cf05c6801726ac2d96d"
+      },
+      "unit_tests_passed": 60,
+      "unit_tests_not_applicable": 3
+    },
+    {
+      "slug": "node-service-closeout",
+      "commit": "12e64603415c17b56239cbf74ce0181e90ed91b8",
+      "status": "PASS",
+      "receipt_key": "dea63c62be17d91a73ad68eb067790bb84fa7711b6bed667891169d867757363",
+      "receipt_sha256": "d9a1199c975544f795f48396c6d83faae3f539544e87a79ec67c09d2c81b5e69",
+      "artifacts": {
+        "audit_geometry.json": "43464bff3c45381ef1ab6d3dd7c2fad355a472d97ce353672ce32ebd8fc4e98d",
+        "audit_grasps.json": "a0532eb8ae50700402fe000cae6fab88dcfb793158e4fe50f8ab23b284e6919f",
+        "audit_motion.json": "615e7a2883407f887c7257eda23a17ee7e96a0cbe8b7923daf43ecac41ccdc91",
+        "audit_threads.json": "862d19551b5c27fa05f82d5547543c76073d87a899df004d41e37635b18aac7b",
+        "kinematics.log": "c856e70ddbb9d117862d1d8da7356f836972cfffc4e15d368903e4477fe491eb",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "2a320e6f541179d42d2e6e7a8051ad4adfa88c46c901902f23591eb615865c3f",
+        "usd-structure.log": "5521f2feb5817ba46b5b84c0e700332e9d7a53b8be262f9b17ad12dd3333878d"
+      },
+      "unit_tests_passed": 59,
+      "unit_tests_not_applicable": 4
+    },
+    {
+      "slug": "twelve-cell-pack",
+      "commit": "ead684217e6374b2aafc88c32bc5ab0af8b678f2",
+      "status": "PASS",
+      "receipt_key": "1318898f4f2f551c7a0555da65836d148a1bd093814d4e18197c71e7e10d9905",
+      "receipt_sha256": "3dcc45e77fd368e45ffc50090e3be2f4839fd10253cef959efd912805ebf31a0",
+      "artifacts": {
+        "audit_geometry.json": "e7566ceb092bce0f822cff7f17e9688a5f70dd0042d4439449e04e92e39faf1d",
+        "audit_grasps.json": "117d853feab5bc4c07b3da5b8fcd3a5f82f15627dedca29f4956344c1b4eca64",
+        "audit_motion.json": "f2ef891eebcfe9755cb956de48cb76670b5759084c4a1d566d503535eca2e709",
+        "audit_threads.json": "862d19551b5c27fa05f82d5547543c76073d87a899df004d41e37635b18aac7b",
+        "kinematics.log": "2f10709204637524d6958c7ade6bdb51b73d756a6b3ebb772431a166acdb4c15",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "ee2a43467fe7689afef3a9f141b822c6d3a9a230ab6496825288272405728686",
+        "usd-structure.log": "349c2d377db37842bc728fc7b442bf73eeaa75ee1394f2acf775be4a810fb06c"
+      },
+      "unit_tests_passed": 62,
+      "unit_tests_not_applicable": 5
+    },
+    {
+      "slug": "eight-nut-bracket",
+      "commit": "0a1da4e89bfaa61e36f4941b28bf17781d5c222f",
+      "status": "PASS",
+      "receipt_key": "a8468f9ada19a38f07871aa3882dd693c84e191b2f8c6803b98859c9088bd835",
+      "receipt_sha256": "9c474727559a09efda153692072d5d5adf317829e98b6379d8f9dc289cec0777",
+      "artifacts": {
+        "audit_geometry.json": "2ca5953fa56a74d95391c00ed768f673ccc952af14e9e2739dc53b41d8442dc9",
+        "audit_grasps.json": "106b8e7609dc42c4b0fa113db781425e74ecdb5fa02d603d5e070cc96366799a",
+        "audit_motion.json": "0153777d1f8bf57b73d1414b3e21486d17f5e6fd8e6bd5da55f225ec3465ab20",
+        "audit_threads.json": "b725c121f23b1e901dedbddb5656de8aa7ead8a424eda23c2f112a6f61eb2372",
+        "kinematics.log": "b1896fbaef49b074d1b5b25d47dfd57dd6733323dcd0542bb2834642dab0a151",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "6f40134914c9ccc4d0704a5efe4f47bf207fb531d0ba42ace59e3e1b3dee73ce",
+        "usd-structure.log": "c0a46584bbf83518e4f01778108214e674fcf0aa42342968902ebe94188465ce"
+      },
+      "unit_tests_passed": 65,
+      "unit_tests_not_applicable": 2
+    },
+    {
+      "slug": "fault-module-repair",
+      "commit": "efb004744c523d27680dfd99fb6536a6f196ef87",
+      "status": "PASS",
+      "receipt_key": "83b1d87daf386231910e317ed53a152ec69f69df05dd857c706d79c104d40813",
+      "receipt_sha256": "4b5e8767bbb1731ea487975db348cdb90588d36a539ab13dce6aaa6e5bbb75a2",
+      "artifacts": {
+        "audit_geometry.json": "c2d64305ea7b48cb44d540b902cb481d2f771dd9363fe414708842b6cc815b12",
+        "audit_grasps.json": "dc7b400046108c77fd9871d8f79b783aadf618eac3c49214dc2c9371c7a1ae52",
+        "audit_motion.json": "e968020183d29d29957baec547ac352436696e16eec152da733f521d538e2536",
+        "audit_threads.json": "862d19551b5c27fa05f82d5547543c76073d87a899df004d41e37635b18aac7b",
+        "kinematics.log": "2b0b0e164a1c8fbcd24176730c10b8682e24bff7746b3e94c158e19237647d19",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "803db312db3cdab2831ef6e9c37046bc820a35daa38c4fc5aefd102988b91ed4",
+        "usd-structure.log": "366127ab1e74bd730f980f905fbaf4ca5c437fb71310c99f8da8d89de7b7adfa"
+      },
+      "unit_tests_passed": 59,
+      "unit_tests_not_applicable": 4
+    },
+    {
+      "slug": "hardware-order-kit",
+      "commit": "4ff00e040183c58a96753802620caf5a81d3e220",
+      "status": "PASS",
+      "receipt_key": "a3ed4b6e6b23d92bfea50e6d91c1c36cfc44eb23e9df0569cad5b5de0ad4f53f",
+      "receipt_sha256": "81258b4db5facef1f38d61595d8f3891598e661ce45efa2beed05d8d73073743",
+      "artifacts": {
+        "audit_geometry.json": "523b8518ad14e80b9b09b2c026e70ca20474e23a0829fedbe702c10674905799",
+        "audit_grasps.json": "29d21fb48de2b2caf3cff9376b8c2f7d688a60b9d7b700ef54732376dc37c53c",
+        "audit_motion.json": "70f5a6ff88c79631b243ca39fc2da6777b67b074e7b1f9fa9616300b6b33a96d",
+        "audit_threads.json": "862d19551b5c27fa05f82d5547543c76073d87a899df004d41e37635b18aac7b",
+        "kinematics.log": "85341ae91269a5be36ae1cc4ecc615d3393520fe3d8600d9d268b61f2fe0d590",
+        "static.json": "fae5d9115eb20970c1e59b48d5ddf0bb674cbc927d1b1c254ae724e545a41ef5",
+        "unit-tests.log": "7c8ceea26f7e7594e49da62888c84fbc76e4c0755b5e588cd9a96bbbb74fed62",
+        "usd-structure.log": "eb3a4fbf466432e3ed8d56492befb4834a62169f153bc901e382cec6882c05ea"
+      },
+      "unit_tests_passed": 59,
+      "unit_tests_not_applicable": 4
+    }
+  ],
+  "resume_verification": {
+    "kind": "ACTUAL_ONE_COMMAND_RESUME",
+    "exit_code": 0,
+    "elapsed_s": 1.407,
+    "ledger_unchanged": true,
+    "duplicated_stages": 0,
+    "physics_executed": false,
+    "tested_handoff_commit": "e0d86252229284c3a0ff20c95f80e8dd3e095a5b"
+  },
+  "physics_executed": false,
+  "expert_runs": 0,
+  "dream_evaluations": 0,
+  "media_uploads": 0,
+  "official_prs_opened": 0,
+  "ready_tasks": 0
+}
