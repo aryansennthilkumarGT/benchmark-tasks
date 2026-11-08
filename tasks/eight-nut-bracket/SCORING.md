@@ -82,3 +82,5 @@ Malformed/missing/nonfinite data and nonmonotonic conflicting timestamps fail cl
 Thread credit requires aligned angular increments with corresponding axial motion inside the thread engagement region. Free spinning, direct dropping and pitch-inconsistent motion earn no turn credit. Cable continuity uses connected joint endpoints; a forced catch crossing without release invalidates the episode. These checks apply only to mechanisms present in this task.
 
 Offline tests inject synthetic states to test arithmetic and counterexamples. Native probes separately read actual simulation states and call this same scorer. No synthetic score is a demonstration result.
+
+Interchangeable parts are matched one-to-one to valid slots. The body names in slot predicates are templates: any listed candidate may satisfy that slot, and dependent closure/preload goals reuse the same matching. Polarity, contact-spring compression and measured turn history remain mandatory. A single part cannot earn two slot credits; changing studs resets its thread history. The expert uses one convenient assignment, which is not required by scoring.

@@ -74,6 +74,14 @@ class Scorer:
         if abs(sum(g['weight'] for g in spec['goals']) - 1) > 1e-9:
             raise ValueError('goal weights must sum to one')
         self.joint_specs = {j['name']: j for a in spec['assemblies'] for j in a.get('joints', [])}
+        goal_names={g['name'] for g in spec['goals']}
+        for g in spec['goals']:
+            if not set(g.get('requires',[]))<=goal_names:raise ValueError('unknown prerequisite goal')
+            if 'candidate_bodies' in g:
+                names=g['candidate_bodies']
+                if not names or len(set(names))!=len(names) or not set(names)<=self.body_specs.keys():
+                    raise ValueError('invalid interchangeable body pool')
+                if g.get('template_body') not in names:raise ValueError('invalid slot template body')
         for group in spec['goals'] + spec.get('invariants', []):
             for p in group['all']:
                 if p['kind'] not in {'pose','region','still','axis','joint','turns'}:
@@ -154,6 +162,38 @@ class Scorer:
             return norm(b['linear']) <= p.get('speed', 0.01) and norm(b['angular']) <= p.get('spin', 0.2)
         raise ValueError(f'unsupported predicate {kind}')
 
+    def completed_goals(self,frame):
+        """Match interchangeable parts one-to-one to mechanically valid slots.
+
+        Matching uses current measured predicates, never expert order or object IDs.
+        All dependent goals use the same binding, including polarity and turn history.
+        """
+        slots=[g for g in self.spec['goals'] if 'candidate_bodies' in g]
+        edges={g['name']:[name for name in g['candidate_bodies'] if all(self.predicate(
+            dict(p,body=name) if p.get('body')==g['template_body'] else p,frame) for p in g['all'])] for g in slots}
+        owner={}
+        def augment(goal,seen):
+            for body in edges[goal]:
+                if body in seen:continue
+                seen.add(body)
+                if body not in owner or augment(owner[body],seen):owner[body]=goal;return True
+            return False
+        for g in sorted(slots,key=lambda g:-g['weight']):augment(g['name'],set())
+        selected={goal:body for body,goal in owner.items()}
+        bindings={g['template_body']:selected.get(g['name']) for g in slots}
+        def valid(p):
+            name=p.get('body')
+            if name in bindings:
+                if bindings[name] is None:return False
+                p=dict(p,body=bindings[name])
+            return self.predicate(p,frame)
+        active={g['name'] for g in self.spec['goals'] if
+                (g['name'] in selected if 'candidate_bodies' in g else all(valid(p) for p in g['all']))}
+        while True:
+            reduced={g['name'] for g in self.spec['goals'] if g['name'] in active and set(g.get('requires',[]))<=active}
+            if reduced==active:return active
+            active=reduced
+
     def update(self, frame):
         error = self._validate(frame)
         now = frame.get('time', 0.0) if isinstance(frame, dict) else 0.0
@@ -223,9 +263,11 @@ class Scorer:
             name = thread['body']
             pos, quat = relative(frame['bodies'][name], frame['bodies'][thread['reference']])
             theta = 2 * math.atan2(quat[2], quat[3])
-            engaged = (math.hypot(pos[0]-thread['xy'][0], pos[1]-thread['xy'][1]) <= thread['radial_tolerance']
-                       and thread['z_min'] <= pos[2] <= thread['z_max'])
+            sites=thread.get('xy_options',[thread['xy']])
+            site=next((i for i,xy in enumerate(sites) if math.hypot(pos[0]-xy[0],pos[1]-xy[1])<=thread['radial_tolerance']),None)
+            engaged = site is not None and thread['z_min'] <= pos[2] <= thread['z_max']
             previous = self.thread_previous.get(name)
+            if previous is not None and site!=previous[3]:previous=None;self.turns[name]=0.
             if not engaged:
                 self.turns[name] = 0.0
                 self.thread_origins.pop(name, None)
@@ -243,9 +285,8 @@ class Scorer:
                 error = abs(pos[2]-self.thread_origins[name]-expected)
                 self.turns[name] = (max(0.0, -self.thread_angles[name]/(2*math.pi))
                                     if error <= thread['axial_slack'] else 0.0)
-            self.thread_previous[name] = (theta, pos[2], engaged)
-        active = {g['name'] for g in self.spec['goals']
-                  if all(self.predicate(p, frame) for p in g['all'])}
+            self.thread_previous[name] = (theta, pos[2], engaged, site)
+        active = self.completed_goals(frame)
         for name in active:
             self.first.setdefault(name, now)
             if name in self.lost:
