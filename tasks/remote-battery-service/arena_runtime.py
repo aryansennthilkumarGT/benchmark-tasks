@@ -2,7 +2,7 @@
 
 Adapter contract: yam-arena 0059d02a1a91bc6834c1d0846022891df0c78730.
 Native integration evidence is recorded in validation.json.
-Read-only telemetry hooks: this module never writes object poses or joint states.
+Uses the Arena reset event for articulated fixtures and reads telemetry during robot steps.
 """
 from dataclasses import dataclass
 import importlib.abc
@@ -58,6 +58,13 @@ def install(spec, scorer, here):
         articulated = bool(data.get('joints')) or data.get('fixed', False)
 
         class NativeObject(Object):
+            def _build_reset_event(self):
+                event = super()._build_reset_event()
+                if event is not None and data.get('joints'):
+                    from isaaclab_arena.terms.events import reset_articulation_pose_and_joints
+                    event.func = reset_articulation_pose_and_joints
+                return event
+
             def _generate_articulation_cfg(self):
                 cfg = super()._generate_articulation_cfg()
                 cfg.init_state.joint_pos = {j['name']: 0.0 for j in data.get('joints', [])}
