@@ -8,14 +8,12 @@ from dataclasses import dataclass
 import importlib.abc
 import importlib.machinery
 import json
-import math
 import os
 from pathlib import Path
 import sys
 
 from yam_arena.task_file import Box
 from .geometry import maximum_penetration, robot_clearance, box
-from .scoring import add, sub, rotate, norm
 
 
 def array(value):
@@ -127,7 +125,7 @@ def install(spec, scorer, here):
         stage = get_current_stage()
         cache = UsdGeom.BBoxCache(
             0, [UsdGeom.Tokens.default_, UsdGeom.Tokens.render, UsdGeom.Tokens.proxy,
-                UsdGeom.Tokens.guide], ignoreVisibility=True,
+                UsdGeom.Tokens.guide], False, True,
         )
         robot_bounds.clear()
         for side in ('left', 'right'):
