@@ -63,6 +63,12 @@ def install(spec, scorer, here):
                 if event is not None and data.get('joints'):
                     from isaaclab_arena.terms.events import reset_articulation_pose_and_joints
                     event.func = reset_articulation_pose_and_joints
+                if event is not None and not articulated:
+                    # The USD spawn uses the assembly frame. The reset event writes
+                    # the rigid link pose directly and must retain the authored polarity.
+                    body = data['bodies'][0]
+                    event.params['pose'] = Pose(position_xyz=tuple(body['pos']),
+                                                rotation_xyzw=tuple(body['quat']))
                 return event
 
             def _generate_articulation_cfg(self):
