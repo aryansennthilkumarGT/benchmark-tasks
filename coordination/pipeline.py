@@ -15,7 +15,7 @@ import re
 import shutil
 import sys
 from engine import Incomplete, Ledger, Budget, atomic, digest, execute, exclusive, fingerprint, read, utc
-from environment import hardware, bootstrap, capture, verify_runtime
+from environment import hardware, bootstrap, capture, verify_runtime, launchable_runtime
 from evidence import public_text, require
 
 HERE = Path(__file__).resolve().parent
@@ -41,6 +41,8 @@ def cli(argv=None):
     parser.add_argument('--no-push',action='store_true',help='Preserve upload metadata locally; report incomplete')
     parser.add_argument('--run-root',type=Path,default=Path(os.getenv('ROBOCURVE_RUN_ROOT',str(REPO/'.robocurve-runs'))))
     parser.add_argument('--budget-file',type=Path,default=Path(os.getenv('ROBOCURVE_BUDGET_FILE',str(REPO/'.robocurve-budget.json'))))
+    parser.add_argument('--launchable-root', type=Path,
+                        help='Reuse the verified installed Arena and adapter under this directory')
     parser.add_argument('--manifest',type=Path,default=HERE/'draft-manifest.json')
     return parser.parse_args(argv)
 
@@ -162,6 +164,7 @@ def native(python, folder, out, mode, commit, budget):
     require(report.get('failed')==0 and report.get('passed',0)>0 and report.get('reset_count',0)>=2,
             'Native suite did not pass its reset/repeat checks')
     require(report.get('mode')==mode,'Native test mode mismatch')
+    require(report.get('status') == 'PASS', 'Native report did not finalize successfully')
     expected={(case['name'],repeat) for case in cases for repeat in (0,1)}
     actual={(case['name'],case['repeat']) for case in report['cases'] if case['status']=='PASS'}
     require(actual==expected and len(report['cases'])==len(expected) and report['reset_count']==len(expected),
@@ -220,6 +223,8 @@ def publish(task, folder, media, out, args, evidence, runtime):
 def run_task(task,args,ledger,python,lock,budget,implementation_hash):
     slug=task['slug']; completed={}; runtime={'experts':[]}
     base={'commit':task['commit'],'stack':lock,'pipeline':implementation_hash}
+    if not args.offline:
+        base['gpu'] = args.gpu_identity
     checkout_result=ledger.stage(slug,'CHECKOUT',base,
         lambda out: {'path':str(checkout(task,args.run_root,out))})
     tree=Path(checkout_result['result']['path']); folder=tree/task['task_folder']
@@ -318,11 +323,22 @@ def main(argv=None):
                 budget=Budget(args.budget_file)
                 require(preflight['selected_gpu']['uuid']==budget.receipt['gpu_uuid'],'Budget receipt names a different GPU')
                 os.environ['CUDA_VISIBLE_DEVICES']=preflight['selected_gpu']['uuid']
-                stack=ledger.stage('_environment','BOOTSTRAP',{'stack':lock,'pipeline':implementation_hash},
-                    lambda out:bootstrap(args.run_root/'stack',lock,out,budget))
-                python=stack['result']['python']
-                verify_runtime(stack['result'],args.run_root/'stack',lock)
+                if args.launchable_root:
+                    installed = launchable_runtime(args.launchable_root, lock)
+                    def reuse(out):
+                        atomic(out/'installed-runtime.json', installed)
+                        return installed
+                    stack = ledger.stage('_environment', 'REUSE_LAUNCHABLE',
+                                         {'stack': lock, 'runtime': installed, 'pipeline': implementation_hash}, reuse)
+                else:
+                    require(preflight['driver_status'] != 'fixed_driver_smoke_required',
+                            'Fixed driver validation requires the installed vendor stack via --launchable-root')
+                    stack = ledger.stage('_environment', 'BOOTSTRAP', {'stack': lock, 'pipeline': implementation_hash},
+                                         lambda out: bootstrap(args.run_root/'stack', lock, out, budget))
+                    verify_runtime(stack['result'], args.run_root/'stack', lock)
+                python = stack['result']['python']
                 def smoke(out):
+                    atomic(out/'hardware.json', preflight)
                     trial=out/'trial';trial.mkdir()
                     execute([str(Path(python).parent/'inspect-robots'),'run','--embodiment','yam_arena',
                              '--policy','yam_scripted','-E','scene=station','-E','object_jitter=0','-E','control_hz=20',
@@ -333,7 +349,13 @@ def main(argv=None):
                     execute([python,str(HERE/'evidence.py'),'--directory',str(trial),'--mode','smoke',
                              '--limit','600','--commit',lock['adapter']['commit']],REPO,out/'smoke-validation.log',600)
                     return read(trial/'validated-rollout.json')
-                ledger.stage('_environment','OFFICIAL_SMOKE',{'stack':lock,'pipeline':implementation_hash},smoke)
+                gpu_identity = {key: preflight['selected_gpu'][key] for key in ('name', 'uuid', 'driver')}
+                args.gpu_identity = gpu_identity
+                smoke_record = ledger.stage('_environment', 'OFFICIAL_SMOKE',
+                    {'stack': lock, 'pipeline': implementation_hash, 'gpu': gpu_identity,
+                     'bootstrap': stack['key']}, smoke)
+                implementation_hash = fingerprint({'pipeline': implementation_hash, 'gpu': gpu_identity,
+                                                   'official_smoke': smoke_record['key']})
             report={'created_at':utc(),'kind':'OFFLINE_ENGINEERING_CHECKS' if args.offline else 'GPU_PIPELINE',
                     'tasks':[],'ready':[],'complete':False}
             for task in tasks:

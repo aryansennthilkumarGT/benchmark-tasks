@@ -77,6 +77,16 @@ class EngineTests(unittest.TestCase):
         budget=Budget(self.root/'budget.json',clock=lambda:1000+84*3600)
         self.assertEqual(budget.check()['estimated_instance_charge_usd'],168)
         with self.assertRaises(Incomplete):budget.check(3601)
+    def test_live_balance_counts_only_charges_after_observation(self):
+        path = self.root/'budget.json'
+        atomic(path, {'hourly_usd': 2, 'balance_usd': 35, 'spent_before_start_usd': 0,
+                      'instance_started_unix': 1000, 'balance_observed_unix': 37000,
+                      'instance_id': 'test', 'gpu_uuid': 'test', 'provider_evidence': 'unit-test-fixture'})
+        budget = Budget(path, clock=lambda: 40600)
+        self.assertEqual(budget.check(3600)['projected_balance_usd'], 31)
+        with self.assertRaises(Incomplete):
+            budget.check(7200)
+
     def test_zero_credit_cannot_start(self):
         atomic(self.root/'budget.json',{'hourly_usd':1.77,'balance_usd':0,'spent_before_start_usd':0,
                'instance_started_unix':1000,'instance_id':'test','gpu_uuid':'test','provider_evidence':'unit-test-fixture'})

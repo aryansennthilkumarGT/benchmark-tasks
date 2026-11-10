@@ -74,7 +74,7 @@ class NativeCoverageTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);atomic(root/'native-cases.json',{'physics':[{'name':'a','steps':1},{'name':'b','steps':1}]})
             output=root/'out';(output/'native').mkdir(parents=True)
-            report={'kind':'NATIVE_PHYSX_TESTS','commit':'a'*40,'mode':'physics','passed':2,'failed':0,'reset_count':4,'cases':[{'name':'a','repeat':r,'status':'PASS'} for r in [0,1,0,1]]}
+            report={'kind':'NATIVE_PHYSX_TESTS','commit':'a'*40,'mode':'physics','status':'PASS','passed':2,'failed':0,'reset_count':4,'cases':[{'name':'a','repeat':r,'status':'PASS'} for r in [0,1,0,1]]}
             atomic(output/'native/results.json',report)
             with patch.object(pipeline,'execute'),self.assertRaisesRegex(Incomplete,'coverage'):
                 pipeline.native('unused',root,output,'physics','a'*40,None)

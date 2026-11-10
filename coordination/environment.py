@@ -1,6 +1,7 @@
 """Inspect or build the officially pinned Arena stack without changing drivers."""
 from __future__ import annotations
 import importlib.metadata as metadata
+from importlib.util import find_spec
 import json
 import os
 from pathlib import Path
@@ -21,7 +22,7 @@ def capture(args, cwd=None):
 
 def hardware():
     result = {'platform': platform.platform(), 'machine': platform.machine(),
-              'python': platform.python_version(), 'gpu': [], 'problems': []}
+              'python': platform.python_version(), 'gpu': [], 'problems': [], 'warnings': []}
     if sys.platform != 'linux' or platform.machine() != 'x86_64':
         result['problems'].append('Native stack requires Linux x86_64')
     if shutil.which('nvidia-smi'):
@@ -37,8 +38,16 @@ def hardware():
                 result['problems'].append('Less than 16 GiB GPU memory free')
             result['selected_gpu'] = supported[0] if supported else None
             if supported:
-                driver=tuple(int(v) for v in supported[0]['driver'].split('.'))
-                if driver<(580,95,5):result['problems'].append('Driver is below the Isaac Lab 3.0 recommendation 580.95.05; no automatic driver changes')
+                selected = supported[0]
+                driver = tuple(int(v) for v in selected['driver'].split('.'))
+                result['driver_status'] = 'meets_recommendation'
+                if driver < (580, 95, 5):
+                    result['driver_status'] = 'below_recommendation_unvalidated'
+                    result['warnings'].append('Driver is below the Isaac Lab 3.0 recommendation 580.95.05')
+                    if 'L40S' in selected['name'] and selected['driver'] == '565.57.01':
+                        result['driver_status'] = 'fixed_driver_smoke_required'
+                    else:
+                        result['problems'].append('Driver is outside the configured compatibility-test profile')
                 result['driver_reference']='https://isaac-sim.github.io/IsaacLab/v3.0.0-EA/source/setup/installation/index.html'
                 result['isaacsim_61_tested_driver']='595.58.03'
         except (Incomplete, ValueError) as exc:
@@ -146,6 +155,52 @@ def bootstrap(root, lock, evidence, budget):
             'adapter_commit': lock['adapter']['commit'], 'asset_root_patch': 'official production bucket'}
 
 
+def launchable_runtime(root, lock):
+    """Verify the active Launchable venv without changing the installed stack."""
+    root = Path(root).resolve()
+    arena = root/'IsaacLab-Arena'
+    lab = arena/'submodules/IsaacLab'
+    inspect = root/'inspect-robots'
+    python = arena/'.venv/bin/python'
+    if not python.is_file():
+        raise Incomplete('Existing Launchable Arena venv not found')
+    checkouts = {'adapter': (root/'yam-isaac-lab-arena', lock['adapter']['commit']),
+                 'arena': (arena, lock['arena']['commit']),
+                 'isaaclab': (lab, lock['isaaclab_commit']),
+                 'inspect': (inspect, lock['inspect']['commit'])}
+    for name, (checkout, commit) in checkouts.items():
+        if capture(['git', 'rev-parse', 'HEAD'], checkout) != commit:
+            raise Incomplete('Launchable source revision differs from lock: ' + name)
+        changes = capture(['git', 'status', '--porcelain', '--untracked-files=no'], checkout)
+        if changes and (name != 'arena' or changes != 'M isaaclab_arena/assets/nucleus.py'):
+            raise Incomplete('Launchable has modified tracked sources: ' + name)
+    origins = json.loads(capture([python, __file__, '--origins']))
+    expected = {'isaaclab': lab/'source/isaaclab/isaaclab/__init__.py',
+                'isaaclab_arena': arena/'isaaclab_arena/__init__.py',
+                'yam_arena': root/'yam-isaac-lab-arena/yam_arena/__init__.py'}
+    for name, source in expected.items():
+        if Path(origins[name]).resolve() != source.resolve():
+            raise Incomplete('Unexpected active package source: ' + name)
+    source = inspect/'src/inspect_robots'
+    installed = Path(origins['inspect_robots']).parent
+    for path in source.rglob('*.py'):
+        counterpart = installed/path.relative_to(source)
+        if not counterpart.is_file() or digest(counterpart) != digest(path):
+            raise Incomplete('Installed Inspect Robots Python source differs: ' + str(path.relative_to(source)))
+    if origins['dream_commit'] != lock['dream']['commit']:
+        raise Incomplete('Installed Dream plugin revision differs from lock')
+    versions = json.loads(capture([python, __file__, '--versions']))
+    expected_versions = {'isaacsim': lock['isaacsim'], 'numpy': lock['numpy'],
+                         'inspect-robots': lock['inspect']['version'],
+                         'inspect-robots-yam': lock['inspect_robots_yam']}
+    if any(versions[name] != version for name, version in expected_versions.items()):
+        raise Incomplete('Launchable package versions differ from lock')
+    runtime = {'python': str(python), 'versions': versions, 'origins': origins,
+               'arena_lock_sha256': digest(arena/'uv.lock'), 'launchable_root': str(root)}
+    verify_runtime(runtime, root, lock)
+    return runtime
+
+
 def verify_runtime(result,root,lock):
     """A cached receipt does not authorize silently changed installed dependencies."""
     root=Path(root)
@@ -163,4 +218,11 @@ def verify_runtime(result,root,lock):
 
 
 if __name__ == '__main__':
-    print(json.dumps(package_versions() if '--versions' in sys.argv else hardware(), indent=2))
+    if '--origins' in sys.argv:
+        origins = {name: find_spec(name).origin for name in
+                   ('isaaclab', 'isaaclab_arena', 'yam_arena', 'inspect_robots')}
+        direct_url = metadata.distribution('inspect-robots-dream').read_text('direct_url.json')
+        origins['dream_commit'] = json.loads(direct_url or '{}').get('vcs_info', {}).get('commit_id')
+        print(json.dumps(origins))
+    else:
+        print(json.dumps(package_versions() if '--versions' in sys.argv else hardware(), indent=2))

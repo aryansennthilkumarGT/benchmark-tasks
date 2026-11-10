@@ -1,6 +1,6 @@
 # Eight-task engineering handoff
 
-This branch coordinates eight independent task branches. Source engineering and offline checks are recorded in `draft-manifest.json`; native physics, expert demonstrations, Dream-1 and media are still unexecuted. No task is currently ready for an official PR. The user deferred GPU execution; these scripts do not provision compute.
+This branch coordinates eight independent task branches. The draft revisions and offline checks are recorded in `draft-manifest.json`. See [the live checkpoint](live-execution-2026-11-10.md) for native diagnostic evidence and remaining gates. No task is currently ready for an official PR.
 
 ## One entry point
 
@@ -12,28 +12,28 @@ bash coordination/bootstrap_and_run.sh --all
 
 The default run directory is `.robocurve-runs` and the provider budget receipt is `.robocurve-budget.json`, both ignored by Git. Configure `ROBOCURVE_RUN_ROOT` and `ROBOCURVE_BUDGET_FILE` to use persistent storage outside the checkout. The runner itself needs Python 3.10+ and Git; the isolated official stack uses Python 3.12. No source editing or manual branch switching is required.
 
-Before executing, the operator/agent supplies actual provider price, credit balance, instance start time, prior spend, instance ID and GPU UUID. `record_budget.py --help` records these facts without credentials. Dream credentials use the official secure configuration; uploads read `ROBOCURVE_TOKEN` and set `ROBOCURVE_TEAM=T-06` only in the uploader process. Git credentials must permit pushes to the fork. No credentials belong in a task folder, receipt, command argument or commit.
+Before executing, the operator/agent supplies actual provider price, credit balance and observation timestamp, instance start time, prior spend, instance ID and GPU UUID. `record_budget.py --help` records these facts without credentials. Dream credentials use the official secure configuration; uploads read `ROBOCURVE_TOKEN` and set `ROBOCURVE_TEAM=T-06` only in the uploader process. Git credentials must permit pushes to the fork. No credentials belong in a task folder, receipt, command argument or commit.
 
 Useful modes:
 
 ```bash
 bash coordination/bootstrap_and_run.sh --dry-run
 bash coordination/bootstrap_and_run.sh --preflight
-bash coordination/bootstrap_and_run.sh --task hinged-chassis-drive
+bash coordination/bootstrap_and_run.sh --task fault-module-repair --launchable-root /data
 bash coordination/bootstrap_and_run.sh --resume
 bash coordination/bootstrap_and_run.sh --all --no-upload
 bash coordination/bootstrap_and_run.sh --all --offline
 ```
 
-`--dry-run` performs no network, installation, simulator or model work. `--preflight` reports hardware and credential presence without starting evaluation. `--offline` requires NumPy, usd-core and the pinned YAM adapter importable in the current Python; it never advances past static checks. The GPU bootstrap installs the official stack once, validates its pins and performs the official apple/bowl smoke trial before any task. Each task is fetched at its manifest SHA into its own clean detached worktree. The diff must remain under that one task folder.
+`--dry-run` performs no network, installation, simulator or model work. `--preflight` reports hardware and credential presence without starting evaluation. `--offline` requires NumPy, usd-core and the pinned YAM adapter importable in the current Python; it never advances past static checks. The GPU runner verifies the existing vendor stack when given `--launchable-root`, or installs the pinned stack in an isolated directory. It requires a full-score official apple/bowl smoke trial before any task. Each task is fetched at its manifest SHA into its own clean detached worktree. The diff must remain under that one task folder.
 
 ## Required environment
 
-Use the official walkthrough launchable and the commits in `stack-lock.json`. Hardware profiles: L40S / RTX 4090 / RTX 5090, at least 16 GiB free VRAM, 32 GB system RAM with 24 GiB available, and 250 GiB free disk. The driver check follows Isaac Lab's Linux recommendation 580.95.05; Isaac Sim 6.1 lists 595.58.03 as tested. The bootstrap uses the official pinned installer in an isolated project directory and preserves existing vendor EULA acceptance. It does not update drivers, alter system Python, connect SSH/VPN, deploy Brev or stop another user's jobs.
+Use the official walkthrough launchable and the commits in `stack-lock.json`. Hardware profiles: L40S / RTX 4090 / RTX 5090, at least 16 GiB free VRAM, 32 GB system RAM with 24 GiB available, and 250 GiB free disk. Isaac Lab recommends Linux driver 580.95.05. Isaac Sim 6.1 lists 595.58.03 as tested. On the specific L40S profile with fixed driver 565.57.01, preflight reports that the official smoke is required. Use `--launchable-root /data` with the existing pinned Launchable. The successful smoke and task receipts include the selected GPU and driver. The bootstrap uses the official pinned installer in an isolated project directory and preserves existing vendor EULA acceptance. It does not update drivers, alter system Python, connect SSH/VPN, deploy Brev or stop another user's jobs.
 
 The launchable, adapter, Arena, IsaacLab, Inspect Robots and Dream plugin revisions are documented in the lock. Arena's release branch is named 0.3.1 although its distribution metadata says 0.3.0. Isaac Sim 6.1.0.0 and NumPy 2.3.1 come from that supported stack; no assumed compatibility with an old 5.1 environment. The same production asset-bucket correction used by the official launchable is applied explicitly.
 
-GPU work is sequential. The cost monitor counts instance wall time, including idle time, and refuses a stage whose timeout would exceed $170 total charges or the $30 reserve. It checks during subprocess execution and terminates its own process group at the limit. This is not cloud billing shutdown: the operator/agent must stop the authorized instance when finished. No model cost or compute price is fabricated. Retain provider receipts for reconciliation.
+GPU work is sequential. The cost monitor counts instance wall time, including idle time, and refuses a stage whose timeout would exceed $170 total charges or the $30 reserve. It checks during subprocess execution and terminates its own process group at the limit. Brev billing continues until the user stops the instance through the provider. No model cost or compute price is fabricated. Retain provider receipts for reconciliation.
 
 ## Evidence and failure behavior
 

@@ -1,45 +1,45 @@
 {
-  "updated_at": "2026-11-08T00:07:28.650680+00:00",
-  "status": "OFFLINE_ENGINEERING_VALIDATED_GPU_EXECUTION_DEFERRED",
+  "updated_at": "2026-11-10T23:43:52.498000+00:00",
+  "status": "FIXED_DRIVER_STATION_VALIDATED_CUSTOM_DIAGNOSTICS_IN_PROGRESS",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "d30695151966e69ef5575c3e28150520a9824960",
+      "commit": "6e63f39aaa93e83f6fd627a437cb6dc692cd4cba",
       "state": "STATIC_TESTS_PASSED"
     },
     {
       "slug": "remote-battery-service",
-      "commit": "7c973b3b4d20147deba56a30b348924dfd193553",
+      "commit": "94eefae522fdb20707916c06020c82950bedd344",
       "state": "STATIC_TESTS_PASSED"
     },
     {
       "slug": "switch-map-rework",
-      "commit": "3a02a07352e3fde823f5a79c5b069b3863c58c36",
+      "commit": "f45a5c119e4650bec2226a21d3fa34d1f516f360",
       "state": "STATIC_TESTS_PASSED"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "12e64603415c17b56239cbf74ce0181e90ed91b8",
+      "commit": "530d45157a3758799b1e52c35a3c63e2a7bacd95",
       "state": "STATIC_TESTS_PASSED"
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "ead684217e6374b2aafc88c32bc5ab0af8b678f2",
+      "commit": "6a28a07aa3496ec83bbc6634f776fcd5ce7efed8",
       "state": "STATIC_TESTS_PASSED"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "0a1da4e89bfaa61e36f4941b28bf17781d5c222f",
+      "commit": "e69b00382ce51f68dfe43be0744b9604693eb8ad",
       "state": "STATIC_TESTS_PASSED"
     },
     {
       "slug": "fault-module-repair",
-      "commit": "efb004744c523d27680dfd99fb6536a6f196ef87",
-      "state": "STATIC_TESTS_PASSED"
+      "commit": "665793819fa9fbb7de97ce62863ab9032c22b02c",
+      "state": "NATIVE_DIAGNOSTICS_IN_PROGRESS"
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "4ff00e040183c58a96753802620caf5a81d3e220",
+      "commit": "82d59c32fe24f8fffe22ee910f931cd5ff9432ff",
       "state": "STATIC_TESTS_PASSED"
     }
   ],
@@ -53,13 +53,14 @@
     "model_runs": 0,
     "media_uploads": 0,
     "official_prs": 0,
-    "coordinator_tests_passed": 35,
+    "coordinator_tests_passed": 37,
     "one_command_offline_run": "PASS",
     "resume_without_duplicate_work": "PASS",
-    "offline_geometry_audits_not_applicable": 7
+    "offline_geometry_audits_not_applicable": 7,
+    "official_station_replays_passed": 1
   },
   "remaining": [
-    "Run official Linux GPU bootstrap and smoke",
+    "Verify billed Brev rate and issue the provider budget receipt for full evaluations",
     "Native physics and control tests",
     "Two full-score expert repeats per task",
     "Dream-1",
@@ -67,6 +68,7 @@
     "Exact evaluated revision publication",
     "Teammate-only official PR submission"
   ],
-  "recovery": "Clone this exact handoff revision, retain persistent run root and provider records, use --resume. No historical draft generator is needed.",
-  "offline_execution_evidence": "offline-run-verification.json"
+  "recovery": "Use the live checkpoint for persistent diagnostics and exact continuation commands. The original offline run verification documents the historical draft revisions.",
+  "offline_execution_evidence": "offline-run-verification.json",
+  "live_execution_evidence": "live-execution-2026-11-10.md"
 }

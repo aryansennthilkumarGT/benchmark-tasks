@@ -96,8 +96,13 @@ class Budget:
                 raise Incomplete('Invalid budget field: ' + k)
         if not r.get('instance_id') or not r.get('provider_evidence') or not r.get('gpu_uuid'):
             raise Incomplete('Budget receipt needs instance, GPU UUID, and provider evidence reference')
-        if r['hourly_usd'] <= 0 or r['instance_started_unix'] > clock():
-            raise Incomplete('Invalid hourly rate or future instance start')
+        self.balance_observed_at = r.get('balance_observed_unix', r['instance_started_unix'])
+        if (isinstance(self.balance_observed_at, bool)
+                or not isinstance(self.balance_observed_at, (int, float))
+                or not r['instance_started_unix'] <= self.balance_observed_at <= clock()):
+            raise Incomplete('Balance observation must fall between instance start and current time')
+        if r['hourly_usd'] <= 0:
+            raise Incomplete('Invalid hourly rate')
 
     def estimate(self, extra_seconds=0):
         r = self.receipt
@@ -106,9 +111,11 @@ class Budget:
     def check(self, extra_seconds=0):
         r = self.receipt
         projected = self.estimate(extra_seconds)
-        if projected + r['spent_before_start_usd'] > 170 or r['balance_usd'] - projected < 30:
-            raise Incomplete('Compute budget/reserve reached. Stop the Brev instance to stop billing.')
+        charge_after_balance = (self.clock() - self.balance_observed_at + extra_seconds) * r['hourly_usd'] / 3600
+        if projected + r['spent_before_start_usd'] > 170 or r['balance_usd'] - charge_after_balance < 30:
+            raise Incomplete('Compute budget or credit reserve reached; instance billing continues until the operator stops it.')
         return {'estimated_instance_charge_usd': self.estimate(), 'projected_charge_usd': projected,
+                'projected_balance_usd': r['balance_usd'] - charge_after_balance,
                 'cap_usd': 170, 'reserve_usd': 30, 'checked_at': utc()}
 
 
