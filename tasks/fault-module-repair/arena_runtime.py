@@ -123,9 +123,12 @@ def install(spec, scorer, here):
 
     def cache_robot_bounds(emb):
         from isaaclab.sim.utils.stage import get_current_stage
-        from pxr import Gf, UsdGeom, UsdPhysics
+        from pxr import Usd, UsdGeom, UsdPhysics
         stage = get_current_stage()
-        cache = UsdGeom.BBoxCache(0, [UsdGeom.Tokens.default_, UsdGeom.Tokens.render, UsdGeom.Tokens.proxy])
+        cache = UsdGeom.BBoxCache(
+            0, [UsdGeom.Tokens.default_, UsdGeom.Tokens.render, UsdGeom.Tokens.proxy,
+                UsdGeom.Tokens.guide], ignoreVisibility=True,
+        )
         robot_bounds.clear()
         for side in ('left', 'right'):
             asset = emb._env.unwrapped.scene[f'{side}_robot']
@@ -134,20 +137,18 @@ def install(spec, scorer, here):
                 # adapter spawns USD roots LeftArm/RightArm. Read the actual cfg.
                 root_name=asset.cfg.prim_path.rstrip('/').rsplit('/',1)[-1]
                 prim=collision_link(stage,root_name,name)
-                inverse = UsdGeom.Xformable(prim).ComputeLocalToWorldTransform(0).GetInverse()
                 points = []
-                from pxr import Usd
                 for child in Usd.PrimRange(prim):
                     if child.HasAPI(UsdPhysics.CollisionAPI):
-                        bound = cache.ComputeWorldBound(child).ComputeAlignedRange()
-                        for corner in range(8):
-                            points.append(inverse.Transform(bound.GetCorner(corner)))
+                        bound = cache.ComputeRelativeBound(child, prim).ComputeAlignedRange()
+                        if bound.IsEmpty():
+                            continue
+                        points.extend(bound.GetCorner(corner) for corner in range(8))
                 if not points:
                     raise RuntimeError(f'Collision geometry missing for {side}/{name}')
                 lo = [min(p[i] for p in points) for i in range(3)]
                 hi = [max(p[i] for p in points) for i in range(3)]
                 centre = [(x+y)/2 for x, y in zip(lo, hi)]
-                radius = max(norm(sub(list(p), centre)) for p in points)
                 robot_bounds[(side, name)] = (centre, [(y-x)/2 for x,y in zip(lo,hi)])
 
     def patch_scene(module):
