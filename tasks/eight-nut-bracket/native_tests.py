@@ -20,7 +20,9 @@ HERE=Path(__file__).resolve().parent
 
 
 def save(path,value):
-    path.write_text(json.dumps(value,indent=2,allow_nan=False)+'\n')
+    temporary = path.with_suffix('.tmp')
+    temporary.write_text(json.dumps(value, indent=2, allow_nan=False) + '\n')
+    temporary.replace(path)
 
 
 def checks(assertions,initial,final,result=None):
@@ -61,12 +63,29 @@ def checks(assertions,initial,final,result=None):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['physics','control'],required=True)
     parser.add_argument('--output',type=Path,required=True);parser.add_argument('--commit',required=True)
+    parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
     args=parser.parse_args()
+    if not args.worker:
+        # Keep the caller's exit status independent of Kit's interpreter shutdown.
+        child = subprocess.run([sys.executable, str(__file__), *sys.argv[1:], '--worker'])
+        if child.returncode:
+            return child.returncode
+        report_path = args.output/'results.json'
+        if not report_path.is_file():
+            print('Native worker produced no results.json', file=sys.stderr)
+            return 1
+        report = json.loads(report_path.read_text())
+        return 0 if report.get('status') == 'PASS' else 1
     if sys.platform!='linux':raise SystemExit('Native tests require the official Linux GPU environment')
     current=subprocess.run(['git','rev-parse','HEAD'],cwd=HERE,text=True,capture_output=True,check=True).stdout.strip()
     if current!=args.commit:raise SystemExit('Test revision mismatch')
     args.output.mkdir(parents=True,exist_ok=False)
     os.environ['ROBOCURVE_TRACE']=str(args.output.resolve()/'physics-probes-not-demonstrations.jsonl')
+    report={'kind':'NATIVE_PHYSX_TESTS','mode':args.mode,'commit':args.commit,'reset_count':0,
+            'passed':0,'failed':0,'cases':[],'camera_coverage':False,
+            'initialization_probes_are_not_demonstrations':True,'status':'RUNNING','active_case':None}
+    results_path = args.output/'results.json'
+    save(results_path, report)
     from inspect_robots import Scene
     from inspect_robots.types import Action
     from yam_arena.inspect_embodiment import YamArenaEmbodiment
@@ -77,14 +96,14 @@ def main():
     from audit_control import camera_coverage
     cases=json.loads((HERE/'native-cases.json').read_text())[args.mode]
     if not cases:raise ValueError('No mechanism/control test cases configured')
-    report={'kind':'NATIVE_PHYSX_TESTS','mode':args.mode,'commit':args.commit,'reset_count':0,
-            'passed':0,'failed':0,'cases':[],'camera_coverage':False,'initialization_probes_are_not_demonstrations':True}
     initial_reference=None
     scene=Scene(id='native-test',instruction=module.SPEC['instruction'])
     try:
         for repeat in (0,1):
             for case in cases:
                 row={'name':case['name'],'repeat':repeat,'status':'RUNNING'}
+                report['active_case'] = {'name': case['name'], 'repeat': repeat}
+                save(results_path, report)
                 touched=[]
                 try:
                     observation=embodiment.reset(scene,seed=0);report['reset_count']+=1
@@ -149,9 +168,13 @@ def main():
                 finally:
                     # A failed probe must never leave its force active for the next reset.
                     for asset in touched:asset.permanent_wrench_composer.reset()
-                report['cases'].append(row);save(args.output/'results.json',report)
+                report['cases'].append(row)
+                report['active_case'] = None
+                save(results_path, report)
     finally:
         embodiment.close()
+    report['status'] = 'FAIL' if report['failed'] else 'PASS'
+    save(results_path, report)
     return 1 if report['failed'] else 0
 
 
