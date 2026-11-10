@@ -121,9 +121,9 @@ def main():
                             index=list(asset.body_names).index(force['body'])
                             if not any(asset is other for other in touched):
                                 asset.permanent_wrench_composer.reset();touched.append(asset)
-                            asset.permanent_wrench_composer.add_forces_and_torques(
-                                torch.tensor([[force.get('force',[0,0,0])]],device=base.device),
-                                torch.tensor([[force.get('torque',[0,0,0])]],device=base.device),body_ids=[index],is_global=True)
+                            asset.permanent_wrench_composer.add_forces_and_torques_index(
+                                torch.tensor([[force.get('force',[0,0,0])]],dtype=torch.float32,device=base.device),
+                                torch.tensor([[force.get('torque',[0,0,0])]],dtype=torch.float32,device=base.device),body_ids=[index],is_global=True)
                         for _ in range(case['steps']):embodiment.step(Action(data=ready))
                         for asset in touched:asset.permanent_wrench_composer.reset()
                         for _ in range(case.get('settle_steps',20)):embodiment.step(Action(data=ready))
@@ -139,10 +139,10 @@ def main():
                         else:raise AssertionError('Robot control prefix exceeded test action limit')
                         save(args.output/f'{case["name"]}-{repeat}-events.json',controller.events)
                     final=copy.deepcopy(runtime.LATEST)
+                    save(args.output/f'{case["name"]}-{repeat}-final.json',final)
                     checks(case['assertions'],frame,final,module.EVALUATOR.result)
                     from dataclasses import asdict
                     row['scoring']=asdict(module.EVALUATOR.result)
-                    save(args.output/f'{case["name"]}-{repeat}-final.json',final)
                     row['status']='PASS';report['passed']+=1
                 except Exception as exc:
                     row.update(status='FAIL',error=str(exc),traceback=traceback.format_exc());report['failed']+=1
