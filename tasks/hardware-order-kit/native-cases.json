@@ -60,6 +60,20 @@
           "max": 0.09
         },
         {
+          "kind": "coordinate",
+          "body": "lower_collar",
+          "axis": 0,
+          "min": 0.327,
+          "max": 0.333
+        },
+        {
+          "kind": "coordinate",
+          "body": "lower_collar",
+          "axis": 2,
+          "min": 0.8195,
+          "max": 0.8255
+        },
+        {
           "kind": "penetration",
           "max": 0.002
         }
@@ -128,6 +142,26 @@
         {
           "kind": "penetration",
           "max": 0.002
+        },
+        {
+          "kind": "pose",
+          "body": "lower_collar",
+          "pos": [
+            0.33,
+            0,
+            0.8225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "pose",
+          "body": "collar_key",
+          "pos": [
+            0.375,
+            0.006,
+            0.8225
+          ],
+          "tolerance": 0.003
         }
       ]
     },
