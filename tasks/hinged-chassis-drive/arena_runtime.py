@@ -8,14 +8,12 @@ from dataclasses import dataclass
 import importlib.abc
 import importlib.machinery
 import json
-import math
 import os
 from pathlib import Path
 import sys
 
 from yam_arena.task_file import Box
 from .geometry import maximum_penetration, robot_clearance, box
-from .scoring import add, sub, rotate, norm
 
 
 def array(value):
@@ -63,6 +61,7 @@ def install(spec, scorer, here):
             def _generate_articulation_cfg(self):
                 cfg = super()._generate_articulation_cfg()
                 cfg.init_state.joint_pos = {j['name']: 0.0 for j in data.get('joints', [])}
+                cfg.init_state.joint_vel = {name: 0.0 for name in cfg.init_state.joint_pos}
                 cfg.actuators = {j['name']: ImplicitActuatorCfg(
                     joint_names_expr=[j['name']], stiffness=j.get('stiffness', 0.0),
                     damping=j.get('damping', 0.02)) for j in data.get('joints', [])}
@@ -122,9 +121,12 @@ def install(spec, scorer, here):
 
     def cache_robot_bounds(emb):
         from isaaclab.sim.utils.stage import get_current_stage
-        from pxr import Gf, UsdGeom, UsdPhysics
+        from pxr import Usd, UsdGeom, UsdPhysics
         stage = get_current_stage()
-        cache = UsdGeom.BBoxCache(0, [UsdGeom.Tokens.default_, UsdGeom.Tokens.render, UsdGeom.Tokens.proxy])
+        cache = UsdGeom.BBoxCache(
+            0, [UsdGeom.Tokens.default_, UsdGeom.Tokens.render, UsdGeom.Tokens.proxy,
+                UsdGeom.Tokens.guide], False, True,
+        )
         robot_bounds.clear()
         for side in ('left', 'right'):
             asset = emb._env.unwrapped.scene[f'{side}_robot']
@@ -133,20 +135,18 @@ def install(spec, scorer, here):
                 # adapter spawns USD roots LeftArm/RightArm. Read the actual cfg.
                 root_name=asset.cfg.prim_path.rstrip('/').rsplit('/',1)[-1]
                 prim=collision_link(stage,root_name,name)
-                inverse = UsdGeom.Xformable(prim).ComputeLocalToWorldTransform(0).GetInverse()
                 points = []
-                from pxr import Usd
                 for child in Usd.PrimRange(prim):
                     if child.HasAPI(UsdPhysics.CollisionAPI):
-                        bound = cache.ComputeWorldBound(child).ComputeAlignedRange()
-                        for corner in range(8):
-                            points.append(inverse.Transform(bound.GetCorner(corner)))
+                        bound = cache.ComputeRelativeBound(child, prim).ComputeAlignedRange()
+                        if bound.IsEmpty():
+                            continue
+                        points.extend(bound.GetCorner(corner) for corner in range(8))
                 if not points:
                     raise RuntimeError(f'Collision geometry missing for {side}/{name}')
                 lo = [min(p[i] for p in points) for i in range(3)]
                 hi = [max(p[i] for p in points) for i in range(3)]
                 centre = [(x+y)/2 for x, y in zip(lo, hi)]
-                radius = max(norm(sub(list(p), centre)) for p in points)
                 robot_bounds[(side, name)] = (centre, [(y-x)/2 for x,y in zip(lo,hi)])
 
     def patch_scene(module):
@@ -179,9 +179,18 @@ def install(spec, scorer, here):
                     stream.write(json.dumps({'kind': 'NATIVE_SIMULATION_FRAME', 'episode': episode['number'],
                                              'frame': frame, 'result': asdict(result)}, allow_nan=False)+'\n')
         def task_step(self, *args, **kwargs):
-            if ours(self):
-                record(collect(self))
-            return original_step(self, *args, **kwargs)
+            if not ours(self):
+                return original_step(self, *args, **kwargs)
+            # The adapter's default geometry helper accepts rigid objects only.
+            # This scorer uses per-link articulation state collected after the real action.
+            record(collect(self))
+            result = scorer.result
+            return module.StepResult(
+                observation=self._observation(),
+                terminated=result.success,
+                termination_reason='success' if result.success else None,
+                info={'success': result.success, 'score': result.score},
+            )
         cls.reset, cls._task_step = reset, task_step
 
     patches = {'yam_arena.scene': patch_scene, 'yam_arena.inspect_embodiment': patch_embodiment}
