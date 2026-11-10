@@ -47,7 +47,7 @@
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "94eefae522fdb20707916c06020c82950bedd344",
+      "commit": "6594c6ba628cb77a411ab0251df253ed7fb11705",
       "task_folder": "tasks/remote-battery-service",
       "status": "STATIC_TESTS_PASSED",
       "ready": false,
@@ -156,7 +156,7 @@
       "title": "Preload and retain a twelve-cell service pack",
       "branch": "draft/twelve-cell-pack",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
-      "commit": "6a28a07aa3496ec83bbc6634f776fcd5ce7efed8",
+      "commit": "f4813a3b34faecef648ce9f4828dd2af673a6b12",
       "task_folder": "tasks/twelve-cell-pack",
       "status": "STATIC_TESTS_PASSED",
       "ready": false,
@@ -229,7 +229,7 @@
       "title": "Balance and lock a counterweighted service arm",
       "branch": "draft/fault-module-repair",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
-      "commit": "665793819fa9fbb7de97ce62863ab9032c22b02c",
+      "commit": "c434ec51597078fc62fadb7297356fcb999bceaa",
       "task_folder": "tasks/fault-module-repair",
       "status": "STATIC_TESTS_PASSED",
       "ready": false,
@@ -247,8 +247,8 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "DIAGNOSTIC_REPEAT_IN_PROGRESS",
-      "robot_control": "NOT_RUN",
+      "native_physics": "PASS_TWO_REPEATS_ON_PHYSICS_REVISION",
+      "robot_control": "BOUNDED_DIAGNOSTICS_IN_PROGRESS",
       "media_verified": false,
       "suggested_pr_title": "Balance and lock a counterweighted service arm",
       "suggested_pr_body": null,
@@ -258,7 +258,8 @@
         "The payload is rigidly mounted; its mass distribution is explicitly specified on the arm, including the handling fixture.",
         "Prismatic guidance approximates the counterweight rail. A real free pin through two collision-defined holes locks translation.",
         "The unpowered pivot has damping but no centering spring. Gravity balance and pin load retention require native tests."
-      ]
+      ],
+      "physics_evaluated_commit": "665793819fa9fbb7de97ce62863ab9032c22b02c"
     },
     {
       "slug": "hardware-order-kit",

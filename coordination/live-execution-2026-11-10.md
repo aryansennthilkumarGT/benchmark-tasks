@@ -82,3 +82,19 @@ ROBOCURVE_RUN_ROOT=/data/robocurve-runs/coordinator \
 ROBOCURVE_BUDGET_FILE=/data/robocurve-budget.json \
 bash coordination/bootstrap_and_run.sh --task fault-module-repair --launchable-root /data --resume
 ```
+
+### Counterweight physics milestone
+
+Commit `665793819fa9fbb7de97ce62863ab9032c22b02c` passed all 8 declared native physics cases across two independent repeats (8 successful resets, exit 0, camera coverage passed). The unbalanced arm reached +0.300 rad in both repeats. With the pin fitted, the freely pivoting arm settled at −0.01676 rad and the slider at −31.519 mm. Under a 1 N force the pinned slider ended at −30.400 mm. Under the same force without a pin it reached the 0 mm stop. No measured penetration exceeded 0.3 µm in the eight final samples. These are controlled fixture probes.
+
+The report SHA-256 is `c166d1919e5780d43321edc88090caaad791fcfb154e2b740389b702b1d1dd5d`. The native trace SHA-256 is `bb67ca393e69ad0e18e61029d846f48a6d5578a8ddb328b13471042a1f50fc03`. See `/data/robocurve-runs/resume-compat/fault-physics.J7Y7P0/`. A bounded measured-state robot control diagnostic follows at `fault-control.EEPvI0`. Full robot-control suite, independent expert demonstrations, Dream-1, task media and upload remain pending.
+
+The eight source revisions in the updated manifest passed source hash verification, Python parsing, unit tests and composed USD verification. Every branch is a fast-forward of its previous fork branch with changes under its one task folder. The fork heads were independently matched to the local full SHAs. The aggregate coordinator test run passed 37 tests.
+
+### Native reset checks for the other drafts
+
+All seven drafts produced real three-camera observations, four executed 14-D actions and per-body/joint telemetry on the fixed driver. This established their native entry points and exposed a reset problem in the two battery designs. Arena wrote an identity link quaternion over the authored battery polarity. The resulting remote-cell overlap reached 2.60 mm, exceeding its 2 mm invalidation threshold. The battery task runtimes now restore the authored single-body link pose at reset. A repeat with commit `6594c6b` restored both reversed remote cells and reduced maximum overlap to about 0.035 mm. A repeat with commit `f4813a3` restored the alternating pack cells with zero measured overlap. Artifacts are in `other-drafts-reset.W1Edaw` and `battery-polarity-reset.vpmE7h` under the persistent run root. The full task-specific mechanism and expert suites remain pending on these seven drafts.
+
+### Counterweight controller diagnostics
+
+The original controller hit its wrist limit during approach at step 119. The adjusted grasp pitch alone still hit the limit at step 122. Native action/observation traces showed unequal physical joint tracking. A joint reference with separate per-axis rate caps still distorted the planned Cartesian path. The new controller keeps the measured-state guards and scales the whole IK step together, preserving its joint direction and waiting when a joint lags. The bounded tests are in `fault-control.EEPvI0`, `fault-control.Y1bx3k`, `fault-control.NirXWV` and `fault-control.HDdovm`. Only controller code and its manifest changed after the passing physics revision. The current fork draft and the exact passing physics revision are both pinned in the manifest.

@@ -1,46 +1,47 @@
 {
-  "updated_at": "2026-11-10T23:43:52.498000+00:00",
-  "status": "FIXED_DRIVER_STATION_VALIDATED_CUSTOM_DIAGNOSTICS_IN_PROGRESS",
+  "updated_at": "2026-11-10T23:54:15.786198+00:00",
+  "status": "FIXED_DRIVER_STATION_AND_COUNTERWEIGHT_PHYSICS_VALIDATED",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
       "commit": "6e63f39aaa93e83f6fd627a437cb6dc692cd4cba",
-      "state": "STATIC_TESTS_PASSED"
+      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
     },
     {
       "slug": "remote-battery-service",
-      "commit": "94eefae522fdb20707916c06020c82950bedd344",
-      "state": "STATIC_TESTS_PASSED"
+      "commit": "6594c6ba628cb77a411ab0251df253ed7fb11705",
+      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
     },
     {
       "slug": "switch-map-rework",
       "commit": "f45a5c119e4650bec2226a21d3fa34d1f516f360",
-      "state": "STATIC_TESTS_PASSED"
+      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
     },
     {
       "slug": "node-service-closeout",
       "commit": "530d45157a3758799b1e52c35a3c63e2a7bacd95",
-      "state": "STATIC_TESTS_PASSED"
+      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "6a28a07aa3496ec83bbc6634f776fcd5ce7efed8",
-      "state": "STATIC_TESTS_PASSED"
+      "commit": "f4813a3b34faecef648ce9f4828dd2af673a6b12",
+      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
     },
     {
       "slug": "eight-nut-bracket",
       "commit": "e69b00382ce51f68dfe43be0744b9604693eb8ad",
-      "state": "STATIC_TESTS_PASSED"
+      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
     },
     {
       "slug": "fault-module-repair",
-      "commit": "665793819fa9fbb7de97ce62863ab9032c22b02c",
-      "state": "NATIVE_DIAGNOSTICS_IN_PROGRESS"
+      "commit": "c434ec51597078fc62fadb7297356fcb999bceaa",
+      "state": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
+      "physics_evaluated_commit": "665793819fa9fbb7de97ce62863ab9032c22b02c"
     },
     {
       "slug": "hardware-order-kit",
       "commit": "82d59c32fe24f8fffe22ee910f931cd5ff9432ff",
-      "state": "STATIC_TESTS_PASSED"
+      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
     }
   ],
   "executed": {
@@ -48,7 +49,7 @@
     "unit_tests_not_applicable": 32,
     "offline_geometry_audits_passed": 33,
     "composed_usd_packages_passed": 8,
-    "native_runs": 0,
+    "native_runs": 1,
     "expert_runs": 0,
     "model_runs": 0,
     "media_uploads": 0,
@@ -57,7 +58,9 @@
     "one_command_offline_run": "PASS",
     "resume_without_duplicate_work": "PASS",
     "offline_geometry_audits_not_applicable": 7,
-    "official_station_replays_passed": 1
+    "official_station_replays_passed": 1,
+    "native_physics_case_repeats_passed": 8,
+    "other_draft_native_reset_diagnostics": 7
   },
   "remaining": [
     "Verify billed Brev rate and issue the provider budget receipt for full evaluations",
