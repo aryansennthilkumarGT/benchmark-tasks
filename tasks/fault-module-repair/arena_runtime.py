@@ -63,6 +63,7 @@ def install(spec, scorer, here):
             def _generate_articulation_cfg(self):
                 cfg = super()._generate_articulation_cfg()
                 cfg.init_state.joint_pos = {j['name']: 0.0 for j in data.get('joints', [])}
+                cfg.init_state.joint_vel = {name: 0.0 for name in cfg.init_state.joint_pos}
                 cfg.actuators = {j['name']: ImplicitActuatorCfg(
                     joint_names_expr=[j['name']], stiffness=j.get('stiffness', 0.0),
                     damping=j.get('damping', 0.02)) for j in data.get('joints', [])}
