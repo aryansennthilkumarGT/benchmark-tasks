@@ -64,7 +64,13 @@ def inspect_log(directory, mode, run_limit, commit, folder=None, seed=0):
     require(len(record_dirs) == 1 and record_dirs[0], 'Full trial record missing')
     record_dir = within(directory,directory/record_dirs[0])
     record = read(record_dir/'record.json')
-    require(record['steps'] == steps and record['seed'] == seed, 'Record and log disagree')
+    from inspect_robots.rollout import derive_seed
+    configuration = record['configuration']
+    scene = configuration['scene']
+    require(record['epoch'] == 0 and scene['id'] == sample['scene_id'], 'Record scene or epoch mismatch')
+    reset_seed = derive_seed(seed, scene['init_seed'], record['epoch'])
+    require(record['steps'] == steps and configuration['seed'] == seed, 'Record and log disagree')
+    require(record['seed'] == configuration['trial_seed'] == reset_seed, 'Derived reset seed mismatch')
     require(record['record_id'] == sample['record_ids'][0], 'Record identity mismatch')
     actions = list(directory.glob('actions/*/*.jsonl'))
     require(len(actions) == 1, 'Executed-action stream missing or ambiguous')
@@ -123,7 +129,7 @@ def inspect_log(directory, mode, run_limit, commit, folder=None, seed=0):
         if mode == 'expert':
             require(terminal.success and not terminal.failure, 'Expert failed native terminal conditions')
     summary = {'kind':'REAL_INSPECT_ROLLOUT', 'mode':mode, 'score':score, 'steps':steps, 'run_limit':run_limit,
-               'seed':seed, 'commit':commit, 'record_id':record['record_id'], 'log':str(path),
+               'seed':seed, 'reset_seed':reset_seed, 'commit':commit, 'record_id':record['record_id'], 'log':str(path),
                'log_sha256':digest(path), 'simulated_seconds':steps/20, 'duration_s':stats['duration_s'],
                'frames':str(frames), 'camera_streams':3, 'native_failure':getattr(terminal,'failure',None)}
     return summary
