@@ -88,8 +88,9 @@ class Motion:
             raise ControlFailure(f'IK did not converge: {position_error*1000:.2f} mm, {math.degrees(rotation_error):.2f} deg')
         if np.any(solved<self.ik.LOWER+1e-5) or np.any(solved>self.ik.UPPER-1e-5):
             raise ControlFailure('IK reached a joint limit')
-        step = np.clip(solved-self.reference, -0.035, 0.035)
-        self.reference = np.clip(self.reference+step, arm-0.045, arm+0.045)
+        step = solved - self.reference
+        step *= min(1.0, 0.02/max(np.max(np.abs(step)), 1e-12))
+        self.reference = self.reference + step
         return np.r_[self.reference, grip], error, theta
 
 
