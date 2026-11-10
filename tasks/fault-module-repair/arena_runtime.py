@@ -180,9 +180,18 @@ def install(spec, scorer, here):
                     stream.write(json.dumps({'kind': 'NATIVE_SIMULATION_FRAME', 'episode': episode['number'],
                                              'frame': frame, 'result': asdict(result)}, allow_nan=False)+'\n')
         def task_step(self, *args, **kwargs):
-            if ours(self):
-                record(collect(self))
-            return original_step(self, *args, **kwargs)
+            if not ours(self):
+                return original_step(self, *args, **kwargs)
+            # The adapter's default geometry helper accepts rigid objects only.
+            # This scorer uses per-link articulation state collected after the real action.
+            record(collect(self))
+            result = scorer.result
+            return module.StepResult(
+                observation=self._observation(),
+                terminated=result.success,
+                termination_reason='success' if result.success else None,
+                info={'success': result.success, 'score': result.score},
+            )
         cls.reset, cls._task_step = reset, task_step
 
     patches = {'yam_arena.scene': patch_scene, 'yam_arena.inspect_embodiment': patch_embodiment}
