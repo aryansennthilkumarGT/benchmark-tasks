@@ -33,12 +33,25 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.008, 0.008, 0.056)
-            double3 xformOp:translate = (0, 0, 0)
+            float3 xformOp:scale = (0.0094, 0.0094, 0.052)
+            double3 xformOp:translate = (0, 0, 0.002)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
         def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.008, 0.004)
+            double3 xformOp:translate = (0, 0, -0.026)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_2" (
             prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
         )
         {

@@ -7,10 +7,12 @@ Geometry is original primitive construction. All movable components use friction
 | Body | Material/type | Mass kg | Envelope m | World origin m | XYZW | Constraint |
 |---|---|---:|---|---|---|---|
 | `pedestal` | rigid fixture material | 1.2 | (0.13, 0.12, 0.104) | (0.285, 0, 0.7475) | (0, 0, 0, 1) | anchored |
-| `service_arm` | rigid fixture material | 0.36 | (0.29, 0.246, 0.047) | (0.285, 0, 0.8475) | (0, 0, 0, 1) | passive dynamic |
+| `service_arm` | rigid fixture material | 0.36 | (0.29, 0.246, 0.059) | (0.285, 0, 0.8475) | (0, 0, 0, 1) | passive dynamic |
 | `counterweight` | rigid fixture material | 0.3 | (0.044, 0.098, 0.0855) | (0.25, 0, 0.8675) | (0, 0, 0, 1) | passive dynamic |
 | `locking_pin` | rigid fixture material | 0.025 | (0.022, 0.022, 0.064) | (0.32, -0.24, 0.7757) | (0, 0, 0, 1) | passive dynamic |
 | `pin_stand` | rigid fixture material | 0.12 | (0.022, 0.022, 0.014) | (0.32, -0.24, 0.7475) | (0, 0, 0, 1) | anchored |
+
+The lower pin receiver is 18 mm deep. The pin has a 9.4 mm square shaft and an 8 mm square lead at the tip, with a 10 mm square opening in each receiver.
 
 ## Passive joints
 
@@ -20,4 +22,4 @@ Geometry is original primitive construction. All movable components use friction
 ## Mass distribution overrides
 
 - `service_arm`: center of mass [0.0595833333333333, 0, -0.006]; diagonal inertia [0.0008, 0.0024, 0.0025].
-- `counterweight`: center of mass [0, 0, -0.03]; diagonal inertia [0.00022, 0.00016, 0.00018].
+- `counterweight`: center of mass [0, 0, -0.046]; diagonal inertia [0.00022, 0.00016, 0.00018].
