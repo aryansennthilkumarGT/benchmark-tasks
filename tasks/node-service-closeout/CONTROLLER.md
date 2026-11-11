@@ -78,3 +78,5 @@ Insertion uses measured body error through the same measured-pose reference loop
 Storage rail alignment and insertion use world z 0.7635 m, the physical floor plus core half-height. The previous z 0.7655 m waypoint and relative scoring height 18 mm were 2 mm above the floor-rest datum. Storage pose tolerance remains 1.5 mm.
 
 Storage carry phases use position gain2 with10mm maximum lead and loaded reference gain2. The earlier gain8 generated a0.8-per-action effective correction and failed to settle the extracted module within1.5mm. The revised effective correction is0.2 per action. Long storage transfers retain a35second bound. Cooler phases before the failed storage lift are unchanged.
+
+The raised storage pull grip and upright are6mm thick along x. The retained low blocking lug keeps its original14mm thickness. Native insertion stalled when the raised grip overlapped the cooler blocking lip by1mm along x. The narrower upright gives3mm nominal clearance for top-down cooler insertion while preserving the independent low-lug extraction constraint.

@@ -11,6 +11,18 @@ _geometry=geometry_module(HERE)
 maximum_penetration,polyhedron,convex_separation=(_geometry.maximum_penetration,_geometry.polyhedron,_geometry.convex_separation)
 
 class PackageContractTests(unittest.TestCase):
+    def test_raised_storage_grip_clears_cooler_blocking_lip(self):
+        specification = json.loads((HERE/'scene.json').read_text())
+        bodies = {b['name']: b for a in specification['assemblies'] for b in a['bodies']}
+        blocker = bodies['new_cooler']['shapes'][2]
+        blocker_min = blocker['pos'][0]-blocker['size'][0]/2
+        for name in ('old_storage', 'new_storage'):
+            for index in (1, 3):
+                shape = bodies[name]['shapes'][index]
+                handle_max = shape['pos'][0]+shape['size'][0]/2
+                self.assertGreaterEqual(blocker_min-handle_max, .0029)
+            self.assertEqual(bodies[name]['shapes'][4]['size'], [.014, .028, .02])
+
     def test_robot_usd_path_is_distinct_from_scene_key(self):
         import importlib
         from pxr import Usd,UsdGeom,UsdPhysics
