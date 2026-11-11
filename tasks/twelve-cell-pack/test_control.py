@@ -275,4 +275,14 @@ class FeedbackTests(unittest.TestCase):
                 break
 
 
+    def test_plate_grasp_preserves_twenty_degree_wrist_clearance(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p['label'] == 'Grasp pressure plate')
+        expected = [-math.sin(math.radians(35)), math.cos(math.radians(35)), 0, 0]
+        self.assertLess(qangle(phase['quat'], expected), 1e-7)
+        press = next(p for p in plan['phases'] if p['label'] == 'Compress all twelve terminal springs')
+        self.assertEqual(press['position_gain'], 1.)
+        self.assertEqual(len(press['required_joint_ranges']), 12)
+
+
 if __name__=='__main__':unittest.main()
