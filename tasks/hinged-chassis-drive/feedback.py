@@ -235,7 +235,10 @@ class Controller:
                     raise ControlFailure('Invalid lateral insertion tolerance')
                 correction = limit_vector(phase.get('lateral_gain', 3.) * lateral,
                                           phase.get('lateral_lead', .001))
-                aligned = np.linalg.norm(lateral / tolerance) <= 1
+                if tolerance.shape == ():
+                    aligned = np.linalg.norm(lateral) <= tolerance
+                else:
+                    aligned = np.all(np.abs(lateral) <= tolerance)
                 oriented = orientation_error <= phase.get('insertion_orientation_tolerance', math.pi)
                 if aligned and oriented:
                     correction += limit_vector(axial, phase.get('axial_lead', .002))
@@ -246,7 +249,11 @@ class Controller:
                 rotation_error = multiply(desired_q, conjugate(body_q))
                 amount = min(phase.get('rotation_gain', 1.),
                              phase.get('rotation_lead', .04) / max(orientation_error, 1e-9))
-                q = multiply(interpolate([0, 0, 0, 1], rotation_error, amount), tcpq)
+                correction = interpolate([0, 0, 0, 1], rotation_error, amount)
+                q = multiply(correction, tcpq)
+                if phase.get('rotation_about_body'):
+                    lever = tcp-body_p
+                    p += rotate(correction, lever)-lever
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.

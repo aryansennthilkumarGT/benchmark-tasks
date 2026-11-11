@@ -132,7 +132,8 @@ class FeedbackTests(unittest.TestCase):
     def test_channel_entry_requires_lateral_and_angular_alignment(self):
         cases = [([0, .003, 0], [0, 0, 0, 1], [0, .02, 0]),
                  ([0, 0, 0], axis_quat([0, 1, 0], .02), [0, 0, 0]),
-                 ([0, 0, 0], [0, 0, 0, 1], [.004, 0, 0])]
+                 ([0, 0, 0], [0, 0, 0, 1], [.004, 0, 0]),
+                 ([0, .0005, .0012], [0, 0, 0, 1], [.004, .004, .0096])]
         for lateral_error, rotation, expected in cases:
             frame = copy.deepcopy(self.frame)
             body = frame['bodies']['drive']
