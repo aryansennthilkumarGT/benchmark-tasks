@@ -99,3 +99,5 @@ The threading arm uses the 0.08-radian loaded joint-tracking window already conf
 
 
 The controller now turns90degrees before each regrasp. The earlier45degree release lost axial alignment in actual native probes. Ninety degrees engages more of the helical load-bearing contact before opening the fingers. Fresh wrist-envelope, gravity-retention and actual robot-threading probes must validate this configuration. Scoring still requires the original pitch-coupled turns and preload retention.
+
+Pilot entry requires measured lateral error at most 75 micrometres and orientation error at most 4 mrad before further axial advance. The pilot has 0.10 mm radial clearance. Separate bounded lateral and angular corrections continue while axial descent is gated, preserving the integrated loaded reference. A 0.3 mm axial lead is permitted only while aligned. Native entry previously slipped after approximately 0.8 mm misalignment against the tight pilot.

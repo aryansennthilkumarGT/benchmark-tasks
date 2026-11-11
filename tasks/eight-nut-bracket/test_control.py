@@ -230,4 +230,28 @@ class FeedbackTests(unittest.TestCase):
                 break
 
 
+    def test_thread_pilot_blocks_axial_motion_until_laterally_aligned(self):
+        for offset, expected_dz in ((.0005, 0.), (.00002, -.0003)):
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['nut_0']
+            body['pos'] = [.175+offset, -.05, .8425]
+            body['quat'] = [0, 0, 0, 1]
+            phase = dict(kind='insert', body='nut_0', align_before_insert=True,
+                         lateral_tolerance=.000075, alignment_angle=.004,
+                         target=dict(pos=[.175, -.05, .7827], quat=[0, 0, 0, 1]))
+            controller = self.controller(phase)
+            controller.motion['left'].reference = self.ready[:6].copy()
+            controller.grasps['left'] = dict(body='nut_0', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            reference, _ = controller.pose(self.ready[:7], 'left')
+            captured = []
+            def capture(joints, position, *args, **kwargs):
+                captured.append(np.asarray(position))
+                return np.asarray(joints), 0., 0.
+            controller.motion['left'].target = capture
+            controller.step(self.ready, frame)
+            self.assertAlmostEqual(captured[0][2]-reference[2], expected_dz)
+            self.assertLess(captured[0][0]-reference[0], 0.)
+
+
 if __name__=='__main__':unittest.main()

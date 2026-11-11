@@ -203,7 +203,24 @@ class Controller:
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
-            if phase.get('integrate_body_error'):
+            if phase.get('align_before_insert'):
+                reference_tcp, reference_q = self.pose(self.motion[side].reference, side)
+                delta = desired_p - body_p
+                lateral = delta.copy()
+                lateral[2] = 0.
+                rotation_error = multiply(desired_q, conjugate(body_q))
+                angle_error = qangle([0, 0, 0, 1], rotation_error)
+                turn = interpolate([0, 0, 0, 1], rotation_error,
+                    min(.1, .002 / max(angle_error, 1e-9)))
+                correction = limit_vector(.2*lateral, .0002)
+                aligned = (np.linalg.norm(lateral) <= phase['lateral_tolerance']
+                           and angle_error <= phase['alignment_angle'])
+                if aligned:
+                    correction[2] = float(np.clip(.1*delta[2], -.0003, .0003))
+                lever = tcp-body_p
+                p = reference_tcp + correction + rotate(turn, lever)-lever
+                q = multiply(turn, reference_q)
+            elif phase.get('integrate_body_error'):
                 reference_tcp, _ = self.pose(self.motion[side].reference, side)
                 p = reference_tcp + limit_vector(phase.get('position_gain', .1) * (desired_p-body_p),
                                                  phase.get('translation_lead', .0005))
@@ -222,9 +239,16 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
-                if self.last_progress is None or error<self.last_progress-0.0003:
-                    self.last_progress,self.last_progress_t=error,now
-                elif now-self.last_progress_t>2.0 and not complete:
+                progress = (np.array([abs(delta[2]), np.linalg.norm(lateral), angle_error])
+                            if phase.get('align_before_insert') else np.array([error]))
+                margin = (np.array([.0001, .00001, .0005])
+                          if phase.get('align_before_insert') else np.array([.0003]))
+                if self.last_progress is None:
+                    self.last_progress,self.last_progress_t=progress,now
+                elif np.any(progress < self.last_progress-margin):
+                    self.last_progress = np.minimum(self.last_progress, progress)
+                    self.last_progress_t = now
+                elif now-self.last_progress_t>phase.get('progress_timeout', 2.0) and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.
                     raise ControlFailure('Insertion stalled; no unbounded force or retry: '+phase['label'])
