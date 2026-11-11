@@ -71,5 +71,24 @@
     "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope.",
     "Contact preload, capture-key insertion and expert execution have not yet been tested in native PhysX."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "native_diagnostic_evidence": {
+    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+    "commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
+    "driver": "565.57.01",
+    "status": "PASS",
+    "passed": 2,
+    "failed": 0,
+    "resets": 2,
+    "report_sha256": "e9beb9c0222ce9945a9b047bdf7eb8a3760a14aa52dc314ce6b4e4e31bb39125"
+  },
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
+  }
 }
