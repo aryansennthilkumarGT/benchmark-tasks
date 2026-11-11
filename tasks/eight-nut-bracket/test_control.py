@@ -86,6 +86,28 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_prismatic_error_integration_uses_bounded_motion_reference(self):
+        frame = copy.deepcopy(self.frame)
+        phase = dict(kind='joint', body='pressure_plate', joint='plate_preload',
+                     value=-.012, increment=.0005, integrate_joint_error=True,
+                     body_quat=[0, 0, 0, 1])
+        controller = self.controller(phase)
+        _, orientation = controller.pose(self.ready[:7], 'left')
+        controller.grasps['left'] = dict(body='pressure_plate', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=orientation)
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        controller.motion['left'].reference = reference
+        reference_p, _ = controller.pose(np.r_[reference, self.ready[6]], 'left')
+        targets = []
+        def capture(joints, position, quat, opening, **kwargs):
+            targets.append((np.array(position), np.array(quat)))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0][0], reference_p + [0, 0, -.0005], atol=1e-12)
+        self.assertLess(qangle(targets[0][1], orientation), 1e-8)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

@@ -52,7 +52,14 @@
       "increment": 0.0005,
       "tolerance": 0.0003,
       "keep_hold": true,
-      "timeout": 30
+      "timeout": 30,
+      "integrate_joint_error": true,
+      "body_quat": [
+        0,
+        0,
+        0,
+        1
+      ]
     },
     {
       "kind": "move",

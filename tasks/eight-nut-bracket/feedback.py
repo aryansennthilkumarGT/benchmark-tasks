@@ -57,10 +57,11 @@ def limit_vector(delta,maximum):
 
 class Motion:
     """Track a rate-limited IK reference while waiting for all joints to catch up."""
-    def __init__(self,side,dt=0.05):
+    def __init__(self,side,dt=0.05,tracking_error_limit=0.025):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
+        self.tracking_error_limit = tracking_error_limit
 
     def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
         q=np.asarray(measured,dtype=float)
@@ -74,8 +75,8 @@ class Motion:
         grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
         if self.reference is None:
             self.reference = arm.copy()
-        if np.max(np.abs(self.reference - arm)) > 0.025:
-            command = np.clip(self.reference, arm-0.045, arm+0.045)
+        if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:
+            command = np.clip(self.reference, arm-self.tracking_error_limit-0.02, arm+self.tracking_error_limit+0.02)
             return np.r_[command, grip], error, theta
         current, rotation = self.ik.tcp_pose(self.reference, self.base)
         current_q = self.ik.matrix_to_quat_xyzw(rotation)
@@ -104,7 +105,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={s:Motion(s) for s in ('left','right')}
+        self.motion={'left':Motion('left',tracking_error_limit=.08),'right':Motion('right')}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -234,7 +235,15 @@ class Controller:
                 pivot=np.asarray(parent['pos'])+rotate(parent['quat'],joint['pivot_parent'])
                 turn=axis_quat(world_axis,delta)
                 p=pivot+rotate(turn,tcp-pivot);q=multiply(turn,tcpq)
-            else:p=tcp+world_axis*delta;q=tcpq
+            else:
+                p = tcp + world_axis * delta
+                reference = self.motion[side].reference
+                if phase.get('integrate_joint_error') and reference is not None:
+                    reference_p, _ = self.pose(np.r_[reference, observed[6]], side)
+                    p = reference_p + world_axis * delta
+                q = tcpq
+                if 'body_quat' in phase:
+                    _, q = self.body_tcp(side, body['pos'], unit(phase['body_quat']))
             targets[side]=(p,q,0.0,0.035)
             complete=abs(desired-actual)<phase.get('tolerance',0.006 if joint['kind']=='revolute' else 0.001)
         elif kind=='release':
