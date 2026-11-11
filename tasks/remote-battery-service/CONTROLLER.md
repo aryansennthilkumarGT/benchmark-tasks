@@ -52,4 +52,4 @@ After the motion plan, the expert holds the released pose while the actual score
 
 Overhead cell-approach waypoints use a 3 mm positional tolerance at 0.8675 m height. The grasp phase aligns to the measured cell and verifies jaw width and lift.
 
-Cell transport uses measured cell error to command incremental TCP motion. Vertical seating aligns laterally before applying a 1.5 mm bounded axial lead, with the verified grasp orientation held during descent.
+Cell transport uses the verified grasp transform and measured cell-position correction. Vertical seating uses incremental TCP motion, lateral alignment and a 1.5 mm bounded axial lead with the verified grasp orientation.
