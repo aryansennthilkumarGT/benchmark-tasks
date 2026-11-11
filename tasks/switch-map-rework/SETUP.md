@@ -442,3 +442,5 @@ Geometry is original primitive construction. All movable components use friction
 
 
 An 8 by 30 mm shelf extends from each socket to support the plug nose under cable load. Each shelf sits opposite the initial cable approach to preserve cable motion.
+
+The native latch comparison applies the same 2 N withdrawal load with and without catch depression. The depressed-catch fixture also applies a 2 N press and a supporting force and moment to keep the plug seated while pulling.
