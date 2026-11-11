@@ -202,6 +202,8 @@ class Controller:
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
+            if kind == 'carry' and phase.get('measured_translation'):
+                p = tcp + limit_vector(desired_p - body_p, 0.003)
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
@@ -233,7 +235,9 @@ class Controller:
             if joint['kind']=='revolute':
                 pivot=np.asarray(parent['pos'])+rotate(parent['quat'],joint['pivot_parent'])
                 turn=axis_quat(world_axis,delta)
-                p=pivot+rotate(turn,tcp-pivot);q=multiply(turn,tcpq)
+                body_position = pivot + rotate(turn, np.asarray(body['pos']) - pivot)
+                body_orientation = multiply(turn, body['quat'])
+                p, q = self.body_tcp(side, body_position, body_orientation)
             else:p=tcp+world_axis*delta;q=tcpq
             targets[side]=(p,q,0.0,0.035)
             complete=abs(desired-actual)<phase.get('tolerance',0.006 if joint['kind']=='revolute' else 0.001)
