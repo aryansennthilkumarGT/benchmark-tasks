@@ -204,7 +204,7 @@ class Controller:
                 axis = rotate(desired_q, [0, 0, 1])
                 axial = np.dot(position_error, axis) * axis
                 lateral = position_error - axial
-                correction = limit_vector(3.0*lateral, 0.001)
+                correction = limit_vector(phase.get('lateral_gain', 3.0)*lateral, phase.get('lateral_lead', 0.001))
                 if np.linalg.norm(lateral) <= phase.get('lateral_tolerance', 0.00065):
                     correction += limit_vector(axial, phase.get('axial_lead', 0.0015))
                 p = tcp + correction
@@ -227,8 +227,9 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
-                if self.last_progress is None or error<self.last_progress-0.0003:
-                    self.last_progress,self.last_progress_t=error,now
+                progress_error = float(np.linalg.norm(axial) + 10*np.linalg.norm(lateral))
+                if self.last_progress is None or progress_error<self.last_progress-0.0003:
+                    self.last_progress,self.last_progress_t=progress_error,now
                 elif now-self.last_progress_t>2.0 and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.
