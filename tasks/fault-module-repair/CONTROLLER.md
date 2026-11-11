@@ -33,4 +33,4 @@ The trajectory audit checks the official convex robot meshes against anchored fi
 
 After the motion plan, the expert holds the released pose while the actual scorer establishes full-score stability. It stops only on measured success or fails after a bounded five-second terminal grace period (or hold time plus two seconds, if longer). A finished phase list is not a success signal.
 
-During pin insertion the controller applies independent Cartesian and rotational corrections. The rotation correction uses one quarter of the observed error, capped at 0.005 rad per observation. The translation and stall limits remain in effect.
+During pin insertion the controller holds the wrist orientation derived from the verified grasp. Measured pin position drives the Cartesian correction, and measured pin angle gates completion. The bounded translation and stall guards apply throughout insertion.

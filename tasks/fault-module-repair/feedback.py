@@ -218,16 +218,14 @@ class Controller:
             commanded = body_p + correction
             rotation_error = multiply(desired_q, conjugate(body_q))
             if kind == 'insert':
-                # Decouple orientation from translation at contact. A full
-                # observed pin rotation applied to the offset TCP can swing the
-                # tip sideways by more than the receiver clearance in one step.
+                # Hold the verified grasp's orientation while translating from
+                # measured pin error. This keeps contact-induced yaw from
+                # becoming a moving wrist-orientation target.
                 p = tcp + correction
-                angle = qangle([0, 0, 0, 1], rotation_error)
-                rotation_error = interpolate(
-                    [0, 0, 0, 1], rotation_error, min(0.25, 0.005 / max(angle, 1e-9)))
+                _, q = self.body_tcp(side, desired_p, desired_q)
             else:
                 p = commanded + rotate(rotation_error, tcp-body_p)
-            q = multiply(rotation_error, tcpq)
+                q = multiply(rotation_error, tcpq)
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
