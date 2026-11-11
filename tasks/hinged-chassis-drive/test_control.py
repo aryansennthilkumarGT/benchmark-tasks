@@ -336,4 +336,24 @@ class FeedbackTests(unittest.TestCase):
             self.assertEqual(contacts, [])
 
 
+    def test_segmented_bar_route_clears_supported_lid(self):
+        from audit_geometry import geometry_module
+        from robot_geometry import arm_hulls, task_collisions
+        fixed = dict(self.spec, assemblies=[self.spec['assemblies'][0]])
+        states = copy.deepcopy(self.frame['bodies'])
+        states['lid']['quat'] = axis_quat([0, 1, 0], .85).tolist()
+        geometry = geometry_module(self.folder)
+        joints = self.ready[:6].copy()
+        points = [[.36, -.23, .8645], [.3, -.23, .8645], [.235, -.23, .8645],
+                  [.235, -.15, .8595], [.235, -.075, .8545], [.235, 0, .8495]]
+        for position in points:
+            joints, error, angle = self.ik.solve(position, [math.cos(math.radians(12.5)), 0, math.sin(math.radians(12.5)), 0], q_init=joints,
+                base_pos=self.station.BASES['right'], iters=500, damping=.015, tol=1e-5)
+            self.assertLess(error, .0015)
+            self.assertLess(angle, .035)
+            contacts = task_collisions(geometry, arm_hulls('right', np.r_[joints, .192]),
+                                       fixed, states, threshold=.0005)
+            self.assertEqual(contacts, [], str(position))
+
+
 if __name__=='__main__':unittest.main()

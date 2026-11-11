@@ -76,3 +76,9 @@ Guide entry uses body-centre z 0.766 m. At the existing 0.03 rad pitch bound, th
 The right drive grasp tilts25degrees toward the fixture while preserving the Y-axis jaw closure. Native GPU contact tensors measured right robot link4 pressing the supported lid, with a peak force about6.8N, near drive x0.243m. All measured external right-arm contacts involved the lid. The tilt moves the wrist/forearm away from the lid without changing the fixture, closure geometry, guide clearance or scoring. Critical TCP audits now match the actual0.766m insertion waypoint.
 
 After releasing the drive, the right hand lifts vertically with its25degree grasp orientation. It changes orientation at the following high-clearance bar approach. The earlier simultaneous lift/unwind path intersected a keeper post by2.28mm in the offline mesh audit.
+
+Retainer transport first moves longitudinally at the source y=-0.23 m to x=0.235 m, then moves transversely toward the supporting pockets. Actual native GPU contacts measured approximately17 N between the right fingertip and the supported lid on the prior diagonal path. The new segmented route clears the leading lid edge before crossing its side plane. Physical clearances require fresh native confirmation.
+
+Retainer grip pitches the wrist25degrees away from the supported lid, while preserving the opposing jaw grip. Offline convex-mesh checks found the former vertical wrist collides with the lid at both final insertion height and the diagonal path. The pitched grip clears the complete sampled height range and uses the same numeric seating goals. Fresh native contacts and cold experts remain required.
+
+The pitched retainer grasp uses a16mm centre-to-TCP offset and20to30mm measured jaw interval, accounting for the projected18by16mm bar section. Actual jaw closure and retention are validated in the native expert.
