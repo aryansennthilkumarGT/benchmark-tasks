@@ -87,6 +87,29 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_keyed_seating_aligns_before_axial_advance(self):
+        for lateral, tilt, expected_axial in [(.002, 0., 0.), (0., .03, 0.), (0., 0., -.001)]:
+            with self.subTest(lateral=lateral, tilt=tilt):
+                frame = copy.deepcopy(self.frame)
+                body = frame['bodies']['new_cooler']
+                body['quat'] = axis_quat([0, 1, 0], tilt).tolist()
+                goal = np.array(body['pos']) + [lateral, 0, -.01]
+                phase = dict(kind='insert', body='new_cooler', insertion_axis_world=[0, 0, 1],
+                    lateral_gain=2., lateral_lead=.001, lateral_tolerance=.0004,
+                    axial_lead=.001, insertion_orientation_tolerance=.02,
+                    target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+                controller = self.controller(phase)
+                controller.grasps['left'] = dict(body='new_cooler', verified=False,
+                    tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+                targets = []
+                def capture(joints, position, orientation, opening, **kwargs):
+                    targets.append(np.array(position))
+                    return np.array(joints), 0., 0.
+                controller.motion['left'].target = capture
+                tcp, _ = controller.pose(self.ready[:7], 'left')
+                controller.step(self.ready, frame)
+                self.assertAlmostEqual(float(targets[0][2]-tcp[2]), expected_axial)
+
     def test_payload_carry_has_bounded_measured_translation_gain(self):
         frame = copy.deepcopy(self.frame)
         body = frame['bodies']['old_cooler']
