@@ -322,6 +322,8 @@ class Controller:
             turn=axis_quat(rotate(reference['quat'],[0,0,1]),phase.get('direction',-1)*0.018)
             # Advance the retained actuator reference so contact torque can build.
             # The measured-TCP increment previously settled at a fixed spring bias.
+            if self.motion[side].reference is None:
+                self.motion[side].reference = np.asarray(observed[:6], dtype=float).copy()
             motion_reference = self.motion[side].reference
             reference_tcp, reference_q = self.pose(np.r_[motion_reference, observed[6]], side)
             q = multiply(turn, reference_q)

@@ -167,6 +167,29 @@ class FeedbackTests(unittest.TestCase):
             controller.thread_target(phase, body, tcp, self.down,
                                      self.ready[index:index+7], frame, 2.1)
 
+    def test_thread_turn_advances_retained_orientation_reference(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(value for value in plan['phases'] if value['kind'] == 'thread')
+        controller = Controller({'phases': [phase]}, self.spec)
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies'][phase['body']]
+        reference = frame['bodies'][phase['reference']]
+        body['pos'] = (np.array(reference['pos']) + [*phase['xy'], .0232]).tolist()
+        body['quat'] = [0, 0, 0, 1]
+        side = phase['side']
+        index = 0 if side == 'left' else 7
+        observed = self.ready[index:index+7]
+        controller.motion[side].reference = observed[:6].copy()
+        controller.motion[side].reference[-1] += .04
+        tcp, measured_q = controller.pose(observed, side)
+        _, reference_q = controller.pose(np.r_[controller.motion[side].reference, observed[6]], side)
+        controller.grasps[side] = dict(body=phase['body'], verified=False)
+        position, target_q, _ = controller.thread_target(
+            phase, body, tcp, measured_q, observed, frame, 0.)
+        expected = multiply(axis_quat(rotate(reference['quat'], [0, 0, 1]), -.018), reference_q)
+        self.assertLess(qangle(target_q, expected), 1e-6)
+        self.assertLessEqual(np.linalg.norm(position-tcp), .000500001)
+
     def test_thread_free_spin_aborts_without_pitch_advance(self):
         plan=json.loads((self.folder/'controller.json').read_text());phase=next((p for p in plan['phases'] if p['kind']=='thread'),None)
         if phase is None:return
