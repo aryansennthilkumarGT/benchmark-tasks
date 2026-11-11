@@ -901,7 +901,7 @@
       "body": "new_cell_1",
       "target": {
         "pos": [
-          0.29059999999999997,
+          0.29,
           0.033,
           0.76275
         ],
@@ -925,7 +925,10 @@
       "lateral_tolerance": 0.0008,
       "integrate_axial_error": false,
       "axial_gain": 1.0,
-      "feedback_gain": 2
+      "feedback_gain": 2,
+      "measured_axis_rotation": true,
+      "rotation_gain": 1.0,
+      "rotation_lead": 0.04
     },
     {
       "kind": "carry",

@@ -242,6 +242,20 @@ class Controller:
             if phase.get('preserve_grasp_orientation'):
                 q = multiply(phase.get('wrist_rotation', [0, 0, 0, 1]),
                              self.grasps[side].get('tcp_orientation_at_grasp', q))
+            if phase.get('measured_axis_rotation'):
+                actual_axis = rotate(body_q, phase['orientation_axis'])
+                desired_axis = rotate(desired_q, phase['orientation_axis'])
+                rotation_axis = np.cross(actual_axis, desired_axis)
+                axis_length = np.linalg.norm(rotation_axis)
+                turn = np.array([0., 0., 0., 1.])
+                if axis_length > 1e-9:
+                    axis_error = math.acos(float(np.clip(np.dot(actual_axis, desired_axis), -1, 1)))
+                    turn = axis_quat(rotation_axis/axis_length,
+                                     min(axis_error*phase.get('rotation_gain', 1.),
+                                         phase.get('rotation_lead', .04)))
+                q = multiply(turn, tcpq)
+                lever = tcp-body_p
+                p += rotate(turn, lever)-lever
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
@@ -262,8 +276,8 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
-                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral)])
-                progress_margin = np.array([.0003, phase.get('lateral_tolerance', .00065) * .1])
+                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral), orientation_error])
+                progress_margin = np.array([.0003, phase.get('lateral_tolerance', .00065) * .1, .0005])
                 if self.last_progress is None:
                     self.last_progress = progress_error
                     self.last_progress_t = now

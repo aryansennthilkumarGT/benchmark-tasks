@@ -362,4 +362,28 @@ class FeedbackTests(unittest.TestCase):
         np.testing.assert_allclose(captured[0], expected, atol=1e-12)
 
 
+    def test_axis_alignment_ignores_cylinder_axial_spin(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p['label'] == 'Lower the free end of new_cell_1')
+        phase = {k: v for k, v in phase.items() if k not in ('side', 'label')}
+        commands = []
+        for spin in (0., 1.3):
+            controller = self.controller(phase)
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['new_cell_1']
+            body['pos'] = [.29, .033, .7716]
+            base = multiply(axis_quat([0, 1, 0], .117), [0, 0, 1, 0])
+            body['quat'] = multiply(base, axis_quat([1, 0, 0], spin)).tolist()
+            controller.grasps['left'] = dict(body='new_cell_1', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            controller.motion['left'].reference = self.ready[:6].copy()
+            def capture(joints, position, orientation, *args, **kwargs):
+                commands.append((np.asarray(position), np.asarray(orientation)))
+                return np.asarray(joints), 0., 0.
+            controller.motion['left'].target = capture
+            controller.step(self.ready, frame)
+        np.testing.assert_allclose(commands[0][0], commands[1][0], atol=1e-12)
+        self.assertLess(qangle(commands[0][1], commands[1][1]), 1e-7)
+
+
 if __name__=='__main__':unittest.main()
