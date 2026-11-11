@@ -1,53 +1,55 @@
 {
-  "updated_at": "2026-11-11T01:39:51.276403+00:00",
+  "updated_at": "2026-11-11T02:11:06.005999+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "42ada6a6dc178ee2b17d79a767bec93b1146bd94",
-      "state": "NATIVE_PHYSICS_PASSED_LID_GRASP_FAILED_TRACKING_RETEST_PENDING",
+      "commit": "a8272c5213dfd41e1c7b4ec876d35734ccd4b47e",
+      "state": "PHYSICS_PASSED_GRASP_VERIFIED_GRAVITY_SUPPORT_RETEST_PENDING",
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193"
     },
     {
       "slug": "remote-battery-service",
-      "commit": "c28cf271a6db19dbff25208768dff7a350eac3ab",
-      "state": "NATIVE_PHYSICS_PASSED_IK_LIMIT_FAILED_TRACKING_RETEST_PENDING",
+      "commit": "21d15c06efdc9e951dbd32162e2758f584ebe017",
+      "state": "COVER_CONTROL_PASSED_CELL_APPROACH_FIX_EXPERT_DIAGNOSTIC_PENDING",
       "physics_evaluated_commit": "6594c6ba628cb77a411ab0251df253ed7fb11705"
     },
     {
       "slug": "switch-map-rework",
-      "commit": "c8a7e528cd2f11eadf6b4e8578e216214752efca",
-      "state": "CABLE_SETTLE_PASSED_WITHDRAWAL_FAILED_SQUEEZE_MOMENT_RETEST_PENDING"
+      "commit": "7e126c1f685190982511e3314b917dac889cb4df",
+      "state": "LOAD_PROBES_FAILED_NONFINITE_CABLE_INERTIA_FIX_RETEST_PENDING"
     },
     {
       "slug": "node-service-closeout",
       "commit": "d3f13dcc36140cf912861e1e929283c8df2ad843",
-      "state": "NATIVE_PHYSICS_FULL_SUITE_PASSED_CONTROL_PENDING",
+      "state": "FULL_NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33"
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
-      "state": "TARGETED_PRELOAD_PASSED_FULL_SUITE_PENDING",
-      "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5"
+      "commit": "8797682de94dac936a11dd73baaf610f5e618e85",
+      "state": "FULL_NATIVE_PHYSICS_TEN_REPEATS_PASSED_CONTROL_PENDING",
+      "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
+      "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "51f1b6fe2a080250ee1d681110bcc73fd8b58e7b",
-      "state": "LOAD_RETENTION_FAILED_DEEPER_THREAD_FLANKS_STATIC_PASSED_NATIVE_PENDING"
+      "commit": "c2b163ba0ef4d7dc04060e639d6e77c9391a3363",
+      "state": "THREAD_LOAD_FAILED_SPECULATIVE_CCD_STATIC_PASS_NATIVE_PENDING"
     },
     {
       "slug": "fault-module-repair",
-      "commit": "4a35e93bbe558ec3beccd359da8dd180c9d759db",
-      "state": "RELIEVED_RECEIVER_BALANCE_AND_LOAD_DIAGNOSTICS_PASSED_EXPERT_RUNNING",
+      "commit": "219cc9d4d7e37f96cfb03e49ac195f63171df690",
+      "state": "PIN_YAW_STABILIZED_SLIDER_DRIFT_FRICTION_RETEST_PENDING",
       "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2"
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "3b5ba9e4b8fd6bd30f98771f3e367c59cbaab325",
-      "state": "NATIVE_ROOT_POSE_VERIFIED_SEATING_FAILED_FK_SYNC_RETEST_PENDING"
+      "commit": "73dbca0a663abb9a3c61593d711b057175937381",
+      "state": "SIX_SELECTED_NATIVE_CASE_REPEATS_PASSED_FULL_SUITE_PENDING",
+      "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc"
     }
   ],
   "executed": {
@@ -67,11 +69,14 @@
     "official_station_replays_passed": 1,
     "native_physics_case_repeats_passed": 38,
     "other_draft_native_reset_diagnostics": 7,
-    "expert_diagnostic_trials_errored": 6,
+    "expert_diagnostic_trials_errored": 8,
     "twelve_cell_capture_diagnostic_repeats_passed": 2,
     "node_cooler_capture_diagnostic_repeats_passed": 2,
     "node_service_full_native_case_repeats_passed": 8,
-    "relieved_receiver_native_case_repeats_passed": 4
+    "relieved_receiver_native_case_repeats_passed": 4,
+    "twelve_cell_full_native_case_repeats_passed": 10,
+    "collar_selected_native_case_repeats_passed": 6,
+    "remote_cover_native_control_repeats_passed": 2
   },
   "remaining": [
     "Verify billed Brev rate and issue the provider budget receipt for full evaluations",

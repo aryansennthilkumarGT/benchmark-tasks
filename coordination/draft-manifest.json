@@ -11,9 +11,9 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "42ada6a6dc178ee2b17d79a767bec93b1146bd94",
+      "commit": "a8272c5213dfd41e1c7b4ec876d35734ccd4b47e",
       "task_folder": "tasks/hinged-chassis-drive",
-      "status": "NATIVE_PHYSICS_PASSED_LID_GRASP_FAILED_TRACKING_RETEST_PENDING",
+      "status": "PHYSICS_PASSED_GRASP_VERIFIED_GRAVITY_SUPPORT_RETEST_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -47,9 +47,9 @@
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "c28cf271a6db19dbff25208768dff7a350eac3ab",
+      "commit": "21d15c06efdc9e951dbd32162e2758f584ebe017",
       "task_folder": "tasks/remote-battery-service",
-      "status": "NATIVE_PHYSICS_PASSED_IK_LIMIT_FAILED_TRACKING_RETEST_PENDING",
+      "status": "COVER_CONTROL_PASSED_CELL_APPROACH_FIX_EXPERT_DIAGNOSTIC_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -66,7 +66,7 @@
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
-      "robot_control": "NOT_RUN",
+      "robot_control": "COVER_PREFIX_PASS_TWO_REPEATS_CELL_LIFT_FAILED_APPROACH_FIX_PENDING",
       "media_verified": false,
       "suggested_pr_title": "Replace opposed-polarity cells under a spring-return service cover",
       "suggested_pr_body": null,
@@ -85,9 +85,9 @@
       "title": "Correct two latched patch connections while preserving a third",
       "branch": "draft/switch-map-rework",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework",
-      "commit": "c8a7e528cd2f11eadf6b4e8578e216214752efca",
+      "commit": "7e126c1f685190982511e3314b917dac889cb4df",
       "task_folder": "tasks/switch-map-rework",
-      "status": "CABLE_SETTLE_PASSED_WITHDRAWAL_FAILED_SQUEEZE_MOMENT_RETEST_PENDING",
+      "status": "LOAD_PROBES_FAILED_NONFINITE_CABLE_INERTIA_FIX_RETEST_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -123,7 +123,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
       "commit": "d3f13dcc36140cf912861e1e929283c8df2ad843",
       "task_folder": "tasks/node-service-closeout",
-      "status": "NATIVE_PHYSICS_FULL_SUITE_PASSED_CONTROL_PENDING",
+      "status": "FULL_NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -157,9 +157,9 @@
       "title": "Preload and retain a twelve-cell service pack",
       "branch": "draft/twelve-cell-pack",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
-      "commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
+      "commit": "8797682de94dac936a11dd73baaf610f5e618e85",
       "task_folder": "tasks/twelve-cell-pack",
-      "status": "TARGETED_PRELOAD_PASSED_FULL_SUITE_PENDING",
+      "status": "FULL_NATIVE_PHYSICS_TEN_REPEATS_PASSED_CONTROL_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -175,7 +175,7 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "PASS_TWO_REPEATS_TARGETED_CAPTURE_ONLY",
+      "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
       "robot_control": "NOT_RUN",
       "media_verified": false,
       "suggested_pr_title": "Preload and retain a twelve-cell service pack",
@@ -186,16 +186,17 @@
         "Rigid contact shoes approximate spring terminals; conductivity is inferred from orientation, seating and measured spring compression.",
         "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope."
       ],
-      "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5"
+      "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
+      "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627"
     },
     {
       "slug": "eight-nut-bracket",
       "title": "Fasten a spring-loaded access plate while maintaining its preload",
       "branch": "draft/eight-nut-bracket",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket",
-      "commit": "51f1b6fe2a080250ee1d681110bcc73fd8b58e7b",
+      "commit": "c2b163ba0ef4d7dc04060e639d6e77c9391a3363",
       "task_folder": "tasks/eight-nut-bracket",
-      "status": "LOAD_RETENTION_FAILED_DEEPER_THREAD_FLANKS_STATIC_PASSED_NATIVE_PENDING",
+      "status": "THREAD_LOAD_FAILED_SPECULATIVE_CCD_STATIC_PASS_NATIVE_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -230,9 +231,9 @@
       "title": "Balance and lock a counterweighted service arm",
       "branch": "draft/fault-module-repair",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
-      "commit": "4a35e93bbe558ec3beccd359da8dd180c9d759db",
+      "commit": "219cc9d4d7e37f96cfb03e49ac195f63171df690",
       "task_folder": "tasks/fault-module-repair",
-      "status": "RELIEVED_RECEIVER_BALANCE_AND_LOAD_DIAGNOSTICS_PASSED_EXPERT_RUNNING",
+      "status": "PIN_YAW_STABILIZED_SLIDER_DRIFT_FRICTION_RETEST_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -268,9 +269,9 @@
       "title": "Fit and pin a hinged collar around a captive shaft",
       "branch": "draft/hardware-order-kit",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit",
-      "commit": "3b5ba9e4b8fd6bd30f98771f3e367c59cbaab325",
+      "commit": "73dbca0a663abb9a3c61593d711b057175937381",
       "task_folder": "tasks/hardware-order-kit",
-      "status": "NATIVE_ROOT_POSE_VERIFIED_SEATING_FAILED_FK_SYNC_RETEST_PENDING",
+      "status": "SIX_SELECTED_NATIVE_CASE_REPEATS_PASSED_FULL_SUITE_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -286,7 +287,7 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "KEYED_SEATING_FAILED_RIB_CLEARANCE_RETEST_PENDING",
+      "native_physics": "PASS_SIX_SELECTED_CASE_REPEATS",
       "robot_control": "NOT_RUN",
       "media_verified": false,
       "suggested_pr_title": "Fit and pin a hinged collar around a captive shaft",
@@ -297,8 +298,9 @@
         "Rigid faceted half-rings approximate a hinged service collar; they preserve a real shaft opening and cannot pass over the fixed end flanges.",
         "A square transverse key captures interleaved lugs through real collision-defined holes. No automatic attachment or fastener torque is simulated.",
         "The collar tests retention around a shaft, not certified clamping friction or torque transmission."
-      ]
+      ],
+      "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc"
     }
   ],
-  "updated_at": "2026-11-11T01:39:51.261038+00:00"
+  "updated_at": "2026-11-11T02:11:05.993889+00:00"
 }
