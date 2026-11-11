@@ -315,4 +315,25 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(controller.last_progress_t, 2.5)
 
 
+    def test_drive_grasp_clears_the_supported_lid_at_critical_insert_poses(self):
+        from audit_geometry import geometry_module
+        from robot_geometry import arm_hulls, task_collisions
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p['label'] == 'Grasp drive by its raised handle')
+        fixed = dict(self.spec, assemblies=[self.spec['assemblies'][0]])
+        states = copy.deepcopy(self.frame['bodies'])
+        states['lid']['quat'] = axis_quat([0, 1, 0], .85).tolist()
+        geometry = geometry_module(self.folder)
+        joints = self.ready[:6].copy()
+        for x in (.23, .27, .3):
+            position = np.array([x, 0, .766])+phase['offset']
+            joints, error, angle = self.ik.solve(position, phase['quat'], q_init=joints,
+                base_pos=self.station.BASES['right'], iters=500, damping=.015, tol=1e-5)
+            self.assertLess(error, .0015)
+            self.assertLess(angle, .035)
+            contacts = task_collisions(geometry, arm_hulls('right', np.r_[joints, .43]),
+                                       fixed, states, threshold=.0005)
+            self.assertEqual(contacts, [])
+
+
 if __name__=='__main__':unittest.main()
