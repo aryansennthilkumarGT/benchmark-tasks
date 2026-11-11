@@ -56,29 +56,42 @@ def limit_vector(delta,maximum):
 
 
 class Motion:
-    """Warm-start IK from measured joints, with per-step rate and convergence checks."""
+    """Track a rate-limited IK reference while waiting for all joints to catch up."""
     def __init__(self,side,dt=0.05):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
+        self.reference = None
 
     def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
         q=np.asarray(measured,dtype=float)
         if q.shape!=(7,) or not np.isfinite(q).all():raise ControlFailure('Invalid proprioception')
-        current,rotation=self.ik.tcp_pose(q[:6],self.base)
-        current_q=self.ik.matrix_to_quat_xyzw(rotation)
-        pos=np.asarray(pos,dtype=float);quat=unit(quat)
-        limited=current+limit_vector(pos-current,speed*self.dt)
-        theta=qangle(current_q,quat)
-        qtarget=interpolate(current_q,quat,min(1,angular_speed*self.dt/max(theta,1e-9)))
-        solved,position_error,rotation_error=self.ik.solve(limited,qtarget,q_init=q[:6],base_pos=self.base,
+        arm = q[:6]
+        measured_pos, measured_rotation = self.ik.tcp_pose(arm, self.base)
+        pos = np.asarray(pos, dtype=float)
+        quat = unit(quat)
+        error = float(np.linalg.norm(measured_pos - pos))
+        theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
+        grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
+        if self.reference is None:
+            self.reference = arm.copy()
+        if np.max(np.abs(self.reference - arm)) > 0.025:
+            command = np.clip(self.reference, arm-0.045, arm+0.045)
+            return np.r_[command, grip], error, theta
+        current, rotation = self.ik.tcp_pose(self.reference, self.base)
+        current_q = self.ik.matrix_to_quat_xyzw(rotation)
+        limited = current + limit_vector(pos-current, speed*self.dt)
+        remaining_angle = qangle(current_q, quat)
+        qtarget = interpolate(current_q, quat, min(1, angular_speed*self.dt/max(remaining_angle, 1e-9)))
+        solved,position_error,rotation_error=self.ik.solve(limited,qtarget,q_init=self.reference,base_pos=self.base,
                                                          iters=100,damping=0.015,tol=2e-5)
         if position_error>0.0015 or rotation_error>0.035:
             raise ControlFailure(f'IK did not converge: {position_error*1000:.2f} mm, {math.degrees(rotation_error):.2f} deg')
         if np.any(solved<self.ik.LOWER+1e-5) or np.any(solved>self.ik.UPPER-1e-5):
             raise ControlFailure('IK reached a joint limit')
-        step=np.clip(solved-q[:6],-0.045,0.045)
-        grip=q[6]+float(np.clip(opening-q[6],-0.10,0.10))
-        return np.r_[q[:6]+step,grip],float(np.linalg.norm(current-pos)),theta
+        step = solved - self.reference
+        step *= min(1.0, 0.02/max(np.max(np.abs(step)), 1e-12))
+        self.reference = self.reference + step
+        return np.r_[self.reference, grip], error, theta
 
 
 class Controller:
@@ -98,6 +111,8 @@ class Controller:
         self.index=0;self.started=None;self.stable_since=None;self.grasps={};self.holds={}
         self.phase_start={};self.events=[];self.attempts={};self.last_progress=None;self.last_progress_t=None
         self.thread=None;self.done=False;self.failed=None;self.grasp_closing=False;self.recovery=None
+        for motion in self.motion.values():
+            motion.reference = None
 
     def pose(self,joints,side):
         p,r=self.ik.tcp_pose(joints[:6],self.station.BASES[side])

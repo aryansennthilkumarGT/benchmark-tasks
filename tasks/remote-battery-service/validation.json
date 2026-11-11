@@ -44,7 +44,7 @@
   },
   "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
   "native_physics": "PASS",
-  "robot_control": "NOT_RUN",
+  "robot_control": "FAILED_PRIOR_REVISION_TRACKING_RETEST_PENDING",
   "expert_trials": [],
   "dream": null,
   "media_id": null,
@@ -69,10 +69,9 @@
   "limitations": [
     "Rigid cells and flat spring-contact shoes approximate compliant terminals; no electrochemical simulation.",
     "Electrical readiness is a geometric contact-compression and polarity proxy, not a measured voltage.",
-    "Native friction, spring preload, cover retention and robot grasps await GPU execution.",
     "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "evidence_scope": "Native mechanism evidence is tied to the recorded evaluated commit. Full-score robot demonstrations and model evaluation remain pending.",
   "native_physics_evidence": {
     "commit": "6594c6ba628cb77a411ab0251df253ed7fb11705",
     "driver": "565.57.01",
@@ -80,5 +79,24 @@
     "failed": 0,
     "resets": 12,
     "report_sha256": "3fe83dc0a47aae282c06e98ffeb1b5b3d2b0b0909136e2718f5db6b5bddb34d3"
+  },
+  "native_control_diagnostic_evidence": {
+    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+    "commit": "1f8ad0b427f9ecd213f5c5fa629b2f1bd834b155",
+    "driver": "565.57.01",
+    "status": "FAIL",
+    "passed": 0,
+    "failed": 2,
+    "resets": 2,
+    "report_sha256": "24a51a2d3fa29bdb55d88f6b8397d554f20f2a496584747501eafcfe94afe812"
+  },
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
   }
 }
