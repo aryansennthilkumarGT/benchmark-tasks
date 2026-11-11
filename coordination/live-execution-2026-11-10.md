@@ -438,3 +438,14 @@ User authorized stopping original Launchable only after ALL EIGHT genuine comple
 ## First official PR and external registration dependency
 
 PR https://github.com/robocurve/benchmark-tasks/pull/1647 opened from authenticated aryansennthilkumarGT at final a50a9e905bb846ad4475ef85b7942180cc605bbb. Media M-NRTVLQ. Final clean HTTPS checkout static passed and evaluated simulation bytes match 46bf100. Official response says account cannot be matched to a team and asks the team to reply to their login email with this username. User notified with exact action. This is an open PR with submission intake rejected, not waiting-for-review or acceptance. Preserve same PR, do not duplicate. Continue seven independent tasks.
+
+
+## November 11 14:04 UTC engineering checkpoint
+
+Current provider pricing refreshed at13:52 lists mission compute1.74USD/hour. Other Launchable now reports STOPPED, observed through read-only API. No instance stop/delete action was performed. Conservative balance floor68.15USD at13:52 overcounts both GPUs since22:07. Future planning cap1.87USD/hour includes both storage allocations. Live provider credit remains unavailable. Native four-process compatibility test now running with124GiB RAM available and~16GiB/46GiB GPU memory before fourth startup.
+
+Remote current control passed4/4, full expert first run active at dbcc2be. Node current control5/6 passed with last case running at0db1f1d. Chassis fresh physics10/10 passed at389a6ac, robot insertion failed first repeat due lateral gating before actual entry. Wait for second repeat to finish before editing frozen source.
+
+Twelve-cell e1c77c9 measured-body-rotation correction was queued but never simulated. It is superseded by1fc2b51. Diagnosed original key-guide asymmetry from actual native frames: inner walls[-80.5,+77]mm conflict with156mm key at centred target, pushing it at least1mm negativeY. New symmetric inner walls±78.5mm provide0.5mm clearance per side. Spring damping increased0.5to2Ns/m to address observed cell angular jitter. Scorer tolerances unchanged. Native captured-pack fixture now explicitly must score1.0, beyond old12/12 narrower probe pass. Full fresh physics/control/conditional experts running at /data/robocurve-runs/resume-compat/twelve-symmetric-key.2x_1d4i9.
+
+Nut81205a9 full static passed, retained wrist rotation reference regression passed. Queued probe nut-retained-turn.55vmgix6 follows Node lane. Hardwaredcaf2fc full static passed, opening reduced from-1.25to-1rad after offline IK showed wrist margin improvement. Queued hardware-bounded-opening.klpxm77t follows Nut lane. Switchb97128a queued after Chassis. All trials remain source-frozen.

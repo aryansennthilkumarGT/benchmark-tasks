@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T13:48:22.812597+00:00",
+  "updated_at": "2026-11-11T14:02:41.529246+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -64,22 +64,22 @@
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "e1c77c95483d47c2ed024653e9085623c29b2546",
-      "state": "WAITING_FOR_NATIVE_LANE",
+      "commit": "1fc2b514f8ecbce54aa61695e1355357f1e7466a",
+      "state": "RUNNING_FRESH_PHYSICS_WITH_FULL_SCORE_ASSERTION",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "PRIOR_1735_CONTROL_PASS_6_OF_6_FULL_EXPERT_FAILED_SIXTH_CELL_TRANSPORT",
       "expert_scores": [],
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/twelve-loaded-carry-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-measured-rotation.f27pzwjh",
-      "producer_status": "WAITING_FOR_NATIVE_LANE",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-symmetric-key.2x_1d4i9",
+      "producer_status": "RUNNING",
       "historical_control_evidence": "/data/robocurve-runs/resume-compat/twelve-guided-feasibility.9cdd_11s",
       "status": "WAITING_FOR_NATIVE_LANE",
       "ready": false,
       "run_limit": 3600,
       "scope": "Twelve preloaded cells, pressure-plate compression and retaining cross-key",
-      "native_physics": "PASS_12_OF_12_AT_DCD3349_SAME_GEOMETRY"
+      "native_physics": "PRIOR12_CASES_PASSED_NARROW_CONDITIONS_NEW_GEOMETRY_RETEST_RUNNING"
     },
     {
       "slug": "eight-nut-bracket",
@@ -377,5 +377,36 @@
     ],
     "twelve_scope_decision": "Loaded twelve cells, robot closes pressure plate and inserts cross-key. Actual physics12/12 passed, robot remains failing.",
     "budget": "User125USD, reserve30, conservative combined account burn3.61USD/hr, count since2026-11-10T22:07:33Z. Provider live balance remains unverified."
+  },
+  "budget_latest": {
+    "provider_pricing_at": "2026-11-11T13:52:05.978646+00:00",
+    "listed_compute_usd_per_hour": 1.74,
+    "mission_instance": "RUNNING",
+    "second_instance": "STOPPED",
+    "no_instance_stop_or_delete_performed": true,
+    "estimated_balance_floor_at_1352_usd": 68.15,
+    "reserve_usd": 30,
+    "future_conservative_account_rate_usd_per_hour": 1.87,
+    "live_balance_verified": false,
+    "evidence": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/planning-1355.json"
+  },
+  "twelve_key_diagnosis": {
+    "old_wall_inner_faces_m": [
+      -0.0805,
+      0.077
+    ],
+    "key_half_length_m": 0.078,
+    "original_nominal_positive_overlap_m": 0.001,
+    "new_inner_faces_m": [
+      -0.0785,
+      0.0785
+    ],
+    "new_clearance_per_side_m": 0.0005,
+    "scoring_tolerances_unchanged": true,
+    "spring_damping_change_Ns_per_m": [
+      0.5,
+      2.0
+    ],
+    "new_physics_assertion": "Captured pack must actually score1.0 after release. Previous twelve-case pass did not establish full-score final state."
   }
 }
