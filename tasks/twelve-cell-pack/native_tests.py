@@ -159,6 +159,10 @@ def main():
                     else:
                         controller=controller_class(json.loads((HERE/'controller.json').read_text()),module.SPEC)
                         prefix=case['through_phase']
+                        controller.index = case.get('start_phase', 0)
+                        if not 0 <= controller.index <= prefix < len(controller.phases):
+                            raise ValueError('Invalid native control phase range')
+                        row['controller_start_phase'] = controller.index
                         if controller.phases[prefix]['label']!=case['through_label']:
                             raise ValueError('Control probe phase/label mismatch; update the case for this revision')
                         for step in range(case['max_steps']):
@@ -180,6 +184,14 @@ def main():
                             'phase': controller.phases[controller.index] if controller.index < len(controller.phases) else None,
                             'events': controller.events,
                             'robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
+                            'motion_references': {
+                                side: motion.reference.tolist() if motion.reference is not None else None
+                                for side, motion in controller.motion.items()
+                            },
+                            'applied_joint_torques': {
+                                side: runtime.array(base.scene[f'{side}_robot'].data.applied_torque)[0].tolist()
+                                for side in ('left', 'right')
+                            },
                             'last_frame': copy.deepcopy(runtime.LATEST),
                         }
                         save(args.output/f'{case["name"]}-{repeat}-control-failure.json', diagnostic)

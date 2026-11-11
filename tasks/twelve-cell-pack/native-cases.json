@@ -763,6 +763,29 @@
         }
       ],
       "through_label": "Withdraw from cell_0"
+    },
+    {
+      "name": "fourth_cell_grasp_and_lift",
+      "start_phase": 26,
+      "through_phase": 29,
+      "through_label": "Verify lift of cell_3",
+      "max_steps": 1000,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "cell_3",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.05,
+          "max": 0.1
+        },
+        {
+          "kind": "valid"
+        }
+      ]
     }
   ]
 }
