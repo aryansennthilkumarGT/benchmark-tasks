@@ -172,10 +172,13 @@ class FeedbackTests(unittest.TestCase):
         controller.thread.update(mode='unwind', switch=0., opening=.5)
         position, _, _ = controller.thread_target(phase, body, centred+[.008, 0, 0],
             self.down, self.ready[index:index+7], frame, .1)
-        np.testing.assert_allclose(position, centred)
+        np.testing.assert_allclose(position, centred+[0, 0, .012])
         self.assertEqual(controller.thread['mode'], 'unwind')
-        controller.thread_target(phase, body, centred, self.down,
+        controller.thread_target(phase, body, centred+[0, 0, .012], self.down,
                                  self.ready[index:index+7], frame, .2)
+        self.assertEqual(controller.thread['mode'], 'lower')
+        controller.thread_target(phase, body, centred, self.down,
+                                 self.ready[index:index+7], frame, .3)
         self.assertEqual(controller.thread['mode'], 'close')
 
     def test_thread_without_directed_rotation_aborts_promptly(self):
@@ -217,6 +220,7 @@ class FeedbackTests(unittest.TestCase):
             if step == 4:
                 self.assertEqual(controller.thread['mode'], 'turn')
         self.assertEqual(controller.thread['mode'], 'open')
+        self.assertGreaterEqual(controller.thread['opening']*.0939, .05)
 
     def test_thread_turn_advances_retained_orientation_reference(self):
         plan = json.loads((self.folder/'controller.json').read_text())

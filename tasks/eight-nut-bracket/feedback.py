@@ -345,7 +345,7 @@ class Controller:
             self.check_grasp_slip(side,observed,frame)
             state['segment']+=phase.get('direction',-1)*delta
             if state['segment']>=phase.get('segment_angle', math.pi/4):
-                state.update(mode='open',switch=now,opening=min(1.,(phase.get('grasp_width_max',.040)+.012)/.0939))
+                state.update(mode='open',switch=now,opening=min(1.,(phase.get('grasp_width_max',.040)+.012)/.0939),lift_q=tcpq.copy())
             turn=axis_quat(rotate(reference['quat'],[0,0,1]),phase.get('direction',-1)*0.018)
             # Advance the retained actuator reference so contact torque can build.
             # The measured-TCP increment previously settled at a fixed spring bias.
@@ -358,13 +358,20 @@ class Controller:
             p = tcp + limit_vector(reference_tcp - tcp - axial_step, .0005)
         elif state['mode']=='open':
             p,q=tcp,tcpq
-            if observed[6]>state['opening']*.95:state.update(mode='unwind',switch=now)
+            if observed[6]>state['opening']*.95:state.update(mode='lift',switch=now)
+        elif state['mode']=='lift':
+            p = np.asarray(body['pos']) + [0., 0., state['grip_height']+.012]
+            q = state['lift_q']
+            if np.linalg.norm(tcp-p)<.0015:state.update(mode='unwind',switch=now)
         elif state['mode']=='unwind':
-            # Open fingers rotate about the nut without moving its body.
-            p = np.asarray(body['pos']) + [0., 0., state['grip_height']]
+            p = np.asarray(body['pos']) + [0., 0., state['grip_height']+.012]
             q = state['q0']
             if qangle(tcpq,q)<0.04 and np.linalg.norm(tcp-p)<.0015:
-                state.update(mode='close',switch=now,opening=0.0)
+                state.update(mode='lower',switch=now)
+        elif state['mode']=='lower':
+            p = np.asarray(body['pos']) + [0., 0., state['grip_height']]
+            q = state['q0']
+            if np.linalg.norm(tcp-p)<.0015:state.update(mode='close',switch=now,opening=0.0)
         else:
             p = np.asarray(body['pos']) + [0., 0., state['grip_height']]
             q = state['q0']
