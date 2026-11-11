@@ -216,6 +216,82 @@
           "kind": "valid"
         }
       ]
+    },
+    {
+      "name": "tray_rails_retain_collected_cells_under_rolling_load",
+      "initialize_bodies": [
+        {
+          "assembly": "old_cell_0_asset",
+          "pos": [
+            0.39,
+            -0.262,
+            0.76075
+          ]
+        },
+        {
+          "assembly": "old_cell_1_asset",
+          "pos": [
+            0.39,
+            -0.218,
+            0.76075
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "old_cell_0_asset",
+          "body": "old_cell_0",
+          "force": [
+            0,
+            -0.03,
+            0
+          ]
+        },
+        {
+          "assembly": "old_cell_1_asset",
+          "body": "old_cell_1",
+          "force": [
+            0,
+            -0.03,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 40,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "old_cell_0",
+          "axis": 1,
+          "min": -0.2675,
+          "max": -0.2565
+        },
+        {
+          "kind": "coordinate",
+          "body": "old_cell_1",
+          "axis": 1,
+          "min": -0.2235,
+          "max": -0.2125
+        },
+        {
+          "kind": "goal",
+          "name": "old_cell_0_collected",
+          "completed": true
+        },
+        {
+          "kind": "goal",
+          "name": "old_cell_1_collected",
+          "completed": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
     }
   ],
   "control": [

@@ -29,3 +29,5 @@ Geometry is original primitive construction. All movable components use friction
 
 
 Four 6 mm-high staging rails bound lateral rolling of the two fresh cells. The central 24 mm opening provides gripper clearance.
+
+The used-cell tray has four 58 × 4 × 6 mm anti-roll ribs above its 6 mm floor. The two lane centres are world Y −0.262 and −0.218 m, each with a 24 mm clear opening. These ribs keep released cells within the numerical collection region as they settle. The tray envelope and mass are unchanged.
