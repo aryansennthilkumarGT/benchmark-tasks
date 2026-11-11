@@ -122,6 +122,26 @@ class FeedbackTests(unittest.TestCase):
         controller.step(self.ready, frame)
         self.assertLess(qangle(targets[0], axis_quat([0, 1, 0], -.41)), 1e-6)
 
+    def test_collar_carry_corrects_measured_body_rotation(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['lower_collar']
+        body['quat'] = axis_quat([0, 1, 0], .2).tolist()
+        phase = dict(kind='carry', body='lower_collar', measured_rotation=True,
+                     rotation_gain=3, rotation_lead=.08,
+                     target=dict(pos=body['pos'], quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='lower_collar', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append(np.array(orientation))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        _, tcp_quat = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        expected = multiply(axis_quat([0, 1, 0], -.08), tcp_quat)
+        self.assertLess(qangle(targets[0], expected), 1e-7)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

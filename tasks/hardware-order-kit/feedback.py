@@ -206,6 +206,12 @@ class Controller:
             if kind == 'carry' and phase.get('measured_translation'):
                 p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
                                        phase.get('translation_lead', .003))
+            if kind == 'carry' and phase.get('measured_rotation'):
+                rotation_error = multiply(desired_q, conjugate(body_q))
+                angle_error = qangle([0, 0, 0, 1], rotation_error)
+                amount = min(phase.get('rotation_gain', 1.),
+                             phase.get('rotation_lead', .08) / max(angle_error, 1e-9))
+                q = multiply(interpolate([0, 0, 0, 1], rotation_error, amount), tcpq)
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
