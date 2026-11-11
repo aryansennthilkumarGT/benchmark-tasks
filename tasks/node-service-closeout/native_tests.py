@@ -114,6 +114,7 @@ def main():
                 report['active_case'] = {'name': case['name'], 'repeat': repeat}
                 save(results_path, report)
                 touched=[]
+                controller=None
                 try:
                     observation=embodiment.reset(scene,seed=0);report['reset_count']+=1
                     frame=copy.deepcopy(runtime.LATEST)
@@ -173,6 +174,15 @@ def main():
                     row['scoring']=asdict(module.EVALUATOR.result)
                     row['status']='PASS';report['passed']+=1
                 except Exception as exc:
+                    if controller is not None:
+                        diagnostic = {
+                            'phase_index': controller.index,
+                            'phase': controller.phases[controller.index] if controller.index < len(controller.phases) else None,
+                            'events': controller.events,
+                            'robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
+                            'last_frame': copy.deepcopy(runtime.LATEST),
+                        }
+                        save(args.output/f'{case["name"]}-{repeat}-control-failure.json', diagnostic)
                     row.update(status='FAIL',error=str(exc),traceback=traceback.format_exc());report['failed']+=1
                 finally:
                     # A failed probe must never leave its force active for the next reset.
