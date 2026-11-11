@@ -320,7 +320,13 @@ class Controller:
             if state['segment']>=math.pi/4:
                 state.update(mode='open',switch=now,opening=min(1.,(phase.get('grasp_width_max',.040)+.012)/.0939))
             turn=axis_quat(rotate(reference['quat'],[0,0,1]),phase.get('direction',-1)*0.018)
-            q=multiply(turn,tcpq);p=tcp-rotate(reference['quat'],[0,0,phase['pitch']*0.018/(2*math.pi)])
+            # Advance the retained actuator reference so contact torque can build.
+            # The measured-TCP increment previously settled at a fixed spring bias.
+            motion_reference = self.motion[side].reference
+            reference_tcp, reference_q = self.pose(np.r_[motion_reference, observed[6]], side)
+            q = multiply(turn, reference_q)
+            axial_step = rotate(reference['quat'], [0, 0, phase['pitch']*.018/(2*math.pi)])
+            p = tcp + limit_vector(reference_tcp - tcp - axial_step, .0005)
         elif state['mode']=='open':
             p,q=tcp,tcpq
             if observed[6]>state['opening']*.95:state.update(mode='unwind',switch=now)
