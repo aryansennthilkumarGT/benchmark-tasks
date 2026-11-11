@@ -1,11 +1,12 @@
 {
-  "updated_at": "2026-11-11T00:21:25.969110+00:00",
+  "updated_at": "2026-11-11T00:34:17.962285+00:00",
   "status": "FIXED_DRIVER_STATION_AND_COUNTERWEIGHT_PHYSICS_VALIDATED",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "6e63f39aaa93e83f6fd627a437cb6dc692cd4cba",
-      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
+      "commit": "be61f05aa662aa6b1db1ea025ea819d2c2f61a38",
+      "state": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
+      "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193"
     },
     {
       "slug": "remote-battery-service",
@@ -35,7 +36,7 @@
     {
       "slug": "fault-module-repair",
       "commit": "b29dadde0e0d539f6ff5c28cff4935b52bda868d",
-      "state": "PHYSICS_PASSED_ON_FF14C99_PIN_CARRY_FIX_RETEST_PENDING",
+      "state": "PRIOR_REVISION_PHYSICS_PASSED_GUARDED_PIN_ALIGNMENT_UNRESOLVED",
       "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d"
     },
     {
@@ -49,7 +50,7 @@
     "unit_tests_not_applicable": 32,
     "offline_geometry_audits_passed": 33,
     "composed_usd_packages_passed": 8,
-    "native_runs": 2,
+    "native_runs": 3,
     "expert_runs": 0,
     "model_runs": 0,
     "media_uploads": 0,
@@ -59,9 +60,9 @@
     "resume_without_duplicate_work": "PASS",
     "offline_geometry_audits_not_applicable": 7,
     "official_station_replays_passed": 1,
-    "native_physics_case_repeats_passed": 16,
+    "native_physics_case_repeats_passed": 26,
     "other_draft_native_reset_diagnostics": 7,
-    "expert_diagnostic_trials_errored": 1
+    "expert_diagnostic_trials_errored": 2
   },
   "remaining": [
     "Verify billed Brev rate and issue the provider budget receipt for full evaluations",

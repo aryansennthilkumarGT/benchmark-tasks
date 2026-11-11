@@ -11,7 +11,7 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "6e63f39aaa93e83f6fd627a437cb6dc692cd4cba",
+      "commit": "be61f05aa662aa6b1db1ea025ea819d2c2f61a38",
       "task_folder": "tasks/hinged-chassis-drive",
       "status": "STATIC_TESTS_PASSED",
       "ready": false,
@@ -29,7 +29,7 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "NOT_RUN",
+      "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
       "robot_control": "NOT_RUN",
       "media_verified": false,
       "suggested_pr_title": "Install and retain a drive under a gravity-closing lid",
@@ -40,7 +40,8 @@
         "Passive rigid lid/guide contacts approximate stamped sheet-metal compliance.",
         "The captive bar relies on pocket walls and the closed lid, not proximity attachment.",
         "Contact dynamics, retention loads, and the feedback controller have not yet been run in native PhysX."
-      ]
+      ],
+      "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193"
     },
     {
       "slug": "remote-battery-service",
@@ -248,7 +249,7 @@
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_TWO_REPEATS_ON_PRIOR_CONTROLLER_REVISION",
-      "robot_control": "RECORDED_PIN_INSERTION_FAILURE_FIX_STATIC_CHECKED",
+      "robot_control": "GUARDED_REPLAY_ALIGNMENT_TIMEOUT",
       "media_verified": false,
       "suggested_pr_title": "Balance and lock a counterweighted service arm",
       "suggested_pr_body": null,
