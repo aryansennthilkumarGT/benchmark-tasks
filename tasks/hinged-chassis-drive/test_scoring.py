@@ -309,4 +309,18 @@ class SemanticTests(unittest.TestCase):
         self.assertEqual(result.failure,'catch_forced_without_release:'+guard['body'])
 
 
+    def test_closed_lid_numeric_residual_preserves_all_closure_checks(self):
+        predicates = [p for g in SPEC['goals'] for p in g['all']
+                      if p['kind'] == 'joint' and p['joint'] == 'lid_hinge']
+        self.assertEqual(len(predicates), 2)
+        frame = target_frame()
+        for predicate in predicates:
+            frame['joints']['lid_hinge'] = -9.89677895191221e-10
+            self.assertTrue(self.sc.predicate(predicate, frame))
+            frame['joints']['lid_hinge'] = -0.000002
+            self.assertFalse(self.sc.predicate(predicate, frame))
+            frame['joints']['lid_hinge'] = 0.04001
+            self.assertFalse(self.sc.predicate(predicate, frame))
+
+
 if __name__=='__main__':unittest.main()
