@@ -72,5 +72,24 @@
     "Joint continuity and connector seating proxy link continuity; packet transmission is not simulated.",
     "Flexible cable self-contact, bend response, and coordinated latch manipulation await native execution."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "native_diagnostic_evidence": {
+    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+    "commit": "f77234f00d5746e6ea62d9e4400b27ae5e2017df",
+    "driver": "565.57.01",
+    "status": "FAIL",
+    "passed": 0,
+    "failed": 2,
+    "resets": 2,
+    "report_sha256": "e1ca33890cc46fe166aa541c26d54321b75680c645f477f0c456aa39352d35ed"
+  },
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
+  }
 }

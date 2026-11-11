@@ -14,7 +14,7 @@ python3 tasks/switch-map-rework/bootstrap_task.py --output /data/switch-map-rewo
 
 Without `--execute`, this command previews only. Add `--resume` to reuse hash-verified outputs. The bootstrap uses the pinned official installer in the evidence directory, validates the official apple/bowl smoke trial, runs static checks, then native probes and two independent full-score expert episodes. `--model` adds genuine Dream-1 and media only after those succeed. It never uploads media or opens PRs. See the shared eight-task runner on the handoff branch for upload and submission gates.
 
-If the exact pinned environment is already installed, use its Python directly:
+For the installed Brev stack, add `--launchable-root /data` to the bootstrap command. The provider budget receipt is required for execution. If the exact pinned environment is already installed, use its Python directly:
 
 ```bash
 python tasks/switch-map-rework/static_check.py
@@ -27,9 +27,9 @@ Evidence must be outside this Git checkout, and the checkout must be clean. The 
 
 `stack-lock.json` pins the official launchable, adapter, Arena release, Inspect Robots and Dream plugin commits. It uses Python 3.12, Isaac Sim 6.1.0.0, NumPy 2.3.1 and the official bimanual I2RT YAM station. The adapter's 14-D action is left six absolute joints + normalized jaw opening, then right six + opening. Physics is 240 Hz; control is 20 Hz; observations are the three official 320x176 RGB cameras and robot joints.
 
-Use an RTX 4090/5090 or L40S ray-tracing GPU, >=16 GiB free VRAM, >=32 GB RAM with >=24 GiB available, and >=250 GiB free disk. Drivers are checked against the documented Linux recommendation 580.95.05; Isaac Sim 6.1 lists 595.58.03 as tested. The script does not modify drivers, system Python, VPN, SSH configuration or other jobs. Vendor EULA acceptance must already be configured by the authorized launchable/operator. `uv` and `git` must be present. Dream credentials stay in the official secure configuration.
+Use an RTX 4090/5090 or L40S ray-tracing GPU, >=16 GiB free VRAM, >=32 GB RAM with >=24 GiB available, and >=250 GiB free disk. Drivers are compared with the documented Linux recommendation 580.95.05. The fixed L40S profile on 565.57.01 uses the verified installed Launchable with `--launchable-root /data`. The bootstrap records the GPU and driver, verifies active package sources and pinned versions, and requires the scored official station smoke before task execution. The script does not modify drivers, system Python, VPN, SSH configuration or other jobs. Vendor EULA acceptance must already be configured by the authorized launchable/operator. `uv` and `git` must be present. Dream credentials stay in the official secure configuration.
 
-The budget receipt describes actual provider facts: `hourly_usd`, `balance_usd`, `spent_before_start_usd`, `instance_started_unix`, `instance_id`, `gpu_uuid`, and `provider_evidence`. No price or credit is assumed. The launcher monitors instance wall time, including idle time, with a $170 charge cap and $30 reserve. Exiting a script does not stop provider billing. Evidence and raw observations are retained.
+The budget receipt describes actual provider facts: `hourly_usd`, `balance_usd`, `spent_before_start_usd`, `instance_started_unix`, `instance_id`, `gpu_uuid`, and `provider_evidence`. When the balance is observed after instance startup, `balance_observed_unix` records the snapshot time for reserve calculations. No price or credit is assumed. The launcher monitors instance wall time, including idle time, with a $170 charge cap and $30 reserve. Exiting a script does not stop provider billing. Evidence and raw observations are retained.
 
 ## Trials and scoring
 
