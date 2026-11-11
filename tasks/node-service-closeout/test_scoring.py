@@ -215,6 +215,18 @@ class SemanticTests(unittest.TestCase):
         name=next(iter(initial()['bodies']));f=initial()
         p=dict(kind='region',body=name,min=f['bodies'][name]['pos'].copy(),max=[v+.001 for v in f['bodies'][name]['pos']])
         self.assertFalse(self.sc.predicate(p,f))
+    def test_nominal_cooler_placement_fits_actual_tray_limits(self):
+        plan = json.loads((HERE/'controller.json').read_text())
+        placement = next(phase for phase in plan['phases'] if phase['label'] == 'Seat old_cooler')
+        predicate = next(predicate for goal in SPEC['goals'] for predicate in goal['all']
+                         if predicate['kind'] == 'region' and predicate['body'] == 'old_cooler')
+        frame = initial()
+        frame['bodies']['old_cooler'].update(copy.deepcopy(placement['target']))
+        self.assertTrue(self.sc.predicate(predicate, frame))
+        frame['bodies']['old_cooler']['pos'][0] -= .006
+        frame['bodies']['old_cooler']['pos'][1] += .003
+        self.assertFalse(self.sc.predicate(predicate, frame))
+
     def test_tilted_compound_region_uses_actual_shape_union(self):
         frame = initial()
         body = frame['bodies']['old_cooler']
