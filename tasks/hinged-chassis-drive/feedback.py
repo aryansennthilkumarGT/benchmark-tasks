@@ -249,8 +249,10 @@ class Controller:
                 if aligned and oriented:
                     correction += limit_vector(axial, phase.get('axial_lead', .002))
                 p = tcp + correction
-                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral)])
-                progress_margin = np.array([.0003, min(float(np.min(tolerance)), .001) * .1])
+                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral),
+                                           orientation_error])
+                progress_margin = np.array([.0003, min(float(np.min(tolerance)), .001) * .1,
+                                            .0005])
             if phase.get('measured_rotation'):
                 rotation_error = multiply(desired_q, conjugate(body_q))
                 amount = min(phase.get('rotation_gain', 1.),

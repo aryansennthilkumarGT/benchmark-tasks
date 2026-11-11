@@ -287,4 +287,32 @@ class FeedbackTests(unittest.TestCase):
                 break
 
 
+    def test_entry_height_clears_floor_edge_at_allowed_pitch(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p['label'] == 'Advance drive along capped channels')
+        half = phase['guide_core_half_extent']
+        theta = phase['insertion_orientation_tolerance']
+        lowest = phase['target']['pos'][2]-half[2]*math.cos(theta)-half[0]*math.sin(theta)
+        self.assertGreater(lowest, self.spec['table_top']+.008+.0003)
+
+    def test_angular_alignment_improvement_counts_as_insertion_progress(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['drive']
+        body['pos'] = [.135, 0, .766]
+        phase = dict(kind='insert', body='drive', insertion_axis_world=[1, 0, 0],
+                     insertion_orientation_tolerance=.03, lateral_tolerance=.001,
+                     target=dict(pos=[.3, 0, .766], quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='drive', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        controller.motion['left'].target = lambda joints, *a, **k: (np.asarray(joints), 0., 0.)
+        body['quat'] = axis_quat([0, 1, 0], .04).tolist()
+        controller.step(self.ready, frame)
+        frame['time'] = 2.5
+        body['quat'] = axis_quat([0, 1, 0], .035).tolist()
+        controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 0)
+        self.assertEqual(controller.last_progress_t, 2.5)
+
+
 if __name__=='__main__':unittest.main()

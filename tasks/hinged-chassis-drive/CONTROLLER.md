@@ -70,3 +70,5 @@ The insertion gate projects the actual rotated110 by74 by16mm core into world y.
 
 
 The loaded right-arm reference window is0.16rad. Its maximum reference increment is0.02rad per action. A10N·m/rad wrist stiffness produces a1.6N·m proportional component at the window threshold, within the7N·m native wrist effort limit. The earlier0.08rad window approached saturation while the actual carrier stayed tilted against the floor. Native insertion and command/proprioception traces must verify load compensation.
+
+Guide entry uses body-centre z 0.766 m. At the existing 0.03 rad pitch bound, the 110 by 74 by 16 mm core stays at least 0.85 mm above the 0.7555 m floor leading edge. The prior 0.764 m waypoint allowed the tilted leading corner to catch the floor lip. Angular improvement now contributes to bounded insertion progress while axial motion waits for alignment. Final scoring poses and tolerances are unchanged.
