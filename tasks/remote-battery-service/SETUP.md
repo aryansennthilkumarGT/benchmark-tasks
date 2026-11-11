@@ -16,7 +16,7 @@ Geometry is original primitive construction. All movable components use friction
 | `old_cell_1` | rigid AA cell surrogate; no electrical or chemical simulation | 0.024 | (0.0518, 0.0145, 0.0145) | (0.29, 0.033, 0.76275) | (0, 0, 1, 6.12323e-17) | passive dynamic |
 | `new_cell_1` | rigid AA cell surrogate; no electrical or chemical simulation | 0.024 | (0.0518, 0.0145, 0.0145) | (0.24, -0.24, 0.75495) | (0, 0, 1, 6.12323e-17) | passive dynamic |
 
-| `new_cell_staging_rails` | rigid engineering plastic | 0.08 | (0.138, 0.032, 0.006) | (0.2, -0.24, 0.7475) | (0, 0, 0, 1) | anchored |
+| `new_cell_staging_rails` | rigid engineering plastic | 0.08 | (0.138, 0.028, 0.002) | (0.2, -0.24, 0.7475) | (0, 0, 0, 1) | anchored |
 
 ## Passive joints
 
@@ -28,6 +28,9 @@ Geometry is original primitive construction. All movable components use friction
 
 
 
-Four 6 mm-high staging rails bound lateral rolling of the two fresh cells. The central 24 mm opening provides gripper clearance.
+Four 2 mm-high staging rails bound lateral rolling of the two fresh cells. The central 20 mm opening provides gripper clearance.
 
-The used-cell tray has four 58 × 4 × 6 mm anti-roll ribs above its 6 mm floor. The two lane centres are world Y −0.262 and −0.218 m, each with a 24 mm clear opening. These ribs keep released cells within the numerical collection region as they settle. The tray envelope and mass are unchanged.
+The used-cell tray has four 58 × 4 × 2 mm anti-roll ribs above its 6 mm floor. The two lane centres are world Y −0.262 and −0.218 m, each with a 20 mm clear opening. These ribs keep released cells within the numerical collection region as they settle. The tray envelope and mass are unchanged.
+
+Both fresh-cell and used-cell anti-roll rails are 2 mm tall to preserve jaw clearance during grasp and release. The prior 6 mm tray ribs blocked actual gripper opening at 16.3 mm. Native force-loaded retention and robotic operation must validate this revised height.
+ The 20 mm lane opening keeps the cylindrical centre within the existing 5.5 mm rolling-load test interval with the lower rail crest.
