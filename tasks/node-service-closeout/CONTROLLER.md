@@ -56,3 +56,5 @@ Offline nominal path checks sample actual URDF convex collision pieces for table
 The trajectory audit checks the official convex robot meshes against anchored fixture bodies, the table and the other arm every ten controls and at segment endpoints. It does not certify moving fixture, payload, flexible cable or inter-sample collision clearance. Grasp and thread sweeps separately check task geometry at specified samples. All are ideal kinematic checks, not physical execution.
 
 After the motion plan, the expert holds the released pose while the actual scorer establishes full-score stability. It stops only on measured success or fails after a bounded five-second terminal grace period (or hold time plus two seconds, if longer). A finished phase list is not a success signal.
+
+The native cooler grasp stopped about 4.93 mm above its moving TCP target with a fingertip against the extension plate. A vertical wrist candidate intersected the supported lid in offline geometry and was rejected. The next candidate retains the inclined wrist and raises the grasp center by 6 mm within the existing 20-mm-high tab. Physical validation is pending.
