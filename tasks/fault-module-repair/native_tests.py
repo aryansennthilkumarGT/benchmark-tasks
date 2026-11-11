@@ -145,6 +145,10 @@ def main():
                             value=torch.tensor([[*setup['pos'],*setup.get('quat',[0,0,0,1])]],device=base.device)
                             asset.write_root_pose_to_sim_index(root_pose=value)
                             asset.write_root_velocity_to_sim_index(root_velocity=torch.zeros((1,6),device=base.device))
+                        if case.get('initialize_joints') or case.get('initialize_bodies'):
+                            # Synchronize child-link transforms after fixture-only writes.
+                            # The simulation clock and expert action path are unchanged.
+                            base.sim.forward()
                         for force in case.get('forces',[]):
                             asset=base.scene[force['assembly']]
                             index=list(asset.body_names).index(force['body'])
