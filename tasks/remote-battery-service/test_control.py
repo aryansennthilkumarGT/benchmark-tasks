@@ -262,6 +262,23 @@ class FeedbackTests(unittest.TestCase):
         with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
             controller.step(self.ready, frame)
 
+    def test_measured_grasp_feedback_corrects_static_tcp_bias(self):
+        motion = Motion('left')
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        motion.reference = reference.copy()
+        measured_p, measured_r = self.ik.tcp_pose(self.ready[:6], motion.base)
+        reference_p, _ = self.ik.tcp_pose(reference, motion.base)
+        measured_q = self.ik.matrix_to_quat_xyzw(measured_r)
+        calls = []
+        def solve(position, orientation, **kwargs):
+            calls.append(np.array(position))
+            return reference.copy(), 0., 0.
+        with unittest.mock.patch.object(self.ik, 'solve', side_effect=solve):
+            motion.target(self.ready[:7], measured_p+[.0016, 0, 0], measured_q,
+                          1., feedback_gain=2.)
+        np.testing.assert_allclose(calls[0], reference_p+[.00016, 0, 0], atol=1e-12)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
