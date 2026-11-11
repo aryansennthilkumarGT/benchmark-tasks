@@ -87,6 +87,26 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_guide_clearance_gate_uses_separate_axis_tolerances(self):
+        for delta, expected_axial in [([.0007, 0, -.01], -.001), ([0, .0007, -.01], 0.)]:
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['new_cooler']
+            goal = np.array(body['pos'])+delta
+            phase = dict(kind='insert', body='new_cooler', insertion_axis_world=[0, 0, 1],
+                lateral_tolerance=[.001, .0005, .001], axial_lead=.001,
+                target=dict(pos=goal.tolist(), quat=body['quat']))
+            controller = self.controller(phase)
+            controller.grasps['left'] = dict(body='new_cooler', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            targets = []
+            def capture(joints, position, orientation, opening, **kwargs):
+                targets.append(np.array(position))
+                return np.array(joints), 0., 0.
+            controller.motion['left'].target = capture
+            tcp, _ = controller.pose(self.ready[:7], 'left')
+            controller.step(self.ready, frame)
+            self.assertAlmostEqual(float(targets[0][2]-tcp[2]), expected_axial)
+
     def test_keyed_seating_aligns_before_axial_advance(self):
         for lateral, tilt, expected_axial in [(.002, 0., 0.), (0., .03, 0.), (0., 0., -.001)]:
             with self.subTest(lateral=lateral, tilt=tilt):

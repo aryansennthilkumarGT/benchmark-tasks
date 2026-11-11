@@ -235,13 +235,18 @@ class Controller:
                 correction = limit_vector(phase.get('lateral_gain', 2.) * lateral,
                                           phase.get('lateral_lead', .001))
                 orientation_error = qangle(body_q, desired_q)
-                aligned = np.linalg.norm(lateral) <= phase.get('lateral_tolerance', .0004)
+                lateral_tolerance = np.asarray(phase.get('lateral_tolerance', .0004), dtype=float)
+                if (lateral_tolerance.shape not in [(), (3,)]
+                        or not np.isfinite(lateral_tolerance).all() or np.any(lateral_tolerance <= 0)):
+                    raise ControlFailure('Invalid lateral insertion tolerance')
+                aligned = (np.linalg.norm(lateral) <= lateral_tolerance if lateral_tolerance.shape == ()
+                           else bool(np.all(np.abs(lateral) <= lateral_tolerance)))
                 oriented = orientation_error <= phase.get('insertion_orientation_tolerance', .02)
                 if aligned and oriented:
                     correction += limit_vector(axial, phase.get('axial_lead', .001))
                 p = tcp + correction
                 progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral), orientation_error])
-                progress_margin = np.array([.0003, phase.get('lateral_tolerance', .0004)*.1, .0005])
+                progress_margin = np.array([.0003, float(np.min(lateral_tolerance))*.1, .0005])
             if phase.get('measured_rotation'):
                 rotation_error = multiply(desired_q, conjugate(body_q))
                 angle_error = qangle([0, 0, 0, 1], rotation_error)

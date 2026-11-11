@@ -845,9 +845,13 @@
       ],
       "lateral_gain": 2,
       "lateral_lead": 0.001,
-      "lateral_tolerance": 0.0004,
+      "lateral_tolerance": [
+        0.001,
+        0.0005,
+        0.001
+      ],
       "axial_lead": 0.001,
-      "insertion_orientation_tolerance": 0.02
+      "insertion_orientation_tolerance": 0.005
     },
     {
       "kind": "release",
