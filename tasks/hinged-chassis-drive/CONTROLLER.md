@@ -43,3 +43,5 @@ The measured chassis failure at lid angle 0.419 rad had about 0.895 rad wrist/bo
 The measured-body correction removed the wrist-limit failure, but both native repeats stalled near 0.018 rad under the lid load. The next candidate uses gain 8 on measured hinge error with a bounded 0.08-rad body-angle lead. This increases the finite lifting reference while retaining the original joint-rate, collision, grip and timeout guards. Native validation remains pending.
 
 Gain 8 reached 0.84362 rad of the 0.85-rad opening target, leaving 0.00638 rad residual against the 0.006-rad phase completion tolerance. Gain 12 is the next bounded control candidate, with the same 0.08-rad lead cap and measured completion predicate. Native retesting is pending.
+
+Gain 12 held the lid between 0.84285 and 0.84966 rad late in the native opening attempt. The 6-mrad arrival band persisted for only three consecutive 20-Hz frames, preventing the 0.15-second phase hold. The opening controller now uses a 0.01-rad arrival band about 0.85 rad, within the native 0.82–0.88-rad opening assertion. The measured support and complete-task demonstrations remain required.
