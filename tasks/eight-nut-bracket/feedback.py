@@ -355,7 +355,10 @@ class Controller:
             reference_tcp, reference_q = self.pose(np.r_[motion_reference, observed[6]], side)
             q = multiply(turn, reference_q)
             axial_step = rotate(reference['quat'], [0, 0, phase['pitch']*.018/(2*math.pi)])
-            p = tcp + limit_vector(reference_tcp - tcp - axial_step, .0005)
+            # Correct measured helical position after each open-jaw regrasp.
+            # A retained IK height can otherwise pull the nut up its upper flank.
+            local_error = np.r_[np.asarray(phase['xy'])-local[:2], expected-local[2]]
+            p = tcp + limit_vector(2.*rotate(reference['quat'], local_error)-axial_step, .0005)
         elif state['mode']=='open':
             p,q=tcp,tcpq
             if observed[6]>state['opening']*.95:state.update(mode='lift',switch=now)

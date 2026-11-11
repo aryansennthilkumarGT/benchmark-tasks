@@ -50,3 +50,5 @@ The passive offset-drop probe is a negative control for engagement. The conical 
 Open-jaw unwinds command78mm clearance. The prior52mm opening produced actual single-finger/nut contact around7N and a17mm lateral offset during unwind, followed by a timeout. Wide opening is checked by the complete thread wrist/fixture envelope audit. The unchanged1.5mm centre gate, nonempty closing width and pitch-coupling checks remain.
 
 The78mm low-height alternative failed its fixture envelope audit and was discarded. Regrasp instead uses the original52mm opening, lifts the open fingertips12mm, unwinds above the nut, lowers while open, then recloses. Actual prior unwind contact showed one finger pushing the nut with about7N. This adds a physical clearance motion while preserving the1.5mm alignment gate. The thread audit now checks both low and raised open-jaw envelopes.
+
+Thread turns retain angular motor-reference advance while correcting measured radial and axial error against the 4 mm/revolution helix, capped at 0.5 mm per action. The original coaxial and pitch guards remain. Native qualification is required after this change.

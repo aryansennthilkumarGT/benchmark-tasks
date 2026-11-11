@@ -244,6 +244,15 @@ class FeedbackTests(unittest.TestCase):
         expected = multiply(axis_quat(rotate(reference['quat'], [0, 0, 1]), -.018), reference_q)
         self.assertLess(qangle(target_q, expected), 1e-6)
         self.assertLessEqual(np.linalg.norm(position-tcp), .000500001)
+        # The unchanged pitch guard permits sub-millimetre error, but the tool
+        # must correct upward drift rather than follow a stale high reference.
+        body['pos'][2] += .0008
+        controller.motion[side].reference[1] += .01
+        position, _, _ = controller.thread_target(
+            phase, body, tcp, measured_q, observed, frame, .05)
+        self.assertLess(position[2], tcp[2])
+        self.assertLessEqual(np.linalg.norm(position-tcp), .000500001)
+
 
     def test_thread_free_spin_aborts_without_pitch_advance(self):
         plan=json.loads((self.folder/'controller.json').read_text());phase=next((p for p in plan['phases'] if p['kind']=='thread'),None)
