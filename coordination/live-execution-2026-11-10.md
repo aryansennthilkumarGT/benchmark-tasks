@@ -433,3 +433,8 @@ Counterweighted arm has two verified 1.0 experts, a third clean HTTPS reproducti
 Twelve-cell focused closure physics passed 12/12 but all four robot controls failed plate lift. Hardware collar hit wrist limit twice. Nut thread failed rotation stall guard twice. These are failures. Fresh revised Chassis, Remote, Node producers are running at the directories in mission-checkpoint.json. Source checkouts remain frozen during runs.
 
 User authorized stopping original Launchable only after ALL EIGHT genuine completions and official submissions. Never delete. This condition has not been met. Both credentials securely configured and authenticated. No credential values belong in evidence or chat.
+
+
+## First official PR and external registration dependency
+
+PR https://github.com/robocurve/benchmark-tasks/pull/1647 opened from authenticated aryansennthilkumarGT at final a50a9e905bb846ad4475ef85b7942180cc605bbb. Media M-NRTVLQ. Final clean HTTPS checkout static passed and evaluated simulation bytes match 46bf100. Official response says account cannot be matched to a team and asks the team to reply to their login email with this username. User notified with exact action. This is an open PR with submission intake rejected, not waiting-for-review or acceptance. Preserve same PR, do not duplicate. Continue seven independent tasks.
