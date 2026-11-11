@@ -196,6 +196,11 @@ class Controller:
                     'min_width':max(.003,phase['width'][0]-.003),
                     'start_z':body['pos'][2],'start_pos':list(body['pos']),'slip_tolerance':phase.get('slip_tolerance',0.012)}
         elif kind in ('carry','insert'):
+            joint_guard = phase.get('joint_guard')
+            if joint_guard is not None:
+                actual = frame['joints'][joint_guard['name']]
+                if abs(actual - joint_guard['value']) > joint_guard['tolerance']:
+                    raise ControlFailure('Insertion fixture moved out of alignment: '+phase['label'])
             self.check_grasp_slip(side,observed,frame)
             desired_p,desired_q=self.world_target(phase['target'],frame)
             body_p,body_q=np.asarray(body['pos']),body['quat']

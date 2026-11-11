@@ -221,7 +221,7 @@
         "pos": [
           0.32,
           -0.24,
-          0.8675
+          0.91
         ],
         "quat": [
           0,
@@ -241,7 +241,7 @@
         "pos": [
           0.14,
           0,
-          0.9035000000000001
+          0.912
         ],
         "quat": [
           0,
@@ -258,17 +258,19 @@
       "body": "locking_pin",
       "target": {
         "pos": [
-          0.219,
+          -0.066,
           0,
-          0.9035000000000001
+          0.062
         ],
         "quat": [
           0,
           0,
           0,
           1
-        ]
-      }
+        ],
+        "relative_to": "service_arm"
+      },
+      "tolerance": 0.0005
     },
     {
       "kind": "insert",
@@ -290,7 +292,12 @@
         "relative_to": "service_arm"
       },
       "tolerance": 0.001,
-      "timeout": 25
+      "timeout": 25,
+      "joint_guard": {
+        "name": "weight_slide",
+        "value": -0.031,
+        "tolerance": 0.001
+      }
     },
     {
       "kind": "release",
