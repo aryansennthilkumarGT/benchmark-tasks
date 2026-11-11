@@ -7,9 +7,11 @@ Geometry is original primitive construction. All movable components use friction
 | Body | Material/type | Mass kg | Envelope m | World origin m | XYZW | Constraint |
 |---|---|---:|---|---|---|---|
 | `chassis` | aluminium | 0.9 | (0.22, 0.18, 0.06) | (0.3, 0, 0.7475) | (0, 0, 0, 1) | anchored |
-| `lid` | rigid engineering plastic | 0.18 | (0.208, 0.247, 0.041) | (0.4, 0, 0.8115) | (0, 0, 0, 1) | passive dynamic |
+| `lid` | rigid aluminium proxy | 0.67 | (0.208, 0.247, 0.067) | (0.4, 0, 0.8115) | (0, 0, 0, 1) | passive dynamic |
 | `drive` | aluminium carrier with plastic handle | 0.22 | (0.11, 0.082, 0.037) | (0.22, -0.24, 0.7557) | (0, 0, 0, 1) | passive dynamic |
 | `retainer` | rigid engineering plastic | 0.06 | (0.018, 0.095, 0.016) | (0.36, -0.23, 0.7557) | (0, 0, 0, 1) | passive dynamic |
+
+The lid includes two 18 by 16 by 26 mm underside ribs over the seated retainer. Each leaves 2 mm nominal vertical clearance before engaging under upward load.
 
 ## Passive joints
 
