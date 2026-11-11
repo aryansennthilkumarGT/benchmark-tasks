@@ -32,6 +32,10 @@ def compile_assets(spec, directory):
             q = b['quat']
             body.AddOrientOp().Set(Gf.Quatf(q[3], Gf.Vec3f(*q[:3])))
             UsdPhysics.RigidBodyAPI.Apply(body.GetPrim())
+            if b.get('speculative_ccd'):
+                body.GetPrim().AddAppliedSchema('PhysxRigidBodyAPI')
+                body.GetPrim().CreateAttribute(
+                    'physxRigidBody:enableSpeculativeCCD', Sdf.ValueTypeNames.Bool).Set(True)
             mass=UsdPhysics.MassAPI.Apply(body.GetPrim());mass.CreateMassAttr(b['mass'])
             if 'center_of_mass' in b:mass.CreateCenterOfMassAttr(Gf.Vec3f(*b['center_of_mass']))
             if 'diagonal_inertia' in b:mass.CreateDiagonalInertiaAttr(Gf.Vec3f(*b['diagonal_inertia']))

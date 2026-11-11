@@ -17,10 +17,11 @@ def Xform "Asset"
     }
 
     def Xform "nut_2" (
-        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysxRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
         float physics:mass = 0.024
+        custom bool physxRigidBody:enableSpeculativeCCD = 1
         quatf xformOp:orient = (1, 0, 0, 0)
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]

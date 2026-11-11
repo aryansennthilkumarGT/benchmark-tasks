@@ -33,3 +33,5 @@ Geometry is original primitive construction. All movable components use friction
 Each threaded stud has a 7.7 mm radius guide core over the lower 23 mm and a 7.0 mm radius lead-in over the upper 3 mm. The narrower lead-in helps center a nut at entry, and the larger core limits lateral travel when the plate loads a seated nut. The helical tooth geometry sets the pitch.
 
 The stud thread flanks extend to a nominal radius of 9.05 mm. Nut shell panels retain the 17 mm outer radius and provide 9.4 mm internal clearance. The female thread flanks retain their original pitch and radial position.
+
+The eight light nut bodies enable PhysX speculative continuous collision detection for the thin thread flanks. This contact-quality setting is recorded in each generated USD. [NVIDIA collision tuning guidance](https://github.com/NVIDIA-Omniverse/PhysX/blob/main/ovphysx/docs/guides/collision_tuning.md).
