@@ -308,11 +308,26 @@ class FeedbackTests(unittest.TestCase):
                 break
 
 
-    def test_plate_grasp_preserves_twenty_degree_wrist_clearance(self):
+    def test_plate_grasp_retains_wrist_margin_under_measured_load_tilt(self):
         plan = json.loads((self.folder/'controller.json').read_text())
         phase = next(p for p in plan['phases'] if p['label'] == 'Grasp pressure plate')
-        expected = [-math.sin(math.radians(35)), math.cos(math.radians(35)), 0, 0]
-        self.assertLess(qangle(phase['quat'], expected), 1e-7)
+        seed = self.ready[:6].copy()
+        for target in plan['audit_tcp_targets']:
+            if target['side'] != 'left':
+                continue
+            seed, pe, re = self.ik.solve(target['pos'], target['quat'], q_init=seed,
+                base_pos=self.station.BASES['left'], iters=500, damping=.015, tol=1e-5)
+            if target['label'] == 'Lift pressure plate':
+                break
+        lift = next(p for p in plan['phases'] if p['label'] == 'Lift pressure plate')
+        tilt = axis_quat([0, 1, 0], .06)
+        position = np.array(lift['target']['pos']) + rotate(tilt, phase['offset'])
+        orientation = multiply(tilt, phase['quat'])
+        solved, pe, re = self.ik.solve(position, orientation, q_init=seed,
+            base_pos=self.station.BASES['left'], iters=500, damping=.015, tol=1e-5)
+        self.assertLess(pe, .0015)
+        self.assertLess(re, .035)
+        self.assertGreater(min(solved[5]-self.ik.LOWER[5], self.ik.UPPER[5]-solved[5]), .04)
         press = next(p for p in plan['phases'] if p['label'] == 'Compress all twelve terminal springs')
         self.assertEqual(press['position_gain'], 1.)
         self.assertEqual(len(press['required_joint_ranges']), 12)
