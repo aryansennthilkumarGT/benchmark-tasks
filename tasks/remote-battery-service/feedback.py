@@ -233,7 +233,8 @@ class Controller:
                     p += np.dot(reference_tcp - tcp, axis) * axis
                 _, q = self.body_tcp(side, desired_p, desired_q)
             elif phase.get('measured_translation'):
-                p = tcp + limit_vector(phase.get('position_gain', 1.0)*position_error, .003)
+                p = tcp + limit_vector(phase.get('position_gain', 1.0)*position_error,
+                                       phase.get('translation_lead', .003))
                 _, q = self.body_tcp(side, desired_p, desired_q)
             else:
                 commanded = body_p + limit_vector(position_error, 0.003)
