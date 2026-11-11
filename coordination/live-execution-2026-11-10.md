@@ -1,5 +1,23 @@
 # Brev execution checkpoint · 2026-11-10
 
+## Engineering and budget recovery — 2026-11-11 06:55 UTC
+
+The service-arm evaluated implementation and sealed full-score evidence remain unchanged. Its public documentation preview is at `fault-publication-preview`, with actual +0.3-rad reset, measured runtime, current phase list and refreshed comparisons. Dream credentials and upload token remain absent. No official PR or upload has been made.
+
+The provider CLI omits pricing, but the authenticated legacy GetWorkspace endpoint from the public CLI source returned the attached instance's current compute base price of USD 1.740000/hour, storage rate USD 0.000132/GB/hour and 468 GiB attached disk. Sanitized response facts and actual response hash are at `billing-cli-refresh-20261111/attached-instance-pricing.json`. Counting all storage at the larger decimal-GB conversion gives a conservative planning rate of USD 1.81/hour. The effective invoiced total and live credit balance remain unverified. `conservative-planning.json` accurately distinguishes user-reported balance, provider metadata and planning assumptions. It grants no expensive-evaluation authorization.
+
+Hardware original opening control passed both repeats. The placement test then timed out lifting the tilted collar. Current controller `a03e778` separates measured translation from leveling and follows measured child pose during hinge rotation. Its first placement repeat progressed but reached the supporting wrist limit. Both-case completion/exit must be checked. A +30-degree upper-grasp candidate is undergoing offline checks at `hardware-pretilt-preview._b3vvqqh`.
+
+Node lid control passed both repeats. Cooler grasp failed both initial repeats because a fingertip reached the extension plate before desired alignment. A vertical wrist candidate was rejected by full convex lid-intersection checks. Fork `95a4443` raises the grasp by 6 mm within the same 20-mm tab, retains the inclined wrist and passed full static checks. Its native cooler-lift case is queued at `node-raised-cooler-control.svuxyw_k`.
+
+Chassis measured-body hinge feedback eliminated the earlier wrist integration behavior but stalled near 0.018 rad under gravity load. Fork `2883ffd` adds bounded gain 8 and 0.08-rad lead, with a passing measured-body/gain regression and full static checks. Native retest is queued at `chassis-bounded-load-control.uo5_05g_`.
+
+Remote wider spring-entry path `39aa98b` completed free-space orientation then timed out during contact entry. A finalized errored Inspect trial remains a failure even with CLI exit 0. Fork `aaaf784` preserves that physical plan and optionally records per-action measured joint state. The diagnostic replay at `remote-contact-trace.z_92a4b1` will locate first contact using synchronized actual joints and native body poses before further entry changes.
+
+Switch positive proxy inertias did not resolve nonfinite cable state during native reset. Fork `d3af951` coalesces each coincident interior gimbal proxy pair, retaining two-axis universal bends and the three-axis connector gimbal. Each assembly retains mass 0.1402 kg, cable shape, length and collision geometry. Each cable articulation has 49 bodies and 48 joints. Distributed interior twist is now locked and disclosed in fidelity/setup. Full static checks passed. Full native physics remains unvalidated and is queued at `switch-universal-native.xs2j3kfm`. This is an application model change, with the fixed host driver untouched.
+
+The serial queue and exact source heads are recorded in `mission-checkpoint.json`. Every producer has a wall cap, GPU/driver record, immutable source revision, terminal exit file and persistent logs. Preserve the instance. Continue engineering after checkpointing.
+
 ## Validated native progress — 2026-11-11 06:02 UTC
 
 Counterweighted service arm at evaluated implementation `46bf1008e01546b266b5ba973d31e75e64bf8f89` passed all 8 physics and 4 robot-control cases with recorded producer exits 0. Two independent real robot experts scored 1.0, each using 1899 actions and 94.95 simulated seconds. Complete original evidence is `/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4`. Both recordings have three H.264/yuv420p streams fully decoded to 1900 frames each and visually sampled across the complete rollout. Revalidated feasibility proof is `evidence/feasibility.json`. Sealed raw case/control/trial directories must remain immutable. Independent HTTPS source checkout/static reproduction passed at `/data/robocurve-runs/resume-compat/fault-fork-reproduction.DYGKKx`. Dream, official media and submission remain pending. Publication documentation still needs actual reset and measured-runtime updates.
@@ -16,7 +34,9 @@ The user explicitly revoked the earlier restriction on official PR creation and 
 
 Latest official AGENTS.md, README.md and tools/upload_media.py were read from official main `3e18824525c579c52a4049d7de80b1693a1c2334`, preserved at `/data/robocurve-runs/resume-compat/official-rules-sn6_hvjx`. One task per PR, 20 submissions/24 hours, registered author, genuine media and scores, blind review, ownership and pending-review revision rules remain applicable. Coordination documentation and submit_ready.py now reflect authorized agent publication. All readiness and immutable-evidence checks remain active. Earlier no-PR/teammate-only statements below are historical. The fixed host driver and instance-stop prohibition remain in force. Submission-ready tasks remain 0/8.
 
-Submission-ready tasks **0 of 8**. All eight original draft branch heads were checked against the fork and matched [the manifest](draft-manifest.json). The original handoff head was `a7d41476752b8ae0d265cc38f93b9ad5b3656f0a`. The all-task dry run and 35 coordinator tests passed. No candidate simulator run, model request, official upload, or PR was initiated.
+## Original handoff snapshot, retained as history
+
+At the original handoff, submission-ready tasks were **0 of 8**. All eight original draft branch heads were checked against the fork and matched [the manifest](draft-manifest.json). The original handoff head was `a7d41476752b8ae0d265cc38f93b9ad5b3656f0a`. The all-task dry run and 35 coordinator tests passed. No candidate simulator run, model request, official upload, or PR was initiated.
 
 ## Official station evidence
 
