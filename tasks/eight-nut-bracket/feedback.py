@@ -328,6 +328,7 @@ class Controller:
         if self.thread is None:
             self.thread={'yaw':yaw,'total':0.0,'segment':0.0,'mode':'turn','opening':0.0,
                          'z0':local[2],'tcp0':tcp.copy(),'q0':tcpq.copy(),'switch':now,
+                         'grip_height':float(tcp[2]-body['pos'][2]),
                          'progress_total':0.,'progress_time':now}
         state=self.thread;delta=math.atan2(math.sin(yaw-state['yaw']),math.cos(yaw-state['yaw']))
         if abs(delta)>0.25:raise ControlFailure('Thread angular jump')
@@ -360,11 +361,14 @@ class Controller:
             if observed[6]>state['opening']*.95:state.update(mode='unwind',switch=now)
         elif state['mode']=='unwind':
             # Open fingers rotate about the nut without moving its body.
-            p,q=tcp,state['q0']
-            if qangle(tcpq,q)<0.04:state.update(mode='close',switch=now,opening=0.0)
+            p = np.asarray(body['pos']) + [0., 0., state['grip_height']]
+            q = state['q0']
+            if qangle(tcpq,q)<0.04 and np.linalg.norm(tcp-p)<.0015:
+                state.update(mode='close',switch=now,opening=0.0)
         else:
-            p,q=tcp,state['q0']
-            if 0.005<observed[6]*0.0939<phase.get('grasp_width_max',0.045) and now-state['switch']>0.4:
+            p = np.asarray(body['pos']) + [0., 0., state['grip_height']]
+            q = state['q0']
+            if np.linalg.norm(tcp-p)<.0015 and 0.005<observed[6]*0.0939<phase.get('grasp_width_max',0.045) and now-state['switch']>0.4:
                 state.update(mode='turn',segment=0.0,switch=now,
                              progress_total=state['total'],progress_time=now)
                 grasp=self.grasps[side]
