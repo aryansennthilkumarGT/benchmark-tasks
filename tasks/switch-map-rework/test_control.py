@@ -162,6 +162,23 @@ class FeedbackTests(unittest.TestCase):
             np.testing.assert_allclose(targets[0][0] - tcp, expected, atol=1e-12)
             self.assertEqual(targets[0][1], 2.)
 
+    def test_guided_withdrawal_counts_real_transverse_progress(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['plug_0']['pos'])
+        phase = dict(kind='insert', body='plug_0', insertion_axis_world=[1, 0, 0],
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time in [0., 1., 2., 3.]:
+            frame['time'] = time
+            frame['bodies']['plug_0']['pos'] = (goal + [-.065, 0, .002-.0004*time]).tolist()
+            controller.step(self.ready, frame)
+        frame['time'] = 6.
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
