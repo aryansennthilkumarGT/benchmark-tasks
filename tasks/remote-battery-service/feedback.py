@@ -251,9 +251,14 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
-                progress_error = float(np.linalg.norm(axial) + 10*np.linalg.norm(lateral))
-                if self.last_progress is None or progress_error<self.last_progress-0.0003:
-                    self.last_progress,self.last_progress_t=progress_error,now
+                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral)])
+                progress_margin = np.array([.0003, phase.get('lateral_tolerance', .00065) * .1])
+                if self.last_progress is None:
+                    self.last_progress = progress_error
+                    self.last_progress_t = now
+                if np.any(progress_error < self.last_progress - progress_margin):
+                    self.last_progress = np.minimum(self.last_progress, progress_error)
+                    self.last_progress_t = now
                 elif now-self.last_progress_t>2.0 and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.

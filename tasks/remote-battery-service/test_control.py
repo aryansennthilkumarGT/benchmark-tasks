@@ -241,6 +241,27 @@ class FeedbackTests(unittest.TestCase):
         np.testing.assert_allclose(targets[-1][0][1:], start[1:], atol=1e-12)
         self.assertLess(qangle(targets[-1][1], multiply(rotation, self.down)), 1e-6)
 
+    def test_insertion_progress_survives_transverse_jitter(self):
+        frame = copy.deepcopy(self.frame)
+        body_name = 'new_cell_0'
+        goal = np.array(frame['bodies'][body_name]['pos'])
+        phase = dict(kind='insert', body=body_name, lateral_tolerance=.0008,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        # Axial progress measured in the aborted native trial must remain visible.
+        for time, axial, lateral in ((0., .0114, .00056), (2., .00944, .000066),
+                                     (4.05, .00825, .00064)):
+            frame['time'] = time
+            frame['bodies'][body_name]['pos'] = (goal + [0, lateral, axial]).tolist()
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.last_progress_t, 4.05)
+        frame['time'] = 6.1
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
