@@ -14,7 +14,73 @@ import numpy as np
 from engine import atomic
 
 
+def control_recorded_prefix(folder, source, label):
+    sys.path.insert(0, str(folder))
+    from feedback import Controller
+
+    directory = source / 'control'
+    report = json.loads((directory / 'results.json').read_text())
+    if report.get('mode') != 'control' or not report.get('cases'):
+        raise ValueError('Source must contain a completed native control case')
+    receipt = json.loads((source / 'control-render-diagnostic.json').read_text())
+    joints = np.asarray(receipt['resets'][0]['initial_robot_joint_pos'])
+    if joints.shape != (14,):
+        raise ValueError('Recorded initial robot state is incomplete')
+    frame_lines = []
+    frames = {}
+    episode = None
+    for line in (directory / 'physics-probes-not-demonstrations.jsonl').open():
+        row = json.loads(line)
+        if episode is None:
+            episode = row['episode']
+        if row['episode'] != episode:
+            break
+        frame_lines.append(line)
+        frame = row['frame']
+        frames[round(frame['time'] / .05)] = frame
+    action_lines = []
+    actions = []
+    for line in (directory / 'robot-actions.jsonl').open():
+        row = json.loads(line)
+        if row['reset_index'] != 0:
+            break
+        action_lines.append(line)
+        actions.append(row)
+    plan = json.loads((folder / 'controller.json').read_text())
+    specification = json.loads((folder / 'scene.json').read_text())
+    selected = next(i for i, phase in enumerate(plan['phases']) if phase['label'] == label)
+    controller = Controller(plan, specification)
+    compared = 0
+    previous = None
+    frame = frames[0]
+    for row in actions:
+        if controller.index == selected:
+            break
+        if row['control_step'] != compared + 1:
+            raise ValueError('Recorded control actions are discontinuous')
+        expected = np.asarray(row['submitted_action'])
+        actual = controller.step(joints, frame)
+        if not np.allclose(actual, expected, rtol=0., atol=1e-9):
+            raise ValueError(f'Controller prefix diverged at action {compared}')
+        compared += 1
+        previous = expected
+        joints = np.asarray(row['measured_joint_pos'])
+        frame = frames[round(row['time'] / .05)]
+    if controller.index != selected or previous is None:
+        raise ValueError('Recorded control prefix did not reach the requested phase')
+    return controller, specification, frame, joints, previous, {
+        'source_kind': 'NATIVE_CONTROL_PROBE_PREFIX_NOT_DEMONSTRATION',
+        'compared_actions': compared,
+        'absolute_action_tolerance': 1e-9,
+        'source_first_reset_actions_sha256': hashlib.sha256(''.join(action_lines).encode()).hexdigest(),
+        'source_first_reset_frames_sha256': hashlib.sha256(''.join(frame_lines).encode()).hexdigest(),
+        'source_frame_time': frame['time'],
+    }
+
+
 def recorded_prefix(folder, source, label):
+    if (source / 'control/robot-actions.jsonl').is_file():
+        return control_recorded_prefix(folder, source, label)
     sys.path.insert(0, str(folder))
     from feedback import Controller
 
@@ -99,12 +165,17 @@ def main():
     parser.add_argument('--commit', required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--max-steps', type=int, default=1200)
+    parser.add_argument('--contact-pairs', action='store_true')
+    parser.add_argument('--snapshot', type=Path)
+    parser.add_argument('--hold-steps', type=int, default=60)
     parser.add_argument('--worker', action='store_true')
     args = parser.parse_args()
     args.folder = args.folder.resolve()
     args.output = args.output.resolve()
     if args.max_steps < 1:
         parser.error('--max-steps must be positive')
+    if args.snapshot and (not args.contact_pairs or not 1 <= args.hold_steps <= args.max_steps):
+        parser.error('Recorded contact holds require contact pairs and a bounded hold duration')
     if not args.worker:
         result = subprocess.run([sys.executable, __file__, *sys.argv[1:], '--worker'])
         path = args.output / 'results.json'
@@ -128,12 +199,31 @@ def main():
                                         cwd=args.folder, text=True)
         if dirty.strip():
             raise ValueError('Replay diagnostics require a committed, clean task package')
-        controller, specification, frame, joints, previous, prefix = recorded_prefix(
-            args.folder, args.source_run, args.phase_label)
-        through = next(i for i, phase in enumerate(controller.phases)
-                       if phase['label'] == args.through_label)
-        if through < controller.index:
-            raise ValueError('Final diagnostic phase precedes its start')
+        if args.snapshot:
+            snapshot_path = args.snapshot.resolve()
+            if not snapshot_path.is_relative_to(args.source_run.resolve()):
+                raise ValueError('Snapshot must belong to the declared source run')
+            source_report = json.loads((snapshot_path.parent / 'results.json').read_text())
+            if source_report.get('commit') != args.commit:
+                raise ValueError('Snapshot and current task revisions differ')
+            data = snapshot_path.read_bytes()
+            snapshot = json.loads(data.splitlines()[-1])
+            specification = json.loads((args.folder / 'scene.json').read_text())
+            frame = snapshot['frame']
+            joints = snapshot['joint_pos']
+            previous = np.asarray(snapshot['action'])
+            controller = None
+            prefix = {'source_kind': 'RECORDED_NATIVE_CONTACT_SNAPSHOT',
+                      'source_sha256': hashlib.sha256(data).hexdigest(),
+                      'source_frame_time': frame['time']}
+            report.update(operation='RECORDED_CONTACT_HOLD', controller_suffix_completed=False)
+        else:
+            controller, specification, frame, joints, previous, prefix = recorded_prefix(
+                args.folder, args.source_run, args.phase_label)
+            through = next(i for i, phase in enumerate(controller.phases)
+                           if phase['label'] == args.through_label)
+            if through < controller.index:
+                raise ValueError('Final diagnostic phase precedes its start')
         report['prefix_equivalence'] = prefix
         atomic(args.output / 'results.json', report)
         from inspect_robots import Scene
@@ -155,20 +245,58 @@ def main():
         initialize_fixture(embodiment, specification, frame, joints)
         for _ in range(20):
             observation = embodiment.step(Action(data=previous)).observation
+        contact_view = None
+        sensor_paths = []
+        filter_paths = []
+        if args.contact_pairs:
+            from isaaclab.sim.utils.stage import get_current_stage
+            from isaaclab_physx.physics import PhysxManager
+            from pxr import PhysxSchema, UsdPhysics
+
+            stage = get_current_stage()
+            for prim in stage.Traverse():
+                path = str(prim.GetPath())
+                if prim.HasAPI(UsdPhysics.RigidBodyAPI):
+                    filter_paths.append(path)
+                    if 'RightArm' in path or 'LeftArm' in path:
+                        PhysxSchema.PhysxContactReportAPI.Apply(prim).CreateThresholdAttr().Set(0.)
+                        sensor_paths.append(path)
+                elif prim.HasAPI(UsdPhysics.CollisionAPI):
+                    ancestor = prim.GetParent()
+                    while ancestor and not ancestor.IsPseudoRoot() and not ancestor.HasAPI(UsdPhysics.RigidBodyAPI):
+                        ancestor = ancestor.GetParent()
+                    if not ancestor or ancestor.IsPseudoRoot():
+                        filter_paths.append(path)
+            contact_view = PhysxManager.get_physics_sim_view().create_rigid_contact_view(
+                sensor_paths, filter_patterns=[filter_paths for _ in sensor_paths],
+                max_contact_data_count=8192)
+            report['native_contact_sensor_count'] = len(sensor_paths)
+            atomic(args.output / 'results.json', report)
         with (args.output / 'native-actions.jsonl').open('w') as stream:
             for step in range(args.max_steps):
-                action = controller.step(observation.state['joint_pos'], runtime.LATEST)
+                action = (previous if args.snapshot else
+                          controller.step(observation.state['joint_pos'], runtime.LATEST))
                 observation = embodiment.step(Action(data=action)).observation
-                stream.write(json.dumps({'step': step, 'phase_index': controller.index,
-                                         'action': np.asarray(action).tolist(), 'frame': runtime.LATEST,
-                                         'joint_pos': np.asarray(observation.state['joint_pos']).tolist()}) + '\n')
+                phase_index = snapshot['phase_index'] if args.snapshot else controller.index
+                sample = {'step': step, 'phase_index': phase_index,
+                          'action': np.asarray(action).tolist(), 'frame': runtime.LATEST,
+                          'joint_pos': np.asarray(observation.state['joint_pos']).tolist()}
+                if contact_view is not None and step % 5 == 0:
+                    matrix = contact_view.get_contact_force_matrix(dt=float(base.cfg.sim.dt)).numpy()
+                    sample['measured_native_contacts_N'] = [
+                        {'sensor': sensor, 'other': path, 'force_N': force.tolist()}
+                        for sensor, forces in zip(sensor_paths, matrix)
+                        for path, force in zip(filter_paths, forces) if np.linalg.norm(force) > .01]
+                stream.write(json.dumps(sample, allow_nan=False) + '\n')
                 stream.flush()
-                if controller.index > through:
+                completed = (step+1 >= args.hold_steps if args.snapshot else controller.index > through)
+                if completed:
                     break
             else:
                 raise ValueError('Diagnostic action limit reached')
-        report.update(status='PASS', control_steps=step+1, final_phase_index=controller.index,
-                      final_native_frame=runtime.LATEST, controller_events=controller.events)
+        report.update(status='PASS', control_steps=step+1, final_phase_index=phase_index,
+                      final_native_frame=runtime.LATEST,
+                      controller_events=[] if args.snapshot else controller.events)
         atomic(args.output / 'results.json', report)
     except Exception as exc:
         report.update(status='FAIL', error=f'{type(exc).__name__}: {exc}')
