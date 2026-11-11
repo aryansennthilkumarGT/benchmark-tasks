@@ -86,6 +86,42 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_cell_entry_aligns_before_vertical_motion(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['cell_0']
+        goal = np.array(body['pos']) + [.005, 0, -.02]
+        phase = dict(kind='insert', body='cell_0', insertion_axis_world=[0, 0, 1],
+                     lateral_gain=8, lateral_lead=.004, lateral_tolerance=.0004,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='cell_0', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append(np.array(position))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        tcp, _ = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0] - tcp, [.004, 0, 0], atol=1e-12)
+
+    def test_cell_axis_completion_preserves_polarity(self):
+        for rotation, expected_index in [(axis_quat([0, 0, 1], 1.2), 1),
+                                         (axis_quat([1, 0, 0], .2), 0)]:
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['cell_0']
+            body['quat'] = rotation.tolist()
+            phase = dict(kind='carry', body='cell_0', orientation_axis=[0, 0, 1],
+                         target=dict(pos=body['pos'], quat=[0, 0, 0, 1]))
+            controller = self.controller(phase)
+            controller.grasps['left'] = dict(body='cell_0', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+            for time in (0., .2):
+                frame['time'] = time
+                controller.step(self.ready, frame)
+            self.assertEqual(controller.index, expected_index)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

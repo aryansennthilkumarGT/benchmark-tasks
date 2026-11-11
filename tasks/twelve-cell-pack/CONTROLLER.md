@@ -139,3 +139,7 @@ Offline nominal path checks sample actual URDF convex collision pieces for table
 The trajectory audit checks the official convex robot meshes against anchored fixture bodies, the table and the other arm every ten controls and at segment endpoints. It does not certify moving fixture, payload, flexible cable or inter-sample collision clearance. Grasp and thread sweeps separately check task geometry at specified samples. All are ideal kinematic checks, not physical execution.
 
 After the motion plan, the expert holds the released pose while the actual scorer establishes full-score stability. It stops only on measured success or fails after a bounded five-second terminal grace period (or hold time plus two seconds, if longer). A finished phase list is not a success signal.
+
+The first native cell grasp/lift passed both resets. Seating stalled above the channel with about 0.85 mm lateral error. The candidate cell insertion aligns within 0.4 mm before vertical advance, using bounded lateral gain 8 and a 4-mm lead. Its progress monitor weights measured lateral correction during alignment. The right-arm tracking window is bounded at 0.08 rad. Native seating validation is pending.
+
+Cell carry/seating completion checks the measured longitudinal axis, matching the polarity goal for the cylindrical cells. Axial spin is free. The regression rejects tilt while accepting axial rotation.

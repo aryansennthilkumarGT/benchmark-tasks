@@ -57,10 +57,11 @@ def limit_vector(delta,maximum):
 
 class Motion:
     """Track a rate-limited IK reference while waiting for all joints to catch up."""
-    def __init__(self,side,dt=0.05):
+    def __init__(self,side,dt=0.05,tracking_error_limit=0.025):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
+        self.tracking_error_limit = tracking_error_limit
 
     def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
         q=np.asarray(measured,dtype=float)
@@ -74,8 +75,9 @@ class Motion:
         grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
         if self.reference is None:
             self.reference = arm.copy()
-        if np.max(np.abs(self.reference - arm)) > 0.025:
-            command = np.clip(self.reference, arm-0.045, arm+0.045)
+        if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:
+            command = np.clip(self.reference, arm-self.tracking_error_limit-0.02,
+                              arm+self.tracking_error_limit+0.02)
             return np.r_[command, grip], error, theta
         current, rotation = self.ik.tcp_pose(self.reference, self.base)
         current_q = self.ik.matrix_to_quat_xyzw(rotation)
@@ -104,7 +106,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={s:Motion(s) for s in ('left','right')}
+        self.motion={'left': Motion('left'), 'right': Motion('right', tracking_error_limit=0.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -202,12 +204,33 @@ class Controller:
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
+            error=float(np.linalg.norm(body_p-desired_p))
+            progress_error = error
+            if kind == 'insert' and 'insertion_axis_world' in phase:
+                axis = np.asarray(phase['insertion_axis_world'], dtype=float)
+                length = np.linalg.norm(axis)
+                if axis.shape != (3,) or not np.isfinite(axis).all() or length < 1e-12:
+                    raise ControlFailure('Invalid insertion axis')
+                axis = axis / length
+                position_error = desired_p - body_p
+                axial = np.dot(position_error, axis) * axis
+                lateral = position_error - axial
+                correction = limit_vector(phase.get('lateral_gain', 3.0) * lateral,
+                                          phase.get('lateral_lead', .001))
+                if np.linalg.norm(lateral) <= phase.get('lateral_tolerance', .00065):
+                    correction += limit_vector(axial, phase.get('axial_lead', .0015))
+                p = tcp + correction
+                progress_error = float(np.linalg.norm(axial) + 10*np.linalg.norm(lateral))
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
             targets[side]=(p,q,0.0,speed)
-            error=float(np.linalg.norm(body_p-desired_p))
-            complete=error<phase.get('tolerance',0.0015) and qangle(body_q,desired_q)<phase.get('angle',0.06)
+            orientation_error = qangle(body_q, desired_q)
+            if 'orientation_axis' in phase:
+                actual_axis = rotate(body_q, phase['orientation_axis'])
+                desired_axis = rotate(desired_q, phase['orientation_axis'])
+                orientation_error = math.acos(float(np.clip(np.dot(actual_axis, desired_axis), -1, 1)))
+            complete=error<phase.get('tolerance',0.0015) and orientation_error<phase.get('angle',0.06)
             if phase.get('verify_lift'):
                 grasp=self.grasps[side]
                 complete=complete and body_p[2]-grasp['start_z']>=phase.get('min_lift',0.015)
@@ -217,8 +240,8 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
-                if self.last_progress is None or error<self.last_progress-0.0003:
-                    self.last_progress,self.last_progress_t=error,now
+                if self.last_progress is None or progress_error<self.last_progress-0.0003:
+                    self.last_progress,self.last_progress_t=progress_error,now
                 elif now-self.last_progress_t>2.0 and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.
