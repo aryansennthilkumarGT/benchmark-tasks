@@ -64,7 +64,7 @@
           "force": [
             0,
             0,
-            -1
+            -2
           ]
         },
         {
@@ -73,11 +73,16 @@
           "force": [
             0,
             0.35,
-            1.0
+            2
+          ],
+          "torque": [
+            0.16,
+            0,
+            0
           ]
         }
       ],
-      "steps": 100,
+      "steps": 60,
       "settle_steps": 0,
       "assertions": [
         {
@@ -96,6 +101,9 @@
           "joint": "latch_slide_0",
           "min": -0.0065,
           "max": -0.004
+        },
+        {
+          "kind": "valid"
         }
       ]
     },
