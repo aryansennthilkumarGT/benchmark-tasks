@@ -43,12 +43,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.09, -0.05, 0.017)
+            double3 xformOp:translate = (-0.09, -0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -4217,12 +4217,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.03, -0.05, 0.017)
+            double3 xformOp:translate = (-0.03, -0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8391,12 +8391,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.03, -0.05, 0.017)
+            double3 xformOp:translate = (0.03, -0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -12565,12 +12565,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.09, -0.05, 0.017)
+            double3 xformOp:translate = (0.09, -0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -16739,12 +16739,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.09, 0.05, 0.017)
+            double3 xformOp:translate = (-0.09, 0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -20913,12 +20913,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.03, 0.05, 0.017)
+            double3 xformOp:translate = (-0.03, 0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -25087,12 +25087,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.03, 0.05, 0.017)
+            double3 xformOp:translate = (0.03, 0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -29261,12 +29261,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.026
+            double height = 0.023
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
-            double radius = 0.007
+            double radius = 0.0077
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.09, 0.05, 0.017)
+            double3 xformOp:translate = (0.09, 0.05, 0.0155)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -33428,6 +33428,118 @@ def Xform "Asset"
             float3 xformOp:scale = (0.0015, 0.00084823003, 0.001)
             double3 xformOp:translate = (0.09799036364964138, 0.049607458605380635, 0.02596875)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cylinder "shape_2569" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.09, -0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_2570" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.03, -0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_2571" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.03, -0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_2572" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.09, -0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_2573" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.09, 0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_2574" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.03, 0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_2575" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.03, 0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_2576" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.003
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.007
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.09, 0.05, 0.0285)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
     }
 

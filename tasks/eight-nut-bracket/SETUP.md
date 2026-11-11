@@ -29,3 +29,5 @@ Geometry is original primitive construction. All movable components use friction
 
 - `plate_carrier`: center of mass derived from geometry; diagonal inertia [1e-07, 1e-07, 1e-07].
 - `plate_gimbal`: center of mass derived from geometry; diagonal inertia [1e-07, 1e-07, 1e-07].
+
+Each threaded stud has a 7.7 mm radius guide core over the lower 23 mm and a 7.0 mm radius lead-in over the upper 3 mm. The narrower lead-in helps center a nut at entry, and the larger core limits lateral travel when the plate loads a seated nut. The helical tooth geometry sets the pitch.
