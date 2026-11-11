@@ -43,6 +43,10 @@ def checks(assertions,initial,final,result=None):
             body=final['bodies'][item['body']]
             assert np.linalg.norm(np.asarray(body['pos'])-item['pos'])<=item['tolerance'],item
             if 'quat' in item:assert qangle(body['quat'],item['quat'])<=item.get('angle',0.05),item
+        elif kind=='axis':
+            from feedback import rotate
+            vector = rotate(final['bodies'][item['body']]['quat'], item['local_axis'])
+            assert np.dot(vector, item['direction']) >= np.cos(item['angle']), item
         elif kind=='penetration':
             assert final['max_penetration']<=item['max'],(item,final['max_penetration'])
         elif kind=='still':

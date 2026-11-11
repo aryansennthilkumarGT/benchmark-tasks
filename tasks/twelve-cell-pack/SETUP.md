@@ -45,3 +45,5 @@ An earlier480Hz,64-position/32-velocity configuration passed two captured-preloa
 
 
 The twelve terminal springs have500N/m stiffness and8N·s/m damping. A24g cell plus2g terminal has an isolated critical-damping estimate of7.21N·s/m before plate load sharing. The earlier2N·s/m configuration was underdamped for this combined mass. At240Hz it failed the unchanged10mm/s cell-speed condition in both captured-pack probes. Fresh probes must verify the new passive damping, preload retention and keyed/unkeyed load response.
+
+Each preloaded cell has two additional transverse guide walls, 24 by 4 by 44 mm, centred 11 mm to either side of its row centre and 25 mm above the holder root. Together with the existing longitudinal walls they form an 18 by 18 mm clear sleeve. These fused holder guides keep cells upright before plate compression. The earlier holder constrained only the x direction. Recorded native cell 4 toppled laterally before the plate arrived, leaving its terminal unloaded. The initial native stability case now runs 20 seconds and checks every cell within 3 mm of its setup position and 0.08 rad of its declared axis.

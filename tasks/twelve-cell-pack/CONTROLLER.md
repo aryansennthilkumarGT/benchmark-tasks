@@ -10,3 +10,5 @@ Five completed cell-placement sequences from the earlier loading prototype remai
 
 
 Compression completion requires all twelve measured terminal joints between-1.75mm and-0.40mm, together with the plate pose conditions. Position, angle and compression-range progress are tracked independently with a5second bounded stall timeout. The previous pose-only completion advanced while one measured spring had only0.039mm compression. Native scoring still independently checks cell poses, polarity, spring compression and final load capture.
+
+Each preloaded cell has two additional transverse guide walls, 24 by 4 by 44 mm, centred 11 mm to either side of its row centre and 25 mm above the holder root. Together with the existing longitudinal walls they form an 18 by 18 mm clear sleeve. These fused holder guides keep cells upright before plate compression. The earlier holder constrained only the x direction. Recorded native cell 4 toppled laterally before the plate arrived, leaving its terminal unloaded. The initial native stability case now runs 20 seconds and checks every cell within 3 mm of its setup position and 0.08 rad of its declared axis.
