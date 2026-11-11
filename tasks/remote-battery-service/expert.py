@@ -44,6 +44,12 @@ class Expert(PolicyBase):
         frame=self.runtime.LATEST
         if frame is None:raise ControlFailure('Native frame unavailable')
         if abs(frame['time']-observation.state_time)>1e-6:raise ControlFailure('Stale native feedback')
+        proprio_trace = os.environ.get('ROBOCURVE_PROPRIO_TRACE')
+        if proprio_trace:
+            with Path(proprio_trace).open('a', encoding='utf-8') as stream:
+                stream.write(json.dumps({'time': frame['time'],
+                    'joint_pos': np.asarray(observation.state['joint_pos']).tolist()},
+                    allow_nan=False) + '\n')
         try:
             action=self.controller.step(observation.state['joint_pos'],frame)
             stop=self.terminal_stop(frame['time'])

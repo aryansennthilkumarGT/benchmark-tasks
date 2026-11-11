@@ -73,3 +73,5 @@ The concurrent tilt/descent replay deflected the first cell axis to approximatel
 The next candidate uses a 0.3-rad tilt, a 2.6-mm offset away from the spring and a 0.7710-m body center during first contact entry. These dimensions are chosen to clear the cylindrical rim over the spring top and keep the opposite end above its fixed contact. Native validation is pending.
 
 The 0.3-rad native trial completed free-space orientation, then made off-center contact with the spring edge and stalled. Measured convex checks found only intended fingertip/cell contact for robot geometry and a 0.078-mm cell/spring overlap. The next entry target adds 5 mm offset away from the spring and uses body height 0.774 m, providing nominal rim/end-wall clearance before horizontal spring compression. Physical validation is pending.
+
+The wider entry also timed out after contact. Setting ROBOCURVE_PROPRIO_TRACE enables per-action measured robot joints for time-aligned contact diagnosis. This optional evidence stream preserves the controller actions and scoring behavior. The next diagnostic replays the same physical plan to locate the first contact before changing the entry path again.
