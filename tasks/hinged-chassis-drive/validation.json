@@ -44,7 +44,7 @@
   },
   "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
   "native_physics": "PASS",
-  "robot_control": "NOT_RUN",
+  "robot_control": "FAILED_PRIOR_REVISION_TRACKING_RETEST_PENDING",
   "expert_trials": [],
   "dream": null,
   "media_id": null,
@@ -71,7 +71,7 @@
     "The captive bar relies on pocket walls and the closed lid, not proximity attachment.",
     "Contact dynamics, retention loads, and the feedback controller have not yet been run in native PhysX."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "evidence_scope": "Native mechanism evidence is tied to the recorded evaluated commit. Full-score robot demonstrations and model evaluation remain pending.",
   "native_physics_evidence": {
     "commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
     "driver": "565.57.01",
@@ -79,5 +79,24 @@
     "failed": 0,
     "resets": 10,
     "report_sha256": "e0504bb753940ea838df20ae9e21efefc8ab0e6bd0264ebb5ab9e4f8097b3a76"
+  },
+  "native_control_diagnostic_evidence": {
+    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+    "commit": "c8ec6c67a5648caaa10c1dd75b7e43d2b32b614b",
+    "driver": "565.57.01",
+    "status": "FAIL",
+    "passed": 0,
+    "failed": 2,
+    "resets": 2,
+    "report_sha256": "7bc58f021b772dcdfa8f8417284bee301fc8db92f256441b57f9be83268812d6"
+  },
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
   }
 }
