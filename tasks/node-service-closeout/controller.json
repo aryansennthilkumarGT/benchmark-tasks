@@ -145,7 +145,8 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.004
     },
     {
       "kind": "carry",
@@ -170,7 +171,8 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.004
     },
     {
       "kind": "carry",
@@ -195,7 +197,8 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.004
     },
     {
       "kind": "carry",
@@ -221,7 +224,8 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.004
     },
     {
       "kind": "insert",
@@ -236,12 +240,19 @@
         ],
         "quat": [
           0,
+          0.04997916927067833,
           0,
-          0,
-          1
+          0.9987502603949663
         ]
       },
-      "timeout": 30
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": true,
+      "position_gain": 0.1,
+      "translation_lead": 0.0005,
+      "measured_rotation": true,
+      "rotation_gain": 3,
+      "rotation_lead": 0.08
     },
     {
       "kind": "release",
@@ -654,7 +665,10 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.01,
+      "angle": 0.15,
+      "min_lift": 0.025
     },
     {
       "kind": "carry",
@@ -680,7 +694,8 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.004
     },
     {
       "kind": "carry",
@@ -705,7 +720,8 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.004
     },
     {
       "kind": "carry",
@@ -730,7 +746,8 @@
       "translation_lead": 0.025,
       "measured_rotation": true,
       "rotation_gain": 3,
-      "rotation_lead": 0.08
+      "rotation_lead": 0.08,
+      "tolerance": 0.004
     },
     {
       "kind": "insert",
@@ -750,7 +767,14 @@
           1
         ]
       },
-      "timeout": 30
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": true,
+      "position_gain": 0.1,
+      "translation_lead": 0.0005,
+      "measured_rotation": true,
+      "rotation_gain": 3,
+      "rotation_lead": 0.08
     },
     {
       "kind": "release",
@@ -1117,15 +1141,15 @@
       "label": "Seat old_cooler",
       "side": "right",
       "pos": [
-        0.34199999999999997,
+        0.3441467099301811,
         -0.185,
-        0.7947000000000001
+        0.8015984141402825
       ],
       "quat": [
-        -0.6123724356957947,
-        0.6123724356957946,
-        -0.3535533905932738,
-        0.35355339059327373
+        -0.6292774343645582,
+        0.6292774343645581,
+        -0.3225056752982177,
+        0.32250567529821766
       ],
       "opening": 0.3194888178913738
     },

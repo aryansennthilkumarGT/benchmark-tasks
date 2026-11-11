@@ -204,10 +204,14 @@ class Controller:
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
-            if kind == 'carry' and phase.get('measured_translation'):
-                p = tcp + limit_vector(phase.get('position_gain', 1.0) * (desired_p - body_p),
-                                       phase.get('translation_lead', 0.003))
-            if kind == 'carry' and phase.get('measured_rotation'):
+            if phase.get('measured_translation'):
+                tracking_base = tcp
+                reference = self.motion[side].reference
+                if phase.get('integrate_body_error') and reference is not None:
+                    tracking_base, _ = self.pose(np.r_[reference, observed[6]], side)
+                p = tracking_base + limit_vector(phase.get('position_gain', 1.0) * (desired_p - body_p),
+                                                 phase.get('translation_lead', 0.003))
+            if phase.get('measured_rotation'):
                 rotation_error = multiply(desired_q, conjugate(body_q))
                 angle_error = qangle([0, 0, 0, 1], rotation_error)
                 amount = min(phase.get('rotation_gain', 1.),

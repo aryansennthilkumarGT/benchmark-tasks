@@ -145,6 +145,26 @@
         }
       ],
       "through_label": "Verify lift of old_cooler"
+    },
+    {
+      "name": "collect_cooler_before_storage",
+      "through_phase": 12,
+      "through_label": "Withdraw from old_cooler",
+      "max_steps": 2400,
+      "assertions": [
+        {
+          "kind": "goal",
+          "name": "old_cooler_collected",
+          "completed": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
     }
   ]
 }

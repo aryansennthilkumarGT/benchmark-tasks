@@ -126,6 +126,33 @@ class FeedbackTests(unittest.TestCase):
         expected = multiply(axis_quat([0, 1, 0], -.08), tcp_quat)
         self.assertLess(qangle(targets[0], expected), 1e-8)
 
+    def test_cooler_placement_integrates_position_and_corrects_body_rotation(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['old_cooler']
+        body['quat'] = axis_quat([0, 1, 0], .2).tolist()
+        goal = np.array(body['pos']) + [0, 0, .01]
+        phase = dict(kind='insert', body='old_cooler', measured_translation=True,
+                     integrate_body_error=True, position_gain=.1, translation_lead=.0005,
+                     measured_rotation=True, rotation_gain=3, rotation_lead=.08,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='old_cooler', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        controller.motion['left'].reference = reference
+        reference_p, _ = controller.pose(np.r_[reference, self.ready[6]], 'left')
+        _, tcp_quat = controller.pose(self.ready[:7], 'left')
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append((np.array(position), np.array(orientation)))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0][0], reference_p + [0, 0, .0005], atol=1e-12)
+        expected = multiply(axis_quat([0, 1, 0], -.08), tcp_quat)
+        self.assertLess(qangle(targets[0][1], expected), 1e-7)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
