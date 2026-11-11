@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "STATIC_TESTS_PASSED",
+  "status": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
   "ready": false,
   "verified_at": "2026-11-07T23:59:11.353255+00:00",
   "offline_tests": {
@@ -43,7 +43,7 @@
     "initial_joint_frames": "PASS"
   },
   "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "NOT_RUN",
+  "native_physics": "PASS_PRIOR_EVALUATED_REVISION",
   "robot_control": "NOT_RUN",
   "expert_trials": [],
   "dream": null,
@@ -54,12 +54,11 @@
     "physics": 5,
     "control": 2
   },
-  "physics_runs": 0,
+  "physics_runs": 1,
   "expert_runs": 0,
   "model_runs": 0,
   "media_uploads": 0,
   "remaining": [
-    "Native mechanism and reset probes",
     "Real robot control tests",
     "Two full-score expert episodes",
     "Genuine Dream-1 evaluation",
@@ -68,10 +67,9 @@
   ],
   "limitations": [
     "Rigid contact shoes approximate spring terminals; conductivity is inferred from orientation, seating and measured spring compression.",
-    "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope.",
-    "Contact preload, capture-key insertion and expert execution have not yet been tested in native PhysX."
+    "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "evidence_scope": "The complete repeated native mechanism suite passed on the recorded evaluated commit. Real robot control, full-score expert demonstrations and Dream-1 remain pending.",
   "native_diagnostic_evidence": {
     "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
     "commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
@@ -90,5 +88,14 @@
     "updated_ideal_motion_audit": "PASS",
     "full_static_before_incremental_runtime_changes": "PASS",
     "ready": false
+  },
+  "native_physics_evidence": {
+    "kind": "NATIVE_PHYSX_TESTS",
+    "commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
+    "driver": "565.57.01",
+    "passed": 10,
+    "failed": 0,
+    "resets": 10,
+    "report_sha256": "6b6c0779f41dcbde21d281760bce24bb4daf0dcfd4563c0a125fd286b5823a00"
   }
 }
