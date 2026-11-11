@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T20:41:19.852342+00:00",
+  "updated_at": "2026-11-11T20:52:27.995082+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -166,18 +166,18 @@
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "9464df0db856003045d4474251304c2e5611605f",
-      "state": "FRESH_POSE_RATE_STABILITY_PHYSICS_RUNNING",
+      "commit": "21dee37235cb446556b81ec0dffd4facb2313493",
+      "state": "480HZ_STRONG_FIXTURE_THEN_ACTUAL_CLOSURE_QUALIFICATION",
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "CURRENT_REVISION_PENDING",
       "physics_evaluated_commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1",
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-telemetry-native.m3a36qtj/cases/results.json",
       "robot_control": "CURRENT_REVISION_PENDING",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-observed-pose-stability-final-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-observed-stability-qualification.0zh2b4w7",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-480hz-contact-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-480hz-strong-closure-qualification.13c194dm",
       "producer_status": "RUNNING",
-      "status": "FRESH_POSE_RATE_STABILITY_PHYSICS_RUNNING",
+      "status": "480HZ_STRONG_FIXTURE_THEN_ACTUAL_CLOSURE_QUALIFICATION",
       "ready": false,
       "native_control": "CURRENT_REVISION_PENDING",
       "task_source_dirty": false,
@@ -244,15 +244,21 @@
         "status": "RUNNING"
       },
       {
+        "slug": "switch-map-rework",
+        "root": "/data/robocurve-runs/resume-compat/switch-attitude-withdrawal-native.o4v3_jx7",
+        "commit": "6e53504d5fef4a54a8b00357394bf5c0861c63f5",
+        "status": "QUEUED"
+      },
+      {
         "slug": "node-service-closeout",
         "root": "/data/robocurve-runs/resume-compat/node-measured-attitude-qualification.dbk3kqjz",
         "commit": "b7aec6d02c071611bfc66f371f7307fc36e99cc6",
         "status": "RUNNING"
       },
       {
-        "slug": "hardware-order-kit",
-        "root": "/data/robocurve-runs/resume-compat/hardware-observed-stability-qualification.0zh2b4w7",
-        "commit": "9464df0db856003045d4474251304c2e5611605f",
+        "slug": "twelve-cell-pack",
+        "root": "/data/robocurve-runs/resume-compat/twelve-480hz-close-guides-qualification.nl_lxxac",
+        "commit": "211b60223d997c538ee4a5213d6977413a54590c",
         "status": "RUNNING"
       },
       {
@@ -262,15 +268,9 @@
         "status": "RUNNING"
       },
       {
-        "slug": "switch-map-rework",
-        "root": "/data/robocurve-runs/resume-compat/switch-attitude-withdrawal-native.o4v3_jx7",
-        "commit": "6e53504d5fef4a54a8b00357394bf5c0861c63f5",
-        "status": "QUEUED"
-      },
-      {
-        "slug": "twelve-cell-pack",
-        "root": "/data/robocurve-runs/resume-compat/twelve-480hz-close-guides-qualification.nl_lxxac",
-        "commit": "211b60223d997c538ee4a5213d6977413a54590c",
+        "slug": "hardware-order-kit",
+        "root": "/data/robocurve-runs/resume-compat/hardware-480hz-strong-closure-qualification.13c194dm",
+        "commit": "21dee37235cb446556b81ec0dffd4facb2313493",
         "status": "RUNNING"
       }
     ]
@@ -426,16 +426,29 @@
     "budget": "User125USD, reserve30, conservative combined account burn3.61USD/hr, count since2026-11-10T22:07:33Z. Provider live balance remains unverified."
   },
   "budget_latest": {
-    "provider_pricing_at": "2026-11-11T13:52:05.978646+00:00",
-    "listed_compute_usd_per_hour": 1.74,
-    "mission_instance": "RUNNING",
-    "second_instance": "STOPPED",
-    "no_instance_stop_or_delete_performed": true,
-    "estimated_balance_floor_at_1352_usd": 68.15,
-    "reserve_usd": 30,
-    "future_conservative_account_rate_usd_per_hour": 1.87,
-    "live_balance_verified": false,
-    "evidence": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/planning-1355.json"
+    "kind": "CONSERVATIVE_PLANNING_ESTIMATE_WITH_TWO_RUNNING_INSTANCES",
+    "at": "2026-11-11T20:50:49.163567+00:00",
+    "inventory": [
+      {
+        "id": "rj306hdgr",
+        "name": "yam-eval-launchable-0cb74b",
+        "status": "RUNNING"
+      },
+      {
+        "id": "4rjseoodp",
+        "name": "yam-eval-launchable-9a92fd",
+        "status": "RUNNING"
+      }
+    ],
+    "provider_rate_evidence": "price-refresh-2048.json",
+    "estimated_balance_floor_USD": 51.66692597140278,
+    "reserve_USD": 30,
+    "estimated_headroom_USD": 21.666925971402783,
+    "account_rate_cap_USD_per_hour": 3.61,
+    "planning_hours_until_reserve": 6.001918551635121,
+    "second_restart_time": "UNKNOWN. Conservatively charge it since last observed STOPPED at18:52:03.",
+    "live_credit_balance_verified": false,
+    "instance_power_operations_performed": false
   },
   "twelve_key_diagnosis": {
     "old_wall_inner_faces_m": [
@@ -457,15 +470,29 @@
     "new_physics_assertion": "Captured pack must actually score1.0 after release. Previous twelve-case pass did not establish full-score final state."
   },
   "budget_planning": {
-    "kind": "CONSERVATIVE_PLANNING_ESTIMATE_NOT_PROVIDER_BALANCE",
-    "at": "2026-11-11T20:28:35.686450+00:00",
-    "estimated_balance_floor_USD": 55.80353306725556,
+    "kind": "CONSERVATIVE_PLANNING_ESTIMATE_WITH_TWO_RUNNING_INSTANCES",
+    "at": "2026-11-11T20:50:49.163567+00:00",
+    "inventory": [
+      {
+        "id": "rj306hdgr",
+        "name": "yam-eval-launchable-0cb74b",
+        "status": "RUNNING"
+      },
+      {
+        "id": "4rjseoodp",
+        "name": "yam-eval-launchable-9a92fd",
+        "status": "RUNNING"
+      }
+    ],
+    "provider_rate_evidence": "price-refresh-2048.json",
+    "estimated_balance_floor_USD": 51.66692597140278,
     "reserve_USD": 30,
-    "estimated_headroom_USD": 25.803533067255557,
-    "account_rate_cap_USD_per_hour": 1.87,
-    "original_compute_rate_USD_per_hour": 1.74,
-    "rate_verified_at": "2026-11-11T18:52:03Z",
-    "provider_balance_verified": false
+    "estimated_headroom_USD": 21.666925971402783,
+    "account_rate_cap_USD_per_hour": 3.61,
+    "planning_hours_until_reserve": 6.001918551635121,
+    "second_restart_time": "UNKNOWN. Conservatively charge it since last observed STOPPED at18:52:03.",
+    "live_credit_balance_verified": false,
+    "instance_power_operations_performed": false
   },
   "official_submission_counts": {
     "engineering_complete": 1,
@@ -481,5 +508,14 @@
     "at": "2026-11-11T20:35:24Z",
     "evidence": "/data/robocurve-runs/resume-compat/bounded-new-task-novelty-review-2038.json",
     "official_acceptance_unconfirmed": true
+  },
+  "workload_deadline_guard": {
+    "plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
+    "watchdog": "/data/robocurve-runs/resume-compat/budget-workload-watchdog.py",
+    "pid": 1492284,
+    "deadline": "2026-11-12T01:40:00+00:00",
+    "power_control": false,
+    "new_producer_registration_required": true,
+    "reason": "Two running account instances. Stop owned costly workloads before projected reserve, billing continues until user handles instances."
   }
 }
