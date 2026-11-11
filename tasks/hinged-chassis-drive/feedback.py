@@ -234,7 +234,9 @@ class Controller:
             if joint['kind']=='revolute':
                 pivot=np.asarray(parent['pos'])+rotate(parent['quat'],joint['pivot_parent'])
                 turn=axis_quat(world_axis,delta)
-                p=pivot+rotate(turn,tcp-pivot);q=multiply(turn,tcpq)
+                body_position = pivot + rotate(turn, np.asarray(body['pos']) - pivot)
+                body_orientation = multiply(turn, body['quat'])
+                p, q = self.body_tcp(side, body_position, body_orientation)
             else:p=tcp+world_axis*delta;q=tcpq
             targets[side]=(p,q,0.0,0.035)
             complete=abs(desired-actual)<phase.get('tolerance',0.006 if joint['kind']=='revolute' else 0.001)

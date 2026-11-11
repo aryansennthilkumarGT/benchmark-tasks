@@ -86,6 +86,29 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_revolute_target_is_bound_to_measured_body_and_captured_grasp(self):
+        phase = dict(kind='joint', body='lid', joint='lid_hinge', value=.85,
+                     increment=.035, timeout=30)
+        controller = self.controller(phase)
+        frame = copy.deepcopy(self.frame)
+        frame['joints']['lid_hinge'] = .4
+        frame['bodies']['lid']['quat'] = axis_quat([0, 1, 0], .4).tolist()
+        grasp_rotation = [0, 0, 0, 1]
+        controller.grasps['left'] = dict(body='lid', verified=False,
+            tcp_in_body=[-.185, .145, .024], tcp_rotation_in_body=grasp_rotation)
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append((np.array(position), np.array(orientation)))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        for time in (0., .05):
+            frame['time'] = time
+            controller.step(self.ready, frame)
+        expected_rotation = axis_quat([0, 1, 0], .435)
+        self.assertLess(qangle(targets[0][1], expected_rotation), 1e-6)
+        np.testing.assert_allclose(targets[0][0], targets[1][0], atol=1e-12)
+        self.assertLess(qangle(targets[0][1], targets[1][1]), 1e-6)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

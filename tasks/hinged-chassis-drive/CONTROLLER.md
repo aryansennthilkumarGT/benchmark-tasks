@@ -37,3 +37,5 @@ The trajectory audit checks the official convex robot meshes against anchored fi
 After the motion plan, the expert holds the released pose while the actual scorer establishes full-score stability. It stops only on measured success or fails after a bounded five-second terminal grace period (or hold time plus two seconds, if longer). A finished phase list is not a success signal.
 
 The left arm uses a 0.12 rad bounded tracking-error window while supporting the gravity lid. Its IK reference advances by at most 0.02 rad per control. The lid-following lead is 0.035 rad, and native failure records include reference joints and applied actuator torques.
+
+The measured chassis failure at lid angle 0.419 rad had about 0.895 rad wrist/body orientation drift and approached the wrist joint limit. The revolute controller now derives its bounded lead from the measured body pose and captured grasp transform. A stationary mechanism therefore produces the same desired wrist pose on repeated controls. This targeted correction requires native retesting.
