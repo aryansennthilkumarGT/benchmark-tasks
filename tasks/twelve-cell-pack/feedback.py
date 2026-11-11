@@ -314,6 +314,13 @@ class Controller:
         for name,(p,q,opening,speed) in targets.items():
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
+            # Once a measured lift is complete, retain its valid motor reference
+            # during the stability interval rather than solving beyond a wrist limit.
+            if (name == side and complete and phase.get('verify_lift')
+                    and self.motion[name].reference is not None):
+                grip = joints[index+6] + float(np.clip(opening-joints[index+6], -.10, .10))
+                action[index:index+7] = np.r_[self.motion[name].reference, grip]
+                continue
             feedback_gain = 0.
             if name == side:
                 feedback_gain = phase.get('feedback_gain', 2. if kind in ('move', 'grasp') else 0.)

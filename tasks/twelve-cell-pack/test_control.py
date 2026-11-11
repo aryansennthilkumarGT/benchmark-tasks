@@ -215,6 +215,39 @@ class FeedbackTests(unittest.TestCase):
         with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
             controller.step(self.ready, frame)
 
+    def test_completed_verified_lift_holds_reference_but_unmet_lift_still_tracks(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['retaining_plate']
+        phase = dict(kind='carry', body='retaining_plate', verify_lift=True,
+                     min_lift=.05, target=dict(pos=body['pos'], quat=body['quat']))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.grasps['left'] = dict(body='retaining_plate', verified=False,
+            start_z=body['pos'][2]-.06, tcp_in_body=[0, 0, 0],
+            tcp_rotation_in_body=[0, 0, 0, 1])
+        reference = self.ready[:6].copy()
+        controller.motion['left'].reference = reference.copy()
+        with patch.object(controller.motion['left'], 'target',
+                          side_effect=ControlFailure('IK reached a joint limit')) as target:
+            action = controller.step(self.ready, frame)
+            np.testing.assert_allclose(action[:6], reference)
+            target.assert_not_called()
+            self.assertEqual(controller.index, 0)
+            frame['time'] = .2
+            controller.step(self.ready, frame)
+            self.assertEqual(controller.index, 1)
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.grasps['left'] = dict(body='retaining_plate', verified=False,
+            start_z=body['pos'][2], tcp_in_body=[0, 0, 0],
+            tcp_rotation_in_body=[0, 0, 0, 1])
+        controller.motion['left'].reference = reference.copy()
+        with patch.object(controller.motion['left'], 'target',
+                          side_effect=ControlFailure('IK reached a joint limit')):
+            with self.assertRaisesRegex(ControlFailure, 'joint limit'):
+                controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 0)
+
     def test_plate_pose_cannot_finish_with_an_unloaded_terminal(self):
         frame = copy.deepcopy(self.frame)
         body = frame['bodies']['retaining_plate']
