@@ -145,6 +145,28 @@ class FeedbackTests(unittest.TestCase):
         c=self.controller(dict(kind='release',opening=0.))
         with self.assertRaisesRegex(ControlFailure,'Invalid release'):c.step(self.ready,self.frame)
 
+    def test_loaded_thread_arm_uses_configured_tracking_window(self):
+        controller = self.controller(dict(kind='hold', seconds=1))
+        self.assertEqual(controller.motion['right'].tracking_error_limit, .08)
+
+    def test_thread_without_directed_rotation_aborts_promptly(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(phase for phase in plan['phases'] if phase['kind'] == 'thread')
+        controller = Controller({'phases': [phase]}, self.spec)
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies'][phase['body']]
+        reference = frame['bodies'][phase['reference']]
+        body['pos'] = (np.array(reference['pos']) + [*phase['xy'], .0232]).tolist()
+        body['quat'] = [0, 0, 0, 1]
+        tcp = np.array(body['pos']) + [0, 0, .009]
+        index = 0 if phase['side'] == 'left' else 7
+        controller.grasps[phase['side']] = dict(body=phase['body'], verified=False)
+        controller.thread_target(phase, body, tcp, self.down,
+                                 self.ready[index:index+7], frame, 0.)
+        with self.assertRaisesRegex(ControlFailure, 'Thread rotation stalled'):
+            controller.thread_target(phase, body, tcp, self.down,
+                                     self.ready[index:index+7], frame, 2.1)
+
     def test_thread_free_spin_aborts_without_pitch_advance(self):
         plan=json.loads((self.folder/'controller.json').read_text());phase=next((p for p in plan['phases'] if p['kind']=='thread'),None)
         if phase is None:return

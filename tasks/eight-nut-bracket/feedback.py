@@ -105,7 +105,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={'left':Motion('left',tracking_error_limit=.08),'right':Motion('right')}
+        self.motion={'left':Motion('left',tracking_error_limit=.08),'right':Motion('right',tracking_error_limit=.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -301,7 +301,8 @@ class Controller:
         yaw=math.atan2(2*(relative_q[3]*relative_q[2]+relative_q[0]*relative_q[1]),1-2*(relative_q[1]**2+relative_q[2]**2))
         if self.thread is None:
             self.thread={'yaw':yaw,'total':0.0,'segment':0.0,'mode':'turn','opening':0.0,
-                         'z0':local[2],'tcp0':tcp.copy(),'q0':tcpq.copy(),'switch':now}
+                         'z0':local[2],'tcp0':tcp.copy(),'q0':tcpq.copy(),'switch':now,
+                         'progress_total':0.,'progress_time':now}
         state=self.thread;delta=math.atan2(math.sin(yaw-state['yaw']),math.cos(yaw-state['yaw']))
         if abs(delta)>0.25:raise ControlFailure('Thread angular jump')
         state['yaw']=yaw;state['total']+=phase.get('direction',-1)*delta
@@ -309,6 +310,11 @@ class Controller:
         expected=state['z0']-phase['pitch']*state['total']/(2*math.pi)
         if abs(local[2]-expected)>0.0015:raise ControlFailure('Nut rotation did not produce axial advancement')
         if state['mode']=='turn':
+            if state['total'] > state['progress_total'] + .005:
+                state['progress_total'] = state['total']
+                state['progress_time'] = now
+            elif now - state['progress_time'] > 2.:
+                raise ControlFailure('Thread rotation stalled: ' + phase['label'])
             self.check_grasp_slip(side,observed,frame)
             state['segment']+=phase.get('direction',-1)*delta
             if state['segment']>=math.pi/4:
@@ -325,7 +331,8 @@ class Controller:
         else:
             p,q=tcp,state['q0']
             if 0.005<observed[6]*0.0939<phase.get('grasp_width_max',0.045) and now-state['switch']>0.4:
-                state.update(mode='turn',segment=0.0,switch=now)
+                state.update(mode='turn',segment=0.0,switch=now,
+                             progress_total=state['total'],progress_time=now)
                 grasp=self.grasps[side]
                 grasp['tcp_in_body']=rotate(conjugate(body['quat']),tcp-np.asarray(body['pos']))
                 grasp['tcp_rotation_in_body']=multiply(conjugate(body['quat']),tcpq)

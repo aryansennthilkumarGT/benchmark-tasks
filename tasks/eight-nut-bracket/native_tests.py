@@ -202,6 +202,15 @@ def main():
                                 side: runtime.array(base.scene[f'{side}_robot'].data.applied_torque)[0].tolist()
                                 for side in ('left', 'right')
                             },
+                            'thread_state': {
+                                name: value.tolist() if isinstance(value, np.ndarray) else value
+                                for name, value in (controller.thread or {}).items()
+                            },
+                            'grasp_transforms': {
+                                side: {name: value.tolist() if isinstance(value, np.ndarray) else value
+                                       for name, value in grasp.items()}
+                                for side, grasp in controller.grasps.items()
+                            },
                             'last_frame': copy.deepcopy(runtime.LATEST),
                         }
                         save(args.output/f'{case["name"]}-{repeat}-control-failure.json', diagnostic)
