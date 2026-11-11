@@ -36,3 +36,5 @@ After the motion plan, the expert holds the released pose while the actual score
 During pin insertion the controller holds the wrist orientation derived from the verified grasp. Measured pin position drives the Cartesian correction, and measured pin angle gates completion. The bounded translation and stall guards apply throughout insertion.
 
 The pin lift and routing targets include 12 mm extra vertical clearance after the measured approach dipped near the receiver face. The final hover adds 2 mm within the measured IK workspace. The critical TCP audit waypoints follow the current phase targets and nominal grasp offsets.
+
+The fitted pin aligns to 0.15 mm lateral error before further axial motion. Lateral correction uses gain 8 with a 3 mm command lead bound. The stall metric weights lateral progress while the Cartesian speed and phase time limits bound the attempt.
