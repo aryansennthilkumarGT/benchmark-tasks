@@ -5,6 +5,7 @@ import math
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import Mock
 import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from feedback import Controller,ControlFailure,Motion,axis_quat,interpolate,limit_vector,multiply,qangle,rotate
@@ -108,6 +109,29 @@ class FeedbackTests(unittest.TestCase):
                 }
                 controller.step(self.ready, frame)
                 self.assertEqual(controller.index, expected_index)
+
+    def test_fresh_cell_translation_preserves_captured_wrist_orientation(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p.get('body') == 'new_cell_0' and p.get('verify_lift'))
+        frame = copy.deepcopy(self.frame)
+        frame['bodies']['new_cell_0']['pos'] = (np.asarray(phase['target']['pos']) - [0, 0, .02]).tolist()
+        frame['bodies']['new_cell_0']['quat'] = axis_quat([1, 0, 0], .7).tolist()
+        controller = Controller({'phases': [phase]}, self.spec)
+        controller.grasps['right'] = {
+            'body': 'new_cell_0', 'verified': False,
+            'tcp_in_body': [0, .006, .008],
+            'tcp_rotation_in_body': [0, 0, 0, 1],
+            'tcp_orientation_at_grasp': self.down.copy(),
+            'start_z': .75475,
+        }
+        motion = controller.motion['right']
+        motion.target = Mock(return_value=(self.ready[7:].copy(), 0., 0.))
+        measured_tcp, _ = controller.pose(self.ready[7:], 'right')
+        controller.step(self.ready, frame)
+        target, orientation = motion.target.call_args.args[1:3]
+        np.testing.assert_allclose(target, measured_tcp + [0, 0, .003], atol=1e-12)
+        self.assertLess(qangle(orientation, self.down), 1e-6)
+        self.assertEqual(controller.index, 0)
 
     def test_incremental_action_respects_joint_and_gripper_limits(self):
         m=Motion('left');p,r=m.ik.tcp_pose(self.ready[:6],m.base)

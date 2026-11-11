@@ -195,7 +195,8 @@ class Controller:
                       and qangle(tcpq,q)<0.06 and now-self.started>0.4)
             if complete:
                 self.grasps[side]={'body':phase['body'],'tcp_in_body':rotate(conjugate(body['quat']),tcp-np.asarray(body['pos'])),
-                    'tcp_rotation_in_body':multiply(conjugate(body['quat']),tcpq),'verified':False,
+                    'tcp_rotation_in_body':multiply(conjugate(body['quat']),tcpq),
+                    'tcp_orientation_at_grasp':tcpq.copy(),'verified':False,
                     'min_width':max(.003,phase['width'][0]-.003),
                     'start_z':body['pos'][2],'start_pos':list(body['pos']),'slip_tolerance':phase.get('slip_tolerance',0.012)}
         elif kind in ('carry','insert'):
@@ -212,9 +213,14 @@ class Controller:
                     correction += limit_vector(axial, phase.get('axial_lead', 0.0015))
                 p = tcp + correction
                 _, q = self.body_tcp(side, desired_p, desired_q)
+            elif phase.get('measured_translation'):
+                p = tcp + limit_vector(phase.get('position_gain', 1.0)*position_error, .003)
+                _, q = self.body_tcp(side, desired_p, desired_q)
             else:
                 commanded = body_p + limit_vector(position_error, 0.003)
                 p, q = self.body_tcp(side, commanded, desired_q)
+            if phase.get('preserve_grasp_orientation'):
+                q = self.grasps[side].get('tcp_orientation_at_grasp', q)
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
