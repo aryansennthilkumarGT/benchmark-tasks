@@ -82,7 +82,7 @@
           ]
         }
       ],
-      "steps": 60,
+      "steps": 2,
       "settle_steps": 0,
       "assertions": [
         {
@@ -106,7 +106,60 @@
           "kind": "valid"
         }
       ],
-      "fixture_wrench_notes": "The 2N latch press is balanced by2N upward plug support. A0.29Nm pitch couple approximately balances the compound paddle press lever, including uniform-volume COM and gravity. These explicit diagnostic fixture loads are absent from expert episodes."
+      "fixture_wrench_notes": "A 100 ms, 2 N pull and balanced latch press tests catch release before a finite cable becomes taut. The 0.20 Nm pitch couple balances the shorter paddle lever. These external loads are diagnostic fixtures only. A separate post-pull settling case tests stability after all loads are removed."
+    },
+    {
+      "name": "released_connection_settles_after_finite_pull",
+      "initialize_joints": [
+        {
+          "assembly": "plug_0_asset",
+          "joint": "latch_slide_0",
+          "value": -0.0055
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "plug_0_asset",
+          "body": "latch_0",
+          "force": [
+            0,
+            0,
+            -2
+          ]
+        },
+        {
+          "assembly": "plug_0_asset",
+          "body": "plug_0",
+          "force": [
+            0,
+            2,
+            2
+          ],
+          "torque": [
+            0.2,
+            0,
+            0
+          ]
+        }
+      ],
+      "steps": 2,
+      "settle_steps": 120,
+      "assertions": [
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "displacement",
+          "body": "plug_2",
+          "min": 0,
+          "max": 0.005
+        }
+      ],
+      "fixture_wrench_notes": "A 100 ms, 2 N pull and balanced latch press tests catch release before a finite cable becomes taut. The 0.20 Nm pitch couple balances the shorter paddle lever. These external loads are diagnostic fixtures only. A separate post-pull settling case tests stability after all loads are removed."
     },
     {
       "name": "released_catch_springs_back",

@@ -27,3 +27,5 @@ Malformed/missing/nonfinite data and nonmonotonic conflicting timestamps fail cl
 Thread credit requires aligned angular increments with corresponding axial motion inside the thread engagement region. Free spinning, direct dropping and pitch-inconsistent motion earn no turn credit. Cable continuity uses connected joint endpoints; a forced catch crossing without release invalidates the episode. These checks apply only to mechanisms present in this task.
 
 Offline tests inject synthetic states to test arithmetic and counterexamples. Native probes separately read actual simulation states and call this same scorer. No synthetic score is a demonstration result.
+
+Native release probes apply a finite 100 ms pull. A separate six-second unloaded settling probe checks finite, valid dynamics, penetration at most 2 mm and protected-link displacement at most 5 mm after that pull. Earlier three-second constant-load probes reached cable tension and produced nonfinite telemetry. Those failed reports remain diagnostic evidence. The unchanged robot controller must still demonstrate the complete withdrawal.
