@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-11T09:00:43.962876+00:00",
+  "updated_at": "2026-11-11T09:32:02.810692+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "bdceb8b35787f0a5b825f6d624de834ac4d19f60",
-      "state": "MEASURED_DRIVE_CARRY_FIX_STATIC_PASS_NATIVE_RETEST_PENDING",
+      "commit": "1cbf24cafd45fb2136972d3228e09c9181da0c86",
+      "state": "MEASURED_NATIVE_DRIVE_LIFT_83MM_ARRIVAL_BAND_FIX_STATIC_PASS_RETEST_QUEUED",
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "LID_SUPPORT_PASS_2_OF_2_FULL_EXPERT_FAILED_DRIVE_LIFT",
@@ -14,8 +14,8 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "e4e6cd6780cdb8bbf4052f6c4d0b9c60e6233087",
-      "state": "SPRING_HOLD_COMPRESSED_0_49MM_LEAD_INCREASE_NATIVE_RETEST_QUEUED",
+      "commit": "40db966fff931e04c078c3d76bc826509ce75120",
+      "state": "LOWER_TILTED_ENTRY_CANDIDATE_STATIC_PASS_NATIVE_RETEST_QUEUED",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
@@ -27,8 +27,8 @@
     },
     {
       "slug": "switch-map-rework",
-      "commit": "c306822c3b14a8accb2a628ed29572855eb58cf1",
-      "state": "MEASURED_APPROACH_ARRIVAL_FIX_STATIC_PASS_NATIVE_RETEST_QUEUED",
+      "commit": "9ea33a71b828417c8707db673649ca4888715627",
+      "state": "FINITE_PHYSICS_6_OF_8_PADDLE_ARRIVAL_FIX_STATIC_PASS_NATIVE_RETEST_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "FULL_SUITE_FAIL_6_PASS_2_FAIL_ALL_8_RESETS_FINITE",
       "robot_control": "APPROACH_TIMEOUT_2_OF_2",
@@ -37,17 +37,18 @@
     {
       "slug": "node-service-closeout",
       "commit": "e3e3da9472c4213c48820c2a4ccca0fcd1665254",
-      "state": "NATIVE_LIFT_26_TO_31MM_TRANSIT_ARRIVAL_FIX_RETEST_QUEUED",
+      "state": "LIFT_CONTROL_PASS_2_OF_2_FULL_EXPERT_RUNNING",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "robot_control": "LID_OPENING_PASS_2_OF_2_COOLER_REMOVAL_PENDING",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-load-telemetry-static.log"
+      "robot_control": "DEPENDENT_COOLER_LIFT_PASS_2_OF_2_CURRENT_REVISION",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-load-telemetry-static.log",
+      "control_evidence": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2/control/results.json"
     },
     {
       "slug": "twelve-cell-pack",
       "commit": "67a7acd83b7a08d3507013fa8ffc1c4eddd553ee",
-      "state": "FALSE_STALL_FIXED_MEASURED_SLOT_GATE_REVISION_STATIC_PASS_NATIVE_RETEST_PENDING",
+      "state": "SLOT_GATE_EXPERT_PASSED_FIRST_TWO_CELL_SEAT_RELEASE_SEQUENCES_THIRD_IN_PROGRESS",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
@@ -58,8 +59,8 @@
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
-      "state": "FULL_NATIVE_PHYSICS_PASS_8_OF_8_EXPERT_PENDING",
+      "commit": "85b297f8e0786fd478b9b43d116c045f921281af",
+      "state": "PRIOR_PHYSICS_PASS_8_OF_8_INTEGRAL_PLATE_CONTROL_STATIC_PASS_NATIVE_RETEST_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "PASS_8_OF_8",
       "physics_evaluated_commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
@@ -70,7 +71,7 @@
     {
       "slug": "fault-module-repair",
       "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
-      "state": "TWO_FULL_SCORE_EXPERTS_NATIVE_8_PHYSICS_4_CONTROL_DREAM_UPLOAD_PENDING",
+      "state": "PHYSICS_8_CONTROL_4_TWO_FULL_SCORE_EXPERTS_PLUS_CLEAN_HTTPS_FULL_SCORE_CREDENTIALS_PENDING",
       "physics_evaluated_commit": "ade4e41348431ed76f38fa8e7dea37ba18a85e83",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
       "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f",
@@ -96,13 +97,13 @@
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1",
-      "state": "COLLAR_TELEMETRY_STATIC_PASS_NATIVE_RETEST_QUEUED",
+      "commit": "eb6c1ba202f9a13ef4101ec2c810fb9b04aceb50",
+      "state": "PRIOR_IDENTICAL_GEOMETRY_PHYSICS_PASS_12_OF_12_CARRY_GAIN_RETEST_QUEUED",
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "native_physics": "PRIOR_D115_GEOMETRY_PASS_12_CURRENT_HANDLE_RETEST_PENDING",
-      "physics_evaluated_commit": "d1156518202d970ac8742dc3d917348121dff234",
-      "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx",
+      "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_12_OF_12",
+      "physics_evaluated_commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1",
+      "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-telemetry-native.m3a36qtj/cases/results.json",
       "robot_control": "SHORT_HANDLE_LIFT_FAILED_2_OF_2",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-load-telemetry-static.log"
     }
@@ -152,37 +153,42 @@
     "kind": "TWO_NATIVE_LANES_ON_AUTHORIZED_MISSION_HOST",
     "queue": [
       {
-        "root": "/data/robocurve-runs/resume-compat/switch-approach-arrival-control.qrjwuo0x",
+        "root": "/data/robocurve-runs/resume-compat/twelve-slot-gate-expert.3dz5hpi6",
         "status": "RUNNING",
-        "commit": "c306822c3b14a8accb2a628ed29572855eb58cf1"
+        "commit": "67a7acd83b7a08d3507013fa8ffc1c4eddd553ee"
       },
       {
-        "root": "/data/robocurve-runs/resume-compat/nut-first-robot-control.4zb7o2f5",
+        "root": "/data/robocurve-runs/resume-compat/remote-lower-entry-expert.wvi8rj3y",
         "status": "WAITING_FOR_NATIVE_LANE",
-        "commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45"
+        "commit": "40db966fff931e04c078c3d76bc826509ce75120"
       },
       {
-        "root": "/data/robocurve-runs/resume-compat/hardware-telemetry-native.m3a36qtj",
+        "root": "/data/robocurve-runs/resume-compat/chassis-carry-arrival-feasibility.z138vh21",
         "status": "WAITING_FOR_NATIVE_LANE",
-        "commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1"
+        "commit": "1cbf24cafd45fb2136972d3228e09c9181da0c86"
       },
       {
         "root": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2",
-        "status": "WAITING_FOR_NATIVE_LANE",
+        "status": "RUNNING",
         "commit": "e3e3da9472c4213c48820c2a4ccca0fcd1665254"
       },
       {
-        "root": "/data/robocurve-runs/resume-compat/remote-spring-lead-expert.ycuccagy",
-        "status": "RUNNING",
-        "commit": "e4e6cd6780cdb8bbf4052f6c4d0b9c60e6233087"
+        "root": "/data/robocurve-runs/resume-compat/switch-paddle-arrival-control.4fshwwq8",
+        "status": "WAITING_FOR_NATIVE_LANE",
+        "commit": "9ea33a71b828417c8707db673649ca4888715627"
       },
       {
-        "root": "/data/robocurve-runs/resume-compat/chassis-measured-carry-control.2cfh_7s2",
+        "root": "/data/robocurve-runs/resume-compat/nut-integral-plate-control.0d274rdf",
         "status": "WAITING_FOR_NATIVE_LANE",
-        "commit": "bdceb8b35787f0a5b825f6d624de834ac4d19f60"
+        "commit": "85b297f8e0786fd478b9b43d116c045f921281af"
+      },
+      {
+        "root": "/data/robocurve-runs/resume-compat/hardware-carry-gain-feasibility.alwh8odi",
+        "status": "WAITING_FOR_NATIVE_LANE",
+        "commit": "eb6c1ba202f9a13ef4101ec2c810fb9b04aceb50"
       }
     ],
-    "guard": "Preserve frozen branch heads while active or queued. Finalized reports and validator exits determine success. Do not terminate the instance."
+    "guard": "Freeze source heads while active or queued. Require finalized reports and rollout validator success. Instance control belongs to the user."
   },
   "submission_authorization": {
     "authorized_at": "2026-11-11T04:19:45.640549+00:00",
@@ -254,5 +260,10 @@
     "instance_control": "USER_ONLY",
     "latest_provider_price_refresh": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/current-price-refresh.json",
     "latest_conservative_estimate": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/current-planning-estimate.json"
-  }
+  },
+  "credential_presence_evidence": "/data/robocurve-runs/resume-compat/current-credential-presence.json",
+  "publication_documentation_previews": [
+    "/data/robocurve-runs/resume-compat/publication-readme-preview",
+    "/data/robocurve-runs/resume-compat/fault-publication-preview"
+  ]
 }

@@ -1,3 +1,25 @@
+## November 11 09:31 native controller milestones and recovery queue
+
+Node revision `e3e3da9` passed both dependent-cooler lift control resets, producer exit 0. The independent assertions verify 25–50 mm vertical lift, geometry validity and scoring validity. Its full expert is running at `node-lift-arrival-feasibility.m44sajw2`.
+
+Twelve-cell revision `67a7acd` passed the first two complete grasp, lift, seat, release and withdrawal sequences in its current full expert. It is handling cell 2. The 0.8-mm gate improved first-cell timing and removed the prior second-cell bottleneck. These are partial controller events. Full score remains pending. Root `twelve-slot-gate-expert.3dz5hpi6` has a 5,400-second cap and accurately labelled conservative cost planning.
+
+Hardware revision `e83f57c` passed 12/12 native physics tests, 12 resets, exit 0. Placement repeated the known lift failure, now with references and torques showing 27-mm root lateral drift before the supporting wrist reached its limit. Its redundant control repeat was stopped deliberately, exit 143; the control report remains partial and failed. Physics evidence stays independently finalized. New `eb6c1ba` applies measured carry gain 8, 20-mm lead and 0.08-rad tracking windows. Full static checks passed; native retest is queued.
+
+Chassis measured-TCP revision `bdceb8b` physically lifted the drive approximately 83 mm, reaching within 1.36 mm of its waypoint at the first timeout. Both repeats failed the narrow 1.5-mm arrival band. New `1cbf24c` uses 4-mm free-space carry arrival bands and passed full static checks. Its independent 60–110-mm native lift assertion and scoring remain the physical criteria.
+
+Eight-fastener first robot control failed the plate compression prerequisite at 3.38 mm against 12 mm, with approximately 0.083-rad pitch. Redundant prefixes were stopped deliberately, exit 143. New `85b297f` integrates measured plate joint error into the existing rate-limited reference and commands level plate orientation. The first static attempt exposed a hard-coded Motion constructor; the configured tracking limit was implemented and the full static suite then passed. Real native retesting is queued. Prior 8/8 physics evidence remains labelled with its actual `0d3f6e8` source revision.
+
+Switch `c306822` passed plug approach and grasp, then failed the paddle clearance waypoint at 2.255-mm residual against a 2-mm band. Measured convex geometry found no robot/task surface within 2 mm. Redundant prefixes were stopped deliberately, exit 143. `9ea33a7` gives those clearance approaches a 3-mm band, passed full static checks and is queued for catch-control and conditional withdrawal tests.
+
+Remote `e4e6cd6` failed spring compression at approximately 0.052 mm. A 3-mm lower entry candidate converged in measured-pose offline IK below 1 micrometre, with no robot/fixture pair within 0.6 mm and no object-pair penetration above 0.3 mm. `40db966` updates both body targets and explicit audit waypoints, passed full static checks and is queued for genuine native execution.
+
+The service-arm clean-HTTPS reproduction's three genuine H.264/yuv420p streams each decoded all 1,900 frames. Fifteen original frames across all cameras were visually inspected. Receipt `fault-https-parallel-reproduction.30j8w_bm/clean-expert-media/recording-integrity.json` records that review. Its original sealed two-expert proof remains unchanged.
+
+Exact frozen heads and the seven-root two-lane dependency queue are in `mission-checkpoint.json`. All wrappers have finite native execution caps. No workloads run on the second Brev host. Credential presence was rechecked at 09:30 UTC and both project credentials remain absent from the SDK/environment/private upload file. Secure setup commands were sent to the user. Independent native engineering continues. Actual live credit and effective invoiced total remain unverified; authenticated compute/storage quotes and conservative USD3.61/hour combined planning remain the recorded evidence. Preserve the USD30 reserve and user control of both instances.
+
+Seven public README previews now document actual installed-environment task_runner entry points and remove the original operator's private budget fields. The service-arm preview was corrected because task_runner itself uses the installed environment without the optional bootstrap's provider receipt. These documentation previews are outside frozen evaluated checkouts and require final runtime review before publication.
+
 ## November 11 09:00 controller feedback and budget refresh
 
 The service-arm clean HTTPS expert remains verified at full score. Native two-process operation on the authorized host completed without a CUDA/physics failure for that reproduction. Read its finalized `experiment.json` and original sealed feasibility evidence independently.
