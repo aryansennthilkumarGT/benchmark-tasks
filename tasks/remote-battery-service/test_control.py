@@ -70,6 +70,26 @@ class FeedbackTests(unittest.TestCase):
         self.assertLess(pe,.0015);joints=self.ready.copy();joints[index:index+6]=q;joints[index+6]=0
         for t in (0,.5,1.):frame['time']=t;c.step(joints,frame)
         self.assertEqual(c.index,0);self.assertFalse(c.grasps)
+    def test_rolled_fresh_cell_keeps_vertical_grasp_approach(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p.get('body') == 'new_cell_0' and p['kind'] == 'grasp')
+        self.assertEqual(phase['offset_frame'], 'world')
+        frame = copy.deepcopy(self.frame)
+        frame['bodies']['new_cell_0']['quat'] = axis_quat([1, 0, 0], .67).tolist()
+        frame['bodies']['new_cell_0']['pos'][1] = -.244845
+        target = np.asarray(frame['bodies']['new_cell_0']['pos']) + phase['offset']
+        joints, position_error, rotation_error = self.ik.solve(
+            target, phase['quat'], base_pos=self.station.BASES['right'],
+            iters=500, damping=.015, tol=1e-5)
+        self.assertLess(position_error, .0015)
+        self.assertLess(rotation_error, .04)
+        observed = self.ready.copy()
+        observed[7:13] = joints
+        controller = Controller({'phases': [phase]}, self.spec)
+        controller.step(observed, frame)
+        self.assertTrue(controller.grasp_closing)
+        self.assertEqual(controller.index, 0)
+
     def test_incremental_action_respects_joint_and_gripper_limits(self):
         m=Motion('left');p,r=m.ik.tcp_pose(self.ready[:6],m.base)
         action,_,_=m.target(self.ready[:7],p+[.001,0,0],m.ik.matrix_to_quat_xyzw(r),0)

@@ -186,7 +186,7 @@ class Controller:
             if phase.get('quat_relative_to_body'):q=multiply(body['quat'],q)
             # Keep the jaws open until the measured TCP reaches the grasp. Closing
             # during descent would arrive with empty, closed fingers.
-            aligned=np.linalg.norm(tcp-p)<0.0015 and qangle(tcpq,q)<0.04
+            aligned=np.linalg.norm(tcp-p)<phase.get('approach_tolerance', .0015) and qangle(tcpq,q)<0.04
             if aligned:self.grasp_closing=True
             approach_width=phase.get('approach_width',phase['width'][1]+0.012)
             targets[side]=(p,q,0.0 if self.grasp_closing else min(1.0,approach_width/0.0939),0.025)
