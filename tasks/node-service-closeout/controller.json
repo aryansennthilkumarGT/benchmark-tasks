@@ -257,13 +257,14 @@
       },
       "timeout": 30,
       "measured_translation": true,
-      "integrate_body_error": true,
-      "position_gain": 0.1,
-      "translation_lead": 0.0005,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
       "measured_rotation": true,
       "rotation_gain": 1,
       "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_about_body": true,
+      "feedback_gain": 2
     },
     {
       "kind": "release",
@@ -348,7 +349,12 @@
           1
         ]
       },
-      "timeout": 30
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -371,7 +377,8 @@
       "verify_lift": true,
       "measured_translation": true,
       "position_gain": 8,
-      "translation_lead": 0.025
+      "translation_lead": 0.025,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -394,7 +401,8 @@
       "timeout": 35,
       "measured_translation": true,
       "position_gain": 8,
-      "translation_lead": 0.025
+      "translation_lead": 0.025,
+      "feedback_gain": 2
     },
     {
       "kind": "insert",
@@ -414,7 +422,12 @@
           1
         ]
       },
-      "timeout": 30
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "feedback_gain": 2
     },
     {
       "kind": "release",
@@ -502,7 +515,8 @@
       "verify_lift": true,
       "measured_translation": true,
       "position_gain": 8,
-      "translation_lead": 0.025
+      "translation_lead": 0.025,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -524,7 +538,8 @@
       },
       "measured_translation": true,
       "position_gain": 8,
-      "translation_lead": 0.025
+      "translation_lead": 0.025,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -546,7 +561,8 @@
       },
       "measured_translation": true,
       "position_gain": 8,
-      "translation_lead": 0.025
+      "translation_lead": 0.025,
+      "feedback_gain": 2
     },
     {
       "kind": "insert",
@@ -566,7 +582,12 @@
           1
         ]
       },
-      "timeout": 35
+      "timeout": 35,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "feedback_gain": 2
     },
     {
       "kind": "release",
@@ -788,13 +809,14 @@
       },
       "timeout": 30,
       "measured_translation": true,
-      "integrate_body_error": true,
-      "position_gain": 0.1,
-      "translation_lead": 0.0005,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
       "measured_rotation": true,
       "rotation_gain": 1,
       "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_about_body": true,
+      "feedback_gain": 2
     },
     {
       "kind": "release",
