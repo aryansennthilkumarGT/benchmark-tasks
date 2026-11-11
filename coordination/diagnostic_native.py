@@ -54,6 +54,8 @@ def main():
     parser.add_argument('--case', action='append', default=[])
     parser.add_argument('--render-every', type=int, choices=(1, 4), default=4)
     parser.add_argument('--expected-physics-hz', type=int, choices=(240, 480), default=240)
+    parser.add_argument('--contact-pairs', action='store_true',
+                        help='Record actual robot and task-body native contact forces every five controls')
     parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.render_every < 1:
@@ -88,6 +90,7 @@ def main():
     original_step = YamArenaEmbodiment.step
     control_steps = 0
     controller_state = {}
+    contacts = None
     traced_controller_classes = set()
 
     def trace_controller_class(controller_class):
@@ -117,7 +120,7 @@ def main():
         return counts
 
     def reset_with_diagnostic_rendering(embodiment, *reset_args, **reset_kwargs):
-        nonlocal control_steps
+        nonlocal control_steps, contacts
         atomic(receipt, metadata)
         observation = original_reset(embodiment, *reset_args, **reset_kwargs)
         if args.mode == 'control':
@@ -136,6 +139,9 @@ def main():
         for name in DEFAULT_CAMERAS:
             base.scene[name].cfg.update_period = control_dt * args.render_every
         control_steps = 0
+        if args.contact_pairs:
+            from replay_native import native_contact_view
+            contacts = native_contact_view(include_task_sensors=True)
         metadata['resets'].append({
             'initial_robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
             'physics_dt_s': physics_dt,
@@ -168,6 +174,15 @@ def main():
                     'submitted_action': submitted_action,
                     'measured_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
                 }, allow_nan=False) + '\n')
+        if args.contact_pairs and control_steps % 5 == 0:
+            from replay_native import measured_contacts
+            view, sensors, filters = contacts
+            record = dict(reset_index=len(metadata['resets'])-1, control_step=control_steps,
+                          time=float(embodiment._t), physics_dt=float(embodiment._env.unwrapped.cfg.sim.dt),
+                          contacts_N=measured_contacts(view, sensors, filters,
+                                                      float(embodiment._env.unwrapped.cfg.sim.dt)))
+            with (args.output/'native-contacts.jsonl').open('a') as stream:
+                stream.write(json.dumps(record, allow_nan=False)+'\n')
         if control_steps % 20 == 0:
             record = metadata['resets'][-1]
             current = camera_frames(embodiment._env.unwrapped)

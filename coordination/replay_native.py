@@ -14,6 +14,52 @@ import numpy as np
 from engine import atomic
 
 
+def native_contact_view(include_task_sensors=False):
+    from isaaclab.sim.utils.stage import get_current_stage
+    from isaaclab_physx.physics import PhysxManager
+    from pxr import PhysxSchema, UsdPhysics
+
+    sensor_paths, filter_paths = [], []
+    for prim in get_current_stage().Traverse():
+        path = str(prim.GetPath())
+        if prim.HasAPI(UsdPhysics.RigidBodyAPI):
+            filter_paths.append(path)
+            if include_task_sensors or 'RightArm' in path or 'LeftArm' in path:
+                PhysxSchema.PhysxContactReportAPI.Apply(prim).CreateThresholdAttr().Set(0.)
+                sensor_paths.append(path)
+        elif prim.HasAPI(UsdPhysics.CollisionAPI):
+            ancestor = prim.GetParent()
+            while ancestor and not ancestor.IsPseudoRoot() and not ancestor.HasAPI(UsdPhysics.RigidBodyAPI):
+                ancestor = ancestor.GetParent()
+            if not ancestor or ancestor.IsPseudoRoot():
+                filter_paths.append(path)
+    view = PhysxManager.get_physics_sim_view().create_rigid_contact_view(
+        sensor_paths, filter_patterns=[filter_paths for _ in sensor_paths], max_contact_data_count=8192)
+    return view, sensor_paths, filter_paths
+
+
+def measured_contacts(view, sensor_paths, filter_paths, physics_dt):
+    matrix = view.get_contact_force_matrix(dt=physics_dt).numpy()
+    if matrix.shape != (len(sensor_paths), len(filter_paths), 3):
+        raise ValueError('Native contact force dimensions differ from the configured bodies')
+    return [{'sensor': sensor, 'other': path, 'force_N': force.tolist()}
+            for sensor, forces in zip(sensor_paths, matrix)
+            for path, force in zip(filter_paths, forces) if np.linalg.norm(force) > .01]
+
+
+def controller_snapshot(controller, observation, frame):
+    def array_data(value):
+        if isinstance(value, (np.ndarray, np.generic)):
+            return value.tolist()
+        raise TypeError(f'Unsupported diagnostic state {type(value).__name__}')
+
+    data = dict(phase_index=controller.index, thread_state=controller.thread,
+                grasp_transforms=controller.grasps,
+                motion_references={side: motion.reference for side, motion in controller.motion.items()},
+                joint_pos=np.asarray(observation.state['joint_pos']), frame=frame)
+    return json.loads(json.dumps(data, default=array_data, allow_nan=False))
+
+
 def control_recorded_prefix(folder, source, label):
     sys.path.insert(0, str(folder))
     from feedback import Controller
@@ -126,7 +172,7 @@ def recorded_prefix(folder, source, label):
     }
 
 
-def initialize_fixture(embodiment, specification, frame, joints):
+def initialize_fixture(embodiment, specification, frame, joints, free_articulation_roots=False):
     from yam_arena.constants import ARM_JOINTS, FINGER_JOINTS, FINGER_OPEN
 
     base = embodiment._env.unwrapped
@@ -134,9 +180,13 @@ def initialize_fixture(embodiment, specification, frame, joints):
     for assembly in specification['assemblies']:
         asset = base.scene[assembly['name']]
         if not assembly.get('fixed'):
-            if len(assembly['bodies']) != 1:
-                raise ValueError('Free articulated replay roots require a dedicated fixture')
-            pose = frame['bodies'][assembly['bodies'][0]['name']]
+            if len(assembly['bodies']) != 1 and not free_articulation_roots:
+                raise ValueError('Free articulated replay roots require explicit fixture authorization')
+            children = {joint['child'] for joint in assembly.get('joints', [])}
+            roots = [body for body in assembly['bodies'] if body['name'] not in children]
+            if len(roots) != 1:
+                raise ValueError('Replay assembly must have exactly one rigid root')
+            pose = frame['bodies'][roots[0]['name']]
             value = torch.tensor([[*pose['pos'], *pose['quat']]], dtype=torch.float32,
                                  device=base.device)
             asset.write_root_pose_to_sim_index(root_pose=value)
@@ -166,6 +216,8 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--max-steps', type=int, default=1200)
     parser.add_argument('--contact-pairs', action='store_true')
+    parser.add_argument('--free-articulation-roots', action='store_true',
+                        help='Explicitly initialize a recorded free articulated root for diagnostics')
     parser.add_argument('--snapshot', type=Path)
     parser.add_argument('--hold-steps', type=int, default=60)
     parser.add_argument('--worker', action='store_true')
@@ -188,9 +240,13 @@ def main():
     report = {'kind': 'NATIVE_REPLAY_DIAGNOSTIC_NOT_DEMONSTRATION', 'status': 'RUNNING',
               'commit': args.commit, 'source_run': str(args.source_run),
               'fixture_initialization': 'Recorded poses and joints, zero velocities, one-second motor hold.',
-              'demonstration_credit': False, 'scorer_history_restored': False}
+              'demonstration_credit': False, 'scorer_history_restored': False,
+              'free_articulation_roots_authorized': args.free_articulation_roots}
     atomic(args.output / 'results.json', report)
     embodiment = None
+    controller = None
+    observation = None
+    runtime = None
     try:
         actual = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=args.folder, text=True).strip()
         if actual != args.commit:
@@ -242,34 +298,23 @@ def main():
         base.cfg.sim.render_interval = base.cfg.decimation * 4
         for name in DEFAULT_CAMERAS:
             base.scene[name].cfg.update_period = .2
-        initialize_fixture(embodiment, specification, frame, joints)
+        initialize_fixture(embodiment, specification, frame, joints, args.free_articulation_roots)
         for _ in range(20):
             observation = embodiment.step(Action(data=previous)).observation
+        atomic(args.output / 'replay-initialized-state.json', {
+            'requested_frame': frame,
+            'actual_after_one_second_hold': runtime.LATEST,
+            'actual_robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
+            'free_articulation_roots_authorized': args.free_articulation_roots,
+        })
+        if controller is not None:
+            atomic(args.output / 'controller-state-before-actions.json',
+                   controller_snapshot(controller, observation, runtime.LATEST))
         contact_view = None
         sensor_paths = []
         filter_paths = []
         if args.contact_pairs:
-            from isaaclab.sim.utils.stage import get_current_stage
-            from isaaclab_physx.physics import PhysxManager
-            from pxr import PhysxSchema, UsdPhysics
-
-            stage = get_current_stage()
-            for prim in stage.Traverse():
-                path = str(prim.GetPath())
-                if prim.HasAPI(UsdPhysics.RigidBodyAPI):
-                    filter_paths.append(path)
-                    if 'RightArm' in path or 'LeftArm' in path:
-                        PhysxSchema.PhysxContactReportAPI.Apply(prim).CreateThresholdAttr().Set(0.)
-                        sensor_paths.append(path)
-                elif prim.HasAPI(UsdPhysics.CollisionAPI):
-                    ancestor = prim.GetParent()
-                    while ancestor and not ancestor.IsPseudoRoot() and not ancestor.HasAPI(UsdPhysics.RigidBodyAPI):
-                        ancestor = ancestor.GetParent()
-                    if not ancestor or ancestor.IsPseudoRoot():
-                        filter_paths.append(path)
-            contact_view = PhysxManager.get_physics_sim_view().create_rigid_contact_view(
-                sensor_paths, filter_patterns=[filter_paths for _ in sensor_paths],
-                max_contact_data_count=8192)
+            contact_view, sensor_paths, filter_paths = native_contact_view()
             report['native_contact_sensor_count'] = len(sensor_paths)
             atomic(args.output / 'results.json', report)
         with (args.output / 'native-actions.jsonl').open('w') as stream:
@@ -282,11 +327,8 @@ def main():
                           'action': np.asarray(action).tolist(), 'frame': runtime.LATEST,
                           'joint_pos': np.asarray(observation.state['joint_pos']).tolist()}
                 if contact_view is not None and step % 5 == 0:
-                    matrix = contact_view.get_contact_force_matrix(dt=float(base.cfg.sim.dt)).numpy()
-                    sample['measured_native_contacts_N'] = [
-                        {'sensor': sensor, 'other': path, 'force_N': force.tolist()}
-                        for sensor, forces in zip(sensor_paths, matrix)
-                        for path, force in zip(filter_paths, forces) if np.linalg.norm(force) > .01]
+                    sample['measured_native_contacts_N'] = measured_contacts(
+                        contact_view, sensor_paths, filter_paths, float(base.cfg.sim.dt))
                 stream.write(json.dumps(sample, allow_nan=False) + '\n')
                 stream.flush()
                 completed = (step+1 >= args.hold_steps if args.snapshot else controller.index > through)
@@ -300,6 +342,12 @@ def main():
         atomic(args.output / 'results.json', report)
     except Exception as exc:
         report.update(status='FAIL', error=f'{type(exc).__name__}: {exc}')
+        if controller is not None and observation is not None and runtime is not None:
+            try:
+                atomic(args.output / 'controller-failure-state.json',
+                       controller_snapshot(controller, observation, runtime.LATEST))
+            except (TypeError, ValueError) as capture_error:
+                report['failure_state_capture_error'] = str(capture_error)
         atomic(args.output / 'results.json', report)
         raise
     finally:
