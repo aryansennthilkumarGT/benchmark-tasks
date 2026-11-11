@@ -174,6 +174,25 @@ class FeedbackTests(unittest.TestCase):
         with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
             controller.step(self.ready, frame)
 
+    def test_submillimetre_lateral_alignment_counts_as_progress(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['drive']['pos'])
+        phase = dict(kind='insert', body='drive', insertion_axis_world=[1, 0, 0],
+                     lateral_tolerance=[.001, .0006, .001],
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time, lateral in ((0., .0009), (1.5, .0008), (3., .0007)):
+            frame['time'] = time
+            frame['bodies']['drive']['pos'] = (goal + [.1, lateral, 0]).tolist()
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.last_progress_t, 3.)
+        frame['time'] = 5.1
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
     def test_pose_feedback_integrates_measured_error_and_retains_reference_bias(self):
         motion = Motion('left')
         reference = self.ready[:6].copy()

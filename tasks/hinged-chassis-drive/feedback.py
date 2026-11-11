@@ -217,6 +217,7 @@ class Controller:
             error = float(np.linalg.norm(body_p - desired_p))
             orientation_error = qangle(body_q, desired_q)
             progress_error = error
+            progress_margin = .0003
             if phase.get('measured_translation'):
                 p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
                                        phase.get('translation_lead', .003))
@@ -240,6 +241,7 @@ class Controller:
                     correction += limit_vector(axial, phase.get('axial_lead', .002))
                 p = tcp + correction
                 progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral)])
+                progress_margin = np.array([.0003, min(float(np.min(tolerance)), .001) * .1])
             if phase.get('measured_rotation'):
                 rotation_error = multiply(desired_q, conjugate(body_q))
                 amount = min(phase.get('rotation_gain', 1.),
@@ -262,7 +264,7 @@ class Controller:
                 if self.last_progress is None:
                     self.last_progress = progress_error
                     self.last_progress_t = now
-                if np.any(progress_error < self.last_progress - .0003):
+                if np.any(progress_error < self.last_progress - progress_margin):
                     self.last_progress = np.minimum(self.last_progress, progress_error)
                     self.last_progress_t = now
                 elif now-self.last_progress_t>2.0 and not complete:
