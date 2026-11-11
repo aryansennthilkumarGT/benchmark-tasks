@@ -26,3 +26,6 @@ A 24 by 44 by 4 mm lid pad sits above the cooler handle with 2 mm nominal cleara
 
 
 A second 24 by 64 by 13 mm pad spans the far cooler fins with 3 mm nominal clearance. The two pads restrict upward translation and pitching of a seated cooler.
+
+
+Both storage sleds have a connected raised pull grip centred90 mm forward and35 mm above the sled origin. The grip is14 by28 by20 mm. A45 by18 by12 mm horizontal neck and14 by18 by35 mm upright connect it to the sled. This clears the measured angled gripper/floor interference. The taller grips require fresh dependent-removal, lid-clearance, scoring and robot-control validation.

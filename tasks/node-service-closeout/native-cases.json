@@ -165,6 +165,42 @@
           "kind": "valid"
         }
       ]
+    },
+    {
+      "name": "storage_extraction_after_dependent_cooler_removal",
+      "through_phase": 15,
+      "through_label": "Withdraw storage through guide mouths",
+      "max_steps": 2400,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0.76,
+          "max": 0.8
+        },
+        {
+          "kind": "goal",
+          "name": "old_cooler_collected",
+          "completed": true
+        },
+        {
+          "kind": "pose",
+          "body": "old_storage",
+          "pos": [
+            0.16,
+            0,
+            0.7655
+          ],
+          "tolerance": 0.0025
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
     }
   ]
 }
