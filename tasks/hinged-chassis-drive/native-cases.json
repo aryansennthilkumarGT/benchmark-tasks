@@ -1,6 +1,55 @@
 {
   "physics": [
     {
+      "name": "seated_drive_bar_and_closed_lid_hold_full_score",
+      "initialize_bodies": [
+        {
+          "assembly": "drive_asset",
+          "pos": [
+            0.3,
+            0,
+            0.7655
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "retainer_asset",
+          "pos": [
+            0.235,
+            0,
+            0.7725
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "steps": 160,
+      "assertions": [
+        {
+          "kind": "score",
+          "min": 1.0,
+          "max": 1.0,
+          "success": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
       "name": "gravity_lid_returns_to_stop",
       "initialize_joints": [
         {

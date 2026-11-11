@@ -67,3 +67,6 @@ The horizontal guide waypoint is z=0.764 m. The floor top is0.7555 m and the dri
 
 
 The insertion gate projects the actual rotated110 by74 by16mm core into world y. Its centre offset plus projected half-width must fit within the38mm inner half-width with0.1mm margin. This couples yaw and lateral alignment. The0.03rad attitude bound and1.5mm vertical gate keep the flanges below the770.5mm underpass. Fresh native insertion tests must verify the resulting controller.
+
+
+The loaded right-arm reference window is0.16rad. Its maximum reference increment is0.02rad per action. A10N·m/rad wrist stiffness produces a1.6N·m proportional component at the window threshold, within the7N·m native wrist effort limit. The earlier0.08rad window approached saturation while the actual carrier stayed tilted against the floor. Native insertion and command/proprioception traces must verify load compensation.
