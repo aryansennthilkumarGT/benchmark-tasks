@@ -149,6 +149,12 @@ class FeedbackTests(unittest.TestCase):
         controller = self.controller(dict(kind='hold', seconds=1))
         self.assertEqual(controller.motion['right'].tracking_error_limit, .08)
 
+    def test_thread_plan_compensates_loaded_joint_tracking_error(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        threads = [phase for phase in plan['phases'] if phase['kind'] == 'thread']
+        self.assertTrue(threads)
+        self.assertTrue(all(phase['feedback_gain'] == 2 for phase in threads))
+
     def test_thread_unwind_recentres_before_closing(self):
         plan = json.loads((self.folder/'controller.json').read_text())
         phase = next(value for value in plan['phases'] if value['kind'] == 'thread')
