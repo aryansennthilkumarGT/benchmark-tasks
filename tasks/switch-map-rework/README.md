@@ -39,7 +39,7 @@ Native probes: 4 physics cases and 2 real robot-control cases, each repeated aft
 
 ## Implementation and limits
 
-Each cable is a continuous 22-segment rigid chain with passive bend/twist joints. Collision-defined catches use enlarged service paddles for parallel jaws, not exact RJ45 clips. Joint continuity and contact-defined seating proxy link continuity; packet transmission and microscopic elasticity are omitted.
+Each cable is a continuous 22-segment rigid chain with two-axis passive universal bends and a three-axis terminal gimbal. Distributed independent twist is locked in this approximation. Collision-defined catches use enlarged service paddles for parallel jaws, not exact RJ45 clips. Joint continuity and contact-defined seating proxy link continuity; packet transmission and microscopic elasticity are omitted.
 
 Read [CONTROLLER.md](CONTROLLER.md), [NOVELTY.md](NOVELTY.md), and `mechanics-review.json` for the feedback strategy, comparison review and five criteria. Rigid USD parse checks, synthetic scoring tests and ideal IK replay are offline evidence only. Native contacts, camera rendering, reliable reset and complete action execution require separate runtime evidence.
 
