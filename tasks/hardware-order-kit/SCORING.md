@@ -32,3 +32,5 @@ Offline tests inject synthetic states to test arithmetic and counterexamples. Na
 The one-microradian positive hinge margin covers the measured closed-stop residual of about 7.6e-10 radians. The opening bound remains -0.025 radians.
 
 Radial fit and axial registration are measured independently around the shaft. The former combined sphere mixed the two and rejected a1.376mm radial fit with0.599mm axial offset. Each placement bound remains1.5mm. Orientation and key-retention predicates retain their existing values.
+
+Stability is measured from consecutive 20 Hz full-body poses. Translational speed must remain at most 0.01 m/s and angular speed at most 0.2 rad/s for the existing two-second final hold. Missing or widely separated observations use raw simulator velocities and cannot establish an unobserved hold. Raw native velocities remain in the evidence. This definition follows observable pose motion after contact solver velocity noise interrupted holds while poses remained stationary. Fresh native validation is required.

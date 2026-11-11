@@ -93,6 +93,7 @@ class Scorer:
     def reset(self):
         self.last_time = None
         self.last_frame = None
+        self.previous_observation = None
         self.failed = None
         self.hold_start = None
         self.first = {}
@@ -130,6 +131,19 @@ class Scorer:
                 return f'unnormalized_quaternion:{name}'
         return None
 
+    def observed_motion(self, name, frame):
+        """Rates measurable from adjacent control-rate poses, with raw fallback."""
+        previous = self.previous_observation
+        if previous is not None:
+            elapsed = frame['time'] - previous['time']
+            if 0 < elapsed <= 1.5 / self.spec['control_hz']:
+                before = previous['bodies'][name]
+                body = frame['bodies'][name]
+                return (norm(sub(body['pos'], before['pos'])) / elapsed,
+                        angle(body['quat'], before['quat']) / elapsed)
+        body = frame['bodies'][name]
+        return norm(body['linear']), norm(body['angular'])
+
     def predicate(self, p, f):
         kind = p['kind']
         if kind == 'turns':
@@ -162,7 +176,8 @@ class Scorer:
             return all(all(lo-1e-10 <= v <= hi+1e-10 for v, lo, hi in zip(c, p['min'], p['max']))
                        for c in corners)
         if kind == 'still':
-            return norm(b['linear']) <= p.get('speed', 0.01) and norm(b['angular']) <= p.get('spin', 0.2)
+            speed, spin = self.observed_motion(p['body'], f)
+            return speed <= p.get('speed', 0.01) and spin <= p.get('spin', 0.2)
         raise ValueError(f'unsupported predicate {kind}')
 
     def update(self, frame):
@@ -180,6 +195,7 @@ class Scorer:
         if self.last_time is not None and now - self.last_time > 1.5 / self.spec['control_hz']:
             self.hold_start = None  # an unobserved time gap cannot prove stability.
         previous_frame=self.last_frame
+        self.previous_observation = previous_frame
         import copy
         self.last_time, self.last_frame = now, copy.deepcopy(frame)
         for name, bs in self.body_specs.items():
@@ -265,8 +281,9 @@ class Scorer:
         self.lost.update(self.previous - active)
         self.previous = active
         all_done = len(active) == len(self.spec['goals']) and frame['robot_clearance'] >= 0.02
-        all_still = all(norm(b['linear']) <= 0.01 and norm(b['angular']) <= 0.2
-                        for b in frame['bodies'].values())
+        all_still = all(speed <= 0.01 and spin <= 0.2
+                        for speed, spin in (self.observed_motion(name, frame)
+                                            for name in frame['bodies']))
         if all_done and all_still and not self.failed:
             if self.hold_start is None:
                 self.hold_start = now

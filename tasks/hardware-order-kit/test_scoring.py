@@ -194,7 +194,12 @@ class SemanticTests(unittest.TestCase):
         self.assertEqual(r.simulated_seconds,0.);self.assertEqual(self.sc.last_frame['time'],0.)
     def test_motion_blocks_full_score(self):
         f=target_frame();name=next(b['name'] for a in SPEC['assemblies'] for b in a['bodies'] if not b['anchor'])
-        f['bodies'][name]['linear']=[.011,0,0];r,_=finish(self.sc,f);self.assertFalse(r.success)
+        start = f['bodies'][name]['pos'][0]
+        for step in range(61):
+            f['time'] = step / SPEC['control_hz']
+            f['bodies'][name]['pos'][0] = start + .00055 * (step % 2)
+            result = self.sc.update(f)
+            self.assertFalse(result.success)
     def test_fixture_displacement_rejected(self):
         anchors=[b for a in SPEC['assemblies'] for b in a['bodies'] if b['anchor']]
         if not anchors:
@@ -343,3 +348,39 @@ class SemanticTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class ObservedMotionTests(unittest.TestCase):
+    def test_stationary_poses_have_zero_observed_motion_despite_solver_velocity(self):
+        scorer = S.Scorer(SPEC)
+        frame = initial()
+        scorer.update(frame)
+        next_frame = copy.deepcopy(frame)
+        next_frame['time'] = .05
+        name = next(iter(frame['bodies']))
+        next_frame['bodies'][name]['angular'] = [1., 0., 0.]
+        scorer.previous_observation = frame
+        self.assertEqual(scorer.observed_motion(name, next_frame), (0., 0.))
+
+    def test_observed_displacement_and_rotation_remain_disqualifying(self):
+        scorer = S.Scorer(SPEC)
+        frame = initial()
+        name = next(iter(frame['bodies']))
+        next_frame = copy.deepcopy(frame)
+        next_frame['time'] = .05
+        next_frame['bodies'][name]['pos'][0] += .001
+        next_frame['bodies'][name]['quat'] = [0., 0., math.sin(.01), math.cos(.01)]
+        scorer.previous_observation = frame
+        speed, spin = scorer.observed_motion(name, next_frame)
+        self.assertGreater(speed, .01)
+        self.assertGreater(spin, .2)
+
+    def test_unobserved_gap_uses_raw_rates(self):
+        scorer = S.Scorer(SPEC)
+        frame = initial()
+        name = next(iter(frame['bodies']))
+        next_frame = copy.deepcopy(frame)
+        next_frame['time'] = .1
+        next_frame['bodies'][name]['angular'] = [1., 0., 0.]
+        scorer.previous_observation = frame
+        self.assertEqual(scorer.observed_motion(name, next_frame), (0., 1.))
