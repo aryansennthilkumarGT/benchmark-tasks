@@ -215,6 +215,30 @@ class SemanticTests(unittest.TestCase):
         name=next(iter(initial()['bodies']));f=initial()
         p=dict(kind='region',body=name,min=f['bodies'][name]['pos'].copy(),max=[v+.001 for v in f['bodies'][name]['pos']])
         self.assertFalse(self.sc.predicate(p,f))
+    def test_tilted_compound_region_uses_actual_shape_union(self):
+        frame = initial()
+        body = frame['bodies']['old_cooler']
+        body['quat'] = [0, math.sin(.15/2), 0, math.cos(.15/2)]
+        spec = self.sc.body_specs['old_cooler']
+        vertices = []
+        for shape in spec['shapes']:
+            for x in (-shape['size'][0]/2, shape['size'][0]/2):
+                for y in (-shape['size'][1]/2, shape['size'][1]/2):
+                    for z in (-shape['size'][2]/2, shape['size'][2]/2):
+                        local = S.add(shape['pos'], S.rotate(shape['quat'], (x, y, z)))
+                        vertices.append(S.add(body['pos'], S.rotate(body['quat'], local)))
+        low = [min(v[axis] for v in vertices)-1e-6 for axis in range(3)]
+        high = [max(v[axis] for v in vertices)+1e-6 for axis in range(3)]
+        predicate = dict(kind='region', body='old_cooler', min=low, max=high)
+        self.assertTrue(self.sc.predicate(predicate, frame))
+        phantom_bottom = min(S.add(body['pos'], S.rotate(body['quat'], (x, y, z)))[2]
+                             for x in (spec['bounds_min'][0], spec['bounds_max'][0])
+                             for y in (spec['bounds_min'][1], spec['bounds_max'][1])
+                             for z in (spec['bounds_min'][2], spec['bounds_max'][2]))
+        self.assertLess(phantom_bottom, low[2]-.01)
+        body['pos'][1] += .002
+        self.assertFalse(self.sc.predicate(predicate, frame))
+
     def test_distractors_cannot_be_kit_contents(self):
         if not SPEC.get('forbidden_regions'):self.skipTest('No kit distractors in this scene')
         for forbidden in SPEC.get('forbidden_regions',[]):

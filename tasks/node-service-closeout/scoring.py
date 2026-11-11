@@ -142,14 +142,25 @@ class Scorer:
             actual = rotate(quat, p.get('local_axis', [0, 0, 1]))
             return sum(a*b for a, b in zip(actual, p['direction'])) >= math.cos(p['angle'])-1e-10
         if kind == 'region':
-            # Entire oriented collision bound, not only the centre, must fit.
-            bs = self.body_specs[p['body']]
-            corners = [add(pos, rotate(quat, (x,y,z)))
-                       for x in (bs['bounds_min'][0],bs['bounds_max'][0])
-                       for y in (bs['bounds_min'][1],bs['bounds_max'][1])
-                       for z in (bs['bounds_min'][2],bs['bounds_max'][2])]
-            return all(all(lo-1e-10 <= v <= hi+1e-10 for v, lo, hi in zip(c, p['min'], p['max']))
-                       for c in corners)
+            # Containment applies to every physical box in the compound body.
+            shapes = [shape for shape in self.body_specs[p['body']]['shapes']
+                      if shape.get('collision', True)]
+            if not shapes:
+                raise ValueError('Region body has no collision shapes')
+            for shape in shapes:
+                if shape['kind'] != 'box':
+                    raise ValueError('Region containment requires a supported collision primitive')
+                center = add(pos, rotate(quat, shape['pos']))
+                orientation = multiply(quat, shape.get('quat', [0, 0, 0, 1]))
+                corners = [add(center, rotate(orientation, (x, y, z)))
+                           for x in (-shape['size'][0]/2, shape['size'][0]/2)
+                           for y in (-shape['size'][1]/2, shape['size'][1]/2)
+                           for z in (-shape['size'][2]/2, shape['size'][2]/2)]
+                if any(any(v < lo-1e-10 or v > hi+1e-10
+                           for v, lo, hi in zip(corner, p['min'], p['max']))
+                       for corner in corners):
+                    return False
+            return True
         if kind == 'still':
             return norm(b['linear']) <= p.get('speed', 0.01) and norm(b['angular']) <= p.get('spin', 0.2)
         raise ValueError(f'unsupported predicate {kind}')
