@@ -217,7 +217,7 @@ class Controller:
             error = float(np.linalg.norm(body_p - desired_p))
             orientation_error = qangle(body_q, desired_q)
             progress_error = error
-            if kind == 'carry' and phase.get('measured_translation'):
+            if phase.get('measured_translation'):
                 p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
                                        phase.get('translation_lead', .003))
             if kind == 'insert' and 'insertion_axis_world' in phase:

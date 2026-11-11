@@ -117,7 +117,8 @@
       "measured_translation": true,
       "position_gain": 8,
       "translation_lead": 0.02,
-      "tolerance": 0.004
+      "tolerance": 0.004,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -141,7 +142,8 @@
       "measured_translation": true,
       "position_gain": 8,
       "translation_lead": 0.02,
-      "tolerance": 0.004
+      "tolerance": 0.004,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -164,7 +166,8 @@
       "measured_translation": true,
       "position_gain": 8,
       "translation_lead": 0.02,
-      "tolerance": 0.004
+      "tolerance": 0.004,
+      "feedback_gain": 2
     },
     {
       "kind": "insert",
@@ -288,7 +291,11 @@
           1
         ]
       },
-      "verify_lift": true
+      "verify_lift": true,
+      "measured_translation": true,
+      "position_gain": 3,
+      "translation_lead": 0.02,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -307,7 +314,11 @@
           0,
           1
         ]
-      }
+      },
+      "measured_translation": true,
+      "position_gain": 3,
+      "translation_lead": 0.02,
+      "feedback_gain": 2
     },
     {
       "kind": "insert",
@@ -327,7 +338,24 @@
           1
         ]
       },
-      "timeout": 20
+      "timeout": 20,
+      "insertion_axis_world": [
+        0,
+        0,
+        1
+      ],
+      "lateral_gain": 3,
+      "lateral_lead": 0.005,
+      "lateral_tolerance": [
+        0.0005,
+        0.002,
+        0.001
+      ],
+      "axial_lead": 0.005,
+      "feedback_gain": 2,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04
     },
     {
       "kind": "release",
