@@ -116,7 +116,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={'left': Motion('left'), 'right': Motion('right', tracking_error_limit=0.10)}
+        self.motion={'left': Motion('left'), 'right': Motion('right', tracking_error_limit=0.20)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
