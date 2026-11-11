@@ -164,16 +164,43 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
-    def test_free_end_lowering_combines_axial_integration_and_lateral_support(self):
+    def test_free_end_lowering_preserves_each_declared_reference_strategy(self):
         plan = json.loads((self.folder/'controller.json').read_text())
-        phases = [phase for phase in plan['phases']
-                  if phase['label'].startswith('Lower the free end')]
-        self.assertEqual(len(phases), 2)
-        for phase in phases:
-            self.assertTrue(phase['integrate_axial_error'])
-            self.assertEqual(phase['lateral_gain'], 8)
-            self.assertEqual(phase['lateral_lead'], .008)
+        first, second = [phase for phase in plan['phases']
+                         if phase['label'].startswith('Lower the free end')]
+        self.assertTrue(first['integrate_axial_error'])
+        self.assertEqual(first['lateral_gain'], 8)
+        self.assertEqual(first['lateral_lead'], .008)
+        self.assertFalse(second['integrate_axial_error'])
+        self.assertEqual(second['feedback_gain'], 2)
+        self.assertEqual(second['lateral_gain'], 2)
+        self.assertEqual(second['lateral_lead'], .0015)
+        for phase in (first, second):
             self.assertEqual(phase['lateral_tolerance'], .0008)
+
+    def test_second_free_end_uses_one_measured_reference_loop(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p['label'] == 'Lower the free end of new_cell_1')
+        phase = {k: v for k, v in phase.items() if k not in ('side', 'label')}
+        controller = self.controller(phase)
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['new_cell_1']
+        body['pos'] = [.2902434, .0335, .7640169]
+        body['quat'] = list(phase['target']['quat'])
+        controller.grasps['left'] = dict(body='new_cell_1', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        reference = self.ready[:6].copy()
+        reference[1] += .02
+        controller.motion['left'].reference = reference
+        tcp, _ = controller.pose(self.ready[:7], 'left')
+        captured = []
+        def capture(joints, position, *args, **kwargs):
+            captured.append((np.asarray(position), kwargs['feedback_gain']))
+            return np.asarray(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, frame)
+        self.assertAlmostEqual(captured[0][0][2], tcp[2]-.001)
+        self.assertEqual(captured[0][1], 2)
 
     def test_axial_insertion_preserves_reference_load_bias(self):
         frame = copy.deepcopy(self.frame)

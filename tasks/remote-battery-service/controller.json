@@ -913,9 +913,9 @@
         ]
       },
       "timeout": 35,
-      "axial_lead": 0.0005,
-      "lateral_gain": 8,
-      "lateral_lead": 0.008,
+      "axial_lead": 0.001,
+      "lateral_gain": 2,
+      "lateral_lead": 0.0015,
       "orientation_axis": [
         1,
         0,
@@ -923,8 +923,9 @@
       ],
       "preserve_grasp_orientation": true,
       "lateral_tolerance": 0.0008,
-      "integrate_axial_error": true,
-      "axial_gain": 0.1
+      "integrate_axial_error": false,
+      "axial_gain": 1.0,
+      "feedback_gain": 2
     },
     {
       "kind": "carry",
