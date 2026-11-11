@@ -116,7 +116,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={'left': Motion('left'), 'right': Motion('right', tracking_error_limit=0.08)}
+        self.motion={'left': Motion('left', tracking_error_limit=0.08), 'right': Motion('right', tracking_error_limit=0.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -215,6 +215,9 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
             error=float(np.linalg.norm(body_p-desired_p))
+            if kind == 'carry' and phase.get('measured_translation'):
+                p = tcp + limit_vector(phase.get('position_gain', 3.) * (desired_p-body_p),
+                                       phase.get('translation_lead', .02))
             if kind == 'insert' and 'insertion_axis_world' in phase:
                 axis = np.asarray(phase['insertion_axis_world'], dtype=float)
                 length = np.linalg.norm(axis)
@@ -287,8 +290,8 @@ class Controller:
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
             feedback_gain = 0.
-            if name == side and kind in ('move', 'grasp'):
-                feedback_gain = 2.
+            if name == side:
+                feedback_gain = phase.get('feedback_gain', 2. if kind in ('move', 'grasp') else 0.)
             target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,
                                                speed=speed,feedback_gain=feedback_gain)
             action[index:index+7]=target

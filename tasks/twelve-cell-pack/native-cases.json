@@ -760,6 +760,11 @@
         },
         {
           "kind": "valid"
+        },
+        {
+          "kind": "goal",
+          "name": "cell_0_contacted",
+          "completed": true
         }
       ],
       "through_label": "Withdraw from cell_0"
@@ -781,6 +786,33 @@
           ],
           "min": 0.05,
           "max": 0.1
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "sixth_cell_seated_and_released",
+      "start_phase": 44,
+      "through_phase": 53,
+      "through_label": "Withdraw from cell_5",
+      "max_steps": 2000,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "contact_spring_5",
+          "min": -0.0015,
+          "max": -0.0002
+        },
+        {
+          "kind": "goal",
+          "name": "cell_5_contacted",
+          "completed": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
         },
         {
           "kind": "valid"

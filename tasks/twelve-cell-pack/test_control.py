@@ -141,6 +141,26 @@ class FeedbackTests(unittest.TestCase):
                 controller.step(self.ready, frame)
             self.assertEqual(controller.index, expected_index)
 
+    def test_loaded_carry_targets_measured_tcp_with_bounded_body_error(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['cell_5']
+        goal = np.array(body['pos']) + [.04, 0, 0]
+        phase = dict(kind='carry', body='cell_5', measured_translation=True,
+                     position_gain=3, translation_lead=.02, feedback_gain=2,
+                     target=dict(pos=goal.tolist(), quat=body['quat']))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append((np.array(position), kwargs['feedback_gain']))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        measured, _ = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0][0] - measured, [.02, 0, 0], atol=1e-12)
+        self.assertEqual(targets[0][1], 2.)
+
     def test_pose_feedback_integrates_measured_error_and_retains_reference_bias(self):
         motion = Motion('left')
         reference = self.ready[:6].copy()
