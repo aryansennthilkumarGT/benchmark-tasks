@@ -4,14 +4,15 @@ import json
 import sys
 from pathlib import Path
 sys.dont_write_bytecode=True
-from run_ledger import Budget,Incomplete,Ledger,atomic,execute,exclusive,read
-from setup_environment import bootstrap,hardware,verify_runtime
+from run_ledger import Budget,Incomplete,Ledger,atomic,digest,execute,exclusive,read
+from setup_environment import bootstrap,hardware,launchable_runtime,verify_runtime
 HERE=Path(__file__).resolve().parent
 
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--budget-file',type=Path)
+    p.add_argument('--launchable-root',type=Path,help='Verify and reuse an installed pinned Launchable')
     p.add_argument('--execute',action='store_true')
     p.add_argument('--model',action='store_true')
     p.add_argument('--resume',action='store_true')
@@ -27,17 +28,34 @@ def main(argv=None):
     if check['selected_gpu']['uuid']!=budget.receipt['gpu_uuid']:raise Incomplete('GPU differs from budget receipt')
     import os
     os.environ['CUDA_VISIBLE_DEVICES']=check['selected_gpu']['uuid']
+    if not args.launchable_root and check['driver_status'] == 'fixed_driver_smoke_required':
+        raise Incomplete('Fixed driver validation requires --launchable-root with the installed vendor stack')
+    runtime_root = args.launchable_root.resolve() if args.launchable_root else root/'stack'
+    installed = launchable_runtime(runtime_root, lock) if args.launchable_root else None
+    implementation = {name: digest(HERE/name) for name in ('bootstrap_task.py', 'setup_environment.py')}
     with exclusive(root/'bootstrap.lock'):
         ledger=Ledger(root,args.resume,args.retry_failed)
-        stack=ledger.stage('_environment','BOOTSTRAP',{'stack':lock},lambda out:bootstrap(root/'stack',lock,out,budget))
+        if installed is not None:
+            def reuse(out):
+                atomic(out/'installed-runtime.json', installed)
+                return installed
+            stack=ledger.stage('_environment','REUSE_LAUNCHABLE',
+                               {'stack':lock,'runtime':installed,'implementation':implementation},reuse)
+        else:
+            stack=ledger.stage('_environment','BOOTSTRAP',
+                               {'stack':lock,'implementation':implementation},
+                               lambda out:bootstrap(runtime_root,lock,out,budget))
         python=stack['result']['python']
-        verify_runtime(stack['result'],root/'stack',lock)
+        verify_runtime(stack['result'],runtime_root,lock)
         def smoke(out):
+            atomic(out/'hardware.json',check)
             trial=out/'trial';trial.mkdir()
             execute([str(Path(python).parent/'inspect-robots'),'run','--embodiment','yam_arena','--policy','yam_scripted','-E','scene=station','-E','object_jitter=0','-E','control_hz=20','-E','cam_width=320','-E','cam_height=176','--instruction','put apple into the bowl','--scorer','success_at_end','--max-steps','600','--store-frames','--seed','0','--environment-revision',lock['adapter']['commit'],'--log-dir',str(trial)],HERE,out/'smoke.log',1800,budget=budget)
             execute([python,str(HERE/'validate_rollout.py'),'--directory',str(trial),'--mode','smoke','--limit','600','--commit',lock['adapter']['commit']],HERE,out/'smoke-validation.log',600,budget=budget)
             return read(trial/'validated-rollout.json')
-        ledger.stage('_environment','OFFICIAL_SMOKE',{'stack':lock},smoke)
+        gpu_identity = {name: check['selected_gpu'][name] for name in ('name','uuid','driver')}
+        ledger.stage('_environment','OFFICIAL_SMOKE',
+                     {'stack':lock,'gpu':gpu_identity,'bootstrap':stack['key']},smoke)
         revision=__import__('subprocess').run(['git','rev-parse','HEAD'],cwd=HERE,text=True,capture_output=True,check=True).stdout.strip()
         def static(out):
             execute([python,str(HERE/'static_check.py')],HERE,out/'checks.log',7200,budget=budget)

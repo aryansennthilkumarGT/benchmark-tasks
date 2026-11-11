@@ -72,5 +72,24 @@
     "The collar tests retention around a shaft, not certified clamping friction or torque transmission.",
     "Joint closure, key retention under load, and robot feasibility remain unexecuted in native PhysX."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "native_diagnostic_evidence": {
+    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+    "commit": "a9fa16ab99556657ec13e5a53c9f831931ca4a66",
+    "driver": "565.57.01",
+    "status": "FAIL",
+    "passed": 0,
+    "failed": 2,
+    "resets": 2,
+    "report_sha256": "623a56a4a274d333c88638d29f2ac1a163da7381a3dd9bb3d2c009276021c128"
+  },
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
+  }
 }
