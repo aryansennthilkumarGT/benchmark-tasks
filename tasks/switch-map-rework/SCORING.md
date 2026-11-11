@@ -18,7 +18,9 @@ Each weighted goal requires every condition below. Position/quaternion condition
 
 ## Preservation constraints
 
-- `healthy_link_disturbed`: `plug_2` center within 0.006 m of (0.4, -0.1, 0.7825), XYZW orientation (0, 0, 0, 1) within 0.20944 rad in world coordinates; `latch_slide_2` in [-0.0008, 0] (metres for prismatic, radians for rotary joints).
+The healthy plug can settle against its port guides at approximately 12° of roll. The preservation check includes 0.1° of angular allowance for that seated play. The 6 mm translation limit and latch engagement still apply.
+
+- `healthy_link_disturbed`: `plug_2` center within 0.006 m of (0.4, -0.1, 0.7825), XYZW orientation (0, 0, 0, 1) within 12.1° in world coordinates; `latch_slide_2` in [-0.0008, 0] (metres for prismatic, radians for rotary joints).
 
 Malformed/missing/nonfinite data and nonmonotonic conflicting timestamps fail closed. The same frame can be queried twice without double-counting time. Unobserved gaps reset the stability window. Off-table loss uses the lowest rotated collision-bound corner, 25 mm below the tabletop. Anchors may move at most 5 mm / 3 degrees. Joint tolerances are 10 mrad rotary or 0.5 mm prismatic beyond physical limits.
 
