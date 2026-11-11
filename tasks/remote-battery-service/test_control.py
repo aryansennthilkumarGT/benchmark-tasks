@@ -313,4 +313,26 @@ class FeedbackTests(unittest.TestCase):
                 break
 
 
+    def test_second_contact_integrates_only_along_prismatic_axis(self):
+        frame = copy.deepcopy(self.frame)
+        phase = dict(kind='joint', body='new_cell_1', joint='spring_1', value=.00115,
+                     increment=.0005, integrate_joint_error=True, hold_transverse=True)
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='new_cell_1', verified=False)
+        reference = self.ready[:6].copy()
+        reference[1] += .02
+        controller.motion['left'].reference = reference
+        reference_tcp, _ = controller.pose(reference, 'left')
+        measured_tcp, _ = controller.pose(self.ready[:7], 'left')
+        captured = []
+        def capture(joints, position, *args, **kwargs):
+            captured.append(np.asarray(position))
+            return np.asarray(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, frame)
+        expected = measured_tcp.copy()
+        expected[0] = reference_tcp[0]+.0005
+        np.testing.assert_allclose(captured[0], expected, atol=1e-12)
+
+
 if __name__=='__main__':unittest.main()

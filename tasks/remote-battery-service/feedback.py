@@ -288,9 +288,12 @@ class Controller:
                 p=pivot+rotate(turn,tcp-pivot);q=multiply(turn,tcpq)
             else:
                 p=tcp+world_axis*delta;q=tcpq
+                if phase.get('integrate_joint_error'):
+                    reference_tcp, _ = self.pose(self.motion[side].reference, side)
+                    p = reference_tcp + world_axis*delta
                 if phase.get('hold_transverse'):
                     start_position = self.phase_start[side][0]
-                    p = start_position + world_axis * (np.dot(tcp - start_position, world_axis) + delta)
+                    p = start_position + world_axis * np.dot(p - start_position, world_axis)
             if phase.get('preserve_grasp_orientation'):
                 q = multiply(phase.get('wrist_rotation', [0, 0, 0, 1]),
                              self.grasps[side].get('tcp_orientation_at_grasp', q))

@@ -883,7 +883,7 @@
       "increment": 0.0005,
       "position_gain": 1,
       "tolerance": 0.00025,
-      "timeout": 8,
+      "timeout": 15,
       "preserve_grasp_orientation": true,
       "wrist_rotation": [
         0,
@@ -891,7 +891,8 @@
         0,
         0.9887710779360422
       ],
-      "hold_transverse": true
+      "hold_transverse": true,
+      "integrate_joint_error": true
     },
     {
       "kind": "insert",
