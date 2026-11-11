@@ -320,5 +320,35 @@
     "/data/robocurve-runs/resume-compat/nut-integral-thread-entry.tj2p_c4y/intentional-stop.json"
   ],
   "latest_expert_failure": "/data/robocurve-runs/resume-compat/twelve-pose-feedback-full.42kgvl2c/cell5-carry-geometric-diagnosis.json",
-  "dream_adapter_offline_contract": "/data/robocurve-runs/resume-compat/dream-offline-installed-contract.json"
+  "dream_adapter_offline_contract": "/data/robocurve-runs/resume-compat/dream-offline-installed-contract.json",
+  "latest_resume_update": {
+    "at": "2026-11-11T13:38:34.538835+00:00",
+    "fault": {
+      "evaluated_commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "expert_scores": [
+        1,
+        1
+      ],
+      "dream_score": 0,
+      "dream_steps": 4800,
+      "dream_validated": true,
+      "media": "M-NRTVLQ",
+      "publication": "/data/robocurve-runs/resume-compat/fault-final-publication",
+      "submission": "NOT_YET_OPENED"
+    },
+    "credentials": "Both securely configured and authenticated. Values excluded.",
+    "stop_authorization": "User now authorizes stopping original Launchable only AFTER all eight tasks complete and officially submitted. Never delete.",
+    "completed_native_failures": {
+      "twelve-closure-native.nwhc7nve": "physics12/12 PASS, control0/4 FAIL pressure plate lift timeout",
+      "hardware-loaded-pose-feedback._06rw6pb": "control0/2 FAIL left wrist joint limit",
+      "nut-loaded-thread-stall.6uum5twn": "control0/2 FAIL thread rotation stalled"
+    },
+    "running": [
+      "node-unified-insertion.4wlz1zef",
+      "chassis-final-clearance.5iupgbe7",
+      "remote-combined-lowering.nhbbve6l"
+    ],
+    "twelve_scope_decision": "Loaded twelve cells, robot closes pressure plate and inserts cross-key. Actual physics12/12 passed, robot remains failing.",
+    "budget": "User125USD, reserve30, conservative combined account burn3.61USD/hr, count since2026-11-10T22:07:33Z. Provider live balance remains unverified."
+  }
 }

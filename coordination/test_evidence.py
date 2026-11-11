@@ -40,6 +40,36 @@ class EvidenceTests(unittest.TestCase):
     def test_schema_accepts_single_action_model_chunk(self):
         self.assertEqual(self.check()['steps'],1)
         self.assertEqual(self.check()['reset_seed'], derive_seed(0, None, 0))
+    def test_current_inspect_checkpoint_and_transcript_identify_model(self):
+        self.log['eval']['policy_config'] = {'action_horizon': 1}
+        self.log['samples'][0]['policy_transcripts'] = [
+            {'model': 'dreamlabs/dream-1-beta', 'dry_run': False, 'requests': [{}]}]
+        record = json.loads((self.record/'record.json').read_text())
+        record['configuration']['policy'] = {'name': 'dream', 'checkpoint': 'dreamlabs/dream-1-beta'}
+        atomic(self.record/'record.json', record)
+        self.write()
+        self.assertEqual(self.check()['score'], 0.)
+
+    def test_wrong_recorded_checkpoint_rejected(self):
+        record = json.loads((self.record/'record.json').read_text())
+        record['configuration']['policy'] = {'name': 'dream', 'checkpoint': 'different-model'}
+        atomic(self.record/'record.json', record)
+        with self.assertRaisesRegex(Incomplete, 'inconsistent Dream model'):
+            self.check()
+
+    def test_transcript_dry_run_rejected(self):
+        self.log['samples'][0]['policy_transcripts'] = [
+            {'model': 'dreamlabs/dream-1-beta', 'dry_run': True}]
+        self.write()
+        with self.assertRaisesRegex(Incomplete, 'dry-run'):
+            self.check()
+
+    def test_missing_model_identity_rejected(self):
+        self.log['eval']['policy_config'] = {'action_horizon': 1}
+        self.write()
+        with self.assertRaisesRegex(Incomplete, 'Unexpected'):
+            self.check()
+
     def test_raw_eval_seed_rejected_as_reset_seed(self):
         path = self.record/'record.json'
         record = json.loads(path.read_text())
