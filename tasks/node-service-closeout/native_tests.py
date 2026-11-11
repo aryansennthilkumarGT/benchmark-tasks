@@ -63,6 +63,8 @@ def checks(assertions,initial,final,result=None):
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--mode',choices=['physics','control'],required=True)
     parser.add_argument('--output',type=Path,required=True);parser.add_argument('--commit',required=True)
+    parser.add_argument('--case', action='append',
+                        help='Run a named diagnostic case only. Repeat this option to select multiple cases.')
     parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
     args=parser.parse_args()
     if not args.worker:
@@ -79,9 +81,18 @@ def main():
     if sys.platform!='linux':raise SystemExit('Native tests require the official Linux GPU environment')
     current=subprocess.run(['git','rev-parse','HEAD'],cwd=HERE,text=True,capture_output=True,check=True).stdout.strip()
     if current!=args.commit:raise SystemExit('Test revision mismatch')
+    cases = json.loads((HERE/'native-cases.json').read_text())[args.mode]
+    if args.case:
+        declared = {case['name'] for case in cases}
+        if set(args.case) - declared:
+            raise ValueError('Unknown native diagnostic case for ' + args.mode)
+        cases = [case for case in cases if case['name'] in args.case]
+    if not cases:
+        raise ValueError('No mechanism/control test cases configured')
     args.output.mkdir(parents=True,exist_ok=False)
     os.environ['ROBOCURVE_TRACE']=str(args.output.resolve()/'physics-probes-not-demonstrations.jsonl')
-    report={'kind':'NATIVE_PHYSX_TESTS','mode':args.mode,'commit':args.commit,'reset_count':0,
+    kind = 'NATIVE_PHYSX_DIAGNOSTIC_CASES' if args.case else 'NATIVE_PHYSX_TESTS'
+    report={'kind':kind,'mode':args.mode,'commit':args.commit,'reset_count':0,
             'passed':0,'failed':0,'cases':[],'camera_coverage':False,
             'initialization_probes_are_not_demonstrations':True,'status':'RUNNING','active_case':None}
     results_path = args.output/'results.json'
@@ -94,8 +105,6 @@ def main():
     runtime=importlib.import_module(module._name+'.arena_runtime')
     controller_class=importlib.import_module(module._name+'.feedback').Controller
     from audit_control import camera_coverage
-    cases=json.loads((HERE/'native-cases.json').read_text())[args.mode]
-    if not cases:raise ValueError('No mechanism/control test cases configured')
     initial_reference=None
     scene=Scene(id='native-test',instruction=module.SPEC['instruction'])
     try:
