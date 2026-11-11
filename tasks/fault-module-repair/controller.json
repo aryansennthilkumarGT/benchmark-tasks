@@ -275,14 +275,14 @@
     },
     {
       "kind": "insert",
-      "label": "Insert pin through counterweight and arm",
+      "label": "Guide pin into both bearing sections",
       "side": "right",
       "body": "locking_pin",
       "target": {
         "pos": [
           -0.066,
           0,
-          -0.004
+          0.006
         ],
         "quat": [
           0,
@@ -307,8 +307,34 @@
     },
     {
       "kind": "release",
-      "label": "Release seated locking pin",
+      "label": "Release guided pin to seat under gravity",
       "side": "right",
+      "opening": 0.43663471778487756
+    },
+    {
+      "kind": "move",
+      "label": "Lift fingers vertically clear of the pin receiver",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.219,
+          0,
+          0.94
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.43663471778487756
+    },
+    {
+      "kind": "hold",
+      "label": "Allow the guided pin to settle under gravity",
+      "side": "right",
+      "seconds": 1.5,
       "opening": 0.43663471778487756
     },
     {
@@ -830,12 +856,12 @@
       "opening": 0.22896698615548455
     },
     {
-      "label": "Insert pin through counterweight and arm",
+      "label": "Guide pin into both bearing sections",
       "side": "right",
       "pos": [
         0.21899999999999997,
         0.0,
-        0.8755000000000001
+        0.8855000000000001
       ],
       "quat": [
         -0.7071067811865477,
@@ -846,12 +872,28 @@
       "opening": 0.22896698615548455
     },
     {
-      "label": "Release seated locking pin",
+      "label": "Release guided pin to seat under gravity",
       "side": "right",
       "pos": [
         0.21899999999999997,
         0.0,
-        0.8755000000000001
+        0.8855000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 0.43663471778487756
+    },
+    {
+      "label": "Lift fingers vertically clear of the pin receiver",
+      "side": "right",
+      "pos": [
+        0.219,
+        0,
+        0.94
       ],
       "quat": [
         -0.7071067811865477,

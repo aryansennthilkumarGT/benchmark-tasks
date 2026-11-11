@@ -48,7 +48,14 @@ class Expert(PolicyBase):
             action=self.controller.step(observation.state['joint_pos'],frame)
             stop=self.terminal_stop(frame['time'])
         except ControlFailure as exc:
-            self.controller.events.append({'event':'FAILED','reason':str(exc),'time':frame['time']})
+            self.controller.events.append({
+                'event': 'FAILED', 'reason': str(exc), 'time': frame['time'],
+                'robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
+                'motion_references': {
+                    side: motion.reference.tolist() if motion.reference is not None else None
+                    for side, motion in self.controller.motion.items()
+                },
+            })
             self.record_events()
             raise
         self.record_events()
