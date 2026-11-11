@@ -13,7 +13,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
       "commit": "a8272c5213dfd41e1c7b4ec876d35734ccd4b47e",
       "task_folder": "tasks/hinged-chassis-drive",
-      "status": "PHYSICS_PASSED_GRASP_VERIFIED_GRAVITY_SUPPORT_RETEST_PENDING",
+      "status": "NATIVE_GRASP_PASSED_LID_SUPPORT_IK_FAILED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -47,9 +47,9 @@
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "4520a99c99baa9276be3b505c07c5fe77547da79",
+      "commit": "9ba497e672d9aec7b6327c4ac4600824a8bea942",
       "task_folder": "tasks/remote-battery-service",
-      "status": "VERIFIED_CARRY_RESTORED_LATERAL_SEATING_DEADBAND_FIX_QUEUED",
+      "status": "FRESH_CELL_GRASP_AND_LIFT_VERIFIED_AXIS_COMPLETION_FIX_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -66,7 +66,7 @@
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
-      "robot_control": "COVER_PREFIX_PASS_TWO_REPEATS_CELL_LIFT_FAILED_APPROACH_FIX_PENDING",
+      "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "media_verified": false,
       "suggested_pr_title": "Replace opposed-polarity cells under a spring-return service cover",
       "suggested_pr_body": null,
@@ -78,7 +78,7 @@
         "Native friction, spring preload, cover retention and robot grasps await GPU execution.",
         "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
       ],
-      "physics_evaluated_commit": "6594c6ba628cb77a411ab0251df253ed7fb11705"
+      "physics_evaluated_commit": "650eba8ccd0805e9ef44f05c7be5ea7b574ba787"
     },
     {
       "slug": "switch-map-rework",
@@ -196,7 +196,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket",
       "commit": "c2b163ba0ef4d7dc04060e639d6e77c9391a3363",
       "task_folder": "tasks/eight-nut-bracket",
-      "status": "THREAD_LOAD_FAILED_SPECULATIVE_CCD_STATIC_PASS_NATIVE_PENDING",
+      "status": "NATIVE_THREAD_LOAD_FAILED_WITH_SPECULATIVE_CCD",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -231,9 +231,9 @@
       "title": "Balance and lock a counterweighted service arm",
       "branch": "draft/fault-module-repair",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
-      "commit": "251369ee01f6a9184febd6376aa3d27b2598562c",
+      "commit": "92a82fa7a7cf57e4318da8edf8773438bc639c00",
       "task_folder": "tasks/fault-module-repair",
-      "status": "CLEAR_APPROACH_VERIFIED_FITTED_PIN_ALIGNMENT_EXPERT_RUNNING",
+      "status": "CHAMFERED_GUIDES_FULL_PHYSICS_PASSED_TIMED_INSERTION_EXPERT_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -260,9 +260,10 @@
         "The payload is rigidly mounted; its mass distribution is explicitly specified on the arm, including the handling fixture.",
         "Prismatic guidance approximates the counterweight rail. A real free pin through two collision-defined holes locks translation."
       ],
-      "physics_evaluated_commit": "219cc9d4d7e37f96cfb03e49ac195f63171df690",
+      "physics_evaluated_commit": "92a82fa7a7cf57e4318da8edf8773438bc639c00",
       "pin_diagnostic_commit": "d2fecabe84ba80fafc97965d5b5a158ee64b0622",
-      "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2"
+      "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
+      "physics_report_sha256": "8ba1869aca8ec1fcb6e4bb6310b13e0c1551cc68e39382cf71954e5424ef7812"
     },
     {
       "slug": "hardware-order-kit",
