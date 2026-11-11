@@ -10,6 +10,8 @@ import runpy
 import subprocess
 import sys
 
+import numpy as np
+
 from engine import atomic
 
 
@@ -103,8 +105,20 @@ def main():
 
     def step_with_cadence_verification(embodiment, *step_args, **step_kwargs):
         nonlocal control_steps
+        submitted = step_args[0] if step_args else step_kwargs['action']
+        submitted_action = np.asarray(submitted.data).tolist()
         result = original_step(embodiment, *step_args, **step_kwargs)
         control_steps += 1
+        if args.mode == 'control':
+            observation = result.observation
+            with (args.output / 'robot-actions.jsonl').open('a') as stream:
+                stream.write(json.dumps({
+                    'reset_index': len(metadata['resets'])-1,
+                    'control_step': control_steps,
+                    'time': float(observation.state_time),
+                    'submitted_action': submitted_action,
+                    'measured_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
+                }, allow_nan=False) + '\n')
         if control_steps % 20 == 0:
             record = metadata['resets'][-1]
             current = camera_frames(embodiment._env.unwrapped)

@@ -11,9 +11,9 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "e4e5b17a8621fc12aa349389b9c134ba316612c9",
+      "commit": "2d6b09d7e703409d7d3d043bea16a73ac538bf54",
       "task_folder": "tasks/hinged-chassis-drive",
-      "status": "DAMPED_GUIDE_CONTROL_FAIL_0_OF_2",
+      "status": "NUMERICAL_STOP_MARGIN_NATIVE_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -43,20 +43,21 @@
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-damped-floor-guide-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-damped-guide.st14ixkn",
-      "producer_status": "FINISHED",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-numeric-stop-native.okygpyr4",
+      "producer_status": "WAITING_FOR_NATIVE_LANE",
       "historical_control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah",
-      "state": "DAMPED_GUIDE_CONTROL_FAIL_0_OF_2",
-      "native_control": "FAIL_0_OF_2_DAMPED_GUIDE"
+      "state": "NUMERICAL_STOP_MARGIN_NATIVE_QUEUED",
+      "native_control": "FAIL_0_OF_2_DAMPED_GUIDE",
+      "task_source_dirty": false
     },
     {
       "slug": "remote-battery-service",
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "40e32b5da245b263dc87ad0f6a5af26fd0bfac0a",
+      "commit": "6adc8a0640e46fe87c45c2cfbd869568eaeaae6d",
       "task_folder": "tasks/remote-battery-service",
-      "status": "NATIVE_REPLAY_LIFT_TRANSPORT_PASS_COMPLETE_SUFFIX_RUNNING",
+      "status": "WRIST_WORKSPACE_TILT_SUFFIX_REPLAY_RUNNING_NOT_DEMONSTRATION",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -88,20 +89,21 @@
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/remote-integral-lowering-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/remote-complete-suffix-replay.3rbyuz5j",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/remote-workspace-tilt-suffix.28nmypjn",
       "producer_status": "RUNNING",
-      "state": "NATIVE_REPLAY_LIFT_TRANSPORT_PASS_COMPLETE_SUFFIX_RUNNING",
+      "state": "WRIST_WORKSPACE_TILT_SUFFIX_REPLAY_RUNNING_NOT_DEMONSTRATION",
       "native_control": "CURRENT_NATIVE_REPLAY_PHASE24_25_PASS_NOT_DEMONSTRATION",
-      "replay_lift_transport_evidence": "/data/robocurve-runs/resume-compat/remote-second-cell-replay.4i09337j/replay/results.json"
+      "replay_lift_transport_evidence": "/data/robocurve-runs/resume-compat/remote-second-cell-replay.4i09337j/replay/results.json",
+      "task_source_dirty": false
     },
     {
       "slug": "switch-map-rework",
       "title": "Correct two latched patch connections while preserving a third",
       "branch": "draft/switch-map-rework",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework",
-      "commit": "0bc73c9369a45e659021ac31cdd03b110aeddebd",
+      "commit": "e0d5387166507ae3fed5849ba7ae60b0629a6e59",
       "task_folder": "tasks/switch-map-rework",
-      "status": "BOUNDED_WITHDRAWAL_CONTROL_FAIL_0_OF_2",
+      "status": "FINITE_PULL_AND_UNLOADED_SETTLING_NATIVE_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -131,19 +133,20 @@
       ],
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-bounded-withdrawal-final-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-bounded-withdrawal-native.lzstldc1",
-      "producer_status": "FINISHED",
-      "state": "BOUNDED_WITHDRAWAL_CONTROL_FAIL_0_OF_2",
-      "native_control": "FAIL_0_OF_2_BOUNDED_WITHDRAWAL"
+      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-finite-pull-native.m00hecfy",
+      "producer_status": "WAITING_FOR_NATIVE_LANE",
+      "state": "FINITE_PULL_AND_UNLOADED_SETTLING_NATIVE_QUEUED",
+      "native_control": "FAIL_0_OF_2_BOUNDED_WITHDRAWAL",
+      "task_source_dirty": false
     },
     {
       "slug": "node-service-closeout",
       "title": "Exchange two internal modules and close out an enclosure",
       "branch": "draft/node-service-closeout",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
-      "commit": "ed25c0f9171f126f863118d047204002e374fe73",
+      "commit": "efd44ad6514b2566922755d148e17fd9c34e2160",
       "task_folder": "tasks/node-service-closeout",
-      "status": "RAISED_GRIP_RETAINED_BLOCKING_LUG_PHYSICS_RUNNING",
+      "status": "NUMERIC_STOP_CORRECTED_FULL_PHYSICS_AND_CONDITIONAL_EXPERTS_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -173,20 +176,21 @@
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-retained-blocking-lug-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/node-raised-grip-retained-lug._emc0fl_",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/node-stop-margin-and-experts.vz9pie85",
       "producer_status": "RUNNING",
       "historical_control_evidence": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2/control/results.json",
-      "state": "RAISED_GRIP_RETAINED_BLOCKING_LUG_PHYSICS_RUNNING",
-      "native_control": "PRIOR6_OF_6_AT_0DB1_CURRENT_GEOMETRY_PENDING"
+      "state": "NUMERIC_STOP_CORRECTED_FULL_PHYSICS_AND_CONDITIONAL_EXPERTS_RUNNING",
+      "native_control": "PRIOR6_OF_6_AT_0DB1_CURRENT_GEOMETRY_PENDING",
+      "task_source_dirty": false
     },
     {
       "slug": "twelve-cell-pack",
       "title": "Preload and retain a twelve-cell service pack",
       "branch": "draft/twelve-cell-pack",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
-      "commit": "fcd6267353e68c35c18e9f899eb717c33ee547b6",
+      "commit": "96e1e54edc6d8e9bce67e5d56a741cea7c34c733",
       "task_folder": "tasks/twelve-cell-pack",
-      "status": "480HZ_32_8_DAMPING8_STRONG_PHYSICS_RUNNING",
+      "status": "MEASURED_TERMINAL_COMPRESSION_CONTROL_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -217,21 +221,22 @@
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/twelve-480hz-efficient-solver-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-480hz-loaded-damping.hr9gorgx",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-measured-compression.x_ig67o5",
       "producer_status": "RUNNING",
-      "state": "480HZ_32_8_DAMPING8_STRONG_PHYSICS_RUNNING",
+      "state": "MEASURED_TERMINAL_COMPRESSION_CONTROL_RUNNING",
       "scope": "Twelve preloaded cells, pressure-plate compression and retaining cross-key",
       "parallel_targeted_control_run": "/data/robocurve-runs/resume-compat/twelve-measured-plate-control.buhyiw9s",
-      "native_control": "CURRENT_PENDING"
+      "native_control": "CURRENT_PENDING",
+      "task_source_dirty": false
     },
     {
       "slug": "eight-nut-bracket",
       "title": "Fasten a spring-loaded access plate while maintaining its preload",
       "branch": "draft/eight-nut-bracket",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket",
-      "commit": "72869172b3e6313f94b04288cd1c94419c2fac85",
+      "commit": "6b3e455da0b8564452b3556be74f0ccd98b223e9",
       "task_folder": "tasks/eight-nut-bracket",
-      "status": "NINETY_DEGREE_REGRASP_GRAVITY_FAIL_0_OF_2",
+      "status": "TIGHT_PILOT_GRAVITY_PASS_2_OF_2_ACTUAL_THREAD_CONTROL_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -263,11 +268,12 @@
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "physics_evaluated_commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
       "physics_evidence": "/data/robocurve-runs/resume-compat/nut-fixture-sync-native.m3rl00gx",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-centred-ninety-native.x5h4gil8",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-tight-pilot.fkssw09o",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/nut-centred-ninety-degree-static.log",
-      "producer_status": "FINISHED",
-      "state": "NINETY_DEGREE_REGRASP_GRAVITY_FAIL_0_OF_2",
-      "native_control": "NOT_RUN_NEW90_DEGREE_SOURCE_GRAVITY_FAILED"
+      "producer_status": "RUNNING",
+      "state": "TIGHT_PILOT_GRAVITY_PASS_2_OF_2_ACTUAL_THREAD_CONTROL_RUNNING",
+      "native_control": "NOT_RUN_NEW90_DEGREE_SOURCE_GRAVITY_FAILED",
+      "task_source_dirty": false
     },
     {
       "slug": "fault-module-repair",
@@ -333,9 +339,9 @@
       "title": "Fit and pin a hinged collar around a captive shaft",
       "branch": "draft/hardware-order-kit",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit",
-      "commit": "38e00dcb09387abb5c51f9d9678cfb428385b7ec",
+      "commit": "ddf5e33346dde5bf4acc7dc5f4a667d6f217ac0e",
       "task_folder": "tasks/hardware-order-kit",
-      "status": "COMPACT_GRIP_COLLAR_CLOSURE_RUNNING",
+      "status": "INTEGRATED_COLLAR_INSERTION_CONTROL_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -368,21 +374,32 @@
       "physics_evaluated_commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1",
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-telemetry-native.m3a36qtj/cases/results.json",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-compact-handles-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-compact-grips-native.iq6nml2s",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-integrated-insertion.eni7p1wv",
       "producer_status": "RUNNING",
-      "state": "COMPACT_GRIP_COLLAR_CLOSURE_RUNNING",
-      "native_control": "COMPACT_GRIP_CLOSURE_RUNNING_PRIOR_LOADED_WINDOW_FAIL_0_OF_2"
+      "state": "INTEGRATED_COLLAR_INSERTION_CONTROL_RUNNING",
+      "native_control": "COMPACT_GRIP_CLOSURE_RUNNING_PRIOR_LOADED_WINDOW_FAIL_0_OF_2",
+      "task_source_dirty": false
     }
   ],
-  "updated_at": "2026-11-11T16:44:09.003771+00:00",
+  "updated_at": "2026-11-11T18:09:01.432384+00:00",
   "budget_planning": {
-    "user_reported_balance_usd": 125,
+    "kind": "CONSERVATIVE_PLANNING_ESTIMATE_NOT_PROVIDER_BILLING_RECEIPT",
+    "at": "2026-11-11T18:09:01.432384+00:00",
+    "source_user_dashboard_balance_usd": 125,
     "reserve_usd": 30,
-    "provider_compute_rate_usd_per_hour": 1.74,
-    "conservative_account_rate_cap_usd_per_hour": 1.87,
-    "conservative_estimated_balance_usd_at_1352": 68.15,
-    "estimate_time_utc": "2026-11-11T13:52:00Z",
-    "live_provider_credit_verified": false,
-    "pricing_evidence": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/price-refresh-1355-after-cli-refresh.json"
-  }
+    "estimated_balance_floor_usd": 60.15349281852222,
+    "estimated_headroom_above_reserve_usd": 30.153492818522217,
+    "future_conservative_account_rate_usd_per_hour": 1.87,
+    "provider_compute_rate_last_verified_usd_per_hour": 1.74,
+    "provider_pricing_observed_at": "2026-11-11T17:01:53.875727+00:00",
+    "live_credit_balance_verified": false,
+    "planning_method": "Subtract account-rate cap from earlier deliberately overcounted floor. No provider credit receipt invented."
+  },
+  "official_submission_counts": {
+    "engineering_complete": 1,
+    "official_prs_open": 1,
+    "intake_received": 0,
+    "accepted": 0
+  },
+  "official_intake_blocker": "PR1647 latest official comment still unmatched GitHub account to team, refreshed Nov11 18:06. User must reply to team login email with username. No duplicate PR."
 }
