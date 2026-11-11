@@ -198,7 +198,7 @@ def install(spec, scorer, here):
                 def configure(config):
                     config = previous_callback(config)
                     control_dt = config.sim.dt * config.decimation
-                    config.sim.dt = 1.0 / 240
+                    config.sim.dt = 1.0 / 480
                     config.decimation = round(control_dt / config.sim.dt)
                     config.sim.render_interval = config.decimation
                     return config
