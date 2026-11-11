@@ -56,7 +56,7 @@ def main(argv=None):
         branch_sha=capture(['gh','api',f'repos/{FORK}/git/ref/heads/{task["branch"]}','--jq','.object.sha'])
         require(branch_sha==task['commit'],'Remote branch changed since validation')
         existing=json.loads(capture(['gh','pr','list','--repo',OFFICIAL,'--head',head,'--state','all',
-                                    '--json','number,url,state,headRefOid']))
+                                    '--json','number,url,state']))
         if existing:
             require(len(existing)==1,'Multiple prior PRs require review')
             require(existing[0]['state'] in ('OPEN','MERGED'),'Prior closed PR: inspect review before any resubmission')
