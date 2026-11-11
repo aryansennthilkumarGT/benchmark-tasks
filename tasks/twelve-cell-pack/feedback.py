@@ -219,6 +219,7 @@ class Controller:
                 p = tcp + limit_vector(phase.get('position_gain', 3.) * (desired_p-body_p),
                                        phase.get('translation_lead', .02))
             progress_error = error
+            progress_margin = .0003
             if kind == 'insert' and 'insertion_axis_world' in phase:
                 axis = np.asarray(phase['insertion_axis_world'], dtype=float)
                 length = np.linalg.norm(axis)
@@ -254,6 +255,15 @@ class Controller:
                 desired_axis = rotate(desired_q, phase['orientation_axis'])
                 orientation_error = math.acos(float(np.clip(np.dot(actual_axis, desired_axis), -1, 1)))
             complete=error<phase.get('tolerance',0.0015) and orientation_error<phase.get('angle',0.06)
+            requirements = phase.get('required_joint_ranges', [])
+            violations = [max(item['min']-frame['joints'][item['joint']],
+                              frame['joints'][item['joint']]-item['max'], 0.)
+                          for item in requirements]
+            if requirements:
+                joint_error = max(violations)
+                complete = complete and joint_error == 0.
+                progress_error = np.array([error, orientation_error, joint_error])
+                progress_margin = np.array([.00005, .0005, .00005])
             if phase.get('verify_lift'):
                 grasp=self.grasps[side]
                 complete=complete and body_p[2]-grasp['start_z']>=phase.get('min_lift',0.015)
@@ -265,10 +275,10 @@ class Controller:
             if kind=='insert':
                 if self.last_progress is None:
                     self.last_progress,self.last_progress_t=progress_error,now
-                if np.any(progress_error < self.last_progress - .0003):
+                if np.any(progress_error < self.last_progress - progress_margin):
                     self.last_progress = np.minimum(self.last_progress, progress_error)
                     self.last_progress_t = now
-                elif now-self.last_progress_t>2.0 and not complete:
+                elif now-self.last_progress_t>phase.get('progress_timeout', 2.0) and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.
                     raise ControlFailure('Insertion stalled; no unbounded force or retry: '+phase['label'])

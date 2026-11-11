@@ -7,3 +7,6 @@ The controller uses measured native body poses, joint positions and robot propri
 The pressure hold captures the current robot reference pose after compression. This preserves the loaded command while the right hand handles the key. Key insertion checks transverse alignment before advancing, tracks transverse and axial progress independently, and aborts a stall after two seconds. Neither body poses nor score states are written by the expert.
 
 Five completed cell-placement sequences from the earlier loading prototype remain preserved in branch history and their original evidence. This focused closure revision requires fresh native mechanism tests, control tests, two recorded full-score experts and its own genuine model evaluation.
+
+
+Compression completion requires all twelve measured terminal joints between-1.75mm and-0.40mm, together with the plate pose conditions. Position, angle and compression-range progress are tracked independently with a5second bounded stall timeout. The previous pose-only completion advanced while one measured spring had only0.039mm compression. Native scoring still independently checks cell poses, polarity, spring compression and final load capture.

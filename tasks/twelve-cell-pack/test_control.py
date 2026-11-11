@@ -215,6 +215,32 @@ class FeedbackTests(unittest.TestCase):
         with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
             controller.step(self.ready, frame)
 
+    def test_plate_pose_cannot_finish_with_an_unloaded_terminal(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['retaining_plate']
+        body['pos'] = [.225, 0, .811]
+        requirements = [dict(joint='contact_spring_'+str(i), min=-.00175, max=-.0004)
+                        for i in range(12)]
+        phase = dict(kind='insert', body='retaining_plate', progress_timeout=5,
+                     required_joint_ranges=requirements,
+                     target=dict(pos=body['pos'], quat=body['quat']))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='retaining_plate', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for item in requirements:
+            frame['joints'][item['joint']] = -.001
+        frame['joints']['contact_spring_4'] = -.00004
+        for time in (0., .2):
+            frame['time'] = time
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 0)
+        frame['joints']['contact_spring_4'] = -.001
+        for time in (.4, .6):
+            frame['time'] = time
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 1)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
