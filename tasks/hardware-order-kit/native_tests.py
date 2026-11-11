@@ -151,6 +151,17 @@ def main():
                                 'root_link_vel_w': runtime.array(asset.data.root_link_vel_w)[0].tolist(),
                             }
                         if fixture_roots:
+                            # Synchronize native FK after fixture-only root writes.
+                            # This does not advance time or initialize demonstrations.
+                            base.sim.forward()
+                            for name, root in fixture_roots.items():
+                                asset = base.scene[name]
+                                root['body_names'] = list(asset.body_names)
+                                if getattr(asset, 'num_joints', 0):
+                                    poses = runtime.array(asset.data.body_link_pose_w)[0]
+                                else:
+                                    poses = runtime.array(asset.data.root_link_pose_w)[0:1]
+                                root['body_link_poses_w'] = poses.tolist()
                             save(args.output/f'{case["name"]}-{repeat}-fixture-roots.json', fixture_roots)
                         for force in case.get('forces',[]):
                             asset=base.scene[force['assembly']]
