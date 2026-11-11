@@ -1,86 +1,240 @@
-# Fasten a spring-loaded access plate while maintaining its preload — scoring
+# Scoring
 
-0.1 for nut_0_threaded; 0.1 for nut_1_threaded; 0.1 for nut_2_threaded; 0.1 for nut_3_threaded; 0.1 for nut_4_threaded; 0.1 for nut_5_threaded; 0.1 for nut_6_threaded; 0.1 for nut_7_threaded; 0.2 for plate_preload_retained. Each goal requires all numeric predicates in SCORING.md and scene.json. Credit is recomputed, so dislodged components lose credit. Full score also requires all bodies <=0.01 m/s and <=0.2 rad/s, robot clearance >=0.02 m, continuously for 2.0 s; otherwise score is capped at 0.95. Invalid frames, lost parts, fixture motion, broken preservation constraints, joint-limit violations or penetration >0.002 m permanently score zero.
+All goals use observed native poses, joint positions and pitch-coupled turn history. Three interchangeable nuts are matched one-to-one to the three available studs. A nut earns credit for at most one slot. Changing studs clears its accumulated engagement history.
 
-Each weighted goal requires every condition below. Position/quaternion conditions use measured simulator bodies; joint values use measured native coordinates. The scorer accepts any physically valid solution order. Historical thread and preservation checks encode physical constraints, not the expert phase index.
+Each seated nut contributes0.2. The retained plate preload contributes0.4 after all three nuts complete at least3.45turns. Full success additionally requires every body at most0.01m/s and0.2rad/s and both arms at least20mm clear for2seconds. Before that released stability hold, credit is capped at0.95. Credit is recomputed and lost when a goal is disturbed.
 
-## nut_0_threaded (0.1)
+Invalid telemetry, a lost part, fixture displacement, a broken preservation condition, a joint-limit violation, an undersampled rotation or penetration over2mm permanently gives zero. All other outcomes receive the sum of currently satisfied goal weights, subject to the0.95 cap.
 
-- `nut_0` center within 0.0007 m of (-0.09, -0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_0` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_0` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_0` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
+The exact numeric predicates follow. Positions are relative to the named reference body. Angular tolerances use radians. The full thread accounting definitions are in scene.json.
 
-## nut_1_threaded (0.1)
+```json
+[
+  {
+    "name": "nut_0_threaded",
+    "all": [
+      {
+        "kind": "pose",
+        "body": "nut_0",
+        "pos": [
+          -0.09,
+          -0.05,
+          0.0172
+        ],
+        "relative_to": "bracket",
+        "quat": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tolerance": 0.0007,
+        "angle": 3.141592653589793
+      },
+      {
+        "kind": "axis",
+        "body": "nut_0",
+        "relative_to": "bracket",
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "angle": 0.10471975511965978
+      },
+      {
+        "kind": "turns",
+        "body": "nut_0",
+        "min": 3.4
+      },
+      {
+        "kind": "still",
+        "body": "nut_0",
+        "speed": 0.01,
+        "spin": 0.2
+      }
+    ],
+    "weight": 0.2,
+    "template_body": "nut_0",
+    "candidate_bodies": [
+      "nut_0",
+      "nut_1",
+      "nut_2"
+    ]
+  },
+  {
+    "name": "nut_1_threaded",
+    "all": [
+      {
+        "kind": "pose",
+        "body": "nut_1",
+        "pos": [
+          0.09,
+          -0.05,
+          0.0172
+        ],
+        "relative_to": "bracket",
+        "quat": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tolerance": 0.0007,
+        "angle": 3.141592653589793
+      },
+      {
+        "kind": "axis",
+        "body": "nut_1",
+        "relative_to": "bracket",
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "angle": 0.10471975511965978
+      },
+      {
+        "kind": "turns",
+        "body": "nut_1",
+        "min": 3.4
+      },
+      {
+        "kind": "still",
+        "body": "nut_1",
+        "speed": 0.01,
+        "spin": 0.2
+      }
+    ],
+    "weight": 0.2,
+    "template_body": "nut_1",
+    "candidate_bodies": [
+      "nut_0",
+      "nut_1",
+      "nut_2"
+    ]
+  },
+  {
+    "name": "nut_2_threaded",
+    "all": [
+      {
+        "kind": "pose",
+        "body": "nut_2",
+        "pos": [
+          -0.03,
+          0.05,
+          0.0172
+        ],
+        "relative_to": "bracket",
+        "quat": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "tolerance": 0.0007,
+        "angle": 3.141592653589793
+      },
+      {
+        "kind": "axis",
+        "body": "nut_2",
+        "relative_to": "bracket",
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "angle": 0.10471975511965978
+      },
+      {
+        "kind": "turns",
+        "body": "nut_2",
+        "min": 3.4
+      },
+      {
+        "kind": "still",
+        "body": "nut_2",
+        "speed": 0.01,
+        "spin": 0.2
+      }
+    ],
+    "weight": 0.2,
+    "template_body": "nut_2",
+    "candidate_bodies": [
+      "nut_0",
+      "nut_1",
+      "nut_2"
+    ]
+  },
+  {
+    "name": "plate_preload_retained",
+    "weight": 0.4,
+    "all": [
+      {
+        "kind": "pose",
+        "body": "pressure_plate",
+        "pos": [
+          0,
+          0,
+          0.01
+        ],
+        "relative_to": "bracket",
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "tolerance": 0.001,
+        "angle": 0.035
+      },
+      {
+        "kind": "joint",
+        "joint": "plate_preload",
+        "min": -0.013,
+        "max": -0.011
+      },
+      {
+        "kind": "joint",
+        "joint": "plate_tilt_x",
+        "min": -0.035,
+        "max": 0.035
+      },
+      {
+        "kind": "joint",
+        "joint": "plate_tilt_y",
+        "min": -0.035,
+        "max": 0.035
+      },
+      {
+        "kind": "still",
+        "body": "pressure_plate",
+        "speed": 0.01,
+        "spin": 0.2
+      },
+      {
+        "kind": "turns",
+        "body": "nut_0",
+        "min": 3.45
+      },
+      {
+        "kind": "turns",
+        "body": "nut_1",
+        "min": 3.45
+      },
+      {
+        "kind": "turns",
+        "body": "nut_2",
+        "min": 3.45
+      }
+    ],
+    "requires": [
+      "nut_0_threaded",
+      "nut_1_threaded",
+      "nut_2_threaded"
+    ]
+  }
+]
+```
 
-- `nut_1` center within 0.0007 m of (-0.03, -0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_1` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_1` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_1` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-
-## nut_2_threaded (0.1)
-
-- `nut_2` center within 0.0007 m of (0.03, -0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_2` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_2` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_2` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-
-## nut_3_threaded (0.1)
-
-- `nut_3` center within 0.0007 m of (0.09, -0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_3` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_3` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_3` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-
-## nut_4_threaded (0.1)
-
-- `nut_4` center within 0.0007 m of (-0.09, 0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_4` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_4` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_4` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-
-## nut_5_threaded (0.1)
-
-- `nut_5` center within 0.0007 m of (-0.03, 0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_5` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_5` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_5` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-
-## nut_6_threaded (0.1)
-
-- `nut_6` center within 0.0007 m of (0.03, 0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_6` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_6` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_6` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-
-## nut_7_threaded (0.1)
-
-- `nut_7` center within 0.0007 m of (0.09, 0.05, 0.0172), XYZW orientation (0, 0, 0, 1) within 3.14159 rad relative to bracket.
-- `nut_7` local axis (0, 0, 1) within 0.10472 rad of (0, 0, 1) relative to bracket.
-- `nut_7` has at least 3.4 measured pitch-coupled revolutions.
-- `nut_7` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-
-## plate_preload_retained (0.2)
-
-- `pressure_plate` center within 0.001 m of (0, 0, 0.01), XYZW orientation (0, 0, 0, 1) within 0.035 rad relative to bracket.
-- `plate_preload` in [-0.013, -0.011] (metres for prismatic, radians for rotary joints).
-- `plate_tilt_x` in [-0.035, 0.035] (metres for prismatic, radians for rotary joints).
-- `plate_tilt_y` in [-0.035, 0.035] (metres for prismatic, radians for rotary joints).
-- `pressure_plate` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-- `nut_0` has at least 3.45 measured pitch-coupled revolutions.
-- `nut_1` has at least 3.45 measured pitch-coupled revolutions.
-- `nut_2` has at least 3.45 measured pitch-coupled revolutions.
-- `nut_3` has at least 3.45 measured pitch-coupled revolutions.
-- `nut_4` has at least 3.45 measured pitch-coupled revolutions.
-- `nut_5` has at least 3.45 measured pitch-coupled revolutions.
-- `nut_6` has at least 3.45 measured pitch-coupled revolutions.
-- `nut_7` has at least 3.45 measured pitch-coupled revolutions.
-
-
-Malformed/missing/nonfinite data and nonmonotonic conflicting timestamps fail closed. The same frame can be queried twice without double-counting time. Unobserved gaps reset the stability window. Off-table loss uses the lowest rotated collision-bound corner, 25 mm below the tabletop. Anchors may move at most 5 mm / 3 degrees. Joint tolerances are 10 mrad rotary or 0.5 mm prismatic beyond physical limits.
-
-Thread credit requires aligned angular increments with corresponding axial motion inside the thread engagement region. Free spinning, direct dropping and pitch-inconsistent motion earn no turn credit. Cable continuity uses connected joint endpoints; a forced catch crossing without release invalidates the episode. These checks apply only to mechanisms present in this task.
-
-Offline tests inject synthetic states to test arithmetic and counterexamples. Native probes separately read actual simulation states and call this same scorer. No synthetic score is a demonstration result.
-
-Interchangeable parts are matched one-to-one to valid slots. The body names in slot predicates are templates: any listed candidate may satisfy that slot, and dependent closure/preload goals reuse the same matching. Polarity, contact-spring compression and measured turn history remain mandatory. A single part cannot earn two slot credits; changing studs resets its thread history. The expert uses one convenient assignment, which is not required by scoring.
+A nut must remain within1.8mm of a stud axis, and cumulative axial progress must match its4mm pitch within0.65mm. Merely placing a nut at the endpoint does not establish the required measured turns.

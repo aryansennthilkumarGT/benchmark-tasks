@@ -1,81 +1,9 @@
 {
-  "schema_version": 2,
-  "status": "STATIC_TESTS_PASSED",
-  "ready": false,
-  "verified_at": "2026-11-07T23:59:11.587892+00:00",
-  "offline_tests": {
-    "slug": "eight-nut-bracket",
-    "python": "3.12.13",
-    "tests_run": 67,
-    "skipped": 2,
-    "passed": 65,
-    "unit_exit": 0,
-    "usd_exit": 0
-  },
-  "offline_audits": {
-    "control": {
-      "passed": true,
-      "evidence": "offline-evidence/control.json"
-    },
-    "geometry": {
-      "passed": true,
-      "evidence": "offline-evidence/geometry.json"
-    },
-    "grasps": {
-      "passed": true,
-      "evidence": "offline-evidence/grasps.json"
-    },
-    "motion": {
-      "passed": true,
-      "evidence": "offline-evidence/motion.json"
-    },
-    "threads": {
-      "passed": true,
-      "evidence": "offline-evidence/threads.json"
-    }
-  },
-  "usd_structure": {
-    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
-    "assemblies": 9,
-    "bodies": 12,
-    "joints": 3,
-    "spawn_transforms_and_anchors": "PASS",
-    "initial_joint_frames": "PASS"
-  },
-  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "NOT_RUN",
-  "robot_control": "NOT_RUN",
-  "expert_trials": [],
-  "dream": null,
-  "media_id": null,
-  "media_verified": false,
-  "run_limit": 36000,
-  "native_cases_planned": {
-    "physics": 4,
-    "control": 3
-  },
-  "physics_runs": 0,
-  "expert_runs": 0,
-  "model_runs": 0,
-  "media_uploads": 0,
-  "remaining": [
-    "Native mechanism and reset probes",
-    "Real robot control tests",
-    "Two full-score expert episodes",
-    "Genuine Dream-1 evaluation",
-    "Media visual review and official upload",
-    "Runtime publication verification"
-  ],
-  "limitations": [
-    "The access plate uses one vertical spring and two passive tilt joints as a reduced model of a guided spring-loaded cover; it can rise and tip before the nuts retain it.",
-    "Enlarged 4 mm-pitch square-profile threads use 64 rigid segments per turn with real collision contact. No helical attachment or proximity snapping is used.",
-    "The task measures pitch-coupled advancement, seating and retained plate compression. It does not certify bolt tension, friction torque or sealing performance.",
-    "Native contact forces, spring-load transfer, two expert episodes and model evaluation remain unexecuted."
-  ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
-  "native_collision_collection": {
-    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
-    "regression": "Nested rigid-body colliders belong only to their owning link",
-    "clearance_requirement_m": 0.02
-  }
+  "status": "OFFLINE_STATIC_CHECKS_PASSED_NATIVE_VALIDATION_PENDING",
+  "native_physics": "NOT_RUN_FOR_THREE_FASTENER_REVISION",
+  "expert_scores": [],
+  "dream_score": null,
+  "media": null,
+  "run_limit": 18000,
+  "scope": "Isolated three-fastener prototype. Offline checks provide no native physics or demonstration credit."
 }

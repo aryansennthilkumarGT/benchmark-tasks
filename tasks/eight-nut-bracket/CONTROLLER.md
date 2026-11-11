@@ -1,13 +1,13 @@
-# Feedback controller
+# Expert controller
 
-The privileged scripted expert reads measured bodies, joints and robot proprioception. Dream receives the unmodified official cameras and robot joint observations. Both send the same 14 absolute joint/gripper targets at 20 Hz. No controller code writes body transforms, attaches objects or changes score state.
+The expert submits14-dimensional absolute joint and jaw targets at20Hz through the official YAM embodiment. It reads actual robot joints, task body poses and passive joint positions. Object state changes occur through native robot contacts.
 
-Each action uses measured-joint warm-start IK, <=3 mm Cartesian increments, <=0.045 rad per joint step and <=0.10 gripper increments. Approach completes before finger closure. Jaw width, body-relative grasp slip, lift or displacement, joint progress, and insertion stall checks control phase transitions. Holds follow measured parent frames where specified. Threading uses 45-degree turns with opening, wrist unwind and regrasp, checking measured pitch advancement. Minor body misalignment is corrected incrementally; a 2 s stalled insertion or failed grasp aborts rather than applying unbounded force or retries.
+The left arm compresses and levels the spring-loaded plate. The right arm carries each nut to its stud, aligns the lead-in, then advances through3.45real turns using90-degree grips. Measured nut rotation must produce matching4mm-pitch axial movement. Open-jaw unwind recentres over the current nut at its original grasp height before reclosing. A1.5mm TCP gate and nonempty jaw width are required. Loaded joint tracking uses gain2.
 
-Offline nominal path checks sample actual URDF convex collision pieces for table and opposite-arm intersections every ten ideal controls, plus phase endpoints; critical grasp and first/last thread sweep checks include task fixtures. Full robot-to-fixture trajectories and deformable cable dynamics still require native validation. Sampling is not continuous collision certification.
+The three clamp positions enclose the plate centre and retain control about both passive tilt axes. The final arm withdrawal and two-second native stability hold establish load transfer. Any missing grip, stalled insertion, joint-limit violation or inconsistent pitch advance aborts the expert.
 
-| Phase | Arm | Operation | Measured completion |
-|---:|---|---|---|
+| Phase | Arm | Operation | Instruction |
+| --- | --- | --- | --- |
 | 0 | left | move | Approach plate stabilizing handle |
 | 1 | left | grasp | Stabilize the spring-loaded plate |
 | 2 | left | joint | Compress and level the access plate |
@@ -27,83 +27,22 @@ Offline nominal path checks sample actual URDF convex collision pieces for table
 | 16 | right | thread | Rotate and regrasp nut_1 |
 | 17 | right | release | Release seated nut_1 |
 | 18 | right | move | Withdraw from nut_1 |
-| 19 | right | move | Approach nut_2 |
-| 20 | right | grasp | Grasp nut_2 |
-| 21 | right | carry | Lift nut_2 |
-| 22 | right | carry | Align nut_2 above stud |
-| 23 | right | insert | Find thread lead for nut_2 |
-| 24 | right | thread | Rotate and regrasp nut_2 |
-| 25 | right | release | Release seated nut_2 |
-| 26 | right | move | Withdraw from nut_2 |
-| 27 | right | move | Approach nut_3 |
-| 28 | right | grasp | Grasp nut_3 |
-| 29 | right | carry | Lift nut_3 |
-| 30 | right | carry | Align nut_3 above stud |
-| 31 | right | insert | Find thread lead for nut_3 |
-| 32 | right | thread | Rotate and regrasp nut_3 |
-| 33 | right | release | Release seated nut_3 |
-| 34 | right | move | Withdraw from nut_3 |
-| 35 | right | move | Approach right stabilizing handle |
-| 36 | right | grasp | Take plate support with right hand |
-| 37 | left | release | Release left support after handover |
-| 38 | left | move | Approach nut_4 |
-| 39 | left | grasp | Grasp nut_4 |
-| 40 | left | carry | Lift nut_4 |
-| 41 | left | carry | Align nut_4 above stud |
-| 42 | left | insert | Find thread lead for nut_4 |
-| 43 | left | thread | Rotate and regrasp nut_4 |
-| 44 | left | release | Release seated nut_4 |
-| 45 | left | move | Withdraw from nut_4 |
-| 46 | left | move | Approach nut_5 |
-| 47 | left | grasp | Grasp nut_5 |
-| 48 | left | carry | Lift nut_5 |
-| 49 | left | carry | Align nut_5 above stud |
-| 50 | left | insert | Find thread lead for nut_5 |
-| 51 | left | thread | Rotate and regrasp nut_5 |
-| 52 | left | release | Release seated nut_5 |
-| 53 | left | move | Withdraw from nut_5 |
-| 54 | left | move | Approach nut_6 |
-| 55 | left | grasp | Grasp nut_6 |
-| 56 | left | carry | Lift nut_6 |
-| 57 | left | carry | Align nut_6 above stud |
-| 58 | left | insert | Find thread lead for nut_6 |
-| 59 | left | thread | Rotate and regrasp nut_6 |
-| 60 | left | release | Release seated nut_6 |
-| 61 | left | move | Withdraw from nut_6 |
-| 62 | left | move | Approach nut_7 |
-| 63 | left | grasp | Grasp nut_7 |
-| 64 | left | carry | Lift nut_7 |
-| 65 | left | carry | Align nut_7 above stud |
-| 66 | left | insert | Find thread lead for nut_7 |
-| 67 | left | thread | Rotate and regrasp nut_7 |
-| 68 | left | release | Release seated nut_7 |
-| 69 | left | move | Withdraw from nut_7 |
-| 70 | left | move | Clear fasteners with left hand |
-| 71 | right | release | Release right plate support |
-| 72 | right | move | Withdraw right arm |
-| 73 | left | hold | Observe released threaded assembly |
+| 19 | right | move | Approach right stabilizing handle |
+| 20 | right | grasp | Take plate support with right hand |
+| 21 | left | release | Release left support after handover |
+| 22 | left | move | Approach nut_2 |
+| 23 | left | grasp | Grasp nut_2 |
+| 24 | left | carry | Lift nut_2 |
+| 25 | left | carry | Align nut_2 above stud |
+| 26 | left | insert | Find thread lead for nut_2 |
+| 27 | left | thread | Rotate and regrasp nut_2 |
+| 28 | left | release | Release seated nut_2 |
+| 29 | left | move | Withdraw from nut_2 |
+| 30 | left | move | Clear fasteners with left hand |
+| 31 | right | release | Release right plate support |
+| 32 | right | move | Withdraw right arm |
+| 33 | left | hold | Observe released threaded assembly |
 
-The trajectory audit checks the official convex robot meshes against anchored fixture bodies, the table and the other arm every ten controls and at segment endpoints. It does not certify moving fixture, payload, flexible cable or inter-sample collision clearance. Grasp and thread sweeps separately check task geometry at specified samples. All are ideal kinematic checks, not physical execution.
+Full targets, gains and timeout values are in controller.json. Exact IK paths, full robot meshes and intended grasp contacts are checked offline. Physical feasibility requires separate native trials.
 
-After the motion plan, the expert holds the released pose while the actual scorer establishes full-score stability. It stops only on measured success or fails after a bounded five-second terminal grace period (or hold time plus two seconds, if longer). A finished phase list is not a success signal.
-
-The square-thread approximation uses 4 mm lead, 1.70 mm axial ridge thickness and 16 contact sectors per turn. Nominal mating backlash is 0.60 mm. Female crest radius is 8.15 mm around a 7.70 mm stud core, with 0.90 mm male/female radial engagement. Internal thread clocking is -67.5 degrees with a -0.15 mm axial offset, matching the authored entry and loaded fixture phases. The previous 1-mm flanks allowed 2-mm nominal axial backlash, and 0.5-mm radial engagement was smaller than the 0.85-mm core clearance. This candidate needs full native validation.
-
-The corrected profile passed 7/8 native physics cases, with both passive retention repetitions passing. The second upward-load repetition reported deep penetration involving the last initialized nut. The next fixture test synchronizes native FK after all initialization writes and records measured post-initialization coordinates before loading. This synchronization belongs to physics probes. Expert actions remain robot controls. Native retesting is pending.
-
-The first native robot probe compressed the pressure plate 3.38 mm against a 12-mm target and developed approximately 0.083-rad pitch. Its shared prerequisite timed out. The press now integrates measured joint error into the existing rate-limited robot reference and targets a level plate orientation. The left reference tracking window is 0.08 rad, with the 0.5-mm per-step Cartesian increment. Native retesting is pending. Failure receipts include measured references and actuator torques.
-
-Thread-lead approach integrates measured nut-position error into the rate-limited robot reference, with gain 0.1 and a 0.5 mm per-action lead cap. The previous nominal 0.5 mm body target descended only about 0.4 mm/s and drifted laterally before timing out. Grasp checks, joint limits, and bounded stall detection remain active. Native thread entry is still unverified for this candidate.
-
-The threading arm uses the 0.08-radian loaded joint-tracking window already configured for the preload arm. A native trace showed only 0.0147 radians of net yaw change and 0.184 mm of height change over 53.1 simulated seconds. That incomplete experiment was intentionally stopped. Rotation now requires at least 0.005 radians of additional directed progress within two seconds, including a fresh progress interval after each regrasp. Failure diagnostics include actual joints, references, grasp transforms and thread state. Native retesting must determine whether the tracking window resolves the stall.
-
-
-The controller now turns90degrees before each regrasp. The earlier45degree release lost axial alignment in actual native probes. Ninety degrees engages more of the helical load-bearing contact before opening the fingers. Fresh wrist-envelope, gravity-retention and actual robot-threading probes must validate this configuration. Scoring still requires the original pitch-coupled turns and preload retention.
-
-Pilot entry requires measured lateral error at most 75 micrometres and orientation error at most 4 mrad before further axial advance. The pilot has 0.10 mm radial clearance. Separate bounded lateral and angular corrections continue while axial descent is gated, preserving the integrated loaded reference. A 0.3 mm axial lead is permitted only while aligned. Native entry previously slipped after approximately 0.8 mm misalignment against the tight pilot.
-
-Conical lead-ins provide physical self-centring before the close cylindrical pilot. Entry permits at most0.75mm lateral and15mrad angular error while applying lower lateral gain0.05 and angular gain0.03. The earlier75micrometre gate kept the vibrating grasp above the pilot until timeout. Offset-guide and quarter-turn gravity probes must pass before actual thread control.
-
-Each open-jaw unwind and regrasp recentres the measured TCP over the current nut centre at its original grasp height. The previous controller held the drifting measured TCP position during unwind. Native runs reached helical rotation but then closed empty fingers after lateral TCP drift. Reclosing now requires a measured centre error below 1.5 mm, and physical nonempty jaw width remains mandatory.
-
-Thread rotation and regrasp use the same gain2 measured joint-tracking compensation as loaded manipulation elsewhere. The recentred native attempt achieved1.70real turns, then held a nonempty31.69mm jaw width while its2.266mm TCP bias prevented the unchanged1.5mm regrasp gate. The former thread phase used zero joint-tracking compensation. All contact, grasp-width, pitch-coupling and scoring checks remain.
+The passive offset-drop probe is a negative control for engagement. The conical guide assists active alignment, and the first full nut-threading control probe must establish the actual positive case. The predecessor probe incorrectly assumed passive self-centring from an offset drop and failed. Its evidence remains in the engineering checkpoint.

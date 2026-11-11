@@ -1,6 +1,6 @@
 # Fasten a spring-loaded access plate while maintaining its preload
 
-Press the grey access plate level against its marked height while turning the eight orange nuts down their studs. Keep the plate controlled as the nuts capture its spring load. Seat every nut against the plate, then withdraw both hands; the plate must remain level and compressed.
+Press the grey access plate level against its marked height while turning the three orange nuts down their studs. Keep the plate controlled as the nuts capture its spring load. Seat every nut against the plate, then withdraw both hands; the plate must remain level and compressed.
 
 Engineering implementation. `validation.json` records exact executed evidence. A checkout without the required native, expert, model and media records is not ready for an official PR. No unexecuted score is claimed.
 
@@ -33,9 +33,9 @@ The budget receipt describes actual provider facts: `hourly_usd`, `balance_usd`,
 
 ## Trials and scoring
 
-Seed 0 and `object_jitter=0` are fixed for both expert repeats and the model. Maximum 36000 actions (1800 simulated seconds). Real wall time is unmeasured and depends on physics/rendering/model latency. The scorer recomputes partial credit and requires 2 s of final stability and released-arm clearance. Read [SCORING.md](SCORING.md) for every numerical condition and [SETUP.md](SETUP.md) for every body, material, mass, dimension and pose.
+Seed 0 and `object_jitter=0` are fixed for both expert repeats and the model. Maximum 18000 actions (900 simulated seconds). Real wall time is unmeasured and depends on physics/rendering/model latency. The scorer recomputes partial credit and requires 2 s of final stability and released-arm clearance. Read [SCORING.md](SCORING.md) for every numerical condition and [SETUP.md](SETUP.md) for every body, material, mass, dimension and pose.
 
-Native probes: 5 physics cases and 3 real robot-control cases, each repeated after independent resets. Physics probes may initialize mechanism poses and apply forces for controlled measurements; those probes are explicitly excluded from demonstration/media evidence. Control probes use only robot actions. Two full expert episodes separately establish feasibility before model spending.
+Native probes: 6 physics cases and 3 real robot-control cases, each repeated after independent resets. Physics probes may initialize mechanism poses and apply forces for controlled measurements; those probes are explicitly excluded from demonstration/media evidence. Control probes use only robot actions. Two full expert episodes separately establish feasibility before model spending.
 
 ## Implementation and limits
 
