@@ -217,7 +217,16 @@ class Controller:
                 correction = limit_vector(phase.get('position_gain', 1.0)*position_error, 0.003)
             commanded = body_p + correction
             rotation_error = multiply(desired_q, conjugate(body_q))
-            p = commanded + rotate(rotation_error, tcp-body_p)
+            if kind == 'insert':
+                # Decouple orientation from translation at contact. A full
+                # observed pin rotation applied to the offset TCP can swing the
+                # tip sideways by more than the receiver clearance in one step.
+                p = tcp + correction
+                angle = qangle([0, 0, 0, 1], rotation_error)
+                rotation_error = interpolate(
+                    [0, 0, 0, 1], rotation_error, min(0.25, 0.005 / max(angle, 1e-9)))
+            else:
+                p = commanded + rotate(rotation_error, tcp-body_p)
             q = multiply(rotation_error, tcpq)
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
