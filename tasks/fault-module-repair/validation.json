@@ -71,5 +71,14 @@
     "Prismatic guidance approximates the counterweight rail. A real free pin through two collision-defined holes locks translation.",
     "The unpowered pivot has damping but no centering spring. Gravity balance and pin load retention require native tests."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "UNCHANGED_FROM_FULL_STATIC_PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
+  }
 }
