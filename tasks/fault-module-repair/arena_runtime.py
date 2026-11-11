@@ -71,7 +71,8 @@ def install(spec, scorer, here):
                 cfg.init_state.joint_vel = {name: 0.0 for name in cfg.init_state.joint_pos}
                 cfg.actuators = {j['name']: ImplicitActuatorCfg(
                     joint_names_expr=[j['name']], stiffness=j.get('stiffness', 0.0),
-                    damping=j.get('damping', 0.02)) for j in data.get('joints', [])}
+                    damping=j.get('damping', 0.02), friction=j.get('friction'),
+                    dynamic_friction=j.get('dynamic_friction')) for j in data.get('joints', [])}
                 return cfg
 
         addon = {'collision_props': sim.CollisionPropertiesCfg(contact_offset=0.0003, rest_offset=0.0)}

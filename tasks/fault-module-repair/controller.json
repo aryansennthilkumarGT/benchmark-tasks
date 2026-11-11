@@ -122,24 +122,45 @@
       "joint": "weight_slide",
       "value": -0.031,
       "increment": 0.004,
-      "tolerance": 0.0004,
-      "timeout": 25
+      "tolerance": 0.00018,
+      "timeout": 25,
+      "hold": 0.35
     },
     {
       "kind": "release",
       "label": "Release aligned counterweight",
       "side": "right",
-      "opening": 0.4685835995740149
+      "opening": 1.0
     },
     {
       "kind": "move",
-      "label": "Clear counterweight",
+      "label": "Lift above the counterweight after release",
+      "side": "right",
+      "target": {
+        "pos": [
+          0,
+          -0.041,
+          0.0725
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ],
+        "relative_to": "counterweight"
+      },
+      "opening": 1.0
+    },
+    {
+      "kind": "move",
+      "label": "Clear the slider lane above the fixture",
       "side": "right",
       "target": {
         "pos": [
           0.2,
           -0.2,
-          0.9175000000000001
+          0.94
         ],
         "quat": [
           -0.7071067811865477,
@@ -148,7 +169,7 @@
           0.0
         ]
       },
-      "opening": 0.4685835995740149
+      "opening": 1.0
     },
     {
       "kind": "move",

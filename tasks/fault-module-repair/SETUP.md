@@ -17,7 +17,7 @@ The lower pin receiver is 18 mm deep. The pin has a 9.4 mm square shaft and an 8
 ## Passive joints
 
 - `arm_pivot`: revolute Y, `pedestal` to `service_arm`; limits [-0.3, 0.3]; stiffness 0, damping 0.004. Full joint frames are in `scene.json`.
-- `weight_slide`: prismatic X, `service_arm` to `counterweight`; limits [-0.075, 0]; stiffness 0, damping 0.02. Full joint frames are in `scene.json`.
+- `weight_slide`: prismatic X, `service_arm` to `counterweight`; limits [-0.075, 0]; stiffness 0, damping 0.02, static sliding resistance 0.08 N and dynamic resistance 0.04 N in PhysX. Full joint frames are in `scene.json`.
 
 ## Mass distribution overrides
 
