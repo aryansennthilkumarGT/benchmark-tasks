@@ -34,6 +34,8 @@ Geometry is original primitive construction. All movable components use friction
 | `retaining_plate` | rigid engineering plastic | 0.18 | (0.308, 0.114, 0.0487) | (0.285, 0.23, 0.7515) | (0, 0, 0, 1) | passive dynamic |
 | `capture_key` | rigid fixture material | 0.08 | (0.014, 0.156, 0.014) | (0.385, -0.24, 0.7547) | (0, 0, 0, 1) | passive dynamic |
 
+The key channel end stop is 2.5 mm thick. Its inside face is at y=−80.5 mm in the holder frame, leaving clearance at the scored key seat.
+
 ## Passive joints
 
 - `contact_spring_0`: prismatic Z, `holder` to `contact_0`; limits [-0.002, 0]; stiffness 500, damping 0.5. Full joint frames are in `scene.json`.
