@@ -164,6 +164,26 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_vertical_entry_aligns_laterally_before_descending(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['new_cell_0']
+        goal = np.array(body['pos']) + [.005, 0, -.02]
+        phase = dict(kind='insert', body='new_cell_0',
+                     insertion_axis_world=[0, 0, 1], lateral_gain=8,
+                     lateral_lead=.008, lateral_tolerance=.0008,
+                     target=dict(pos=goal.tolist(), quat=axis_quat([0, 1, 0], -.3).tolist()))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='new_cell_0', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append(np.array(position))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        tcp, _ = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0] - tcp, [.008, 0, 0], atol=1e-12)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

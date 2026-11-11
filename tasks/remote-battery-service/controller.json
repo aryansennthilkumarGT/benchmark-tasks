@@ -360,7 +360,7 @@
       ]
     },
     {
-      "kind": "carry",
+      "kind": "insert",
       "label": "Lower tilted new_cell_0 toward its spring",
       "side": "right",
       "body": "new_cell_0",
@@ -391,7 +391,16 @@
         1,
         0,
         0
-      ]
+      ],
+      "insertion_axis_world": [
+        0,
+        0,
+        1
+      ],
+      "lateral_gain": 8,
+      "lateral_lead": 0.008,
+      "lateral_tolerance": 0.0008,
+      "axial_lead": 0.0015
     },
     {
       "kind": "joint",
@@ -426,14 +435,14 @@
       "timeout": 35,
       "axial_lead": 0.0015,
       "lateral_gain": 8,
-      "lateral_lead": 0.003,
+      "lateral_lead": 0.008,
       "orientation_axis": [
         1,
         0,
         0
       ],
       "preserve_grasp_orientation": true,
-      "lateral_tolerance": 0.0015
+      "lateral_tolerance": 0.0008
     },
     {
       "kind": "carry",
@@ -796,7 +805,7 @@
       ]
     },
     {
-      "kind": "carry",
+      "kind": "insert",
       "label": "Lower tilted new_cell_1 toward its spring",
       "side": "right",
       "body": "new_cell_1",
@@ -827,7 +836,16 @@
         1,
         0,
         0
-      ]
+      ],
+      "insertion_axis_world": [
+        0,
+        0,
+        1
+      ],
+      "lateral_gain": 8,
+      "lateral_lead": 0.008,
+      "lateral_tolerance": 0.0008,
+      "axial_lead": 0.0015
     },
     {
       "kind": "joint",
@@ -862,14 +880,14 @@
       "timeout": 35,
       "axial_lead": 0.0015,
       "lateral_gain": 8,
-      "lateral_lead": 0.003,
+      "lateral_lead": 0.008,
       "orientation_axis": [
         1,
         0,
         0
       ],
       "preserve_grasp_orientation": true,
-      "lateral_tolerance": 0.0015
+      "lateral_tolerance": 0.0008
     },
     {
       "kind": "carry",

@@ -57,10 +57,11 @@ def limit_vector(delta,maximum):
 
 class Motion:
     """Track a rate-limited IK reference while waiting for all joints to catch up."""
-    def __init__(self,side,dt=0.05):
+    def __init__(self,side,dt=0.05,tracking_error_limit=0.025):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
+        self.tracking_error_limit = tracking_error_limit
 
     def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
         q=np.asarray(measured,dtype=float)
@@ -74,8 +75,9 @@ class Motion:
         grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
         if self.reference is None:
             self.reference = arm.copy()
-        if np.max(np.abs(self.reference - arm)) > 0.025:
-            command = np.clip(self.reference, arm-0.045, arm+0.045)
+        if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:
+            command = np.clip(self.reference, arm-self.tracking_error_limit-0.02,
+                              arm+self.tracking_error_limit+0.02)
             return np.r_[command, grip], error, theta
         current, rotation = self.ik.tcp_pose(self.reference, self.base)
         current_q = self.ik.matrix_to_quat_xyzw(rotation)
@@ -104,7 +106,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={s:Motion(s) for s in ('left','right')}
+        self.motion={'left': Motion('left'), 'right': Motion('right', tracking_error_limit=0.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -205,7 +207,11 @@ class Controller:
             body_p,body_q=np.asarray(body['pos']),body['quat']
             position_error = desired_p - body_p
             if kind == 'insert':
-                axis = rotate(desired_q, [0, 0, 1])
+                axis = np.asarray(phase.get('insertion_axis_world', rotate(desired_q, [0, 0, 1])), dtype=float)
+                length = np.linalg.norm(axis)
+                if axis.shape != (3,) or not np.isfinite(axis).all() or length < 1e-12:
+                    raise ControlFailure('Invalid insertion axis')
+                axis = axis / length
                 axial = np.dot(position_error, axis) * axis
                 lateral = position_error - axial
                 correction = limit_vector(phase.get('lateral_gain', 3.0)*lateral, phase.get('lateral_lead', 0.001))
