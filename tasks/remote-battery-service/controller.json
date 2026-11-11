@@ -327,7 +327,41 @@
     },
     {
       "kind": "carry",
-      "label": "Tilt new_cell_0 into the spring end of its bay",
+      "label": "Orient new_cell_0 above the bay",
+      "side": "right",
+      "body": "new_cell_0",
+      "target": {
+        "pos": [
+          0.29059999999999997,
+          -0.033,
+          0.80275
+        ],
+        "quat": [
+          0.0,
+          -0.09983341664682815,
+          0.0,
+          0.9950041652780258
+        ]
+      },
+      "timeout": 15,
+      "measured_translation": true,
+      "position_gain": 4,
+      "preserve_grasp_orientation": true,
+      "wrist_rotation": [
+        0,
+        -0.09983341664682815,
+        0,
+        0.9950041652780258
+      ],
+      "orientation_axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lower tilted new_cell_0 toward its spring",
       "side": "right",
       "body": "new_cell_0",
       "target": {
@@ -729,7 +763,41 @@
     },
     {
       "kind": "carry",
-      "label": "Tilt new_cell_1 into the spring end of its bay",
+      "label": "Orient new_cell_1 above the bay",
+      "side": "right",
+      "body": "new_cell_1",
+      "target": {
+        "pos": [
+          0.2894,
+          0.033,
+          0.80275
+        ],
+        "quat": [
+          0.09983341664682815,
+          6.11303370722411e-18,
+          0.9950041652780258,
+          6.092643330730091e-17
+        ]
+      },
+      "timeout": 15,
+      "measured_translation": true,
+      "position_gain": 4,
+      "preserve_grasp_orientation": true,
+      "wrist_rotation": [
+        0,
+        0.09983341664682815,
+        0,
+        0.9950041652780258
+      ],
+      "orientation_axis": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lower tilted new_cell_1 toward its spring",
       "side": "right",
       "body": "new_cell_1",
       "target": {
@@ -1293,7 +1361,23 @@
       "opening": 0.15441959531416402
     },
     {
-      "label": "Tilt new_cell_0 into the spring end of its bay",
+      "label": "Orient new_cell_0 above the bay",
+      "side": "right",
+      "pos": [
+        0.2886133066920494,
+        -0.033,
+        0.8125506657784124
+      ],
+      "quat": [
+        -0.7035741925769525,
+        0.7035741925769524,
+        -0.07059288589999416,
+        0.07059288589999416
+      ],
+      "opening": 0.15441959531416402
+    },
+    {
+      "label": "Lower tilted new_cell_0 toward its spring",
       "side": "right",
       "pos": [
         0.2886133066920494,
@@ -1581,7 +1665,23 @@
       "opening": 0.15441959531416402
     },
     {
-      "label": "Tilt new_cell_1 into the spring end of its bay",
+      "label": "Orient new_cell_1 above the bay",
+      "side": "right",
+      "pos": [
+        0.2913866933079506,
+        0.033,
+        0.8125506657784124
+      ],
+      "quat": [
+        -0.7035741925769525,
+        0.7035741925769524,
+        0.07059288589999416,
+        -0.07059288589999416
+      ],
+      "opening": 0.15441959531416402
+    },
+    {
+      "label": "Lower tilted new_cell_1 toward its spring",
       "side": "right",
       "pos": [
         0.2913866933079506,
