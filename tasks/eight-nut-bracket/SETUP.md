@@ -35,3 +35,5 @@ Each threaded stud has a 7.7 mm radius guide core over the lower 23 mm and a 7.0
 The stud thread flanks extend to a nominal radius of 9.05 mm. Nut shell panels retain the 17 mm outer radius and provide 9.4 mm internal clearance. The female thread flanks retain their original pitch and radial position.
 
 The eight light nut bodies enable PhysX speculative continuous collision detection for the thin thread flanks. This contact-quality setting is recorded in each generated USD. [NVIDIA collision tuning guidance](https://github.com/NVIDIA-Omniverse/PhysX/blob/main/ovphysx/docs/guides/collision_tuning.md).
+
+The square-thread approximation uses 4 mm lead, 1.70 mm axial ridge thickness and 16 contact sectors per turn. Nominal mating backlash is 0.60 mm. Female crest radius is 8.15 mm around a 7.70 mm stud core, with 0.90 mm male/female radial engagement. Internal thread clocking is -67.5 degrees with a +0.05 mm axial offset, matching the authored entry and loaded fixture phases. The previous 1-mm flanks allowed 2-mm nominal axial backlash, and 0.5-mm radial engagement was smaller than the 0.85-mm core clearance. This candidate needs full native validation.
