@@ -190,6 +190,22 @@ def install(spec, scorer, here):
             return arena_object(obj) if isinstance(obj, Assembly) else original(obj)
         module.task_object = task_object
 
+        original_builder = module.build_task_environment
+        def build_task_environment(embodiment, task, control_hz=None):
+            environment = original_builder(embodiment, task, control_hz)
+            if getattr(task.module, 'SPEC', None) is spec:
+                previous_callback = environment.env_cfg_callback
+                def configure(config):
+                    config = previous_callback(config)
+                    control_dt = config.sim.dt * config.decimation
+                    config.sim.dt = 1.0 / 480
+                    config.decimation = round(control_dt / config.sim.dt)
+                    config.sim.render_interval = config.decimation
+                    return config
+                environment.env_cfg_callback = configure
+            return environment
+        module.build_task_environment = build_task_environment
+
     def patch_embodiment(module):
         cls = module.YamArenaEmbodiment
         original_reset, original_step = cls.reset, cls._task_step
