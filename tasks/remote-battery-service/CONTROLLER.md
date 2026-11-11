@@ -71,3 +71,5 @@ The 9bb4e97 replay reached the first spring contact at cell Z 0.77512 m, compres
 The concurrent tilt/descent replay deflected the first cell axis to approximately −16.6 degrees while targeting +11.5 degrees. The revised sequence first orients the cell above fixture contact, then lowers the already tilted cell. This isolates free-air grasp orientation from contact-induced rotation in the next native experiment.
 
 The next candidate uses a 0.3-rad tilt, a 2.6-mm offset away from the spring and a 0.7710-m body center during first contact entry. These dimensions are chosen to clear the cylindrical rim over the spring top and keep the opposite end above its fixed contact. Native validation is pending.
+
+The 0.3-rad native trial completed free-space orientation, then made off-center contact with the spring edge and stalled. Measured convex checks found only intended fingertip/cell contact for robot geometry and a 0.078-mm cell/spring overlap. The next entry target adds 5 mm offset away from the spring and uses body height 0.774 m, providing nominal rim/end-wall clearance before horizontal spring compression. Physical validation is pending.
