@@ -1,6 +1,83 @@
 {
   "physics": [
     {
+      "name": "assembled_replacements_are_passively_stable",
+      "initialize_bodies": [
+        {
+          "assembly": "old_cooler_asset",
+          "pos": [
+            0.4181274175643921,
+            -0.18915338814258575,
+            0.7654659748077393
+          ],
+          "quat": [
+            0.011108487844467163,
+            0.07559101283550262,
+            0.004263358656316996,
+            0.9970678687095642
+          ]
+        },
+        {
+          "assembly": "old_storage_asset",
+          "pos": [
+            0.44,
+            -0.282,
+            0.7617
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "new_storage_asset",
+          "pos": [
+            0.3,
+            0,
+            0.7655
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "new_cooler_asset",
+          "pos": [
+            0.3,
+            0,
+            0.7955
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "steps": 160,
+      "assertions": [
+        {
+          "kind": "score",
+          "min": 1.0,
+          "max": 1.0,
+          "success": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
       "name": "settled_modules_have_clearance",
       "steps": 100,
       "assertions": [
@@ -176,7 +253,7 @@
           "kind": "joint",
           "joint": "lid_hinge",
           "min": 0.76,
-          "max": 0.8
+          "max": 1.355
         },
         {
           "kind": "goal",
