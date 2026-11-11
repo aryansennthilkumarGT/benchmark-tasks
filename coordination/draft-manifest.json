@@ -48,9 +48,9 @@
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "81dbcca7f18e0641bedef5222b02824405c6605d",
+      "commit": "29a2240ecf9577b39cb56a59a228fc9bba2523d5",
       "task_folder": "tasks/remote-battery-service",
-      "status": "LOW_RAIL_PHYSICS_PASSED_CAPTURED_WRIST_TRANSLATION_EXPERT_QUEUED",
+      "status": "PRECONTACT_TILT_EXPERT_DIAGNOSTIC_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -66,7 +66,7 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "PRIOR_REVISION_PASS_CURRENT_GEOMETRY_AND_SCORER_RETEST_PENDING",
+      "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "media_verified": false,
       "suggested_pr_title": "Replace opposed-polarity cells under a spring-return service cover",
@@ -239,7 +239,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
       "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
       "task_folder": "tasks/fault-module-repair",
-      "status": "TWO_FULL_SCORE_EXPERTS_PASSED_FINAL_NATIVE_SUITES_RUNNING",
+      "status": "NATIVE_FEASIBILITY_COMPLETE_DREAM_UPLOAD_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -258,8 +258,8 @@
       ],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
-      "robot_control": "PIN_ENTRY_STALL_RELIEF_RETEST_PENDING",
+      "native_physics": "PASS_8_OF_8",
+      "robot_control": "PASS_4_OF_4",
       "media_verified": false,
       "suggested_pr_title": "Balance and lock a counterweighted service arm",
       "suggested_pr_body": null,
@@ -278,7 +278,9 @@
       "expert_record_ids": [
         "885b02a3fedb4f3e8bb7a9187d9529c7",
         "af21ab3c4e4742a5b37485e20bdd6dcf"
-      ]
+      ],
+      "evidence_root": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4",
+      "feasibility_proof": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/evidence/feasibility.json"
     },
     {
       "slug": "hardware-order-kit",
@@ -287,7 +289,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit",
       "commit": "d1156518202d970ac8742dc3d917348121dff234",
       "task_folder": "tasks/hardware-order-kit",
-      "status": "SIX_SELECTED_NATIVE_CASE_REPEATS_PASSED_FULL_SUITE_PENDING",
+      "status": "FULL_NATIVE_PHYSICS_PASSED_CONTROL_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -303,8 +305,8 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "PASS_SIX_SELECTED_CASE_REPEATS",
-      "robot_control": "NOT_RUN",
+      "native_physics": "PASS_12_OF_12",
+      "robot_control": "OPENING_DIAGNOSTIC_QUEUED",
       "media_verified": false,
       "suggested_pr_title": "Fit and pin a hinged collar around a captive shaft",
       "suggested_pr_body": null,
@@ -316,8 +318,10 @@
         "The collar tests retention around a shaft, not certified clamping friction or torque transmission."
       ],
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "physics_evaluated_commit": "d1156518202d970ac8742dc3d917348121dff234",
+      "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx"
     }
   ],
-  "updated_at": "2026-11-11T02:42:20.045936+00:00"
+  "updated_at": "2026-11-11T06:02:36.425234+00:00"
 }

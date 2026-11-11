@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T05:01:28.031251+00:00",
+  "updated_at": "2026-11-11T06:02:36.425234+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -11,11 +11,11 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "81dbcca7f18e0641bedef5222b02824405c6605d",
-      "state": "LOW_RAIL_PHYSICS_PASSED_CAPTURED_WRIST_TRANSLATION_EXPERT_QUEUED",
+      "commit": "29a2240ecf9577b39cb56a59a228fc9bba2523d5",
+      "state": "PRECONTACT_TILT_EXPERT_DIAGNOSTIC_RUNNING",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
-      "native_physics": "PRIOR_REVISION_PASS_CURRENT_GEOMETRY_AND_SCORER_RETEST_PENDING",
+      "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
       "run_limit": 6000,
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "expert_scores": []
@@ -51,7 +51,7 @@
     {
       "slug": "fault-module-repair",
       "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
-      "state": "TWO_FULL_SCORE_EXPERTS_PASSED_FINAL_NATIVE_SUITES_RUNNING",
+      "state": "NATIVE_FEASIBILITY_COMPLETE_DREAM_UPLOAD_PENDING",
       "physics_evaluated_commit": "ade4e41348431ed76f38fa8e7dea37ba18a85e83",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
       "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f",
@@ -59,14 +59,25 @@
       "expert_scores": [
         1.0,
         1.0
-      ]
+      ],
+      "native_physics": "PASS_8_OF_8",
+      "robot_control": "PASS_4_OF_4",
+      "dream_score": null,
+      "media_id": null,
+      "ready": false,
+      "evidence_root": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4",
+      "feasibility_proof": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/evidence/feasibility.json"
     },
     {
       "slug": "hardware-order-kit",
       "commit": "d1156518202d970ac8742dc3d917348121dff234",
-      "state": "SIX_SELECTED_NATIVE_CASE_REPEATS_PASSED_FULL_SUITE_PENDING",
+      "state": "FULL_NATIVE_PHYSICS_PASSED_CONTROL_QUEUED",
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "native_physics": "PASS_12_OF_12",
+      "physics_evaluated_commit": "d1156518202d970ac8742dc3d917348121dff234",
+      "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx",
+      "robot_control": "OPENING_DIAGNOSTIC_QUEUED"
     }
   ],
   "executed": {
