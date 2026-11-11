@@ -36,6 +36,9 @@ Every collision primitive and local transform is enumerated in `scene.json`. Cel
 
 The capture-key side walls have centres y=±79.75 mm and thickness 2.5 mm. Their inner faces are ±78.5 mm, giving the 156 mm cross-key 0.5 mm clearance per side at the scored centred position. Terminal spring damping is 2.0 N s/m with stiffness 500 N/m. These are declared simulation surrogate parameters.
 
-The native PhysX configuration uses 64 position iterations, 32 velocity iterations and a mass-normalized actor sleep threshold of 0.005 m²/s². The sleep threshold matches the installed Isaac Lab pick-and-place asset configuration. Bodies retain native contact dynamics and wake in response to applied forces and robot manipulation. Paired keyed/unkeyed 3 N probes test load retention separately from resting stability.
+The native PhysX configuration uses 32 position iterations, 8 velocity iterations and a mass-normalized actor sleep threshold of 0.005 m²/s². The sleep threshold matches the installed Isaac Lab pick-and-place asset configuration. Bodies retain native contact dynamics and wake in response to applied forces and robot manipulation. Paired keyed/unkeyed 3 N probes test load retention separately from resting stability.
 
-This task uses480Hz native physics with20Hz robot actions. The task-scoped Arena environment callback sets24 physics substeps per action. This increases temporal resolution for the small spring contacts. The installed robot, simulator and fixed host driver are used directly.
+This task uses240Hz native physics with20Hz robot actions. The task-scoped Arena environment callback sets12 physics substeps per action. This increases temporal resolution for the small spring contacts. The installed robot, simulator and fixed host driver are used directly.
+
+
+An earlier480Hz,64-position/32-velocity configuration passed two captured-preload fixtures but produced excessive measured stepping overhead during control diagnostics. The current240Hz,32-position/8-velocity configuration requires fresh native contact, preload-retention and robot-control validation. Driver565.57.01 remains fixed.

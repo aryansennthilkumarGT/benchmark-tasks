@@ -94,11 +94,11 @@ def install(spec, scorer, here):
         addon = {'collision_props': sim.CollisionPropertiesCfg(contact_offset=0.0003, rest_offset=0.0)}
         if articulated:
             addon['articulation_props'] = sim.ArticulationRootPropertiesCfg(
-                enabled_self_collisions=True, solver_position_iteration_count=64,
-                solver_velocity_iteration_count=32, sleep_threshold=0.005)
+                enabled_self_collisions=True, solver_position_iteration_count=32,
+                solver_velocity_iteration_count=8, sleep_threshold=0.005)
         else:
             addon['rigid_props'] = sim.RigidBodyPropertiesCfg(
-                solver_position_iteration_count=64, solver_velocity_iteration_count=32,
+                solver_position_iteration_count=32, solver_velocity_iteration_count=8,
                 max_depenetration_velocity=0.5, sleep_threshold=0.005)
         obj = NativeObject(name=a.name, usd_path=str(here/'assets'/f'{a.name}.usda'),
                            object_type=ObjectType.ARTICULATION if articulated else ObjectType.RIGID,
@@ -198,7 +198,7 @@ def install(spec, scorer, here):
                 def configure(config):
                     config = previous_callback(config)
                     control_dt = config.sim.dt * config.decimation
-                    config.sim.dt = 1.0 / 480
+                    config.sim.dt = 1.0 / 240
                     config.decimation = round(control_dt / config.sim.dt)
                     config.sim.render_interval = config.decimation
                     return config
