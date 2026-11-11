@@ -184,6 +184,30 @@ class FeedbackTests(unittest.TestCase):
         controller.step(self.ready, frame)
         np.testing.assert_allclose(targets[0] - tcp, [.008, 0, 0], atol=1e-12)
 
+    def test_spring_press_holds_transverse_position_and_captured_wrist(self):
+        rotation = axis_quat([0, 1, 0], -.3)
+        phase = dict(kind='joint', body='new_cell_0', joint='spring_0', value=-.00115,
+                     position_gain=8, increment=.003, hold_transverse=True,
+                     preserve_grasp_orientation=True, wrist_rotation=rotation.tolist())
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='new_cell_0', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1],
+            tcp_orientation_at_grasp=self.down.tolist())
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append((np.array(position), np.array(orientation)))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        start, _ = controller.pose(self.ready[:7], 'left')
+        frame = copy.deepcopy(self.frame)
+        controller.step(self.ready, frame)
+        moved = self.ready.copy()
+        moved[0] += .01
+        frame['time'] = .05
+        controller.step(moved, frame)
+        np.testing.assert_allclose(targets[-1][0][1:], start[1:], atol=1e-12)
+        self.assertLess(qangle(targets[-1][1], multiply(rotation, self.down)), 1e-6)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

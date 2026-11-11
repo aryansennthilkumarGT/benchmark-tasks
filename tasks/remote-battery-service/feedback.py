@@ -267,7 +267,14 @@ class Controller:
                 pivot=np.asarray(parent['pos'])+rotate(parent['quat'],joint['pivot_parent'])
                 turn=axis_quat(world_axis,delta)
                 p=pivot+rotate(turn,tcp-pivot);q=multiply(turn,tcpq)
-            else:p=tcp+world_axis*delta;q=tcpq
+            else:
+                p=tcp+world_axis*delta;q=tcpq
+                if phase.get('hold_transverse'):
+                    start_position = self.phase_start[side][0]
+                    p = start_position + world_axis * (np.dot(tcp - start_position, world_axis) + delta)
+            if phase.get('preserve_grasp_orientation'):
+                q = multiply(phase.get('wrist_rotation', [0, 0, 0, 1]),
+                             self.grasps[side].get('tcp_orientation_at_grasp', q))
             targets[side]=(p,q,0.0,0.035)
             complete=abs(desired-actual)<phase.get('tolerance',0.006 if joint['kind']=='revolute' else 0.001)
         elif kind=='release':
