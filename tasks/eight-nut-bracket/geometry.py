@@ -61,6 +61,23 @@ def separation(a,b):
 def penetration(a,b):return max(0.,-separation(a,b))
 
 
+def box_pair_penetrations(left_boxes, right_boxes):
+    """Vectorize the same 15 SAT axes across broad-phase candidate pairs."""
+    left_centers, left_half, left_axes = (np.asarray(part) for part in zip(*left_boxes))
+    right_centers, right_half, right_axes = (np.asarray(part) for part in zip(*right_boxes))
+    cross = np.cross(left_axes[:, :, None], right_axes[:, None, :]).reshape(-1, 9, 3)
+    lengths = np.linalg.norm(cross, axis=2)
+    valid = lengths > 1e-8
+    cross /= np.where(valid, lengths, 1)[:, :, None]
+    axes = np.concatenate((left_axes, right_axes, cross), axis=1)
+    left_radius = (np.abs(axes @ left_axes.transpose(0, 2, 1)) * left_half[:, None, :]).sum(axis=2)
+    right_radius = (np.abs(axes @ right_axes.transpose(0, 2, 1)) * right_half[:, None, :]).sum(axis=2)
+    center_distance = np.abs(np.einsum('nki,ni->nk', axes, right_centers - left_centers))
+    gaps = center_distance - left_radius - right_radius
+    gaps[:, 6:] = np.where(valid, gaps[:, 6:], -np.inf)
+    return np.maximum(0, -gaps.max(axis=1))
+
+
 def polyhedron(body,shape):
     centre,half,axes=box(body,shape)
     if shape['kind']=='box':
@@ -127,8 +144,13 @@ def maximum_penetration(spec,bodies):
         left_candidates=np.flatnonzero(np.all(lmax>body_lower[right_index],axis=1)&np.all(lmin<body_upper[right_index],axis=1))
         pair_mask=(np.all(rmax[None,:,:]>lmin[left_candidates,None,:],axis=2)&
                    np.all(rmin[None,:,:]<lmax[left_candidates,None,:],axis=2))
-        for row,j in zip(*np.nonzero(pair_mask)):
-            index=left_candidates[row];depth=penetration(boxes[left][index],boxes[right][j])
+        rows, right_indices = np.nonzero(pair_mask)
+        if not len(rows):
+            continue
+        left_indices = left_candidates[rows]
+        depths = box_pair_penetrations([boxes[left][i] for i in left_indices],
+                                      [boxes[right][j] for j in right_indices])
+        for index, j, depth in zip(left_indices, right_indices, depths):
             if depth<=maximum:continue
             if shapes[left][index]['kind']=='cylinder' or shapes[right][j]['kind']=='cylinder':
                 depth=max(0.,-convex_separation(polygon(left,index),polygon(right,j)))
