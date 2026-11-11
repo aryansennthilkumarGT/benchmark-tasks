@@ -234,6 +234,32 @@
         }
       ],
       "through_label": "Lift and verify the drive grasp"
+    },
+    {
+      "name": "seat_and_release_drive_in_channels",
+      "through_phase": 10,
+      "through_label": "Clear the drive entrance",
+      "max_steps": 2400,
+      "assertions": [
+        {
+          "kind": "goal",
+          "name": "carrier_seated",
+          "completed": true
+        },
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0.82,
+          "max": 0.89
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
     }
   ]
 }

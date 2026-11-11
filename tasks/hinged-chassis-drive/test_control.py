@@ -128,6 +128,51 @@ class FeedbackTests(unittest.TestCase):
         controller.step(self.ready, frame)
         np.testing.assert_allclose(targets[0] - tcp, [0, 0, .02], atol=1e-12)
 
+    def test_channel_entry_requires_lateral_and_angular_alignment(self):
+        cases = [([0, .003, 0], [0, 0, 0, 1], [0, .02, 0]),
+                 ([0, 0, 0], axis_quat([0, 1, 0], .02), [0, 0, 0]),
+                 ([0, 0, 0], [0, 0, 0, 1], [.004, 0, 0])]
+        for lateral_error, rotation, expected in cases:
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['drive']
+            body['quat'] = list(rotation)
+            goal = np.array(body['pos']) + [.02, 0, 0] + lateral_error
+            phase = dict(kind='insert', body='drive', insertion_axis_world=[1, 0, 0],
+                         lateral_gain=8, lateral_lead=.02,
+                         lateral_tolerance=[.001, .0006, .0015], axial_lead=.004,
+                         insertion_orientation_tolerance=.01, measured_rotation=True,
+                         rotation_gain=3, rotation_lead=.04,
+                         target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+            controller = self.controller(phase)
+            controller.grasps['left'] = dict(body='drive', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            targets = []
+            def capture(joints, position, orientation, opening, **kwargs):
+                targets.append((np.array(position), np.array(orientation)))
+                return np.array(joints), 0., 0.
+            controller.motion['left'].target = capture
+            tcp, tcp_quat = controller.pose(self.ready[:7], 'left')
+            controller.step(self.ready, frame)
+            np.testing.assert_allclose(targets[0][0] - tcp, expected, atol=1e-12)
+            self.assertLessEqual(qangle(targets[0][1], tcp_quat), .04 + 1e-7)
+
+    def test_channel_progress_tracks_axial_advance_and_rejects_a_jam(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['drive']['pos'])
+        phase = dict(kind='insert', body='drive', insertion_axis_world=[1, 0, 0],
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time in (0., 1., 2., 3.):
+            frame['time'] = time
+            frame['bodies']['drive']['pos'] = (goal + [.02-time*.001, time*.00015, 0]).tolist()
+            controller.step(self.ready, frame)
+        frame['time'] = 6.
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
