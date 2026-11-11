@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T15:47:01.688795+00:00",
+  "updated_at": "2026-11-11T15:57:24.737975+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -37,15 +37,15 @@
     },
     {
       "slug": "switch-map-rework",
-      "commit": "7f4814fce534b62aaef02d0f9579bebc4c0b22f0",
-      "state": "WITHDRAWAL_FAIL_0_OF_2_GRASP_SLIP_AND_PENETRATION",
+      "commit": "0bc73c9369a45e659021ac31cdd03b110aeddebd",
+      "state": "BOUNDED_WITHDRAWAL_RETEST_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "FULL_SUITE_FAIL_6_PASS_2_FAIL_ALL_8_RESETS_FINITE",
       "robot_control": "PRIOR_CATCH_RELEASE_PASS_2_WITHDRAWAL_FAIL_2_CURRENT_RETEST_QUEUED",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-guided-reference-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-measured-rotation.6q9mh0o1",
-      "producer_status": "FINISHED",
-      "status": "WITHDRAWAL_FAIL_0_OF_2_GRASP_SLIP_AND_PENETRATION",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-bounded-withdrawal-native.lzstldc1",
+      "producer_status": "WAITING_FOR_NATIVE_LANE",
+      "status": "BOUNDED_WITHDRAWAL_RETEST_QUEUED",
       "ready": false
     },
     {
@@ -81,22 +81,23 @@
       "ready": false,
       "run_limit": 3600,
       "scope": "Twelve preloaded cells, pressure-plate compression and retaining cross-key",
-      "native_physics": "TARGETED_CAPTURED_PRELOAD_2_OF_2_PASS_AT_480HZ_FULL_SUITE_PENDING"
+      "native_physics": "TARGETED_CAPTURED_PRELOAD_2_OF_2_PASS_AT_480HZ_FULL_SUITE_PENDING",
+      "parallel_targeted_control_run": "/data/robocurve-runs/resume-compat/twelve-measured-plate-control.buhyiw9s"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "03878fb7f1778656e8f096660aa36c40d91c4fce",
-      "state": "PILOT_GRAVITY_PROBE_FAIL_0_OF_2",
+      "commit": "052ac15c22f4f5df0752887c87547e7f1c37a6c9",
+      "state": "PILOT_RADIAL_CLEARANCE_RETEST_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "PASS_8_OF_8",
       "physics_evaluated_commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
       "physics_evidence": "/data/robocurve-runs/resume-compat/nut-fixture-sync-native.m3rl00gx",
       "robot_control": "PRIOR_PLATE_AND_LIFT_PASS_2_EACH_THREAD_EXPERIMENT_INCOMPLETE_STOPPED",
       "expert_scores": [],
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-pilot-gravity.a8uk_mim",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-close-pilot-native.7pcqpwao",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/nut-loaded-thread-stall-static.log",
-      "producer_status": "FINISHED",
-      "status": "PILOT_GRAVITY_PROBE_FAIL_0_OF_2",
+      "producer_status": "WAITING_FOR_NATIVE_LANE",
+      "status": "PILOT_RADIAL_CLEARANCE_RETEST_QUEUED",
       "ready": false
     },
     {
@@ -137,8 +138,8 @@
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "dcaf2fc5225d9c0770f8b63edf04201411e679a1",
-      "state": "CONTROL_FAIL_0_OF_6_INCLUDING_OUTDATED_OPENING_ASSERTION",
+      "commit": "f8679626e0ef54c516677b6b34de24d731db880a",
+      "state": "LOADED_WRIST_BIAS_RETEST_QUEUED",
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_12_OF_12",
@@ -146,9 +147,9 @@
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-telemetry-native.m3a36qtj/cases/results.json",
       "robot_control": "CENTROID_ONLY_LIFT_FAIL_2_OF_2_CURRENT_FEEDBACK_RETEST_QUEUED",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-loaded-pose-feedback-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-bounded-opening.klpxm77t",
-      "producer_status": "FINISHED",
-      "status": "CONTROL_FAIL_0_OF_6_INCLUDING_OUTDATED_OPENING_ASSERTION",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-load-window-native.ax254k_4",
+      "producer_status": "WAITING_FOR_NATIVE_LANE",
+      "status": "LOADED_WRIST_BIAS_RETEST_QUEUED",
       "ready": false
     }
   ],
