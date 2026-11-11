@@ -313,7 +313,7 @@ class Controller:
         for name,(p,q,opening,speed) in targets.items():
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
-            feedback_gain = 2.0 if name == side and kind in ('move', 'grasp') else 0.0
+            feedback_gain = phase.get('feedback_gain', 0.) if name == side else 0.
             target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,speed=speed,
                                                feedback_gain=feedback_gain)
             action[index:index+7]=target
