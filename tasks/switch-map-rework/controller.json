@@ -120,7 +120,7 @@
         ]
       },
       "verify_displacement": true,
-      "timeout": 25,
+      "timeout": 60,
       "keep_hold": true,
       "hold_measured_pose": true,
       "insertion_axis_world": [
@@ -128,16 +128,17 @@
         1,
         0
       ],
-      "lateral_gain": 8,
-      "lateral_lead": 0.008,
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
       "lateral_tolerance": 0.0008,
-      "axial_lead": 0.004,
+      "axial_lead": 0.00125,
       "insertion_orientation_tolerance": 0.04,
       "feedback_gain": 2,
       "measured_rotation": true,
-      "rotation_gain": 1.0,
-      "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_gain": 0.2,
+      "rotation_lead": 0.008,
+      "rotation_about_body": true,
+      "speed": 0.0025
     },
     {
       "kind": "release",
@@ -241,16 +242,18 @@
         1,
         0
       ],
-      "lateral_gain": 8,
-      "lateral_lead": 0.008,
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
       "lateral_tolerance": 0.0008,
-      "axial_lead": 0.004,
+      "axial_lead": 0.00125,
       "insertion_orientation_tolerance": 0.04,
       "feedback_gain": 2,
       "measured_rotation": true,
-      "rotation_gain": 1.0,
-      "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_gain": 0.2,
+      "rotation_lead": 0.008,
+      "rotation_about_body": true,
+      "speed": 0.0025,
+      "timeout": 60
     },
     {
       "kind": "release",
@@ -396,7 +399,7 @@
         ]
       },
       "verify_displacement": true,
-      "timeout": 25,
+      "timeout": 60,
       "keep_hold": true,
       "hold_measured_pose": true,
       "insertion_axis_world": [
@@ -404,16 +407,17 @@
         1,
         0
       ],
-      "lateral_gain": 8,
-      "lateral_lead": 0.008,
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
       "lateral_tolerance": 0.0008,
-      "axial_lead": 0.004,
+      "axial_lead": 0.00125,
       "insertion_orientation_tolerance": 0.04,
       "feedback_gain": 2,
       "measured_rotation": true,
-      "rotation_gain": 1.0,
-      "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_gain": 0.2,
+      "rotation_lead": 0.008,
+      "rotation_about_body": true,
+      "speed": 0.0025
     },
     {
       "kind": "carry",
@@ -509,7 +513,7 @@
           1
         ]
       },
-      "timeout": 25,
+      "timeout": 60,
       "keep_hold": true,
       "hold_measured_pose": true,
       "insertion_axis_world": [
@@ -517,16 +521,17 @@
         1,
         0
       ],
-      "lateral_gain": 8,
-      "lateral_lead": 0.008,
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
       "lateral_tolerance": 0.0008,
-      "axial_lead": 0.004,
+      "axial_lead": 0.00125,
       "insertion_orientation_tolerance": 0.04,
       "feedback_gain": 2,
       "measured_rotation": true,
-      "rotation_gain": 1.0,
-      "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_gain": 0.2,
+      "rotation_lead": 0.008,
+      "rotation_about_body": true,
+      "speed": 0.0025
     },
     {
       "kind": "release",
@@ -773,7 +778,7 @@
           1
         ]
       },
-      "timeout": 25,
+      "timeout": 60,
       "keep_hold": true,
       "hold_measured_pose": true,
       "insertion_axis_world": [
@@ -781,16 +786,17 @@
         1,
         0
       ],
-      "lateral_gain": 8,
-      "lateral_lead": 0.008,
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
       "lateral_tolerance": 0.0008,
-      "axial_lead": 0.004,
+      "axial_lead": 0.00125,
       "insertion_orientation_tolerance": 0.04,
       "feedback_gain": 2,
       "measured_rotation": true,
-      "rotation_gain": 1.0,
-      "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_gain": 0.2,
+      "rotation_lead": 0.008,
+      "rotation_about_body": true,
+      "speed": 0.0025
     },
     {
       "kind": "release",

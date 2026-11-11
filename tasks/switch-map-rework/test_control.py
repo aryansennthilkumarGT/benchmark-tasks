@@ -220,6 +220,21 @@ class FeedbackTests(unittest.TestCase):
         np.testing.assert_allclose(captured[0][0], tcp+rotate(correction, lever)-lever, atol=1e-12)
         self.assertLess(qangle(captured[0][1], multiply(correction, tcp_q)), 1e-6)
 
+    def test_insertion_uses_declared_slow_contact_speed(self):
+        body = self.frame['bodies']['plug_0']
+        phase = dict(kind='insert', body='plug_0', speed=.0025,
+                     target=dict(pos=body['pos'], quat=body['quat']))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args, **kwargs: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        speeds = []
+        def capture(joints, *args, **kwargs):
+            speeds.append(kwargs['speed'])
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, copy.deepcopy(self.frame))
+        self.assertEqual(speeds, [.0025])
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
