@@ -1,3 +1,13 @@
+## November 11 continuation, clean HTTPS native reproduction and targeted controller work
+
+The service-arm task at `46bf1008e01546b266b5ba973d31e75e64bf8f89` reproduced a genuine 1.0 expert result from the clean HTTPS fork checkout. Process and rollout validation both exited 0. Receipt `/data/robocurve-runs/resume-compat/fault-https-parallel-reproduction.30j8w_bm/clean-trial/validated-rollout.json` records 1,899 actions and 94.95 simulated seconds. Concurrent same-host startup incurred shader compilation and the Inspect trial took 770.95 wall seconds. Two-process operation succeeded for this trial, with throughput still requiring measurement.
+
+Twelve-cell guided control passed all four initial grasp/lift and first-cell seating probes. The full expert then stalled at second-cell seating at 80.55 simulated seconds. Its validator exited 1. No second expert or dependent physics run launched. Full-score feasibility remains pending.
+
+Remote spring pressing now holds measured transverse position and captured entry wrist tilt. Static checks passed, revision `17a9eab5ffaf0f908ebfbedb054e0a03ed010304` committed, native expert root `/data/robocurve-runs/resume-compat/remote-spring-hold-expert.0wx6043a` running with synchronized joints. Chassis unchanged-source drive-lift diagnosis runs at `/data/robocurve-runs/resume-compat/chassis-drive-lift-diagnosis.vdwc0vqp` to capture reference errors and torques.
+
+Authorized Brev project-secret metadata lookups returned not-found for DREAM_API_KEY and ROBOCURVE_TOKEN. No values were requested. Evidence `/data/robocurve-runs/resume-compat/brev-project-credential-metadata.json`. Dream evaluation, upload and official PR remain pending real credentials and readiness. Continue independent engineering. Account-wide conservative planning counts both running instances at USD3.61/hour, with actual credit balance and invoiced total unverified. No operations launched on the second instance. No instance termination is authorized.
+
 # Brev execution checkpoint · 2026-11-10
 
 ## Native mechanism recovery and resource accounting — 2026-11-11 08:22 UTC

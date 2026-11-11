@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T08:24:41.123169+00:00",
+  "updated_at": "2026-11-11T08:35:42.166416+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -13,14 +13,15 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "e86998e7e6cc9c3a205130f3be94cadb3bae012d",
-      "state": "TILTED_ENTRY_PASSED_SPRING_PRESS_TIMEOUT_ORIENTATION_FIX_PENDING",
+      "commit": "17a9eab5ffaf0f908ebfbedb054e0a03ed010304",
+      "state": "SPRING_PRESS_TRANSVERSE_AND_TILT_HOLD_NATIVE_RETEST_RUNNING",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
       "run_limit": 6000,
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "expert_scores": []
+      "expert_scores": [],
+      "active_run": "/data/robocurve-runs/resume-compat/remote-spring-hold-expert.0wx6043a"
     },
     {
       "slug": "switch-map-rework",
@@ -42,11 +43,13 @@
     {
       "slug": "twelve-cell-pack",
       "commit": "993b808c145786caa894e574eedf6994449a65b6",
-      "state": "GUIDED_SEATING_FIRST_REPEAT_PASSED_FULL_CONTROL_RUNNING",
+      "state": "GUIDED_FIRST_CELL_CONTROL_PASS_4_OF_4_SECOND_CELL_FULL_EXPERT_STALL",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "robot_control": "GUIDED_FULL_CONTROL_RUNNING_FIRST_SEATING_REPEAT_PASS"
+      "robot_control": "GUIDED_FULL_CONTROL_RUNNING_FIRST_SEATING_REPEAT_PASS",
+      "control_evidence": "/data/robocurve-runs/resume-compat/twelve-guided-feasibility.9cdd_11s",
+      "expert_scores": []
     },
     {
       "slug": "eight-nut-bracket",
@@ -77,7 +80,14 @@
       "media_id": null,
       "ready": false,
       "evidence_root": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4",
-      "feasibility_proof": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/evidence/feasibility.json"
+      "feasibility_proof": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/evidence/feasibility.json",
+      "clean_https_native_reproduction": {
+        "score": 1.0,
+        "process_exit": 0,
+        "validation_exit": 0,
+        "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+        "evidence": "/data/robocurve-runs/resume-compat/fault-https-parallel-reproduction.30j8w_bm"
+      }
     },
     {
       "slug": "hardware-order-kit",
