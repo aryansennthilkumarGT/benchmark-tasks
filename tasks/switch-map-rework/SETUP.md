@@ -440,3 +440,5 @@ Geometry is original primitive construction. All movable components use friction
 ## Mass distribution overrides
 
 
+
+An 8 by 30 mm shelf extends from each socket to support the plug nose under cable load. Each shelf sits opposite the initial cable approach to preserve cable motion.
