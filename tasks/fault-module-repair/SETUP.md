@@ -12,7 +12,7 @@ Geometry is original primitive construction. All movable components use friction
 | `locking_pin` | rigid fixture material | 0.025 | (0.022, 0.022, 0.064) | (0.32, -0.24, 0.7757) | (0, 0, 0, 1) | passive dynamic |
 | `pin_stand` | rigid fixture material | 0.12 | (0.022, 0.022, 0.014) | (0.32, -0.24, 0.7475) | (0, 0, 0, 1) | anchored |
 
-The lower pin receiver is 18 mm deep. The pin has a 9.4 mm square shaft and an 8 mm square lead at the tip, with an 11.4 mm square upper entry and a 10 mm square lower receiver.
+The lower pin receiver is 18 mm deep. The pin has a 9.4 mm square shaft and an 8 mm square lead at the tip, with a 10 by 11.4 mm upper entry and a 10 mm square lower receiver. The upper entry remains 10 mm along the slide axis.
 
 ## Passive joints
 
