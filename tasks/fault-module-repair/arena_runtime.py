@@ -32,6 +32,17 @@ def collision_link(stage,root_name,link_name):
     return matches[0]
 
 
+def collision_shapes_for_link(link):
+    from pxr import Usd, UsdPhysics
+    descendants = iter(Usd.PrimRange(link))
+    for prim in descendants:
+        if prim != link and prim.HasAPI(UsdPhysics.RigidBodyAPI):
+            descendants.PruneChildren()
+            continue
+        if prim.HasAPI(UsdPhysics.CollisionAPI):
+            yield prim
+
+
 def install(spec, scorer, here):
     @dataclass(frozen=True)
     class Assembly(Box):
@@ -129,13 +140,14 @@ def install(spec, scorer, here):
 
     def cache_robot_bounds(emb):
         from isaaclab.sim.utils.stage import get_current_stage
-        from pxr import Usd, UsdGeom, UsdPhysics
+        from pxr import UsdGeom
         stage = get_current_stage()
         cache = UsdGeom.BBoxCache(
             0, [UsdGeom.Tokens.default_, UsdGeom.Tokens.render, UsdGeom.Tokens.proxy,
                 UsdGeom.Tokens.guide], False, True,
         )
         robot_bounds.clear()
+        details = []
         for side in ('left', 'right'):
             asset = emb._env.unwrapped.scene[f'{side}_robot']
             for name in asset.body_names:
@@ -144,18 +156,28 @@ def install(spec, scorer, here):
                 root_name=asset.cfg.prim_path.rstrip('/').rsplit('/',1)[-1]
                 prim=collision_link(stage,root_name,name)
                 points = []
-                for child in Usd.PrimRange(prim):
-                    if child.HasAPI(UsdPhysics.CollisionAPI):
-                        bound = cache.ComputeRelativeBound(child, prim).ComputeAlignedRange()
-                        if bound.IsEmpty():
-                            continue
-                        points.extend(bound.GetCorner(corner) for corner in range(8))
+                shapes = list(collision_shapes_for_link(prim))
+                for child in shapes:
+                    bound = cache.ComputeRelativeBound(child, prim).ComputeAlignedRange()
+                    if bound.IsEmpty():
+                        continue
+                    points.extend(bound.GetCorner(corner) for corner in range(8))
                 if not points:
                     raise RuntimeError(f'Collision geometry missing for {side}/{name}')
                 lo = [min(p[i] for p in points) for i in range(3)]
                 hi = [max(p[i] for p in points) for i in range(3)]
                 centre = [(x+y)/2 for x, y in zip(lo, hi)]
                 robot_bounds[(side, name)] = (centre, [(y-x)/2 for x,y in zip(lo,hi)])
+                details.append({'side': side, 'link': name, 'prim': str(prim.GetPath()),
+                                'owned_collider_count': len(shapes),
+                                'local_center': centre, 'local_half_extent': robot_bounds[(side, name)][1]})
+        trace = os.environ.get('ROBOCURVE_TRACE')
+        if trace:
+            target = Path(trace).parent / f'robot-collision-bounds-e{episode["number"]}.json'
+            temporary = target.with_suffix('.tmp')
+            temporary.write_text(json.dumps({'kind': 'NATIVE_OWNED_ROBOT_COLLISION_BOUNDS',
+                                             'links': details}, indent=2, allow_nan=False) + '\n')
+            temporary.replace(target)
 
     def patch_scene(module):
         original = module.task_object
