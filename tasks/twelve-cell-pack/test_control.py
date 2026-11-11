@@ -105,6 +105,24 @@ class FeedbackTests(unittest.TestCase):
         controller.step(self.ready, frame)
         np.testing.assert_allclose(targets[0] - tcp, [.004, 0, 0], atol=1e-12)
 
+    def test_guided_insertion_counts_descent_despite_lateral_jitter(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['cell_0']['pos'])
+        phase = dict(kind='insert', body='cell_0', insertion_axis_world=[0, 0, 1],
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time in (0., 1., 2., 3.):
+            frame['time'] = time
+            frame['bodies']['cell_0']['pos'] = (goal + [time*.00015, 0, .02-time*.001]).tolist()
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 0)
+        frame['time'] = 6.
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
     def test_cell_axis_completion_preserves_polarity(self):
         for rotation, expected_index in [(axis_quat([0, 0, 1], 1.2), 1),
                                          (axis_quat([1, 0, 0], .2), 0)]:

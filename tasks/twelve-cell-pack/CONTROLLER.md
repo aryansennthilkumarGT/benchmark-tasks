@@ -143,3 +143,5 @@ After the motion plan, the expert holds the released pose while the actual score
 The first native cell grasp/lift passed both resets. Seating stalled above the channel with about 0.85 mm lateral error. The candidate cell insertion aligns within 0.4 mm before vertical advance, using bounded lateral gain 8 and a 4-mm lead. Its progress monitor weights measured lateral correction during alignment. The right-arm tracking window is bounded at 0.08 rad. Native seating validation is pending.
 
 Cell carry/seating completion checks the measured longitudinal axis, matching the polarity goal for the cylindrical cells. Axial spin is free. The regression rejects tilt while accepting axial rotation.
+
+The guided second-cell trial descended approximately 2 mm during its final two seconds, while the weighted lateral residual triggered a stall. Progress now uses measured three-dimensional distance to the physical target. A regression checks continuing descent with lateral jitter and a subsequent stationary jam. Native retesting is pending.

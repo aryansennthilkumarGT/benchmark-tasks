@@ -205,7 +205,6 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
             error=float(np.linalg.norm(body_p-desired_p))
-            progress_error = error
             if kind == 'insert' and 'insertion_axis_world' in phase:
                 axis = np.asarray(phase['insertion_axis_world'], dtype=float)
                 length = np.linalg.norm(axis)
@@ -220,7 +219,6 @@ class Controller:
                 if np.linalg.norm(lateral) <= phase.get('lateral_tolerance', .00065):
                     correction += limit_vector(axial, phase.get('axial_lead', .0015))
                 p = tcp + correction
-                progress_error = float(np.linalg.norm(axial) + 10*np.linalg.norm(lateral))
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
@@ -240,8 +238,8 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
-                if self.last_progress is None or progress_error<self.last_progress-0.0003:
-                    self.last_progress,self.last_progress_t=progress_error,now
+                if self.last_progress is None or error<self.last_progress-0.0003:
+                    self.last_progress,self.last_progress_t=error,now
                 elif now-self.last_progress_t>2.0 and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.
