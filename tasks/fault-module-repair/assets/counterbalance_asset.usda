@@ -250,8 +250,8 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.017, 0.05, 0.008)
-            double3 xformOp:translate = (-0.0135, 0, 0)
+            float3 xformOp:scale = (0.017, 0.05, 0.006)
+            double3 xformOp:translate = (-0.0135, 0, -0.001)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -263,8 +263,8 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.017, 0.05, 0.008)
-            double3 xformOp:translate = (0.0135, 0, 0)
+            float3 xformOp:scale = (0.017, 0.05, 0.006)
+            double3 xformOp:translate = (0.0135, 0, -0.001)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -356,6 +356,32 @@ def Xform "Asset"
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (0.014, 0.024, 0.028)
             double3 xformOp:translate = (0, -0.041, 0.016)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_9" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.0158, 0.05, 0.002)
+            double3 xformOp:translate = (-0.0141, 0, 0.003)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_10" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.08, 0.35, 0.85)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.0158, 0.05, 0.002)
+            double3 xformOp:translate = (0.0141, 0, 0.003)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
