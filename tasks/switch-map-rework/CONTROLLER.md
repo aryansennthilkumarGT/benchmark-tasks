@@ -70,3 +70,9 @@ Port insertion and withdrawal use measured transverse and angular alignment befo
 Guided withdrawal tracks actual transverse alignment and axial displacement independently. The prior combined Euclidean-distance stall metric could reject useful alignment because the much larger remaining axial distance hid submillimetre transverse improvement. The progress threshold is 0.3 mm and the bounded stall interval is two seconds. Native retesting is required.
 
 Plug insertion and withdrawal attitude feedback uses gain0.7 with0.025rad maximum correction. The prior0.2/0.008rad loop retained0.072rad plug pitch against the fully depressed release paddle, exceeding the0.04rad gate that legitimately prevents axial withdrawal. Hardware, latch travel, score limits and robot effort/rate limits are unchanged. Fresh robot withdrawal remains required.
+
+Plug grasps use a15degree backward wrist pitch. The prior real withdrawal reached the right second joint upper stop at2.09275rad, restricting attitude correction. Offline IK gives about0.2rad additional joint margin for the pitched grasp. The measured plug jaw interval is12to25mm to accommodate its projected section. Latch stroke, paddle geometry, object layout, control rates and scoring remain unchanged. Full mesh and genuine native control validation are required.
+
+A pitch-only15degree candidate failed the full inter-arm mesh audit during left-paddle approach. A bounded workspace/inter-arm scan selected10degrees backward pitch with15degrees outward roll, preserving about0.267rad second-joint margin in the sampled grasp. This candidate is undergoing the complete path and grasp audit before native use.
+
+After releasing the final plug, the right hand lifts vertically to0.85m while preserving its grasp orientation, then unwinds toward the rest pose. The prior simultaneous lift and wrist unwind intersected the fixed port in the full mesh audit.
