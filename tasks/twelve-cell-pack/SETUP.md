@@ -42,3 +42,6 @@ This task uses240Hz native physics with20Hz robot actions. The task-scoped Arena
 
 
 An earlier480Hz,64-position/32-velocity configuration passed two captured-preload fixtures but produced excessive measured stepping overhead during control diagnostics. The current240Hz,32-position/8-velocity configuration requires fresh native contact, preload-retention and robot-control validation. Driver565.57.01 remains fixed.
+
+
+The twelve terminal springs have500N/m stiffness and8N·s/m damping. A24g cell plus2g terminal has an isolated critical-damping estimate of7.21N·s/m before plate load sharing. The earlier2N·s/m configuration was underdamped for this combined mass. At240Hz it failed the unchanged10mm/s cell-speed condition in both captured-pack probes. Fresh probes must verify the new passive damping, preload retention and keyed/unkeyed load response.
