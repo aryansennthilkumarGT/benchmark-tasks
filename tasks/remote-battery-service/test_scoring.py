@@ -215,6 +215,32 @@ class SemanticTests(unittest.TestCase):
         name=next(iter(initial()['bodies']));f=initial()
         p=dict(kind='region',body=name,min=f['bodies'][name]['pos'].copy(),max=[v+.001 for v in f['bodies'][name]['pos']])
         self.assertFalse(self.sc.predicate(p,f))
+    def test_collected_cylinder_region_is_invariant_to_axial_roll(self):
+        predicate = next(p for g in SPEC['goals'] for p in g['all']
+                         if p['kind'] == 'region' and p['body'] == 'old_cell_0')
+        frame = initial()
+        cell = frame['bodies']['old_cell_0']
+        cell['pos'] = [.39, -.262, .76075]
+        for roll in (0., .3, .67, 1.1, math.pi / 2, math.pi):
+            with self.subTest(roll=roll):
+                cell['quat'] = [math.sin(roll / 2), 0, 0, math.cos(roll / 2)]
+                self.assertTrue(self.sc.predicate(predicate, frame))
+        cell['pos'][2] -= .00025
+        self.assertFalse(self.sc.predicate(predicate, frame))
+
+    def test_cylinder_region_includes_terminal_button_and_tilt(self):
+        predicate = next(p for g in SPEC['goals'] for p in g['all']
+                         if p['kind'] == 'region' and p['body'] == 'old_cell_0')
+        frame = initial()
+        cell = frame['bodies']['old_cell_0']
+        cell['pos'] = [predicate['max'][0] - .02655, -.262, .76075]
+        self.assertTrue(self.sc.predicate(predicate, frame))
+        cell['pos'][0] += .000001
+        self.assertFalse(self.sc.predicate(predicate, frame))
+        cell['pos'] = [.39, -.262, .76075]
+        cell['quat'] = [0, math.sin(.15), 0, math.cos(.15)]
+        self.assertFalse(self.sc.predicate(predicate, frame))
+
     def test_distractors_cannot_be_kit_contents(self):
         if not SPEC.get('forbidden_regions'):self.skipTest('No kit distractors in this scene')
         for forbidden in SPEC.get('forbidden_regions',[]):

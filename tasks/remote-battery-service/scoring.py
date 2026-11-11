@@ -152,6 +152,18 @@ class Scorer:
         if kind == 'region':
             # Entire oriented collision bound, not only the centre, must fit.
             bs = self.body_specs[p['body']]
+            shapes = [shape for shape in bs['shapes'] if shape.get('collision', True)]
+            if shapes and all(shape['kind'] == 'cylinder' for shape in shapes):
+                for shape in shapes:
+                    center = add(pos, rotate(quat, shape['pos']))
+                    axis = rotate(multiply(quat, shape['quat']), [0, 0, 1])
+                    for dimension in range(3):
+                        extent = (abs(axis[dimension]) * shape['height'] / 2
+                                  + shape['radius'] * math.sqrt(max(0., 1 - axis[dimension]**2)))
+                        if (center[dimension] - extent < p['min'][dimension] - 1e-10
+                                or center[dimension] + extent > p['max'][dimension] + 1e-10):
+                            return False
+                return True
             corners = [add(pos, rotate(quat, (x,y,z)))
                        for x in (bs['bounds_min'][0],bs['bounds_max'][0])
                        for y in (bs['bounds_min'][1],bs['bounds_max'][1])
