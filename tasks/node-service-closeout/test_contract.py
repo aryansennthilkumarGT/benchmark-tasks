@@ -23,6 +23,24 @@ class PackageContractTests(unittest.TestCase):
             UsdPhysics.RigidBodyAPI.Apply(body.GetPrim())
         self.assertEqual(str(runtime.collision_link(stage,'LeftArm','base_link').GetPath()),'/World/envs/env_0/LeftArm/base_link')
         with self.assertRaises(RuntimeError):runtime.collision_link(stage,'left_robot','base_link')
+    def test_robot_collision_bounds_exclude_nested_rigid_links(self):
+        import importlib
+        from pxr import Usd, UsdGeom, UsdPhysics
+        from yam_arena import task_file
+        task = task_file.load(HERE/'task.py')
+        runtime = importlib.import_module(task.module._name+'.arena_runtime')
+        stage = Usd.Stage.CreateInMemory()
+        parent = UsdGeom.Xform.Define(stage, '/Robot/base').GetPrim()
+        UsdPhysics.RigidBodyAPI.Apply(parent)
+        own = UsdGeom.Cube.Define(stage, '/Robot/base/collision').GetPrim()
+        UsdPhysics.CollisionAPI.Apply(own)
+        child = UsdGeom.Xform.Define(stage, '/Robot/base/link').GetPrim()
+        UsdPhysics.RigidBodyAPI.Apply(child)
+        descendant = UsdGeom.Cube.Define(stage, '/Robot/base/link/collision').GetPrim()
+        UsdPhysics.CollisionAPI.Apply(descendant)
+        self.assertEqual(list(runtime.collision_shapes_for_link(parent)), [own])
+        self.assertEqual(list(runtime.collision_shapes_for_link(child)), [descendant])
+
     def test_official_task_loader_and_expert_contract(self):
         import importlib
         from types import SimpleNamespace
