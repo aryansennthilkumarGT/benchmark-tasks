@@ -79,7 +79,7 @@ class FeedbackTests(unittest.TestCase):
         frame['bodies']['new_cell_0']['pos'][1] = -.244845
         target = np.asarray(frame['bodies']['new_cell_0']['pos']) + phase['offset']
         joints, position_error, rotation_error = self.ik.solve(
-            target, phase['quat'], base_pos=self.station.BASES['right'],
+            target + [0, 0, .0025], phase['quat'], base_pos=self.station.BASES['right'],
             iters=500, damping=.015, tol=1e-5)
         self.assertLess(position_error, .0015)
         self.assertLess(rotation_error, .04)
