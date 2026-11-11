@@ -11,6 +11,28 @@ _geometry=geometry_module(HERE)
 maximum_penetration,polyhedron,convex_separation=(_geometry.maximum_penetration,_geometry.polyhedron,_geometry.convex_separation)
 
 class PackageContractTests(unittest.TestCase):
+    def test_drive_has_clear_aligned_path_past_retainer_uprights(self):
+        spec = json.loads((HERE/'scene.json').read_text())
+        definitions = {body['name']: body for assembly in spec['assemblies']
+                       for body in assembly['bodies']}
+        chassis = definitions['chassis']
+        drive = definitions['drive']
+        fixed = dict(pos=chassis['pos'], quat=chassis['quat'])
+        for x in np.linspace(.16, .30, 29):
+            moving = dict(pos=[float(x), 0, .7655], quat=[0, 0, 0, 1])
+            for fixture in chassis['shapes']:
+                for carrier in drive['shapes']:
+                    depth = _geometry.penetration(_geometry.box(fixed, fixture),
+                                                  _geometry.box(moving, carrier))
+                    self.assertLessEqual(depth, 1e-9, (x, fixture, carrier, depth))
+        cap = chassis['shapes'][6]
+        inner_edge = abs(cap['pos'][1]) - cap['size'][1]/2
+        core_edge = drive['shapes'][0]['size'][1]/2
+        flange = drive['shapes'][2]
+        flange_edge = abs(flange['pos'][1]) + flange['size'][1]/2
+        self.assertGreaterEqual(inner_edge-core_edge, .001)
+        self.assertGreaterEqual(flange_edge-inner_edge, .001)
+
     def test_robot_usd_path_is_distinct_from_scene_key(self):
         import importlib
         from pxr import Usd,UsdGeom,UsdPhysics

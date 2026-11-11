@@ -20,3 +20,7 @@ The lid includes two 18 by 16 by 26 mm underside ribs over the seated retainer. 
 ## Mass distribution overrides
 
 
+
+## Guide and upright clearance
+
+The two rail caps have local centres (18, ±43, 26) mm and size 144×7×4 mm. Their inner edges provide 1.5 mm lateral clearance per side for the 76 mm carrier body and overlap each carrier flange by 1.5 mm. Four retaining-bar guide uprights have local centres (-78, ±47, 36.5) mm and (-52, ±47, 36.5) mm, each sized 4×15×27 mm. Their bottoms are 23 mm above the chassis origin, providing 3 mm vertical clearance above the travelling carrier flanges at the nominal 18 mm carrier-centre height. The original fixed chassis frame and scene coordinates define these local measurements.
