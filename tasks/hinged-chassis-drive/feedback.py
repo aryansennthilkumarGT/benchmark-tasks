@@ -228,7 +228,8 @@ class Controller:
             self.check_grasp_slip(side,observed,frame)
             joint=next(j for a in self.spec['assemblies'] for j in a.get('joints',[]) if j['name']==phase['joint'])
             actual=frame['joints'][phase['joint']];desired=phase['value']
-            delta=float(np.clip(desired-actual,-phase.get('increment',0.01),phase.get('increment',0.01)))
+            delta=float(np.clip(phase.get('position_gain', 1.0) * (desired-actual),
+                                -phase.get('increment',0.01),phase.get('increment',0.01)))
             parent=frame['bodies'][joint['parent']];axis=np.eye(3)['XYZ'.index(joint['axis'])]
             world_axis=rotate(parent['quat'],axis)
             if joint['kind']=='revolute':

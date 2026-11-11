@@ -39,3 +39,5 @@ After the motion plan, the expert holds the released pose while the actual score
 The left arm uses a 0.12 rad bounded tracking-error window while supporting the gravity lid. Its IK reference advances by at most 0.02 rad per control. The lid-following lead is 0.035 rad, and native failure records include reference joints and applied actuator torques.
 
 The measured chassis failure at lid angle 0.419 rad had about 0.895 rad wrist/body orientation drift and approached the wrist joint limit. The revolute controller now derives its bounded lead from the measured body pose and captured grasp transform. A stationary mechanism therefore produces the same desired wrist pose on repeated controls. This targeted correction requires native retesting.
+
+The measured-body correction removed the wrist-limit failure, but both native repeats stalled near 0.018 rad under the lid load. The next candidate uses gain 8 on measured hinge error with a bounded 0.08-rad body-angle lead. This increases the finite lifting reference while retaining the original joint-rate, collision, grip and timeout guards. Native validation remains pending.

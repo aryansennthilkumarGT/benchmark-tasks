@@ -87,8 +87,8 @@ class FeedbackTests(unittest.TestCase):
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
     def test_revolute_target_is_bound_to_measured_body_and_captured_grasp(self):
-        phase = dict(kind='joint', body='lid', joint='lid_hinge', value=.85,
-                     increment=.035, timeout=30)
+        phase = dict(kind='joint', body='lid', joint='lid_hinge', value=.405,
+                     increment=.035, position_gain=8, timeout=30)
         controller = self.controller(phase)
         frame = copy.deepcopy(self.frame)
         frame['joints']['lid_hinge'] = .4
