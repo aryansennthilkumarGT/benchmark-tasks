@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T06:02:36.425234+00:00",
+  "updated_at": "2026-11-11T06:15:54.695579+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -11,8 +11,8 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "29a2240ecf9577b39cb56a59a228fc9bba2523d5",
-      "state": "PRECONTACT_TILT_EXPERT_DIAGNOSTIC_RUNNING",
+      "commit": "b08a3d6acf7aaccea1506a28119d212614a8b451",
+      "state": "RIM_CLEARANCE_EXPERT_RUNNING_AFTER_PRETILT_SUCCEEDED_CONTACT_ENTRY_FAILED",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
@@ -32,7 +32,8 @@
       "state": "FULL_NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "robot_control": "LID_OPENING_PASS_2_OF_2_COOLER_REMOVAL_PENDING"
     },
     {
       "slug": "twelve-cell-pack",
@@ -77,7 +78,7 @@
       "native_physics": "PASS_12_OF_12",
       "physics_evaluated_commit": "d1156518202d970ac8742dc3d917348121dff234",
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx",
-      "robot_control": "OPENING_DIAGNOSTIC_QUEUED"
+      "robot_control": "COLLAR_OPENING_PASS_2_OF_2_PLACEMENT_PENDING"
     }
   ],
   "executed": {
@@ -122,16 +123,11 @@
   "offline_execution_evidence": "offline-run-verification.json",
   "live_execution_evidence": "live-execution-2026-11-10.md",
   "current_operation": {
-    "kind": "SERIAL_NATIVE_PHYSICS_AND_SCRIPTED_EXPERT_VALIDATION",
-    "active_directory": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4",
-    "terminal_session": 35148,
-    "active": "fault-module-repair",
-    "queued": "remote-battery-service",
-    "queued_directory": "/data/robocurve-runs/resume-compat/remote-stable-grasp-expert.wdYq0X",
-    "queued_terminal_session": 62166,
-    "second_episode_gate": "First episode must pass full rollout validation with score 1.0",
-    "submission_ready_tasks": 0,
-    "billing_receipt": "UNAVAILABLE_FULL_SCALE_GATE_RETAINED"
+    "remote_battery": "b08a3d6acf7aaccea1506a28119d212614a8b451 native expert running at /data/robocurve-runs/resume-compat/remote-rim-clearance-expert.r3uerumx",
+    "hardware": "12 physics cases passed, opening control 2/2 passed at /data/robocurve-runs/resume-compat/hardware-opening-control.p_8npo4u; placement queued at hardware-placement-control.vgjiahlr",
+    "node": "lid control 2/2 passed at /data/robocurve-runs/resume-compat/node-lid-control.xn4jjuaf; cooler removal queued at node-cooler-control.s9a77j6b",
+    "publication_preview": "/data/robocurve-runs/resume-compat/fault-publication-preview; five documentation/metadata files staged outside evaluated checkout, Dream/upload pending",
+    "billing_refresh": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111; no actual rate or credit fields returned"
   },
   "submission_authorization": {
     "authorized_at": "2026-11-11T04:19:45.640549+00:00",
