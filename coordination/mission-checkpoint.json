@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T21:24:06.921182+00:00",
+  "updated_at": "2026-11-11T21:30:21.824353+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -25,24 +25,33 @@
     {
       "slug": "remote-battery-service",
       "commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
-      "state": "FRESH_NORMAL_RESET_EXPERT_RUNNING_SUFFIX_DIAGNOSTIC_PASS",
+      "state": "FIRST_COLD_EXPERT_VALIDATED_FULL_SCORE_SECOND_RUNNING",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "CURRENT_REVISION_PENDING",
       "native_physics": "CURRENT_REVISION_PENDING",
       "run_limit": 6000,
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "expert_scores": [],
+      "expert_scores": [
+        1.0
+      ],
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/remote-measured-cell-axis-static.log",
       "latest_native_run": "/data/robocurve-runs/resume-compat/remote-axis-contact-qualification.e7ymsms5",
       "producer_status": "RUNNING",
       "historical_active_run": "/data/robocurve-runs/resume-compat/remote-spring-hold-expert.0wx6043a",
-      "status": "FRESH_NORMAL_RESET_EXPERT_RUNNING_SUFFIX_DIAGNOSTIC_PASS",
+      "status": "FIRST_COLD_EXPERT_VALIDATED_FULL_SCORE_SECOND_RUNNING",
       "ready": false,
       "native_control": "CURRENT_REVISION_PENDING",
       "replay_lift_transport_evidence": "/data/robocurve-runs/resume-compat/remote-second-cell-replay.4i09337j/replay/results.json",
       "task_source_dirty": false,
       "dream_score": null,
-      "media_id": null
+      "media_id": null,
+      "first_full_score_expert": {
+        "record_id": "9615ff8e6f3944218b5c505f29051b88",
+        "steps": 5261,
+        "simulated_seconds": 263.05,
+        "commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
+        "evidence": "/data/robocurve-runs/resume-compat/remote-axis-contact-qualification.e7ymsms5/first-trial/validated-rollout.json"
+      }
     },
     {
       "slug": "switch-map-rework",
@@ -519,14 +528,12 @@
     "reason": "Two running account instances. Stop owned costly workloads before projected reserve, billing continues until user handles instances."
   },
   "temporary_native_priority_window": {
-    "pid": 1519516,
-    "session": 94680,
-    "max_seconds": 900,
+    "kind": "TWO_ACTIVE_EXPERTS_AND_TWELVE_PHYSICS",
+    "session": 12336,
+    "max_seconds": 600,
     "resume_automatic": true,
-    "evidence": "/data/robocurve-runs/resume-compat/native-concurrency-throughput-experiment.json",
-    "report_on_completion": "/data/robocurve-runs/resume-compat/native-two-expert-priority-window.json",
-    "paused": "Hardware, Twelve, Switch, Nut diagnostic process groups",
-    "active": "Remote and Node normal expert recordings",
+    "report_on_completion": "/data/robocurve-runs/resume-compat/native-three-worker-priority-window.json",
+    "prior_window": "COMPLETED_AFTER695SECONDS_ALL_FOUR_GROUPS_RESUMED",
     "instance_power_operation": false
   },
   "isolated_three_fastener_prototype": {
@@ -535,5 +542,6 @@
     "status": "FULL_STATIC_PASS_NATIVE_PENDING_NOT_PROMOTED_OR_PUSHED",
     "mechanism": "Three non-collinear retained clamps around the same spring-loaded two-axis plate. Same pitch, turns, pose and stability thresholds. Fewer repeated fasteners.",
     "next": "Wait for loaded-regrasp native proof, then promote with fresh full physics and expert pair. Prototype is detached and leaves active source frozen."
-  }
+  },
+  "second_instance_instruction": "User confirms partner uses yam-eval-launchable-9a92fd and explicitly says do not touch it. No modifications or power operations authorized there. Combined account billing remains in reserve estimate."
 }
