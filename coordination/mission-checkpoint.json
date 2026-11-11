@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-11T00:53:47.181838+00:00",
-  "status": "FIXED_DRIVER_STATION_AND_COUNTERWEIGHT_PHYSICS_VALIDATED",
+  "updated_at": "2026-11-11T01:18:02.708108+00:00",
+  "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
@@ -16,34 +16,35 @@
     },
     {
       "slug": "switch-map-rework",
-      "commit": "f45a5c119e4650bec2226a21d3fa34d1f516f360",
-      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
+      "commit": "f77234f00d5746e6ea62d9e4400b27ae5e2017df",
+      "state": "CABLE_SETTLE_PASSED_RELEASE_RETEST_PENDING"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "c849ead8ffd0e211f60536acad7a6e4176ad9c46",
-      "state": "COOLER_RETENTION_PAD_STATIC_PASS_NATIVE_RETEST_PENDING"
+      "commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
+      "state": "COOLER_SECOND_PAD_STATIC_PASS_NATIVE_RETEST_PENDING"
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "f4813a3b34faecef648ce9f4828dd2af673a6b12",
-      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
+      "commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
+      "state": "TARGETED_CAPTURE_PASSED_FULL_SUITE_PENDING",
+      "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "e69b00382ce51f68dfe43be0744b9604693eb8ad",
-      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
+      "commit": "5e42f0347e74a1abd2a1ac89a714f6c07ddbf11c",
+      "state": "STUD_GUIDE_STATIC_PASS_NATIVE_RETEST_PENDING"
     },
     {
       "slug": "fault-module-repair",
-      "commit": "8f0a877fa139b12a5459dafcb44100b01be88ddc",
-      "state": "NATIVE_PIN_HOVER_VERIFIED_AXIAL_INSERTION_UNRESOLVED",
+      "commit": "a67e75434a4b2144675227161bd60d5eaa7a97fa",
+      "state": "NATIVE_PIN_ENTRY_STALL_DAMPED_CONTROL_RETEST_PENDING",
       "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d"
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "1f1e8f46c9f76eee5124cf6460bdf652c4531ccc",
-      "state": "RIB_AND_GROOVE_REDESIGN_NATIVE_RETENTION_FAILED"
+      "commit": "3a90d53734d659d0f3ba1b16bcfc332b6fb4792e",
+      "state": "KEYED_SEATING_DIAGNOSTIC_PENDING"
     }
   ],
   "executed": {
@@ -63,7 +64,8 @@
     "official_station_replays_passed": 1,
     "native_physics_case_repeats_passed": 38,
     "other_draft_native_reset_diagnostics": 7,
-    "expert_diagnostic_trials_errored": 4
+    "expert_diagnostic_trials_errored": 5,
+    "twelve_cell_capture_diagnostic_repeats_passed": 2
   },
   "remaining": [
     "Verify billed Brev rate and issue the provider budget receipt for full evaluations",
