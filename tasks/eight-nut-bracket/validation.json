@@ -72,5 +72,10 @@
     "The task measures pitch-coupled advancement, seating and retained plate compression. It does not certify bolt tension, friction torque or sealing performance.",
     "Native contact forces, spring-load transfer, two expert episodes and model evaluation remain unexecuted."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "native_collision_collection": {
+    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
+    "regression": "Nested rigid-body colliders belong only to their owning link",
+    "clearance_requirement_m": 0.02
+  }
 }
