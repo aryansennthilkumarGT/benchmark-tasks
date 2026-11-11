@@ -345,4 +345,16 @@ class SemanticTests(unittest.TestCase):
         self.assertEqual(result.failure,'catch_forced_without_release:'+guard['body'])
 
 
+    def test_closed_lid_accepts_native_stop_residual_and_rejects_open_lid(self):
+        predicate = next(p for g in SPEC['goals'] if g['name'] == 'service_closed_out'
+                         for p in g['all'] if p['kind'] == 'joint')
+        frame = target_frame()
+        frame['joints']['lid_hinge'] = -9.100218911761715e-10
+        self.assertTrue(self.sc.predicate(predicate, frame))
+        frame['joints']['lid_hinge'] = -0.000002
+        self.assertFalse(self.sc.predicate(predicate, frame))
+        frame['joints']['lid_hinge'] = 0.03501
+        self.assertFalse(self.sc.predicate(predicate, frame))
+
+
 if __name__=='__main__':unittest.main()
