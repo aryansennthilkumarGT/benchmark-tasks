@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T04:09:19.173308+00:00",
+  "updated_at": "2026-11-11T04:19:45.640549+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -91,21 +91,36 @@
     "Dream-1",
     "Review generated media and upload",
     "Exact evaluated revision publication",
-    "Teammate-only official PR submission"
+    "Authorized official submission and review follow-up for each ready task"
   ],
   "recovery": "Use the live checkpoint for persistent diagnostics and exact continuation commands. The original offline run verification documents the historical draft revisions.",
   "offline_execution_evidence": "offline-run-verification.json",
   "live_execution_evidence": "live-execution-2026-11-10.md",
   "current_operation": {
     "kind": "SERIAL_NATIVE_PHYSICS_AND_SCRIPTED_EXPERT_VALIDATION",
-    "active_directory": "/data/robocurve-runs/resume-compat/fault-chamfer-entry-expert.i4ggms",
-    "terminal_session": 87981,
-    "active": "fault-module-repair",
-    "queued": "remote-battery-service",
-    "queued_directory": "/data/robocurve-runs/resume-compat/remote-cylindrical-containment-native.Bq9Hjn",
-    "queued_terminal_session": 19409,
+    "active_directory": "/data/robocurve-runs/resume-compat/remote-cylindrical-containment-native.Bq9Hjn",
+    "terminal_session": 19409,
+    "active": "remote-battery-service",
+    "queued": "fault-module-repair",
+    "queued_directory": "/data/robocurve-runs/resume-compat/fault-gravity-seat-expert.6ikinR",
+    "queued_terminal_session": 2166,
     "second_episode_gate": "First episode must pass full rollout validation with score 1.0",
     "submission_ready_tasks": 0,
     "billing_receipt": "UNAVAILABLE_FULL_SCALE_GATE_RETAINED"
+  },
+  "submission_authorization": {
+    "authorized_at": "2026-11-11T04:19:45.640549+00:00",
+    "source": "User official-submission authorization in this conversation",
+    "registered_account_confirmed_by_user": "aryansennthilkumarGT",
+    "authenticated_account_verified": "aryansennthilkumarGT",
+    "team_code": "T-06",
+    "official_repository": "robocurve/benchmark-tasks",
+    "base": "main",
+    "scope": "Eight fully validated independent benchmarks, submitted individually as ready",
+    "official_rules_commit": "3e18824525c579c52a4049d7de80b1693a1c2334",
+    "official_rules_receipt": "/data/robocurve-runs/resume-compat/official-rules-sn6_hvjx/receipt.json",
+    "uploads_authorized": true,
+    "pr_creation_authorized": true,
+    "official_prs_created": []
   }
 }

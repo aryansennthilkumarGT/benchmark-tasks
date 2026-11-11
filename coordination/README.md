@@ -58,20 +58,20 @@ bash coordination/bootstrap_and_run.sh --resume
 
 The attestation is bound to exact media bytes and source SHA. There is no preapproved/placeholder review. The official uploader is called only after that gate and genuine validation. It operates on a disposable metadata copy, never on the evaluated checkout. Publication permits only `task.json`, `validation.json` and `source_manifest.json` metadata changes; executable code remains identical to the evaluated commit. A lease protects concurrent branch changes. The pushed commit is fetched back and checked.
 
-## Reports, status and teammate submission
+## Reports, status and authorized submission
 
 Read `.robocurve-runs/report.json` for every task, failure diagnostic and cost estimate. `ready-handoff.json` contains only fully verified tasks. Exit 0 means all requested runtime stages passed, or explicitly requested offline checks passed; offline success never means submission readiness. Exit 2 means requested tasks are incomplete, exit 3 means an environment/configuration blocker, and argparse uses exit 2 for invalid options. Dry-run exit 0 means only that a plan was printed.
 
-The agent must not execute upstream PR creation. After all requirements pass, the teammate authenticates the GitHub account registered with RoboCurve and previews:
+The user authorized official submissions on 2026-11-11 and confirmed `aryansennthilkumarGT` as the registered submitting account for T-06. Submit each task after its complete evidence gates pass. Preview the verified subset with:
 
 ```bash
 python coordination/submit_ready.py .robocurve-runs/ready-handoff.json
 ```
 
-Then the teammate alone may run:
+The authorized agent can then execute:
 
 ```bash
-python coordination/submit_ready.py .robocurve-runs/ready-handoff.json --execute --registered-account <registered-login>
+python coordination/submit_ready.py .robocurve-runs/ready-handoff.json --execute --registered-account aryansennthilkumarGT
 ```
 
 The script checks every required immutable receipt and current remote SHA, refuses unfinished tasks, reuses an existing open/merged PR and stops on a closed prior PR for review. It supplies concrete titles and evidence-based bodies. No official PR has been created by this work.

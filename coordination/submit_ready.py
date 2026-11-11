@@ -1,7 +1,7 @@
-"""Teammate-only PR handoff. Preview by default; never run --execute as the agent.
+"""Publish validated tasks through the registered submitting account. Preview by default.
 
 Authenticate gh as the team's registered submitting account. Closed prior PRs
-are reported for human review, never silently duplicated or reopened.
+require inspection of official review comments before further action.
 """
 import argparse
 import json
@@ -20,7 +20,7 @@ FORK='aryansennthilkumarGT/benchmark-tasks'
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('handoff',type=Path)
-    p.add_argument('--execute',action='store_true',help='Teammate explicitly opts in to upstream PR creation')
+    p.add_argument('--execute',action='store_true',help='Publish fully verified tasks as official pull requests')
     p.add_argument('--registered-account',help='Required exact registered GitHub login when executing')
     args=p.parse_args(argv);handoff=read(args.handoff)
     tasks=handoff['tasks'];require(tasks,'No submission-ready tasks; nothing to submit')
@@ -39,7 +39,7 @@ def main(argv=None):
             receipt=within(args.handoff.resolve().parent,args.handoff.resolve().parent/record['receipt'])
             require(verified_receipt(receipt,record['key']),'Changed or missing validation evidence')
     if args.execute:
-        require(args.registered_account,'--registered-account is required for teammate execution')
+        require(args.registered_account,'--registered-account is required for execution')
         actual=capture(['gh','api','user','--jq','.login'])
         require(actual==args.registered_account,'Authenticated GitHub account differs from registered submitting account')
     result=[]
@@ -58,7 +58,7 @@ def main(argv=None):
         existing=json.loads(capture(['gh','pr','list','--repo',OFFICIAL,'--head',head,'--state','all',
                                     '--json','number,url,state,headRefOid']))
         if existing:
-            require(len(existing)==1,'Multiple prior PRs require teammate review')
+            require(len(existing)==1,'Multiple prior PRs require review')
             require(existing[0]['state'] in ('OPEN','MERGED'),'Prior closed PR: inspect review before any resubmission')
             result.append({'slug':task['slug'],'action':'ALREADY_EXISTS',**existing[0]});continue
         with tempfile.TemporaryDirectory(prefix='robocurve-pr-') as temporary:

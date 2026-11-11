@@ -1,5 +1,11 @@
 # Brev execution checkpoint · 2026-11-10
 
+## Current submission authorization — 2026-11-11T04:19:45.640549+00:00
+
+The user explicitly revoked the earlier restriction on official PR creation and authorized eight complete submissions using registered account `aryansennthilkumarGT`, team T-06. Submit each task individually when every genuine engineering, Dream, media, blind-review and reproducibility gate passes. `gh auth status` and `gh api user` verified that exact authenticated account. The current uploader process has no `ROBOCURVE_TOKEN`; none of the checked project-private upload environment files exists. Secure credential setup remains needed before upload.
+
+Latest official AGENTS.md, README.md and tools/upload_media.py were read from official main `3e18824525c579c52a4049d7de80b1693a1c2334`, preserved at `/data/robocurve-runs/resume-compat/official-rules-sn6_hvjx`. One task per PR, 20 submissions/24 hours, registered author, genuine media and scores, blind review, ownership and pending-review revision rules remain applicable. Coordination documentation and submit_ready.py now reflect authorized agent publication. All readiness and immutable-evidence checks remain active. Earlier no-PR/teammate-only statements below are historical. The fixed host driver and instance-stop prohibition remain in force. Submission-ready tasks remain 0/8.
+
 Submission-ready tasks **0 of 8**. All eight original draft branch heads were checked against the fork and matched [the manifest](draft-manifest.json). The original handoff head was `a7d41476752b8ae0d265cc38f93b9ad5b3656f0a`. The all-task dry run and 35 coordinator tests passed. No candidate simulator run, model request, official upload, or PR was initiated.
 
 ## Official station evidence
