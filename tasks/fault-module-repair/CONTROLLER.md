@@ -38,3 +38,5 @@ During pin insertion the controller holds the wrist orientation derived from the
 The pin lift and routing targets include 12 mm extra vertical clearance after the measured approach dipped near the receiver face. The final hover adds 2 mm within the measured IK workspace. The critical TCP audit waypoints follow the current phase targets and nominal grasp offsets.
 
 The fitted pin aligns to 0.15 mm lateral error before further axial motion. Lateral correction uses gain 8 with a 3 mm command lead bound. The stall metric weights lateral progress while the Cartesian speed and phase time limits bound the attempt.
+
+The pin insertion phase permits 60 simulated seconds. The first chamfered-guide replay advanced the pin to world Z 0.8717 m, about 22 mm beyond the previous jam, with the slider retained at −31.14 mm. It was still progressing when the earlier 25-second phase limit expired. The overall 4,800-action limit and insertion pose, alignment, penetration and joint guard conditions are unchanged.
