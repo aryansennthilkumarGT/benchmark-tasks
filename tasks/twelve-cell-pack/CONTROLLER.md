@@ -145,3 +145,5 @@ The first native cell grasp/lift passed both resets. Seating stalled above the c
 Cell carry/seating completion checks the measured longitudinal axis, matching the polarity goal for the cylindrical cells. Axial spin is free. The regression rejects tilt while accepting axial rotation.
 
 The guided second-cell trial descended approximately 2 mm during its final two seconds, while the weighted lateral residual triggered a stall. Progress now uses measured three-dimensional distance to the physical target. A regression checks continuing descent with lateral jitter and a subsequent stationary jam. Native retesting is pending.
+
+The target-distance trial continued descending through the former false stall, then reached the 30-second phase timeout with cell 1 at z approximately 0.8001 m. The 0.4-mm lateral gate repeatedly paused axial motion. The 18-mm slot width provides 1.75-mm nominal radial clearance around the 14.5-mm cell. Guided insertion now uses a 0.8-mm lateral gate, with gain 8, a 4-mm lateral lead cap and a 1.5-mm axial lead cap. Native retesting is pending.
