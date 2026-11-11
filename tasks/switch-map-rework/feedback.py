@@ -215,6 +215,7 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
             progress_error = None
+            progress_margin = .0003
             if kind == 'insert' and 'insertion_axis_world' in phase:
                 axis = np.asarray(phase['insertion_axis_world'], dtype=float)
                 length = np.linalg.norm(axis)
@@ -231,7 +232,20 @@ class Controller:
                 if aligned and oriented:
                     correction += limit_vector(axial, phase.get('axial_lead', .004))
                 p = tcp + correction
-                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral)])
+                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral),
+                                           qangle(body_q, desired_q)])
+                progress_margin = np.array([.0003, phase.get('lateral_tolerance', .0008)*.1,
+                                            phase.get('insertion_orientation_tolerance', .04)*.1])
+            if phase.get('measured_rotation'):
+                rotation_error = multiply(desired_q, conjugate(body_q))
+                angle_error = qangle([0, 0, 0, 1], rotation_error)
+                amount = min(phase.get('rotation_gain', 1.0),
+                             phase.get('rotation_lead', .04) / max(angle_error, 1e-9))
+                correction = interpolate([0, 0, 0, 1], rotation_error, amount)
+                q = multiply(correction, tcpq)
+                if phase.get('rotation_about_body'):
+                    lever = tcp - body_p
+                    p += rotate(correction, lever) - lever
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value.get('relative_to')==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
@@ -250,7 +264,7 @@ class Controller:
             if kind=='insert':
                 if self.last_progress is None:
                     self.last_progress,self.last_progress_t=progress_error,now
-                if np.any(progress_error < self.last_progress-.0003):
+                if np.any(progress_error < self.last_progress-progress_margin):
                     self.last_progress=np.minimum(self.last_progress,progress_error)
                     self.last_progress_t=now
                 elif now-self.last_progress_t>2.0 and not complete:

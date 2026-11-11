@@ -179,6 +179,47 @@ class FeedbackTests(unittest.TestCase):
         with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
             controller.step(self.ready, frame)
 
+    def test_guided_alignment_counts_measured_angular_progress(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['plug_0']['pos']) + [0, .075, 0]
+        phase = dict(kind='insert', body='plug_0', insertion_axis_world=[0, 1, 0],
+                     insertion_orientation_tolerance=.04, measured_rotation=True,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args, **kwargs: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time, angle in ((0., .14), (1.5, .13), (3., .12)):
+            frame['time'] = time
+            frame['bodies']['plug_0']['quat'] = axis_quat([1, 0, 0], angle).tolist()
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.last_progress_t, 3.)
+        frame['time'] = 5.1
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
+    def test_measured_plug_rotation_preserves_body_centre(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['plug_0']
+        body['quat'] = axis_quat([1, 0, 0], .1).tolist()
+        phase = dict(kind='insert', body='plug_0', insertion_axis_world=[0, 1, 0],
+                     measured_rotation=True, rotation_lead=.04, rotation_about_body=True,
+                     target=dict(pos=body['pos'], quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args, **kwargs: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        captured = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            captured.append((np.array(position), np.array(orientation)))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        tcp, tcp_q = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        correction = axis_quat([1, 0, 0], -.04)
+        lever = tcp-np.array(body['pos'])
+        np.testing.assert_allclose(captured[0][0], tcp+rotate(correction, lever)-lever, atol=1e-12)
+        self.assertLess(qangle(captured[0][1], multiply(correction, tcp_q)), 1e-6)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
