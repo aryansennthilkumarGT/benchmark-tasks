@@ -133,6 +133,54 @@
         {
           "kind": "penetration",
           "max": 0.002
+        },
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": -0.01,
+          "max": 0.04
+        }
+      ]
+    },
+    {
+      "name": "open_lid_allows_retainer_to_lift_under_same_load",
+      "initialize_bodies": [
+        {
+          "assembly": "retainer_asset",
+          "pos": [
+            0.235,
+            0,
+            0.7725000000000001
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "retainer_asset",
+          "body": "retainer",
+          "force": [
+            0,
+            0,
+            3
+          ]
+        }
+      ],
+      "steps": 6,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "retainer",
+          "axis": 2,
+          "min": 0.82,
+          "max": 3.0
+        }
+      ],
+      "initialize_joints": [
+        {
+          "assembly": "chassis_asset",
+          "joint": "lid_hinge",
+          "value": 0.9
         }
       ]
     }
