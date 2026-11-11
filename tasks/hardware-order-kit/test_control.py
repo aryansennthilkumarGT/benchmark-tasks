@@ -188,6 +188,18 @@ class FeedbackTests(unittest.TestCase):
         expected = multiply(axis_quat([0, 1, 0], .002), reference_q)
         self.assertLess(qangle(calls[2][1], expected), 1e-7)
 
+    def test_loaded_left_wrist_bias_can_advance_reference(self):
+        controller = self.controller(dict(kind='hold', seconds=1))
+        motion = controller.motion['left']
+        reference = self.ready[:6].copy()
+        reference[4] += .10
+        motion.reference = reference.copy()
+        position, rotation = self.ik.tcp_pose(reference, motion.base)
+        orientation = self.ik.matrix_to_quat_xyzw(rotation)
+        motion.target(self.ready[:7], position + [0, 0, .001], orientation, 0.)
+        self.assertGreater(np.linalg.norm(motion.reference-reference), 1e-5)
+        self.assertLessEqual(np.max(np.abs(motion.reference-reference)), .02000001)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
