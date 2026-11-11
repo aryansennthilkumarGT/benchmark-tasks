@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "status": "STATIC_TESTS_PASSED",
+  "status": "NATIVE_PHYSICS_PASSED",
   "ready": false,
-  "verified_at": "2026-11-07T23:46:59.378866+00:00",
+  "verified_at": "2026-11-11T00:33:04.284960+00:00",
   "offline_tests": {
     "slug": "hinged-chassis-drive",
     "python": "3.12.13",
@@ -43,7 +43,7 @@
     "initial_joint_frames": "PASS"
   },
   "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "NOT_RUN",
+  "native_physics": "PASS",
   "robot_control": "NOT_RUN",
   "expert_trials": [],
   "dream": null,
@@ -51,10 +51,10 @@
   "media_verified": false,
   "run_limit": 3600,
   "native_cases_planned": {
-    "physics": 4,
+    "physics": 5,
     "control": 2
   },
-  "physics_runs": 0,
+  "physics_runs": 1,
   "expert_runs": 0,
   "model_runs": 0,
   "media_uploads": 0,
@@ -71,5 +71,13 @@
     "The captive bar relies on pocket walls and the closed lid, not proximity attachment.",
     "Contact dynamics, retention loads, and the feedback controller have not yet been run in native PhysX."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "native_physics_evidence": {
+    "commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
+    "driver": "565.57.01",
+    "passed": 10,
+    "failed": 0,
+    "resets": 10,
+    "report_sha256": "e0504bb753940ea838df20ae9e21efefc8ab0e6bd0264ebb5ab9e4f8097b3a76"
+  }
 }
