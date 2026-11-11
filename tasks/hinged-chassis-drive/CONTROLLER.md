@@ -82,3 +82,5 @@ Retainer transport first moves longitudinally at the source y=-0.23 m to x=0.235
 Retainer grip pitches the wrist25degrees away from the supported lid, while preserving the opposing jaw grip. Offline convex-mesh checks found the former vertical wrist collides with the lid at both final insertion height and the diagonal path. The pitched grip clears the complete sampled height range and uses the same numeric seating goals. Fresh native contacts and cold experts remain required.
 
 The pitched retainer grasp uses a16mm centre-to-TCP offset and20to30mm measured jaw interval, accounting for the projected18by16mm bar section. Actual jaw closure and retention are validated in the native expert.
+
+The cold expert reached the retaining-bar grasp with a real19.08mm occupied jaw width. The20mm lower bound prevented completion. The measured interval is now16to28mm, with the same physical contact, slip and verified-lift requirements. Objective seating and retention tolerances are unchanged.
