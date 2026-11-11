@@ -145,6 +145,20 @@ def main():
                             value=torch.tensor([[*setup['pos'],*setup.get('quat',[0,0,0,1])]],device=base.device)
                             asset.write_root_pose_to_sim_index(root_pose=value)
                             asset.write_root_velocity_to_sim_index(root_velocity=torch.zeros((1,6),device=base.device))
+                        base.sim.forward()
+                        initialized = {'joints': [], 'roots': []}
+                        for setup in case.get('initialize_joints', []):
+                            asset = base.scene[setup['assembly']]
+                            index = list(asset.joint_names).index(setup['joint'])
+                            actual = float(runtime.array(asset.data.joint_pos)[0, index])
+                            assert abs(actual - setup['value']) < 1e-6, ('fixture joint write', setup, actual)
+                            initialized['joints'].append(dict(setup, measured=actual))
+                        for setup in case.get('initialize_bodies', []):
+                            asset = base.scene[setup['assembly']]
+                            actual = runtime.array(asset.data.root_link_pose_w)[0].tolist()
+                            assert np.linalg.norm(np.asarray(actual[:3]) - setup['pos']) < 1e-6, ('fixture root write', setup, actual)
+                            initialized['roots'].append(dict(setup, measured_pose=actual))
+                        save(args.output/f'{case["name"]}-{repeat}-post-initialization.json', initialized)
                         for force in case.get('forces',[]):
                             asset=base.scene[force['assembly']]
                             index=list(asset.body_names).index(force['body'])

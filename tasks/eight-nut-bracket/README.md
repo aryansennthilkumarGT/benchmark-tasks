@@ -39,7 +39,7 @@ Native probes: 4 physics cases and 3 real robot-control cases, each repeated aft
 
 ## Implementation and limits
 
-Enlarged 4 mm-pitch square threads use 64 rigid segments per turn and real collision contact. A vertical spring and two passive tilt joints approximate a guided access plate. No helical snapping is used. Scoring checks pitch-coupled turns and retained plate compression, not bolt tension, torque or sealing.
+Enlarged 4 mm-pitch square threads use 16 rigid contact sectors per turn and real collision contact. A vertical spring and two passive tilt joints approximate a guided access plate. No helical snapping is used. Scoring checks pitch-coupled turns and retained plate compression, not bolt tension, torque or sealing.
 
 Read [CONTROLLER.md](CONTROLLER.md), [NOVELTY.md](NOVELTY.md), and `mechanics-review.json` for the feedback strategy, comparison review and five criteria. Rigid USD parse checks, synthetic scoring tests and ideal IK replay are offline evidence only. Native contacts, camera rendering, reliable reset and complete action execution require separate runtime evidence.
 
