@@ -321,6 +321,13 @@ class Controller:
         for name,(p,q,opening,speed) in targets.items():
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
+            # Hold a contact-qualified reference throughout its stability interval.
+            if (name == side and complete and kind == 'grasp'
+                    and phase.get('hold_grasp_reference')
+                    and self.motion[name].reference is not None):
+                grip = joints[index+6] + float(np.clip(opening-joints[index+6], -.10, .10))
+                action[index:index+7] = np.r_[self.motion[name].reference, grip]
+                continue
             target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,speed=speed,
                                                      feedback_gain=phase.get('feedback_gain', 0.) if name == side else 0.)
             action[index:index+7]=target

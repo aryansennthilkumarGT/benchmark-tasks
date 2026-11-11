@@ -71,6 +71,24 @@ class FeedbackTests(unittest.TestCase):
         self.assertLess(pe,.0015);joints=self.ready.copy();joints[index:index+6]=q;joints[index+6]=0
         for t in (0,.5,1.):frame['time']=t;c.step(joints,frame)
         self.assertEqual(c.index,0);self.assertFalse(c.grasps)
+    def test_contact_qualified_retainer_grasp_holds_reference_during_stability(self):
+        plan=json.loads((self.folder/'controller.json').read_text())
+        phase=next(x for x in plan['phases'] if x.get('hold_grasp_reference'))
+        c=Controller({'phases':[phase]},self.spec)
+        frame=copy.deepcopy(self.frame);body=frame['bodies'][phase['body']]
+        target=np.array(body['pos'])+rotate(body['quat'],phase['offset'])
+        c.pose=lambda joints,side: (target+(np.array([0,.2,0]) if side=='left' else 0),np.array(phase['quat']))
+        c.started=-1.;c.grasp_closing=True
+        reference=self.ready[7:13].copy();c.motion['right'].reference=reference.copy()
+        joints=self.ready.copy();joints[13]=.022/.0939
+        def forbidden(*args,**kwargs):raise AssertionError('Qualified closure must retain reference')
+        c.motion['right'].target=forbidden
+        action=c.step(joints,frame)
+        np.testing.assert_allclose(action[7:13],reference)
+        self.assertEqual(c.index,0)
+        frame['time']=.2;c.step(joints,frame)
+        self.assertEqual(c.index,1)
+
     def test_incremental_action_respects_joint_and_gripper_limits(self):
         m=Motion('left');p,r=m.ik.tcp_pose(self.ready[:6],m.base)
         action,_,_=m.target(self.ready[:7],p+[.001,0,0],m.ik.matrix_to_quat_xyzw(r),0)
