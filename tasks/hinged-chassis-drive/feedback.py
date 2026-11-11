@@ -105,7 +105,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={'left':Motion('left',tracking_error_limit=0.12),'right':Motion('right')}
+        self.motion={'left':Motion('left',tracking_error_limit=0.12),'right':Motion('right',tracking_error_limit=0.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -203,6 +203,9 @@ class Controller:
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
+            if kind == 'carry' and phase.get('measured_translation'):
+                p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
+                                       phase.get('translation_lead', .003))
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.

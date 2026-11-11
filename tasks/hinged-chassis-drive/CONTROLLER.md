@@ -45,3 +45,5 @@ The measured-body correction removed the wrist-limit failure, but both native re
 Gain 8 reached 0.84362 rad of the 0.85-rad opening target, leaving 0.00638 rad residual against the 0.006-rad phase completion tolerance. Gain 12 is the next bounded control candidate, with the same 0.08-rad lead cap and measured completion predicate. Native retesting is pending.
 
 Gain 12 held the lid between 0.84285 and 0.84966 rad late in the native opening attempt. The 6-mrad arrival band persisted for only three consecutive 20-Hz frames, preventing the 0.15-second phase hold. The opening controller now uses a 0.01-rad arrival band about 0.85 rad, within the native 0.82–0.88-rad opening assertion. The measured support and complete-task demonstrations remain required.
+
+Two native drive-lift probes timed out with the drive sliding on the table. Measured right-arm reference gaps stayed below 0.025 rad at failure, and the largest arm torque was approximately 5.71 Nm. Drive carrying now uses measured TCP translation with body-error gain 8 and a 20-mm lead cap. The right-arm tracking window is 0.08 rad. Native retesting is pending.
