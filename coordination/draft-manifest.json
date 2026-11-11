@@ -11,7 +11,7 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "a8272c5213dfd41e1c7b4ec876d35734ccd4b47e",
+      "commit": "9d984c2d97a8f099ecd76a44c1e2b749f3d9ee03",
       "task_folder": "tasks/hinged-chassis-drive",
       "status": "NATIVE_GRASP_PASSED_LID_SUPPORT_IK_FAILED",
       "ready": false,
@@ -40,16 +40,17 @@
         "Passive rigid lid/guide contacts approximate stamped sheet-metal compliance.",
         "The captive bar relies on pocket walls and the closed lid, not proximity attachment."
       ],
-      "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193"
+      "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "remote-battery-service",
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "669f453d397f8d8644860e8d54e3505a3966b08e",
+      "commit": "81dbcca7f18e0641bedef5222b02824405c6605d",
       "task_folder": "tasks/remote-battery-service",
-      "status": "EXACT_CYLINDER_REGION_AND_300_SECOND_LIMIT_NATIVE_RETEST_QUEUED",
+      "status": "LOW_RAIL_PHYSICS_PASSED_CAPTURED_WRIST_TRANSLATION_EXPERT_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -78,14 +79,15 @@
         "Native friction, spring preload, cover retention and robot grasps await GPU execution.",
         "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
       ],
-      "physics_evaluated_commit": "650eba8ccd0805e9ef44f05c7be5ea7b574ba787"
+      "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "switch-map-rework",
       "title": "Correct two latched patch connections while preserving a third",
       "branch": "draft/switch-map-rework",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework",
-      "commit": "7e126c1f685190982511e3314b917dac889cb4df",
+      "commit": "66e5f6dcfa13e78480c86788163d06595b3f6215",
       "task_folder": "tasks/switch-map-rework",
       "status": "LOAD_PROBES_FAILED_NONFINITE_CABLE_INERTIA_FIX_RETEST_PENDING",
       "ready": false,
@@ -114,14 +116,15 @@
         "Each 5 mm cable is a continuous chain of 22 rigid segments with passive bend/twist joints; fine cable elasticity and conductor physics are approximated.",
         "The catch has an enlarged release paddle for parallel jaws. It is not an exact RJ45 connector model.",
         "Joint continuity and connector seating proxy link continuity; packet transmission is not simulated."
-      ]
+      ],
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "node-service-closeout",
       "title": "Exchange two internal modules and close out an enclosure",
       "branch": "draft/node-service-closeout",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
-      "commit": "d3f13dcc36140cf912861e1e929283c8df2ad843",
+      "commit": "41445713902acda0d82fe6cc5363ba024881eab0",
       "task_folder": "tasks/node-service-closeout",
       "status": "FULL_NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
       "ready": false,
@@ -150,14 +153,15 @@
         "Coarse rigid cooler fins and guide keys model handling geometry, not heat transfer or electrical functionality."
       ],
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
-      "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33"
+      "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "twelve-cell-pack",
       "title": "Preload and retain a twelve-cell service pack",
       "branch": "draft/twelve-cell-pack",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
-      "commit": "8797682de94dac936a11dd73baaf610f5e618e85",
+      "commit": "a4f22600c2f2fff62e15e60b84a0182e64874e57",
       "task_folder": "tasks/twelve-cell-pack",
       "status": "FULL_NATIVE_PHYSICS_TEN_REPEATS_PASSED_CONTROL_PENDING",
       "ready": false,
@@ -187,14 +191,15 @@
         "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope."
       ],
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
-      "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627"
+      "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "eight-nut-bracket",
       "title": "Fasten a spring-loaded access plate while maintaining its preload",
       "branch": "draft/eight-nut-bracket",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket",
-      "commit": "c2b163ba0ef4d7dc04060e639d6e77c9391a3363",
+      "commit": "1bd535deef9efe29c16dd27ad82f020fc09cbfcb",
       "task_folder": "tasks/eight-nut-bracket",
       "status": "NATIVE_THREAD_LOAD_FAILED_WITH_SPECULATIVE_CCD",
       "ready": false,
@@ -224,16 +229,17 @@
         "Enlarged 4 mm-pitch square-profile threads use 64 rigid segments per turn with real collision contact. No helical attachment or proximity snapping is used.",
         "The task measures pitch-coupled advancement, seating and retained plate compression. It does not certify bolt tension, friction torque or sealing performance.",
         "Native contact forces, spring-load transfer, two expert episodes and model evaluation remain unexecuted."
-      ]
+      ],
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "fault-module-repair",
       "title": "Balance and lock a counterweighted service arm",
       "branch": "draft/fault-module-repair",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
-      "commit": "fd40fa828fcf84a52c384ce497e4f29a71a67cf4",
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
       "task_folder": "tasks/fault-module-repair",
-      "status": "BOUNDED_CHAMFER_ENTRY_EXPERT_RUNNING_MECHANICS_HASHES_MATCH_PRIOR_PASS",
+      "status": "TWO_FULL_SCORE_EXPERTS_PASSED_FINAL_NATIVE_SUITES_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -246,7 +252,10 @@
         "usd_exit": 0
       },
       "run_limit": 4800,
-      "expert_scores": [],
+      "expert_scores": [
+        1.0,
+        1.0
+      ],
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
@@ -263,14 +272,20 @@
       "physics_evaluated_commit": "ade4e41348431ed76f38fa8e7dea37ba18a85e83",
       "pin_diagnostic_commit": "d2fecabe84ba80fafc97965d5b5a158ee64b0622",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
-      "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f"
+      "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f",
+      "collision_collection_fix": "NATIVE_18_LINKS_630_OWNED_COLLIDERS_VERIFIED",
+      "expert_evaluated_commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "expert_record_ids": [
+        "885b02a3fedb4f3e8bb7a9187d9529c7",
+        "af21ab3c4e4742a5b37485e20bdd6dcf"
+      ]
     },
     {
       "slug": "hardware-order-kit",
       "title": "Fit and pin a hinged collar around a captive shaft",
       "branch": "draft/hardware-order-kit",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit",
-      "commit": "73dbca0a663abb9a3c61593d711b057175937381",
+      "commit": "d1156518202d970ac8742dc3d917348121dff234",
       "task_folder": "tasks/hardware-order-kit",
       "status": "SIX_SELECTED_NATIVE_CASE_REPEATS_PASSED_FULL_SUITE_PENDING",
       "ready": false,
@@ -300,7 +315,8 @@
         "A square transverse key captures interleaved lugs through real collision-defined holes. No automatic attachment or fastener torque is simulated.",
         "The collar tests retention around a shaft, not certified clamping friction or torque transmission."
       ],
-      "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc"
+      "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     }
   ],
   "updated_at": "2026-11-11T02:42:20.045936+00:00"

@@ -1,59 +1,72 @@
 {
-  "updated_at": "2026-11-11T04:19:45.640549+00:00",
+  "updated_at": "2026-11-11T05:01:28.031251+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "a8272c5213dfd41e1c7b4ec876d35734ccd4b47e",
+      "commit": "9d984c2d97a8f099ecd76a44c1e2b749f3d9ee03",
       "state": "NATIVE_GRASP_PASSED_LID_SUPPORT_IK_FAILED",
-      "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193"
+      "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "remote-battery-service",
-      "commit": "669f453d397f8d8644860e8d54e3505a3966b08e",
-      "state": "EXACT_CYLINDER_REGION_AND_300_SECOND_LIMIT_NATIVE_RETEST_QUEUED",
-      "physics_evaluated_commit": "650eba8ccd0805e9ef44f05c7be5ea7b574ba787",
+      "commit": "81dbcca7f18e0641bedef5222b02824405c6605d",
+      "state": "LOW_RAIL_PHYSICS_PASSED_CAPTURED_WRIST_TRANSLATION_EXPERT_QUEUED",
+      "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_REVISION_PASS_CURRENT_GEOMETRY_AND_SCORER_RETEST_PENDING",
-      "run_limit": 6000
+      "run_limit": 6000,
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "expert_scores": []
     },
     {
       "slug": "switch-map-rework",
-      "commit": "7e126c1f685190982511e3314b917dac889cb4df",
-      "state": "LOAD_PROBES_FAILED_NONFINITE_CABLE_INERTIA_FIX_RETEST_PENDING"
+      "commit": "66e5f6dcfa13e78480c86788163d06595b3f6215",
+      "state": "LOAD_PROBES_FAILED_NONFINITE_CABLE_INERTIA_FIX_RETEST_PENDING",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "d3f13dcc36140cf912861e1e929283c8df2ad843",
+      "commit": "41445713902acda0d82fe6cc5363ba024881eab0",
       "state": "FULL_NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
-      "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33"
+      "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "8797682de94dac936a11dd73baaf610f5e618e85",
+      "commit": "a4f22600c2f2fff62e15e60b84a0182e64874e57",
       "state": "FULL_NATIVE_PHYSICS_TEN_REPEATS_PASSED_CONTROL_PENDING",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
-      "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627"
+      "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "c2b163ba0ef4d7dc04060e639d6e77c9391a3363",
-      "state": "NATIVE_THREAD_LOAD_FAILED_WITH_SPECULATIVE_CCD"
+      "commit": "1bd535deef9efe29c16dd27ad82f020fc09cbfcb",
+      "state": "NATIVE_THREAD_LOAD_FAILED_WITH_SPECULATIVE_CCD",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     },
     {
       "slug": "fault-module-repair",
-      "commit": "fd40fa828fcf84a52c384ce497e4f29a71a67cf4",
-      "state": "BOUNDED_CHAMFER_ENTRY_EXPERT_RUNNING_MECHANICS_HASHES_MATCH_PRIOR_PASS",
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "state": "TWO_FULL_SCORE_EXPERTS_PASSED_FINAL_NATIVE_SUITES_RUNNING",
       "physics_evaluated_commit": "ade4e41348431ed76f38fa8e7dea37ba18a85e83",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
-      "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f"
+      "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f",
+      "collision_collection_fix": "NATIVE_18_LINKS_630_OWNED_COLLIDERS_VERIFIED",
+      "expert_scores": [
+        1.0,
+        1.0
+      ]
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "73dbca0a663abb9a3c61593d711b057175937381",
+      "commit": "d1156518202d970ac8742dc3d917348121dff234",
       "state": "SIX_SELECTED_NATIVE_CASE_REPEATS_PASSED_FULL_SUITE_PENDING",
-      "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc"
+      "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
     }
   ],
   "executed": {
@@ -62,7 +75,7 @@
     "offline_geometry_audits_passed": 33,
     "composed_usd_packages_passed": 8,
     "native_runs": 4,
-    "expert_runs": 0,
+    "expert_runs": 2,
     "model_runs": 0,
     "media_uploads": 0,
     "official_prs": 0,
@@ -82,7 +95,8 @@
     "collar_selected_native_case_repeats_passed": 6,
     "remote_cover_native_control_repeats_passed": 2,
     "latest_full_physics_task_count": 5,
-    "latest_full_physics_case_repeats_passed": 50
+    "latest_full_physics_case_repeats_passed": 52,
+    "full_score_expert_tasks_verified": 1
   },
   "remaining": [
     "Verify billed Brev rate and issue the provider budget receipt for full evaluations",
@@ -98,12 +112,12 @@
   "live_execution_evidence": "live-execution-2026-11-10.md",
   "current_operation": {
     "kind": "SERIAL_NATIVE_PHYSICS_AND_SCRIPTED_EXPERT_VALIDATION",
-    "active_directory": "/data/robocurve-runs/resume-compat/remote-cylindrical-containment-native.Bq9Hjn",
-    "terminal_session": 19409,
-    "active": "remote-battery-service",
-    "queued": "fault-module-repair",
-    "queued_directory": "/data/robocurve-runs/resume-compat/fault-gravity-seat-expert.6ikinR",
-    "queued_terminal_session": 2166,
+    "active_directory": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4",
+    "terminal_session": 35148,
+    "active": "fault-module-repair",
+    "queued": "remote-battery-service",
+    "queued_directory": "/data/robocurve-runs/resume-compat/remote-stable-grasp-expert.wdYq0X",
+    "queued_terminal_session": 62166,
     "second_episode_gate": "First episode must pass full rollout validation with score 1.0",
     "submission_ready_tasks": 0,
     "billing_receipt": "UNAVAILABLE_FULL_SCALE_GATE_RETAINED"
@@ -122,5 +136,43 @@
     "uploads_authorized": true,
     "pr_creation_authorized": true,
     "official_prs_created": []
-  }
+  },
+  "validated_expert_demonstrations": [
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1899,
+      "run_limit": 4800,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "record_id": "885b02a3fedb4f3e8bb7a9187d9529c7",
+      "log": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/first-trial/adhoc_eefd0ceb.json",
+      "log_sha256": "fc6929d0c3d670c26b0b694bf69d8e70d5974b844002d34dff05211bd7c3defa",
+      "simulated_seconds": 94.95,
+      "duration_s": 315.4070955419993,
+      "frames": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/first-trial/frames/20261111_044010_74f1a52b",
+      "camera_streams": 3,
+      "native_failure": null
+    },
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1899,
+      "run_limit": 4800,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "record_id": "af21ab3c4e4742a5b37485e20bdd6dcf",
+      "log": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/second-trial/adhoc_b7e8a3c3.json",
+      "log_sha256": "a1c363d9eeb154585c7e7adc39516d28167d6c48f87f4c5e2ab657402347badb",
+      "simulated_seconds": 94.95,
+      "duration_s": 316.0063284860007,
+      "frames": "/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4/second-trial/frames/20261111_044528_aaece866",
+      "camera_streams": 3,
+      "native_failure": null
+    }
+  ]
 }

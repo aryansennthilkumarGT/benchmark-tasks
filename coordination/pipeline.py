@@ -272,19 +272,21 @@ def run_task(task,args,ledger,python,lock,budget,implementation_hash):
     def upload_action(out):
         require(not args.no_upload,'Upload deliberately disabled')
         require(bool(os.getenv('ROBOCURVE_TOKEN')),'RoboCurve token not configured securely')
-        # Official uploader is pinned by the upstream baseline. It edits a disposable copy only.
+        # Use the current official uploader on a disposable metadata copy.
         dest=out/'upload';dest.mkdir();shutil.copyfile(folder/'task.json',dest/'task.json')
         data=read(dest/'task.json')
         data['scores']=f'Dream-1 ({lock["model"]}): {runtime["dream"]["score"]}; expert demos: 1.0, 1.0'
         atomic(dest/'task.json',data)
         # Uploader uses folder basename as task tag, so give it the actual slug.
         actual=dest/slug;actual.mkdir();shutil.copyfile(dest/'task.json',actual/'task.json')
-        execute([python,str(tree/'tools/upload_media.py'),str(actual),'--video',str(media/'model.mp4'),
+        uploader = HERE.parent/'tools/upload_media.py'
+        execute([python,str(uploader),str(actual),'--video',str(media/'model.mp4'),
                  '--demo',str(media/'demo.mp4'),'--screenshot',str(media/'setup.png')],tree,out/'upload.log',900,
                 env={'ROBOCURVE_TEAM':'T-06','ROBOCURVE_BOARD':'https://tasks.robocurve.org'})
         updated=read(actual/'task.json');require(re.fullmatch(r'M-[A-Z0-9]+',updated.get('media','')),'Uploader returned no valid media ID')
         shutil.copyfile(actual/'task.json',dest/'task.json')
-        atomic(out/'upload-confirmation.json',{'media_id':updated['media'],'task_json_sha256':digest(dest/'task.json')})
+        atomic(out/'upload-confirmation.json',{'media_id':updated['media'],'task_json_sha256':digest(dest/'task.json'),
+                                              'official_uploader_sha256':digest(uploader)})
         return {'media_id':updated['media'],'path':str(out)}
     uploaded=stage('MEDIA_UPLOADED',upload_action)['result']
     remote=stage('EXACT_COMMIT_VERIFIED',lambda out:publish(task,folder,Path(uploaded['path']),out,args,completed,runtime))['result']
