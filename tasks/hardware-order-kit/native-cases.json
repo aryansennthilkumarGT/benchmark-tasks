@@ -17,7 +17,7 @@
       ]
     },
     {
-      "name": "closed_collar_cannot_slide_through_end_flange",
+      "name": "keyed_collar_cannot_slide_through_end_flange",
       "initialize_bodies": [
         {
           "assembly": "collar_asset",
@@ -27,6 +27,14 @@
             0.8225
           ],
           "free_articulation_root": true
+        },
+        {
+          "assembly": "collar_key_asset",
+          "pos": [
+            0.375,
+            0.006,
+            0.8225
+          ]
         }
       ],
       "forces": [
@@ -128,6 +136,15 @@
             -0.06,
             0
           ]
+        },
+        {
+          "assembly": "collar_asset",
+          "body": "lower_collar",
+          "torque": [
+            0,
+            0.06,
+            0
+          ]
         }
       ],
       "steps": 80,
@@ -185,6 +202,15 @@
           "torque": [
             0,
             -0.06,
+            0
+          ]
+        },
+        {
+          "assembly": "collar_asset",
+          "body": "lower_collar",
+          "torque": [
+            0,
+            0.06,
             0
           ]
         }
