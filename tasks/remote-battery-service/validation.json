@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
-  "status": "STATIC_TESTS_PASSED",
+  "status": "NATIVE_PHYSICS_PASSED",
   "ready": false,
-  "verified_at": "2026-11-07T23:59:11.157651+00:00",
+  "verified_at": "2026-11-11T00:46:41.332852+00:00",
   "offline_tests": {
     "slug": "remote-battery-service",
     "python": "3.12.13",
@@ -43,7 +43,7 @@
     "initial_joint_frames": "PASS"
   },
   "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "NOT_RUN",
+  "native_physics": "PASS",
   "robot_control": "NOT_RUN",
   "expert_trials": [],
   "dream": null,
@@ -54,7 +54,7 @@
     "physics": 6,
     "control": 2
   },
-  "physics_runs": 0,
+  "physics_runs": 1,
   "expert_runs": 0,
   "model_runs": 0,
   "media_uploads": 0,
@@ -72,5 +72,13 @@
     "Native friction, spring preload, cover retention and robot grasps await GPU execution.",
     "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established."
+  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "native_physics_evidence": {
+    "commit": "6594c6ba628cb77a411ab0251df253ed7fb11705",
+    "driver": "565.57.01",
+    "passed": 12,
+    "failed": 0,
+    "resets": 12,
+    "report_sha256": "3fe83dc0a47aae282c06e98ffeb1b5b3d2b0b0909136e2718f5db6b5bddb34d3"
+  }
 }
