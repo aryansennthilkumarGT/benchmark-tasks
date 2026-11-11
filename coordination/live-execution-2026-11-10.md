@@ -1,5 +1,15 @@
 # Brev execution checkpoint · 2026-11-10
 
+## Validated native progress — 2026-11-11 06:02 UTC
+
+Counterweighted service arm at evaluated implementation `46bf1008e01546b266b5ba973d31e75e64bf8f89` passed all 8 physics and 4 robot-control cases with recorded producer exits 0. Two independent real robot experts scored 1.0, each using 1899 actions and 94.95 simulated seconds. Complete original evidence is `/data/robocurve-runs/resume-compat/fault-owned-collision-expert.RCAIi4`. Both recordings have three H.264/yuv420p streams fully decoded to 1900 frames each and visually sampled across the complete rollout. Revalidated feasibility proof is `evidence/feasibility.json`. Sealed raw case/control/trial directories must remain immutable. Independent HTTPS source checkout/static reproduction passed at `/data/robocurve-runs/resume-compat/fault-fork-reproduction.DYGKKx`. Dream, official media and submission remain pending. Publication documentation still needs actual reset and measured-runtime updates.
+
+Hardware-order-kit at `d1156518202d970ac8742dc3d917348121dff234` passed its full 12 native physics cases with producer exit 0, stored at `/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx`. This establishes the tested mechanism cases, with expert feasibility still pending.
+
+Remote battery controller `29a2240ecf9577b39cb56a59a228fc9bba2523d5` passed static checks, committed and pushed. Native experiment `/data/robocurve-runs/resume-compat/remote-pretilt-expert.jakf1xk1` tests wrist/cell orientation above the bay before spring contact. Producer PID is in producer.pid and genuine terminal exit in first-process-exit.txt. Check finalized Inspect results separately because the CLI can exit 0 on trial errors. Previous spring-entry expert failed from excessive cell tilt during contact and is preserved. The new above-bay orientation experiment is unvalidated until finalized results are inspected.
+
+The user-reported $125 balance preserves a $30 reserve and allows at most $95 further total instance charges. Current actual rate remains unverified. Dream credentials and official upload token remain unavailable. Secure independent setup instructions have been sent. Continue bounded serial engineering diagnostics and CPU work while those dependencies remain pending. Do not stop/delete the instance. Official submissions are authorized once genuinely ready. No official PR has been opened.
+
 ## Current submission authorization — 2026-11-11T04:19:45.640549+00:00
 
 The user explicitly revoked the earlier restriction on official PR creation and authorized eight complete submissions using registered account `aryansennthilkumarGT`, team T-06. Submit each task individually when every genuine engineering, Dream, media, blind-review and reproducibility gate passes. `gh auth status` and `gh api user` verified that exact authenticated account. The current uploader process has no `ROBOCURVE_TOKEN`; none of the checked project-private upload environment files exists. Secure credential setup remains needed before upload.
