@@ -218,6 +218,9 @@ class Controller:
                              phase.get('rotation_lead', .08) / max(angle_error, 1e-9))
                 correction = interpolate([0, 0, 0, 1], rotation_error, amount)
                 q = multiply(correction, tcpq)
+                if phase.get('rotation_about_body'):
+                    lever = tcp - body_p
+                    p += rotate(correction, lever) - lever
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
