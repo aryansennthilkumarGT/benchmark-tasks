@@ -57,7 +57,7 @@ Geometry is original primitive construction. All movable components use friction
 | `cable_0_connector_X` | rigid fixture material | 0.0002 | (0.001, 0.001, 0.001) | (0.3, -0.07, 0.7735) | (0, 0, 0, 1) | passive dynamic |
 | `cable_0_connector_Z` | rigid fixture material | 0.0002 | (0.001, 0.001, 0.001) | (0.3, -0.07, 0.7735) | (0, 0, 0, 1) | passive dynamic |
 | `plug_0` | rigid engineering plastic | 0.016 | (0.022, 0.075, 0.019) | (0.3, -0.1, 0.7825) | (0, 0, 0, 1) | passive dynamic |
-| `latch_0` | rigid engineering plastic | 0.002 | (0.014, 0.216, 0.0265) | (0.3, -0.1, 0.797) | (0, 0, 0, 1) | passive dynamic |
+| `latch_0` | rigid engineering plastic | 0.01 | (0.014, 0.304, 0.036) | (0.3, -0.1, 0.797) | (0, 0, 0, 1) | passive dynamic |
 | `anchor_1` | rigid fixture material | 0.08 | (0.014, 0.012, 0.008) | (0.16, 0.26, 0.7515) | (0, 0, 0, 1) | anchored |
 | `cable_1_0_X` | rigid fixture material | 0.0004 | (0.001, 0.001, 0.001) | (0.16, 0.26, 0.7515) | (0, 0, 0, 1) | passive dynamic |
 | `cable_1_link_0` | rigid fixture material | 0.0015 | (0.0156391, 0.0188011, 0.00692405) | (0.155074, 0.2525, 0.7515) | (0, 0, 0, 1) | passive dynamic |
@@ -106,7 +106,7 @@ Geometry is original primitive construction. All movable components use friction
 | `cable_1_connector_X` | rigid fixture material | 0.0002 | (0.001, 0.001, 0.001) | (0.2, -0.07, 0.7735) | (0, 0, 0, 1) | passive dynamic |
 | `cable_1_connector_Z` | rigid fixture material | 0.0002 | (0.001, 0.001, 0.001) | (0.2, -0.07, 0.7735) | (0, 0, 0, 1) | passive dynamic |
 | `plug_1` | rigid engineering plastic | 0.016 | (0.022, 0.075, 0.019) | (0.2, -0.1, 0.7825) | (0, 0, 0, 1) | passive dynamic |
-| `latch_1` | rigid engineering plastic | 0.002 | (0.014, 0.216, 0.0265) | (0.2, -0.1, 0.797) | (0, 0, 0, 1) | passive dynamic |
+| `latch_1` | rigid engineering plastic | 0.01 | (0.014, 0.304, 0.036) | (0.2, -0.1, 0.797) | (0, 0, 0, 1) | passive dynamic |
 | `anchor_2` | rigid fixture material | 0.08 | (0.014, 0.012, 0.008) | (0.43, 0.26, 0.7515) | (0, 0, 0, 1) | anchored |
 | `cable_2_0_X` | rigid fixture material | 0.0004 | (0.001, 0.001, 0.001) | (0.43, 0.26, 0.7515) | (0, 0, 0, 1) | passive dynamic |
 | `cable_2_link_0` | rigid fixture material | 0.0015 | (0.0160364, 0.0189371, 0.00695249) | (0.435153, 0.2525, 0.7515) | (0, 0, 0, 1) | passive dynamic |
@@ -155,7 +155,7 @@ Geometry is original primitive construction. All movable components use friction
 | `cable_2_connector_X` | rigid fixture material | 0.0002 | (0.001, 0.001, 0.001) | (0.4, -0.07, 0.7735) | (0, 0, 0, 1) | passive dynamic |
 | `cable_2_connector_Z` | rigid fixture material | 0.0002 | (0.001, 0.001, 0.001) | (0.4, -0.07, 0.7735) | (0, 0, 0, 1) | passive dynamic |
 | `plug_2` | rigid engineering plastic | 0.016 | (0.022, 0.075, 0.019) | (0.4, -0.1, 0.7825) | (0, 0, 0, 1) | passive dynamic |
-| `latch_2` | rigid engineering plastic | 0.002 | (0.014, 0.216, 0.0265) | (0.4, -0.1, 0.797) | (0, 0, 0, 1) | passive dynamic |
+| `latch_2` | rigid engineering plastic | 0.01 | (0.014, 0.304, 0.036) | (0.4, -0.1, 0.797) | (0, 0, 0, 1) | passive dynamic |
 | `parking_cradle` | rigid fixture material | 0.15 | (0.044, 0.042, 0.012) | (0.25, -0.025, 0.7475) | (0, 0, 0, 1) | anchored |
 
 
@@ -311,3 +311,6 @@ Geometry is original primitive construction. All movable components use friction
 Each interior X gimbal proxy carries 0.0004 kg and diagonal inertia (1e-8, 1e-8, 1e-8) kg m² after coalescing the coincident interior Z proxy. Connector X/Z proxies retain 0.0002 kg and (5e-9, 5e-9, 5e-9) kg m². Each complete cable/plug assembly retains total mass 0.1402 kg.
 
 Each cable has two-axis passive universal bends and a three-axis terminal gimbal. Independent distributed twist is locked in this approximation. Shape geometry, 22-segment cable lengths and contact pairs retain their authored values. An 8 by 30 mm shelf supports each plug nose opposite its initial cable approach. Native reset, contact stability, latch mechanics and robot handling require retesting.
+
+
+Release paddles have140mm grip offsets,10g body mass,250N/m return springs and3.2N·s/m slide damping. The compound plastic volume gives an approximate density of934kg/m³. The isolated critical-damping estimate is3.16N·s/m. Unloaded vertical sag is0.392mm within the0.6mm seated-latch bound. The pressed-release force fixture uses a0.20N·m support couple for the shorter paddle. Native unpressed-lock, pressed-release, return and actual robot-control probes must validate these properties.

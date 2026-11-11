@@ -1242,7 +1242,7 @@ def Xform "Asset"
         prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
-        float physics:mass = 0.002
+        float physics:mass = 0.01
         quatf xformOp:orient = (1, 0, 0, 0)
         double3 xformOp:translate = (-0.010000000000000009, -0.36, 0.045499999999999985)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
@@ -1268,8 +1268,8 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.95, 0.42, 0.06)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.008, 0.21, 0.003)
-            double3 xformOp:translate = (0, 0.105, -0.007)
+            float3 xformOp:scale = (0.008, 0.15, 0.003)
+            double3 xformOp:translate = (0, 0.075, -0.007)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -1282,7 +1282,7 @@ def Xform "Asset"
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (0.014, 0.024, 0.02)
-            double3 xformOp:translate = (0, 0.2, 0.008)
+            double3 xformOp:translate = (0, 0.14, 0.008)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
@@ -2231,8 +2231,8 @@ def Xform "Asset"
         prepend apiSchemas = ["PhysicsDriveAPI:linear"]
     )
     {
-        float drive:linear:physics:damping = 0.4
-        float drive:linear:physics:stiffness = 150
+        float drive:linear:physics:damping = 3.2
+        float drive:linear:physics:stiffness = 250
         float drive:linear:physics:targetPosition = 0
         uniform token drive:linear:physics:type = "force"
         uniform token physics:axis = "Z"
