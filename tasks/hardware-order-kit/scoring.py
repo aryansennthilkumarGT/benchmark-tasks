@@ -78,6 +78,11 @@ class Scorer:
             for p in group['all']:
                 if p['kind'] not in {'pose','region','still','axis','joint','turns'}:
                     raise ValueError('unknown predicate kind')
+                if p['kind']=='pose' and 'position_axis' in p:
+                    axis = p['position_axis']
+                    if (not finite(axis, 3) or abs(norm(axis)-1) > 1e-9
+                            or not finite([p.get('axial_tolerance')], 1) or p['axial_tolerance'] <= 0):
+                        raise ValueError('Invalid radial or axial pose tolerance')
                 if p['kind']=='joint':
                     if p['joint'] not in self.joint_specs:raise ValueError('unknown joint')
                 elif p['body'] not in self.body_specs:raise ValueError('unknown body')
@@ -136,8 +141,14 @@ class Scorer:
         if p.get('relative_to'):
             pos, quat = relative(b, f['bodies'][p['relative_to']])
         if kind == 'pose':
-            return (norm(sub(pos, p['pos'])) <= p['tolerance'] + 1e-10
-                    and angle(quat, p.get('quat', [0, 0, 0, 1])) <= p['angle'] + 1e-10)
+            delta = sub(pos, p['pos'])
+            positioned = norm(delta) <= p['tolerance'] + 1e-10
+            if 'position_axis' in p:
+                axial = sum(a*b for a, b in zip(delta, p['position_axis']))
+                radial = sub(delta, tuple(axial*a for a in p['position_axis']))
+                positioned = (norm(radial) <= p['tolerance'] + 1e-10
+                              and abs(axial) <= p['axial_tolerance'] + 1e-10)
+            return positioned and angle(quat, p.get('quat', [0, 0, 0, 1])) <= p['angle'] + 1e-10
         if kind == 'axis':
             actual = rotate(quat, p.get('local_axis', [0, 0, 1]))
             return sum(a*b for a, b in zip(actual, p['direction'])) >= math.cos(p['angle'])-1e-10

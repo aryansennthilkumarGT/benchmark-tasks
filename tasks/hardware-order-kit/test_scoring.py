@@ -322,4 +322,24 @@ class SemanticTests(unittest.TestCase):
                     self.assertFalse(self.sc.predicate(predicate, frame))
 
 
+    def test_radial_fit_and_axial_registration_are_independent(self):
+        predicate = next(p for g in SPEC['goals'] for p in g['all']
+                         if p['kind'] == 'pose' and p['body'] == 'lower_collar')
+        frame = target_frame()
+        reference = frame['bodies']['captive_shaft']['pos']
+        body = frame['bodies']['lower_collar']
+        for delta, expected in (([-.0004058, .0005985, -.0013154], True),
+                                ([.00151, 0, 0], False), ([0, .00151, 0], False)):
+            body['pos'] = [a+b for a, b in zip(reference, delta)]
+            self.assertEqual(self.sc.predicate(predicate, frame), expected)
+
+    def test_invalid_pose_axis_is_rejected(self):
+        specification = copy.deepcopy(SPEC)
+        predicate = next(p for g in specification['goals'] for p in g['all']
+                         if p['kind'] == 'pose' and p['body'] == 'lower_collar')
+        predicate['position_axis'] = [0, 0, 0]
+        with self.assertRaises(ValueError):
+            S.Scorer(specification)
+
+
 if __name__=='__main__':unittest.main()

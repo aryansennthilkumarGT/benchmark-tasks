@@ -6,17 +6,17 @@ Each weighted goal requires every condition below. Position/quaternion condition
 
 ## lower_half_located (0.25)
 
-- `lower_collar` center within 0.0015 m of (0, 0, 0), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
+- `lower_collar` radial distance from the captive shaft Y axis <= 0.0015 m and axial Y offset <= 0.0015 m, XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
 - `lower_collar` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
 
 ## collar_closed (0.25)
 
-- `lower_collar` center within 0.0015 m of (0, 0, 0), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
+- `lower_collar` radial distance from the captive shaft Y axis <= 0.0015 m and axial Y offset <= 0.0015 m, XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
 - `collar_hinge` in [-0.025, 0.000001] (metres for prismatic, radians for rotary joints).
 
 ## collar_retained (0.5)
 
-- `lower_collar` center within 0.0015 m of (0, 0, 0), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
+- `lower_collar` radial distance from the captive shaft Y axis <= 0.0015 m and axial Y offset <= 0.0015 m, XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
 - `collar_hinge` in [-0.025, 0.000001] (metres for prismatic, radians for rotary joints).
 - `collar_key` center within 0.0015 m of (0.045, 0.006, 0), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to lower_collar.
 - `collar_key` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
@@ -30,3 +30,5 @@ Thread credit requires aligned angular increments with corresponding axial motio
 Offline tests inject synthetic states to test arithmetic and counterexamples. Native probes separately read actual simulation states and call this same scorer. No synthetic score is a demonstration result.
 
 The one-microradian positive hinge margin covers the measured closed-stop residual of about 7.6e-10 radians. The opening bound remains -0.025 radians.
+
+Radial fit and axial registration are measured independently around the shaft. The former combined sphere mixed the two and rejected a1.376mm radial fit with0.599mm axial offset. Each placement bound remains1.5mm. Orientation and key-retention predicates retain their existing values.
