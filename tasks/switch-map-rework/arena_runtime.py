@@ -182,9 +182,16 @@ def install(spec, scorer, here):
             destination = os.environ.get('ROBOCURVE_TRACE')
             if destination:
                 from dataclasses import asdict
+                data = {'kind': 'NATIVE_SIMULATION_FRAME', 'episode': episode['number'],
+                        'frame': frame, 'result': asdict(result)}
+                try:
+                    encoded = json.dumps(data, allow_nan=False)
+                except ValueError:
+                    failure = Path(destination).with_name(f"nonfinite-state-{episode['number']}.txt")
+                    failure.write_text(repr(data), encoding='utf-8')
+                    raise RuntimeError(f'Nonfinite native telemetry recorded in {failure}')
                 with Path(destination).open('a', encoding='utf-8') as stream:
-                    stream.write(json.dumps({'kind': 'NATIVE_SIMULATION_FRAME', 'episode': episode['number'],
-                                             'frame': frame, 'result': asdict(result)}, allow_nan=False)+'\n')
+                    stream.write(encoded+'\n')
         def task_step(self, *args, **kwargs):
             if not ours(self):
                 return original_step(self, *args, **kwargs)
