@@ -45,3 +45,5 @@ The female helical ridges are now0.20mm lower relative to the nut body. This red
 
 
 The entry pilot radius is8.05mm against the8.15mm female crest radius. A0.10mm radial clearance limits early nut tilt while allowing cylindrical rotation. The preceding0.20mm-clearance pilot retained axial position but exceeded the0.06rad tilt bound in both native90degree release probes. Fresh release and actual entry/turning probes must verify this fit.
+
+Each stud has an 8.05 mm radius cylindrical pilot from local z 27 to35 mm, followed by an 8 mm high conical lead-in ending at z43 mm. The cone guides an initially offset nut into the unchanged 8.15 mm radius female crest. Supported UsdGeom.Cone geometry is authored with real collision API. All thread pitch, flank dimensions and engagement/retention scoring remain unchanged.

@@ -11,6 +11,16 @@ _geometry=geometry_module(HERE)
 maximum_penetration,polyhedron,convex_separation=(_geometry.maximum_penetration,_geometry.polyhedron,_geometry.convex_separation)
 
 class PackageContractTests(unittest.TestCase):
+    def test_conical_guide_geometry_tapers_to_an_apex(self):
+        shape = dict(kind='cone', pos=[0, 0, 0], quat=[0, 0, 0, 1], radius=.00805, height=.008)
+        vertices, normals, edges = polyhedron(dict(pos=[0, 0, 0], quat=[0, 0, 0, 1]), shape)
+        self.assertEqual(len(vertices), 33)
+        np.testing.assert_allclose(vertices[-1], [0, 0, .004])
+        np.testing.assert_allclose(np.linalg.norm(normals, axis=1), 1.)
+        upper_box = dict(kind='box', pos=[.007, 0, .003], quat=[0, 0, 0, 1], size=[.001]*3)
+        box = polyhedron(dict(pos=[0, 0, 0], quat=[0, 0, 0, 1]), upper_box)
+        self.assertGreater(convex_separation((vertices, normals, edges), box), .002)
+
     def test_robot_usd_path_is_distinct_from_scene_key(self):
         import importlib
         from pxr import Usd,UsdGeom,UsdPhysics

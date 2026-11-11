@@ -211,8 +211,10 @@ class Controller:
                 rotation_error = multiply(desired_q, conjugate(body_q))
                 angle_error = qangle([0, 0, 0, 1], rotation_error)
                 turn = interpolate([0, 0, 0, 1], rotation_error,
-                    min(.1, .002 / max(angle_error, 1e-9)))
-                correction = limit_vector(.2*lateral, .0002)
+                    min(phase.get('rotation_gain', .1),
+                        phase.get('rotation_lead', .002) / max(angle_error, 1e-9)))
+                correction = limit_vector(phase.get('lateral_gain', .2)*lateral,
+                                          phase.get('lateral_lead', .0002))
                 aligned = (np.linalg.norm(lateral) <= phase['lateral_tolerance']
                            and angle_error <= phase['alignment_angle'])
                 if aligned:

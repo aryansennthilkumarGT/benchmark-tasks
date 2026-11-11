@@ -83,6 +83,22 @@ def polyhedron(body,shape):
     if shape['kind']=='box':
         vertices=np.array(list(itertools.product(*[(-v,v) for v in half])))@axes+centre
         return vertices,axes,axes
+    if shape['kind'] == 'cone':
+        angles = np.arange(32)*2*np.pi/32
+        radius = shape['radius']/np.cos(np.pi/32)
+        ring = np.column_stack((radius*np.cos(angles), radius*np.sin(angles),
+                                np.full(32, -half[2])))
+        apex = np.array([[0., 0., half[2]]])
+        vertices = np.vstack((ring, apex))@axes+centre
+        midpoint = angles+np.pi/32
+        normals = np.column_stack((np.cos(midpoint), np.sin(midpoint),
+                                   np.full(32, shape['radius']/shape['height'])))
+        normals /= np.linalg.norm(normals, axis=1)[:, None]
+        normals = np.vstack((normals, [0, 0, 1]))@axes
+        slants = apex-ring
+        slants /= np.linalg.norm(slants, axis=1)[:, None]
+        tangents = np.column_stack((-np.sin(midpoint), np.cos(midpoint), np.zeros(32)))
+        return vertices, normals, np.vstack((tangents, slants))@axes
     angles=np.arange(32)*2*np.pi/32
     radius=shape['radius']/np.cos(np.pi/32)
     ring=np.column_stack((radius*np.cos(angles),radius*np.sin(angles)))
@@ -152,7 +168,7 @@ def maximum_penetration(spec,bodies):
                                       [boxes[right][j] for j in right_indices])
         for index, j, depth in zip(left_indices, right_indices, depths):
             if depth<=maximum:continue
-            if shapes[left][index]['kind']=='cylinder' or shapes[right][j]['kind']=='cylinder':
+            if shapes[left][index]['kind']!='box' or shapes[right][j]['kind']!='box':
                 depth=max(0.,-convex_separation(polygon(left,index),polygon(right,j)))
             maximum=max(maximum,depth)
     return maximum
@@ -186,7 +202,7 @@ def intersection_details(spec,bodies,threshold=.002):
             for j,b in enumerate(definitions[right]['shapes']):
                 if not b.get('collision',True):continue
                 depth=penetration(box(bodies[left],a),box(bodies[right],b))
-                if depth>threshold and (a['kind']=='cylinder' or b['kind']=='cylinder'):
+                if depth>threshold and (a['kind']!='box' or b['kind']!='box'):
                     depth=max(0.,-convex_separation(polyhedron(bodies[left],a),polyhedron(bodies[right],b)))
                 if depth>threshold:rows.append(dict(left=left,right=right,left_shape=i,right_shape=j,penetration_m=depth))
     return sorted(rows,key=lambda row:-row['penetration_m'])[:12]

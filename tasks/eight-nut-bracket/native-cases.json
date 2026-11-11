@@ -1,6 +1,56 @@
 {
   "physics": [
     {
+      "name": "conical_lead_centres_offset_nut",
+      "initialize_bodies": [
+        {
+          "assembly": "nut_0_asset",
+          "pos": [
+            0.1756,
+            -0.05,
+            0.79
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "steps": 160,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "nut_0",
+          "axis": 0,
+          "min": 0.17475,
+          "max": 0.17525
+        },
+        {
+          "kind": "coordinate",
+          "body": "nut_0",
+          "axis": 1,
+          "min": -0.05025,
+          "max": -0.04975
+        },
+        {
+          "kind": "coordinate",
+          "body": "nut_0",
+          "axis": 2,
+          "min": 0.7814,
+          "max": 0.7832
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
       "name": "unfastened_plate_returns_after_compression",
       "initialize_joints": [
         {

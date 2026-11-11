@@ -8475,12 +8475,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.09, -0.05, 0.03275)
+            double3 xformOp:translate = (-0.09, -0.05, 0.031)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8489,12 +8489,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.03, -0.05, 0.03275)
+            double3 xformOp:translate = (-0.03, -0.05, 0.031)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8503,12 +8503,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.03, -0.05, 0.03275)
+            double3 xformOp:translate = (0.03, -0.05, 0.031)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8517,12 +8517,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.09, -0.05, 0.03275)
+            double3 xformOp:translate = (0.09, -0.05, 0.031)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8531,12 +8531,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.09, 0.05, 0.03275)
+            double3 xformOp:translate = (-0.09, 0.05, 0.031)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8545,12 +8545,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.03, 0.05, 0.03275)
+            double3 xformOp:translate = (-0.03, 0.05, 0.031)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8559,12 +8559,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.03, 0.05, 0.03275)
+            double3 xformOp:translate = (0.03, 0.05, 0.031)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -8573,12 +8573,124 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.0115
+            double height = 0.008
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double radius = 0.00805
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0.09, 0.05, 0.03275)
+            double3 xformOp:translate = (0.09, 0.05, 0.031)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_657" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.09, -0.05, 0.039)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_658" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.03, -0.05, 0.039)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_659" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.03, -0.05, 0.039)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_660" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.09, -0.05, 0.039)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_661" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.09, 0.05, 0.039)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_662" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.03, 0.05, 0.039)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_663" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.03, 0.05, 0.039)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cone "shape_664" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.008
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
+            double radius = 0.00805
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.09, 0.05, 0.039)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
     }

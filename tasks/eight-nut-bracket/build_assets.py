@@ -50,6 +50,11 @@ def compile_assets(spec, directory):
                     shape.CreateRadiusAttr(s['radius'])
                     shape.CreateHeightAttr(s['height'])
                     shape.CreateAxisAttr('Z')
+                elif s['kind'] == 'cone':
+                    shape = UsdGeom.Cone.Define(stage, shape_path)
+                    shape.CreateRadiusAttr(s['radius'])
+                    shape.CreateHeightAttr(s['height'])
+                    shape.CreateAxisAttr('Z')
                 else:
                     raise ValueError(s['kind'])
                 # Order transforms explicitly: translation then orientation then scale.
