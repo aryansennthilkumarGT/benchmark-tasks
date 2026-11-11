@@ -98,4 +98,13 @@ class PackageContractTests(unittest.TestCase):
         with self.assertRaisesRegex(ControlFailure,'Supporting grasp closed empty'):
             c.check_grasp_slip('left',np.zeros(7),{'bodies':{}},require_support=True)
 
+    def test_native_axis_assertion_ignores_yaw_and_rejects_tilt(self):
+        from native_tests import checks
+        from feedback import axis_quat
+        assertion = [dict(kind='axis', body='nut', local_axis=[0, 0, 1],
+                          direction=[0, 0, 1], angle=.06)]
+        checks(assertion, {}, {'bodies': {'nut': {'quat': axis_quat([0, 0, 1], .8)}}})
+        with self.assertRaises(AssertionError):
+            checks(assertion, {}, {'bodies': {'nut': {'quat': axis_quat([0, 1, 0], .1)}}})
+
 if __name__=='__main__':unittest.main()

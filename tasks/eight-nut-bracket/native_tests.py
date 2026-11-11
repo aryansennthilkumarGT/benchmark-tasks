@@ -26,7 +26,7 @@ def save(path,value):
 
 
 def checks(assertions,initial,final,result=None):
-    from feedback import qangle
+    from feedback import qangle, rotate
     for item in assertions:
         kind=item['kind']
         if kind=='joint':
@@ -43,6 +43,11 @@ def checks(assertions,initial,final,result=None):
             body=final['bodies'][item['body']]
             assert np.linalg.norm(np.asarray(body['pos'])-item['pos'])<=item['tolerance'],item
             if 'quat' in item:assert qangle(body['quat'],item['quat'])<=item.get('angle',0.05),item
+        elif kind == 'axis':
+            actual = rotate(final['bodies'][item['body']]['quat'], item['local_axis'])
+            direction = np.asarray(item['direction'], dtype=float)
+            cosine = np.dot(actual, direction) / (np.linalg.norm(actual) * np.linalg.norm(direction))
+            assert cosine >= np.cos(item['angle']) - 1e-9, (item, cosine)
         elif kind=='penetration':
             assert final['max_penetration']<=item['max'],(item,final['max_penetration'])
         elif kind=='still':
