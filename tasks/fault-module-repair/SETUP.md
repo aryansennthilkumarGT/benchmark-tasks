@@ -7,12 +7,12 @@ Geometry is original primitive construction. All movable components use friction
 | Body | Material/type | Mass kg | Envelope m | World origin m | XYZW | Constraint |
 |---|---|---:|---|---|---|---|
 | `pedestal` | rigid fixture material | 1.2 | (0.13, 0.12, 0.104) | (0.285, 0, 0.7475) | (0, 0, 0, 1) | anchored |
-| `service_arm` | rigid fixture material | 0.36 | (0.29, 0.246, 0.059) | (0.285, 0, 0.8475) | (0, 0, 0, 1) | passive dynamic |
+| `service_arm` | rigid fixture material | 0.36 | (0.29, 0.246, 0.063) | (0.285, 0, 0.8475) | (0, 0, 0, 1) | passive dynamic |
 | `counterweight` | rigid fixture material | 0.3 | (0.044, 0.098, 0.0855) | (0.25, 0, 0.8675) | (0, 0, 0, 1) | passive dynamic |
 | `locking_pin` | rigid fixture material | 0.025 | (0.022, 0.022, 0.064) | (0.32, -0.24, 0.7757) | (0, 0, 0, 1) | passive dynamic |
 | `pin_stand` | rigid fixture material | 0.12 | (0.022, 0.022, 0.014) | (0.32, -0.24, 0.7475) | (0, 0, 0, 1) | anchored |
 
-The lower pin receiver is 18 mm deep with an 11.2 mm square bore. The pin has a 9.4 mm square shaft and an 8 mm square lead at the tip. The fitted upper receiver is 11.2 by 11.4 mm, with 12.4 mm slide-axis clearance over its top 2 mm. The physical bore clearance is evaluated with the balance and 1 N load comparisons.
+The lower pin receiver has an 18 mm-deep, 10 mm square bearing section and a 4 mm chamfered entry, 22 mm total depth. Its entry opens to 14 mm. The upper receiver has a 4 mm-deep 10 by 11.4 mm bearing and a 4 mm chamfered entry opening to 14 by 15.4 mm. The chamfers use inclined rigid collision faces. The pin has a 9.4 mm square shaft and an 8 mm square lead.
 
 ## Passive joints
 
