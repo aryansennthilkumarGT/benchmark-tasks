@@ -631,14 +631,16 @@
         ]
       },
       "timeout": 30,
-      "axial_lead": 0.0015,
-      "lateral_gain": 8,
-      "lateral_lead": 0.003,
+      "axial_lead": 0.003,
+      "lateral_gain": 2,
+      "lateral_lead": 0.0015,
       "orientation_axis": [
         1,
         0,
         0
-      ]
+      ],
+      "feedback_gain": 2,
+      "preserve_grasp_orientation": true
     },
     {
       "kind": "release",
