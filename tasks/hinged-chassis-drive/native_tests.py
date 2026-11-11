@@ -180,6 +180,14 @@ def main():
                             'phase': controller.phases[controller.index] if controller.index < len(controller.phases) else None,
                             'events': controller.events,
                             'robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
+                            'motion_references': {
+                                side: motion.reference.tolist() if motion.reference is not None else None
+                                for side, motion in controller.motion.items()
+                            },
+                            'applied_joint_torques': {
+                                side: runtime.array(base.scene[f'{side}_robot'].data.applied_torque)[0].tolist()
+                                for side in ('left','right')
+                            },
                             'last_frame': copy.deepcopy(runtime.LATEST),
                         }
                         save(args.output/f'{case["name"]}-{repeat}-control-failure.json', diagnostic)
