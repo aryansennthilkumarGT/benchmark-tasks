@@ -164,6 +164,17 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_free_end_lowering_combines_axial_integration_and_lateral_support(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phases = [phase for phase in plan['phases']
+                  if phase['label'].startswith('Lower the free end')]
+        self.assertEqual(len(phases), 2)
+        for phase in phases:
+            self.assertTrue(phase['integrate_axial_error'])
+            self.assertEqual(phase['lateral_gain'], 8)
+            self.assertEqual(phase['lateral_lead'], .008)
+            self.assertEqual(phase['lateral_tolerance'], .0008)
+
     def test_axial_insertion_preserves_reference_load_bias(self):
         frame = copy.deepcopy(self.frame)
         body = frame['bodies']['new_cell_0']
