@@ -1,51 +1,53 @@
 {
-  "updated_at": "2026-11-11T01:24:39.313178+00:00",
+  "updated_at": "2026-11-11T01:39:51.276403+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "c8ec6c67a5648caaa10c1dd75b7e43d2b32b614b",
-      "state": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
+      "commit": "42ada6a6dc178ee2b17d79a767bec93b1146bd94",
+      "state": "NATIVE_PHYSICS_PASSED_LID_GRASP_FAILED_TRACKING_RETEST_PENDING",
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193"
     },
     {
       "slug": "remote-battery-service",
-      "commit": "1f8ad0b427f9ecd213f5c5fa629b2f1bd834b155",
-      "state": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
+      "commit": "c28cf271a6db19dbff25208768dff7a350eac3ab",
+      "state": "NATIVE_PHYSICS_PASSED_IK_LIMIT_FAILED_TRACKING_RETEST_PENDING",
       "physics_evaluated_commit": "6594c6ba628cb77a411ab0251df253ed7fb11705"
     },
     {
       "slug": "switch-map-rework",
-      "commit": "f77234f00d5746e6ea62d9e4400b27ae5e2017df",
-      "state": "CABLE_SETTLE_PASSED_RELEASE_RETEST_PENDING"
+      "commit": "c8a7e528cd2f11eadf6b4e8578e216214752efca",
+      "state": "CABLE_SETTLE_PASSED_WITHDRAWAL_FAILED_SQUEEZE_MOMENT_RETEST_PENDING"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
-      "state": "PASS_TWO_REPEATS_TARGETED_COOLER_CAPTURE_ONLY",
-      "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33"
+      "commit": "d3f13dcc36140cf912861e1e929283c8df2ad843",
+      "state": "NATIVE_PHYSICS_FULL_SUITE_PASSED_CONTROL_PENDING",
+      "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
+      "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33"
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
-      "state": "TARGETED_CAPTURE_PASSED_FULL_SUITE_PENDING",
+      "commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
+      "state": "TARGETED_PRELOAD_PASSED_FULL_SUITE_PENDING",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "adf90fb769849a57c41fe151574bc664da551736",
-      "state": "LOADED_RETENTION_FAILED_GUIDE_RETEST_THREAD_FLANK_REDESIGN"
+      "commit": "51f1b6fe2a080250ee1d681110bcc73fd8b58e7b",
+      "state": "LOAD_RETENTION_FAILED_DEEPER_THREAD_FLANKS_STATIC_PASSED_NATIVE_PENDING"
     },
     {
       "slug": "fault-module-repair",
-      "commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
-      "state": "PIN_ENTRY_STALL_RELIEF_RETEST_PENDING",
-      "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d"
+      "commit": "4a35e93bbe558ec3beccd359da8dd180c9d759db",
+      "state": "RELIEVED_RECEIVER_BALANCE_AND_LOAD_DIAGNOSTICS_PASSED_EXPERT_RUNNING",
+      "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d",
+      "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2"
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "a9fa16ab99556657ec13e5a53c9f831931ca4a66",
-      "state": "KEYED_SEATING_FAILED_RIB_CLEARANCE_RETEST_PENDING"
+      "commit": "3b5ba9e4b8fd6bd30f98771f3e367c59cbaab325",
+      "state": "NATIVE_ROOT_POSE_VERIFIED_SEATING_FAILED_FK_SYNC_RETEST_PENDING"
     }
   ],
   "executed": {
@@ -67,7 +69,9 @@
     "other_draft_native_reset_diagnostics": 7,
     "expert_diagnostic_trials_errored": 6,
     "twelve_cell_capture_diagnostic_repeats_passed": 2,
-    "node_cooler_capture_diagnostic_repeats_passed": 2
+    "node_cooler_capture_diagnostic_repeats_passed": 2,
+    "node_service_full_native_case_repeats_passed": 8,
+    "relieved_receiver_native_case_repeats_passed": 4
   },
   "remaining": [
     "Verify billed Brev rate and issue the provider budget receipt for full evaluations",
