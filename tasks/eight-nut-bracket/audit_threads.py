@@ -21,17 +21,19 @@ def audit(folder):
         if phase['kind']!='thread':continue
         grasp=grips[side];body=states[phase['body']];reference=states[phase['reference']]
         axis=rotate(reference['quat'],[0,0,1]);start=np.array(body['pos']);initial_q=body['quat']
-        q0=grasp['quat'];seed=np.array(READY);count=math.ceil(phase['turns']*8)
+        q0=grasp['quat'];seed=np.array(READY)
+        segment_angle = phase.get('segment_angle', math.pi/4)
+        count = math.ceil(phase['turns'] * 2 * math.pi / segment_angle)
         for segment in (1,count):
             for fraction in (0.,.5,1.):
-                total=segment-1+fraction;body_pos=start-axis*phase['pitch']*total/8
-                body_q=multiply(axis_quat(axis,-total*math.pi/4),initial_q)
+                total=segment-1+fraction;body_pos=start-axis*phase['pitch']*total*segment_angle/(2*math.pi)
+                body_q=multiply(axis_quat(axis,-total*segment_angle),initial_q)
                 pose=copy.deepcopy(states);pose[phase['body']].update(pos=body_pos.tolist(),quat=body_q.tolist())
                 for opening in (sum(grasp['width'])/2,(phase.get('grasp_width_max',.04)+.012)):
                     # Gripper returns to q0 between segments. This samples both
-                    # directions of its 45-degree sweep at both depth extremes.
+                    # directions of its declared sweep at both depth extremes.
                     tcp=body_pos+rotate(reference['quat'],grasp['offset'])
-                    quat=multiply(axis_quat(axis,-fraction*math.pi/4),q0)
+                    quat=multiply(axis_quat(axis,-fraction*segment_angle),q0)
                     joints,pe,re=ik.solve(tcp,quat,q_init=seed,base_pos=station.BASES[side],iters=500,damping=.015,tol=1e-5);seed=joints
                     row=dict(body=phase['body'],segment=segment,fraction=fraction,jaw_width_m=opening)
                     hulls=arm_hulls(side,np.r_[joints,opening/.0939])

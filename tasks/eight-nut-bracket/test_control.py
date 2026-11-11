@@ -167,6 +167,28 @@ class FeedbackTests(unittest.TestCase):
             controller.thread_target(phase, body, tcp, self.down,
                                      self.ready[index:index+7], frame, 2.1)
 
+    def test_ninety_degree_plan_defers_early_finger_release(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(value for value in plan['phases'] if value['kind'] == 'thread')
+        controller = Controller({'phases': [phase]}, self.spec)
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies'][phase['body']]
+        reference = frame['bodies'][phase['reference']]
+        side = phase['side']
+        index = 0 if side == 'left' else 7
+        controller.grasps[side] = dict(body=phase['body'], verified=False)
+        for step in range(9):
+            angle = step * .2
+            body['pos'] = (np.array(reference['pos']) +
+                           [*phase['xy'], .0232-phase['pitch']*angle/(2*math.pi)]).tolist()
+            body['quat'] = axis_quat([0, 0, 1], -angle).tolist()
+            tcp = np.array(body['pos']) + [0, 0, .009]
+            controller.thread_target(phase, body, tcp, self.down,
+                                     self.ready[index:index+7], frame, step*.05)
+            if step == 4:
+                self.assertEqual(controller.thread['mode'], 'turn')
+        self.assertEqual(controller.thread['mode'], 'open')
+
     def test_thread_turn_advances_retained_orientation_reference(self):
         plan = json.loads((self.folder/'controller.json').read_text())
         phase = next(value for value in plan['phases'] if value['kind'] == 'thread')

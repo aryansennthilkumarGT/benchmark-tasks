@@ -290,7 +290,7 @@ class Controller:
         return action
 
     def thread_target(self,phase,body,tcp,tcpq,observed,frame,now):
-        """Rotate at most 45 degrees per grip, then reopen and unwind the wrist.
+        """Rotate by the declared bounded segment per grip, then reopen and unwind the wrist.
 
         Axial pitch targets follow measured angular advance. No helical attachment
         is made: native thread contacts must carry the nut during every regrasp.
@@ -317,7 +317,7 @@ class Controller:
                 raise ControlFailure('Thread rotation stalled: ' + phase['label'])
             self.check_grasp_slip(side,observed,frame)
             state['segment']+=phase.get('direction',-1)*delta
-            if state['segment']>=math.pi/4:
+            if state['segment']>=phase.get('segment_angle', math.pi/4):
                 state.update(mode='open',switch=now,opening=min(1.,(phase.get('grasp_width_max',.040)+.012)/.0939))
             turn=axis_quat(rotate(reference['quat'],[0,0,1]),phase.get('direction',-1)*0.018)
             # Advance the retained actuator reference so contact torque can build.
