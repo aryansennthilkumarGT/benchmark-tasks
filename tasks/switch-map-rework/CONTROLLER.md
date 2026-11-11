@@ -56,3 +56,5 @@ The trajectory audit checks the official convex robot meshes against anchored fi
 After the motion plan, the expert holds the released pose while the actual scorer establishes full-score stability. It stops only on measured success or fails after a bounded five-second terminal grace period (or hold time plus two seconds, if longer). A finished phase list is not a success signal.
 
 The prior three-axis interior gimbal model produced nonfinite cable state during reset after positive-inertia correction. A lower-complexity candidate coalesces coincident interior proxy masses and retains two bending axes per segment plus all three terminal connector axes. Contact geometry, cable length and total assembly mass are preserved. This is a changed torsion approximation with native validation pending.
+
+Native approach stopped 2.391 mm from its clearance waypoint with wrist orientation error below 0.04 rad. Measured-pose convex geometry found no robot/task surfaces within 2 mm. The three plug clearance approaches use 3-mm arrival tolerance. Each following grasp uses its measured-body target and fingertip closure verification. Native retesting is pending.
