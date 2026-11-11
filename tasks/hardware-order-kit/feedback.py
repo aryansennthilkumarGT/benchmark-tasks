@@ -57,10 +57,11 @@ def limit_vector(delta,maximum):
 
 class Motion:
     """Track a rate-limited IK reference while waiting for all joints to catch up."""
-    def __init__(self,side,dt=0.05):
+    def __init__(self,side,dt=0.05,tracking_error_limit=0.025):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
+        self.tracking_error_limit = tracking_error_limit
 
     def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
         q=np.asarray(measured,dtype=float)
@@ -74,8 +75,8 @@ class Motion:
         grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
         if self.reference is None:
             self.reference = arm.copy()
-        if np.max(np.abs(self.reference - arm)) > 0.025:
-            command = np.clip(self.reference, arm-0.045, arm+0.045)
+        if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:
+            command = np.clip(self.reference, arm-self.tracking_error_limit-0.02, arm+self.tracking_error_limit+0.02)
             return np.r_[command, grip], error, theta
         current, rotation = self.ik.tcp_pose(self.reference, self.base)
         current_q = self.ik.matrix_to_quat_xyzw(rotation)
@@ -104,7 +105,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={s:Motion(s) for s in ('left','right')}
+        self.motion={'left':Motion('left',tracking_error_limit=.08),'right':Motion('right',tracking_error_limit=.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -203,7 +204,8 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
             if kind == 'carry' and phase.get('measured_translation'):
-                p = tcp + limit_vector(desired_p - body_p, 0.003)
+                p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
+                                       phase.get('translation_lead', .003))
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
