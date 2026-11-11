@@ -135,6 +135,7 @@ def main():
                             index=list(asset.joint_names).index(setup['joint'])
                             asset.write_joint_position_to_sim_index(position=torch.tensor([[setup['value']]],device=base.device),joint_ids=[index])
                             asset.write_joint_velocity_to_sim_index(velocity=torch.zeros((1,1),device=base.device),joint_ids=[index])
+                        fixture_roots = {}
                         for setup in case.get('initialize_bodies',[]):
                             asset=base.scene[setup['assembly']]
                             description=next(a for a in module.SPEC['assemblies'] if a['name']==setup['assembly'])
@@ -144,6 +145,13 @@ def main():
                             value=torch.tensor([[*setup['pos'],*setup.get('quat',[0,0,0,1])]],device=base.device)
                             asset.write_root_pose_to_sim_index(root_pose=value)
                             asset.write_root_velocity_to_sim_index(root_velocity=torch.zeros((1,6),device=base.device))
+                            fixture_roots[setup['assembly']] = {
+                                'requested': value[0].detach().cpu().tolist(),
+                                'root_link_pose_w': runtime.array(asset.data.root_link_pose_w)[0].tolist(),
+                                'root_link_vel_w': runtime.array(asset.data.root_link_vel_w)[0].tolist(),
+                            }
+                        if fixture_roots:
+                            save(args.output/f'{case["name"]}-{repeat}-fixture-roots.json', fixture_roots)
                         for force in case.get('forces',[]):
                             asset=base.scene[force['assembly']]
                             index=list(asset.body_names).index(force['body'])
