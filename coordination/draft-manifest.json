@@ -11,9 +11,9 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "8a9280c7a8288b1eb73dabc4391efcec71daf4ad",
+      "commit": "bdceb8b35787f0a5b825f6d624de834ac4d19f60",
       "task_folder": "tasks/hinged-chassis-drive",
-      "status": "LID_SUPPORT_CONTROL_PASS_2_OF_2_FULL_EXPERT_DRIVE_LIFT_TIMEOUT",
+      "status": "MEASURED_DRIVE_CARRY_FIX_STATIC_PASS_NATIVE_RETEST_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -42,16 +42,17 @@
       ],
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah"
+      "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-measured-carry-static.log"
     },
     {
       "slug": "remote-battery-service",
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "e86998e7e6cc9c3a205130f3be94cadb3bae012d",
+      "commit": "17a9eab5ffaf0f908ebfbedb054e0a03ed010304",
       "task_folder": "tasks/remote-battery-service",
-      "status": "TILTED_ENTRY_PASSED_SPRING_PRESS_TIMEOUT_ORIENTATION_FIX_PENDING",
+      "status": "SPRING_TRANSVERSE_AND_TILT_HOLD_NATIVE_RETEST_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -81,16 +82,17 @@
         "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
       ],
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/remote-spring-hold-final-static.log"
     },
     {
       "slug": "switch-map-rework",
       "title": "Correct two latched patch connections while preserving a third",
       "branch": "draft/switch-map-rework",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework",
-      "commit": "d3af951f733dadcafbe5bc84869bda671b9cf3c1",
+      "commit": "c306822c3b14a8accb2a628ed29572855eb58cf1",
       "task_folder": "tasks/switch-map-rework",
-      "status": "FINITE_CABLE_PHYSICS_6_OF_8_CATCH_CONTROL_APPROACH_TIMEOUT",
+      "status": "MEASURED_APPROACH_ARRIVAL_FIX_STATIC_PASS_NATIVE_RETEST_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -118,16 +120,17 @@
         "The catch has an enlarged release paddle for parallel jaws. It is not an exact RJ45 connector model.",
         "Joint continuity and connector seating proxy link continuity; packet transmission is not simulated."
       ],
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-approach-arrival-static.log"
     },
     {
       "slug": "node-service-closeout",
       "title": "Exchange two internal modules and close out an enclosure",
       "branch": "draft/node-service-closeout",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
-      "commit": "887e92295b474871386ba6b96576d12db2b1a12d",
+      "commit": "c8899f0251a2f70621bbe3ab7819696ee23e4e71",
       "task_folder": "tasks/node-service-closeout",
-      "status": "COOLER_GRASP_PASSED_PAYLOAD_LIFT_PARTIAL_TIMEOUT",
+      "status": "PAYLOAD_TELEMETRY_NATIVE_RETEST_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -155,16 +158,17 @@
       ],
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-load-telemetry-static.log"
     },
     {
       "slug": "twelve-cell-pack",
       "title": "Preload and retain a twelve-cell service pack",
       "branch": "draft/twelve-cell-pack",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
-      "commit": "993b808c145786caa894e574eedf6994449a65b6",
+      "commit": "66dae272ff5522684f051fd566a8f123a9617d45",
       "task_folder": "tasks/twelve-cell-pack",
-      "status": "GUIDED_SEATING_FIRST_REPEAT_PASSED_FULL_CONTROL_RUNNING",
+      "status": "FALSE_STALL_REPLAY_CONFIRMED_DISTANCE_METRIC_FIX_NATIVE_RETEST_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -193,7 +197,8 @@
       ],
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/twelve-progress-distance-static.log"
     },
     {
       "slug": "eight-nut-bracket",
@@ -290,9 +295,9 @@
       "title": "Fit and pin a hinged collar around a captive shaft",
       "branch": "draft/hardware-order-kit",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit",
-      "commit": "b8fa9da457ef96b98c5f045d311ceb6440f5ddce",
+      "commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1",
       "task_folder": "tasks/hardware-order-kit",
-      "status": "SHORT_HANDLE_STATIC_PASS_NATIVE_LIFT_DRIFT_WRIST_LIMIT",
+      "status": "COLLAR_TELEMETRY_STATIC_PASS_NATIVE_RETEST_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -323,8 +328,9 @@
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "physics_evaluated_commit": "d1156518202d970ac8742dc3d917348121dff234",
-      "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx"
+      "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-load-telemetry-static.log"
     }
   ],
-  "updated_at": "2026-11-11T08:24:41.123169+00:00"
+  "updated_at": "2026-11-11T08:45:23.167744+00:00"
 }

@@ -1,55 +1,60 @@
 {
-  "updated_at": "2026-11-11T08:35:42.166416+00:00",
+  "updated_at": "2026-11-11T08:45:23.167744+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "8a9280c7a8288b1eb73dabc4391efcec71daf4ad",
-      "state": "LID_SUPPORT_CONTROL_PASS_2_OF_2_FULL_EXPERT_DRIVE_LIFT_TIMEOUT",
+      "commit": "bdceb8b35787f0a5b825f6d624de834ac4d19f60",
+      "state": "MEASURED_DRIVE_CARRY_FIX_STATIC_PASS_NATIVE_RETEST_PENDING",
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "LID_SUPPORT_PASS_2_OF_2_FULL_EXPERT_FAILED_DRIVE_LIFT",
-      "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah"
+      "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-measured-carry-static.log"
     },
     {
       "slug": "remote-battery-service",
       "commit": "17a9eab5ffaf0f908ebfbedb054e0a03ed010304",
-      "state": "SPRING_PRESS_TRANSVERSE_AND_TILT_HOLD_NATIVE_RETEST_RUNNING",
+      "state": "SPRING_TRANSVERSE_AND_TILT_HOLD_NATIVE_RETEST_RUNNING",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
       "run_limit": 6000,
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "expert_scores": [],
-      "active_run": "/data/robocurve-runs/resume-compat/remote-spring-hold-expert.0wx6043a"
+      "active_run": "/data/robocurve-runs/resume-compat/remote-spring-hold-expert.0wx6043a",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/remote-spring-hold-final-static.log"
     },
     {
       "slug": "switch-map-rework",
-      "commit": "d3af951f733dadcafbe5bc84869bda671b9cf3c1",
-      "state": "FINITE_CABLE_PHYSICS_6_OF_8_CATCH_CONTROL_APPROACH_TIMEOUT",
+      "commit": "c306822c3b14a8accb2a628ed29572855eb58cf1",
+      "state": "MEASURED_APPROACH_ARRIVAL_FIX_STATIC_PASS_NATIVE_RETEST_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "FULL_SUITE_FAIL_6_PASS_2_FAIL_ALL_8_RESETS_FINITE",
-      "robot_control": "APPROACH_TIMEOUT_2_OF_2"
+      "robot_control": "APPROACH_TIMEOUT_2_OF_2",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-approach-arrival-static.log"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "887e92295b474871386ba6b96576d12db2b1a12d",
-      "state": "COOLER_GRASP_PASSED_PAYLOAD_LIFT_PARTIAL_TIMEOUT",
+      "commit": "c8899f0251a2f70621bbe3ab7819696ee23e4e71",
+      "state": "PAYLOAD_TELEMETRY_NATIVE_RETEST_RUNNING",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "robot_control": "LID_OPENING_PASS_2_OF_2_COOLER_REMOVAL_PENDING"
+      "robot_control": "LID_OPENING_PASS_2_OF_2_COOLER_REMOVAL_PENDING",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-load-telemetry-static.log"
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "993b808c145786caa894e574eedf6994449a65b6",
-      "state": "GUIDED_FIRST_CELL_CONTROL_PASS_4_OF_4_SECOND_CELL_FULL_EXPERT_STALL",
+      "commit": "66dae272ff5522684f051fd566a8f123a9617d45",
+      "state": "FALSE_STALL_REPLAY_CONFIRMED_DISTANCE_METRIC_FIX_NATIVE_RETEST_QUEUED",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "GUIDED_FULL_CONTROL_RUNNING_FIRST_SEATING_REPEAT_PASS",
       "control_evidence": "/data/robocurve-runs/resume-compat/twelve-guided-feasibility.9cdd_11s",
-      "expert_scores": []
+      "expert_scores": [],
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/twelve-progress-distance-static.log"
     },
     {
       "slug": "eight-nut-bracket",
@@ -91,14 +96,15 @@
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "b8fa9da457ef96b98c5f045d311ceb6440f5ddce",
-      "state": "SHORT_HANDLE_STATIC_PASS_NATIVE_LIFT_DRIFT_WRIST_LIMIT",
+      "commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1",
+      "state": "COLLAR_TELEMETRY_STATIC_PASS_NATIVE_RETEST_QUEUED",
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "PRIOR_D115_GEOMETRY_PASS_12_CURRENT_HANDLE_RETEST_PENDING",
       "physics_evaluated_commit": "d1156518202d970ac8742dc3d917348121dff234",
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx",
-      "robot_control": "SHORT_HANDLE_LIFT_FAILED_2_OF_2"
+      "robot_control": "SHORT_HANDLE_LIFT_FAILED_2_OF_2",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-load-telemetry-static.log"
     }
   ],
   "executed": {
