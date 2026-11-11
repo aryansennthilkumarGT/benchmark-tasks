@@ -1,3 +1,19 @@
+## November 11 11:55 native control and missing-report checkpoint
+
+Twelve-cell at 1735dfd passed the complete declared native control suite, 6/6 across two repeats, with exit 0. Its recorded full expert is progressing through the third cell. Full score remains pending. Preserve the frozen checkout until the producer and scene-limit validator finish.
+
+Switch at 1cf1dc6 passed catch release 2/2, exit 0, then failed withdrawal 0/2 with finalized exit 1. Candidate c9bd844 adds guided transverse/angular alignment and measured-pose reference feedback during insertion/withdrawal. Its full offline suite passed and a full native control suite is queued. Chassis proportional guidance failed both repeats. Candidate 2dc3081 reuses the native-proven measured-pose reference integrator for guided insertion, passed static checks, and is queued.
+
+Hardware centroid compensation avoided the earlier immediate wrist-limit failure in its first reset, then timed out lifting with about 1.6 mm positional error and 0.279-radian body angular error. Its second reset is running. Node's queued centroid-only wrapper was superseded before simulator startup. The preserved superseded.json explicitly records zero simulation and no physics result. Node b0e8e8e incorporates loaded carry pose feedback, passed full offline checks, and replaces that queue entry. Inserts use their existing bounded body-error reference integration.
+
+The original missing-results investigation is consolidated at /data/robocurve-runs/resume-compat/original-missing-results-investigation.json. Both original legacy worker directories have no live producer. Their real reports contain failures and lack a final status field. The original harness delayed its first file write until a case completed. Subsequent failures included integer Warp wrench inputs, fixture initialization, and physical pin retention. The checkpoint records first-worker termination 143, while those original directories lack dedicated exit files. Atomic startup/per-case progress and independent final-status checking now cover normal producers. The separately documented invalid-case launcher also remains a failure.
+
+The latest bounded novelty refresh reviewed recent official rocker PR #1638 and rail PR #1546, including mechanical construction and scoring. The counterweight task requires free intermediate equilibrium and separate pin retention. The chassis task requires dependent gravity-lid support and lid capture of a retaining bar. Those differences support continued engineering, with shared balancing and rail insertion disclosed. Official acceptance is unestablished.
+
+The first task's genuine demo and native setup still are copied into fault-upload-ready-assets. The demo is byte-identical to its validated full-score source recording and fully decodes to 1900 H.264/yuv420p frames at 320×176 over 95 seconds. The setup still is an actual 640×360 raw sensor capture. Dream model footage, upload token, official media ID and PR remain pending.
+
+Exact heads, producer roots, queue dependencies and conservative reserve planning are in mission-checkpoint.json. All committed task changes are pushed to the fork. Continue engineering and preserve both instances.
+
 ## November 11 11:37 continued native engineering
 
 Switch revision 1cf1dc6 passed both genuine two-arm catch-release resets with finalized PASS 2/2 and producer exit 0 at switch-integral-supported-catch-retry.3zojr3zx. Withdrawal remains queued at switch-supported-withdrawal.eedswsrw. The prior invalid-case launch remains a preserved failure.

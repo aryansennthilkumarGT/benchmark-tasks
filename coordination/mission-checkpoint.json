@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-11-11T11:37:13.820604+00:00",
+  "updated_at": "2026-11-11T11:54:14.669858+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "7542eaf0e7336a5f22e3ac0560e73545bfa41351",
-      "state": "DAMPED_CHANNEL_CONTROL_FIRST_REPEAT_FAILED_SECOND_RUNNING",
+      "commit": "2dc30811aecfda5e61c095cdccea388ab0ae1122",
+      "state": "MEASURED_POSE_GUIDANCE_STATIC_PASS_NATIVE_QUEUED",
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "LID_SUPPORT_PASS_2_OF_2_FULL_EXPERT_FAILED_DRIVE_LIFT",
       "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-damped-guide-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-damped-guide.lfmid9y8"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-integral-guide-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-integral-guide.fmv9xx3n"
     },
     {
       "slug": "remote-battery-service",
@@ -29,30 +29,30 @@
     },
     {
       "slug": "switch-map-rework",
-      "commit": "1cf1dc6d81cd60d7bfba10dc87f2f9de11bca040",
-      "state": "CATCH_RELEASE_PASS_2_OF_2_EXIT_ZERO_WITHDRAWAL_QUEUED",
+      "commit": "c9bd8448cf219630aff77046b641d2fbf63c1142",
+      "state": "GUIDED_WITHDRAWAL_STATIC_PASS_FULL_CONTROL_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "FULL_SUITE_FAIL_6_PASS_2_FAIL_ALL_8_RESETS_FINITE",
       "robot_control": "APPROACH_TIMEOUT_2_OF_2",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-integral-supported-press-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-supported-withdrawal.eedswsrw"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-guided-reference-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-guided-reference-full.0be_s00l"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "23d04f46e30437e6ba0f1662f5dcae4c796318f3",
-      "state": "COMPOUND_CONTAINMENT_AND_CENTROID_ROTATION_STATIC_PASS_NATIVE_QUEUED",
+      "commit": "b0e8e8e05c067277633a48fc73b6d99e4466711d",
+      "state": "LOADED_POSE_FEEDBACK_STATIC_PASS_NATIVE_QUEUED",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "DEPENDENT_COOLER_LIFT_PASS_2_OF_2_CURRENT_REVISION",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-centroid-rotation-static.log",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-loaded-pose-feedback-static.log",
       "control_evidence": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2/control/results.json",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/node-centroid-collection.zvx_x0__"
+      "latest_native_run": "/data/robocurve-runs/resume-compat/node-loaded-pose-feedback.kbiharq3"
     },
     {
       "slug": "twelve-cell-pack",
       "commit": "1735dfdb453d4e6ac48727414a91306d5a3c5af6",
-      "state": "FULL_CONTROL_RUNNING_4_PASSES_ZERO_FAILURES",
+      "state": "FULL_CONTROL_PASS_6_OF_6_FIRST_FULL_EXPERT_RUNNING",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
@@ -278,7 +278,7 @@
     "source": "Authenticated Brev workspace price metadata at 2026-11-11T10:45:47Z and user-reported $125 balance",
     "combined_conservative_hourly_cap_usd": 3.61,
     "reserve_usd": 30,
-    "conservative_headroom_above_reserve_usd": 46.28,
+    "conservative_headroom_above_reserve_usd": 45.3139,
     "live_credit_balance_verified": false,
     "price_evidence": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/price-refresh-1135.json"
   },
@@ -290,15 +290,21 @@
     [
       "twelve-pose-feedback-full.42kgvl2c",
       "remote-integral-lowering.qoq61snu",
-      "node-centroid-collection.zvx_x0__"
+      "node-loaded-pose-feedback.kbiharq3"
     ],
     [
-      "chassis-damped-guide.lfmid9y8",
-      "switch-supported-withdrawal.eedswsrw",
       "hardware-centroid-rotation.jvrhgfd9",
-      "nut-integral-thread-entry.tj2p_c4y"
+      "nut-integral-thread-entry.tj2p_c4y",
+      "chassis-integral-guide.fmv9xx3n",
+      "switch-guided-reference-full.0be_s00l"
     ]
   ],
   "latest_credential_presence": "/data/robocurve-runs/resume-compat/current-credential-presence.json",
-  "validator_correction": "Twelve scene declares 12000 actions. Original running producer mistakenly supplied validator limit 6000. Separate postprocessor validates the original saved rollout with 12000 and preserves both logs/exits."
+  "validator_correction": "Twelve scene declares 12000 actions. Original running producer mistakenly supplied validator limit 6000. Separate postprocessor validates the original saved rollout with 12000 and preserves both logs/exits.",
+  "superseded_before_simulation": [
+    "node-centroid-collection.zvx_x0__"
+  ],
+  "original_missing_results_investigation": "/data/robocurve-runs/resume-compat/original-missing-results-investigation.json",
+  "current_novelty_refresh": "/data/robocurve-runs/resume-compat/novelty-refresh-decisions-1145.json",
+  "fault_upload_media_candidates": "/data/robocurve-runs/resume-compat/fault-upload-ready-assets/media-candidates.json"
 }

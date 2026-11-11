@@ -11,9 +11,9 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "7542eaf0e7336a5f22e3ac0560e73545bfa41351",
+      "commit": "2dc30811aecfda5e61c095cdccea388ab0ae1122",
       "task_folder": "tasks/hinged-chassis-drive",
-      "status": "DAMPED_CHANNEL_CONTROL_FIRST_REPEAT_FAILED_SECOND_RUNNING",
+      "status": "MEASURED_POSE_GUIDANCE_STATIC_PASS_NATIVE_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -43,8 +43,8 @@
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-damped-guide-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-damped-guide.lfmid9y8"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-integral-guide-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-integral-guide.fmv9xx3n"
     },
     {
       "slug": "remote-battery-service",
@@ -92,9 +92,9 @@
       "title": "Correct two latched patch connections while preserving a third",
       "branch": "draft/switch-map-rework",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework",
-      "commit": "1cf1dc6d81cd60d7bfba10dc87f2f9de11bca040",
+      "commit": "c9bd8448cf219630aff77046b641d2fbf63c1142",
       "task_folder": "tasks/switch-map-rework",
-      "status": "CATCH_RELEASE_PASS_2_OF_2_EXIT_ZERO_WITHDRAWAL_QUEUED",
+      "status": "GUIDED_WITHDRAWAL_STATIC_PASS_FULL_CONTROL_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -123,17 +123,17 @@
         "Joint continuity and connector seating proxy link continuity; packet transmission is not simulated."
       ],
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-integral-supported-press-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-supported-withdrawal.eedswsrw"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-guided-reference-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-guided-reference-full.0be_s00l"
     },
     {
       "slug": "node-service-closeout",
       "title": "Exchange two internal modules and close out an enclosure",
       "branch": "draft/node-service-closeout",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
-      "commit": "23d04f46e30437e6ba0f1662f5dcae4c796318f3",
+      "commit": "b0e8e8e05c067277633a48fc73b6d99e4466711d",
       "task_folder": "tasks/node-service-closeout",
-      "status": "COMPOUND_CONTAINMENT_AND_CENTROID_ROTATION_STATIC_PASS_NATIVE_QUEUED",
+      "status": "LOADED_POSE_FEEDBACK_STATIC_PASS_NATIVE_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -162,9 +162,9 @@
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-centroid-rotation-static.log",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-loaded-pose-feedback-static.log",
       "control_evidence": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2/control/results.json",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/node-centroid-collection.zvx_x0__"
+      "latest_native_run": "/data/robocurve-runs/resume-compat/node-loaded-pose-feedback.kbiharq3"
     },
     {
       "slug": "twelve-cell-pack",
@@ -173,7 +173,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
       "commit": "1735dfdb453d4e6ac48727414a91306d5a3c5af6",
       "task_folder": "tasks/twelve-cell-pack",
-      "status": "FULL_CONTROL_RUNNING_4_PASSES_ZERO_FAILURES",
+      "status": "FULL_CONTROL_PASS_6_OF_6_FIRST_FULL_EXPERT_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -341,5 +341,5 @@
       "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-centroid-rotation.jvrhgfd9"
     }
   ],
-  "updated_at": "2026-11-11T11:37:13.820604+00:00"
+  "updated_at": "2026-11-11T11:54:14.669858+00:00"
 }
