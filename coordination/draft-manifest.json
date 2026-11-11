@@ -230,7 +230,7 @@
       "title": "Balance and lock a counterweighted service arm",
       "branch": "draft/fault-module-repair",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
-      "commit": "b29dadde0e0d539f6ff5c28cff4935b52bda868d",
+      "commit": "d2fecabe84ba80fafc97965d5b5a158ee64b0622",
       "task_folder": "tasks/fault-module-repair",
       "status": "STATIC_TESTS_PASSED",
       "ready": false,
@@ -248,8 +248,8 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "PASS_TWO_REPEATS_ON_PRIOR_CONTROLLER_REVISION",
-      "robot_control": "GUARDED_REPLAY_ALIGNMENT_TIMEOUT",
+      "native_physics": "PRIOR_FULL_SUITE_PASS_LATEST_PIN_DIAGNOSTICS_PASS",
+      "robot_control": "MEASURED_GRIP_CONTROLLER_REPLAY_IN_PROGRESS",
       "media_verified": false,
       "suggested_pr_title": "Balance and lock a counterweighted service arm",
       "suggested_pr_body": null,
@@ -260,7 +260,8 @@
         "Prismatic guidance approximates the counterweight rail. A real free pin through two collision-defined holes locks translation.",
         "The unpowered pivot has damping but no centering spring. Gravity balance and pin load retention require native tests."
       ],
-      "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d"
+      "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d",
+      "pin_diagnostic_commit": "d2fecabe84ba80fafc97965d5b5a158ee64b0622"
     },
     {
       "slug": "hardware-order-kit",
