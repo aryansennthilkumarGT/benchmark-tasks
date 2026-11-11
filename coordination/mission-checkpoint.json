@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T02:29:22.771780+00:00",
+  "updated_at": "2026-11-11T02:42:20.057975+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -10,8 +10,8 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "b6aabbbe99facb671d2baab311ce6c640d98f24f",
-      "state": "MEASURED_SEATING_EXPERT_DIAGNOSTIC_RUNNING",
+      "commit": "4520a99c99baa9276be3b505c07c5fe77547da79",
+      "state": "VERIFIED_CARRY_RESTORED_LATERAL_SEATING_DEADBAND_FIX_QUEUED",
       "physics_evaluated_commit": "6594c6ba628cb77a411ab0251df253ed7fb11705"
     },
     {
@@ -40,8 +40,8 @@
     },
     {
       "slug": "fault-module-repair",
-      "commit": "f62e057e91e5903ab808253170d0be74842ed047",
-      "state": "FULL_PHYSICS_PASSED_REACHABLE_CLEARANCE_TRAJECTORY_EXPERT_PENDING",
+      "commit": "251369ee01f6a9184febd6376aa3d27b2598562c",
+      "state": "CLEAR_APPROACH_VERIFIED_FITTED_PIN_ALIGNMENT_EXPERT_RUNNING",
       "physics_evaluated_commit": "219cc9d4d7e37f96cfb03e49ac195f63171df690",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2"
     },
@@ -69,7 +69,7 @@
     "official_station_replays_passed": 1,
     "native_physics_case_repeats_passed": 38,
     "other_draft_native_reset_diagnostics": 7,
-    "expert_diagnostic_trials_errored": 10,
+    "expert_diagnostic_trials_errored": 13,
     "twelve_cell_capture_diagnostic_repeats_passed": 2,
     "node_cooler_capture_diagnostic_repeats_passed": 2,
     "node_service_full_native_case_repeats_passed": 8,
@@ -93,10 +93,12 @@
   "offline_execution_evidence": "offline-run-verification.json",
   "live_execution_evidence": "live-execution-2026-11-10.md",
   "current_operation": {
-    "kind": "BOUNDED_SCRIPTED_DIAGNOSTICS",
-    "directory": "/data/robocurve-runs/resume-compat/focused-expert-replays.zjcF6z",
-    "active": "remote-battery-service",
-    "next": "fault-module-repair",
+    "kind": "BOUNDED_SCRIPTED_EXPERT_REPLAYS_WITH_VALIDATION",
+    "directory": "/data/robocurve-runs/resume-compat/aligned-expert-replays.dXmQjR",
+    "terminal_session": 19773,
+    "active": "fault-module-repair",
+    "next": "remote-battery-service",
+    "second_episode_gate": "First episode must pass the full rollout validator with score 1.0",
     "submission_ready_tasks": 0,
     "billing_receipt": "UNAVAILABLE_FULL_SCALE_GATE_RETAINED"
   }
