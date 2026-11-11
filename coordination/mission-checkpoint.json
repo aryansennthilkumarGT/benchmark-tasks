@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T03:59:13.993897+00:00",
+  "updated_at": "2026-11-11T04:09:19.173308+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -10,11 +10,12 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "dd7c44dfeddf0c93b54756928bbee8e357deee70",
-      "state": "CYLINDER_REGION_FIX_AND_TRAY_RETENTION_NATIVE_RETEST_QUEUED",
+      "commit": "669f453d397f8d8644860e8d54e3505a3966b08e",
+      "state": "EXACT_CYLINDER_REGION_AND_300_SECOND_LIMIT_NATIVE_RETEST_QUEUED",
       "physics_evaluated_commit": "650eba8ccd0805e9ef44f05c7be5ea7b574ba787",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
-      "native_physics": "PRIOR_REVISION_PASS_CURRENT_GEOMETRY_AND_SCORER_RETEST_PENDING"
+      "native_physics": "PRIOR_REVISION_PASS_CURRENT_GEOMETRY_AND_SCORER_RETEST_PENDING",
+      "run_limit": 6000
     },
     {
       "slug": "switch-map-rework",
@@ -42,11 +43,11 @@
     },
     {
       "slug": "fault-module-repair",
-      "commit": "ade4e41348431ed76f38fa8e7dea37ba18a85e83",
-      "state": "LOWER_BEARING_REACHED_BOUNDED_ORIENTATION_FEEDBACK_NATIVE_TEST_RUNNING",
-      "physics_evaluated_commit": "92a82fa7a7cf57e4318da8edf8773438bc639c00",
+      "commit": "fd40fa828fcf84a52c384ce497e4f29a71a67cf4",
+      "state": "BOUNDED_CHAMFER_ENTRY_EXPERT_RUNNING_MECHANICS_HASHES_MATCH_PRIOR_PASS",
+      "physics_evaluated_commit": "ade4e41348431ed76f38fa8e7dea37ba18a85e83",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
-      "physics_report_sha256": "8ba1869aca8ec1fcb6e4bb6310b13e0c1551cc68e39382cf71954e5424ef7812"
+      "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f"
     },
     {
       "slug": "hardware-order-kit",
@@ -97,12 +98,12 @@
   "live_execution_evidence": "live-execution-2026-11-10.md",
   "current_operation": {
     "kind": "SERIAL_NATIVE_PHYSICS_AND_SCRIPTED_EXPERT_VALIDATION",
-    "active_directory": "/data/robocurve-runs/resume-compat/fault-filtered-orientation-native.CRdBZE",
-    "terminal_session": 31778,
+    "active_directory": "/data/robocurve-runs/resume-compat/fault-chamfer-entry-expert.i4ggms",
+    "terminal_session": 87981,
     "active": "fault-module-repair",
     "queued": "remote-battery-service",
-    "queued_directory": "/data/robocurve-runs/resume-compat/remote-exact-cylinder-native.z1z3ew",
-    "queued_terminal_session": 58578,
+    "queued_directory": "/data/robocurve-runs/resume-compat/remote-cylindrical-containment-native.Bq9Hjn",
+    "queued_terminal_session": 19409,
     "second_episode_gate": "First episode must pass full rollout validation with score 1.0",
     "submission_ready_tasks": 0,
     "billing_receipt": "UNAVAILABLE_FULL_SCALE_GATE_RETAINED"
