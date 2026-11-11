@@ -86,6 +86,26 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_payload_carry_has_bounded_measured_translation_gain(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['old_cooler']
+        body['quat'] = axis_quat([0, 1, 0], .03).tolist()
+        goal = np.array(body['pos']) + [0, 0, .035]
+        phase = dict(kind='carry', body='old_cooler', measured_translation=True,
+                     position_gain=8, translation_lead=.025,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='old_cooler', verified=False,
+            tcp_in_body=[-.07, 0, .018], tcp_rotation_in_body=[0, 0, 0, 1])
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append(np.array(position))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        tcp, _ = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0] - tcp, [0, 0, .025], atol=1e-12)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
