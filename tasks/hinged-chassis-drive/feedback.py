@@ -239,6 +239,12 @@ class Controller:
                     aligned = np.linalg.norm(lateral) <= tolerance
                 else:
                     aligned = np.all(np.abs(lateral) <= tolerance)
+                if phase.get('guide_core_half_extent'):
+                    half_extent = np.asarray(phase['guide_core_half_extent'])
+                    transverse_axes = np.array([abs(rotate(body_q, axis)[1]) for axis in np.eye(3)])
+                    transverse_extent = float(np.dot(transverse_axes, half_extent))
+                    available = phase['guide_inner_half_width'] - phase.get('guide_margin', 0.)
+                    aligned = aligned and abs(body_p[1]-desired_p[1]) + transverse_extent <= available
                 oriented = orientation_error <= phase.get('insertion_orientation_tolerance', math.pi)
                 if aligned and oriented:
                     correction += limit_vector(axial, phase.get('axial_lead', .002))

@@ -63,4 +63,7 @@ The 7 mm cap experiment failed the vertical-shortcut height assertion while the 
 Loaded carries also use measured-pose reference feedback to compensate the known YAM tracking offset. Retainer insertion aligns horizontally before descending through the guide uprights, with independent transverse/axial progress tracking and the existing bounded stall guard. Native validation is required.
 
 
-The horizontal guide waypoint is z=0.764 m. The floor top is0.7555 m and the drive half-height is8 mm, giving a passive resting centre of0.7635 m. The waypoint leaves0.5 mm nominal floor clearance and stays within the unchanged3 mm scoring radius. Guided transverse feedback gain is2 with2 mm lead. The0.6 mm transverse gate and0.006 rad orientation gate bound worst-case yaw excursion over the55 mm half-length to0.93 mm inside the1 mm side clearance. The75-second insertion timeout remains bounded by measured-progress checks and the180-second trial limit.
+The horizontal guide waypoint is z=0.764 m. The floor top is0.7555 m and the drive half-height is8 mm, giving a passive resting centre of0.7635 m. The waypoint leaves0.5 mm nominal floor clearance and stays within the unchanged3 mm scoring radius. Guided transverse feedback gain is2 with2 mm lead. The75-second insertion timeout remains bounded by measured-progress checks and the180-second trial limit.
+
+
+The insertion gate projects the actual rotated110 by74 by16mm core into world y. Its centre offset plus projected half-width must fit within the38mm inner half-width with0.1mm margin. This couples yaw and lateral alignment. The0.03rad attitude bound and1.5mm vertical gate keep the flanges below the770.5mm underpass. Fresh native insertion tests must verify the resulting controller.

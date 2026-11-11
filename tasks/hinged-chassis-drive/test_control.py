@@ -158,6 +158,30 @@ class FeedbackTests(unittest.TestCase):
             np.testing.assert_allclose(targets[0][0] - tcp, expected, atol=1e-12)
             self.assertLessEqual(qangle(targets[0][1], tcp_quat), .04 + 1e-7)
 
+    def test_rotated_core_clearance_combines_yaw_and_transverse_position(self):
+        for transverse, yaw, advances in ((.000285, .00611, True), (.0005, .01, False)):
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['drive']
+            body['pos'] = [.237, transverse, .764]
+            body['quat'] = axis_quat([0, 0, 1], yaw).tolist()
+            phase = dict(kind='insert', body='drive', insertion_axis_world=[1, 0, 0],
+                         lateral_tolerance=[.001, .001, .0015], axial_lead=.004,
+                         insertion_orientation_tolerance=.03,
+                         guide_core_half_extent=[.055, .037, .008],
+                         guide_inner_half_width=.038, guide_margin=.0001,
+                         target=dict(pos=[.3, 0, .764], quat=[0, 0, 0, 1]))
+            controller = self.controller(phase)
+            controller.grasps['left'] = dict(body='drive', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            captured = []
+            def capture(joints, position, *args, **kwargs):
+                captured.append(np.asarray(position))
+                return np.array(joints), 0., 0.
+            controller.motion['left'].target = capture
+            tcp, _ = controller.pose(self.ready[:7], 'left')
+            controller.step(self.ready, frame)
+            self.assertAlmostEqual(captured[0][0]-tcp[0], .004 if advances else 0.)
+
     def test_channel_progress_tracks_axial_advance_and_rejects_a_jam(self):
         frame = copy.deepcopy(self.frame)
         goal = np.array(frame['bodies']['drive']['pos'])
