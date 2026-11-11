@@ -150,7 +150,9 @@
       "rotation_gain": 1,
       "rotation_lead": 0.04,
       "rotation_about_body": true,
-      "feedback_gain": 2
+      "feedback_gain": 2,
+      "tolerance": 0.001,
+      "angle": 0.01
     },
     {
       "kind": "insert",
@@ -179,7 +181,17 @@
       "measured_rotation": true,
       "rotation_gain": 0.3,
       "rotation_lead": 0.02,
-      "rotation_about_body": true
+      "rotation_about_body": true,
+      "insertion_axis_world": [
+        0,
+        0,
+        1
+      ],
+      "lateral_gain": 2,
+      "lateral_lead": 0.0015,
+      "lateral_tolerance": 0.001,
+      "axial_lead": 0.005,
+      "insertion_orientation_tolerance": 0.015
     },
     {
       "kind": "joint",
