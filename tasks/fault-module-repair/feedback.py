@@ -212,7 +212,7 @@ class Controller:
                 lateral = position_error - axial
                 correction = limit_vector(3.0*lateral, 0.001)
                 if np.linalg.norm(lateral) <= phase.get('lateral_tolerance', 0.00065):
-                    correction += limit_vector(axial, 0.0005)
+                    correction += limit_vector(axial, phase.get('axial_lead', 0.0005))
             else:
                 correction = limit_vector(phase.get('position_gain', 1.0)*position_error, 0.003)
             commanded = body_p + correction
