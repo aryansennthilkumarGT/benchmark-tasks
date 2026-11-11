@@ -168,6 +168,54 @@
           "max": 0.002
         }
       ]
+    },
+    {
+      "name": "staging_rails_retain_fresh_cells_under_rolling_load",
+      "forces": [
+        {
+          "assembly": "new_cell_0_asset",
+          "body": "new_cell_0",
+          "force": [
+            0,
+            -0.03,
+            0
+          ]
+        },
+        {
+          "assembly": "new_cell_1_asset",
+          "body": "new_cell_1",
+          "force": [
+            0,
+            -0.03,
+            0
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 20,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "new_cell_0",
+          "axis": 1,
+          "min": -0.2455,
+          "max": -0.2345
+        },
+        {
+          "kind": "coordinate",
+          "body": "new_cell_1",
+          "axis": 1,
+          "min": -0.2455,
+          "max": -0.2345
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
     }
   ],
   "control": [

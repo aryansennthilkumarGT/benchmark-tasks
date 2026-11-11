@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "NATIVE_PHYSICS_PASSED",
+  "status": "FRESH_CELL_STAGING_FIX_NATIVE_RETEST_PENDING",
   "ready": false,
   "verified_at": "2026-11-11T00:46:41.332852+00:00",
   "offline_tests": {
@@ -36,14 +36,14 @@
   },
   "usd_structure": {
     "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
-    "assemblies": 6,
-    "bodies": 9,
+    "assemblies": 7,
+    "bodies": 10,
     "joints": 3,
     "spawn_transforms_and_anchors": "PASS",
     "initial_joint_frames": "PASS"
   },
   "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "PASS",
+  "native_physics": "PRIOR_REVISION_PASSED_NEW_STAGING_RETEST_PENDING",
   "robot_control": "FAILED_PRIOR_REVISION_TRACKING_RETEST_PENDING",
   "expert_trials": [],
   "dream": null,
@@ -51,7 +51,7 @@
   "media_verified": false,
   "run_limit": 3600,
   "native_cases_planned": {
-    "physics": 6,
+    "physics": 7,
     "control": 2
   },
   "physics_runs": 1,
@@ -71,7 +71,7 @@
     "Electrical readiness is a geometric contact-compression and polarity proxy, not a measured voltage.",
     "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
   ],
-  "evidence_scope": "Native mechanism evidence is tied to the recorded evaluated commit. Full-score robot demonstrations and model evaluation remain pending.",
+  "evidence_scope": "The recorded controller physically collected and released the first used cell. The fresh-cell staging geometry and full expert episode require native validation.",
   "native_physics_evidence": {
     "commit": "6594c6ba628cb77a411ab0251df253ed7fb11705",
     "driver": "565.57.01",
