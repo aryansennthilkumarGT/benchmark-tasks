@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "status": "STATIC_TESTS_PASSED",
+  "status": "TARGETED_KEYED_SEATING_AND_TORQUE_COMPARISONS_PASSED",
   "ready": false,
   "verified_at": "2026-11-07T23:47:02.370129+00:00",
   "offline_tests": {
@@ -51,7 +51,7 @@
   "media_verified": false,
   "run_limit": 6000,
   "native_cases_planned": {
-    "physics": 5,
+    "physics": 6,
     "control": 3
   },
   "physics_runs": 0,
@@ -69,19 +69,18 @@
   "limitations": [
     "Rigid faceted half-rings approximate a hinged service collar; they preserve a real shaft opening and cannot pass over the fixed end flanges.",
     "A square transverse key captures interleaved lugs through real collision-defined holes. No automatic attachment or fastener torque is simulated.",
-    "The collar tests retention around a shaft, not certified clamping friction or torque transmission.",
-    "Joint closure, key retention under load, and robot feasibility remain unexecuted in native PhysX."
+    "The collar tests retention around a shaft, not certified clamping friction or torque transmission."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
+  "evidence_scope": "Six selected native case repeats verify keyed gravity seating and opening-load comparisons on the recorded commit. The complete physics suite and robot feasibility remain pending.",
   "native_diagnostic_evidence": {
     "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
-    "commit": "a9fa16ab99556657ec13e5a53c9f831931ca4a66",
+    "commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
+    "status": "PASS",
     "driver": "565.57.01",
-    "status": "FAIL",
-    "passed": 0,
-    "failed": 2,
-    "resets": 2,
-    "report_sha256": "623a56a4a274d333c88638d29f2ac1a163da7381a3dd9bb3d2c009276021c128"
+    "passed": 6,
+    "failed": 0,
+    "resets": 6,
+    "report_sha256": "e9993ecd285644f70b130a8dca3658b1bf055c7a933301f4309ec290172ce6e4"
   },
   "engineering_verification": {
     "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",

@@ -35,7 +35,7 @@ The budget receipt describes actual provider facts: `hourly_usd`, `balance_usd`,
 
 Seed 0 and `object_jitter=0` are fixed for both expert repeats and the model. Maximum 6000 actions (300 simulated seconds). Real wall time is unmeasured and depends on physics/rendering/model latency. The scorer recomputes partial credit and requires 2 s of final stability and released-arm clearance. Read [SCORING.md](SCORING.md) for every numerical condition and [SETUP.md](SETUP.md) for every body, material, mass, dimension and pose.
 
-Native probes: 5 physics cases and 3 real robot-control cases, each repeated after independent resets. Physics probes may initialize mechanism poses and apply forces for controlled measurements; those probes are explicitly excluded from demonstration/media evidence. Control probes use only robot actions. Two full expert episodes separately establish feasibility before model spending.
+Native probes: 6 physics cases and 3 real robot-control cases, each repeated after independent resets. Physics probes may initialize mechanism poses and apply forces for controlled measurements; those probes are explicitly excluded from demonstration/media evidence. Control probes use only robot actions. Two full expert episodes separately establish feasibility before model spending.
 
 ## Implementation and limits
 
