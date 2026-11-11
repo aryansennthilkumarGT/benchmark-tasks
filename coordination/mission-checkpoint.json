@@ -1,22 +1,22 @@
 {
-  "updated_at": "2026-11-11T11:23:23.010375+00:00",
+  "updated_at": "2026-11-11T11:37:13.820604+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "cdaba934a35af8ac6abfbb6661d450af0eaafa71",
-      "state": "GUIDED_CHANNEL_CONTROL_FAIL_0_OF_2",
+      "commit": "7542eaf0e7336a5f22e3ac0560e73545bfa41351",
+      "state": "DAMPED_CHANNEL_CONTROL_FIRST_REPEAT_FAILED_SECOND_RUNNING",
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "LID_SUPPORT_PASS_2_OF_2_FULL_EXPERT_FAILED_DRIVE_LIFT",
       "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-measured-carry-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-guided-rail-feasibility.u1cdu3db"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-damped-guide-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-damped-guide.lfmid9y8"
     },
     {
       "slug": "remote-battery-service",
-      "commit": "cf0930d2744565460e5a3a2c9547c5bf3540a623",
-      "state": "DAMPED_SPRING_PRESS_PASSED_EXPERT_FAILED_NEXT_LOWERING_PHASE",
+      "commit": "5a67f8bc8a51c584343307fb64e633c78a0fa603",
+      "state": "INTEGRAL_AXIAL_LOWERING_STATIC_PASS_NATIVE_EXPERT_QUEUED",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
@@ -24,55 +24,56 @@
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "expert_scores": [],
       "active_run": "/data/robocurve-runs/resume-compat/remote-spring-hold-expert.0wx6043a",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/remote-spring-hold-final-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/remote-damped-spring-expert._48xtjjj"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/remote-integral-lowering-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/remote-integral-lowering.qoq61snu"
     },
     {
       "slug": "switch-map-rework",
       "commit": "1cf1dc6d81cd60d7bfba10dc87f2f9de11bca040",
-      "state": "INTEGRAL_SUPPORTED_CATCH_RETEST_RUNNING",
+      "state": "CATCH_RELEASE_PASS_2_OF_2_EXIT_ZERO_WITHDRAWAL_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "FULL_SUITE_FAIL_6_PASS_2_FAIL_ALL_8_RESETS_FINITE",
       "robot_control": "APPROACH_TIMEOUT_2_OF_2",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-approach-arrival-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-integral-supported-catch-retry.3zojr3zx"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/switch-integral-supported-press-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-supported-withdrawal.eedswsrw"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "008496a99565dd7bb8b40336022720558fc53353",
-      "state": "COLLECTION_CONTROL_FAIL_0_OF_2_TRANSPORT_ORIENTATION",
+      "commit": "23d04f46e30437e6ba0f1662f5dcae4c796318f3",
+      "state": "COMPOUND_CONTAINMENT_AND_CENTROID_ROTATION_STATIC_PASS_NATIVE_QUEUED",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "DEPENDENT_COOLER_LIFT_PASS_2_OF_2_CURRENT_REVISION",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-load-telemetry-static.log",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/node-centroid-rotation-static.log",
       "control_evidence": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2/control/results.json",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/node-cooler-collection-feasibility.4ph6fqy_"
+      "latest_native_run": "/data/robocurve-runs/resume-compat/node-centroid-collection.zvx_x0__"
     },
     {
       "slug": "twelve-cell-pack",
       "commit": "1735dfdb453d4e6ac48727414a91306d5a3c5af6",
-      "state": "FOURTH_CELL_POSE_FEEDBACK_PASS_2_OF_2_FULL_CONTROL_RUNNING",
+      "state": "FULL_CONTROL_RUNNING_4_PASSES_ZERO_FAILURES",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "robot_control": "GUIDED_FULL_CONTROL_RUNNING_FIRST_SEATING_REPEAT_PASS",
       "control_evidence": "/data/robocurve-runs/resume-compat/twelve-guided-feasibility.9cdd_11s",
       "expert_scores": [],
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/twelve-progress-distance-static.log",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/twelve-measured-pose-feedback-static.log",
       "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-pose-feedback-full.42kgvl2c"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "85b297f8e0786fd478b9b43d116c045f921281af",
-      "state": "PLATE_CONTROL_2_OF_2_LIFT_CONTROL_2_OF_2_THREAD_LEAD_FAIL_0_OF_2",
+      "commit": "0b35536191b860a2b5f169bf8243cc749fefe49d",
+      "state": "INTEGRAL_THREAD_ENTRY_STATIC_PASS_NATIVE_CONTROL_QUEUED",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "PASS_8_OF_8",
       "physics_evaluated_commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
       "physics_evidence": "/data/robocurve-runs/resume-compat/nut-fixture-sync-native.m3rl00gx",
       "robot_control": "PENDING",
       "expert_scores": [],
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-first-thread-control.s8h0lbd2"
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-integral-thread-entry.tj2p_c4y",
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/nut-integral-thread-entry-static.log"
     },
     {
       "slug": "fault-module-repair",
@@ -103,16 +104,16 @@
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "ab7a56f564132fb8632aaaf61b80546fec69ef66",
-      "state": "ROTATION_FEEDBACK_LIFT_CONTROL_FAIL_0_OF_2",
+      "commit": "f9aa877a91eec58d530397188ed670367bdc444e",
+      "state": "CENTROID_ROTATION_STATIC_PASS_NATIVE_CONTROL_QUEUED",
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_12_OF_12",
       "physics_evaluated_commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1",
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-telemetry-native.m3a36qtj/cases/results.json",
       "robot_control": "SHORT_HANDLE_LIFT_FAILED_2_OF_2",
-      "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-load-telemetry-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-rotation-feasibility.6ufoigl0"
+      "latest_static_check_log": "/data/robocurve-runs/resume-compat/hardware-centroid-rotation-static.log",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-centroid-rotation.jvrhgfd9"
     }
   ],
   "executed": {
@@ -277,11 +278,27 @@
     "source": "Authenticated Brev workspace price metadata at 2026-11-11T10:45:47Z and user-reported $125 balance",
     "combined_conservative_hourly_cap_usd": 3.61,
     "reserve_usd": 30,
-    "conservative_headroom_above_reserve_usd": 47.12,
-    "live_credit_balance_verified": false
+    "conservative_headroom_above_reserve_usd": 46.28,
+    "live_credit_balance_verified": false,
+    "price_evidence": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/price-refresh-1135.json"
   },
   "evidence_corrections": {
     "remote_spring": "Full traces show 0\u20132 mm oscillation. Earlier isolated samples did not establish maximum compression. Damped gain passed press; later lowering failed.",
     "fault_setup_image": "SDK 1280x720 output was resized from 640x360. Replacement raw sensor image verified at actual 640x360; receipt retained."
-  }
+  },
+  "native_queue_lanes": [
+    [
+      "twelve-pose-feedback-full.42kgvl2c",
+      "remote-integral-lowering.qoq61snu",
+      "node-centroid-collection.zvx_x0__"
+    ],
+    [
+      "chassis-damped-guide.lfmid9y8",
+      "switch-supported-withdrawal.eedswsrw",
+      "hardware-centroid-rotation.jvrhgfd9",
+      "nut-integral-thread-entry.tj2p_c4y"
+    ]
+  ],
+  "latest_credential_presence": "/data/robocurve-runs/resume-compat/current-credential-presence.json",
+  "validator_correction": "Twelve scene declares 12000 actions. Original running producer mistakenly supplied validator limit 6000. Separate postprocessor validates the original saved rollout with 12000 and preserves both logs/exits."
 }

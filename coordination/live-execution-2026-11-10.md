@@ -1,3 +1,17 @@
+## November 11 11:37 continued native engineering
+
+Switch revision 1cf1dc6 passed both genuine two-arm catch-release resets with finalized PASS 2/2 and producer exit 0 at switch-integral-supported-catch-retry.3zojr3zx. Withdrawal remains queued at switch-supported-withdrawal.eedswsrw. The prior invalid-case launch remains a preserved failure.
+
+Twelve-cell full control has four passes and zero failures so far. Its frozen scene declares 12000 actions. The running producer mistakenly specifies 6000 for its later validator. A separate postprocessor will validate the same original saved rollout using the actual 12000-action scene limit. Both validator outputs remain preserved. A partial running report cannot establish a suite pass or expert feasibility.
+
+Chassis gain-eight guidance oscillated laterally across its insertion gate. Unit-gain guidance failed the first repeated native insertion and the second reset remains running. Both unsuccessful experiments retain real trajectories and failure receipts.
+
+Remote loaded lowering candidate 5a67f8b integrates bounded axial error into the robot reference. Offline last-frame convex inspection of the earlier stalled trial found no robot/task penetration above 0.3 mm. This is a geometric diagnostic, without measured contact-force claims. Nut candidate 0b35536 integrates bounded measured body error during thread entry. Hardware f9aa877 and Node 23d04f4 compensate the grasp lever when reorienting bodies about their observed centroids. These candidates passed their complete offline suites and await native execution. Node b897700 also corrected region containment to test every actual oriented collision box. Tilted-compound and real-protrusion regressions passed. All original numeric region bounds remain applicable.
+
+Current authenticated provider pricing was refreshed at 11:32 UTC, HTTP 200 for both workspace metadata endpoints. Compute quotes remain $1.74/hour per running host, with $0.000132/GB/hour storage. Live credit and invoiced total remain unverified. Credential presence check at 11:28 found neither Dream nor upload credentials configured. Raw setup top and both wrist stills were visually inspected. The top view is the selected anonymous setup image.
+
+All changes were committed and pushed to the fork. Exact frozen source revisions, producer roots, serial queue dependencies, static logs and conservative reserve headroom are in mission-checkpoint.json. Continue working and preserve the instances.
+
 ## Resumed checkpoint 2026-11-11 11:24 UTC
 
 Official submissions remain authorized once complete. No official PRs or fabricated model results exist. Dream and upload credentials were absent at the last presence check.
