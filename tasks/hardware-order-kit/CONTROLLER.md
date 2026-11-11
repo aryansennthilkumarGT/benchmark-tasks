@@ -48,3 +48,6 @@ The carry-gain probe lifted the collar approximately 25.3 mm and reached within 
 Measured rotation correction also moves the offset grasp around the observed body centroid. This compensates the handle lever during reorientation. The previous fixed-TCP correction drove the supporting wrist into its joint limit. This candidate uses unit angular gain capped at 0.04 radians per target, with native retesting required. Joint-limit failures include the active arm base and solved joint values.
 
 Loaded carries integrate actual TCP pose error into the rate-limited reference at gain 2 per second. The centroid-compensated native test avoided the earlier wrist limit and retained a 0.279-radian loaded angular residual at lift timeout. This candidate reuses measured-pose reference feedback validated by the twelve-cell control suite. Native collar validation remains required.
+
+
+Loaded insertions use a2.5mm task-space lead and gain2 reference integration. This carries the actuator load compensation from transfer into shaft and key insertion. The earlier insertion switched to a0.5mm proportional target and lost the measured loaded pose. Fresh native insertion probes must validate this revision.

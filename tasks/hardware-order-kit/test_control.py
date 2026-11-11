@@ -200,6 +200,28 @@ class FeedbackTests(unittest.TestCase):
         self.assertGreater(np.linalg.norm(motion.reference-reference), 1e-5)
         self.assertLessEqual(np.max(np.abs(motion.reference-reference)), .02000001)
 
+    def test_loaded_insertion_uses_declared_lead_and_reference_gain(self):
+        for lead in (None, .0025):
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['lower_collar']
+            goal = np.array(body['pos']) + [0, 0, .025]
+            phase = dict(kind='insert', body='lower_collar', feedback_gain=2,
+                         target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+            if lead is not None:
+                phase['translation_lead'] = lead
+            controller = self.controller(phase)
+            controller.grasps['left'] = dict(body='lower_collar', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            captured = []
+            def capture(joints, position, *args, **kwargs):
+                captured.append((np.asarray(position), kwargs['feedback_gain']))
+                return np.asarray(joints), 0., 0.
+            controller.motion['left'].target = capture
+            controller.step(self.ready, frame)
+            expected = .0005 if lead is None else lead
+            np.testing.assert_allclose(captured[0][0]-body['pos'], [0, 0, expected], atol=1e-12)
+            self.assertEqual(captured[0][1], 2)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

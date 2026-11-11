@@ -212,7 +212,8 @@ class Controller:
             desired_p,desired_q=self.world_target(phase['target'],frame)
             body_p,body_q=np.asarray(body['pos']),body['quat']
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
-            commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
+            commanded=body_p+limit_vector(desired_p-body_p,
+                phase.get('translation_lead',0.0005 if kind=='insert' else 0.003))
             p,q=self.body_tcp(side,commanded,desired_q)
             if kind == 'carry' and phase.get('measured_translation'):
                 p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
