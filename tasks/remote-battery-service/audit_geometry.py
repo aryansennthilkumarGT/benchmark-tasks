@@ -40,6 +40,12 @@ def frames(spec,plan,linear_step=.003,include_phase_starts=False):
                 phase=dict(kind='joint',body=released,joint=spring['name'],value=0,label=phase['label']+' nominal spring return')
         kind=phase['kind'];name=phase.get('body')
         if kind not in ('carry','insert','joint','thread'):continue
+        contact_body = None
+        if kind == 'joint':
+            child = joints[phase['joint']]['child']
+            if name != child and grasps.get(phase.get('side')) == name:
+                contact_body = name
+            name = child
         body=states[name];p0=np.array(body['pos']);q0=body['quat']
         if kind in ('carry','insert'):
             target=phase['target'];p1=np.array(target['pos']);q1=target.get('quat',[0,0,0,1])
@@ -68,7 +74,10 @@ def frames(spec,plan,linear_step=.003,include_phase_starts=False):
                 path.append((p0-axis*phase['pitch']*turns,multiply(axis_quat(axis,angle),q0)))
         # Rigidly carried child mechanisms follow their parent in this geometric
         # test. Flexible cables must use a dedicated continuity/path audit.
-        descendants=[];pending=[name]
+        # Nominal contact transfer follows the driven joint's displacement.
+        # Native execution verifies that the held body actually loads the joint.
+        descendants = [] if contact_body is None else [contact_body]
+        pending = [name, *descendants]
         while pending:
             parent=pending.pop()
             for joint in joints.values():

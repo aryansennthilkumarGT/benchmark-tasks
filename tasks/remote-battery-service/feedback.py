@@ -220,7 +220,8 @@ class Controller:
                 commanded = body_p + limit_vector(position_error, 0.003)
                 p, q = self.body_tcp(side, commanded, desired_q)
             if phase.get('preserve_grasp_orientation'):
-                q = self.grasps[side].get('tcp_orientation_at_grasp', q)
+                q = multiply(phase.get('wrist_rotation', [0, 0, 0, 1]),
+                             self.grasps[side].get('tcp_orientation_at_grasp', q))
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
@@ -252,7 +253,8 @@ class Controller:
             self.check_grasp_slip(side,observed,frame)
             joint=next(j for a in self.spec['assemblies'] for j in a.get('joints',[]) if j['name']==phase['joint'])
             actual=frame['joints'][phase['joint']];desired=phase['value']
-            delta=float(np.clip(desired-actual,-phase.get('increment',0.01),phase.get('increment',0.01)))
+            delta=float(np.clip(phase.get('position_gain', 1.0)*(desired-actual),
+                                -phase.get('increment',0.01),phase.get('increment',0.01)))
             parent=frame['bodies'][joint['parent']];axis=np.eye(3)['XYZ'.index(joint['axis'])]
             world_axis=rotate(parent['quat'],axis)
             if joint['kind']=='revolute':

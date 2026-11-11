@@ -41,6 +41,20 @@ class PackageContractTests(unittest.TestCase):
         self.assertEqual(list(runtime.collision_shapes_for_link(parent)), [own])
         self.assertEqual(list(runtime.collision_shapes_for_link(child)), [descendant])
 
+    def test_contact_driven_joint_path_moves_its_child_and_held_cell(self):
+        from audit_geometry import frames
+        spec = json.loads((HERE/'scene.json').read_text())
+        plan = {'phases': [
+            {'kind': 'grasp', 'side': 'right', 'body': 'new_cell_0', 'label': 'Hold cell'},
+            {'kind': 'joint', 'side': 'right', 'body': 'new_cell_0',
+             'joint': 'spring_0', 'value': -.00115, 'label': 'Press spring'},
+        ]}
+        samples = list(frames(spec, plan))
+        initial, final = samples[0][1], samples[-1][1]
+        for name in ['new_cell_0', 'contact_0']:
+            np.testing.assert_allclose(np.asarray(final[name]['pos']) - initial[name]['pos'],
+                                       [-.00115, 0, 0], atol=1e-12)
+
     def test_official_task_loader_and_expert_contract(self):
         import importlib
         from types import SimpleNamespace

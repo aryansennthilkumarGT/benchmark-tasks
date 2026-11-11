@@ -133,6 +133,21 @@ class FeedbackTests(unittest.TestCase):
         self.assertLess(qangle(orientation, self.down), 1e-6)
         self.assertEqual(controller.index, 0)
 
+    def test_spring_feedback_gain_is_bounded_by_declared_increment(self):
+        for gain, current, expected in [(1, 0., -.00115), (8, 0., -.003), (8, -.00105, -.0008)]:
+            with self.subTest(gain=gain, current=current):
+                phase = {'kind': 'joint', 'label': 'Spring feedback', 'side': 'right',
+                         'body': 'new_cell_0', 'joint': 'spring_0', 'value': -.00115,
+                         'position_gain': gain, 'increment': .003, 'tolerance': .00025}
+                controller = Controller({'phases': [phase]}, self.spec)
+                frame = copy.deepcopy(self.frame)
+                frame['joints']['spring_0'] = current
+                controller.motion['right'].target = Mock(return_value=(self.ready[7:].copy(), 0., 0.))
+                measured, _ = controller.pose(self.ready[7:], 'right')
+                controller.step(self.ready, frame)
+                target = controller.motion['right'].target.call_args.args[1]
+                np.testing.assert_allclose(target - measured, [expected, 0, 0], atol=1e-12)
+
     def test_incremental_action_respects_joint_and_gripper_limits(self):
         m=Motion('left');p,r=m.ik.tcp_pose(self.ready[:6],m.base)
         action,_,_=m.target(self.ready[:7],p+[.001,0,0],m.ik.matrix_to_quat_xyzw(r),0)
