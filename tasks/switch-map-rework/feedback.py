@@ -214,6 +214,22 @@ class Controller:
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
+            if kind == 'insert' and 'insertion_axis_world' in phase:
+                axis = np.asarray(phase['insertion_axis_world'], dtype=float)
+                length = np.linalg.norm(axis)
+                if axis.shape != (3,) or not np.isfinite(axis).all() or length < 1e-12:
+                    raise ControlFailure('Invalid insertion axis')
+                axis = axis / length
+                position_error = desired_p - body_p
+                axial = np.dot(position_error, axis) * axis
+                lateral = position_error - axial
+                correction = limit_vector(phase.get('lateral_gain', 8.) * lateral,
+                                          phase.get('lateral_lead', .008))
+                aligned = np.linalg.norm(lateral) <= phase.get('lateral_tolerance', .0008)
+                oriented = qangle(body_q, desired_q) <= phase.get('insertion_orientation_tolerance', .04)
+                if aligned and oriented:
+                    correction += limit_vector(axial, phase.get('axial_lead', .004))
+                p = tcp + correction
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value.get('relative_to')==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
@@ -275,8 +291,8 @@ class Controller:
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
             feedback_gain = 0.
-            if name == side and kind in ('move', 'grasp'):
-                feedback_gain = 2.
+            if name == side:
+                feedback_gain = phase.get('feedback_gain', 2. if kind in ('move', 'grasp') else 0.)
             elif name != side and isinstance(self.holds.get(name), dict):
                 feedback_gain = self.holds[name].get('feedback_gain', 0.)
             target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,

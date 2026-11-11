@@ -138,6 +138,30 @@ class FeedbackTests(unittest.TestCase):
                 self.assertTrue(phase['clear_hold'])
         self.assertGreater(checked, 3)
 
+    def test_guided_plug_motion_requires_transverse_and_angular_alignment(self):
+        cases = [([.003, 0, 0], [0, 0, 0, 1], [.008, 0, 0]),
+                 ([0, 0, 0], axis_quat([0, 0, 1], .06), [0, 0, 0]),
+                 ([0, 0, 0], [0, 0, 0, 1], [0, .004, 0])]
+        for lateral_error, rotation, expected in cases:
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['plug_0']
+            body['quat'] = list(rotation)
+            goal = np.array(body['pos']) + [0, .075, 0] + lateral_error
+            phase = dict(kind='insert', body='plug_0', insertion_axis_world=[0, 1, 0],
+                         feedback_gain=2, target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+            controller = self.controller(phase)
+            controller.check_grasp_slip = lambda *args: None
+            controller.body_tcp = lambda side, position, orientation: (position, orientation)
+            targets = []
+            def capture(joints, position, orientation, opening, **kwargs):
+                targets.append((np.array(position), kwargs['feedback_gain']))
+                return np.array(joints), 0., 0.
+            controller.motion['left'].target = capture
+            tcp, _ = controller.pose(self.ready[:7], 'left')
+            controller.step(self.ready, frame)
+            np.testing.assert_allclose(targets[0][0] - tcp, expected, atol=1e-12)
+            self.assertEqual(targets[0][1], 2.)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
