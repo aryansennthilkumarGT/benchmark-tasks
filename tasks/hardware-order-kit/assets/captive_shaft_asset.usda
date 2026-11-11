@@ -92,6 +92,19 @@ def Xform "Asset"
             double3 xformOp:translate = (0, 0.115, -0.035)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
+
+        def Cube "shape_5" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.18, 0.36, 0.5)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.003, 0.18, 0.004)
+            double3 xformOp:translate = (0, 0, 0.0107)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
     }
 
     def PhysicsFixedJoint "fix_captive_shaft" (

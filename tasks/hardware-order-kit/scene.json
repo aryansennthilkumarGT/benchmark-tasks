@@ -1,7 +1,7 @@
 {
   "slug": "hardware-order-kit",
   "title": "Fit and pin a hinged collar around a captive shaft",
-  "instruction": "Open the hinged collar, fit it around the shaft between its fixed end stops, close both halves, and insert the orange-headed key through all three aligned lugs. Leave the collar retained with both hands clear.",
+  "instruction": "Open the hinged collar, fit it around the shaft between its fixed end stops, close both halves with the shaft rib in the upper groove, and insert the orange-headed key through all three aligned lugs. Leave the collar retained with both hands clear.",
   "context": "A split collar can be retrofitted without dismantling shaft ends; the task requires supporting the lower half while controlling closure and capturing both halves with a transverse key.",
   "control_hz": 20,
   "run_limit": 6000,
@@ -145,6 +145,31 @@
                 0.52,
                 0.55,
                 0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0.0107
+              ],
+              "size": [
+                0.003,
+                0.18,
+                0.004
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.18,
+                0.36,
+                0.5
               ],
               "collision": true
             }
@@ -1093,56 +1118,6 @@
                 -0.5956993044924334,
                 -0.0,
                 0.8032075314806449
-              ],
-              "color": [
-                0.52,
-                0.55,
-                0.6
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                0.0017054982417343573,
-                0,
-                0.017316214244096222
-              ],
-              "size": [
-                0.0132,
-                0.03,
-                0.003683876202146206
-              ],
-              "quat": [
-                -0.0,
-                -0.6715589548470183,
-                -0.0,
-                0.7409511253549592
-              ],
-              "color": [
-                0.52,
-                0.55,
-                0.6
-              ],
-              "collision": true
-            },
-            {
-              "kind": "box",
-              "pos": [
-                -0.0017054982417343551,
-                0,
-                0.017316214244096226
-              ],
-              "size": [
-                0.0132,
-                0.03,
-                0.003683876202146206
-              ],
-              "quat": [
-                -0.0,
-                -0.7409511253549591,
-                -0.0,
-                0.6715589548470183
               ],
               "color": [
                 0.52,

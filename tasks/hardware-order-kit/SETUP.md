@@ -11,6 +11,8 @@ Geometry is original primitive construction. All movable components use friction
 | `upper_collar` | rigid fixture material | 0.1 | (0.104065, 0.249, 0.051) | (0.185, 0, 0.7717) | (0, 0, 0, 1) | passive dynamic |
 | `collar_key` | rigid fixture material | 0.025 | (0.022, 0.093, 0.022) | (0.36, -0.24, 0.7587) | (0, 0, 0, 1) | passive dynamic |
 
+The shaft has a 3 mm wide, 180 mm long locating rib on top. The groove between the upper collar arc segments mates with this rib to constrain rotation around the shaft after closure.
+
 ## Passive joints
 
 - `collar_hinge`: revolute Y, `lower_collar` to `upper_collar`; limits [-1.35, 0]; stiffness 0, damping 0.002. Full joint frames are in `scene.json`.

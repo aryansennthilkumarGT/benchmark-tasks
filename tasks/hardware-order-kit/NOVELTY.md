@@ -2,8 +2,9 @@
 
 Reviewed 2026-11-07. Internal decision: continue to native validation. This is neither a board reservation nor an acceptance guarantee; refresh the board before submission.
 
-A collar cannot slide over the shaft's fixed flanges. The robot must open its hinge, support both halves around the captive shaft, close the seam and insert a transverse key through three lugs. This replaces generic kitting.
+A collar cannot slide over the shaft's fixed flanges. The robot must open its hinge, support both halves around the captive shaft, register the shaft rib in the upper groove, close the seam and insert a transverse key through three lugs. This replaces generic kitting.
 
+- [RoboCurve PR #941](https://github.com/robocurve/benchmark-tasks/pull/941): Two independent spacer halves surround a captive shaft. The current design uses a gravity-loaded hinge, a shaft rib that transmits torque through a matching groove, and a loaded key through three interleaved lugs.
 - [RoboCurve PR #708](https://github.com/robocurve/benchmark-tasks/pull/708): Clamp-on valve lockout is the closest physical neighbor: two halves and a lock surround hardware. Here a hinged shaft collar must bypass fixed end flanges and capture an interleaved seam with a cross-pin; there is no valve or padlock.
 - [RoboCurve PR #1027](https://github.com/robocurve/benchmark-tasks/pull/1027): Collar-on-guide manipulation overlaps in name, but that task transports an already-threaded opaque collar without touching a curved guide. Here opening, fitting, contact and seam retention are the challenge.
 - [RoboCurve PR #994](https://github.com/robocurve/benchmark-tasks/pull/994): Clevis pin retention is a shared primitive, but the captive-shaft split-access dependency adds the substantive workflow.
