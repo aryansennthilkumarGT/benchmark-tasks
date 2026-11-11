@@ -204,8 +204,18 @@ class Controller:
             self.check_grasp_slip(side,observed,frame)
             desired_p,desired_q=self.world_target(phase['target'],frame)
             body_p,body_q=np.asarray(body['pos']),body['quat']
-            # Correct measured body error, so slip is not hidden by a precomputed TCP path.
-            commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
+            # Correct measured body error before applying the joint rate limit.
+            position_error = desired_p - body_p
+            if kind == 'insert':
+                axis = rotate(desired_q, [0, 0, 1])
+                axial = np.dot(position_error, axis) * axis
+                lateral = position_error - axial
+                correction = limit_vector(3.0*lateral, 0.001)
+                if np.linalg.norm(lateral) <= phase.get('lateral_tolerance', 0.00065):
+                    correction += limit_vector(axial, 0.0005)
+            else:
+                correction = limit_vector(phase.get('position_gain', 1.0)*position_error, 0.003)
+            commanded = body_p + correction
             rotation_error = multiply(desired_q, conjugate(body_q))
             p = commanded + rotate(rotation_error, tcp-body_p)
             q = multiply(rotation_error, tcpq)
