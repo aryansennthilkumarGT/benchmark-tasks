@@ -1,3 +1,17 @@
+## Resumed checkpoint 2026-11-11 11:24 UTC
+
+Official submissions remain authorized once complete. No official PRs or fabricated model results exist. Dream and upload credentials were absent at the last presence check.
+
+The finalized guided-chassis and rotation-feedback collar control reports both failed 0/2 with exit 1. Node collection failed during cooler transport orientation. Nut plate and lift controls each passed 2/2, while thread lead failed 0/2. Twelve-cell measured-pose feedback passed fourth-cell grasp/lift 2/2 and its full control suite is running at the frozen revision in mission-checkpoint.json. Switch integral supported-catch native retry is running. Its initial launcher used an undeclared case name and failed before simulator startup. The missing results.json for that launcher is explicitly recorded as failure, with the raw log preserved.
+
+Remote spring interpretation is corrected after reviewing complete traces. Earlier isolated samples understated travel. The press oscillated across 0–2 mm. Reduced gain passed the spring press in the subsequent real expert, which then failed during lowering the free end. Full score remains pending.
+
+Camera resolution is corrected after inspecting the installed adapter. SDK output requested at 1280×720 was resized from 640×360. A replacement capture reads actual raw sensor tensors at 640×360 and verifies pixel equality with SDK output. Use fault-native-raw-setup.ziblmolc/setup.png. Preserve the superseded receipt.
+
+Authenticated price refresh at 10:45:47 UTC still quotes $1.74/hour compute for each of two running instances and $0.000132/GB/hour storage. Conservative combined planning cap is $3.61/hour, accounting for both hosts. User-reported $125 balance is genuine user evidence. Current live provider balance and invoiced total remain unverified. About $47 remains above the $30 reserve under the deliberately conservative creation-time estimate at this checkpoint. No work is authorized on the second host. Never stop/delete either instance automatically.
+
+Active producer roots, exact source heads, and budget calculation are in mission-checkpoint.json. Source revisions are frozen during running producers. Read finalized results and exit files before claiming passes. Continue investigating failed trajectories and queue bounded native repairs.
+
 ## November 11 09:31 native controller milestones and recovery queue
 
 Node revision `e3e3da9` passed both dependent-cooler lift control resets, producer exit 0. The independent assertions verify 25–50 mm vertical lift, geometry validity and scoring validity. Its full expert is running at `node-lift-arrival-feasibility.m44sajw2`.
