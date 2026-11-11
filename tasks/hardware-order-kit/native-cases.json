@@ -107,6 +107,62 @@
       ]
     },
     {
+      "name": "keyed_collar_remains_seated_under_gravity",
+      "initialize_bodies": [
+        {
+          "assembly": "collar_asset",
+          "pos": [
+            0.33,
+            0,
+            0.8225
+          ],
+          "free_articulation_root": true
+        },
+        {
+          "assembly": "collar_key_asset",
+          "pos": [
+            0.375,
+            0.006,
+            0.8225
+          ]
+        }
+      ],
+      "steps": 40,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -0.035,
+          "max": 0.005
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "pose",
+          "body": "lower_collar",
+          "pos": [
+            0.33,
+            0,
+            0.8225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "pose",
+          "body": "collar_key",
+          "pos": [
+            0.375,
+            0.006,
+            0.8225
+          ],
+          "tolerance": 0.003
+        }
+      ]
+    },
+    {
       "name": "key_retains_collar_against_opening_torque",
       "initialize_bodies": [
         {
