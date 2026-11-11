@@ -88,7 +88,7 @@ class Motion:
         if position_error>0.0015 or rotation_error>0.035:
             raise ControlFailure(f'IK did not converge: {position_error*1000:.2f} mm, {math.degrees(rotation_error):.2f} deg')
         if np.any(solved<self.ik.LOWER+1e-5) or np.any(solved>self.ik.UPPER-1e-5):
-            raise ControlFailure('IK reached a joint limit')
+            raise ControlFailure('IK reached a joint limit at base ' + str(self.base) + ', solved=' + str(solved.tolist()))
         step = solved - self.reference
         step *= min(1.0, 0.02/max(np.max(np.abs(step)), 1e-12))
         self.reference = self.reference + step
@@ -211,7 +211,11 @@ class Controller:
                 angle_error = qangle([0, 0, 0, 1], rotation_error)
                 amount = min(phase.get('rotation_gain', 1.),
                              phase.get('rotation_lead', .08) / max(angle_error, 1e-9))
-                q = multiply(interpolate([0, 0, 0, 1], rotation_error, amount), tcpq)
+                turn = interpolate([0, 0, 0, 1], rotation_error, amount)
+                q = multiply(turn, tcpq)
+                if phase.get('rotation_about_body'):
+                    lever = tcp - body_p
+                    p += rotate(turn, lever) - lever
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
