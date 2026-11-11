@@ -116,7 +116,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={'left': Motion('left', tracking_error_limit=0.08), 'right': Motion('right', tracking_error_limit=0.08)}
+        self.motion={'left': Motion('left', tracking_error_limit=0.20), 'right': Motion('right', tracking_error_limit=0.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -215,9 +215,10 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
             error=float(np.linalg.norm(body_p-desired_p))
-            if kind == 'carry' and phase.get('measured_translation'):
+            if phase.get('measured_translation'):
                 p = tcp + limit_vector(phase.get('position_gain', 3.) * (desired_p-body_p),
                                        phase.get('translation_lead', .02))
+            progress_error = error
             if kind == 'insert' and 'insertion_axis_world' in phase:
                 axis = np.asarray(phase['insertion_axis_world'], dtype=float)
                 length = np.linalg.norm(axis)
@@ -232,6 +233,7 @@ class Controller:
                 if np.linalg.norm(lateral) <= phase.get('lateral_tolerance', .00065):
                     correction += limit_vector(axial, phase.get('axial_lead', .0015))
                 p = tcp + correction
+                progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral)])
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
@@ -251,8 +253,11 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
-                if self.last_progress is None or error<self.last_progress-0.0003:
-                    self.last_progress,self.last_progress_t=error,now
+                if self.last_progress is None:
+                    self.last_progress,self.last_progress_t=progress_error,now
+                if np.any(progress_error < self.last_progress - .0003):
+                    self.last_progress = np.minimum(self.last_progress, progress_error)
+                    self.last_progress_t = now
                 elif now-self.last_progress_t>2.0 and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.
@@ -304,6 +309,9 @@ class Controller:
             if now-self.stable_since>=phase.get('hold',0.15):
                 if phase.get('keep_hold'):
                     value=targets[side]
+                    if phase.get('hold_reference_pose'):
+                        hp, hq = self.pose(self.motion[side].reference, side)
+                        value=(hp,hq,value[2],value[3])
                     if phase.get('hold_relative_to'):
                         ref=frame['bodies'][phase['hold_relative_to']];rp,rq=ref['pos'],ref['quat']
                         value=dict(relative_to=phase['hold_relative_to'],pos=rotate(conjugate(rq),value[0]-np.asarray(rp)),

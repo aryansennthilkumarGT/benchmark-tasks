@@ -184,6 +184,37 @@ class FeedbackTests(unittest.TestCase):
         expected = multiply(axis_quat([0, 1, 0], .002), reference_q)
         self.assertLess(qangle(calls[2][1], expected), 1e-7)
 
+    def test_loaded_reference_is_preserved_when_pressure_becomes_inactive_hold(self):
+        controller = self.controller(dict(kind='hold', seconds=0, keep_hold=True,
+                                          hold_reference_pose=True))
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        controller.motion['left'].reference = reference
+        expected, _ = controller.pose(reference, 'left')
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        frame = copy.deepcopy(self.frame)
+        for time in [0., .2]:
+            frame['time'] = time
+            controller.step(self.ready, frame)
+        np.testing.assert_allclose(controller.holds['left'][0], expected, atol=1e-12)
+
+    def test_guided_key_alignment_counts_real_transverse_progress(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['capture_key']['pos'])
+        phase = dict(kind='insert', body='capture_key', insertion_axis_world=[1, 0, 0],
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time in [0., 1., 2., 3.]:
+            frame['time'] = time
+            frame['bodies']['capture_key']['pos'] = (goal + [-.065, 0, .002-.0004*time]).tolist()
+            controller.step(self.ready, frame)
+        frame['time'] = 6.
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

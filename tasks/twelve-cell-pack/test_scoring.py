@@ -211,6 +211,19 @@ class SemanticTests(unittest.TestCase):
         f['bodies'][p['body']]['pos'][0]+=p['tolerance']
         self.assertTrue(self.sc.predicate(p,f));f['bodies'][p['body']]['pos'][0]+=.000001
         self.assertFalse(self.sc.predicate(p,f))
+    def test_loaded_cells_score_zero_until_plate_is_seated(self):
+        frame = target_frame()
+        frame['bodies']['retaining_plate'] = copy.deepcopy(initial()['bodies']['retaining_plate'])
+        frame['bodies']['capture_key'] = copy.deepcopy(initial()['bodies']['capture_key'])
+        self.assertEqual(self.sc.update(frame).score, 0.)
+
+    def test_seated_plate_without_key_has_only_contact_partial_credit(self):
+        frame = target_frame()
+        frame['bodies']['capture_key'] = copy.deepcopy(initial()['bodies']['capture_key'])
+        result = self.sc.update(frame)
+        self.assertAlmostEqual(result.score, .48)
+        self.assertFalse(result.success)
+
     def test_region_requires_entire_object(self):
         name=next(iter(initial()['bodies']));f=initial()
         p=dict(kind='region',body=name,min=f['bodies'][name]['pos'].copy(),max=[v+.001 for v in f['bodies'][name]['pos']])

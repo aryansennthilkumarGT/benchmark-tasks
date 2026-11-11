@@ -515,6 +515,22 @@
           "min": -0.00015,
           "max": 5e-05
         }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "cell_0_asset",
+          "pos": [
+            0.16,
+            -0.17,
+            0.77295
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
       ]
     },
     {
@@ -718,41 +734,246 @@
           "success": false
         }
       ]
+    },
+    {
+      "name": "unkeyed_plate_lifts_under_same_load",
+      "initialize_bodies": [
+        {
+          "assembly": "cell_0_asset",
+          "pos": [
+            0.09999999999999998,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_1_asset",
+          "pos": [
+            0.14999999999999997,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_2_asset",
+          "pos": [
+            0.2,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_3_asset",
+          "pos": [
+            0.25,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_4_asset",
+          "pos": [
+            0.3,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_5_asset",
+          "pos": [
+            0.35,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_6_asset",
+          "pos": [
+            0.09999999999999998,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_7_asset",
+          "pos": [
+            0.14999999999999997,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_8_asset",
+          "pos": [
+            0.2,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_9_asset",
+          "pos": [
+            0.25,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_10_asset",
+          "pos": [
+            0.3,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_11_asset",
+          "pos": [
+            0.35,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "retaining_plate_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.811
+          ]
+        },
+        {
+          "assembly": "capture_key_asset",
+          "pos": [
+            0.385,
+            -0.24,
+            0.7547
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "retaining_plate_asset",
+          "body": "retaining_plate",
+          "force": [
+            0,
+            0,
+            3
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "retaining_plate",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.003,
+          "max": 100
+        }
+      ]
     }
   ],
   "control": [
     {
-      "name": "first_cell_grasp_and_lift",
-      "through_phase": 2,
-      "max_steps": 900,
+      "name": "pressure_plate_grasp_and_lift",
+      "through_phase": 3,
+      "through_label": "Lift pressure plate",
+      "max_steps": 1200,
       "assertions": [
         {
           "kind": "displacement",
-          "body": "cell_0",
+          "body": "retaining_plate",
           "axis": [
             0,
             0,
             1
           ],
           "min": 0.05,
-          "max": 0.1
-        },
-        {
-          "kind": "valid"
-        }
-      ],
-      "through_label": "Verify lift of cell_0"
-    },
-    {
-      "name": "first_cell_seated_and_released",
-      "through_phase": 8,
-      "max_steps": 2000,
-      "assertions": [
-        {
-          "kind": "joint",
-          "joint": "contact_spring_0",
-          "min": -0.0015,
-          "max": -0.0002
+          "max": 0.16
         },
         {
           "kind": "penetration",
@@ -760,55 +981,92 @@
         },
         {
           "kind": "valid"
-        },
-        {
-          "kind": "goal",
-          "name": "cell_0_contacted",
-          "completed": true
-        }
-      ],
-      "through_label": "Withdraw from cell_0"
-    },
-    {
-      "name": "fourth_cell_grasp_and_lift",
-      "start_phase": 26,
-      "through_phase": 29,
-      "through_label": "Verify lift of cell_3",
-      "max_steps": 1000,
-      "assertions": [
-        {
-          "kind": "displacement",
-          "body": "cell_3",
-          "axis": [
-            0,
-            0,
-            1
-          ],
-          "min": 0.05,
-          "max": 0.1
-        },
-        {
-          "kind": "valid"
         }
       ]
     },
     {
-      "name": "sixth_cell_seated_and_released",
-      "start_phase": 44,
-      "through_phase": 53,
-      "through_label": "Withdraw from cell_5",
-      "max_steps": 2000,
+      "name": "compress_all_twelve_contacts",
+      "through_phase": 5,
+      "through_label": "Compress all twelve terminal springs",
+      "max_steps": 1800,
       "assertions": [
         {
           "kind": "joint",
-          "joint": "contact_spring_5",
-          "min": -0.0015,
-          "max": -0.0002
+          "joint": "contact_spring_0",
+          "min": -0.0019,
+          "max": -0.00025
         },
         {
-          "kind": "goal",
-          "name": "cell_5_contacted",
-          "completed": true
+          "kind": "joint",
+          "joint": "contact_spring_1",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_2",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_3",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_4",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_5",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_6",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_7",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_8",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_9",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_10",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_11",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "score",
+          "min": 0.479,
+          "max": 0.481,
+          "success": false
         },
         {
           "kind": "penetration",

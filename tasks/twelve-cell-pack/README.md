@@ -1,48 +1,25 @@
-# Preload and retain a twelve-cell service pack
+# Capture a twelve-cell pack's shared spring preload with a cross-key
 
-Fit all twelve cells with the polarity shown at each bay. Compress the blue pressure plate over the cells, slide the orange capture key through both retaining channels, then release both hands.
+Close a loaded pack by seating the pressure plate across twelve independent spring contacts and transferring the load to a retaining cross-key. The task starts with the cells loaded. The plate and key are loose.
 
-Engineering implementation. `validation.json` records exact executed evidence. A checkout without the required native, expert, model and media records is not ready for an official PR. No unexecuted score is claimed.
+## Reproduction
 
-## Independent reproduction
-
-This folder is self-contained; it never imports another task or the handoff branch. In an authorized official Linux x86-64 YAM/Arena GPU environment, run from the repository root:
+Use the pinned official YAM Launchable Python environment. From a clean repository checkout, set `ARENA_PYTHON` to its Python and `RUN_DIR` to an empty persistent directory outside the checkout.
 
 ```bash
-python3 tasks/twelve-cell-pack/bootstrap_task.py --output /data/twelve-cell-pack-evidence --budget-file /data/compute-budget.json --execute --model
+"$ARENA_PYTHON" tasks/twelve-cell-pack/static_check.py
+"$ARENA_PYTHON" tasks/twelve-cell-pack/native_tests.py --mode physics --commit "$(git rev-parse HEAD)" --output "$RUN_DIR/physics"
+"$ARENA_PYTHON" tasks/twelve-cell-pack/native_tests.py --mode control --commit "$(git rev-parse HEAD)" --output "$RUN_DIR/control"
+"$ARENA_PYTHON" tasks/twelve-cell-pack/run.py --mode expert --execute --commit "$(git rev-parse HEAD)" --seed 0 --output "$RUN_DIR/expert-1"
+"$ARENA_PYTHON" tasks/twelve-cell-pack/run.py --mode expert --execute --commit "$(git rev-parse HEAD)" --seed 0 --output "$RUN_DIR/expert-2"
 ```
 
-Without `--execute`, this command previews only. Add `--resume` to reuse hash-verified outputs. The bootstrap uses the pinned official installer in the evidence directory, validates the official apple/bowl smoke trial, runs static checks, then native probes and two independent full-score expert episodes. `--model` adds genuine Dream-1 and media only after those succeed. It never uploads media or opens PRs. See the shared eight-task runner on the handoff branch for upload and submission gates.
+Each native physics case and robot-control case runs twice after independent resets. Six physics cases produce twelve results. Two robot-control cases produce four results. Physics fixtures may initialize isolated mechanism states. Recorded experts start from the declared setup and use fourteen-dimensional joint/gripper actions throughout.
 
-For the installed Brev stack, add `--launchable-root /data` to the bootstrap command. The provider budget receipt is required for execution. If the exact pinned environment is already installed, use its Python directly:
+The run limit is 3600 actions at 20 Hz, or 180 simulated seconds. Seed 0 and zero object jitter are fixed. Measured successful wall time and scores are pending for this focused revision. Check finalized Inspect logs, native traces and `validate_rollout.py` before claiming a successful trial. `run.py` without `--execute` previews its command.
 
-```bash
-python tasks/twelve-cell-pack/static_check.py
-python tasks/twelve-cell-pack/task_runner.py --output /data/twelve-cell-pack-trials --execute --model
-```
+## Mechanism and fidelity
 
-Evidence must be outside this Git checkout, and the checkout must be clean. The same command without `--execute` is a dry run. `--retry-failed REASON` allows one documented retry of an unchanged failed stage; a code fix should produce a new commit. A failed task preserves previous evidence. Never reuse an expert video as model evidence.
+A rigid pressure plate simultaneously loads twelve 500 N/m contact springs. The cross-key must retain this compression after both hands release. Cylindrical cell geometry includes polarity-dependent terminal profiles. The model omits electrical and electrochemical behavior. Geometry, masses and local transforms are defined in `scene.json` and its generated USD assets.
 
-## Environment and cost
-
-`stack-lock.json` pins the official launchable, adapter, Arena release, Inspect Robots and Dream plugin commits. It uses Python 3.12, Isaac Sim 6.1.0.0, NumPy 2.3.1 and the official bimanual I2RT YAM station. The adapter's 14-D action is left six absolute joints + normalized jaw opening, then right six + opening. Physics is 240 Hz; control is 20 Hz; observations are the three official 320x176 RGB cameras and robot joints.
-
-Use an RTX 4090/5090 or L40S ray-tracing GPU, >=16 GiB free VRAM, >=32 GB RAM with >=24 GiB available, and >=250 GiB free disk. Drivers are compared with the documented Linux recommendation 580.95.05. The fixed L40S profile on 565.57.01 uses the verified installed Launchable with `--launchable-root /data`. The bootstrap records the GPU and driver, verifies active package sources and pinned versions, and requires the scored official station smoke before task execution. The script does not modify drivers, system Python, VPN, SSH configuration or other jobs. Vendor EULA acceptance must already be configured by the authorized launchable/operator. `uv` and `git` must be present. Dream credentials stay in the official secure configuration.
-
-The budget receipt describes actual provider facts: `hourly_usd`, `balance_usd`, `spent_before_start_usd`, `instance_started_unix`, `instance_id`, `gpu_uuid`, and `provider_evidence`. When the balance is observed after instance startup, `balance_observed_unix` records the snapshot time for reserve calculations. No price or credit is assumed. The launcher monitors instance wall time, including idle time, with a $170 charge cap and $30 reserve. Exiting a script does not stop provider billing. Evidence and raw observations are retained.
-
-## Trials and scoring
-
-Seed 0 and `object_jitter=0` are fixed for both expert repeats and the model. Maximum 12000 actions (600 simulated seconds). Real wall time is unmeasured and depends on physics/rendering/model latency. The scorer recomputes partial credit and requires 1 s of final stability and released-arm clearance. Read [SCORING.md](SCORING.md) for every numerical condition and [SETUP.md](SETUP.md) for every body, material, mass, dimension and pose.
-
-Native probes: 5 physics cases and 4 real robot-control cases, each repeated after independent resets. Physics probes may initialize mechanism poses and apply forces for controlled measurements; those probes are explicitly excluded from demonstration/media evidence. Control probes use only robot actions. Two full expert episodes separately establish feasibility before model spending.
-
-## Implementation and limits
-
-Rigid cells and passive terminal shoes model polarity, seating and spring compression. A free pressure plate compresses the contacts and a free cross-key captures its load through real channels. Enlarged geometry aids parallel-jaw handling. Electrochemistry, corrosion and electrical tests are omitted.
-
-Read [CONTROLLER.md](CONTROLLER.md), [NOVELTY.md](NOVELTY.md), and `mechanics-review.json` for the feedback strategy, comparison review and five criteria. Rigid USD parse checks, synthetic scoring tests and ideal IK replay are offline evidence only. Native contacts, camera rendering, reliable reset and complete action execution require separate runtime evidence.
-
-`build_assets.py` deterministically derives included `.usda` assets from `scene.json`; run it only when intentionally changing the scene, then update hashes and commit. `source_manifest.json` hashes LF-normalized source and asset bytes. `run.py` launches one official trial, `task_runner.py` preserves/gates native evidence, `validate_rollout.py` cross-checks logs/actions/frames/scorer replay, and `render_media.py` exports and fully decodes H.264 yuv420p media. A zero Dream score is valid evidence when the required successful demonstrations exist. Public media require visual inspection for framing, mechanical outcome and blind-review compliance before upload.
-
-Interchangeable parts are matched one-to-one to valid slots. The body names in slot predicates are templates: any listed candidate may satisfy that slot, and dependent closure/preload goals reuse the same matching. Polarity, contact-spring compression and measured turn history remain mandatory. A single part cannot earn two slot credits; changing studs resets its thread history. The expert uses one convenient assignment, which is not required by scoring.
+Read [SETUP.md](SETUP.md), [SCORING.md](SCORING.md) and [NOVELTY.md](NOVELTY.md) for the fixed layout, numerical objectives and mechanism-specific comparison. This revision remains under engineering validation.
