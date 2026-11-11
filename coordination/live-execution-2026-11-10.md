@@ -1,3 +1,19 @@
+## November 11 09:00 controller feedback and budget refresh
+
+The service-arm clean HTTPS expert remains verified at full score. Native two-process operation on the authorized host completed without a CUDA/physics failure for that reproduction. Read its finalized `experiment.json` and original sealed feasibility evidence independently.
+
+The target-distance battery-pack revision continued beyond the former false stall, then timed out at cell 1 after 30 seconds of guided seating. Recorded cell height reached approximately 0.8001 m. The 0.4-mm lateral descent gate repeatedly paused progress. Exact native-pose analytic cylinder/slot checks retained at least 0.7118-mm physical side clearance across 602 samples. Revision `67a7acd` uses a 0.8-mm lateral gate and passed full static checks. A new native run is required.
+
+Remote tilt/transverse hold preserved the entry and compressed spring 0 approximately 0.49 mm, below 1.15 mm target. Its finalized validator exited 1. Measured-pose convex geometry showed only intended cell/spring-face contact. Revision `e4e6cd6` raises bounded axial lead to 6 mm and gain to 12, with physical 2-mm travel and 200-N/m spring. Its real expert retry is running after the battery-pack diagnostic.
+
+Chassis telemetry repeated the drive-lift timeout twice, exit 1. Drive slid on the table, with measured right reference gaps below 0.025 rad at failure. Revision `bdceb8b` adds measured-TCP carry feedback, gain 8 and a 20-mm lead cap. Static passed; native control is queued.
+
+Node telemetry measured genuine cooling-shroud lift of 26.4 and 31.2 mm, with first-repeat tilt approximately 0.123 rad. Revision `e3e3da9` applies 10-mm/0.15-rad lift-waypoint arrival bands while explicitly requiring at least 25-mm lift. The independent native 25–50-mm displacement assertion remains in place. Static and source hashes passed. Native control and a conditional expert are queued.
+
+Switch approach revision `c306822` uses a 3-mm clearance-waypoint arrival band after actual 2.391-mm residual and measured-pose convex checks with no robot/task pair within 2 mm. Native retesting is running. Hardware telemetry-only revision `e83f57c` is queued for full physics and placement control. Eight-fastener `0d3f6e8` is queued for its first plate-compression and nut-lift robot probes after its genuine 8/8 physics PASS.
+
+Authenticated provider pricing refreshed at 08:57 UTC. Both instance responses still quote USD1.740000/hour compute base and USD0.000132/GB/hour storage. Exact balance and invoice total remain unavailable. Conservative combined planning remains USD3.61/hour. The 08:53 estimate leaves USD56.14 above reserve, counting both resources since the earliest instance creation. Evidence contains exact response hashes. The legacy API token was refreshed by the authenticated Brev CLI. No credential values were printed. No second-host workload or instance-control action occurred.
+
 ## November 11 continuation, clean HTTPS native reproduction and targeted controller work
 
 The service-arm task at `46bf1008e01546b266b5ba973d31e75e64bf8f89` reproduced a genuine 1.0 expert result from the clean HTTPS fork checkout. Process and rollout validation both exited 0. Receipt `/data/robocurve-runs/resume-compat/fault-https-parallel-reproduction.30j8w_bm/clean-trial/validated-rollout.json` records 1,899 actions and 94.95 simulated seconds. Concurrent same-host startup incurred shader compilation and the Inspect trial took 770.95 wall seconds. Two-process operation succeeded for this trial, with throughput still requiring measurement.

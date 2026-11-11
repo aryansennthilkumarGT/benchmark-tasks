@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T08:45:23.167744+00:00",
+  "updated_at": "2026-11-11T09:00:43.962876+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -14,8 +14,8 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "17a9eab5ffaf0f908ebfbedb054e0a03ed010304",
-      "state": "SPRING_TRANSVERSE_AND_TILT_HOLD_NATIVE_RETEST_RUNNING",
+      "commit": "e4e6cd6780cdb8bbf4052f6c4d0b9c60e6233087",
+      "state": "SPRING_HOLD_COMPRESSED_0_49MM_LEAD_INCREASE_NATIVE_RETEST_QUEUED",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
@@ -36,8 +36,8 @@
     },
     {
       "slug": "node-service-closeout",
-      "commit": "c8899f0251a2f70621bbe3ab7819696ee23e4e71",
-      "state": "PAYLOAD_TELEMETRY_NATIVE_RETEST_RUNNING",
+      "commit": "e3e3da9472c4213c48820c2a4ccca0fcd1665254",
+      "state": "NATIVE_LIFT_26_TO_31MM_TRANSIT_ARRIVAL_FIX_RETEST_QUEUED",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
@@ -46,8 +46,8 @@
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "66dae272ff5522684f051fd566a8f123a9617d45",
-      "state": "FALSE_STALL_REPLAY_CONFIRMED_DISTANCE_METRIC_FIX_NATIVE_RETEST_QUEUED",
+      "commit": "67a7acd83b7a08d3507013fa8ffc1c4eddd553ee",
+      "state": "FALSE_STALL_FIXED_MEASURED_SLOT_GATE_REVISION_STATIC_PASS_NATIVE_RETEST_PENDING",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
@@ -149,19 +149,40 @@
   "offline_execution_evidence": "offline-run-verification.json",
   "live_execution_evidence": "live-execution-2026-11-10.md",
   "current_operation": {
-    "primary_lane": [
-      "twelve-guided-feasibility.9cdd_11s"
+    "kind": "TWO_NATIVE_LANES_ON_AUTHORIZED_MISSION_HOST",
+    "queue": [
+      {
+        "root": "/data/robocurve-runs/resume-compat/switch-approach-arrival-control.qrjwuo0x",
+        "status": "RUNNING",
+        "commit": "c306822c3b14a8accb2a628ed29572855eb58cf1"
+      },
+      {
+        "root": "/data/robocurve-runs/resume-compat/nut-first-robot-control.4zb7o2f5",
+        "status": "WAITING_FOR_NATIVE_LANE",
+        "commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45"
+      },
+      {
+        "root": "/data/robocurve-runs/resume-compat/hardware-telemetry-native.m3a36qtj",
+        "status": "WAITING_FOR_NATIVE_LANE",
+        "commit": "e83f57c72cfa50d925819e4e90bd375e62b211c1"
+      },
+      {
+        "root": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2",
+        "status": "WAITING_FOR_NATIVE_LANE",
+        "commit": "e3e3da9472c4213c48820c2a4ccca0fcd1665254"
+      },
+      {
+        "root": "/data/robocurve-runs/resume-compat/remote-spring-lead-expert.ycuccagy",
+        "status": "RUNNING",
+        "commit": "e4e6cd6780cdb8bbf4052f6c4d0b9c60e6233087"
+      },
+      {
+        "root": "/data/robocurve-runs/resume-compat/chassis-measured-carry-control.2cfh_7s2",
+        "status": "WAITING_FOR_NATIVE_LANE",
+        "commit": "bdceb8b35787f0a5b825f6d624de834ac4d19f60"
+      }
     ],
-    "secondary_compatibility_test": "fault-https-parallel-reproduction.30j8w_bm",
-    "root": "/data/robocurve-runs/resume-compat",
-    "instructions": "Both are running on the authorized current host. Two-process capability remains unvalidated until finalized results pass. Check real native results and producer/validator exits. Keep these source heads fixed while their runs execute.",
-    "pending_cpu_work": [
-      "Remote spring press currently follows measured wrist orientation; preserve captured tilted wrist and diagnose force",
-      "Chassis drive carry needs payload tracking diagnosis after lid support success",
-      "Node/hardware load failures need measured references/torques",
-      "Switch approach timeout needs FK/contact diagnosis"
-    ],
-    "publication_preview": "fault-publication-preview"
+    "guard": "Preserve frozen branch heads while active or queued. Finalized reports and validator exits determine success. Do not terminate the instance."
   },
   "submission_authorization": {
     "authorized_at": "2026-11-11T04:19:45.640549+00:00",
@@ -230,6 +251,8 @@
     "evidence": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/organization-conservative-planning.json",
     "human_notice": "Sent prominently; current dashboard balance/total rate requested",
     "second_instance_use": "AUTHORIZATION_REQUESTED_PENDING_NO_OPERATIONS_LAUNCHED",
-    "instance_control": "USER_ONLY"
+    "instance_control": "USER_ONLY",
+    "latest_provider_price_refresh": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/current-price-refresh.json",
+    "latest_conservative_estimate": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/current-planning-estimate.json"
   }
 }
