@@ -80,3 +80,5 @@ Storage rail alignment and insertion use world z 0.7635 m, the physical floor pl
 Storage carry phases use position gain2 with10mm maximum lead and loaded reference gain2. The earlier gain8 generated a0.8-per-action effective correction and failed to settle the extracted module within1.5mm. The revised effective correction is0.2 per action. Long storage transfers retain a35second bound. Cooler phases before the failed storage lift are unchanged.
 
 The raised storage pull grip and upright are6mm thick along x. The retained low blocking lug keeps its original14mm thickness. Native insertion stalled when the raised grip overlapped the cooler blocking lip by1mm along x. The narrower upright gives3mm nominal clearance for top-down cooler insertion while preserving the independent low-lug extraction constraint.
+
+Storage carries correct measured body attitude about the current body centre. A cold native lift reached its position target while the storage body remained pitched 0.213 rad. The attitude loop uses gain 0.3 and caps each rotation command at 0.02 rad. Final pose tolerances are unchanged.
