@@ -24,3 +24,5 @@ A 24 by 44 by 4 mm lid pad sits above the cooler handle with 2 mm nominal cleara
 ## Mass distribution overrides
 
 
+
+A second 24 by 64 by 13 mm pad spans the far cooler fins with 3 mm nominal clearance. The two pads restrict upward translation and pitching of a seated cooler.
