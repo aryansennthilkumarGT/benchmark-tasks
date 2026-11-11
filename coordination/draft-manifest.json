@@ -11,9 +11,9 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "389a6acfb4b463467e023fc816c8f41e34cf67c9",
+      "commit": "d0e237e74bfc986f925a5993ccaefd33c82710e5",
       "task_folder": "tasks/hinged-chassis-drive",
-      "status": "RUNNING",
+      "status": "SCALED_ALIGNMENT_PROGRESS_RETEST_QUEUED",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -30,7 +30,7 @@
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_10_OF_10_CURRENT_389A6AC",
-      "robot_control": "PRIOR_LID_AND_DRIVE_LIFT_PASSED_CURRENT_INSERTION_RETEST_RUNNING",
+      "robot_control": "PRIOR4_PASS_2_FAIL_CURRENT_RETEST_QUEUED",
       "media_verified": false,
       "suggested_pr_title": "Install and retain a drive under a gravity-closing lid",
       "suggested_pr_body": null,
@@ -43,19 +43,19 @@
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/chassis-integral-guide-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-final-clearance.5iupgbe7",
-      "producer_status": "RUNNING",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-scaled-progress.h2pmcttp",
+      "producer_status": "WAITING_FOR_NATIVE_LANE",
       "historical_control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah",
-      "state": "RUNNING"
+      "state": "SCALED_ALIGNMENT_PROGRESS_RETEST_QUEUED"
     },
     {
       "slug": "remote-battery-service",
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "dbcc2beae4a370e4bc11df89b13937a9fdd32e5b",
+      "commit": "aeb82e95c42de3ec6a46514a0eaacaca7ededae5",
       "task_folder": "tasks/remote-battery-service",
-      "status": "RUNNING",
+      "status": "EXPERT_RETRY_AFTER_FALSE_STALL_FIX",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -87,9 +87,9 @@
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/remote-integral-lowering-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/remote-combined-lowering.nhbbve6l",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/remote-independent-progress.dbvi3spx",
       "producer_status": "RUNNING",
-      "state": "RUNNING"
+      "state": "EXPERT_RETRY_AFTER_FALSE_STALL_FIX"
     },
     {
       "slug": "switch-map-rework",
@@ -139,7 +139,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
       "commit": "0db1f1d1e350b7424a879c82ae9f60ef16097600",
       "task_folder": "tasks/node-service-closeout",
-      "status": "RUNNING",
+      "status": "FIRST_FULL_EXPERT_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -156,7 +156,7 @@
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
-      "robot_control": "PRIOR_LIFT_PASS_2_COLLECTION_FAIL_2_CURRENT_RETEST_QUEUED",
+      "robot_control": "PASS_6_OF_6_CURRENT_SOURCE",
       "media_verified": false,
       "suggested_pr_title": "Exchange two internal modules and close out an enclosure",
       "suggested_pr_body": null,
@@ -172,16 +172,16 @@
       "latest_native_run": "/data/robocurve-runs/resume-compat/node-unified-insertion.4wlz1zef",
       "producer_status": "RUNNING",
       "historical_control_evidence": "/data/robocurve-runs/resume-compat/node-lift-arrival-feasibility.m44sajw2/control/results.json",
-      "state": "RUNNING"
+      "state": "FIRST_FULL_EXPERT_RUNNING"
     },
     {
       "slug": "twelve-cell-pack",
       "title": "Preload and retain a twelve-cell service pack",
       "branch": "draft/twelve-cell-pack",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
-      "commit": "1fc2b514f8ecbce54aa61695e1355357f1e7466a",
+      "commit": "8ceee27c923da752c49a5c6b1ac3042b7c5f09a5",
       "task_folder": "tasks/twelve-cell-pack",
-      "status": "RUNNING_FRESH_PHYSICS_WITH_FULL_SCORE_ASSERTION",
+      "status": "HIGHER_SOLVER_STABILITY_PROBE",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -212,9 +212,9 @@
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/twelve-loaded-carry-static.log",
-      "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-symmetric-key.2x_1d4i9",
-      "producer_status": "WAITING_FOR_NATIVE_LANE",
-      "state": "RUNNING_FRESH_PHYSICS_WITH_FULL_SCORE_ASSERTION",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-constraint-iterations.gak2qdpx",
+      "producer_status": "RUNNING",
+      "state": "HIGHER_SOLVER_STABILITY_PROBE",
       "scope": "Twelve preloaded cells, pressure-plate compression and retaining cross-key"
     },
     {
@@ -361,5 +361,5 @@
       "state": "WAITING_FOR_NATIVE_LANE"
     }
   ],
-  "updated_at": "2026-11-11T13:48:22.837772+00:00"
+  "updated_at": "2026-11-11T14:24:50.912593+00:00"
 }
