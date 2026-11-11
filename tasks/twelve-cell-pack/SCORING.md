@@ -9,3 +9,5 @@ The initial plate and key are separate from the loaded holder, yielding score 0.
 Fixture movement over 5 mm or 3 degrees, a body falling over 25 mm below the tabletop loss plane, or prohibited interpenetration over 2 mm invalidates the trial and yields 0. Frame schema, timing and finite-state checks also apply. Exact target poses, limits and dependencies are listed in `scene.json`.
 
 The scorer reads native measured poses and joint states. The expert uses the normal robot action interface. Controlled physics fixtures are separate from demonstrations.
+
+For the cylindrical cells, angular stability is the rate of change of their longitudinal axis between consecutive20Hz pose observations, at most0.2rad/s. Axial spin leaves the collision geometry and terminal polarity unchanged. Centre speed remains at most0.01m/s. Other bodies use their native angular velocity. An absent or oversized observation interval uses the measured transverse angular velocity and resets the full-score hold. All full-score conditions, including robot withdrawal, must hold for1s. Native linear/angular velocities remain in the raw evidence.

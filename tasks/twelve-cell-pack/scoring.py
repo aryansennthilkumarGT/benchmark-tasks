@@ -73,6 +73,21 @@ class Scorer:
             raise ValueError('goal weights must be finite and positive')
         if abs(sum(g['weight'] for g in spec['goals']) - 1) > 1e-9:
             raise ValueError('goal weights must sum to one')
+        for body in self.body_specs.values():
+            axis = body.get('stability_axis')
+            if axis is None:
+                continue
+            if not finite(axis, 3) or abs(norm(axis)-1) > 1e-8:
+                raise ValueError('Invalid stability axis')
+            for shape in body['shapes']:
+                if not shape.get('collision', True):
+                    continue
+                shape_axis = rotate(shape.get('quat', [0, 0, 0, 1]), [0, 0, 1])
+                alignment = sum(a*b for a, b in zip(axis, shape_axis))
+                projected_distance = sum(a*b for a, b in zip(axis, shape['pos']))
+                offset = sub(shape['pos'], tuple(projected_distance*a for a in axis))
+                if shape['kind'] != 'cylinder' or abs(alignment) < 1-1e-8 or norm(offset) > 1e-8:
+                    raise ValueError('Stability axis requires centred axisymmetric collision geometry')
         self.joint_specs = {j['name']: j for a in spec['assemblies'] for j in a.get('joints', [])}
         goal_names={g['name'] for g in spec['goals']}
         for g in spec['goals']:
@@ -96,6 +111,7 @@ class Scorer:
     def reset(self):
         self.last_time = None
         self.last_frame = None
+        self.previous_observation = None
         self.failed = None
         self.hold_start = None
         self.first = {}
@@ -133,6 +149,21 @@ class Scorer:
                 return f'unnormalized_quaternion:{name}'
         return None
 
+    def angular_speed(self, name, frame):
+        body = frame['bodies'][name]
+        axis = self.body_specs[name].get('stability_axis')
+        if axis is None:
+            return norm(body['angular'])
+        current_axis = rotate(body['quat'], axis)
+        previous = self.previous_observation
+        dt = frame['time']-previous['time'] if previous is not None else 0.0
+        if 0 < dt <= 1.5/self.spec['control_hz']:
+            previous_axis = rotate(previous['bodies'][name]['quat'], axis)
+            cosine = sum(a*b for a, b in zip(current_axis, previous_axis))/(norm(current_axis)*norm(previous_axis))
+            return math.acos(max(-1., min(1., cosine)))/dt
+        component = sum(a*b for a, b in zip(body['angular'], current_axis))/norm(current_axis)**2
+        return norm(sub(body['angular'], tuple(component*a for a in current_axis)))
+
     def predicate(self, p, f):
         kind = p['kind']
         if kind == 'turns':
@@ -159,7 +190,7 @@ class Scorer:
             return all(all(lo-1e-10 <= v <= hi+1e-10 for v, lo, hi in zip(c, p['min'], p['max']))
                        for c in corners)
         if kind == 'still':
-            return norm(b['linear']) <= p.get('speed', 0.01) and norm(b['angular']) <= p.get('spin', 0.2)
+            return norm(b['linear']) <= p.get('speed', 0.01) and self.angular_speed(p['body'], f) <= p.get('spin', 0.2)
         raise ValueError(f'unsupported predicate {kind}')
 
     def completed_goals(self,frame):
@@ -209,6 +240,7 @@ class Scorer:
         if self.last_time is not None and now - self.last_time > 1.5 / self.spec['control_hz']:
             self.hold_start = None  # an unobserved time gap cannot prove stability.
         previous_frame=self.last_frame
+        self.previous_observation = previous_frame
         import copy
         self.last_time, self.last_frame = now, copy.deepcopy(frame)
         for name, bs in self.body_specs.items():
@@ -295,8 +327,8 @@ class Scorer:
         self.lost.update(self.previous - active)
         self.previous = active
         all_done = len(active) == len(self.spec['goals']) and frame['robot_clearance'] >= 0.02
-        all_still = all(norm(b['linear']) <= 0.01 and norm(b['angular']) <= 0.2
-                        for b in frame['bodies'].values())
+        all_still = all(norm(b['linear']) <= 0.01 and self.angular_speed(name, frame) <= 0.2
+                        for name, b in frame['bodies'].items())
         if all_done and all_still and not self.failed:
             if self.hold_start is None:
                 self.hold_start = now

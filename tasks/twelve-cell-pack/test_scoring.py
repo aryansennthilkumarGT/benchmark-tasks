@@ -322,4 +322,49 @@ class SemanticTests(unittest.TestCase):
         self.assertEqual(result.failure,'catch_forced_without_release:'+guard['body'])
 
 
+    def test_observed_cell_stability_retains_raw_velocity_evidence(self):
+        scorer = S.Scorer(SPEC)
+        frame = target_frame()
+        scorer.update(frame)
+        for index in range(1, 23):
+            frame = copy.deepcopy(frame)
+            frame['time'] = index/20
+            for name, body in frame['bodies'].items():
+                if name.startswith('cell_'):
+                    body['angular'] = [.6, .5, 1.0]
+            result = scorer.update(frame)
+        self.assertTrue(result.success)
+        self.assertEqual(frame['bodies']['cell_0']['angular'], [.6, .5, 1.0])
+
+    def test_observed_cell_tilt_and_translation_remain_rejected(self):
+        scorer = S.Scorer(SPEC)
+        frame = target_frame()
+        scorer.update(frame)
+        frame = copy.deepcopy(frame)
+        frame['time'] = .05
+        frame['bodies']['cell_0']['quat'] = [math.sin(.02/2), 0, 0, math.cos(.02/2)]
+        scorer.update(frame)
+        predicate = dict(kind='still', body='cell_0', speed=.01, spin=.2)
+        self.assertFalse(scorer.predicate(predicate, frame))
+        frame['bodies']['cell_0']['linear'] = [.02, 0, 0]
+        self.assertFalse(scorer.predicate(predicate, frame))
+
+    def test_stability_axis_requires_symmetric_collision_geometry(self):
+        spec = copy.deepcopy(SPEC)
+        body = next(body for assembly in spec['assemblies'] for body in assembly['bodies']
+                    if body['name'] == 'cell_0')
+        body['shapes'][0]['pos'][0] = .001
+        with self.assertRaisesRegex(ValueError, 'axisymmetric'):
+            S.Scorer(spec)
+
+    def test_legacy_body_without_stability_axis_keeps_native_spin_check(self):
+        spec = copy.deepcopy(SPEC)
+        for assembly in spec['assemblies']:
+            for body in assembly['bodies']:
+                body.pop('stability_axis', None)
+        scorer = S.Scorer(spec)
+        frame = target_frame()
+        frame['bodies']['cell_0']['angular'] = [0, 0, 1]
+        self.assertEqual(scorer.angular_speed('cell_0', frame), 1)
+
 if __name__=='__main__':unittest.main()
