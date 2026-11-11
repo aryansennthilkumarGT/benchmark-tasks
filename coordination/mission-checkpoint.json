@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T00:38:31.984752+00:00",
+  "updated_at": "2026-11-11T00:47:25.964368+00:00",
   "status": "FIXED_DRIVER_STATION_AND_COUNTERWEIGHT_PHYSICS_VALIDATED",
   "tasks": [
     {
@@ -10,8 +10,9 @@
     },
     {
       "slug": "remote-battery-service",
-      "commit": "6594c6ba628cb77a411ab0251df253ed7fb11705",
-      "state": "NATIVE_RESET_AND_FOUR_STEPS_OBSERVED"
+      "commit": "0c908f77649f96955447ec0ce0d7c5c66fff025a",
+      "state": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
+      "physics_evaluated_commit": "6594c6ba628cb77a411ab0251df253ed7fb11705"
     },
     {
       "slug": "switch-map-rework",
@@ -35,7 +36,7 @@
     },
     {
       "slug": "fault-module-repair",
-      "commit": "d2fecabe84ba80fafc97965d5b5a158ee64b0622",
+      "commit": "8bb36ad28f9f0007772927dda7c4deb3a5db2d9d",
       "state": "REVISED_PIN_CASES_PASSED_FULL_SUITE_AND_EXPERT_PENDING",
       "physics_evaluated_commit": "ff14c993552266a701f9fb938187d65906ef913d"
     },
@@ -50,7 +51,7 @@
     "unit_tests_not_applicable": 32,
     "offline_geometry_audits_passed": 33,
     "composed_usd_packages_passed": 8,
-    "native_runs": 3,
+    "native_runs": 4,
     "expert_runs": 0,
     "model_runs": 0,
     "media_uploads": 0,
@@ -60,9 +61,9 @@
     "resume_without_duplicate_work": "PASS",
     "offline_geometry_audits_not_applicable": 7,
     "official_station_replays_passed": 1,
-    "native_physics_case_repeats_passed": 26,
+    "native_physics_case_repeats_passed": 38,
     "other_draft_native_reset_diagnostics": 7,
-    "expert_diagnostic_trials_errored": 2
+    "expert_diagnostic_trials_errored": 3
   },
   "remaining": [
     "Verify billed Brev rate and issue the provider budget receipt for full evaluations",
