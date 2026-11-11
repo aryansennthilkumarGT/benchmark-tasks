@@ -1,89 +1,94 @@
 {
-  "schema_version": 2,
-  "status": "CHAMFERED_PIN_GUIDES_NATIVE_RETEST_PENDING",
-  "ready": false,
-  "verified_at": "2026-11-07T23:47:01.880148+00:00",
-  "offline_tests": {
-    "slug": "fault-module-repair",
-    "python": "3.12.13",
-    "tests_run": 63,
-    "skipped": 4,
-    "passed": 59,
-    "unit_exit": 0,
-    "usd_exit": 0
+  "schema_version": 3,
+  "status": "PUBLICATION_VALIDATED",
+  "ready": true,
+  "verified_at": "2026-11-11T13:38:03.748882+00:00",
+  "evaluated_commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+  "native_physics": {
+    "passed": 8,
+    "failed": 0,
+    "resets": 8
   },
-  "offline_audits": {
-    "control": {
-      "passed": true,
-      "evidence": "offline-evidence/control.json"
+  "robot_control": {
+    "passed": 4,
+    "failed": 0,
+    "resets": 4
+  },
+  "expert_trials": [
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1899,
+      "run_limit": 4800,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "record_id": "885b02a3fedb4f3e8bb7a9187d9529c7",
+      "log_sha256": "fc6929d0c3d670c26b0b694bf69d8e70d5974b844002d34dff05211bd7c3defa",
+      "simulated_seconds": 94.95,
+      "duration_s": 315.4070955419993,
+      "camera_streams": 3,
+      "native_failure": null
     },
-    "geometry": {
-      "passed": true,
-      "evidence": "offline-evidence/geometry.json"
-    },
-    "grasps": {
-      "passed": true,
-      "evidence": "offline-evidence/grasps.json"
-    },
-    "motion": {
-      "passed": true,
-      "evidence": "offline-evidence/motion.json"
-    },
-    "threads": {
-      "passed": true,
-      "evidence": "offline-evidence/threads.json"
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1899,
+      "run_limit": 4800,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "record_id": "af21ab3c4e4742a5b37485e20bdd6dcf",
+      "log_sha256": "a1c363d9eeb154585c7e7adc39516d28167d6c48f87f4c5e2ab657402347badb",
+      "simulated_seconds": 94.95,
+      "duration_s": 316.0063284860007,
+      "camera_streams": 3,
+      "native_failure": null
     }
+  ],
+  "dream": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "dream",
+    "score": 0.0,
+    "steps": 4800,
+    "run_limit": 4800,
+    "seed": 0,
+    "reset_seed": 1415158438,
+    "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+    "record_id": "533cef17861545dbbd102a32feb521f8",
+    "log_sha256": "46d16c3101c9f93a04a2aee1b751837cc2ccd86c1c8da046f7f18bca0af99dec",
+    "simulated_seconds": 240.0,
+    "duration_s": 2034.7289726559975,
+    "camera_streams": 3,
+    "native_failure": null
   },
-  "usd_structure": {
-    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
-    "assemblies": 3,
-    "bodies": 5,
-    "joints": 2,
-    "spawn_transforms_and_anchors": "PASS",
-    "initial_joint_frames": "PASS"
+  "clean_https_reproduction": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "expert",
+    "score": 1.0,
+    "steps": 1899,
+    "run_limit": 4800,
+    "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+    "record_id": "873689d3e5ca455fa01d1b1d94a9e235",
+    "log_sha256": "c6d1fb3497d955ef68702bd9d92676b477813305b0c74e3726f259cf3f644fd4",
+    "simulated_seconds": 94.95,
+    "duration_s": 770.9537975000021,
+    "camera_streams": 3
   },
-  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "PRIOR_TIGHT_BEARING_REVISION_PASSED_CHAMFER_RETEST_PENDING",
-  "robot_control": "NOT_RUN",
-  "expert_trials": [],
-  "dream": null,
-  "media_id": null,
-  "media_verified": false,
+  "media_id": "M-NRTVLQ",
+  "media_verified": true,
   "run_limit": 4800,
-  "native_cases_planned": {
-    "physics": 4,
-    "control": 2
-  },
-  "physics_runs": 0,
-  "expert_runs": 0,
-  "model_runs": 0,
-  "media_uploads": 0,
-  "remaining": [
-    "Native mechanism and reset probes",
-    "Real robot control tests",
-    "Two full-score expert episodes",
-    "Genuine Dream-1 evaluation",
-    "Media visual review and official upload",
-    "Runtime publication verification"
-  ],
+  "driver_version": "565.57.01",
+  "gpu": "NVIDIA L40S",
+  "publication_changes": "Documentation, measured validation metadata, official media ID, and compatibility with current Inspect Dream checkpoint metadata. Simulation, assets, controller, and scorer byte-identical to evaluated source.",
   "limitations": [
-    "The payload is rigidly mounted; its mass distribution is explicitly specified on the arm, including the handling fixture.",
-    "Prismatic guidance approximates the counterweight rail. A real free pin through two collision-defined holes locks translation.",
-    "The unpowered pivot has damping but no centering spring. Gravity balance and pin load retention require native tests."
+    "Rigidly mounted payload represented by specified arm mass and center of mass.",
+    "Prismatic joint approximates the counterweight guide. Collision-defined pin holes provide retention.",
+    "Fixed driver compatibility was tested on the installed Launchable stack."
   ],
-  "evidence_scope": "Synthetic scorer/controller tests, USD structure and nominal URDF geometry only. No contact physics, native reset, rendered cameras, expert success or model outcome is established.",
-  "engineering_verification": {
-    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
-    "fixed_driver_preflight_regression_tests": "PASS",
-    "budget_epoch_regression_tests": "PASS",
-    "runtime_unit_tests": "PASS",
-    "updated_ideal_motion_audit": "UNCHANGED_FROM_FULL_STATIC_PASS",
-    "full_static_before_incremental_runtime_changes": "PASS",
-    "ready": false
-  },
-  "native_collision_collection": {
-    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
-    "regression": "Nested rigid-body colliders belong only to their owning link",
-    "clearance_requirement_m": 0.02
-  }
+  "remaining": [
+    "Official submission and review"
+  ]
 }
