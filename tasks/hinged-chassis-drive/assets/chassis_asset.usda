@@ -111,7 +111,7 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.144, 0.007, 0.004)
+            float3 xformOp:scale = (0.144, 0.01, 0.004)
             double3 xformOp:translate = (0.018, -0.043, 0.026)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
@@ -124,7 +124,7 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.52, 0.55, 0.6)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.144, 0.007, 0.004)
+            float3 xformOp:scale = (0.144, 0.01, 0.004)
             double3 xformOp:translate = (0.018, 0.043, 0.026)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }

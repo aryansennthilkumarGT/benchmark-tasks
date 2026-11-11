@@ -30,8 +30,8 @@ class PackageContractTests(unittest.TestCase):
         core_edge = drive['shapes'][0]['size'][1]/2
         flange = drive['shapes'][2]
         flange_edge = abs(flange['pos'][1]) + flange['size'][1]/2
-        self.assertGreaterEqual(inner_edge-core_edge, .001)
-        self.assertGreaterEqual(flange_edge-inner_edge, .001)
+        self.assertGreaterEqual(inner_edge-core_edge, .001-1e-10)
+        self.assertGreaterEqual(flange_edge-inner_edge, .003-1e-10)
 
     def test_robot_usd_path_is_distinct_from_scene_key(self):
         import importlib
