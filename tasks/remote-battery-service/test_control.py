@@ -164,6 +164,28 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_axial_insertion_preserves_reference_load_bias(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['new_cell_0']
+        goal = np.array(body['pos']) + [0, 0, -.02]
+        phase = dict(kind='insert', body='new_cell_0', side='right',
+                     insertion_axis_world=[0, 0, 1], integrate_axial_error=True,
+                     axial_gain=.1, axial_lead=.0005,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = Controller({'phases': [dict(label='axial-bias-test', **phase)]}, self.spec)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['right'].reference = self.ready[7:13].copy()
+        original_pose = controller.pose
+        measured, orientation = original_pose(self.ready[7:], 'right')
+        reference = controller.motion['right'].reference
+        controller.pose = lambda joints, side: (measured + [0, 0, -.003], orientation) if joints is reference else original_pose(joints, side)
+        motion = controller.motion['right']
+        motion.target = Mock(return_value=(self.ready[7:].copy(), 0., 0.))
+        controller.step(self.ready, frame)
+        target = motion.target.call_args.args[1]
+        np.testing.assert_allclose(target - measured, [0, 0, -.0035], atol=1e-12)
+
     def test_vertical_entry_aligns_laterally_before_descending(self):
         frame = copy.deepcopy(self.frame)
         body = frame['bodies']['new_cell_0']

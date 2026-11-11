@@ -216,8 +216,11 @@ class Controller:
                 lateral = position_error - axial
                 correction = limit_vector(phase.get('lateral_gain', 3.0)*lateral, phase.get('lateral_lead', 0.001))
                 if np.linalg.norm(lateral) <= phase.get('lateral_tolerance', 0.00065):
-                    correction += limit_vector(axial, phase.get('axial_lead', 0.0015))
+                    correction += limit_vector(phase.get('axial_gain', 1.) * axial, phase.get('axial_lead', 0.0015))
                 p = tcp + correction
+                if phase.get('integrate_axial_error'):
+                    reference_tcp, _ = self.pose(self.motion[side].reference, side)
+                    p += np.dot(reference_tcp - tcp, axis) * axis
                 _, q = self.body_tcp(side, desired_p, desired_q)
             elif phase.get('measured_translation'):
                 p = tcp + limit_vector(phase.get('position_gain', 1.0)*position_error, .003)
