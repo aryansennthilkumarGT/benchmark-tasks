@@ -141,7 +141,7 @@ def main():
                         for setup in case.get('initialize_joints',[]):
                             asset=base.scene[setup['assembly']]
                             index=list(asset.joint_names).index(setup['joint'])
-                            asset.write_joint_position_to_sim_index(position=torch.tensor([[setup['value']]],device=base.device),joint_ids=[index])
+                            asset.write_joint_position_to_sim_index(position=torch.tensor([[setup['value']]],dtype=torch.float32,device=base.device),joint_ids=[index])
                             asset.write_joint_velocity_to_sim_index(velocity=torch.zeros((1,1),device=base.device),joint_ids=[index])
                         fixture_roots = {}
                         for setup in case.get('initialize_bodies',[]):
@@ -150,7 +150,7 @@ def main():
                             if description.get('fixed'):raise ValueError('Cannot move a fixed fixture root')
                             if description.get('joints') and not setup.get('free_articulation_root'):
                                 raise ValueError('Free articulated root initialization must be explicit')
-                            value=torch.tensor([[*setup['pos'],*setup.get('quat',[0,0,0,1])]],device=base.device)
+                            value=torch.tensor([[*setup['pos'],*setup.get('quat',[0,0,0,1])]],dtype=torch.float32,device=base.device)
                             asset.write_root_pose_to_sim_index(root_pose=value)
                             asset.write_root_velocity_to_sim_index(root_velocity=torch.zeros((1,6),device=base.device))
                             fixture_roots[setup['assembly']] = {
