@@ -220,7 +220,12 @@ class Controller:
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
             targets[side]=(p,q,0.0,speed)
             error=float(np.linalg.norm(body_p-desired_p))
-            complete=error<phase.get('tolerance',0.0015) and qangle(body_q,desired_q)<phase.get('angle',0.06)
+            orientation_error = qangle(body_q, desired_q)
+            if 'orientation_axis' in phase:
+                actual_axis = rotate(body_q, phase['orientation_axis'])
+                desired_axis = rotate(desired_q, phase['orientation_axis'])
+                orientation_error = math.acos(float(np.clip(np.dot(actual_axis, desired_axis), -1, 1)))
+            complete=error<phase.get('tolerance',0.0015) and orientation_error<phase.get('angle',0.06)
             if phase.get('verify_lift'):
                 grasp=self.grasps[side]
                 complete=complete and body_p[2]-grasp['start_z']>=phase.get('min_lift',0.015)

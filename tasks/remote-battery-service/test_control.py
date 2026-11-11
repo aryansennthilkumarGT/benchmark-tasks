@@ -90,6 +90,25 @@ class FeedbackTests(unittest.TestCase):
         self.assertTrue(controller.grasp_closing)
         self.assertEqual(controller.index, 0)
 
+    def test_cylindrical_carry_ignores_roll_and_rejects_axis_tilt(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p.get('body') == 'new_cell_0' and p.get('verify_lift'))
+        phase = dict(phase, hold=0)
+        for axis, expected_index in (([1, 0, 0], 1), ([0, 1, 0], 0)):
+            with self.subTest(axis=axis):
+                frame = copy.deepcopy(self.frame)
+                frame['bodies']['new_cell_0']['pos'] = phase['target']['pos']
+                frame['bodies']['new_cell_0']['quat'] = axis_quat(axis, .4).tolist()
+                controller = Controller({'phases': [phase]}, self.spec)
+                controller.grasps['right'] = {
+                    'body': 'new_cell_0', 'verified': False,
+                    'tcp_in_body': [0, 0, .01],
+                    'tcp_rotation_in_body': phase['target']['quat'],
+                    'start_z': phase['target']['pos'][2] - .05,
+                }
+                controller.step(self.ready, frame)
+                self.assertEqual(controller.index, expected_index)
+
     def test_incremental_action_respects_joint_and_gripper_limits(self):
         m=Motion('left');p,r=m.ik.tcp_pose(self.ready[:6],m.base)
         action,_,_=m.target(self.ready[:7],p+[.001,0,0],m.ik.matrix_to_quat_xyzw(r),0)
