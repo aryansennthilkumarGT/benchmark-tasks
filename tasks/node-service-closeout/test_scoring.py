@@ -357,4 +357,19 @@ class SemanticTests(unittest.TestCase):
         self.assertFalse(self.sc.predicate(predicate, frame))
 
 
+    def test_storage_seating_datum_matches_floor_and_core_geometry(self):
+        chassis = next(b for a in SPEC['assemblies'] for b in a['bodies']
+                       if b['name'] == 'chassis')
+        storage = next(b for a in SPEC['assemblies'] for b in a['bodies']
+                       if b['name'] == 'new_storage')
+        floor = chassis['shapes'][0]
+        core = storage['shapes'][0]
+        height = floor['pos'][2] + floor['size'][2]/2 + core['size'][2]/2
+        predicates = [p for g in SPEC['goals'] for p in g['all']
+                      if p['kind'] == 'pose' and p['body'] == 'new_storage']
+        for predicate in predicates:
+            self.assertAlmostEqual(predicate['pos'][2], height)
+            self.assertEqual(predicate['tolerance'], 0.0015)
+
+
 if __name__=='__main__':unittest.main()

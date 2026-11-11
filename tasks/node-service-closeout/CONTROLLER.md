@@ -74,3 +74,5 @@ Loaded cooler carries use measured-pose reference feedback at gain 2 per second,
 The removed cooler is placed at x=0.418 m, y=-0.188 m with its controlled 0.1-radian pitch. This provides interior clearance for the actual collision boxes within the tray region. The prior x=0.412 m, y=-0.185 m target placed its tilted front tab beyond the numeric front boundary. A scorer regression verifies the commanded pose against the existing physical tray limits.
 
 Insertion uses measured body error through the same measured-pose reference loop as loaded carries. Its 5 mm lead cap and gain 3 act within the 10 mm/s insertion limit. The previous direct reference integration combined with centroid rotation correction drove the cooler laterally during seating. This candidate avoids composing those two integrations. Native seating validation remains required.
+
+Storage rail alignment and insertion use world z 0.7635 m, the physical floor plus core half-height. The previous z 0.7655 m waypoint and relative scoring height 18 mm were 2 mm above the floor-rest datum. Storage pose tolerance remains 1.5 mm.

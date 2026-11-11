@@ -16,7 +16,7 @@ Each weighted goal requires every condition below. Position/quaternion condition
 
 ## new_storage_seated (0.25)
 
-- `new_storage` center within 0.0015 m of (0, 0, 0.018), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to chassis.
+- `new_storage` center within 0.0015 m of (0, 0, 0.016), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to chassis.
 - `new_storage` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
 
 ## new_cooler_seated (0.25)
@@ -32,7 +32,7 @@ Each weighted goal requires every condition below. Position/quaternion condition
 - `old_storage` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
 - `new_cooler` center within 0.0015 m of (0, 0, 0.048), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to chassis.
 - `new_cooler` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
-- `new_storage` center within 0.0015 m of (0, 0, 0.018), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to chassis.
+- `new_storage` center within 0.0015 m of (0, 0, 0.016), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to chassis.
 - `new_storage` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
 - `lid_hinge` in [-0.000001, 0.035] radians. The 1 microradian lower margin covers numerical contact-stop residuals. A lid opened beyond 0.035 radians fails closeout.
 
@@ -44,3 +44,5 @@ Thread credit requires aligned angular increments with corresponding axial motio
 Offline tests inject synthetic states to test arithmetic and counterexamples. Native probes separately read actual simulation states and call this same scorer. No synthetic score is a demonstration result.
 
 Region containment checks every oriented collision box in each compound part. The same numeric region limits apply to every actual box vertex, including handles and tabs. This avoids fictitious corners introduced by rotating a single enclosing body bound. Synthetic tilted-compound and protruding-part regressions cover the calculation. Native collection validation remains required.
+
+The storage target height is 16 mm above the chassis root. The 8 mm floor top plus the storage core half-height of 8 mm determines this datum. The unchanged 1.5 mm spherical tolerance applies around that physical seating position.
