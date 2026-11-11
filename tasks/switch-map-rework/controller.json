@@ -42,7 +42,8 @@
         0.01,
         0.02
       ],
-      "keep_hold": true
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "move",
@@ -92,10 +93,13 @@
       "body": "latch_0",
       "joint": "latch_slide_0",
       "value": -0.0055,
-      "increment": 0.0004,
+      "increment": 0.00025,
       "tolerance": 0.00035,
       "keep_hold": true,
-      "hold_relative_to": "plug_0"
+      "hold_relative_to": "plug_0",
+      "integrate_joint_error": true,
+      "position_gain": 0.1,
+      "hold_orientation": true
     },
     {
       "kind": "insert",
@@ -116,7 +120,9 @@
         ]
       },
       "verify_displacement": true,
-      "timeout": 25
+      "timeout": 25,
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "release",
@@ -162,7 +168,9 @@
           1
         ]
       },
-      "verify_lift": true
+      "verify_lift": true,
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "carry",
@@ -181,7 +189,9 @@
           0,
           1
         ]
-      }
+      },
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "insert",
@@ -200,7 +210,9 @@
           0,
           1
         ]
-      }
+      },
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "release",
@@ -268,7 +280,8 @@
         0.01,
         0.02
       ],
-      "keep_hold": true
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "move",
@@ -318,10 +331,13 @@
       "body": "latch_1",
       "joint": "latch_slide_1",
       "value": -0.0055,
-      "increment": 0.0004,
+      "increment": 0.00025,
       "tolerance": 0.00035,
       "keep_hold": true,
-      "hold_relative_to": "plug_1"
+      "hold_relative_to": "plug_1",
+      "integrate_joint_error": true,
+      "position_gain": 0.1,
+      "hold_orientation": true
     },
     {
       "kind": "insert",
@@ -342,7 +358,9 @@
         ]
       },
       "verify_displacement": true,
-      "timeout": 25
+      "timeout": 25,
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "carry",
@@ -362,7 +380,9 @@
           1
         ]
       },
-      "verify_lift": true
+      "verify_lift": true,
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "carry",
@@ -381,7 +401,9 @@
           0,
           1
         ]
-      }
+      },
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "carry",
@@ -400,7 +422,9 @@
           0,
           1
         ]
-      }
+      },
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "insert",
@@ -420,7 +444,9 @@
           1
         ]
       },
-      "timeout": 25
+      "timeout": 25,
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "release",
@@ -514,7 +540,8 @@
         0.01,
         0.02
       ],
-      "keep_hold": true
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "move",
@@ -564,10 +591,13 @@
       "body": "latch_0",
       "joint": "latch_slide_0",
       "value": -0.0055,
-      "increment": 0.0004,
+      "increment": 0.00025,
       "tolerance": 0.00035,
       "keep_hold": true,
-      "hold_relative_to": "plug_0"
+      "hold_relative_to": "plug_0",
+      "integrate_joint_error": true,
+      "position_gain": 0.1,
+      "hold_orientation": true
     },
     {
       "kind": "carry",
@@ -587,7 +617,9 @@
           1
         ]
       },
-      "verify_lift": true
+      "verify_lift": true,
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "carry",
@@ -606,7 +638,9 @@
           0,
           1
         ]
-      }
+      },
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "carry",
@@ -625,7 +659,9 @@
           0,
           1
         ]
-      }
+      },
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "insert",
@@ -645,7 +681,9 @@
           1
         ]
       },
-      "timeout": 25
+      "timeout": 25,
+      "keep_hold": true,
+      "hold_measured_pose": true
     },
     {
       "kind": "release",

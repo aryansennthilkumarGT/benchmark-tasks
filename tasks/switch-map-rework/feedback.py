@@ -57,12 +57,13 @@ def limit_vector(delta,maximum):
 
 class Motion:
     """Track a rate-limited IK reference while waiting for all joints to catch up."""
-    def __init__(self,side,dt=0.05):
+    def __init__(self,side,dt=0.05,tracking_error_limit=0.025):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
+        self.tracking_error_limit = tracking_error_limit
 
-    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
+    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.):
         q=np.asarray(measured,dtype=float)
         if q.shape!=(7,) or not np.isfinite(q).all():raise ControlFailure('Invalid proprioception')
         arm = q[:6]
@@ -70,18 +71,29 @@ class Motion:
         pos = np.asarray(pos, dtype=float)
         quat = unit(quat)
         error = float(np.linalg.norm(measured_pos - pos))
-        theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
+        measured_quat = self.ik.matrix_to_quat_xyzw(measured_rotation)
+        theta = qangle(measured_quat, quat)
+        if not math.isfinite(feedback_gain) or feedback_gain < 0:
+            raise ControlFailure('Invalid measured-pose feedback gain')
         grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
         if self.reference is None:
             self.reference = arm.copy()
-        if np.max(np.abs(self.reference - arm)) > 0.025:
-            command = np.clip(self.reference, arm-0.045, arm+0.045)
+        if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:
+            command = np.clip(self.reference, arm-self.tracking_error_limit-0.02,
+                              arm+self.tracking_error_limit+0.02)
             return np.r_[command, grip], error, theta
         current, rotation = self.ik.tcp_pose(self.reference, self.base)
         current_q = self.ik.matrix_to_quat_xyzw(rotation)
-        limited = current + limit_vector(pos-current, speed*self.dt)
-        remaining_angle = qangle(current_q, quat)
-        qtarget = interpolate(current_q, quat, min(1, angular_speed*self.dt/max(remaining_angle, 1e-9)))
+        if feedback_gain > 0:
+            position_step = feedback_gain * self.dt * (pos - measured_pos)
+            rotation_error = multiply(quat, conjugate(measured_quat))
+            amount = min(feedback_gain * self.dt, angular_speed * self.dt / max(theta, 1e-9))
+            qtarget = multiply(interpolate([0, 0, 0, 1], rotation_error, amount), current_q)
+        else:
+            position_step = pos - current
+            remaining_angle = qangle(current_q, quat)
+            qtarget = interpolate(current_q, quat, min(1, angular_speed*self.dt/max(remaining_angle, 1e-9)))
+        limited = current + limit_vector(position_step, speed*self.dt)
         solved,position_error,rotation_error=self.ik.solve(limited,qtarget,q_init=self.reference,base_pos=self.base,
                                                          iters=100,damping=0.015,tol=2e-5)
         if position_error>0.0015 or rotation_error>0.035:
@@ -104,7 +116,7 @@ class Controller:
     def __init__(self,plan,spec):
         from yam_arena import ik,station
         self.plan=plan;self.spec=spec;self.ik=ik;self.station=station
-        self.motion={s:Motion(s) for s in ('left','right')}
+        self.motion={'left':Motion('left',tracking_error_limit=.08),'right':Motion('right',tracking_error_limit=.08)}
         self.phases=plan['phases'];self.reset()
 
     def reset(self):
@@ -203,7 +215,7 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
-            if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
+            if any(isinstance(value,dict) and value.get('relative_to')==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
             targets[side]=(p,q,0.0,speed)
             error=float(np.linalg.norm(body_p-desired_p))
@@ -227,14 +239,21 @@ class Controller:
             self.check_grasp_slip(side,observed,frame)
             joint=next(j for a in self.spec['assemblies'] for j in a.get('joints',[]) if j['name']==phase['joint'])
             actual=frame['joints'][phase['joint']];desired=phase['value']
-            delta=float(np.clip(desired-actual,-phase.get('increment',0.01),phase.get('increment',0.01)))
+            delta=float(np.clip(phase.get('position_gain',1.)*(desired-actual),
+                                -phase.get('increment',0.01),phase.get('increment',0.01)))
             parent=frame['bodies'][joint['parent']];axis=np.eye(3)['XYZ'.index(joint['axis'])]
             world_axis=rotate(parent['quat'],axis)
             if joint['kind']=='revolute':
                 pivot=np.asarray(parent['pos'])+rotate(parent['quat'],joint['pivot_parent'])
                 turn=axis_quat(world_axis,delta)
                 p=pivot+rotate(turn,tcp-pivot);q=multiply(turn,tcpq)
-            else:p=tcp+world_axis*delta;q=tcpq
+            else:
+                p = tcp + world_axis * delta
+                reference = self.motion[side].reference
+                if phase.get('integrate_joint_error') and reference is not None:
+                    reference_p, _ = self.pose(np.r_[reference, observed[6]], side)
+                    p = reference_p + world_axis * delta
+                q = self.phase_start[side][1] if phase.get('hold_orientation') else tcpq
             targets[side]=(p,q,0.0,0.035)
             complete=abs(desired-actual)<phase.get('tolerance',0.006 if joint['kind']=='revolute' else 0.001)
         elif kind=='release':
@@ -255,7 +274,13 @@ class Controller:
         for name,(p,q,opening,speed) in targets.items():
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
-            target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,speed=speed)
+            feedback_gain = 0.
+            if name == side and kind in ('move', 'grasp'):
+                feedback_gain = 2.
+            elif name != side and isinstance(self.holds.get(name), dict):
+                feedback_gain = self.holds[name].get('feedback_gain', 0.)
+            target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,
+                                               speed=speed,feedback_gain=feedback_gain)
             action[index:index+7]=target
         # Reject arm-to-arm TCP collisions; link/fixture checks run in native validation.
         left,_=self.pose(action[:7],'left');right,_=self.pose(action[7:],'right')
@@ -266,7 +291,11 @@ class Controller:
             if now-self.stable_since>=phase.get('hold',0.15):
                 if phase.get('keep_hold'):
                     value=targets[side]
-                    if phase.get('hold_relative_to'):
+                    if phase.get('hold_measured_pose'):
+                        position, orientation = self.pose(observed, side)
+                        value = dict(pos=position.tolist(), quat=orientation.tolist(),
+                                     opening=value[2], speed=value[3], feedback_gain=2.)
+                    elif phase.get('hold_relative_to'):
                         ref=frame['bodies'][phase['hold_relative_to']];rp,rq=ref['pos'],ref['quat']
                         value=dict(relative_to=phase['hold_relative_to'],pos=rotate(conjugate(rq),value[0]-np.asarray(rp)),
                                    quat=multiply(conjugate(rq),value[1]),opening=value[2],speed=value[3])

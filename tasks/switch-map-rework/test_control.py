@@ -86,6 +86,58 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_catch_press_integrates_measured_joint_error_into_reference(self):
+        frame = copy.deepcopy(self.frame)
+        phase = dict(kind='joint', body='latch_0', joint='latch_slide_0',
+                     value=-.0055, increment=.00025, position_gain=.1,
+                     integrate_joint_error=True, hold_orientation=True)
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='latch_0', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        controller.motion['left'].reference = reference
+        reference_p, _ = controller.pose(np.r_[reference, self.ready[6]], 'left')
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append(np.array(position))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0], reference_p + [0, 0, -.00025], atol=1e-12)
+
+    def test_world_support_hold_captures_measured_tcp_pose(self):
+        frame = copy.deepcopy(self.frame)
+        joints = self.ready.copy()
+        joints[6] = .03 / .0939
+        tcp, orientation = self.ik.tcp_pose(joints[:6], self.station.BASES['left'])
+        quat = self.ik.matrix_to_quat_xyzw(orientation)
+        frame['bodies']['plug_0']['pos'] = tcp.tolist()
+        phase = dict(kind='grasp', body='plug_0', offset=[0, 0, 0], quat=quat,
+                     width=[.02, .04], keep_hold=True, hold_measured_pose=True)
+        controller = self.controller(phase)
+        controller.motion['left'].target = lambda values, *args, **kwargs: (np.array(values), 0., 0.)
+        for time in (0., .5, .7):
+            frame['time'] = time
+            controller.step(joints, frame)
+        hold = controller.holds['left']
+        np.testing.assert_allclose(hold['pos'], tcp, atol=1e-12)
+        self.assertLess(qangle(hold['quat'], quat), 1e-7)
+        self.assertEqual(hold['feedback_gain'], 2.)
+
+    def test_plug_operations_refresh_support_and_release_clears_it(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        checked = 0
+        for phase in plan['phases']:
+            if phase['side'] == 'right' and phase.get('body', '').startswith('plug_'):
+                if phase['kind'] in ('grasp', 'carry', 'insert'):
+                    self.assertTrue(phase['keep_hold'])
+                    self.assertTrue(phase['hold_measured_pose'])
+                    checked += 1
+            if phase['side'] == 'right' and phase['kind'] == 'release':
+                self.assertTrue(phase['clear_hold'])
+        self.assertGreater(checked, 3)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
