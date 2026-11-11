@@ -55,3 +55,5 @@ Overhead cell-approach waypoints use a 3 mm positional tolerance at 0.8675 m hei
 Cell transport uses the verified grasp transform and measured cell-position correction. Vertical seating uses incremental TCP motion, lateral alignment and a 1.5 mm bounded axial lead with the verified grasp orientation.
 
 Seating lateral alignment uses gain 8 and a 3 mm bounded lead. The stall guard measures lateral progress as well as axial progress.
+
+Cell grasp offsets are vertical in the world frame. Rotation about a cylindrical cell’s longitudinal axis leaves its grasp geometry unchanged. Native staging showed a 38-degree roll, which incorrectly rotated the previous body-local 10 mm approach offset sideways by about 6 mm. The cover handle retains its body-local grasp offset. This correction awaits a recorded native rollout.

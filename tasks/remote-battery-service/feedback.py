@@ -178,7 +178,10 @@ class Controller:
             targets[side]=(p,q,phase.get('opening',1.0),phase.get('speed',0.06))
             complete=np.linalg.norm(tcp-p)<phase.get('tolerance',0.002) and qangle(tcpq,q)<0.04
         elif kind=='grasp':
-            p=np.asarray(body['pos'])+rotate(body['quat'],phase['offset'])
+            grasp_offset = np.asarray(phase['offset'])
+            if phase.get('offset_frame', 'body') == 'body':
+                grasp_offset = rotate(body['quat'], grasp_offset)
+            p = np.asarray(body['pos']) + grasp_offset
             q=unit(phase['quat'])
             if phase.get('quat_relative_to_body'):q=multiply(body['quat'],q)
             # Keep the jaws open until the measured TCP reaches the grasp. Closing
