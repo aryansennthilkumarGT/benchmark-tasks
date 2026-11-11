@@ -5,6 +5,7 @@ import math
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from feedback import Controller,ControlFailure,Motion,axis_quat,interpolate,limit_vector,multiply,qangle,rotate
@@ -139,6 +140,29 @@ class FeedbackTests(unittest.TestCase):
                 frame['time'] = time
                 controller.step(self.ready, frame)
             self.assertEqual(controller.index, expected_index)
+
+    def test_pose_feedback_integrates_measured_error_and_retains_reference_bias(self):
+        motion = Motion('left')
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        motion.reference = reference.copy()
+        actual_p, actual_r = self.ik.tcp_pose(self.ready[:6], motion.base)
+        reference_p, reference_r = self.ik.tcp_pose(reference, motion.base)
+        actual_q = self.ik.matrix_to_quat_xyzw(actual_r)
+        reference_q = self.ik.matrix_to_quat_xyzw(reference_r)
+        calls = []
+        def solve(position, orientation, **kwargs):
+            calls.append((np.array(position), np.array(orientation)))
+            return reference.copy(), 0., 0.
+        with patch.object(self.ik, 'solve', side_effect=solve):
+            motion.target(self.ready[:7], actual_p + [.001, 0, 0], actual_q, 1., feedback_gain=2.)
+            motion.target(self.ready[:7], actual_p, actual_q, 1., feedback_gain=2.)
+            rotated = multiply(axis_quat([0, 1, 0], .02), actual_q)
+            motion.target(self.ready[:7], actual_p, rotated, 1., feedback_gain=2.)
+        np.testing.assert_allclose(calls[0][0], reference_p + [.0001, 0, 0], atol=1e-12)
+        np.testing.assert_allclose(calls[1][0], reference_p, atol=1e-12)
+        expected = multiply(axis_quat([0, 1, 0], .002), reference_q)
+        self.assertLess(qangle(calls[2][1], expected), 1e-7)
 
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))

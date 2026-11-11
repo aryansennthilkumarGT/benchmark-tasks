@@ -63,7 +63,7 @@ class Motion:
         self.reference = None
         self.tracking_error_limit = tracking_error_limit
 
-    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
+    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.):
         q=np.asarray(measured,dtype=float)
         if q.shape!=(7,) or not np.isfinite(q).all():raise ControlFailure('Invalid proprioception')
         arm = q[:6]
@@ -71,7 +71,10 @@ class Motion:
         pos = np.asarray(pos, dtype=float)
         quat = unit(quat)
         error = float(np.linalg.norm(measured_pos - pos))
-        theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
+        measured_quat = self.ik.matrix_to_quat_xyzw(measured_rotation)
+        theta = qangle(measured_quat, quat)
+        if not math.isfinite(feedback_gain) or feedback_gain < 0:
+            raise ControlFailure('Invalid measured-pose feedback gain')
         grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
         if self.reference is None:
             self.reference = arm.copy()
@@ -81,9 +84,16 @@ class Motion:
             return np.r_[command, grip], error, theta
         current, rotation = self.ik.tcp_pose(self.reference, self.base)
         current_q = self.ik.matrix_to_quat_xyzw(rotation)
-        limited = current + limit_vector(pos-current, speed*self.dt)
-        remaining_angle = qangle(current_q, quat)
-        qtarget = interpolate(current_q, quat, min(1, angular_speed*self.dt/max(remaining_angle, 1e-9)))
+        if feedback_gain > 0:
+            position_step = feedback_gain * self.dt * (pos - measured_pos)
+            rotation_error = multiply(quat, conjugate(measured_quat))
+            amount = min(feedback_gain * self.dt, angular_speed * self.dt / max(theta, 1e-9))
+            qtarget = multiply(interpolate([0, 0, 0, 1], rotation_error, amount), current_q)
+        else:
+            position_step = pos - current
+            remaining_angle = qangle(current_q, quat)
+            qtarget = interpolate(current_q, quat, min(1, angular_speed*self.dt/max(remaining_angle, 1e-9)))
+        limited = current + limit_vector(position_step, speed*self.dt)
         solved,position_error,rotation_error=self.ik.solve(limited,qtarget,q_init=self.reference,base_pos=self.base,
                                                          iters=100,damping=0.015,tol=2e-5)
         if position_error>0.0015 or rotation_error>0.035:
@@ -276,7 +286,11 @@ class Controller:
         for name,(p,q,opening,speed) in targets.items():
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
-            target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,speed=speed)
+            feedback_gain = 0.
+            if name == side and kind in ('move', 'grasp'):
+                feedback_gain = 2.
+            target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,
+                                               speed=speed,feedback_gain=feedback_gain)
             action[index:index+7]=target
         # Reject arm-to-arm TCP collisions; link/fixture checks run in native validation.
         left,_=self.pose(action[:7],'left');right,_=self.pose(action[7:],'right')
