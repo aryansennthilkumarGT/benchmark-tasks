@@ -86,6 +86,27 @@ class FeedbackTests(unittest.TestCase):
         action=c.step(joints,frame)
         self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
 
+    def test_thread_entry_integrates_measured_body_position_error(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['nut_0']
+        goal = np.array(body['pos']) + [.004, 0, -.02]
+        phase = dict(kind='insert', body='nut_0', integrate_body_error=True,
+                     position_gain=.1, translation_lead=.0005,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].reference = self.ready[:6].copy()
+        reference_tcp, _ = controller.pose(controller.motion['left'].reference, 'left')
+        targets = []
+        def capture(joints, position, quat, opening, **kwargs):
+            targets.append(np.array(position))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, frame)
+        expected = reference_tcp + limit_vector(.1 * (goal-body['pos']), .0005)
+        np.testing.assert_allclose(targets[0], expected, atol=1e-12)
+
     def test_prismatic_error_integration_uses_bounded_motion_reference(self):
         frame = copy.deepcopy(self.frame)
         phase = dict(kind='joint', body='pressure_plate', joint='plate_preload',

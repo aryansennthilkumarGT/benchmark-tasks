@@ -203,6 +203,10 @@ class Controller:
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)
+            if phase.get('integrate_body_error'):
+                reference_tcp, _ = self.pose(self.motion[side].reference, side)
+                p = reference_tcp + limit_vector(phase.get('position_gain', .1) * (desired_p-body_p),
+                                                 phase.get('translation_lead', .0005))
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
