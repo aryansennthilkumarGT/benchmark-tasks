@@ -20,3 +20,5 @@ The shaft has a 2.4 mm wide, 180 mm long locating rib on top. The groove between
 ## Mass distribution overrides
 
 
+
+The rectangular retaining-key bores are 10 mm wide and 9.6 mm high around the 8 mm square key. The key fit is measured in the lower collar frame, with collar position and angle measured against the shaft.

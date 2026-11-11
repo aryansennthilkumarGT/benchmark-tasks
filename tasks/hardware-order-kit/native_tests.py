@@ -26,7 +26,7 @@ def save(path,value):
 
 
 def checks(assertions,initial,final,result=None):
-    from feedback import qangle
+    from feedback import conjugate, multiply, qangle, rotate
     for item in assertions:
         kind=item['kind']
         if kind=='joint':
@@ -41,8 +41,15 @@ def checks(assertions,initial,final,result=None):
             assert item['min']<=value<=item['max'],(item,value)
         elif kind=='pose':
             body=final['bodies'][item['body']]
-            assert np.linalg.norm(np.asarray(body['pos'])-item['pos'])<=item['tolerance'],item
-            if 'quat' in item:assert qangle(body['quat'],item['quat'])<=item.get('angle',0.05),item
+            position=np.asarray(body['pos'])
+            orientation=body['quat']
+            if item.get('relative_to'):
+                reference=final['bodies'][item['relative_to']]
+                inverse=conjugate(reference['quat'])
+                position=rotate(inverse,position-np.asarray(reference['pos']))
+                orientation=multiply(inverse,orientation)
+            assert np.linalg.norm(position-item['pos'])<=item['tolerance'],item
+            if 'quat' in item:assert qangle(orientation,item['quat'])<=item.get('angle',0.05),item
         elif kind=='penetration':
             assert final['max_penetration']<=item['max'],(item,final['max_penetration'])
         elif kind=='still':
