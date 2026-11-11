@@ -256,4 +256,31 @@ class FeedbackTests(unittest.TestCase):
                 break
 
 
+    def test_insert_measured_feedback_uses_current_tcp_and_body_orientation(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['lower_collar']
+        body['quat'] = axis_quat([0, 1, 0], .1).tolist()
+        goal = np.array(body['pos']) + [0, 0, .025]
+        phase = dict(kind='insert', body='lower_collar', feedback_gain=2,
+                     measured_translation=True, position_gain=4, translation_lead=.0025,
+                     measured_rotation=True, rotation_gain=.3, rotation_lead=.02,
+                     rotation_about_body=True,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='lower_collar', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        tcp, tcpq = controller.pose(self.ready[:7], 'left')
+        turn = axis_quat([0, 1, 0], -.02)
+        captured = []
+        def capture(joints, position, orientation, *args, **kwargs):
+            captured.append((np.asarray(position), orientation))
+            return np.asarray(joints), 0., 0.
+        controller.motion['left'].target = capture
+        controller.step(self.ready, frame)
+        lever = tcp - body['pos']
+        expected = tcp + [0, 0, .0025] + rotate(turn, lever) - lever
+        np.testing.assert_allclose(captured[0][0], expected, atol=1e-12)
+        self.assertLess(qangle(captured[0][1], multiply(turn, tcpq)), 1e-7)
+
+
 if __name__=='__main__':unittest.main()

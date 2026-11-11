@@ -51,3 +51,5 @@ Loaded carries integrate actual TCP pose error into the rate-limited reference a
 
 
 Loaded insertions use a2.5mm task-space lead and gain2 reference integration. This carries the actuator load compensation from transfer into shaft and key insertion. The earlier insertion switched to a0.5mm proportional target and lost the measured loaded pose. Fresh native insertion probes must validate this revision.
+
+The shaft-entry phase retains measured-body translation and centroid-compensated orientation feedback through insertion. The earlier rigid-grasp transform allowed the collar to tilt while changing from supported carry to insertion. Angular corrections are capped at 0.02 rad with gain 0.3, while loaded translational lead remains 2.5 mm. A separate assembled fixture checks passive full-score stability before further robot trials.

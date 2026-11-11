@@ -215,10 +215,10 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,
                 phase.get('translation_lead',0.0005 if kind=='insert' else 0.003))
             p,q=self.body_tcp(side,commanded,desired_q)
-            if kind == 'carry' and phase.get('measured_translation'):
+            if phase.get('measured_translation'):
                 p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
                                        phase.get('translation_lead', .003))
-            if kind == 'carry' and phase.get('measured_rotation'):
+            if phase.get('measured_rotation'):
                 rotation_error = multiply(desired_q, conjugate(body_q))
                 angle_error = qangle([0, 0, 0, 1], rotation_error)
                 amount = min(phase.get('rotation_gain', 1.),

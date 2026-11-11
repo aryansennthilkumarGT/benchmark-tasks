@@ -309,4 +309,17 @@ class SemanticTests(unittest.TestCase):
         self.assertEqual(result.failure,'catch_forced_without_release:'+guard['body'])
 
 
+    def test_closed_collar_numeric_stop_margin_is_bounded(self):
+        frame = target_frame()
+        for goal in SPEC['goals']:
+            for predicate in goal['all']:
+                if predicate['kind'] == 'joint' and predicate['joint'] == 'collar_hinge':
+                    frame['joints']['collar_hinge'] = 7.563458193082795e-10
+                    self.assertTrue(self.sc.predicate(predicate, frame))
+                    frame['joints']['collar_hinge'] = .000002
+                    self.assertFalse(self.sc.predicate(predicate, frame))
+                    frame['joints']['collar_hinge'] = -.02501
+                    self.assertFalse(self.sc.predicate(predicate, frame))
+
+
 if __name__=='__main__':unittest.main()

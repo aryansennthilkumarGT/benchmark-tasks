@@ -12,12 +12,12 @@ Each weighted goal requires every condition below. Position/quaternion condition
 ## collar_closed (0.25)
 
 - `lower_collar` center within 0.0015 m of (0, 0, 0), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
-- `collar_hinge` in [-0.025, 0] (metres for prismatic, radians for rotary joints).
+- `collar_hinge` in [-0.025, 0.000001] (metres for prismatic, radians for rotary joints).
 
 ## collar_retained (0.5)
 
 - `lower_collar` center within 0.0015 m of (0, 0, 0), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to captive_shaft.
-- `collar_hinge` in [-0.025, 0] (metres for prismatic, radians for rotary joints).
+- `collar_hinge` in [-0.025, 0.000001] (metres for prismatic, radians for rotary joints).
 - `collar_key` center within 0.0015 m of (0.045, 0.006, 0), XYZW orientation (0, 0, 0, 1) within 0.105 rad relative to lower_collar.
 - `collar_key` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
 - `upper_collar` linear speed <= 0.01 m/s and angular speed <= 0.2 rad/s.
@@ -28,3 +28,5 @@ Malformed/missing/nonfinite data and nonmonotonic conflicting timestamps fail cl
 Thread credit requires aligned angular increments with corresponding axial motion inside the thread engagement region. Free spinning, direct dropping and pitch-inconsistent motion earn no turn credit. Cable continuity uses connected joint endpoints; a forced catch crossing without release invalidates the episode. These checks apply only to mechanisms present in this task.
 
 Offline tests inject synthetic states to test arithmetic and counterexamples. Native probes separately read actual simulation states and call this same scorer. No synthetic score is a demonstration result.
+
+The one-microradian positive hinge margin covers the measured closed-stop residual of about 7.6e-10 radians. The opening bound remains -0.025 radians.
