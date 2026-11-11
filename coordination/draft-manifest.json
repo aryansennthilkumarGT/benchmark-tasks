@@ -11,9 +11,9 @@
       "title": "Install and retain a drive under a gravity-closing lid",
       "branch": "draft/hinged-chassis-drive",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hinged-chassis-drive",
-      "commit": "2883ffd32969daa5482f7c9249567063190e0880",
+      "commit": "8a9280c7a8288b1eb73dabc4391efcec71daf4ad",
       "task_folder": "tasks/hinged-chassis-drive",
-      "status": "MEASURED_BODY_CONTROL_STALLED_BOUNDED_GAIN_RETEST_QUEUED",
+      "status": "LID_SUPPORT_CONTROL_PASS_2_OF_2_FULL_EXPERT_DRIVE_LIFT_TIMEOUT",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -30,7 +30,7 @@
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
-      "robot_control": "NOT_RUN",
+      "robot_control": "LID_SUPPORT_PASS_2_OF_2_FULL_EXPERT_FAILED_DRIVE_LIFT",
       "media_verified": false,
       "suggested_pr_title": "Install and retain a drive under a gravity-closing lid",
       "suggested_pr_body": null,
@@ -41,16 +41,17 @@
         "The captive bar relies on pocket walls and the closed lid, not proximity attachment."
       ],
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah"
     },
     {
       "slug": "remote-battery-service",
       "title": "Replace opposed-polarity cells under a spring-return service cover",
       "branch": "draft/remote-battery-service",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/remote-battery-service",
-      "commit": "aaaf784a25ac313ca907e34fa62779dd88dea670",
+      "commit": "e86998e7e6cc9c3a205130f3be94cadb3bae012d",
       "task_folder": "tasks/remote-battery-service",
-      "status": "ENTRY_CONTACT_TIMEOUT_PROPRIO_TRACE_QUEUED",
+      "status": "TILTED_ENTRY_PASSED_SPRING_PRESS_TIMEOUT_ORIENTATION_FIX_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -89,7 +90,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/switch-map-rework",
       "commit": "d3af951f733dadcafbe5bc84869bda671b9cf3c1",
       "task_folder": "tasks/switch-map-rework",
-      "status": "UNIVERSAL_BEND_MODEL_STATIC_PASS_NATIVE_QUEUED",
+      "status": "FINITE_CABLE_PHYSICS_6_OF_8_CATCH_CONTROL_APPROACH_TIMEOUT",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -105,8 +106,8 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "NEW_TORSION_APPROXIMATION_NOT_YET_TESTED",
-      "robot_control": "NOT_RUN",
+      "native_physics": "FULL_SUITE_FAIL_6_PASS_2_FAIL_ALL_8_RESETS_FINITE",
+      "robot_control": "APPROACH_TIMEOUT_2_OF_2",
       "media_verified": false,
       "suggested_pr_title": "Correct two latched patch connections while preserving a third",
       "suggested_pr_body": null,
@@ -124,9 +125,9 @@
       "title": "Exchange two internal modules and close out an enclosure",
       "branch": "draft/node-service-closeout",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/node-service-closeout",
-      "commit": "95a4443569d5734d3335c7c747bab33487870841",
+      "commit": "887e92295b474871386ba6b96576d12db2b1a12d",
       "task_folder": "tasks/node-service-closeout",
-      "status": "LID_CONTROL_PASS_RAISED_COOLER_GRASP_NATIVE_QUEUED",
+      "status": "COOLER_GRASP_PASSED_PAYLOAD_LIFT_PARTIAL_TIMEOUT",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -161,9 +162,9 @@
       "title": "Preload and retain a twelve-cell service pack",
       "branch": "draft/twelve-cell-pack",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/twelve-cell-pack",
-      "commit": "a4f22600c2f2fff62e15e60b84a0182e64874e57",
+      "commit": "993b808c145786caa894e574eedf6994449a65b6",
       "task_folder": "tasks/twelve-cell-pack",
-      "status": "FULL_NATIVE_PHYSICS_TEN_REPEATS_PASSED_CONTROL_PENDING",
+      "status": "GUIDED_SEATING_FIRST_REPEAT_PASSED_FULL_CONTROL_RUNNING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -180,7 +181,7 @@
       "dream_score": null,
       "media_id": null,
       "native_physics": "PASS_TWO_REPEATS_STANDALONE_DIAGNOSTIC",
-      "robot_control": "NOT_RUN",
+      "robot_control": "GUIDED_FULL_CONTROL_RUNNING_FIRST_SEATING_REPEAT_PASS",
       "media_verified": false,
       "suggested_pr_title": "Preload and retain a twelve-cell service pack",
       "suggested_pr_body": null,
@@ -199,9 +200,9 @@
       "title": "Fasten a spring-loaded access plate while maintaining its preload",
       "branch": "draft/eight-nut-bracket",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/eight-nut-bracket",
-      "commit": "1bd535deef9efe29c16dd27ad82f020fc09cbfcb",
+      "commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
       "task_folder": "tasks/eight-nut-bracket",
-      "status": "NATIVE_THREAD_LOAD_FAILED_WITH_SPECULATIVE_CCD",
+      "status": "FULL_NATIVE_PHYSICS_PASS_8_OF_8_EXPERT_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -217,8 +218,8 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "LOADED_RETENTION_FAILED_GUIDE_RETEST_THREAD_FLANK_REDESIGN",
-      "robot_control": "NOT_RUN",
+      "native_physics": "PASS_8_OF_8",
+      "robot_control": "PENDING",
       "media_verified": false,
       "suggested_pr_title": "Fasten a spring-loaded access plate while maintaining its preload",
       "suggested_pr_body": null,
@@ -230,7 +231,9 @@
         "The task measures pitch-coupled advancement, seating and retained plate compression. It does not certify bolt tension, friction torque or sealing performance.",
         "Native contact forces, spring-load transfer, two expert episodes and model evaluation remain unexecuted."
       ],
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "physics_evaluated_commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
+      "physics_evidence": "/data/robocurve-runs/resume-compat/nut-fixture-sync-native.m3rl00gx"
     },
     {
       "slug": "fault-module-repair",
@@ -239,7 +242,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/fault-module-repair",
       "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
       "task_folder": "tasks/fault-module-repair",
-      "status": "NATIVE_FEASIBILITY_COMPLETE_DREAM_UPLOAD_PENDING",
+      "status": "TWO_FULL_SCORE_EXPERTS_NATIVE_8_PHYSICS_4_CONTROL_DREAM_UPLOAD_PENDING",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -287,9 +290,9 @@
       "title": "Fit and pin a hinged collar around a captive shaft",
       "branch": "draft/hardware-order-kit",
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/hardware-order-kit",
-      "commit": "a03e7789e0704f875b0fc0f4a6d16e9440699ca0",
+      "commit": "b8fa9da457ef96b98c5f045d311ceb6440f5ddce",
       "task_folder": "tasks/hardware-order-kit",
-      "status": "PHYSICS_PASS_OPENING_PASS_PLACEMENT_WRIST_LIMIT_DIAGNOSIS",
+      "status": "SHORT_HANDLE_STATIC_PASS_NATIVE_LIFT_DRIFT_WRIST_LIMIT",
       "ready": false,
       "novelty": "INTERNAL_REVIEW_CLEARED_NOT_EXTERNAL_ACCEPTANCE",
       "offline_tests": {
@@ -305,8 +308,8 @@
       "expert_scores": [],
       "dream_score": null,
       "media_id": null,
-      "native_physics": "PASS_12_OF_12",
-      "robot_control": "PLACEMENT_FAILED_PRETILTED_GRASP_PREVIEW_IN_STATIC_CHECK",
+      "native_physics": "PRIOR_D115_GEOMETRY_PASS_12_CURRENT_HANDLE_RETEST_PENDING",
+      "robot_control": "SHORT_HANDLE_LIFT_FAILED_2_OF_2",
       "media_verified": false,
       "suggested_pr_title": "Fit and pin a hinged collar around a captive shaft",
       "suggested_pr_body": null,
@@ -323,5 +326,5 @@
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx"
     }
   ],
-  "updated_at": "2026-11-11T06:57:53.470346+00:00"
+  "updated_at": "2026-11-11T08:24:41.123169+00:00"
 }

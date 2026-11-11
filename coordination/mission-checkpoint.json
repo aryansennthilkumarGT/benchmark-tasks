@@ -1,18 +1,20 @@
 {
-  "updated_at": "2026-11-11T06:57:53.470346+00:00",
+  "updated_at": "2026-11-11T08:24:41.123169+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "commit": "2883ffd32969daa5482f7c9249567063190e0880",
-      "state": "MEASURED_BODY_CONTROL_STALLED_BOUNDED_GAIN_RETEST_QUEUED",
+      "commit": "8a9280c7a8288b1eb73dabc4391efcec71daf4ad",
+      "state": "LID_SUPPORT_CONTROL_PASS_2_OF_2_FULL_EXPERT_DRIVE_LIFT_TIMEOUT",
       "physics_evaluated_commit": "f4e0e5f53bda372aa17550c0f4b00de286ba8193",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "robot_control": "LID_SUPPORT_PASS_2_OF_2_FULL_EXPERT_FAILED_DRIVE_LIFT",
+      "control_evidence": "/data/robocurve-runs/resume-compat/chassis-arrival-control.g2u90tah"
     },
     {
       "slug": "remote-battery-service",
-      "commit": "aaaf784a25ac313ca907e34fa62779dd88dea670",
-      "state": "ENTRY_CONTACT_TIMEOUT_PROPRIO_TRACE_QUEUED",
+      "commit": "e86998e7e6cc9c3a205130f3be94cadb3bae012d",
+      "state": "TILTED_ENTRY_PASSED_SPRING_PRESS_TIMEOUT_ORIENTATION_FIX_PENDING",
       "physics_evaluated_commit": "fc923e8f4454d62dff1c0ff6d3af43b42d387c39",
       "robot_control": "PARTIAL_EXPERT_PROGRESS_VERIFIED_FULL_SCORE_PENDING",
       "native_physics": "PRIOR_IDENTICAL_GEOMETRY_PASS_16_OF_16",
@@ -23,14 +25,15 @@
     {
       "slug": "switch-map-rework",
       "commit": "d3af951f733dadcafbe5bc84869bda671b9cf3c1",
-      "state": "UNIVERSAL_BEND_MODEL_STATIC_PASS_NATIVE_QUEUED",
+      "state": "FINITE_CABLE_PHYSICS_6_OF_8_CATCH_CONTROL_APPROACH_TIMEOUT",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "native_physics": "NEW_TORSION_APPROXIMATION_NOT_YET_TESTED"
+      "native_physics": "FULL_SUITE_FAIL_6_PASS_2_FAIL_ALL_8_RESETS_FINITE",
+      "robot_control": "APPROACH_TIMEOUT_2_OF_2"
     },
     {
       "slug": "node-service-closeout",
-      "commit": "95a4443569d5734d3335c7c747bab33487870841",
-      "state": "LID_CONTROL_PASS_RAISED_COOLER_GRASP_NATIVE_QUEUED",
+      "commit": "887e92295b474871386ba6b96576d12db2b1a12d",
+      "state": "COOLER_GRASP_PASSED_PAYLOAD_LIFT_PARTIAL_TIMEOUT",
       "targeted_physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "physics_evaluated_commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
@@ -38,22 +41,28 @@
     },
     {
       "slug": "twelve-cell-pack",
-      "commit": "a4f22600c2f2fff62e15e60b84a0182e64874e57",
-      "state": "FULL_NATIVE_PHYSICS_TEN_REPEATS_PASSED_CONTROL_PENDING",
+      "commit": "993b808c145786caa894e574eedf6994449a65b6",
+      "state": "GUIDED_SEATING_FIRST_REPEAT_PASSED_FULL_CONTROL_RUNNING",
       "targeted_physics_evaluated_commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
       "physics_evaluated_commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "robot_control": "GUIDED_FULL_CONTROL_RUNNING_FIRST_SEATING_REPEAT_PASS"
     },
     {
       "slug": "eight-nut-bracket",
-      "commit": "1bd535deef9efe29c16dd27ad82f020fc09cbfcb",
-      "state": "NATIVE_THREAD_LOAD_FAILED_WITH_SPECULATIVE_CCD",
-      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING"
+      "commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
+      "state": "FULL_NATIVE_PHYSICS_PASS_8_OF_8_EXPERT_PENDING",
+      "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
+      "native_physics": "PASS_8_OF_8",
+      "physics_evaluated_commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
+      "physics_evidence": "/data/robocurve-runs/resume-compat/nut-fixture-sync-native.m3rl00gx",
+      "robot_control": "PENDING",
+      "expert_scores": []
     },
     {
       "slug": "fault-module-repair",
       "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
-      "state": "NATIVE_FEASIBILITY_COMPLETE_DREAM_UPLOAD_PENDING",
+      "state": "TWO_FULL_SCORE_EXPERTS_NATIVE_8_PHYSICS_4_CONTROL_DREAM_UPLOAD_PENDING",
       "physics_evaluated_commit": "ade4e41348431ed76f38fa8e7dea37ba18a85e83",
       "targeted_physics_evaluated_commit": "40cc504ab43fe027c1bbfbc5e6bd21acbffb3aa2",
       "physics_report_sha256": "ff21ee2dd4d9bd9b31b92d5a6919d6738f406a6e4975100edb546917d0fb201f",
@@ -72,14 +81,14 @@
     },
     {
       "slug": "hardware-order-kit",
-      "commit": "a03e7789e0704f875b0fc0f4a6d16e9440699ca0",
-      "state": "PHYSICS_PASS_OPENING_PASS_PLACEMENT_WRIST_LIMIT_DIAGNOSIS",
+      "commit": "b8fa9da457ef96b98c5f045d311ceb6440f5ddce",
+      "state": "SHORT_HANDLE_STATIC_PASS_NATIVE_LIFT_DRIFT_WRIST_LIMIT",
       "targeted_physics_evaluated_commit": "a39070e29b79229637c9dba0c84d65f67e79e0cc",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
-      "native_physics": "PASS_12_OF_12",
+      "native_physics": "PRIOR_D115_GEOMETRY_PASS_12_CURRENT_HANDLE_RETEST_PENDING",
       "physics_evaluated_commit": "d1156518202d970ac8742dc3d917348121dff234",
       "physics_evidence": "/data/robocurve-runs/resume-compat/hardware-full-physics.7StZEx",
-      "robot_control": "PLACEMENT_FAILED_PRETILTED_GRASP_PREVIEW_IN_STATIC_CHECK"
+      "robot_control": "SHORT_HANDLE_LIFT_FAILED_2_OF_2"
     }
   ],
   "executed": {
@@ -124,19 +133,19 @@
   "offline_execution_evidence": "offline-run-verification.json",
   "live_execution_evidence": "live-execution-2026-11-10.md",
   "current_operation": {
-    "serial_queue": [
-      "hardware-feedback-placement.0k4wbxal",
-      "node-raised-cooler-control.svuxyw_k",
-      "switch-universal-native.xs2j3kfm",
-      "chassis-bounded-load-control.uo5_05g_",
-      "remote-contact-trace.z_92a4b1"
+    "primary_lane": [
+      "twelve-guided-feasibility.9cdd_11s"
     ],
-    "queue_root": "/data/robocurve-runs/resume-compat",
-    "instructions": "Inspect each status.txt, terminal exit file and finalized native or Inspect result. FINISHED and CLI exit 0 alone are insufficient. Keep source heads unchanged while their runs are active or queued.",
-    "hardware_preview": "hardware-pretilt-preview._b3vvqqh",
-    "publication_preview": "fault-publication-preview",
-    "pricing_evidence": "billing-cli-refresh-20261111/attached-instance-pricing.json",
-    "planning_budget": "billing-cli-refresh-20261111/conservative-planning.json"
+    "secondary_compatibility_test": "fault-https-parallel-reproduction.30j8w_bm",
+    "root": "/data/robocurve-runs/resume-compat",
+    "instructions": "Both are running on the authorized current host. Two-process capability remains unvalidated until finalized results pass. Check real native results and producer/validator exits. Keep these source heads fixed while their runs execute.",
+    "pending_cpu_work": [
+      "Remote spring press currently follows measured wrist orientation; preserve captured tilted wrist and diagnose force",
+      "Chassis drive carry needs payload tracking diagnosis after lid support success",
+      "Node/hardware load failures need measured references/torques",
+      "Switch approach timeout needs FK/contact diagnosis"
+    ],
+    "publication_preview": "fault-publication-preview"
   },
   "submission_authorization": {
     "authorized_at": "2026-11-11T04:19:45.640549+00:00",
@@ -192,15 +201,19 @@
     }
   ],
   "budget_update": {
-    "user_balance_usd": 125,
+    "user_reported_balance_usd": 125,
     "reserve_usd": 30,
-    "max_additional_usd": 95,
-    "api_compute_base_usd_per_hour": "1.740000",
-    "api_storage_usd_per_gb_hour": "0.000132",
-    "api_attached_disk_gib": 468,
-    "conservative_planning_usd_per_hour": "1.81",
-    "effective_invoiced_rate_verified": false,
-    "live_provider_balance_verified": false,
-    "note": "Authenticated legacy GetWorkspace returns current attached instance and prices omitted by CLI output. All-storage decimal-GB planning is conservative. No fabricated provider billing receipt."
+    "maximum_additional_total_usd": 95,
+    "running_provider_instances_verified": 2,
+    "mission_instance": "yam-eval-launchable-0cb74b",
+    "second_instance": "yam-eval-launchable-9a92fd",
+    "provider_identity_comparison": "Two distinct physical provider instance IDs verified through authenticated API",
+    "conservative_combined_planning_usd_per_hour": "3.61",
+    "effective_invoiced_total_verified": false,
+    "live_credit_balance_verified": false,
+    "evidence": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/organization-conservative-planning.json",
+    "human_notice": "Sent prominently; current dashboard balance/total rate requested",
+    "second_instance_use": "AUTHORIZATION_REQUESTED_PENDING_NO_OPERATIONS_LAUNCHED",
+    "instance_control": "USER_ONLY"
   }
 }
