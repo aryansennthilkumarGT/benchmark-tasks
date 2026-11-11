@@ -76,3 +76,5 @@ The removed cooler is placed at x=0.418 m, y=-0.188 m with its controlled 0.1-ra
 Insertion uses measured body error through the same measured-pose reference loop as loaded carries. Its 5 mm lead cap and gain 3 act within the 10 mm/s insertion limit. The previous direct reference integration combined with centroid rotation correction drove the cooler laterally during seating. This candidate avoids composing those two integrations. Native seating validation remains required.
 
 Storage rail alignment and insertion use world z 0.7635 m, the physical floor plus core half-height. The previous z 0.7655 m waypoint and relative scoring height 18 mm were 2 mm above the floor-rest datum. Storage pose tolerance remains 1.5 mm.
+
+Storage carry phases use position gain2 with10mm maximum lead and loaded reference gain2. The earlier gain8 generated a0.8-per-action effective correction and failed to settle the extracted module within1.5mm. The revised effective correction is0.2 per action. Long storage transfers retain a35second bound. Cooler phases before the failed storage lift are unchanged.
