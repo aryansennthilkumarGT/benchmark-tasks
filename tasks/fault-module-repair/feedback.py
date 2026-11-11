@@ -110,6 +110,7 @@ class Controller:
     def reset(self):
         self.index=0;self.started=None;self.stable_since=None;self.grasps={};self.holds={}
         self.phase_start={};self.events=[];self.attempts={};self.last_progress=None;self.last_progress_t=None
+        self.insertion_rotation = np.array([0., 0., 0., 1.])
         self.thread=None;self.done=False;self.failed=None;self.grasp_closing=False;self.recovery=None
         for motion in self.motion.values():
             motion.reference = None
@@ -135,6 +136,7 @@ class Controller:
         self.events.append({'phase':self.index,'label':self.phases[self.index]['label'],'time':now,'event':'MEASURED_PHASE_COMPLETE'})
         self.index+=1;self.started=None;self.stable_since=None;self.last_progress=None;self.thread=None
         self.grasp_closing=False;self.recovery=None
+        self.insertion_rotation = np.array([0., 0., 0., 1.])
 
     def check_grasp_slip(self,side,joints,frame,require_support=False):
         grasp=self.grasps.get(side)
@@ -218,11 +220,17 @@ class Controller:
             commanded = body_p + correction
             rotation_error = multiply(desired_q, conjugate(body_q))
             if kind == 'insert':
-                # Hold the verified grasp's orientation while translating from
-                # measured pin error. This keeps contact-induced yaw from
-                # becoming a moving wrist-orientation target.
                 p = tcp + correction
                 _, q = self.body_tcp(side, desired_p, desired_q)
+                # Filter a bounded correction around the verified grasp target.
+                # Contact vibration cannot accumulate into wrist rotation.
+                rotation_angle = qangle(rotation_error, [0, 0, 0, 1])
+                rotation_target = interpolate(
+                    [0, 0, 0, 1], rotation_error,
+                    min(phase.get('orientation_feedback_gain', 0),
+                        .04 / max(rotation_angle, 1e-9)))
+                self.insertion_rotation = interpolate(self.insertion_rotation, rotation_target, .05)
+                q = multiply(self.insertion_rotation, q)
             else:
                 p = commanded + rotate(rotation_error, tcp-body_p)
                 q = multiply(rotation_error, tcpq)

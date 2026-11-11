@@ -5,6 +5,7 @@ import math
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import Mock
 import numpy as np
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from feedback import Controller,ControlFailure,Motion,axis_quat,interpolate,limit_vector,multiply,qangle,rotate
@@ -70,6 +71,31 @@ class FeedbackTests(unittest.TestCase):
         self.assertLess(pe,.0015);joints=self.ready.copy();joints[index:index+6]=q;joints[index+6]=0
         for t in (0,.5,1.):frame['time']=t;c.step(joints,frame)
         self.assertEqual(c.index,0);self.assertFalse(c.grasps)
+    def test_insert_orientation_feedback_is_bounded_and_reset_between_phases(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = dict(next(p for p in plan['phases'] if p['kind'] == 'insert'))
+        phase.pop('joint_guard', None)
+        frame = copy.deepcopy(self.frame)
+        controller = Controller({'phases': [phase]}, self.spec)
+        target, orientation = controller.world_target(phase['target'], frame)
+        frame['bodies'][phase['body']]['pos'] = target.tolist()
+        frame['bodies'][phase['body']]['quat'] = multiply(axis_quat([0, 0, 1], .1), orientation).tolist()
+        controller.grasps[phase['side']] = {
+            'body': phase['body'], 'verified': False,
+            'tcp_in_body': [0, 0, .032],
+            'tcp_rotation_in_body': self.down.tolist(),
+        }
+        controller.motion[phase['side']].target = Mock(return_value=(self.ready[7:].copy(), 0., 0.))
+        for step in range(10):
+            frame['time'] = step * .05
+            controller.step(self.ready, frame)
+            self.assertLessEqual(qangle(controller.insertion_rotation, [0, 0, 0, 1]), .04)
+        self.assertGreater(qangle(controller.insertion_rotation, [0, 0, 0, 1]), .01)
+        controller.advance(frame['time'])
+        self.assertLess(qangle(controller.insertion_rotation, [0, 0, 0, 1]), 1e-6)
+        controller.reset()
+        self.assertLess(qangle(controller.insertion_rotation, [0, 0, 0, 1]), 1e-6)
+
     def test_incremental_action_respects_joint_and_gripper_limits(self):
         m=Motion('left');p,r=m.ik.tcp_pose(self.ready[:6],m.base)
         action,_,_=m.target(self.ready[:7],p+[.001,0,0],m.ik.matrix_to_quat_xyzw(r),0)
