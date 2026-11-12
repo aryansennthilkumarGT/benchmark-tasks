@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T00:11:51.827003+00:00",
+  "updated_at": "2026-11-12T00:17:08.394045+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -128,23 +128,24 @@
     {
       "slug": "eight-nut-bracket",
       "commit": "d7468d9c3dacaa218d82a321f9b1e2d25377b1df",
-      "state": "NATIVE_QUALIFICATION_IN_PROGRESS",
+      "state": "FAILED_EXPERT_REGRASP_DIAGNOSIS",
       "collision_collection_fix": "NESTED_RIGID_LINK_OWNERSHIP_REGRESSION_PASSED_NATIVE_PER_TASK_RETEST_PENDING",
       "native_physics": "CURRENT_REVISION_PENDING",
       "physics_evaluated_commit": "0d3f6e8701a10e4913e6d80e864ec5882645ce45",
       "physics_evidence": "/data/robocurve-runs/resume-compat/nut-fixture-sync-native.m3rl00gx",
       "robot_control": "CURRENT_REVISION_PENDING",
       "expert_scores": [],
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-measured-helix-cold-qualification.elkcging",
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-regrasp-state-contact-diagnosis.1ys4onjc",
       "latest_static_check_log": "/data/robocurve-runs/resume-compat/nut-measured-helix-correction-static.log",
-      "producer_status": "LIVE_VERIFIED_PROCESS",
-      "status": "NATIVE_QUALIFICATION_IN_PROGRESS",
+      "producer_status": "LIVE_ADDITIONAL_CONTROLLER_STATE_CONTACT_DIAGNOSTIC",
+      "status": "FAILED_EXPERT_REGRASP_DIAGNOSIS",
       "ready": false,
       "native_control": "CURRENT_REVISION_PENDING",
       "task_source_dirty": false,
       "dream_score": null,
       "media_id": null,
-      "producer_pid": 1698458
+      "producer_pid": 1732201,
+      "latest_expert_failure": "Actual Inspect PolicyError Thread regrasp timeout at64.95s; wrapper0 rejected by validator1"
     },
     {
       "slug": "fault-module-repair",
@@ -415,14 +416,14 @@
   },
   "budget_latest": {
     "kind": "AUTHENTICATED_CONSOLE_BILLING_PROFILE",
-    "observed_at": "2026-11-11T23:58:22.886281+00:00",
+    "observed_at": "2026-11-12T00:13:35.147886+00:00",
     "http_status": 202,
-    "server_date": "Wed, 11 Nov 2026 23:58:22 GMT",
-    "remaining_balance_USD": 48.31,
-    "reserve_USD": 30,
-    "headroom_USD": 18.310000000000002,
+    "server_date": "Thu, 12 Nov 2026 00:13:35 GMT",
+    "remaining_balance_USD": 46.51,
+    "reserve_USD": 22,
+    "headroom_USD": 24.509999999999998,
     "source": "Current console billingprofile; underlying metering freshness unverified. Generic credits endpoint earlier disagreed and is not used by console.",
-    "response_sha256": "83eb852098293a3bc41c24ac5ddfa53bd95dc906b52791f39016b57c2f9eb105",
+    "response_sha256": "8183492b029ef20c301c75deed88d5aa861ff98478c9e628139994357c7c43ea",
     "rate_cap_USD_per_hour": 3.61,
     "mission_workspace_USD_price_fields": [
       {
@@ -462,7 +463,14 @@
         "amount": "1.740000"
       }
     ],
-    "instance_power_operations": false
+    "instance_power_operations": false,
+    "user_initial_balance_USD": 125,
+    "user_max_additional_budget_USD": 103,
+    "reserve_authorization": "User explicitly permits remaining credits to fall to22USD",
+    "nominal_account_rate_cap_USD_per_hour": 3.61,
+    "planning_rate_USD_per_hour": 3.8,
+    "metering_uncertainty": "Balance decreases in nonuniform increments. Short23:58-to00:13 difference implies7.1USD/hour; longer22:16-to00:13 average is about3.68USD/hour. Do not claim either a verified rate change or exact metering freshness. Refresh balance before further costly stages.",
+    "workload_deadline": "2026-11-12T04:30:00+00:00"
   },
   "twelve_key_diagnosis": {
     "old_wall_inner_faces_m": [
@@ -528,9 +536,10 @@
   },
   "workload_deadline_guard": {
     "plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
-    "deadline": "2026-11-12T03:30:00+00:00",
+    "deadline": "2026-11-12T04:30:00+00:00",
     "instance_power_control": false,
-    "billing_continues_after_workloads": true
+    "billing_continues_after_workloads": true,
+    "reserve_USD": 22
   },
   "temporary_native_priority_window": {
     "status": "FINISHED_ALL_PAUSED_GROUPS_RESUMED",
@@ -543,5 +552,10 @@
     "mechanism": "Three non-collinear retained clamps around the same spring-loaded two-axis plate. Same pitch, turns, pose and stability thresholds. Fewer repeated fasteners.",
     "next": "Wait for loaded-regrasp native proof, then promote with fresh full physics and expert pair. Prototype is detached and leaves active source frozen."
   },
-  "second_instance_instruction": "Partner instance4rjseoodp protected: do not modify or stop"
+  "second_instance_instruction": "Partner instance4rjseoodp protected: do not modify or stop",
+  "latest_user_budget_authorization": {
+    "reserve_USD": 22,
+    "max_additional_from_original125USD": 103,
+    "source": "User explicitly permits credits down to22USD; do not claim all eight can be guaranteed within it"
+  }
 }

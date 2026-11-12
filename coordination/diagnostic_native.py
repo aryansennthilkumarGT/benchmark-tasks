@@ -16,6 +16,16 @@ import numpy as np
 from engine import atomic
 
 
+def diagnostic_controller_state(controller):
+    index = controller.index
+    value = dict(
+        phase_index=index,
+        phase_label=(controller.phases[index]['label'] if index < len(controller.phases) else 'complete'),
+        thread_state=controller.thread,
+    )
+    return json.loads(json.dumps(value, default=lambda value: np.asarray(value).tolist(), allow_nan=False))
+
+
 def completed_report(path, mode, commit):
     if not path.is_file():
         return False
@@ -100,12 +110,7 @@ def main():
 
         def step_with_phase_trace(controller, *values, **keywords):
             action = original_controller_step(controller, *values, **keywords)
-            index = controller.index
-            controller_state.update(
-                phase_index=index,
-                phase_label=(controller.phases[index]['label']
-                             if index < len(controller.phases) else 'complete'),
-            )
+            controller_state.update(diagnostic_controller_state(controller))
             return action
 
         controller_class.step = step_with_phase_trace

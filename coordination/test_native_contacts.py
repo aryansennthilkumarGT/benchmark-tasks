@@ -29,3 +29,13 @@ class ContactSerializationTests(unittest.TestCase):
         view.get_contact_force_matrix.return_value = types.SimpleNamespace(numpy=lambda: np.zeros((1, 1, 3)))
         with self.assertRaisesRegex(ValueError, 'dimensions'):
             measured_contacts(view, ['robot', 'collar'], ['floor'], 1/480)
+
+class ControllerSnapshotTests(unittest.TestCase):
+    def test_nested_thread_state_is_serializable_and_cannot_change_after_recording(self):
+        from diagnostic_native import diagnostic_controller_state
+        controller=types.SimpleNamespace(index=0,phases=[{'label':'Thread'}],
+            thread={'mode':'lift','tcp0':np.array([.1,.2,.3])})
+        result=diagnostic_controller_state(controller)
+        controller.thread['tcp0'][0]=99
+        controller.thread['mode']='turn'
+        self.assertEqual(result['thread_state'],{'mode':'lift','tcp0':[.1,.2,.3]})
