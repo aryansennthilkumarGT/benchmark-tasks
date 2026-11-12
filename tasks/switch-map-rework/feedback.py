@@ -122,7 +122,7 @@ class Controller:
     def reset(self):
         self.index=0;self.started=None;self.stable_since=None;self.grasps={};self.holds={}
         self.phase_start={};self.events=[];self.attempts={};self.last_progress=None;self.last_progress_t=None
-        self.thread=None;self.done=False;self.failed=None;self.grasp_closing=False;self.recovery=None
+        self.thread=None;self.done=False;self.failed=None;self.grasp_closing=False;self.recovery=None;self.extraction_pose=None
         for motion in self.motion.values():
             motion.reference = None
 
@@ -136,6 +136,19 @@ class Controller:
             ref=frame['bodies'][target['relative_to']]
             p=np.asarray(ref['pos'])+rotate(ref['quat'],p);q=multiply(ref['quat'],q)
         return p,q
+
+    def extraction_goal(self, phase, body, authored_position):
+        axis = np.asarray(phase['insertion_axis_world'], dtype=float)
+        length = np.linalg.norm(axis)
+        if axis.shape != (3,) or not np.isfinite(axis).all() or length < 1e-12:
+            raise ControlFailure('Invalid extraction axis')
+        axis = axis / length
+        if self.extraction_pose is None or self.extraction_pose['phase'] != self.index:
+            start = np.asarray(body['pos'], dtype=float)
+            self.extraction_pose = dict(phase=self.index,
+                pos=start + axis * np.dot(np.asarray(authored_position)-start, axis),
+                quat=unit(body['quat']).copy())
+        return self.extraction_pose['pos'].copy(), self.extraction_pose['quat'].copy()
 
     def body_tcp(self,side,body_pos,body_quat):
         grasp=self.grasps.get(side)
@@ -224,6 +237,8 @@ class Controller:
             self.check_grasp_slip(side,observed,frame)
             desired_p,desired_q=self.world_target(phase['target'],frame)
             body_p,body_q=np.asarray(body['pos']),body['quat']
+            if phase.get('preserve_extraction_pose'):
+                desired_p,desired_q=self.extraction_goal(phase,body,desired_p)
             # Correct measured body error, so slip is not hidden by a precomputed TCP path.
             commanded=body_p+limit_vector(desired_p-body_p,0.0005 if kind=='insert' else 0.003)
             p,q=self.body_tcp(side,commanded,desired_q)

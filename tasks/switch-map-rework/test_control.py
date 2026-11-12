@@ -37,6 +37,18 @@ class FeedbackTests(unittest.TestCase):
                    'joints':{j['name']:0. for a in cls.spec['assemblies'] for j in a.get('joints',[])}}
         cls.ready=np.tile(np.r_[READY,1.],2)
     def controller(self,phase):return Controller({'phases':[dict(label='contract-test',side='left',**phase)]},self.spec)
+    def test_extraction_preserves_start_cross_section_and_orientation(self):
+        controller = self.controller(dict(kind='hold', duration=1.))
+        phase = dict(insertion_axis_world=[0, 1, 0])
+        body = dict(pos=[.3004, -.100, .7849], quat=axis_quat([1,0,0], -.22))
+        target, quat = controller.extraction_goal(phase, body, [.3, -.025, .7825])
+        np.testing.assert_allclose(target, [.3004, -.025, .7849], atol=1e-12)
+        self.assertLess(qangle(quat, body['quat']), 1e-8)
+        changed = dict(pos=[.304, -.07, .788], quat=[0,0,0,1])
+        later, later_q = controller.extraction_goal(phase, changed, [.3, -.025, .7825])
+        np.testing.assert_allclose(later, target, atol=1e-12)
+        self.assertLess(qangle(later_q, quat), 1e-8)
+
     def test_hold_requires_actual_stationarity(self):
         c=self.controller(dict(kind='hold',seconds=1.,opening=1.))
         frame=copy.deepcopy(self.frame)
