@@ -39,6 +39,17 @@ def helical(scorer, spinning_only=False, lateral=.0):
 
 
 class ScoringTests(unittest.TestCase):
+    def test_tilted_pin_cannot_accumulate_thread_credit(self):
+        from feedback import multiply,axis_quat
+        s=Scorer(SPEC);f=frame();f['bodies']['shackle']['pos']=CENTER.copy()
+        for i in range(481):
+            turns=TURNS*i/480;f['time']=i*.05
+            f['bodies']['pin']['pos']=[CENTER[0],0,CENTER[2]+SEAT+(TURNS-turns)*PITCH]
+            f['bodies']['pin']['quat']=multiply(axis_quat([0,0,1],-turns*2*math.pi),axis_quat([1,0,0],.2)).tolist()
+            r=s.update(copy.deepcopy(f))
+        self.assertEqual(s.turns['pin'],0.)
+        self.assertNotIn('pin_through_lug',r.completed)
+
     def test_initial_score_zero(self):
         self.assertEqual(Scorer(SPEC).update(frame()).score,0.)
 

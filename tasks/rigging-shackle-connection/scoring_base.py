@@ -265,7 +265,8 @@ class Scorer:
             theta = 2 * math.atan2(quat[2], quat[3])
             sites=thread.get('xy_options',[thread['xy']])
             site=next((i for i,xy in enumerate(sites) if math.hypot(pos[0]-xy[0],pos[1]-xy[1])<=thread['radial_tolerance']),None)
-            engaged = site is not None and thread['z_min'] <= pos[2] <= thread['z_max']
+            aligned_axis = rotate(quat, (0, 0, 1))[2] >= math.cos(thread.get('axis_tolerance', .025))
+            engaged = aligned_axis and site is not None and thread['z_min'] <= pos[2] <= thread['z_max']
             previous = self.thread_previous.get(name)
             if previous is not None and site!=previous[3]:previous=None;self.turns[name]=0.
             if not engaged:
