@@ -356,6 +356,14 @@ class Controller:
                         value=dict(relative_to=phase['hold_relative_to'],pos=rotate(conjugate(rq),value[0]-np.asarray(rp)),
                                    quat=multiply(conjugate(rq),value[1]),opening=value[2],speed=value[3],
                                    feedback_gain=phase.get('hold_feedback_gain', 0.))
+                    hold_gain = phase.get('hold_feedback_gain', 0.)
+                    if (not isinstance(hold_gain, (int, float)) or isinstance(hold_gain, bool)
+                            or not math.isfinite(hold_gain) or hold_gain < 0):
+                        raise ControlFailure('Invalid retained world-hold feedback gain')
+                    if not phase.get('hold_relative_to') and hold_gain > 0:
+                        value=dict(relative_to=None, pos=np.asarray(value[0]).copy(),
+                                   quat=np.asarray(value[1]).copy(), opening=value[2], speed=value[3],
+                                   feedback_gain=hold_gain)
                     self.holds[side]=value
                 if phase.get('clear_hold'):self.holds.pop(side,None)
                 self.advance(now)

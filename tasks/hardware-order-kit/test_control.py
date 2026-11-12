@@ -462,4 +462,27 @@ class FeedbackTests(unittest.TestCase):
                 c.step(self.ready, f)
 
 
+    def test_world_hold_retains_measured_pose_feedback_after_phase_change(self):
+        c=self.controller(dict(kind='move',target=dict(pos=[.2,.2,.9],quat=[0,0,0,1]),
+                               keep_hold=True,hold=0.,hold_feedback_gain=2.))
+        pos,quat=c.pose(self.ready[:7],'left')
+        c.phases[0]['target']=dict(pos=pos.tolist(),quat=quat.tolist())
+        c.phases.append(dict(kind='hold',label='Next operation',side='right',seconds=1.,opening=1.))
+        f=copy.deepcopy(self.frame);c.step(self.ready,f)
+        self.assertEqual(c.index,1);self.assertIsNone(c.holds['left']['relative_to'])
+        self.assertEqual(c.holds['left']['feedback_gain'],2.)
+        captured=[]
+        c.motion['left'].target=lambda joints,p,q,*args,**kwargs: (captured.append((p,kwargs['feedback_gain'])) or (np.asarray(joints),0.,0.))
+        f['time']=.05;c.step(self.ready,f)
+        np.testing.assert_allclose(captured[0][0],pos,atol=1e-12)
+        self.assertEqual(captured[0][1],2.)
+
+    def test_retained_world_hold_rejects_nonfinite_feedback_gain(self):
+        c=self.controller(dict(kind='move',target=dict(pos=[.2,.2,.9],quat=[0,0,0,1]),
+                               keep_hold=True,hold=0.,hold_feedback_gain=float('nan')))
+        pos,quat=c.pose(self.ready[:7],'left');c.phases[0]['target']=dict(pos=pos.tolist(),quat=quat.tolist())
+        with self.assertRaisesRegex(ControlFailure,'Invalid retained world-hold'):
+            c.step(self.ready,self.frame)
+
+
 if __name__=='__main__':unittest.main()

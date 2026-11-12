@@ -197,7 +197,8 @@
       "axial_lead": 0.001,
       "insertion_orientation_tolerance": 0.015,
       "coordinate_relative_holds": true,
-      "progress_window_seconds": 5.0
+      "progress_window_seconds": 5.0,
+      "hold_feedback_gain": 2.0
     },
     {
       "kind": "joint",
@@ -208,7 +209,8 @@
       "value": 0,
       "increment": 0.01,
       "clear_hold": true,
-      "timeout": 30
+      "timeout": 30,
+      "feedback_gain": 2.0
     },
     {
       "kind": "release",
