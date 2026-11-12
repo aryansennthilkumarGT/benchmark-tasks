@@ -1,0 +1,33 @@
+{
+  "kind": "OFFLINE_URDF_GRASP_GEOMETRY",
+  "physics_executed": false,
+  "actual_grasp_verified": false,
+  "flexible_cable_path_excluded": false,
+  "checks": [
+    {
+      "phase": 1,
+      "label": "Support lower collar",
+      "nominal_jaw_width_m": 0.028,
+      "forbidden_intersections": [],
+      "table_intersections": [],
+      "passed": true
+    },
+    {
+      "phase": 3,
+      "label": "Grasp upper collar handle",
+      "nominal_jaw_width_m": 0.028,
+      "forbidden_intersections": [],
+      "table_intersections": [],
+      "passed": true
+    },
+    {
+      "phase": 12,
+      "label": "Grasp transverse key head",
+      "nominal_jaw_width_m": 0.022,
+      "forbidden_intersections": [],
+      "table_intersections": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}
