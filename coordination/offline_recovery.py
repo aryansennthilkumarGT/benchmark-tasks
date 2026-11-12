@@ -156,11 +156,13 @@ def main(argv=None):
     with exclusive(output/'lock'):
         ledger = Ledger(output, args.resume, args.retry_failed)
         report = dict(kind='OFFLINE_RECOVERY', started_at=utc(), tasks=[],
+                      selected_tasks=selected, offline_checks_passed=False,
                       physics_executed=False, ready_for_submission=False)
         for task in selected:
             inputs = dict(task=task, audits=args.audits, baseline=manifest['base_commit'],
                           python=sys.version, packages=packages,
                           runner=digest(__file__), engine=digest(Path(__file__).with_name('engine.py')),
+                          metadata_validator=digest(Path(__file__).with_name('submit_ready.py')),
                           evidence=digest(Path(__file__).with_name('evidence.py')))
             try:
                 receipt = ledger.stage(task['slug'], 'offline', inputs,
@@ -170,7 +172,8 @@ def main(argv=None):
                 row = dict(task, status='FAILED', error=str(exc))
             report['tasks'].append(row)
             print(task['slug'], row['status'], flush=True)
-            report['offline_checks_passed'] = all(t['status']=='PASS' for t in report['tasks'])
+            report['offline_checks_passed'] = (len(report['tasks']) == len(selected)
+                and all(t['status']=='PASS' for t in report['tasks']))
             atomic(output/'report.json', report)
     return 0 if report['offline_checks_passed'] else 2
 

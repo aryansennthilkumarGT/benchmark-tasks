@@ -7,12 +7,28 @@ import subprocess
 import tarfile
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from engine import Incomplete, Ledger
-from offline_recovery import extract, junit_counts, run_task
+from offline_recovery import extract, junit_counts, main, run_task
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_interruption_does_not_report_partial_selection_as_passed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            manifest = root/'manifest.json'
+            manifest.write_text(json.dumps({'tasks': [], 'base_commit': 'a'*40}))
+            tasks = [dict(slug=s, commit='b'*40) for s in ('first', 'second')]
+            with patch('offline_recovery.targets', return_value=tasks):
+                with patch('offline_recovery.Ledger.stage', side_effect=[{'result': {}}, KeyboardInterrupt]):
+                    with self.assertRaises(KeyboardInterrupt):
+                        main(['--manifest',str(manifest),'--output',str(root/'evidence')])
+            report = json.loads((root/'evidence/report.json').read_text())
+            self.assertEqual(len(report['tasks']), 1)
+            self.assertEqual(len(report['selected_tasks']), 2)
+            self.assertFalse(report['offline_checks_passed'])
+
     def test_no_tests_all_skipped_and_failure_cannot_pass(self):
         with tempfile.TemporaryDirectory() as tmp:
             path = Path(tmp)/'tests.xml'
