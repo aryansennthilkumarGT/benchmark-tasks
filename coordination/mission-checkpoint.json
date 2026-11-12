@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T02:03:14.546122+00:00",
+  "updated_at": "2026-11-12T02:13:07.320754+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -45,28 +45,11 @@
       "task_source_dirty": false,
       "state": "QUEUED_AFTER_HARDWARE",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-loaded-pose-qualification.s8up4_ui",
-      "producer_pid": 1849415,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-loaded-pose-requeued-qualification.ejyzqc6c",
+      "producer_pid": 1873476,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": 1841450,
-      "native_reports": {
-        "selected-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "replay": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-physics": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        }
-      },
+      "waits_for_producer_pid": 1873473,
+      "native_reports": {},
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
@@ -86,15 +69,12 @@
       "native_reports": {
         "selected-control": {
           "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
-          "status": "RUNNING",
+          "status": "PASS",
           "commit": "a0d18ddad782b23ae4a18ded840b0400e9789418",
-          "passed": 0,
+          "passed": 2,
           "failed": 0,
-          "reset_count": 0,
-          "active_case": {
-            "name": "open_service_lid",
-            "repeat": 0
-          },
+          "reset_count": 2,
+          "active_case": null,
           "error": null
         },
         "replay": {
@@ -122,46 +102,32 @@
         ],
         "current_revision_credit": false,
         "native_control_failure_and_intentional_stop": "/data/robocurve-runs/resume-compat/node-clear-lid-qualification.ydnazynl/final-control-intentional-stop.json"
+      },
+      "future_stages": {
+        "genuine_dream": {
+          "root": "/data/robocurve-runs/resume-compat/node-revised-genuine-dream.rp1ovyau",
+          "producer_pid": 1869202,
+          "requires": "Complete exact-current-revision native suite and expert pair; sealed task feasibility proof"
+        },
+        "clean_https_full_expert": {
+          "root": "/data/robocurve-runs/resume-compat/node-service-closeout-clean-https-reproduction.goxotcua",
+          "producer_pid": 1869571,
+          "requires": "Genuine model stage success; cloned exact a0d18dd"
+        }
       }
     },
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "a6322f2f82be9b1beef5e81c65b0089aeca5e11f",
+      "commit": "01384d24d41c519aadb02aa551041e1c4a83eae9",
       "task_source_dirty": false,
       "state": "NATIVE_QUALIFICATION_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-loaded-wrist-margin-qualification.963yb1wk",
-      "producer_pid": 1841450,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-bounded-opening-qualification.pdecun71",
+      "producer_pid": 1873473,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
-      "native_reports": {
-        "selected-control": {
-          "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
-          "status": "RUNNING",
-          "commit": "a6322f2f82be9b1beef5e81c65b0089aeca5e11f",
-          "passed": 0,
-          "failed": 0,
-          "reset_count": 0,
-          "active_case": {
-            "name": "place_and_close_collar_around_shaft",
-            "repeat": 0
-          },
-          "error": null
-        },
-        "replay": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-physics": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        }
-      },
+      "native_reports": {},
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
@@ -233,7 +199,19 @@
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
-      "official_pr": null
+      "official_pr": null,
+      "future_stages": {
+        "genuine_dream": {
+          "root": "/data/robocurve-runs/resume-compat/twelve-genuine-dream.9n_jrinr",
+          "producer_pid": 1868522,
+          "requires": "Complete exact-current-revision native suite and expert pair; sealed task feasibility proof"
+        },
+        "clean_https_full_expert": {
+          "root": "/data/robocurve-runs/resume-compat/twelve-cell-pack-clean-https-reproduction.7wbx2rtl",
+          "producer_pid": 1869586,
+          "requires": "Genuine model stage success; cloned exact 1e7df189"
+        }
+      }
     },
     {
       "slug": "fault-module-repair",
@@ -293,11 +271,11 @@
     "official_accepted": 0
   },
   "budget_latest": {
-    "remaining_balance_USD": 41.12,
-    "observed_at": "2026-11-12T01:53:39.016218+00:00",
+    "remaining_balance_USD": 40.23,
+    "observed_at": "2026-11-12T02:08:47.090735+00:00",
     "user_latest_reserve_USD": 22,
-    "headroom_USD": 19.119999999999997,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T015339Z.json",
+    "headroom_USD": 18.229999999999997,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T020847Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true
