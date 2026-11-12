@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T02:19:53.611253+00:00",
+  "updated_at": "2026-11-12T02:26:27.434759+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -9,34 +9,23 @@
       "branch": "draft/hinged-chassis-drive",
       "commit": "f4bd71679e244987e0ec7b6ae6ed921315227214",
       "task_source_dirty": false,
-      "state": "QUEUED_AFTER_NUT",
+      "state": "BOUNDED_NATIVE_GRASP_DIAGNOSTIC_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-bar-feedback-qualification.2ll20qww",
-      "producer_pid": 1849449,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-bounded-feedback-grasp-diagnosis.4xyben22",
+      "producer_pid": 1887842,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": 1838055,
+      "waits_for_producer_pid": null,
       "native_reports": {
-        "selected-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
         "replay": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-physics": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
+          "status": "RUNNING_DIAGNOSTIC_NO_DEMONSTRATION_CREDIT",
+          "wall_limit_seconds": 600
         }
       },
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
-      "official_pr": null
+      "official_pr": null,
+      "next": "Inspect bounded grasp/lift diagnostic. If passed, schedule fresh full SDK experts in an available long lane; consider giving this task the lane after Nut first full expert rather than waiting through its entire second trial."
     },
     {
       "slug": "switch-map-rework",
@@ -305,5 +294,20 @@
     "never_delete": true,
     "partner_instance_do_not_touch": "4rjseoodp"
   },
-  "pending_queued_sources_frozen": true
+  "pending_queued_sources_frozen": true,
+  "gpu_execution_policy": {
+    "long_running_lanes": 4,
+    "bounded_additional_diagnostic": {
+      "producer_pid": 1887842,
+      "wall_limit_seconds": 600,
+      "scope": "Chassis new grasp/lift only, no expert/model evaluation",
+      "measured_gpu_memory_used_MiB": 26810,
+      "gpu_total_MiB": 46068,
+      "memory_observed_at": "2026-11-12T02:24:20Z",
+      "other_native_trials_progress_verified": true,
+      "throughput_gain_claimed": false
+    },
+    "same_instance": true,
+    "no_additional_compute_purchased": true
+  }
 }
