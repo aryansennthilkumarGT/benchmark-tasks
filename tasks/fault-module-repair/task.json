@@ -8,6 +8,6 @@
   "run_limit": "4800 control actions at 20 Hz (240 simulated seconds maximum)",
   "reset_notes": "Native reset restores the authored layout and zero joint coordinates, settles through the official adapter, clears scorer history, and records a new episode. Native probes compare two reset repetitions within 3 mm. Seed 0; object_jitter=0.",
   "fidelity": "A damped, unpowered pivot and explicit mass/center-of-mass values model a loaded service arm. Prismatic guidance approximates the counterweight rail; a free pin enters collision-defined holes. The pivot has no centering spring. This replaces generic fault replacement. Rigid chamfer faces guide the locating pin into tight bearing sections.",
-  "scores": "NOT RUN: native physics, expert demonstrations and Dream-1 evaluation have not been executed.",
+  "scores": "Historical Dream-1: 0.0 on unchanged mechanics; new action-only demonstrations pending. Not submission-ready.",
   "media": ""
 }
