@@ -76,3 +76,5 @@ Plug grasps use a15degree backward wrist pitch. The prior real withdrawal reache
 A pitch-only15degree candidate failed the full inter-arm mesh audit during left-paddle approach. A bounded workspace/inter-arm scan selected10degrees backward pitch with15degrees outward roll, preserving about0.267rad second-joint margin in the sampled grasp. This candidate is undergoing the complete path and grasp audit before native use.
 
 After releasing the final plug, the right hand lifts vertically to0.85m while preserving its grasp orientation, then unwinds toward the rest pose. The prior simultaneous lift and wrist unwind intersected the fixed port in the full mesh audit.
+
+During loaded plug withdrawal, lateral TCP correction is capped at 3 mm and translation speed at 10 mm/s. The previous 1 mm correction and 2.5 mm/s cap left measured 1.86 mm lateral error while plug/port contact carried roughly 11 N. The 0.8 mm lateral gate, 0.04 rad attitude gate, latch release requirements and scorer are unchanged. Fresh native control validation is required.
