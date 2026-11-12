@@ -246,6 +246,7 @@ class Controller:
                 if aligned and oriented:
                     correction += limit_vector(axial, phase.get('axial_lead', .001))
                 p = tcp + correction
+                planned_parent_position = body_p + correction
                 progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral), orientation_error])
                 progress_margin = np.array([.0003, float(np.min(lateral_tolerance))*.1, .0005])
             if phase.get('measured_rotation'):
@@ -260,9 +261,9 @@ class Controller:
                     lever = tcp - body_p
                     p += rotate(turn, lever) - lever
             if phase.get('coordinate_relative_holds'):
-                if (kind != 'carry' or not phase.get('measured_translation')
+                if (kind not in ('carry', 'insert') or not phase.get('measured_translation')
                         or not phase.get('measured_rotation') or not phase.get('rotation_about_body')):
-                    raise ControlFailure('Cooperative carry requires measured rigid-body motion')
+                    raise ControlFailure('Cooperative manipulation requires measured rigid-body motion')
                 # Both hands carry the same next body pose. Following the old
                 # measured parent would anchor the support while the active hand lifts.
                 for held_side, value in self.holds.items():
