@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T11:22:40.922601+00:00",
+  "updated_at": "2026-11-12T11:44:57.539824+00:00",
   "status": "FOUR_OFFICIAL_RECEIPTS_NUT_HARDWARE_PRIORITY_NATIVE_WORK",
   "authoritative_detail": "Latest chronological checkpoints and actual current per-task receipts; do not use obsolete job pointers in earlier history.",
   "tasks": [
@@ -609,25 +609,25 @@
     "validated_fixed_action_revision_candidates_not_applied_to_pending_PR": 1
   },
   "budget_latest": {
-    "remaining_balance_USD": 7.9,
-    "observed_at": "2026-11-12T11:07:43.555563+00:00",
+    "remaining_balance_USD": 6.1,
+    "observed_at": "2026-11-12T11:41:33.127852+00:00",
     "user_latest_reserve_USD": 0,
-    "headroom_USD": 7.9,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T110743Z.json",
+    "headroom_USD": 6.1,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T114133Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
-    "owned_workload_deadline_UTC": "2026-11-12T12:20:00+00:00",
+    "owned_workload_deadline_UTC": "2026-11-12T12:35:00+00:00",
     "planning_account_USD_per_hour": 3.8,
     "metering_buffer_USD": 2,
-    "projected_at_deadline_after_buffer_USD": 1.5274293065555558,
+    "projected_at_deadline_after_buffer_USD": 0.7149682882222219,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
-    "reserve_warning": "Latest human reserve0; actual credits remain hard cap. Current internal deadline12:20 controls only mission workloads. Underlying billing freshness unverified;2USD internal metering buffer. Instance billing continues until power is stopped; only stop original after6 genuinely complete/submitted. Partner untouched.",
+    "reserve_warning": "Latest human reserve0; actual credits hard cap. Fresh6.10USD receipt funds earlier12:35 workload cutoff under conservative account3.8USD/h and2USD uncertainty buffer. Workload cancellation does not stop instance billing; original power stop only after six genuinely complete/submitted, partner untouched.",
     "reserve_revoked_by_user": true,
-    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T110743Z.json",
+    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T114133Z.json",
     "projection_is_internal_planning_not_provider_observation": true,
-    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T110743Z.json",
+    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T114133Z.json",
     "watchdog_pid": 2390822,
     "watchdog_repair_receipt": "/data/robocurve-runs/resume-compat/budget-watchdog-recovery-receipt.json",
     "funded_deadline_extension_receipt": "/data/robocurve-runs/resume-compat/budget-deadline-extension-20261112T0934.json",
@@ -880,37 +880,14 @@
     "next": "Use permitted revision workflow after official review; do not push to waiting PR head."
   },
   "nut_queued_actual_physics_and_model": {
-    "physics": {
-      "root": "/data/robocurve-runs/resume-compat/nut-current-real-physics.54nl1_ky",
-      "status": "PASS",
-      "actual_cases": 12
-    },
-    "model": {
-      "root": "/data/robocurve-runs/resume-compat/nut-final-recovered-genuine-dream.8i2a519b",
-      "producer_pid": 2448352,
-      "target_commit": "deb95a46342900d5e8b9b1e65dca1da4a7cada5a",
-      "expert_source": "c62808268782ede6a38f70eb3697aeea4336e135",
-      "first_trial": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial",
-      "second_trial": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk/second-trial",
-      "actual_physics_source": "c62808268782ede6a38f70eb3697aeea4336e135",
-      "physics_actual_completed": {
-        "passed": 12,
-        "failed": 0,
-        "reset_count": 12
-      },
-      "proof_root": "/data/robocurve-runs/resume-compat/nut-final-recovered-feasibility.xl44oe3_",
-      "old_CPU_gate_failure_retained": "/data/robocurve-runs/resume-compat/nut-recovered-expert-genuine-dream.ov301sgo"
-    },
-    "clean_second": {
-      "root": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk",
-      "producer_pid": 2440234,
-      "expert_commit": "c62808268782ede6a38f70eb3697aeea4336e135",
-      "first_trial": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial",
-      "second_trial": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk/second-trial",
-      "first_full_record_revalidated_after_outer_clone_failure": true,
-      "old_outer_producer1_retained": true,
-      "whole_pipeline_gate_remains_strict": true
-    }
+    "root": "/data/robocurve-runs/resume-compat/nut-explicit-cpu-genuine-dream.0dgtoysm",
+    "producer_pid": 2543998,
+    "profile": "Explicit native CPU PhysX with GPU RTX cameras",
+    "target_commit": "ec5da4fbdc9376fbf77e44fbd50f884346792792",
+    "physics_root": "/data/robocurve-runs/resume-compat/nut-cpu-real-contact-validation.g530j8i0",
+    "expert_root": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk",
+    "proof_root": "/data/robocurve-runs/resume-compat/nut-explicit-cpu-feasibility.lg9cibqs",
+    "requires_actual_full_experts_and_contacts_and_conservative_model_window": true
   },
   "nut_thread_construct_audit": {
     "evidence": "/data/robocurve-runs/resume-compat/nut-real-thread-diameter-geometry-audit.json",
@@ -984,5 +961,50 @@
       "driver_changed": false
     },
     "no_vendor_files_or_driver_modified": true
+  },
+  "twelve_prepared_action_only_revision": {
+    "branch": "revision/twelve-action-only",
+    "commit": "1316c79",
+    "media": "M-25947E",
+    "two_actual_full_scores": [
+      1.0,
+      1.0
+    ],
+    "expert_source": "f724feeb2c181d1dd71eda36c2d7cbd27767d701",
+    "strict_target_gate": "PASS",
+    "config": "/data/robocurve-runs/resume-compat/twelve-action-only-publication-feasibility-config.json",
+    "pending_PR_1733_head_unchanged": true
+  },
+  "native_cpu_profile": {
+    "kind": "Native CPU PhysX with genuine L40S GPU RTX cameras",
+    "cpu_contact_suite": "/data/robocurve-runs/resume-compat/nut-cpu-real-contact-validation.g530j8i0",
+    "tests_passed": 12,
+    "tests_failed": 0,
+    "actual_physics_device": "cpu",
+    "supported_argument": "-E device=cpu",
+    "nut_measured_controls_per_wall_s": 9.640381071376044,
+    "native_benchmark_root": "/data/robocurve-runs/resume-compat/nut-native-cpu-throughput.0xfg5bev",
+    "model_source": "ec5da4fbdc9376fbf77e44fbd50f884346792792",
+    "no_GPU_dynamics_claimed_for_cpu_runs": true,
+    "no_host_driver_or_vendor_file_changed": true
+  },
+  "hardware_functional_next": {
+    "physical_axial_stop_source": "eee85bcc060a574f608a55d0789d0d74da1618aa",
+    "selected_actual_load_cases_passed": 4,
+    "selected_cases_resets": 4,
+    "full_physics_suite": false,
+    "importance": "UNRESOLVED",
+    "cold_development_eee85bc": "POLICY_ERROR_SUPPORT_LOWER_COLLAR; outer exit0 never a pass",
+    "measured_tcp_error_m": 0.0024113504875141415,
+    "unchanged_alignment_gate_m": 0.0015,
+    "new_controller_source": "6531f06b2d6bf3f31c6c42c4ba943f102c9fe4bd",
+    "current_development_root": "/data/robocurve-runs/resume-compat/hardware-body-relative-grasp-cold.ynkwj8tw",
+    "no_submission_ready_claim": true
+  },
+  "remote_additional_fixed_expert_failure": {
+    "root": "/data/robocurve-runs/resume-compat/remote-action-only-queued-clean-pair.nxb7p3hs",
+    "actual_exit": 139,
+    "completed_experts_in_this_attempt": 0,
+    "original_submitted_evidence_preserved": true
   }
 }
