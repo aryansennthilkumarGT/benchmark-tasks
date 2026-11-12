@@ -64,3 +64,15 @@ Use the same command with `--execute --resume` after checking previous failures.
 These steps remain disabled during CPU recovery and until all source/importance/novelty/runtime/media gates pass. Rotate previously exposed RoboCurve credentials before any reuse, and provide credentials through secure environment settings rather than Git or chat. Use the repository's `tools/upload_media.py` to upload the actual model video, successful demonstration and setup screenshot; retain the server-generated media ID. Populate metadata with real measured scores, never placeholders. Use a disposable metadata copy so evaluated source bytes remain immutable. Enforce setup <=4000 and fidelity <=500 characters before upload/submission.
 
 The existing coordinator's media-review and submit-ready gates bind review to exact bytes and verify required receipts and current remote commits. A new task needs one independent branch with changes in exactly its task folder, and one official PR after qualification. Inspect existing PRs before any create action; do not reopen final closures #1647/#1703/#1772 or duplicate #1733. Respect pending review immutability and revision instructions. No submission-ready handoff should contain the three rejected concepts or any merely renamed variant.
+
+## First rebuilt CPU candidate
+
+The occupational screw-pin shackle replacement is published independently as `draft/rigging-shackle-connection`, commit `ef13ec77d7ac6ee56aeb3c6c62069444af4efa02`. Its complete CPU checks passed from a clean HTTPS clone. Read its task README and `offline-evidence/summary.json`; native physics, real grasp success, expert episodes, model scores and actual media remain untested. Do not use old service-arm evidence for this package.
+
+For a safe preview, clone that branch, verify the full SHA above, activate the CPU dependencies listed in its `requirements-cpu.txt`, and run:
+
+```bash
+python tasks/rigging-shackle-connection/bootstrap_task.py --output /data/shackle-qualification --model
+```
+
+This preview does not create a runtime. The README gives the future authorized execution flags and actual native commands. Six other rebuilds remain; there is no eight-task GPU-ready manifest yet. Continue their task-by-task implementation before treating the overall engineering phase as complete.

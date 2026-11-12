@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-12T22:19:49.487382+00:00",
-  "mission": "Full Cloud Engineering Recovery",
+  "updated_at": "2026-11-12T23:41:38.974110+00:00",
+  "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
   "fully_recovered_packages": 0,
@@ -62,8 +62,22 @@
       "classification": "REPLACE",
       "reason": "Final rejection #1647: no recognizable occupational procedure; counterweighted generic arm cannot be relabeled.",
       "existing_branch": "draft/fault-module-repair",
-      "replacement_implemented": false,
-      "reviewer_acceptance_cleared": false
+      "replacement_implemented": true,
+      "reviewer_acceptance_cleared": false,
+      "replacement": {
+        "slug": "rigging-shackle-connection",
+        "title": "Fit and seat a screw-pin shackle through a lifting lug",
+        "branch": "draft/rigging-shackle-connection",
+        "commit": "ef13ec77d7ac6ee56aeb3c6c62069444af4efa02",
+        "cpu_tests": {
+          "passed": 26,
+          "skipped": 0,
+          "failed": 0
+        },
+        "clean_https_reproduction": true,
+        "native_physics": "NOT_RUN",
+        "reviewer_acceptance_cleared": false
+      }
     },
     {
       "slug": "hardware-order-kit",
@@ -80,31 +94,41 @@
   ],
   "external_blockers": [
     {
-      "operation": "Refresh complete accepted/pending novelty inventory",
+      "operation": "Read complete task-board inventory",
       "destination": "tasks.robocurve.org",
-      "observed": "HTTPS CONNECT rejected with 403 by network policy"
-    },
-    {
-      "operation": "Read full primary equipment procedures and dimensions before replacement design",
-      "destinations": [
-        "vehiclelifetimesolutions.schaeffler.com",
-        "www.dell.com"
-      ],
-      "observed": "HTTPS CONNECT rejected with 403 by network policy"
+      "observed": "Upstream Cloudflare HTTP 403 / error 1010; GitHub PR API and primary sources work. Accessible official GitHub comparisons used with stated coverage limitation."
     }
   ],
   "next": [
-    "Save the proposed network additions in environment settings; retry fresh requests.",
-    "Select concrete replacement procedures only after primary equipment and current novelty research.",
-    "Implement new task packages on new independent branches; preserve final-closed and pending heads.",
-    "Run offline_recovery.py for each new immutable task revision.",
-    "Require renewed GPU authorization and actual budget before any native/expert/model/media qualification."
+    "Continue from recovery/cloud-cpu-engineering; read this checkpoint, then switch/create only the next independent task branch. Do not rerun unchanged baseline suites.",
+    "Next candidate: substantive eight-nut-bracket redesign around the manufacturer LuK SAC installation-tool procedure in primary-procedure-grounding-2026-11-12.json, pages 27\u201330. The actual manual PDF was fetched successfully this session.",
+    "Before authoring tasks/sac-clutch-tool-installation/generate_scene.py, establish actual tool/assembly dimensions and a bounded, meaningful operation. Preserve disc centering/dowels, three 120-degree temporary studs/nuts, central spindle/diaphragm interaction, permanent-fastener and tool-removal interfaces required by that scope. Do not rename the old generic spring plate or invent torque validation.",
+    "Then implement its complete geometry/controller/scorer/native cases and run its CPU tests task-by-task; publish only a source-independent task branch after it passes. Six rebuilds remain; the new shackle package does not complete the eight-task mission.",
+    "Preserve pending #1733 and all finally rejected heads. No GPU/native/model spending or official submission without actual future authorization and qualifications."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
-    "Resumable CPU audit runner and negative-path tests",
-    "Hardware prototype metadata limit repair on recovery/hardware-metadata-limit, commit 2f29738110ee36ec961d539b81e20da3eb0d4794",
-    "Tested GPU bootstrap previews and GPU_RESUME_PLAN.md"
+    "63-file independent screw-pin shackle task package, including six original USD assets, 299-phase executable robot-proprioception expert, scorer, 4 native mechanism and 2 control-prefix cases, actual future runtime/media/submission tooling",
+    "26 passing unit/contract/media tests, all 299 IK endpoints, nominal geometry checks, 35 critical robot collision samples, 13191-action ideal tracking fixture; clean HTTPS reproduction passed",
+    "Independent branch draft/rigging-shackle-connection at ef13ec77d7ac6ee56aeb3c6c62069444af4efa02"
   ],
-  "current_review_outcomes_verified_via_public_github_html": true
+  "current_review_outcomes_verified_via_public_github_html": true,
+  "offline_implemented_replacements": 1,
+  "remaining_rebuilds": 6,
+  "research_access": {
+    "tasks.robocurve.org": "HTTP 403, Cloudflare 1010, website-side",
+    "api.github.com": "HTTP 200",
+    "vehiclelifetimesolutions.schaeffler.com": "HTTP 200; actual manual PDF downloaded",
+    "www.dell.com": "HTTP 200",
+    "www.onetonline.org": "HTTP 200; rigger occupation page read",
+    "www.bls.gov": "HTTP 200",
+    "www.greenpin.com": "HTTP 200; manufacturer product, catalogue and linked dimensional drawing read"
+  },
+  "official_pending": {
+    "PR": 1733,
+    "state": "open",
+    "head": "a312bcac0f29098731ad40ce30df5fe3a6fcca78",
+    "updated_at": "2026-11-12T12:22:25Z",
+    "head_changed_by_this_mission": false
+  }
 }
