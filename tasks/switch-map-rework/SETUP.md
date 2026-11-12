@@ -314,3 +314,6 @@ Each cable has two-axis passive universal bends and a three-axis terminal gimbal
 
 
 Release paddles have140mm grip offsets,10g body mass,250N/m return springs and3.2N·s/m slide damping. The compound plastic volume gives an approximate density of934kg/m³. The isolated critical-damping estimate is3.16N·s/m. Unloaded vertical sag is0.392mm within the0.6mm seated-latch bound. The pressed-release force fixture uses a0.20N·m support couple for the shorter paddle. Native unpressed-lock, pressed-release, return and actual robot-control probes must validate these properties.
+
+
+Connector anti-tilt guide revision (2026-11-12): socket side-wall centers are at local X ±14.5 mm, giving a 23 mm opening for the 22 mm body. The front roof center is local Z 12 mm (4 mm thick), leaving 0.5 mm above the nominal 19 mm body. Floor and original nose shelf are unchanged. These real plastic guides limit settled roll/pitch while retaining the catch and open pull direction. Scoring and controller are unchanged. Native mechanism, contacts and expert feasibility require revalidation. An earlier raised shelf proposal failed offline geometry because the larger plug body would collide while passing over it; it was discarded without native execution.
