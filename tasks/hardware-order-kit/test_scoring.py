@@ -34,6 +34,9 @@ def target_frame():
                 ref=f['bodies'].get(p.get('relative_to'))
                 f['bodies'][p['body']]['pos']=list(S.add(ref['pos'],S.rotate(ref['quat'],p['pos']))) if ref else p['pos'].copy()
                 f['bodies'][p['body']]['quat']=list(S.multiply(ref['quat'],p['quat'])) if ref else p['quat'].copy()
+                if 'local_point' in p:
+                    body=f['bodies'][p['body']]
+                    body['pos']=list(S.sub(body['pos'],S.rotate(body['quat'],p['local_point'])))
             elif p['kind']=='joint':f['joints'][p['joint']]=(p['min']+p['max'])/2
             elif p['kind']=='region' and p['body'] not in assigned:
                 bounds=next(b for a in SPEC['assemblies'] for b in a['bodies'] if b['name']==p['body'])
@@ -413,3 +416,16 @@ class FunctionalHangerScoringTests(unittest.TestCase):
             result=scorer.update(frame)
             self.assertFalse(result.success)
         self.assertNotIn('proof_load_supported',result.completed)
+
+
+class EyeLandmarkScoringTests(unittest.TestCase):
+    def test_valid_hanging_tilt_preserves_contact_landmark_credit(self):
+        frame=target_frame();body=frame['bodies']['proof_load']
+        predicate=next(p for p in SPEC['goals'][-1]['all'] if 'local_point' in p)
+        seat=S.add(body['pos'],S.rotate(body['quat'],predicate['local_point']))
+        body['quat']=[0,math.sin(.1/2),0,math.cos(.1/2)]
+        body['pos']=list(S.sub(seat,S.rotate(body['quat'],predicate['local_point'])))
+        before=copy.deepcopy(frame)
+        result,_=finish(S.Scorer(SPEC),frame)
+        self.assertTrue(result.success);self.assertEqual(result.score,1)
+        self.assertEqual(frame,before)

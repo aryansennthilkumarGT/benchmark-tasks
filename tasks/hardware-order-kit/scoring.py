@@ -151,6 +151,9 @@ class Scorer:
         if kind == 'joint':
             return p['min'] - 1e-10 <= f['joints'][p['joint']] <= p['max'] + 1e-10
         b = f['bodies'][p['body']]
+        if 'local_point' in p:
+            if not finite(p['local_point'],3):raise ValueError('Invalid local measurement point')
+            b = dict(b,pos=list(add(b['pos'],rotate(b['quat'],p['local_point']))))
         pos, quat = b['pos'], b['quat']
         if p.get('relative_to'):
             pos, quat = relative(b, f['bodies'][p['relative_to']])
