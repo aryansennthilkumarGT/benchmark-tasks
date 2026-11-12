@@ -1,17 +1,16 @@
 {
   "implementation_review": "COMPLETE",
   "unimplemented_mechanics": [],
-  "physical_validation": "NATIVE_PHYSX_PASS_8_OF_8",
-  "controller_kinematics": "NATIVE_CONTROL_PASS_4_OF_4_AND_TWO_FULL_SCORE_EXPERTS",
+  "physical_validation": "PENDING_NATIVE_TESTS",
+  "controller_kinematics": "OFFLINE_AUDITS_PASSED_NOT_PHYSICAL_SUCCESS",
   "novelty_review": {
     "decision": "CLEARED",
-    "scope": "Internal current implementation and literature comparison. Official acceptance is determined by reviewers.",
-    "date": "2026-11-11",
+    "scope": "Internal engineering review for native validation; not external acceptance",
+    "date": "2026-11-07",
     "neighbors": [
       236,
       80,
-      799,
-      1638
+      799
     ],
     "rationale": "The redesigned task balances a freely pivoted loaded service arm by changing the counterweight moment, then pins the sliding weight against drift. The robot must support the arm during adjustment and leave it balanced after release.",
     "risk": "Moderate overlap in balancing. Correct behavior must come from gravitational moments and the free pin rather than a hidden centering actuator."
@@ -22,21 +21,21 @@
       "evidence": "NOVELTY.md"
     },
     "construct_validity": {
-      "status": "NATIVE_GRAVITY_AND_PIN_RETENTION_TESTS_PASS",
+      "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
       "evidence": "scene.json, native-cases.json, SETUP.md"
     },
     "scoring": {
-      "status": "ADVERSARIAL_TESTS_AND_NATIVE_REPLAY_PASS",
+      "status": "OFFLINE_ADVERSARIAL_TESTS_PASS_NATIVE_CONFIRMATION_PENDING",
       "evidence": "SCORING.md, test_scoring.py"
     },
     "clarity_and_reproducibility": {
-      "status": "CLEAN_HTTPS_CHECKOUT_REPRODUCED_NATIVE_EXPERT_SCORE_1",
+      "status": "PACKAGE_CHECKS_PASS_REMOTE_CLEAN_CHECKOUT_RECORDED_IN_HANDOFF",
       "evidence": "README.md, SETUP.md, source_manifest.json"
     },
     "feasibility": {
-      "status": "TWO_INDEPENDENT_NATIVE_EXPERTS_SCORE_1",
-      "evidence": "validation.json"
+      "status": "PENDING_TWO_NATIVE_FULL_SCORE_DEMONSTRATIONS",
+      "evidence": null
     }
   },
-  "review_notes": "The evaluated implementation passed native physics, robot control, independent experts and a genuine Dream-1 trial. Public media were decoded and actual sampled images inspected. Current comparisons disclose shared balancing principles and explain the free-equilibrium and pin-retention contribution."
+  "review_notes": "Passive mechanics, source-defined contact geometry, measured-state controller and native probes implemented. Offline geometry cannot establish physical success. No task may enter the submission handoff before runtime evidence passes."
 }

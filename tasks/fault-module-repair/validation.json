@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
-  "status": "PUBLICATION_VALIDATED",
+  "status": "FIXED_ACTION_EXPERT_REVISION_VALIDATED_NOT_YET_APPLIED_TO_PENDING_PR",
   "ready": true,
-  "verified_at": "2026-11-11T13:38:03.748882+00:00",
+  "verified_at": "2026-11-12T09:15:46.174207+00:00",
   "evaluated_commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
   "native_physics": {
     "passed": 8,
@@ -23,11 +23,11 @@
       "run_limit": 4800,
       "seed": 0,
       "reset_seed": 1415158438,
-      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
-      "record_id": "885b02a3fedb4f3e8bb7a9187d9529c7",
-      "log_sha256": "fc6929d0c3d670c26b0b694bf69d8e70d5974b844002d34dff05211bd7c3defa",
+      "commit": "57fbf749faaa494d58e5a0c04faabb70e0ebcb13",
+      "record_id": "1ae94a68bcce4ef485ca83745fc38b27",
+      "log_sha256": "56415cd86023e2ac29a41b2003872b5c38745cc9a24b2553f1a50e0165272886",
       "simulated_seconds": 94.95,
-      "duration_s": 315.4070955419993,
+      "duration_s": 1067.7226724320062,
       "camera_streams": 3,
       "native_failure": null
     },
@@ -39,11 +39,11 @@
       "run_limit": 4800,
       "seed": 0,
       "reset_seed": 1415158438,
-      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
-      "record_id": "af21ab3c4e4742a5b37485e20bdd6dcf",
-      "log_sha256": "a1c363d9eeb154585c7e7adc39516d28167d6c48f87f4c5e2ab657402347badb",
+      "commit": "57fbf749faaa494d58e5a0c04faabb70e0ebcb13",
+      "record_id": "57b8d2acb9d34626b726a114689c98d7",
+      "log_sha256": "b93b7b89b05a4df0fe13ee4dd0c570b5e386575b0fdb5c6f8c0a3451c7b32543",
       "simulated_seconds": 94.95,
-      "duration_s": 316.0063284860007,
+      "duration_s": 590.097247327998,
       "camera_streams": 3,
       "native_failure": null
     }
@@ -77,7 +77,7 @@
     "duration_s": 770.9537975000021,
     "camera_streams": 3
   },
-  "media_id": "M-NRTVLQ",
+  "media_id": "M-N92KNQ",
   "media_verified": true,
   "run_limit": 4800,
   "driver_version": "565.57.01",
@@ -90,5 +90,105 @@
   ],
   "remaining": [
     "Official submission and review"
-  ]
+  ],
+  "expert_interface": "FIXED_ROBOT_JOINT_ACTION_TRAJECTORY",
+  "original_Dream_source_revision_retained": true,
+  "prior_official_PR_unchanged": true,
+  "model_request_count_not_independently_verified": true,
+  "historical_feedback_expert_trials": [
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1899,
+      "run_limit": 4800,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "record_id": "885b02a3fedb4f3e8bb7a9187d9529c7",
+      "log_sha256": "fc6929d0c3d670c26b0b694bf69d8e70d5974b844002d34dff05211bd7c3defa",
+      "simulated_seconds": 94.95,
+      "duration_s": 315.4070955419993,
+      "camera_streams": 3,
+      "native_failure": null
+    },
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1899,
+      "run_limit": 4800,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+      "record_id": "af21ab3c4e4742a5b37485e20bdd6dcf",
+      "log_sha256": "a1c363d9eeb154585c7e7adc39516d28167d6c48f87f4c5e2ab657402347badb",
+      "simulated_seconds": 94.95,
+      "duration_s": 316.0063284860007,
+      "camera_streams": 3,
+      "native_failure": null
+    }
+  ],
+  "source_publication_changes": "Expert implementation replaced by offline-authored fixed14D robot action program. Runtime scene/physics/scorer/model inputs match original actual Dream source; new expert evidence evaluated at57fbf749, not relabeled as original46bf1008.",
+  "media_validation": {
+    "status": "PASS",
+    "kind": "ACTUAL_ROLLOUT_MEDIA",
+    "files": {
+      "demo": {
+        "sha256": "17276276abb8ed510fab90e4854ab606e2eff731e521ce049dc6fded7a1ab640",
+        "bytes": 511961,
+        "decoded_frames": 1900,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": "PASS",
+        "record_id": "1ae94a68bcce4ef485ca83745fc38b27",
+        "score": 1.0
+      },
+      "demo-repeat": {
+        "sha256": "17276276abb8ed510fab90e4854ab606e2eff731e521ce049dc6fded7a1ab640",
+        "bytes": 511961,
+        "decoded_frames": 1900,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": "PASS",
+        "record_id": "57b8d2acb9d34626b726a114689c98d7",
+        "score": 1.0
+      },
+      "model": {
+        "sha256": "5788c2ad1928aeca3f033e554782bef1129fae9029653241bdca44b11c17b61e",
+        "bytes": 918101,
+        "decoded_frames": 4801,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": "PASS",
+        "record_id": "533cef17861545dbbd102a32feb521f8",
+        "score": 0.0
+      }
+    },
+    "setup": {
+      "sha256": "5be663800f6915ff92a62cffb2ac8d3a6200af4384f5f92d9dcce18658494a19",
+      "bytes": 58968
+    },
+    "blind_review": {
+      "public_text_scan": "PASS",
+      "overlays_added": false,
+      "scene_assets": "Original primitive geometry; no imported identifying textures"
+    },
+    "visual_checks": [
+      "native projected geometry coverage",
+      "sampled nonblank frames",
+      "all frames decoded"
+    ],
+    "human_visual_review": "NOT_PERFORMED_BY_THIS_SCRIPT; inspect contact sheets before official submission"
+  },
+  "visual_review": {
+    "scope": [
+      "setup",
+      "both expert contact sheets",
+      "model contact sheet"
+    ],
+    "reviewer": "coding agent",
+    "observed": "Unannotated station, service arm, weight and key visible; experts finish with hands clear. No identifying text/overlay observed.",
+    "limits": "Sampled visual inspection and full video decode; not human frame-by-frame review"
+  }
 }
