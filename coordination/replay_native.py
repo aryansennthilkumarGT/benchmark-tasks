@@ -176,11 +176,13 @@ def recorded_prefix(folder, source, label):
     }
 
 
-def initialize_fixture(embodiment, specification, frame, joints, free_articulation_roots=False):
+def initialize_fixture(embodiment, specification, frame, joints, free_articulation_roots=False, env_origin=None):
     from yam_arena.constants import ARM_JOINTS, FINGER_JOINTS, FINGER_OPEN
 
     base = embodiment._env.unwrapped
     torch = embodiment._torch
+    pending_roots = []
+    origin = np.zeros(3) if env_origin is None else np.asarray(env_origin)
     for assembly in specification['assemblies']:
         asset = base.scene[assembly['name']]
         if not assembly.get('fixed'):
@@ -191,10 +193,9 @@ def initialize_fixture(embodiment, specification, frame, joints, free_articulati
             if len(roots) != 1:
                 raise ValueError('Replay assembly must have exactly one rigid root')
             pose = frame['bodies'][roots[0]['name']]
-            value = torch.tensor([[*pose['pos'], *pose['quat']]], dtype=torch.float32,
-                                 device=base.device)
-            asset.write_root_pose_to_sim_index(root_pose=value)
-            asset.write_root_velocity_to_sim_index(root_velocity=torch.zeros((1, 6), device=base.device))
+            value = torch.tensor([[*(np.asarray(pose['pos'])+origin), *pose['quat']]],
+                                 dtype=torch.float32, device=base.device)
+            pending_roots.append((asset, value))
         for joint in assembly.get('joints', []):
             index = list(asset.joint_names).index(joint['name'])
             value = torch.tensor([[frame['joints'][joint['name']]]], device=base.device)
@@ -208,6 +209,12 @@ def initialize_fixture(embodiment, specification, frame, joints, free_articulati
         value = torch.tensor([values], dtype=torch.float32, device=base.device)
         asset.write_joint_position_to_sim_index(position=value, joint_ids=indices)
         asset.write_joint_velocity_to_sim_index(velocity=torch.zeros_like(value), joint_ids=indices)
+    # Restore free root transforms last, after all articulation/FK state writes.
+    # This follows the successful native mechanism-fixture ordering and avoids
+    # a later joint-state refresh invalidating the requested root transform.
+    for asset, value in pending_roots:
+        asset.write_root_velocity_to_sim_index(root_velocity=torch.zeros((1, 6), device=base.device))
+        asset.write_root_pose_to_sim_index(root_pose=value)
 
 
 def main():
@@ -219,6 +226,8 @@ def main():
     parser.add_argument('--commit', required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--max-steps', type=int, default=1200)
+    parser.add_argument('--initial-hold-steps', type=int, default=20, choices=range(1, 21),
+                        help='Diagnostic motor hold before controller actions:1–20 actual control steps')
     parser.add_argument('--contact-pairs', action='store_true')
     parser.add_argument('--free-articulation-roots', action='store_true',
                         help='Explicitly initialize a recorded free articulated root for diagnostics')
@@ -243,7 +252,9 @@ def main():
     args.output.mkdir(parents=True, exist_ok=False)
     report = {'kind': 'NATIVE_REPLAY_DIAGNOSTIC_NOT_DEMONSTRATION', 'status': 'RUNNING',
               'commit': args.commit, 'source_run': str(args.source_run),
-              'fixture_initialization': 'Recorded poses and joints, zero velocities, one-second motor hold.',
+              'fixture_initialization': 'Recorded poses and joints, zero velocities, explicitly recorded initial motor hold.',
+              'initial_motor_hold_steps': args.initial_hold_steps,
+              'initial_motor_hold_seconds': args.initial_hold_steps / 20,
               'demonstration_credit': False, 'scorer_history_restored': False,
               'free_articulation_roots_authorized': args.free_articulation_roots}
     atomic(args.output / 'results.json', report)
@@ -302,12 +313,31 @@ def main():
         base.cfg.sim.render_interval = base.cfg.decimation * 4
         for name in DEFAULT_CAMERAS:
             base.scene[name].cfg.update_period = .2
-        initialize_fixture(embodiment, specification, frame, joints, args.free_articulation_roots)
-        for _ in range(20):
+        initialize_fixture(embodiment, specification, frame, joints, args.free_articulation_roots,
+                           env_origin=runtime.array(base.scene.env_origins)[0])
+        written_bodies = {}
+        origin = runtime.array(base.scene.env_origins)[0]
+        for assembly in specification['assemblies']:
+            asset = base.scene[assembly['name']]
+            if assembly.get('joints') or assembly.get('fixed'):
+                poses = runtime.array(asset.data.body_link_pose_w)[0]
+                for body in assembly['bodies']:
+                    value = poses[list(asset.body_names).index(body['name'])]
+                    written_bodies[body['name']] = dict(pos=(value[:3]-origin).tolist(), quat=value[3:].tolist())
+            else:
+                value = runtime.array(asset.data.root_link_pose_w)[0]
+                written_bodies[assembly['bodies'][0]['name']] = dict(pos=(value[:3]-origin).tolist(), quat=value[3:].tolist())
+        atomic(args.output/'immediate-fixture-state-write.json', dict(
+            requested_frame=frame, actual_body_link_poses_before_physics=written_bodies,
+            root_write_order='After all task/robot joint and velocity writes',
+            scope='Fixture initialization diagnostic only; not a demonstration'))
+        for _ in range(args.initial_hold_steps):
             observation = embodiment.step(Action(data=previous)).observation
         atomic(args.output / 'replay-initialized-state.json', {
             'requested_frame': frame,
-            'actual_after_one_second_hold': runtime.LATEST,
+            'actual_after_initial_motor_hold': runtime.LATEST,
+            'initial_motor_hold_steps': args.initial_hold_steps,
+            'initial_motor_hold_seconds': args.initial_hold_steps / 20,
             'actual_robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
             'free_articulation_roots_authorized': args.free_articulation_roots,
         })

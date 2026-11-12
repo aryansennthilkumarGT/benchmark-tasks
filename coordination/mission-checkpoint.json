@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T07:03:58.109150+00:00",
+  "updated_at": "2026-11-12T08:07:38.145130+00:00",
   "status": "THREE_OFFICIAL_RECEIPTS_OBSERVABILITY_REVIEW_RISK_ACTION_ONLY_VALIDATION_UNDERWAY",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -100,7 +100,7 @@
       "branch": "draft/node-service-closeout",
       "commit": "33446a37bd62797024ece49346ce1233fde36296",
       "task_source_dirty": false,
-      "state": "ACTION_ONLY_COLD_EXPERT_VALIDATION_RUNNING",
+      "state": "TWO_ACTION_ONLY_EXPERTS_VERIFIED_GENUINE_DREAM_RUNNING",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
       "producer_pid": 2063385,
@@ -149,7 +149,7 @@
         "producer_exit": 1,
         "log": "/data/robocurve-runs/resume-compat/node-loaded-lid-margin-qualification.1lj2_l5c/first-trial.log"
       },
-      "next": "Verify new complete cold action-only experts, then strict proof/model/media/fresh HTTPS reproduction. Old queued model2112882/clean2112884 intentionally stopped before GPU start.",
+      "next": "Finish genuineModel325, freshHTTPSfullaction-onlyexpert325, actualmedia/export/review/upload; port exactvalidatedruntime to independentpublicationbranch andperformofficialnovelty/auth/onefolderpreflight.",
       "future_stages": {
         "cold_expert_pair": {
           "root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
@@ -199,24 +199,61 @@
         "producer_pid": 2206551,
         "source_feedback_record": "44181a12b31547e9bff7001df40abcaf",
         "runtime_policy_reads_only": "Fixed14D authored joint actions, action index and robot proprioception/time; no object state or evaluator/score access.",
-        "full_score_not_yet_verified": true
+        "full_score_not_yet_verified": false,
+        "expert_scores": [
+          1.0,
+          1.0
+        ],
+        "experts": [
+          {
+            "score": 1.0,
+            "steps": 4378,
+            "record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+            "commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
+            "log_sha256": "0311b3ec40097df2843e29e502b6a4a0e45becdf7d80499888aa19b3d2b70289",
+            "duration_s": 2306.5801608969923
+          },
+          {
+            "score": 1.0,
+            "steps": 4378,
+            "record_id": "322a0637511f44abadf16c1810da8f00",
+            "commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
+            "log_sha256": "95ade0c83921090e981ce1f6755cf4863741de4d5275be589589078873feeac4",
+            "duration_s": 958.6758148259978
+          }
+        ]
       },
       "physics_development_current_revision": {
         "commit": "33446a37bd62797024ece49346ce1233fde36296",
         "passed": 10,
         "failed": 0,
         "status": "PASS"
+      },
+      "action_only_gate_commit": "3254488e4d2257343643ed11febf2aed2433bea9",
+      "new_model_chain": {
+        "source_expert_commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
+        "target_gate_commit": "3254488e4d2257343643ed11febf2aed2433bea9",
+        "feasibility_root": "/data/robocurve-runs/resume-compat/node-action-only-v2-feasibility.w79n_fg6",
+        "model": {
+          "root": "/data/robocurve-runs/resume-compat/node-action-only-genuine-dream.3zthhxc0",
+          "pid": 2267921
+        },
+        "clean": {
+          "root": "/data/robocurve-runs/resume-compat/node-action-only-clean-https.uxfoppk6",
+          "pid": 2267924
+        },
+        "no_model_until_two_real_action_only_experts_and_exact_target_gate_pass": true
       }
     },
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "e76fdef3691161ce5c350040504e6f40913fa35c",
+      "commit": "4593f20ba81a36c09510737aa794fca03ffdc328",
       "task_source_dirty": false,
-      "state": "BOUNDED_ALIGNMENT_RECOVERY_DEVELOPMENT_RUNNING",
+      "state": "WORLD_HOLD_FIX_AND_FREE_ROOT_FIXTURE_COMPATIBILITY_TEST",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-realignment-recovery-development.zj_o6wx7",
-      "producer_pid": 2202057,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-root-last-close-diagnostic.yo9n9ezl",
+      "producer_pid": 2288567,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {},
@@ -234,7 +271,7 @@
         "diagnosis": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg/cooperative-lift-target-diagnosis.json",
         "new_native_pass_claimed": false
       },
-      "next": "Cold selected-control then one disclosed private-feedback generation trial; no new model until action-only full-cold feasibility is validated.",
+      "next": "Verifyrequestedvsimmediate/steppedfixtureposes. Previousfixturesdidnotrestoreloadedrootcorrectly; do notcallcontrollerfailedfromgrasp-lossbeforeactions. Then actualclosure/keymanipulation, wholecoldaction-onlyexperts/physics/model.",
       "controller_tests_passed": 28,
       "static_exit": 0,
       "publication_preparation": {
@@ -250,10 +287,10 @@
       "branch": "draft/eight-nut-bracket",
       "commit": "197d32d07bf124616d616684a07faa1efa85b993",
       "task_source_dirty": false,
-      "state": "FINAL_SMALL_THREAD_SEGMENT_DIAGNOSTIC_RUNNING",
+      "state": "WHOLE_COLD_ACTION_ONLY_PROGRAM_UNPROVEN",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-final-segment-diagnostic.rfi3iupq",
-      "producer_pid": 2214638,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-action-only-clean-pair.z64v7_ul",
+      "producer_pid": 2285941,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {
@@ -286,7 +323,7 @@
         "producer_exit": null,
         "state": "NATIVE_QUALIFICATION_RUNNING"
       },
-      "next": "Validate final-segment fix, then full cold action-only experts; previous queued private-feedback expert pair/model/clean intentionally stopped while waiting.",
+      "next": "Entirecoldrobotcommandprogrammustactuallyscore1.0; initializedsuffixPASSisnotfeasibility. Then HTTPSsecond, fullmechanismsuite andmodel afterv2gate.",
       "future_stages": {
         "current_qualification_continuation": {
           "root": "/data/robocurve-runs/resume-compat/nut-complete-current-qualification.7f6azvh_",
@@ -321,6 +358,13 @@
         "commit": "20b409bb0ba4eb1f63a82bf3cf259e58b43a97ed",
         "ready": false,
         "official_pr_opened": false
+      },
+      "action_only_validation": {
+        "root": "/data/robocurve-runs/resume-compat/nut-action-only-clean-pair.z64v7_ul",
+        "commit": "0e7756a276929d70e972f5bb2cd761aef67eaafe",
+        "pid": 2285941,
+        "second_trial_from_fresh_https_checkout": true,
+        "no_full_score_claimed": true
       }
     },
     {
@@ -467,7 +511,16 @@
       "note": "Publication metadata changes preserve evaluated executable bytes; provenance receipts in durable execution checkpoint.",
       "prior_native_engineering_ready": true,
       "observability_acceptance_risk_unresolved": true,
-      "official_received_remains_true": true
+      "official_received_remains_true": true,
+      "action_only_fallback": {
+        "root": "/data/robocurve-runs/resume-compat/fault-action-only-clean-pair.gu1oam4h",
+        "commit": "dfc54a1ce445de419e834ff72cda8919456830f0",
+        "pid": 2277815,
+        "second_trial_from_fresh_https_checkout": true,
+        "pending_pr1647_unchanged": true,
+        "no_new_full_score_claimed": true
+      },
+      "next": "Preparestate-independentfull-scorefallbackfromtwocoldexpertsincludingfreshHTTPSsecond; pendingPR1647unchanged untilallowedreview/revisionprocedure."
     },
     {
       "slug": "remote-battery-service",
