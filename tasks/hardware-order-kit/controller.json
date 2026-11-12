@@ -479,6 +479,234 @@
       "side": "left",
       "seconds": 1.5,
       "opening": 1
+    },
+    {
+      "kind": "move",
+      "label": "Approach proof-load side grip",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.24,
+          0.23,
+          0.89
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp proof-load side grip",
+      "side": "left",
+      "body": "proof_load",
+      "offset": [
+        -0.04,
+        0,
+        0
+      ],
+      "quat": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "width": [
+        0.022,
+        0.032
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift handled proof load",
+      "side": "left",
+      "body": "proof_load",
+      "target": {
+        "pos": [
+          0.28,
+          0.23,
+          0.87
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 1,
+      "translation_lead": 0.02,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "rotation_about_body": true,
+      "feedback_gain": 2,
+      "speed": 0.03,
+      "timeout": 30,
+      "verify_lift": true
+    },
+    {
+      "kind": "carry",
+      "label": "Align proof-load eye before peg",
+      "side": "left",
+      "body": "proof_load",
+      "target": {
+        "pos": [
+          0.27,
+          -0.09,
+          0.8375
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 1,
+      "translation_lead": 0.02,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "rotation_about_body": true,
+      "feedback_gain": 2,
+      "speed": 0.03,
+      "timeout": 30
+    },
+    {
+      "kind": "insert",
+      "label": "Pass eye over peg end cap",
+      "side": "left",
+      "body": "proof_load",
+      "target": {
+        "pos": [
+          -0.06,
+          -0.035,
+          0.015
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "relative_to": "upper_collar"
+      },
+      "measured_translation": true,
+      "measured_rotation": true,
+      "rotation_about_body": true,
+      "rotation_gain": 0.5,
+      "rotation_lead": 0.02,
+      "feedback_gain": 2,
+      "insertion_axis_world": [
+        0,
+        1,
+        0
+      ],
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
+      "lateral_tolerance": 0.0015,
+      "axial_lead": 0.0025,
+      "insertion_orientation_tolerance": 0.025,
+      "tolerance": 0.0015,
+      "timeout": 30,
+      "progress_window_seconds": 5
+    },
+    {
+      "kind": "insert",
+      "label": "Lower V-eye onto peg",
+      "side": "left",
+      "body": "proof_load",
+      "target": {
+        "pos": [
+          -0.06,
+          -0.035,
+          0.003093386622447826
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "relative_to": "upper_collar"
+      },
+      "measured_translation": true,
+      "measured_rotation": true,
+      "rotation_about_body": true,
+      "rotation_gain": 0.5,
+      "rotation_lead": 0.02,
+      "feedback_gain": 2,
+      "insertion_axis_world": [
+        0,
+        0,
+        -1
+      ],
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
+      "lateral_tolerance": 0.0015,
+      "axial_lead": 0.0025,
+      "insertion_orientation_tolerance": 0.025,
+      "tolerance": 0.0015,
+      "timeout": 30,
+      "progress_window_seconds": 5
+    },
+    {
+      "kind": "release",
+      "label": "Release suspended proof load",
+      "side": "left",
+      "opening": 1
+    },
+    {
+      "kind": "move",
+      "label": "Clear proof-load peg",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.18,
+          -0.02,
+          0.96
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from loaded hanger",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.2,
+          0.26,
+          0.93
+        ],
+        "quat": [
+          1,
+          0,
+          0,
+          0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "hold",
+      "label": "Observe independently supported proof load",
+      "side": "left",
+      "seconds": 3,
+      "opening": 1
     }
   ],
   "audit_tcp_targets": [

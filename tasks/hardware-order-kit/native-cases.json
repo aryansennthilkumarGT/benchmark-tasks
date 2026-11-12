@@ -1,7 +1,7 @@
 {
   "physics": [
     {
-      "name": "closed_keyed_collar_is_passively_stable",
+      "name": "keyed_hanger_without_load_has_only_assembly_credit",
       "initialize_bodies": [
         {
           "assembly": "collar_asset",
@@ -44,9 +44,9 @@
       "assertions": [
         {
           "kind": "score",
-          "min": 1.0,
-          "max": 1.0,
-          "success": true
+          "min": 0.65,
+          "max": 0.65,
+          "success": false
         },
         {
           "kind": "penetration",
@@ -236,16 +236,36 @@
       ]
     },
     {
-      "name": "key_retains_collar_against_opening_torque",
+      "name": "keyed_hanger_supports_independent400g_load",
       "initialize_bodies": [
         {
           "assembly": "collar_asset",
+          "free_articulation_root": true,
           "pos": [
             0.33,
             0,
             0.8225
           ],
-          "free_articulation_root": true
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "proof_load_asset",
+          "pos": [
+            0.27,
+            -0.035,
+            0.8255933866224479
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
         },
         {
           "assembly": "collar_key_asset",
@@ -253,36 +273,35 @@
             0.375,
             0.006,
             0.8225
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
           ]
         }
       ],
-      "forces": [
+      "initialize_joints": [
         {
           "assembly": "collar_asset",
-          "body": "upper_collar",
-          "torque": [
-            0,
-            -0.06,
-            0
-          ]
-        },
-        {
-          "assembly": "collar_asset",
-          "body": "lower_collar",
-          "torque": [
-            0,
-            0.06,
-            0
-          ]
+          "joint": "collar_hinge",
+          "value": 0
         }
       ],
-      "steps": 80,
-      "settle_steps": 0,
+      "steps": 200,
+      "settle_steps": 40,
       "assertions": [
+        {
+          "kind": "score",
+          "min": 1,
+          "max": 1,
+          "success": true
+        },
         {
           "kind": "joint",
           "joint": "collar_hinge",
-          "min": -0.035,
+          "min": -0.025,
           "max": 0.005
         },
         {
@@ -290,77 +309,51 @@
           "max": 0.002
         },
         {
-          "kind": "pose",
-          "body": "lower_collar",
-          "pos": [
-            0,
-            0,
-            0
-          ],
-          "tolerance": 0.0015,
-          "relative_to": "captive_shaft",
-          "quat": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "angle": 0.105
-        },
-        {
-          "kind": "pose",
-          "body": "collar_key",
-          "pos": [
-            0.045,
-            0.006,
-            0
-          ],
-          "tolerance": 0.0015,
-          "relative_to": "lower_collar",
-          "quat": [
-            0,
-            0,
-            0,
-            1
-          ],
-          "angle": 0.105
+          "kind": "valid"
         }
       ]
     },
     {
-      "name": "unkeyed_collar_opens_under_same_torque",
+      "name": "same400g_load_opens_unkeyed_hanger",
       "initialize_bodies": [
         {
           "assembly": "collar_asset",
+          "free_articulation_root": true,
           "pos": [
             0.33,
             0,
             0.8225
           ],
-          "free_articulation_root": true
-        }
-      ],
-      "forces": [
-        {
-          "assembly": "collar_asset",
-          "body": "upper_collar",
-          "torque": [
+          "quat": [
             0,
-            -0.06,
-            0
+            0,
+            0,
+            1
           ]
         },
         {
-          "assembly": "collar_asset",
-          "body": "lower_collar",
-          "torque": [
+          "assembly": "proof_load_asset",
+          "pos": [
+            0.27,
+            -0.035,
+            0.8255933866224479
+          ],
+          "quat": [
             0,
-            0.06,
-            0
+            0,
+            0,
+            1
           ]
         }
       ],
-      "steps": 80,
+      "initialize_joints": [
+        {
+          "assembly": "collar_asset",
+          "joint": "collar_hinge",
+          "value": 0
+        }
+      ],
+      "steps": 160,
       "settle_steps": 0,
       "assertions": [
         {
@@ -370,8 +363,13 @@
           "max": -0.1
         },
         {
+          "kind": "goal",
+          "name": "proof_load_supported",
+          "completed": false
+        },
+        {
           "kind": "score",
-          "max": 0.95,
+          "max": 0.65,
           "success": false
         }
       ]

@@ -1,8 +1,8 @@
 {
   "slug": "hardware-order-kit",
-  "title": "Fit and pin a hinged collar around a captive shaft",
-  "instruction": "Open the hinged collar, fit it around the shaft between its fixed end stops, close both halves with the shaft rib in the upper groove, and insert the orange-headed key through all three aligned lugs. Leave the collar retained with both hands clear.",
-  "context": "A split collar can be retrofitted without dismantling shaft ends; the task requires supporting the lower half while controlling closure and capturing both halves with a transverse key.",
+  "title": "Retrofit and proof-load a tool hanger on a captive keyed rail",
+  "instruction": "Fit the hinged hanger around the stationary keyed rail between its fixed end stops. Close the halves with the rib in its groove and insert the orange-headed key through all three lugs. Hang the purple400g test weight by its eye on the projecting peg, then leave both hands clear; the loaded hanger must remain closed and clocked.",
+  "context": "A split carrier can be installed on an anchored service rail without access to its ends. Its separate seam key and rib registration must support an independently placed offset payload; merely placing a collar is not the final operation.",
   "control_hz": 20,
   "run_limit": 6000,
   "table_top": 0.7475,
@@ -1500,25 +1500,120 @@
                 0.6
               ],
               "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.027,
+                -0.008,
+                0.0275
+              ],
+              "size": [
+                0.008,
+                0.008,
+                0.055
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.044,
+                -0.008,
+                0.055
+              ],
+              "size": [
+                0.04,
+                0.008,
+                0.008
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                -0.06,
+                -0.028,
+                0.055
+              ],
+              "radius": 0.004,
+              "height": 0.04,
+              "quat": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                -0.06,
+                -0.05,
+                0.055
+              ],
+              "radius": 0.006,
+              "height": 0.004,
+              "quat": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
             }
           ],
-          "mass": 0.1,
+          "mass": 0.16,
           "anchor": false,
           "bounds_min": [
-            -0.024064974945463967,
+            -0.066,
             -0.104,
             -0.014
           ],
           "bounds_max": [
             0.08,
-            0.015000000000000001,
-            0.037000000000000005
+            0.015,
+            0.061
           ],
           "half_extent": [
             0.08,
             0.104,
-            0.037000000000000005
-          ]
+            0.061
+          ],
+          "material": "aluminium carrier with steel hanger peg; prescribed rigid surrogate mass"
         }
       ],
       "joints": [
@@ -1639,12 +1734,233 @@
         }
       ],
       "joints": []
+    },
+    {
+      "name": "proof_load_asset",
+      "origin": [
+        0.28,
+        0.23,
+        0.7678
+      ],
+      "fixed": false,
+      "bodies": [
+        {
+          "name": "proof_load",
+          "pos": [
+            0.28,
+            0.23,
+            0.7678
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "shapes": [
+            {
+              "kind": "box",
+              "pos": [
+                0,
+                0,
+                0
+              ],
+              "size": [
+                0.03,
+                0.04,
+                0.04
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.55,
+                0.2,
+                0.7
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.04,
+                0,
+                0
+              ],
+              "size": [
+                0.02,
+                0.028,
+                0.02
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.1,
+                0.5,
+                0.8
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.024,
+                0,
+                0
+              ],
+              "size": [
+                0.028,
+                0.016,
+                0.012
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.1,
+                0.5,
+                0.8
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.012,
+                0,
+                0.0315
+              ],
+              "size": [
+                0.004,
+                0.008,
+                0.023
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                -0.006,
+                0,
+                0.0535
+              ],
+              "size": [
+                0.02418677324489565,
+                0.008,
+                0.004
+              ],
+              "quat": [
+                0,
+                -0.5019268181932334,
+                0,
+                0.8649100931185951
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.012,
+                0,
+                0.0315
+              ],
+              "size": [
+                0.004,
+                0.008,
+                0.023
+              ],
+              "quat": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "box",
+              "pos": [
+                0.006,
+                0,
+                0.0535
+              ],
+              "size": [
+                0.02418677324489565,
+                0.008,
+                0.004
+              ],
+              "quat": [
+                0,
+                0.5019268181932334,
+                0,
+                0.8649100931185951
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            }
+          ],
+          "mass": 0.4,
+          "anchor": false,
+          "material": "steel test block and lifting eye with polymer side grip; prescribed400g total mass",
+          "bounds_min": [
+            -0.05,
+            -0.02,
+            -0.02
+          ],
+          "bounds_max": [
+            0.015,
+            0.02,
+            0.06499227787671366
+          ],
+          "half_extent": [
+            0.05,
+            0.02,
+            0.06499227787671366
+          ]
+        }
+      ],
+      "joints": []
     }
   ],
   "goals": [
     {
       "name": "lower_half_located",
-      "weight": 0.25,
+      "weight": 0.15,
       "all": [
         {
           "kind": "pose",
@@ -1680,7 +1996,7 @@
     },
     {
       "name": "collar_closed",
-      "weight": 0.25,
+      "weight": 0.2,
       "all": [
         {
           "kind": "pose",
@@ -1716,7 +2032,7 @@
     },
     {
       "name": "collar_retained",
-      "weight": 0.5,
+      "weight": 0.3,
       "all": [
         {
           "kind": "pose",
@@ -1779,6 +2095,102 @@
           "spin": 0.2
         }
       ]
+    },
+    {
+      "name": "proof_load_supported",
+      "weight": 0.35,
+      "all": [
+        {
+          "kind": "pose",
+          "body": "lower_collar",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "relative_to": "captive_shaft",
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "tolerance": 0.0015,
+          "angle": 0.105,
+          "position_axis": [
+            0,
+            1,
+            0
+          ],
+          "axial_tolerance": 0.0015
+        },
+        {
+          "kind": "joint",
+          "joint": "collar_hinge",
+          "min": -0.025,
+          "max": 1e-06
+        },
+        {
+          "kind": "pose",
+          "body": "collar_key",
+          "pos": [
+            0.045,
+            0.006,
+            0
+          ],
+          "relative_to": "lower_collar",
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "tolerance": 0.0015,
+          "angle": 0.105
+        },
+        {
+          "kind": "still",
+          "body": "collar_key",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "still",
+          "body": "upper_collar",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "proof_load",
+          "pos": [
+            -0.06,
+            -0.031,
+            0.003093386622447826
+          ],
+          "relative_to": "upper_collar",
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "tolerance": 0.004,
+          "angle": 0.14,
+          "position_axis": [
+            0,
+            1,
+            0
+          ],
+          "axial_tolerance": 0.014
+        },
+        {
+          "kind": "still",
+          "body": "proof_load",
+          "speed": 0.01,
+          "spin": 0.2
+        }
+      ]
     }
   ],
   "invariants": [],
@@ -1790,9 +2202,10 @@
     "Rigid faceted half-rings approximate a hinged service collar; they preserve a real shaft opening and cannot pass over the fixed end flanges.",
     "A square transverse key captures interleaved lugs through real collision-defined holes. No automatic attachment or fastener torque is simulated.",
     "The collar tests retention around a shaft, not certified clamping friction or torque transmission.",
-    "Joint closure, key retention under load, and robot feasibility remain unexecuted in native PhysX."
+    "Joint closure, key retention under load, and robot feasibility remain unexecuted in native PhysX.",
+    "Only a400g handled proof load is claimed. No rated commercial product, rotating-shaft use, calibrated clamping force or certified working-load limit is represented."
   ],
   "arm_clearance_revision": "support-handles-and-idle-parking-v1",
   "novelty_status": "INTERNAL_REVIEW_CLEARED_FOR_VALIDATION_NOT_ACCEPTANCE",
-  "implementation_status": "MECHANICS_IMPLEMENTED_NATIVE_TESTS_PENDING"
+  "implementation_status": "FUNCTIONAL_PAYLOAD_REVISION_UNVALIDATED"
 }

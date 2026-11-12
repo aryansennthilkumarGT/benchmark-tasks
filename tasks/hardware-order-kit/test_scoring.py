@@ -384,3 +384,32 @@ class ObservedMotionTests(unittest.TestCase):
         next_frame['bodies'][name]['angular'] = [1., 0., 0.]
         scorer.previous_observation = frame
         self.assertEqual(scorer.observed_motion(name, next_frame), (0., 1.))
+
+
+class FunctionalHangerScoringTests(unittest.TestCase):
+    def test_hanger_assembly_without_payload_is_only_partial_credit(self):
+        frame=target_frame()
+        frame['bodies']['proof_load']=initial()['bodies']['proof_load']
+        result,_=finish(S.Scorer(SPEC),frame)
+        self.assertFalse(result.success)
+        self.assertAlmostEqual(result.score,.65)
+        self.assertNotIn('proof_load_supported',result.completed)
+
+    def test_payload_pose_without_seam_key_cannot_earn_load_credit(self):
+        frame=target_frame()
+        frame['bodies']['collar_key']=initial()['bodies']['collar_key']
+        result,_=finish(S.Scorer(SPEC),frame)
+        self.assertFalse(result.success)
+        self.assertNotIn('collar_retained',result.completed)
+        self.assertNotIn('proof_load_supported',result.completed)
+
+    def test_moving_load_blocks_full_score(self):
+        frame=target_frame();base_x=frame['bodies']['proof_load']['pos'][0]
+        scorer=S.Scorer(SPEC)
+        for k in range(math.ceil(SPEC['hold_seconds']*SPEC['control_hz'])+4):
+            frame['time']=k/SPEC['control_hz']
+            frame['bodies']['proof_load']['pos'][0]=base_x+(.001 if k%2 else -.001)
+            frame['bodies']['proof_load']['linear']=[.04,0,0]
+            result=scorer.update(frame)
+            self.assertFalse(result.success)
+        self.assertNotIn('proof_load_supported',result.completed)
