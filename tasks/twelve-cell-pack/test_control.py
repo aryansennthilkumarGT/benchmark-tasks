@@ -274,6 +274,21 @@ class FeedbackTests(unittest.TestCase):
             controller.step(self.ready, frame)
         self.assertEqual(controller.index, 1)
 
+    def test_key_hold_keeps_measured_feedback_while_pressure_hand_releases(self):
+        from unittest.mock import Mock
+        plan=json.loads((self.folder/'controller.json').read_text())
+        phase=next(x for x in plan['phases'] if x['label']=='Release captured preload')
+        controller=Controller({'phases':[phase]},self.spec)
+        controller.check_grasp_slip=lambda *args,**kwargs:None
+        controller.holds['right']=dict(relative_to='holder',pos=[0,0,.0852],quat=[1,0,0,0],
+                                       opening=0.,speed=.01,feedback_gain=2.)
+        target=Mock(side_effect=lambda measured,*args,**kwargs:(np.array(measured),0.,0.))
+        controller.motion['right'].target=target
+        controller.motion['left'].target=lambda measured,*args,**kwargs:(np.array(measured),0.,0.)
+        controller.step(self.ready,copy.deepcopy(self.frame))
+        self.assertEqual(target.call_args.kwargs['feedback_gain'],2.)
+        self.assertIn('right',controller.holds)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

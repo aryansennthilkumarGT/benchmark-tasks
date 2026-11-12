@@ -368,12 +368,106 @@
       "measured_rotation": true,
       "rotation_gain": 1.0,
       "rotation_lead": 0.04,
-      "rotation_about_body": true
+      "rotation_about_body": true,
+      "keep_hold": true,
+      "hold_relative_to": "holder",
+      "hold_feedback_gain": 2.0
+    },
+    {
+      "kind": "release",
+      "label": "Release captured preload",
+      "side": "left",
+      "clear_hold": true,
+      "opening": 0.5431309904153354
+    },
+    {
+      "kind": "move",
+      "label": "Lift released pressure hand clear",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.1,
+          0.035,
+          0.8875
+        ],
+        "quat": [
+          -0.6427876096865393,
+          0.766044443118978,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5431309904153354
+    },
+    {
+      "kind": "move",
+      "label": "Move pressure hand outward before unwinding",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.1,
+          0.26,
+          0.8875
+        ],
+        "quat": [
+          -0.6427876096865393,
+          0.766044443118978,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5431309904153354
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw left arm",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.2,
+          0.26,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.7660444431189781,
+          0.6427876096865394,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.5431309904153354
+    },
+    {
+      "kind": "hold",
+      "label": "Observe load transfer while key remains held",
+      "side": "left",
+      "seconds": 1.0,
+      "opening": 1.0
     },
     {
       "kind": "release",
       "label": "Release seated key",
       "side": "right",
+      "opening": 0.362087326943557,
+      "clear_hold": true
+    },
+    {
+      "kind": "move",
+      "label": "Lift released key hand clear",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.225,
+          0,
+          0.8875
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
       "opening": 0.362087326943557
     },
     {
@@ -396,13 +490,6 @@
       "opening": 0.362087326943557
     },
     {
-      "kind": "release",
-      "label": "Release captured preload",
-      "side": "left",
-      "clear_hold": true,
-      "opening": 0.5431309904153354
-    },
-    {
       "kind": "move",
       "label": "Withdraw right arm",
       "side": "right",
@@ -420,25 +507,6 @@
         ]
       },
       "opening": 1
-    },
-    {
-      "kind": "move",
-      "label": "Withdraw left arm",
-      "side": "left",
-      "target": {
-        "pos": [
-          0.2,
-          0.26,
-          0.8875000000000001
-        ],
-        "quat": [
-          -0.7660444431189781,
-          0.6427876096865394,
-          0.0,
-          0.0
-        ]
-      },
-      "opening": 0.5431309904153354
     },
     {
       "kind": "hold",
@@ -642,12 +710,108 @@
       "opening": 0.1597444089456869
     },
     {
+      "label": "Release captured preload",
+      "side": "left",
+      "pos": [
+        0.09999999999999998,
+        0.035,
+        0.8360000000000001
+      ],
+      "quat": [
+        -0.6427876096865393,
+        0.766044443118978,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5431309904153354
+    },
+    {
+      "label": "Lift released pressure hand clear",
+      "side": "left",
+      "pos": [
+        0.1,
+        0.035,
+        0.8875
+      ],
+      "quat": [
+        -0.6427876096865393,
+        0.766044443118978,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5431309904153354
+    },
+    {
+      "label": "Move pressure hand outward before unwinding",
+      "side": "left",
+      "pos": [
+        0.1,
+        0.26,
+        0.8875
+      ],
+      "quat": [
+        -0.6427876096865393,
+        0.766044443118978,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5431309904153354
+    },
+    {
+      "label": "Withdraw left arm",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.26,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7660444431189781,
+        0.6427876096865394,
+        0.0,
+        0.0
+      ],
+      "opening": 0.5431309904153354
+    },
+    {
+      "label": "Observe load transfer while key remains held",
+      "side": "left",
+      "pos": [
+        0.2,
+        0.26,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.7660444431189781,
+        0.6427876096865394,
+        0.0,
+        0.0
+      ],
+      "opening": 1.0
+    },
+    {
       "label": "Release seated key",
       "side": "right",
       "pos": [
         0.22499999999999998,
         0.0,
         0.8327000000000001
+      ],
+      "quat": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift released key hand clear",
+      "side": "right",
+      "pos": [
+        0.225,
+        0,
+        0.8875
       ],
       "quat": [
         1.0,
@@ -674,22 +838,6 @@
       "opening": 0.362087326943557
     },
     {
-      "label": "Release captured preload",
-      "side": "left",
-      "pos": [
-        0.09999999999999998,
-        0.035,
-        0.8360000000000001
-      ],
-      "quat": [
-        -0.6427876096865393,
-        0.766044443118978,
-        0.0,
-        0.0
-      ],
-      "opening": 0.5431309904153354
-    },
-    {
       "label": "Withdraw right arm",
       "side": "right",
       "pos": [
@@ -704,22 +852,6 @@
         0.0
       ],
       "opening": 1
-    },
-    {
-      "label": "Withdraw left arm",
-      "side": "left",
-      "pos": [
-        0.2,
-        0.26,
-        0.8875000000000001
-      ],
-      "quat": [
-        -0.7660444431189781,
-        0.6427876096865394,
-        0.0,
-        0.0
-      ],
-      "opening": 0.5431309904153354
     }
   ]
 }

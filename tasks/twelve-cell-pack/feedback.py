@@ -324,6 +324,8 @@ class Controller:
             feedback_gain = 0.
             if name == side:
                 feedback_gain = phase.get('feedback_gain', 2. if kind in ('move', 'grasp') else 0.)
+            elif isinstance(self.holds.get(name),dict):
+                feedback_gain = self.holds[name].get('feedback_gain',0.)
             target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,
                                                speed=speed,feedback_gain=feedback_gain)
             action[index:index+7]=target
@@ -342,7 +344,8 @@ class Controller:
                     if phase.get('hold_relative_to'):
                         ref=frame['bodies'][phase['hold_relative_to']];rp,rq=ref['pos'],ref['quat']
                         value=dict(relative_to=phase['hold_relative_to'],pos=rotate(conjugate(rq),value[0]-np.asarray(rp)),
-                                   quat=multiply(conjugate(rq),value[1]),opening=value[2],speed=value[3])
+                                   quat=multiply(conjugate(rq),value[1]),opening=value[2],speed=value[3],
+                                   feedback_gain=phase.get('hold_feedback_gain',0.))
                     self.holds[side]=value
                 if phase.get('clear_hold'):self.holds.pop(side,None)
                 self.advance(now)
