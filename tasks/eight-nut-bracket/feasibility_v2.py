@@ -19,7 +19,13 @@ def sha(path):
 
 
 def component_hash(name, raw):
-    if name.endswith('#phases'):
+    if name == 'scene.json#excluding_instruction':
+        # Only human/model wording differs. Every physical/scoring field remains exact.
+        value=json.loads(raw)
+        require('instruction' in value, 'Scene instruction is missing')
+        value.pop('instruction')
+        raw=json.dumps(value,sort_keys=True,separators=(',', ':')).encode()
+    elif name.endswith('#phases'):
         value = json.loads(raw)['phases']
         raw = json.dumps(value, sort_keys=True, separators=(',', ':')).encode()
     elif name.endswith('#excluding_feasible'):
@@ -40,7 +46,7 @@ def mechanics_names(here):
                 and path.name not in {'expert.py', 'run.py', 'feasibility_v2.py'}
                 and not path.name.startswith('test_')):
             names.add(relative)
-    names.update({'scene.json', 'native-cases.json', 'stack-lock.json',
+    names.update({'scene.json#excluding_instruction', 'native-cases.json', 'stack-lock.json',
                   'controller.json#phases', 'run.py#excluding_feasible'})
     return names
 
