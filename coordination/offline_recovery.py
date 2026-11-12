@@ -20,6 +20,7 @@ import xml.etree.ElementTree as ET
 
 from engine import Incomplete, Ledger, atomic, digest, execute, exclusive, read, utc
 from evidence import public_text
+from submit_ready import validate_metadata
 
 REPO = Path(__file__).resolve().parents[1]
 AUDITS = ('verify_assets.py', 'audit_control.py', 'audit_geometry.py',
@@ -65,6 +66,7 @@ def extract(archive, destination, prefix):
 
 
 def check_source(folder):
+    validate_metadata(read(folder / 'task.json'))
     manifest = read(folder / 'source_manifest.json')['files']
     if not manifest:
         raise Incomplete('Empty source manifest')
@@ -126,6 +128,7 @@ def main(argv=None):
     parser.add_argument('--manifest', type=Path, default=REPO/'coordination/draft-manifest.json')
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--task')
+    parser.add_argument('--commit', help='Audit this exact local SHA; requires --task')
     parser.add_argument('--audits', action='store_true')
     parser.add_argument('--resume', action='store_true')
     parser.add_argument('--retry-failed')
@@ -141,6 +144,11 @@ def main(argv=None):
         selected = [t for t in selected if t['slug'] == args.task]
         if not selected:
             parser.error('Unknown task')
+    if args.commit:
+        if not args.task or not re.fullmatch('[0-9a-f]{40}', args.commit):
+            parser.error('--commit requires --task and a full 40-character SHA')
+        selected[0]['commit'] = git(repo, 'rev-parse', '--verify', args.commit + '^{commit}')
+        selected[0]['source_selection'] = 'explicit_commit'
     if args.dry_run:
         print(json.dumps(dict(kind='OFFLINE_PLAN', tasks=selected, audits=args.audits), indent=2))
         return 0
