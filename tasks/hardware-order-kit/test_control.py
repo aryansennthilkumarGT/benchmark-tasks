@@ -50,6 +50,30 @@ class FeedbackTests(unittest.TestCase):
         self.assertLess(re, .035)
         self.assertGreater(float(np.min(np.minimum(solved-self.ik.LOWER, self.ik.UPPER-solved))), .12)
 
+    def test_lower_grasp_engages_handle_depth_with_table_clearance(self):
+        # Real recorded pose from the failed lift; geometry only, not a physics test.
+        import robot_geometry
+        fixture=json.loads((self.folder/'offline-evidence/recorded-lower-grasp.json').read_text())
+        body=fixture['body'];observed=fixture['joints']
+        phase=json.loads((self.folder/'controller.json').read_text())['phases'][1]
+        target=np.asarray(body['pos'])+rotate(body['quat'],phase['offset'])
+        arm,pe,re=self.ik.solve(target,phase['quat'],q_init=np.asarray(observed[:6]),
+            base_pos=self.station.BASES['left'],iters=100,damping=.015,tol=2e-5)
+        self.assertLess(pe,.0015);self.assertLess(re,.035)
+        hulls=[h for h in robot_geometry.arm_hulls('left',np.r_[arm,observed[6]]) if 'tip' in h['link']]
+        clearance=min(float(h['polyhedron'][0][:,2].min()) for h in hulls)-self.spec['table_top']
+        self.assertGreater(clearance,.015)
+        depths={}
+        inverse=np.asarray(body['quat']).copy();inverse[:3]*=-1
+        for hull in hulls:
+            points=np.array([rotate(inverse,v-np.asarray(body['pos'])) for v in hull['polyhedron'][0]])
+            lo=points.min(axis=0);hi=points.max(axis=0)
+            if lo[0]<-.0405 and hi[0]>-.0595 and lo[1]<.1045 and hi[1]>.0755:
+                overlap=max(0.,min(hi[2],.004)-max(lo[2],-.024))
+                depths[hull['link']]=max(depths.get(hull['link'],0.),overlap)
+        self.assertEqual(set(depths),{'tip_left','tip_right'})
+        self.assertGreater(min(depths.values()),.015)
+
     def test_hold_requires_actual_stationarity(self):
         c=self.controller(dict(kind='hold',seconds=1.,opening=1.))
         frame=copy.deepcopy(self.frame)

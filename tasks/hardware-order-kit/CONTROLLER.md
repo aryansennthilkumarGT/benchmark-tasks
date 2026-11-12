@@ -70,3 +70,6 @@ The upper-handle grasp uses 20 degrees of outward yaw, superseding the earlier 1
 
 
 Supporting-arm tracking revision (2026-11-12): relative holds now retain an explicit measured-pose feedback gain. The upper-collar support uses gain 2 during lower-collar translation; carry speed is bounded to 12.5 mm/s. This corrects inactive-arm routing, without changing scene, joint stops or scoring. Offline controller tests pass; native validation remains required. Earlier native failure hit the hinge opening stop before lower-body tilt; shaft contact was not established by that evidence.
+
+
+Deeper lower-handle grasp (2026-11-12): measured e083 traces lost the lower support at54.8 simulated seconds during lifting. Exact749-action reconstruction found the saved upper relative target differed by only0.183 mm and1.00 mrad at the handoff, so that target was not blamed without evidence. Actual-pose URDF mesh analysis found only7.5 mm of lower-handle vertical pad overlap. Lower TCP offset is now0 mm instead of+10 mm relative to the lower body, yielding16.65/17.48 mm pad overlap and19.10 mm minimum table clearance in offline IK/mesh checks. Native grip stability remains unproven until rerun. Separate opening-case expectation now matches the existing-1.30 rad controller goal (-1.33..-1.27); scene, torque limits and scoring are unchanged.
