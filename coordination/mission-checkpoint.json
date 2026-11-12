@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T12:03:35.276353+00:00",
+  "updated_at": "2026-11-12T12:25:44.490468+00:00",
   "status": "FOUR_OFFICIAL_RECEIPTS_NUT_HARDWARE_PRIORITY_NATIVE_WORK",
   "authoritative_detail": "Latest chronological checkpoints and actual current per-task receipts; do not use obsolete job pointers in earlier history.",
   "tasks": [
@@ -100,8 +100,8 @@
       "branch": "draft/node-service-closeout",
       "commit": "2e287b67f253c7dba4177818b5c44f2149fef546",
       "task_source_dirty": false,
-      "state": "OFFICIAL_RECEIVED_WAITING_REVIEW",
-      "ready": true,
+      "state": "OFFICIAL_FINAL_NOT_ACCEPTED_CLOSED_IMPORTANCE_AND_CONSTRUCT",
+      "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
       "producer_pid": 2063385,
       "producer_live_command_verified": true,
@@ -149,7 +149,7 @@
         "producer_exit": 1,
         "log": "/data/robocurve-runs/resume-compat/node-loaded-lid-margin-qualification.1lj2_l5c/first-trial.log"
       },
-      "next": "Inspect official intake/review; do not mutate waiting branch.",
+      "next": "Preserve actualphysics/experts/model/media; do not revise/reopen final importance closure. Newtask needs actualequipmentprocedure and essentialinterfaces.",
       "future_stages": {
         "cold_expert_pair": {
           "root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
@@ -253,7 +253,9 @@
       "source_method": "Fixed14D authored robot commands; no hidden object/scorer state feedback",
       "exact_evidence": "/data/robocurve-runs/resume-compat/node-final-publication/tasks/node-service-closeout/validation.json",
       "official_task_id": "TK-NGL8A3",
-      "observability_acceptance_risk_unresolved": false
+      "observability_acceptance_risk_unresolved": false,
+      "official_review_status": "Not accepted: final",
+      "official_review_comment": "https://github.com/robocurve/benchmark-tasks/pull/1772#issuecomment-6823276094"
     },
     {
       "slug": "hardware-order-kit",
@@ -425,14 +427,15 @@
         "failed": 0,
         "reset_count": 12,
         "status": "PASS"
-      }
+      },
+      "importance_status": "UNCLEARED; genericfixture not identified equipment/workprocedure. Do notsubmit solelyfromphysics/model."
     },
     {
       "slug": "twelve-cell-pack",
       "branch": "draft/twelve-cell-pack",
-      "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+      "commit": "a312bcac0f29098731ad40ce30df5fe3a6fcca78",
       "task_source_dirty": false,
-      "state": "OFFICIAL_RECEIVED_WAITING_FOR_REVIEW",
+      "state": "OFFICIAL_REVISED_TASK_RECEIVED_WAITING_FOR_REVIEW",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj",
       "producer_pid": 1818077,
@@ -473,15 +476,17 @@
         }
       ],
       "dream_score": 0.0,
-      "media_id": "M-JC9CBE",
+      "media_id": "M-25947E",
       "official_pr": {
         "number": 1733,
         "url": "https://github.com/robocurve/benchmark-tasks/pull/1733",
-        "head": "70d421a0f95fa8b3e79338f376c94725baf8d6d9",
-        "task_id": "TK-DWT97R",
+        "head": "a312bcac0f29098731ad40ce30df5fe3a6fcca78",
+        "task_id": "TK-WS3H2A",
         "state": "open",
         "merged": false,
-        "acceptance_confirmed": false
+        "acceptance_confirmed": false,
+        "review_status": "Revision received, waiting for review",
+        "revision_of": "TK-DWT97R"
       },
       "future_stages": {
         "genuine_dream": {
@@ -506,7 +511,7 @@
         "active_case": null
       },
       "producer_exit": 0,
-      "next": "Await official review; do not modify pending submission.",
+      "next": "Preserve pending a312 head and awaitreview. Physicalmeasurementdesign explicitlyuntested; nativegeometry/modelinputsunmodified.",
       "dream_evaluation_live": {
         "root": "/data/robocurve-runs/resume-compat/twelve-genuine-dream.9n_jrinr",
         "producer_pid": 1868522,
@@ -531,8 +536,8 @@
         "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
         "full_score_not_yet_verified": true
       },
-      "official_task_id": "TK-DWT97R",
-      "published_commit": "70d421a0f95fa8b3e79338f376c94725baf8d6d9",
+      "official_task_id": "TK-WS3H2A",
+      "published_commit": "a312bcac0f29098731ad40ce30df5fe3a6fcca78",
       "clean_reproduction": {
         "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
         "score": 1.0,
@@ -543,7 +548,17 @@
       },
       "prior_native_engineering_ready": true,
       "observability_acceptance_risk_unresolved": true,
-      "official_received_remains_true": true
+      "official_received_remains_true": true,
+      "physical_measurement_revision": {
+        "docs": "MEASUREMENT.md",
+        "analytical_checks": "MEASUREMENT_GEOMETRY.json",
+        "contacts": 12,
+        "solid_optical_patches_per_view": 2,
+        "native_geometry_unchanged": true,
+        "physical_photo_validation_claimed": false,
+        "fidelity_characters": 411,
+        "intake": "https://github.com/robocurve/benchmark-tasks/pull/1733#issuecomment-6823486960"
+      }
     },
     {
       "slug": "fault-module-repair",
@@ -620,37 +635,39 @@
   ],
   "counts": {
     "target": 6,
-    "official_received": 2,
+    "official_received": 1,
     "official_accepted": 0,
     "native_task_families_with_full_score_experts": 5,
     "verified_fixed_action_expert_pairs": 4,
     "official_heads_with_fixed_action_expert_pair": 1,
     "validated_fixed_action_revision_candidates_not_applied_to_pending_PR": 1,
     "official_received_historical": 4,
-    "official_waiting_review": 2,
-    "official_closed_final_not_accepted": 2,
-    "official_prs_opened": 4
+    "official_waiting_review": 1,
+    "official_closed_final_not_accepted": 3,
+    "official_prs_opened": 4,
+    "official_revision_received": 1,
+    "native_families_are_historical_not_accepted": true
   },
   "budget_latest": {
-    "remaining_balance_USD": 5.2,
-    "observed_at": "2026-11-12T12:00:40.576513+00:00",
+    "remaining_balance_USD": 3.41,
+    "observed_at": "2026-11-12T12:16:54.447995+00:00",
     "user_latest_reserve_USD": 0,
-    "headroom_USD": 5.2,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T120040Z.json",
+    "headroom_USD": 3.41,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T121654Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
-    "owned_workload_deadline_UTC": "2026-11-12T12:40:00+00:00",
+    "owned_workload_deadline_UTC": "2026-11-12T12:39:10.237469+00:00",
     "planning_account_USD_per_hour": 3.8,
     "metering_buffer_USD": 2,
-    "projected_at_deadline_after_buffer_USD": 0.7149682882222219,
+    "projected_at_deadline_after_buffer_USD": 0.0,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
-    "reserve_warning": "Latest human reserve0; actual credits hard cap. Fresh6.10USD receipt funds earlier12:35 workload cutoff under conservative account3.8USD/h and2USD uncertainty buffer. Workload cancellation does not stop instance billing; original power stop only after six genuinely complete/submitted, partner untouched.",
+    "reserve_warning": "Actual3.41USD12:16:54. Userreserve0, internal2USD uncertaintybuffer, conservativeaccount3.8USD/h. Six cannot finish withinfunds. EarlyVMstopauthorizationrequested, notassumed; workloadstopdoesnotstopbilling.",
     "reserve_revoked_by_user": true,
-    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T120040Z.json",
+    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T121654Z.json",
     "projection_is_internal_planning_not_provider_observation": true,
-    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T120040Z.json",
+    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T121654Z.json",
     "watchdog_pid": 2390822,
     "watchdog_repair_receipt": "/data/robocurve-runs/resume-compat/budget-watchdog-recovery-receipt.json",
     "funded_deadline_extension_receipt": "/data/robocurve-runs/resume-compat/budget-deadline-extension-20261112T0934.json",
@@ -670,7 +687,8 @@
     "original_instance_id": "rj306hdgr",
     "never_delete": true,
     "partner_instance_do_not_touch": "4rjseoodp",
-    "prior_leave_stopping_to_user_superseded_only_after_six": true
+    "prior_leave_stopping_to_user_superseded_only_after_six": true,
+    "early_budget_stop_authorization": "Requested asynchronous human action at3.41USD; pending response, no approval assumed. Six conditionalstopcondition unmet."
   },
   "pending_queued_sources_frozen": true,
   "gpu_execution_policy": {
@@ -1035,9 +1053,9 @@
     "remote1703": "Not accepted final; duplicate+importance",
     "not_reopened": true,
     "pending_only": [
-      1733,
-      1772
-    ]
+      1733
+    ],
+    "node1772": "Not accepted final12:12:31 importance+construct"
   },
   "hardware_full_physics_latest": {
     "root": "/data/robocurve-runs/resume-compat/hardware-clearance-full-native-cpu.kt8jgu1r",
