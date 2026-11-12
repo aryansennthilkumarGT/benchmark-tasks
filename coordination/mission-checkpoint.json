@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T06:36:10.780322+00:00",
+  "updated_at": "2026-11-12T06:41:05.539194+00:00",
   "status": "THREE_TASKS_RECEIVED_THREE_MORE_REQUIRED",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -336,23 +336,33 @@
       },
       "expert_trials_current_commit": [
         {
-          "record_id": "b3eb6a2f49764118b1b4e5c585f58b47",
           "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
           "score": 1.0,
+          "record_id": "b3eb6a2f49764118b1b4e5c585f58b47",
           "steps": 1677,
-          "log_sha256": "13f841134e2e3940cc27bb897ab64586e50fbe4087b4803cf7089fbb2fe758f2"
+          "log_sha256": "13f841134e2e3940cc27bb897ab64586e50fbe4087b4803cf7089fbb2fe758f2",
+          "duration_s": 1998.3576875760045
         },
         {
-          "record_id": "a84f671d06c64a30826cd1adba8286ae",
           "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
           "score": 1.0,
+          "record_id": "a84f671d06c64a30826cd1adba8286ae",
           "steps": 1677,
-          "log_sha256": "8e8c4118acb5d93eea3c3c54ce24e7d02415a3b664b0b8f5c1ee4f17a04cb043"
+          "log_sha256": "8e8c4118acb5d93eea3c3c54ce24e7d02415a3b664b0b8f5c1ee4f17a04cb043",
+          "duration_s": 2544.4663495610002
         }
       ],
       "dream_score": 0.0,
       "media_id": "M-JC9CBE",
-      "official_pr": "https://github.com/robocurve/benchmark-tasks/pull/1733",
+      "official_pr": {
+        "number": 1733,
+        "url": "https://github.com/robocurve/benchmark-tasks/pull/1733",
+        "head": "70d421a0f95fa8b3e79338f376c94725baf8d6d9",
+        "task_id": "TK-DWT97R",
+        "state": "open",
+        "merged": false,
+        "acceptance_confirmed": false
+      },
       "future_stages": {
         "genuine_dream": {
           "root": "/data/robocurve-runs/resume-compat/twelve-genuine-dream.9n_jrinr",
@@ -402,7 +412,15 @@
         "full_score_not_yet_verified": true
       },
       "official_task_id": "TK-DWT97R",
-      "published_commit": "70d421a"
+      "published_commit": "70d421a0f95fa8b3e79338f376c94725baf8d6d9",
+      "clean_reproduction": {
+        "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+        "score": 1.0,
+        "record_id": "9dc9484837d1406ba0d5a822452cb353",
+        "steps": 1677,
+        "log_sha256": "5e883461f75a8c64f43284d943a875a809d7528cb79cab00b25a0bf97c8c2de6",
+        "duration_s": 1665.5879399080004
+      }
     },
     {
       "slug": "fault-module-repair",
@@ -462,23 +480,24 @@
     "official_accepted": 0
   },
   "budget_latest": {
-    "remaining_balance_USD": 24.96,
-    "observed_at": "2026-11-12T06:17:06.704647+00:00",
+    "remaining_balance_USD": 24.06,
+    "observed_at": "2026-11-12T06:40:38.517399+00:00",
     "user_latest_reserve_USD": 0,
-    "headroom_USD": 28.55,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T052236Z.json",
+    "headroom_USD": 24.06,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
     "owned_workload_deadline_UTC": "2026-11-12T12:00:00+00:00",
     "planning_account_USD_per_hour": 3.8,
     "metering_buffer_USD": 2,
-    "projected_at_deadline_after_buffer_USD": 1.3816371190555579,
+    "projected_at_deadline_after_buffer_USD": 1.833990587833334,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
     "reserve_warning": "User removed reserve; verified available credits remain hard cap. Watchdog cutoff12:00 stops only mission workloads, not billing. Stop original instance only after6 genuinely complete/submitted; partner untouched.",
     "reserve_revoked_by_user": true,
-    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T061706Z.json"
+    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
+    "projection_is_internal_planning_not_provider_observation": true
   },
   "recovery": {
     "inspect_processes_before_launch": true,
