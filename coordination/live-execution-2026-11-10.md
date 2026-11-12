@@ -952,3 +952,8 @@ Nut197final-segmentdiagnosticrfi3iupq genuinePASS,3868actions,phase34; initializ
 PendingthreePRsunchanged/open/unmerged. Preparedseparatefaultaction-onlyfallbackvalidation/fault-action-onlydfc54a1ce445de419e834ff72cda8919456830f0 fromactualold885b02...1899jointactions. Producer2277815 rootfault-action-only-clean-pair.gu1oam4h wholecoldfirstthenfreshHTTPSsecond; no newqualifiedscoreyet. OldDream0isactualunchanged-taskrecord, notrerunorfabricated.
 
 TwoagentscontinueGithubsource/reviewwatch. Originalfork929reviewedactualrigidUforknotourarticulatedseamkey; new1750hingedsideraildrivecarrier notNodefixedcappedrail+coolerobstruction/lidcapturechain; latestchecks through1751show noexactselectedduplicate. Moderateimportance/observable-demoqualityrisksremain; noacceptanceguarantee.
+
+
+### 2026-11-12 09:02 UTC resumed evidence check
+
+Two user-requested novelty scanners remain active; source reviews through #1763 report no material selected-task overlap, not a guarantee. Fault action-only current revision `57fbf749` has two genuine 1.0 experts, all SDK/validator/static/producer exits 0, including fresh HTTPS checkout. Pending official PR unchanged. Node clean expert at `2262b60` remains running; genuine model previously completed 0.0. Node media exporter failed after encoding because input omitted camera-coverage evidence; encodes are not a validated media package. Nut whole cold producer exited 139; retained Python crash stack points into RTX camera render update, root cause not yet established. No Nut success claimed. Exact resume evidence: `/data/robocurve-runs/resume-compat/resume-status-20261112T0902.json`. No instance power operation.
