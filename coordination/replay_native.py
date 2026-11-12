@@ -137,7 +137,10 @@ def recorded_prefix(folder, source, label):
     frames = {round(row['frame']['time'] / .05): row['frame'] for row in
               map(json.loads, (source / 'first-trial/native_frames.jsonl').read_text().splitlines())}
     proprio = {}
-    for row in map(json.loads, (source / 'measured-joints.jsonl').read_text().splitlines()):
+    proprio_file = source / 'first-trial/measured-joints.jsonl'
+    if not proprio_file.is_file():
+        proprio_file = source / 'measured-joints.jsonl'
+    for row in map(json.loads, proprio_file.read_text().splitlines()):
         step = round(row['time'] / .05)
         if step == 0 and proprio:
             break
@@ -168,6 +171,7 @@ def recorded_prefix(folder, source, label):
         'compared_actions': compared,
         'absolute_action_tolerance': 1e-9,
         'source_chunks_sha256': hashlib.sha256(recordings[0].read_bytes()).hexdigest(),
+        'source_proprio_sha256': hashlib.sha256(proprio_file.read_bytes()).hexdigest(),
         'source_frame_time': frames[compared]['time'],
     }
 
