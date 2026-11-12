@@ -235,6 +235,51 @@ class FeedbackTests(unittest.TestCase):
         controller.step(self.ready, copy.deepcopy(self.frame))
         self.assertEqual(speeds, [.0025])
 
+    def test_held_latch_corrects_relaxation_and_retains_the_required_bias(self):
+        controller=Controller({'phases':[dict(label='hold-release',kind='hold',side='right',seconds=10,opening=1.)]},self.spec)
+        controller.check_grasp_slip=lambda *args,**kwargs: None
+        frame=copy.deepcopy(self.frame)
+        frame['joints']['latch_slide_0']=-.0045
+        controller.holds['left']=dict(relative_to='plug_0',pos=[0,.14,.021],quat=[0,0,0,1],
+            opening=0.,speed=.035,maintain_joint=dict(name='latch_slide_0',target=-.0055,
+            gain=.1,increment=.00025,correction=0.))
+        captured=[]
+        def hold_target(measured,p,q,opening,**kwargs):
+            captured.append(np.array(p));return np.array(measured),0.,0.
+        controller.motion['left'].target=hold_target
+        controller.motion['right'].target=lambda measured,*args,**kwargs:(np.array(measured),0.,0.)
+        nominal=np.array(frame['bodies']['plug_0']['pos'])+[0,.14,.021]
+        controller.step(self.ready,frame)
+        self.assertAlmostEqual(captured[-1][2]-nominal[2],-.0001)
+        frame['time']=.05;frame['joints']['latch_slide_0']=-.0055
+        controller.step(self.ready,frame)
+        self.assertAlmostEqual(captured[-1][2]-nominal[2],-.0001)
+        controller.phases[0]=dict(label='release-latch',kind='release',side='left',opening=1.,clear_hold=True)
+        controller.holds['left']['maintain_joint']['correction']=-.00599
+        frame['time']=.1;frame['joints']['latch_slide_0']=0.
+        controller.step(self.ready,frame)
+        self.assertEqual(controller.holds['left']['maintain_joint']['correction'],-.00599)
+
+    def test_extraction_waits_for_actual_sustained_latch_depression(self):
+        plan=json.loads((self.folder/'controller.json').read_text())
+        phase=next(x for x in plan['phases'] if x['label']=='Withdraw blue plug past the catch')
+        for depression,can_advance in [(-.0045,False),(-.0055,True)]:
+            controller=Controller({'phases':[phase]},self.spec)
+            controller.check_grasp_slip=lambda *args,**kwargs:None
+            frame=copy.deepcopy(self.frame)
+            body=frame['bodies']['plug_0'];body['pos']=list(phase['target']['pos']);body['pos'][1]=-.1
+            body['quat']=[0,0,0,1];frame['joints']['latch_slide_0']=depression
+            controller.grasps['right']=dict(body='plug_0',verified=False,start_pos=list(body['pos']),
+                tcp_in_body=[0,0,0],tcp_rotation_in_body=[0,0,0,1])
+            captured=[]
+            def target(measured,p,q,opening,**kwargs):
+                captured.append(np.array(p));return np.array(measured),0.,0.
+            controller.motion['right'].target=target
+            measured_tcp,_=controller.pose(self.ready[7:14],'right')
+            controller.step(self.ready,frame)
+            if can_advance:self.assertGreater(captured[-1][1],measured_tcp[1])
+            else:self.assertAlmostEqual(captured[-1][1],measured_tcp[1],places=9)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}

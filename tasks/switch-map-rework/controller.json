@@ -99,7 +99,8 @@
       "hold_relative_to": "plug_0",
       "integrate_joint_error": true,
       "position_gain": 0.1,
-      "hold_orientation": true
+      "hold_orientation": true,
+      "maintain_joint_while_holding": true
     },
     {
       "kind": "insert",
@@ -138,7 +139,14 @@
       "rotation_gain": 0.7,
       "rotation_lead": 0.025,
       "rotation_about_body": true,
-      "speed": 0.01
+      "speed": 0.01,
+      "support_joint_ranges": [
+        {
+          "joint": "latch_slide_0",
+          "min": -0.006,
+          "max": -0.005
+        }
+      ]
     },
     {
       "kind": "release",
@@ -378,7 +386,8 @@
       "hold_relative_to": "plug_1",
       "integrate_joint_error": true,
       "position_gain": 0.1,
-      "hold_orientation": true
+      "hold_orientation": true,
+      "maintain_joint_while_holding": true
     },
     {
       "kind": "insert",
@@ -417,7 +426,14 @@
       "rotation_gain": 0.7,
       "rotation_lead": 0.025,
       "rotation_about_body": true,
-      "speed": 0.01
+      "speed": 0.01,
+      "support_joint_ranges": [
+        {
+          "joint": "latch_slide_1",
+          "min": -0.006,
+          "max": -0.005
+        }
+      ]
     },
     {
       "kind": "carry",
@@ -682,7 +698,8 @@
       "hold_relative_to": "plug_0",
       "integrate_joint_error": true,
       "position_gain": 0.1,
-      "hold_orientation": true
+      "hold_orientation": true,
+      "maintain_joint_while_holding": true
     },
     {
       "kind": "carry",

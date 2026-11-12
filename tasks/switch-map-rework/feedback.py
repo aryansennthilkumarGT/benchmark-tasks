@@ -179,6 +179,19 @@ class Controller:
                 self.check_grasp_slip(held_side,joints[held_index:held_index+7],frame,require_support=True)
             if isinstance(value,dict):
                 hp,hq=self.world_target(value,frame)
+                if value.get('maintain_joint') and not (phase['kind']=='release' and phase['side']==held_side):
+                    held_joint=value['maintain_joint']
+                    joint=next(j for assembly in self.spec['assemblies'] for j in assembly.get('joints',[])
+                               if j['name']==held_joint['name'])
+                    if joint['kind']!='prismatic':raise ControlFailure('Held joint must be prismatic')
+                    error=held_joint['target']-frame['joints'][joint['name']]
+                    held_joint['correction']+=float(np.clip(held_joint['gain']*error,
+                                                           -held_joint['increment'],held_joint['increment']))
+                    if abs(held_joint['correction'])>.006:
+                        raise ControlFailure('Bounded held-joint correction exhausted')
+                    parent=frame['bodies'][joint['parent']]
+                    axis=rotate(parent['quat'],np.eye(3)['XYZ'.index(joint['axis'])])
+                    hp=hp+axis*held_joint['correction']
                 targets[held_side]=(hp,hq,value['opening'],value['speed'])
             else:targets[held_side]=value
         complete=True;kind=phase['kind'];side=phase.get('side','left')
@@ -229,7 +242,9 @@ class Controller:
                                           phase.get('lateral_lead', .008))
                 aligned = np.linalg.norm(lateral) <= phase.get('lateral_tolerance', .0008)
                 oriented = qangle(body_q, desired_q) <= phase.get('insertion_orientation_tolerance', .04)
-                if aligned and oriented:
+                support_ready=all(item['min']<=frame['joints'][item['joint']]<=item['max']
+                                  for item in phase.get('support_joint_ranges',[]))
+                if aligned and oriented and support_ready:
                     correction += limit_vector(axial, phase.get('axial_lead', .004))
                 p = tcp + correction
                 progress_error = np.array([np.linalg.norm(axial), np.linalg.norm(lateral),
@@ -335,6 +350,10 @@ class Controller:
                         ref=frame['bodies'][phase['hold_relative_to']];rp,rq=ref['pos'],ref['quat']
                         value=dict(relative_to=phase['hold_relative_to'],pos=rotate(conjugate(rq),value[0]-np.asarray(rp)),
                                    quat=multiply(conjugate(rq),value[1]),opening=value[2],speed=value[3])
+                    if phase.get('maintain_joint_while_holding'):
+                        if not isinstance(value,dict):raise ControlFailure('Joint hold requires a relative target')
+                        value['maintain_joint']=dict(name=phase['joint'],target=phase['value'],
+                            gain=phase.get('position_gain',.1),increment=phase.get('increment',.00025),correction=0.)
                     self.holds[side]=value
                 if phase.get('clear_hold'):self.holds.pop(side,None)
                 self.advance(now)
