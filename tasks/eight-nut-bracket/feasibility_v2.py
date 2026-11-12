@@ -43,7 +43,7 @@ def mechanics_names(here):
             continue
         relative = path.relative_to(here).as_posix()
         if path.suffix in {'.usd', '.usda'} or (path.suffix == '.py'
-                and path.name not in {'expert.py', 'run.py', 'feasibility_v2.py'}
+                and path.name not in {'expert.py', 'run.py', 'feasibility_v2.py', 'cpu_launcher.py'}
                 and not path.name.startswith('test_')):
             names.add(relative)
     names.update({'scene.json#excluding_instruction', 'native-cases.json', 'stack-lock.json',
