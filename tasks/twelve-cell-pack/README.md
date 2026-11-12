@@ -28,3 +28,8 @@ Read [SETUP.md](SETUP.md), [SCORING.md](SCORING.md) and [NOVELTY.md](NOVELTY.md)
 ## Fixed-action expert revision
 
 The expert executes1677 offline-authored14-dimensional joint and jaw commands, reading only robot proprioception and elapsed action index. It reads no object poses, task joints or scoring state. Two complete cold episodes each scored1.0 in83.85 simulated seconds; the second ran from a fresh HTTPS checkout. The original genuine Dream-1 result remains0.0 at its original source revision; scene, scoring, physics and model inputs are unchanged. Diagnostic feedback controllers and fixture initialization are excluded from these demonstrations.
+
+
+## Physical measurement access
+
+See [MEASUREMENT.md](MEASUREMENT.md) for twelve independent noncontact compression readings after closure, using solid optical windows in the physical holder/guide walls and coplanar reference scales. The simulator retains opaque solid walls; the judging-only windows and witness marks are omitted from its rendering. The design does not add a manipulation opening, remove a support or change the score thresholds.

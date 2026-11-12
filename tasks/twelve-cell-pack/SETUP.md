@@ -50,3 +50,6 @@ Each preloaded cell has two additional transverse guide walls, 24 by 4 by 44 mm,
 
 
 Physical-build surrogate material specification: inert metal AA-shaped dummy cells and an aluminium cross-key are intended proxies. Holder, plate and contact-shoe proxies are plastic fixture components. The simulation treats these as rigid bodies with the listed assigned masses and common friction coefficients; these are design estimates, not calibrated material measurements. Electrical and chemical behavior is outside scope. The repeated grid in task.json exactly indexes all twelve contacts and all twelve loaded cells; this table and scene.json retain their individual transforms.
+
+
+Physical judging access for all twelve closed-assembly contacts is specified in [MEASUREMENT.md](MEASUREMENT.md). It uses flush solid optical windows, fixed reference scales and noncontact photographs of each contact-disc witness line. Compression thresholds and native task geometry are unchanged. This is a physical-build measurement design; no physical photographic validation is claimed.
