@@ -39,8 +39,6 @@ Each weighted goal requires every condition below. Position/quaternion condition
 
 Malformed/missing/nonfinite data and nonmonotonic conflicting timestamps fail closed. The same frame can be queried twice without double-counting time. Unobserved gaps reset the stability window. Off-table loss uses the lowest rotated collision-bound corner, 25 mm below the tabletop. Anchors may move at most 5 mm / 3 degrees. Joint tolerances are 10 mrad rotary or 0.5 mm prismatic beyond physical limits.
 
-Thread credit requires aligned angular increments with corresponding axial motion inside the thread engagement region. Free spinning, direct dropping and pitch-inconsistent motion earn no turn credit. Cable continuity uses connected joint endpoints; a forced catch crossing without release invalidates the episode. These checks apply only to mechanisms present in this task.
-
 Offline tests inject synthetic states to test arithmetic and counterexamples. Native probes separately read actual simulation states and call this same scorer. No synthetic score is a demonstration result.
 
 Region containment checks every oriented collision box in each compound part. The same numeric region limits apply to every actual box vertex, including handles and tabs. This avoids fictitious corners introduced by rotating a single enclosing body bound. Synthetic tilted-compound and protruding-part regressions cover the calculation. Native collection validation remains required.
