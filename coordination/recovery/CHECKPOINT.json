@@ -1,0 +1,103 @@
+{
+  "schema": 1,
+  "updated_at": "2026-11-12T22:15:34.302818+00:00",
+  "mission": "Full Cloud Engineering Recovery",
+  "engineering_complete": false,
+  "target_packages": 8,
+  "fully_recovered_packages": 0,
+  "branch": "recovery/cloud-cpu-engineering",
+  "gpu_authorized": false,
+  "official_submissions_permitted_now": false,
+  "tasks": [
+    {
+      "slug": "hinged-chassis-drive",
+      "classification": "REDESIGN",
+      "reason": "Ground the drive carrier, lid retainer and installation in actual equipment documentation; repair the documented retaining-bar translation stall.",
+      "existing_branch": "draft/hinged-chassis-drive",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    },
+    {
+      "slug": "remote-battery-service",
+      "classification": "REPLACE",
+      "reason": "Final rejection #1703: DexHand Remote Battery Swap overlap and missing occupational importance.",
+      "existing_branch": "draft/remote-battery-service",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    },
+    {
+      "slug": "switch-map-rework",
+      "classification": "REDESIGN",
+      "reason": "Ground port-correction work in actual equipment and cable/latch geometry; the documented withdrawal failure remains unresolved.",
+      "existing_branch": "draft/switch-map-rework",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    },
+    {
+      "slug": "node-service-closeout",
+      "classification": "REPLACE",
+      "reason": "Final rejection #1772: generic cooler and connector-free storage omit essential real service interfaces.",
+      "existing_branch": "draft/node-service-closeout",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    },
+    {
+      "slug": "twelve-cell-pack",
+      "classification": "UNDER REVIEW",
+      "reason": "PR #1733 latest visible receipt TK-WS3H2A awaits review; preserve pending head. Noninvasive terminal compression measurement remains a physical-build validation risk.",
+      "existing_branch": "draft/twelve-cell-pack",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    },
+    {
+      "slug": "eight-nut-bracket",
+      "classification": "REDESIGN",
+      "reason": "Generic spring plate does not implement the cited LuK SAC procedure: centering/dowels, diaphragm, spindle, permanent fastening and tool removal are missing.",
+      "existing_branch": "draft/eight-nut-bracket",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    },
+    {
+      "slug": "fault-module-repair",
+      "classification": "REPLACE",
+      "reason": "Final rejection #1647: no recognizable occupational procedure; counterweighted generic arm cannot be relabeled.",
+      "existing_branch": "draft/fault-module-repair",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    },
+    {
+      "slug": "hardware-order-kit",
+      "classification": "REDESIGN",
+      "reason": "Captive-shaft collar geometry and motion have no identified equipment procedure; shaft insertion still stalls in committed diagnostics.",
+      "existing_branch": "draft/hardware-order-kit",
+      "replacement_implemented": false,
+      "reviewer_acceptance_cleared": false
+    }
+  ],
+  "review_evidence": "coordination/recovery/live-pr-observations.json",
+  "missing_evidence": [
+    "All original /data/robocurve-runs raw trajectories, videos and detailed producer logs are unavailable in this CPU environment; committed hashes and summaries do not replace them."
+  ],
+  "external_blockers": [
+    {
+      "operation": "Refresh complete accepted/pending novelty inventory",
+      "destination": "tasks.robocurve.org",
+      "observed": "HTTPS CONNECT rejected with 403 by network policy"
+    },
+    {
+      "operation": "Read full primary equipment procedures and dimensions before replacement design",
+      "destinations": [
+        "vehiclelifetimesolutions.schaeffler.com",
+        "www.dell.com"
+      ],
+      "observed": "HTTPS CONNECT rejected with 403 by network policy"
+    }
+  ],
+  "next": [
+    "Save the proposed network additions in environment settings; retry fresh requests.",
+    "Select concrete replacement procedures only after primary equipment and current novelty research.",
+    "Implement new task packages on new independent branches; preserve final-closed and pending heads.",
+    "Run offline_recovery.py for each new immutable task revision.",
+    "Require renewed GPU authorization and actual budget before any native/expert/model/media qualification."
+  ]
+}
