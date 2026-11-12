@@ -179,12 +179,12 @@
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "d38e3474fda55899219bea49ba8033a795f563bb",
+      "commit": "d8cfbc2b88f5f50f608bd8e3118a4fc59287655e",
       "task_source_dirty": false,
-      "state": "COOPERATIVE_CARRY_FIXED_STATIC_PASS_NATIVE_QUALIFICATION_RUNNING",
+      "state": "NATIVE_SMALL_INSERTION_STEP_COLD_QUALIFICATION_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-cooperative-carry-qualification.cq_8cfxt",
-      "producer_pid": 2085273,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-small-step-cold-qualification.plia6_dg",
+      "producer_pid": 2167615,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {},
@@ -202,19 +202,19 @@
         "diagnosis": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg/cooperative-lift-target-diagnosis.json",
         "new_native_pass_claimed": false
       },
-      "next": "Inspect native deeper-grasp behavior; gated complete cold expert pair and full native suites follow only after actual success.",
+      "next": "Cold control qualification after initialized replay lost upper grasp before diagnostic actions; full independent experts, physics and prefix assertions remain gated.",
       "controller_tests_passed": 28,
       "static_exit": 0
     },
     {
       "slug": "eight-nut-bracket",
       "branch": "draft/eight-nut-bracket",
-      "commit": "27f21f913be49bd7cb3e5f0732cb6c87b9a41463",
+      "commit": "143732600e471baab1ef80aa7a2d81d813159866",
       "task_source_dirty": false,
-      "state": "FRESH_FIRST_EXPERT_RUNNING_PRIOR_ATTEMPT_TIMEOUT_124",
+      "state": "THIRD_NUT_SEATING_MARGIN_DIAGNOSTIC_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-first-expert-extended-wall.0cviulsl",
-      "producer_pid": 1994023,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/eight-nut-bracket-bounded-correction.289btnpr",
+      "producer_pid": 2165543,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {
@@ -247,7 +247,7 @@
         "producer_exit": null,
         "state": "NATIVE_QUALIFICATION_RUNNING"
       },
-      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration.",
+      "next": "Diagnostic must actually pass before queued fresh whole experts, physics/control, Dream and HTTPS clean chain; chain receipt nut-third-margin-queued-chain.json.",
       "future_stages": {
         "current_qualification_continuation": {
           "root": "/data/robocurve-runs/resume-compat/nut-complete-current-qualification.7f6azvh_",
