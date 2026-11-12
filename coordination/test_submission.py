@@ -2,7 +2,7 @@
 import copy,json,tempfile,unittest
 from pathlib import Path
 from engine import Incomplete
-from submit_ready import main
+from submit_ready import main, validate_metadata
 
 class SubmissionTests(unittest.TestCase):
     def setUp(self):
@@ -23,5 +23,13 @@ class SubmissionTests(unittest.TestCase):
         other=copy.deepcopy(self.task);other['slug']='fixture-two';self.check([self.task,other],'Duplicate task branch')
     def test_missing_second_demo_blocked(self):
         self.task['expert_scores']=[1.];self.check([self.task],'Mandatory evidence')
+    def test_official_metadata_limits(self):
+        validate_metadata({'setup':'s'*4000,'fidelity':'f'*500})
+        for field,maximum in [('setup',4000),('fidelity',500)]:
+            metadata={'setup':'valid','fidelity':'valid'}
+            metadata[field]='x'*(maximum+1)
+            with self.assertRaisesRegex(Incomplete,field):validate_metadata(metadata)
+            metadata[field]=''
+            with self.assertRaisesRegex(Incomplete,field):validate_metadata(metadata)
 
 if __name__=='__main__':unittest.main()

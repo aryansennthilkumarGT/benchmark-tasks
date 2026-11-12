@@ -17,6 +17,14 @@ OFFICIAL='robocurve/benchmark-tasks'
 FORK='aryansennthilkumarGT/benchmark-tasks'
 
 
+def validate_metadata(metadata):
+    # Limits directly observed in official intake responses on PR1733.
+    for field, maximum in (('setup', 4000), ('fidelity', 500)):
+        value = metadata.get(field)
+        require(isinstance(value, str) and 0 < len(value) <= maximum,
+                f'Official {field} metadata must contain 1–{maximum} characters')
+
+
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('handoff',type=Path)
@@ -27,11 +35,6 @@ def main(argv=None):
     require(len(tasks)<=8 and len({t['slug'] for t in tasks})==len(tasks),'Duplicate/invalid handoff')
     require(len({t['branch'] for t in tasks})==len(tasks),'Duplicate task branch')
     for task in tasks:
-        metadata = json.loads(capture(['git', 'show',
-            f'{task["commit"]}:tasks/{task["slug"]}/task.json']))
-        require(isinstance(metadata, dict), 'Invalid task metadata')
-        require(isinstance(metadata.get('setup'), str) and 0 < len(metadata['setup']) <= 4000,
-                'Official setup metadata must contain 1–4000 characters')
         require(task.get('ready') is True and task.get('status')=='READY_FOR_PR','Unfinished task in handoff')
         require(task.get('media_id') and task.get('expert_scores')==[1.0,1.0] and task.get('dream_score') is not None,
                 'Mandatory evidence missing')
@@ -43,6 +46,12 @@ def main(argv=None):
         for record in task['evidence'].values():
             receipt=within(args.handoff.resolve().parent,args.handoff.resolve().parent/record['receipt'])
             require(verified_receipt(receipt,record['key']),'Changed or missing validation evidence')
+        require(isinstance(task.get('commit'), str) and len(task['commit']) == 40,
+                'Exact evaluated commit missing')
+        metadata = json.loads(capture(['git', 'show',
+            f'{task["commit"]}:tasks/{task["slug"]}/task.json']))
+        require(isinstance(metadata, dict), 'Invalid task metadata')
+        validate_metadata(metadata)
     if args.execute:
         require(args.registered_account,'--registered-account is required for execution')
         actual=capture(['gh','api','user','--jq','.login'])
