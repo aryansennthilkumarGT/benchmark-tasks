@@ -93,7 +93,8 @@
       "increment": 0.01,
       "keep_hold": true,
       "hold_relative_to": "lower_collar",
-      "timeout": 40
+      "timeout": 40,
+      "hold_feedback_gain": 2
     },
     {
       "kind": "carry",
@@ -152,7 +153,8 @@
       "rotation_about_body": true,
       "feedback_gain": 2,
       "tolerance": 0.001,
-      "angle": 0.01
+      "angle": 0.01,
+      "speed": 0.0125
     },
     {
       "kind": "insert",

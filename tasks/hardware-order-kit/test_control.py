@@ -234,6 +234,34 @@ class FeedbackTests(unittest.TestCase):
             np.testing.assert_allclose(captured[0][0]-body['pos'], [0, 0, expected], atol=1e-12)
             self.assertEqual(captured[0][1], 2)
 
+    def test_inactive_support_integrates_measured_tracking_error(self):
+        # A loaded support can lag even when its stored reference is at target.
+        # Exercise the controller routing and real Motion integration twice.
+        c=self.controller(dict(kind='hold',seconds=1))
+        joints=self.ready.copy()
+        tcp,quat=c.pose(joints[7:],'right')
+        parent='lower_collar';frame=copy.deepcopy(self.frame)
+        frame['bodies'][parent]['pos']=tcp.tolist()
+        frame['bodies'][parent]['quat']=[0,0,0,1]
+        c.holds['right']=dict(relative_to=parent,pos=[.002,0,0],quat=quat,
+                              opening=1.,speed=.02,feedback_gain=2.)
+        def measured(q,base):
+            offset=np.array([0.,.3,0.]) if np.allclose(base,c.motion['left'].base) else np.zeros(3)
+            return tcp.copy()+offset,np.eye(3)
+        def solve(pos,quat,**kwargs):return kwargs['q_init'].copy(),0.,0.
+        # Preserve the real Motion law while isolating IK from the routing test.
+        motion=c.motion['right']
+        with patch.object(c,'check_grasp_slip'), patch.object(motion.ik,'tcp_pose',side_effect=measured), \
+             patch.object(motion.ik,'matrix_to_quat_xyzw',return_value=quat), \
+             patch.object(motion.ik,'solve',side_effect=solve) as solver:
+            frame['time']=0.;c.step(joints,frame)
+            first=np.asarray(next(x.args[0] for x in solver.call_args_list if np.allclose(x.kwargs['base_pos'],motion.base))).copy()
+            solver.reset_mock()
+            frame['time']=.05;c.step(joints,frame)
+            second=np.asarray(next(x.args[0] for x in solver.call_args_list if np.allclose(x.kwargs['base_pos'],motion.base))).copy()
+        np.testing.assert_allclose(first-tcp,[.0002,0,0],atol=1e-10)
+        np.testing.assert_allclose(second-tcp,[.0002,0,0],atol=1e-10)
+
     def test_relative_hold_follows_measured_parent(self):
         c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
         frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
