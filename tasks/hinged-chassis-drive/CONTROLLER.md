@@ -86,3 +86,5 @@ The pitched retainer grasp uses a16mm centre-to-TCP offset and20to30mm measured 
 The cold expert reached the retaining-bar grasp with a real19.08mm occupied jaw width. The20mm lower bound prevented completion. The measured interval is now16to28mm, with the same physical contact, slip and verified-lift requirements. Objective seating and retention tolerances are unchanged.
 
 The retainer candidate rolls the wrist outward 25 degrees about the world X jaw-closing axis, rather than pitching that axis out of the bar-face normal. The closing normal remains horizontal and parallel to the narrow bar faces. This is an offline grasp-stability hypothesis and needs native qualification. Mechanism geometry and all objective predicates remain unchanged.
+
+The parallel-jaw rolled grasp uses measured TCP feedback gain 2/s during the bar grasp. Native suffix testing left the bar stationary but settled TCP 1.78 mm from the target, outside the unchanged 1.5 mm pre-close gate; feedback corrects this actuator bias instead of opening the precision tolerance.
