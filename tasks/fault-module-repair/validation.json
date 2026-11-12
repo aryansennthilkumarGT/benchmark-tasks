@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "status": "PUBLICATION_VALIDATED",
-  "ready": true,
+  "status": "OFFICIAL_FINAL_REJECTION_REPLACEMENT_REQUIRED",
+  "ready": false,
   "verified_at": "2026-11-11T13:38:03.748882+00:00",
   "evaluated_commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
   "native_physics": {
@@ -90,5 +90,23 @@
   ],
   "remaining": [
     "Official submission and review"
-  ]
+  ],
+  "pre_review_readiness": true,
+  "official_review": {
+    "status": "FINAL_REJECTION_NOT_REVISABLE",
+    "official_PR": 1647,
+    "comment": "https://github.com/robocurve/benchmark-tasks/pull/1647#issuecomment-6822949563",
+    "comment_id": 6822949563,
+    "reviewed_at": "2026-11-12T11:57:32Z",
+    "reason": "Importance: no identified equipment and regular core work.",
+    "replacement_requirements": [
+      "Select an actual apparatus and documented service operation before adapting the counterbalance mechanics.",
+      "Map every essential load, retaining interface and reset operation to the real procedure.",
+      "Support importance with evidence of the actual activity, not broad occupation labels."
+    ],
+    "runtime_results_are_historical_not_acceptance": true,
+    "no_reopen_or_revision_of_closed_PR": true,
+    "new_distinct_task_requires_fresh_validation": true,
+    "ready": false
+  }
 }

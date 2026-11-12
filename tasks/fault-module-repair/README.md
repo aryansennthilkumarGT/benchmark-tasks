@@ -1,3 +1,5 @@
+> Archived final rejection: this package is not submission-ready. See [REVIEW_REMEDIATION.md](REVIEW_REMEDIATION.md). Do not reopen its closed PR.
+
 # Balance and lock a counterweighted service arm
 
 Support the loaded arm, slide its counterweight until the pin holes align at the orange index, insert the locking pin through both holes, and leave the arm level with both hands clear.
