@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T09:30:25.714585+00:00",
+  "updated_at": "2026-11-12T09:34:55.136424+00:00",
   "status": "THREE_OFFICIAL_RECEIPTS_OBSERVABILITY_REVIEW_RISK_ACTION_ONLY_VALIDATION_UNDERWAY",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -572,24 +572,27 @@
   },
   "budget_latest": {
     "remaining_balance_USD": 14.18,
-    "observed_at": "2026-11-12T09:18:25.343428+00:00",
+    "observed_at": "2026-11-12T09:31:48.090922+00:00",
     "user_latest_reserve_USD": 0,
-    "headroom_USD": 24.06,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
+    "headroom_USD": 14.18,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T093148Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
-    "owned_workload_deadline_UTC": "2026-11-12T12:00:00+00:00",
+    "owned_workload_deadline_UTC": "2026-11-12T12:20:00+00:00",
     "planning_account_USD_per_hour": 3.8,
     "metering_buffer_USD": 2,
-    "projected_at_deadline_after_buffer_USD": 1.833990587833334,
+    "projected_at_deadline_after_buffer_USD": 1.5274293065555558,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
-    "reserve_warning": "User removed reserve; verified available credits remain hard cap. Watchdog cutoff12:00 stops only mission workloads, not billing. Stop original instance only after6 genuinely complete/submitted; partner untouched.",
+    "reserve_warning": "Latest human reserve0; actual credits remain hard cap. Current internal deadline12:20 controls only mission workloads. Underlying billing freshness unverified;2USD internal metering buffer. Instance billing continues until power is stopped; only stop original after6 genuinely complete/submitted. Partner untouched.",
     "reserve_revoked_by_user": true,
-    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
+    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T093148Z.json",
     "projection_is_internal_planning_not_provider_observation": true,
-    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T091825Z.json"
+    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T093148Z.json",
+    "watchdog_pid": 2390822,
+    "watchdog_repair_receipt": "/data/robocurve-runs/resume-compat/budget-watchdog-recovery-receipt.json",
+    "funded_deadline_extension_receipt": "/data/robocurve-runs/resume-compat/budget-deadline-extension-20261112T0934.json"
   },
   "recovery": {
     "inspect_processes_before_launch": true,
