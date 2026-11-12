@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T08:07:38.145130+00:00",
+  "updated_at": "2026-11-12T09:06:34.406942+00:00",
   "status": "THREE_OFFICIAL_RECEIPTS_OBSERVABILITY_REVIEW_RISK_ACTION_ONLY_VALIDATION_UNDERWAY",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -98,10 +98,10 @@
     {
       "slug": "node-service-closeout",
       "branch": "draft/node-service-closeout",
-      "commit": "33446a37bd62797024ece49346ce1233fde36296",
+      "commit": "2e287b67f253c7dba4177818b5c44f2149fef546",
       "task_source_dirty": false,
-      "state": "TWO_ACTION_ONLY_EXPERTS_VERIFIED_GENUINE_DREAM_RUNNING",
-      "ready": false,
+      "state": "OFFICIAL_PR_OPEN_AWAITING_INTAKE",
+      "ready": true,
       "latest_native_run": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
       "producer_pid": 2063385,
       "producer_live_command_verified": true,
@@ -117,9 +117,9 @@
           "duration_s": 1190.2829606550076
         }
       ],
-      "dream_score": null,
-      "media_id": null,
-      "official_pr": null,
+      "dream_score": 0.0,
+      "media_id": "M-LK9JRD",
+      "official_pr": "https://github.com/robocurve/benchmark-tasks/pull/1772",
       "historical_expert_evidence": {
         "commit": "f1027de43b6edd1b09779fc6b3cfaa9243ea72f5",
         "scores": [
@@ -149,7 +149,7 @@
         "producer_exit": 1,
         "log": "/data/robocurve-runs/resume-compat/node-loaded-lid-margin-qualification.1lj2_l5c/first-trial.log"
       },
-      "next": "Finish genuineModel325, freshHTTPSfullaction-onlyexpert325, actualmedia/export/review/upload; port exactvalidatedruntime to independentpublicationbranch andperformofficialnovelty/auth/onefolderpreflight.",
+      "next": "Inspect official intake/review; do not mutate waiting branch.",
       "future_stages": {
         "cold_expert_pair": {
           "root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
@@ -243,7 +243,15 @@
           "pid": 2267924
         },
         "no_model_until_two_real_action_only_experts_and_exact_target_gate_pass": true
-      }
+      },
+      "published_commit": "2e287b67f253c7dba4177818b5c44f2149fef546",
+      "expert_scores": [
+        1.0,
+        1.0
+      ],
+      "clean_expert_score": 1.0,
+      "source_method": "Fixed14D authored robot commands; no hidden object/scorer state feedback",
+      "exact_evidence": "/data/robocurve-runs/resume-compat/node-final-publication/tasks/node-service-closeout/validation.json"
     },
     {
       "slug": "hardware-order-kit",
@@ -285,12 +293,12 @@
     {
       "slug": "eight-nut-bracket",
       "branch": "draft/eight-nut-bracket",
-      "commit": "197d32d07bf124616d616684a07faa1efa85b993",
+      "commit": "c62808268782ede6a38f70eb3697aeea4336e135",
       "task_source_dirty": false,
-      "state": "WHOLE_COLD_ACTION_ONLY_PROGRAM_UNPROVEN",
+      "state": "SERIAL_ACTION_ONLY_COLD_EXPERT_RETRY",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-action-only-clean-pair.z64v7_ul",
-      "producer_pid": 2285941,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv",
+      "producer_pid": 2355275,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {
@@ -558,8 +566,8 @@
     "official_accepted": 0
   },
   "budget_latest": {
-    "remaining_balance_USD": 24.06,
-    "observed_at": "2026-11-12T06:40:38.517399+00:00",
+    "remaining_balance_USD": 15.98,
+    "observed_at": "2026-11-12T09:03:35+00:00",
     "user_latest_reserve_USD": 0,
     "headroom_USD": 24.06,
     "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
@@ -575,7 +583,8 @@
     "reserve_warning": "User removed reserve; verified available credits remain hard cap. Watchdog cutoff12:00 stops only mission workloads, not billing. Stop original instance only after6 genuinely complete/submitted; partner untouched.",
     "reserve_revoked_by_user": true,
     "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
-    "projection_is_internal_planning_not_provider_observation": true
+    "projection_is_internal_planning_not_provider_observation": true,
+    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T090335Z.json"
   },
   "recovery": {
     "inspect_processes_before_launch": true,
@@ -780,5 +789,19 @@
     "no_acceptance_exemption_claimed": true,
     "pending_pr_materials_unchanged": true,
     "next": "Prepare and genuinely cold-reset validate action-only robot trajectories; preserve private-feedback rollouts as disclosed generation/development evidence, never relabel them."
+  },
+  "node_official_submission": {
+    "pr": 1772,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1772",
+    "commit": "2e287b67f253c7dba4177818b5c44f2149fef546",
+    "media": "M-LK9JRD",
+    "expert": [
+      1,
+      1
+    ],
+    "fresh_checkout_expert": 1,
+    "dream": 0,
+    "accepted": false,
+    "intake": "pending observation"
   }
 }
