@@ -1,0 +1,351 @@
+"""Offline controller contract tests. No native physics is simulated here."""
+import copy
+import json
+import math
+from pathlib import Path
+import sys
+import unittest
+from unittest.mock import patch
+import numpy as np
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from feedback import Controller,ControlFailure,Motion,axis_quat,interpolate,limit_vector,multiply,qangle,rotate
+
+
+class GeometryTests(unittest.TestCase):
+    def test_quaternion_shortest_path_across_sign(self):
+        q=axis_quat([0,1,0],1.2)
+        self.assertLess(qangle(interpolate(q,-q,.5),q),1e-6)
+    def test_rotation_preserves_length(self):
+        self.assertAlmostEqual(np.linalg.norm(rotate(axis_quat([1,2,3],2.1),[.3,-.4,.2])),math.sqrt(.29))
+    def test_cartesian_step_is_bounded(self):
+        self.assertAlmostEqual(np.linalg.norm(limit_vector([1,2,3],.003)),.003)
+    def test_invalid_quaternion_is_rejected(self):
+        with self.assertRaises(ControlFailure):interpolate([0,0,0,0],[0,0,0,1],.5)
+
+
+class FeedbackTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from yam_arena import ik,station
+        from yam_arena.demo import DOWN_GRIP
+        from yam_arena.constants import READY
+        cls.ik=ik;cls.station=station;cls.down=DOWN_GRIP
+        cls.folder=Path(__file__).resolve().parent
+        cls.spec=json.loads((cls.folder/'scene.json').read_text())
+        cls.frame={'schema':1,'time':0.,'max_penetration':0.,'robot_clearance':.03,
+                   'bodies':{b['name']:{'pos':list(b['pos']),'quat':list(b['quat']),
+                               'linear':[0,0,0],'angular':[0,0,0]} for a in cls.spec['assemblies'] for b in a['bodies']},
+                   'joints':{j['name']:0. for a in cls.spec['assemblies'] for j in a.get('joints',[])}}
+        cls.ready=np.tile(np.r_[READY,1.],2)
+    def controller(self,phase):return Controller({'phases':[dict(label='contract-test',side='left',**phase)]},self.spec)
+    def test_hold_requires_actual_stationarity(self):
+        c=self.controller(dict(kind='hold',seconds=1.,opening=1.))
+        frame=copy.deepcopy(self.frame)
+        for t in (0,.5):frame['time']=t;c.step(self.ready,frame)
+        self.assertEqual(c.index,0)
+    def test_phase_timeout_is_not_success(self):
+        c=self.controller(dict(kind='move',target={'pos':[.2,.24,.84],'quat':self.down.tolist()},timeout=.1))
+        c.step(self.ready,self.frame)
+        frame=copy.deepcopy(self.frame);frame['time']=.2
+        with self.assertRaisesRegex(ControlFailure,'timeout'):c.step(self.ready,frame)
+        self.assertEqual(c.index,0)
+    def test_nonfinite_proprioception_rejected(self):
+        m=Motion('left')
+        with self.assertRaises(ControlFailure):m.target([float('nan')]*7,[.2,.2,.85],self.down,1)
+    def test_physical_intersection_aborts(self):
+        c=self.controller(dict(kind='hold',seconds=1))
+        frame=copy.deepcopy(self.frame);frame['max_penetration']=.01
+        with self.assertRaisesRegex(ControlFailure,'interpenetration'):c.step(self.ready,frame)
+    def test_grasp_slip_is_detected(self):
+        c=self.controller(dict(kind='hold',seconds=1));body=next(iter(self.frame['bodies']))
+        c.grasps['left']={'body':body,'verified':True,'tcp_in_body':[0,0,0],
+                           'tcp_rotation_in_body':[0,0,0,1],'slip_tolerance':.001}
+        with self.assertRaisesRegex(ControlFailure,'slipped'):c.check_grasp_slip('left',self.ready[:7],self.frame)
+    def test_grasp_never_verified_by_empty_finger_closure(self):
+        plan=json.loads((self.folder/'controller.json').read_text())
+        phase=next(p for p in plan['phases'] if p['kind']=='grasp')
+        c=Controller({'phases':[phase]},self.spec);frame=copy.deepcopy(self.frame)
+        b=frame['bodies'][phase['body']];side=phase['side'];index=0 if side=='left' else 7
+        p=np.asarray(b['pos'])+rotate(b['quat'],phase['offset'])
+        q,pe,re=self.ik.solve(p,phase['quat'],base_pos=self.station.BASES[side],iters=400,damping=.015)
+        self.assertLess(pe,.0015);joints=self.ready.copy();joints[index:index+6]=q;joints[index+6]=0
+        for t in (0,.5,1.):frame['time']=t;c.step(joints,frame)
+        self.assertEqual(c.index,0);self.assertFalse(c.grasps)
+    def test_incremental_action_respects_joint_and_gripper_limits(self):
+        m=Motion('left');p,r=m.ik.tcp_pose(self.ready[:6],m.base)
+        action,_,_=m.target(self.ready[:7],p+[.001,0,0],m.ik.matrix_to_quat_xyzw(r),0)
+        self.assertLessEqual(float(np.max(np.abs(action[:6]-self.ready[:6]))),.045+1e-12)
+        self.assertGreaterEqual(action[6],.9)
+
+    def test_fingers_stay_open_during_unfinished_approach(self):
+        plan=json.loads((self.folder/'controller.json').read_text());phase=next(p for p in plan['phases'] if p['kind']=='grasp')
+        c=Controller({'phases':[phase]},self.spec);frame=copy.deepcopy(self.frame)
+        side=phase['side'];index=0 if side=='left' else 7;body=frame['bodies'][phase['body']]
+        target=np.array(body['pos'])+rotate(body['quat'],phase['offset'])
+        q,pe,re=self.ik.solve(target+[0,0,.01],phase['quat'],base_pos=self.station.BASES[side],iters=500,damping=.015)
+        self.assertLess(pe,.0015);joints=self.ready.copy();joints[index:index+6]=q;joints[index+6]=.3
+        action=c.step(joints,frame)
+        self.assertGreater(action[index+6],joints[index+6]);self.assertFalse(c.grasp_closing);self.assertEqual(c.index,0)
+
+    def test_cell_entry_aligns_before_vertical_motion(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['cell_0']
+        goal = np.array(body['pos']) + [.005, 0, -.02]
+        phase = dict(kind='insert', body='cell_0', insertion_axis_world=[0, 0, 1],
+                     lateral_gain=8, lateral_lead=.004, lateral_tolerance=.0004,
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='cell_0', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append(np.array(position))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        tcp, _ = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0] - tcp, [.004, 0, 0], atol=1e-12)
+
+    def test_guided_insertion_counts_descent_despite_lateral_jitter(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['cell_0']['pos'])
+        phase = dict(kind='insert', body='cell_0', insertion_axis_world=[0, 0, 1],
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time in (0., 1., 2., 3.):
+            frame['time'] = time
+            frame['bodies']['cell_0']['pos'] = (goal + [time*.00015, 0, .02-time*.001]).tolist()
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 0)
+        frame['time'] = 6.
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
+    def test_cell_axis_completion_preserves_polarity(self):
+        for rotation, expected_index in [(axis_quat([0, 0, 1], 1.2), 1),
+                                         (axis_quat([1, 0, 0], .2), 0)]:
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['cell_0']
+            body['quat'] = rotation.tolist()
+            phase = dict(kind='carry', body='cell_0', orientation_axis=[0, 0, 1],
+                         target=dict(pos=body['pos'], quat=[0, 0, 0, 1]))
+            controller = self.controller(phase)
+            controller.grasps['left'] = dict(body='cell_0', verified=False,
+                tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+            controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+            for time in (0., .2):
+                frame['time'] = time
+                controller.step(self.ready, frame)
+            self.assertEqual(controller.index, expected_index)
+
+    def test_loaded_carry_targets_measured_tcp_with_bounded_body_error(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['cell_5']
+        goal = np.array(body['pos']) + [.04, 0, 0]
+        phase = dict(kind='carry', body='cell_5', measured_translation=True,
+                     position_gain=3, translation_lead=.02, feedback_gain=2,
+                     target=dict(pos=goal.tolist(), quat=body['quat']))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        targets = []
+        def capture(joints, position, orientation, opening, **kwargs):
+            targets.append((np.array(position), kwargs['feedback_gain']))
+            return np.array(joints), 0., 0.
+        controller.motion['left'].target = capture
+        measured, _ = controller.pose(self.ready[:7], 'left')
+        controller.step(self.ready, frame)
+        np.testing.assert_allclose(targets[0][0] - measured, [.02, 0, 0], atol=1e-12)
+        self.assertEqual(targets[0][1], 2.)
+
+    def test_pose_feedback_integrates_measured_error_and_retains_reference_bias(self):
+        motion = Motion('left')
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        motion.reference = reference.copy()
+        actual_p, actual_r = self.ik.tcp_pose(self.ready[:6], motion.base)
+        reference_p, reference_r = self.ik.tcp_pose(reference, motion.base)
+        actual_q = self.ik.matrix_to_quat_xyzw(actual_r)
+        reference_q = self.ik.matrix_to_quat_xyzw(reference_r)
+        calls = []
+        def solve(position, orientation, **kwargs):
+            calls.append((np.array(position), np.array(orientation)))
+            return reference.copy(), 0., 0.
+        with patch.object(self.ik, 'solve', side_effect=solve):
+            motion.target(self.ready[:7], actual_p + [.001, 0, 0], actual_q, 1., feedback_gain=2.)
+            motion.target(self.ready[:7], actual_p, actual_q, 1., feedback_gain=2.)
+            rotated = multiply(axis_quat([0, 1, 0], .02), actual_q)
+            motion.target(self.ready[:7], actual_p, rotated, 1., feedback_gain=2.)
+        np.testing.assert_allclose(calls[0][0], reference_p + [.0001, 0, 0], atol=1e-12)
+        np.testing.assert_allclose(calls[1][0], reference_p, atol=1e-12)
+        expected = multiply(axis_quat([0, 1, 0], .002), reference_q)
+        self.assertLess(qangle(calls[2][1], expected), 1e-7)
+
+    def test_loaded_reference_is_preserved_when_pressure_becomes_inactive_hold(self):
+        controller = self.controller(dict(kind='hold', seconds=0, keep_hold=True,
+                                          hold_reference_pose=True))
+        reference = self.ready[:6].copy()
+        reference[1] += .01
+        controller.motion['left'].reference = reference
+        expected, _ = controller.pose(reference, 'left')
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        frame = copy.deepcopy(self.frame)
+        for time in [0., .2]:
+            frame['time'] = time
+            controller.step(self.ready, frame)
+        np.testing.assert_allclose(controller.holds['left'][0], expected, atol=1e-12)
+
+    def test_guided_key_alignment_counts_real_transverse_progress(self):
+        frame = copy.deepcopy(self.frame)
+        goal = np.array(frame['bodies']['capture_key']['pos'])
+        phase = dict(kind='insert', body='capture_key', insertion_axis_world=[1, 0, 0],
+                     target=dict(pos=goal.tolist(), quat=[0, 0, 0, 1]))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.body_tcp = lambda side, position, orientation: (position, orientation)
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for time in [0., 1., 2., 3.]:
+            frame['time'] = time
+            frame['bodies']['capture_key']['pos'] = (goal + [-.065, 0, .002-.0004*time]).tolist()
+            controller.step(self.ready, frame)
+        frame['time'] = 6.
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):
+            controller.step(self.ready, frame)
+
+    def test_completed_verified_lift_holds_reference_but_unmet_lift_still_tracks(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['retaining_plate']
+        phase = dict(kind='carry', body='retaining_plate', verify_lift=True,
+                     min_lift=.05, target=dict(pos=body['pos'], quat=body['quat']))
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.grasps['left'] = dict(body='retaining_plate', verified=False,
+            start_z=body['pos'][2]-.06, tcp_in_body=[0, 0, 0],
+            tcp_rotation_in_body=[0, 0, 0, 1])
+        reference = self.ready[:6].copy()
+        controller.motion['left'].reference = reference.copy()
+        with patch.object(controller.motion['left'], 'target',
+                          side_effect=ControlFailure('IK reached a joint limit')) as target:
+            action = controller.step(self.ready, frame)
+            np.testing.assert_allclose(action[:6], reference)
+            target.assert_not_called()
+            self.assertEqual(controller.index, 0)
+            frame['time'] = .2
+            controller.step(self.ready, frame)
+            self.assertEqual(controller.index, 1)
+        controller = self.controller(phase)
+        controller.check_grasp_slip = lambda *args: None
+        controller.grasps['left'] = dict(body='retaining_plate', verified=False,
+            start_z=body['pos'][2], tcp_in_body=[0, 0, 0],
+            tcp_rotation_in_body=[0, 0, 0, 1])
+        controller.motion['left'].reference = reference.copy()
+        with patch.object(controller.motion['left'], 'target',
+                          side_effect=ControlFailure('IK reached a joint limit')):
+            with self.assertRaisesRegex(ControlFailure, 'joint limit'):
+                controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 0)
+
+    def test_plate_pose_cannot_finish_with_an_unloaded_terminal(self):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['retaining_plate']
+        body['pos'] = [.225, 0, .811]
+        requirements = [dict(joint='contact_spring_'+str(i), min=-.00175, max=-.0004)
+                        for i in range(12)]
+        phase = dict(kind='insert', body='retaining_plate', progress_timeout=5,
+                     required_joint_ranges=requirements,
+                     target=dict(pos=body['pos'], quat=body['quat']))
+        controller = self.controller(phase)
+        controller.grasps['left'] = dict(body='retaining_plate', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        controller.motion['left'].target = lambda joints, *args, **kwargs: (np.array(joints), 0., 0.)
+        for item in requirements:
+            frame['joints'][item['joint']] = -.001
+        frame['joints']['contact_spring_4'] = -.00004
+        for time in (0., .2):
+            frame['time'] = time
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 0)
+        frame['joints']['contact_spring_4'] = -.001
+        for time in (.4, .6):
+            frame['time'] = time
+            controller.step(self.ready, frame)
+        self.assertEqual(controller.index, 1)
+
+    def test_key_hold_keeps_measured_feedback_while_pressure_hand_releases(self):
+        from unittest.mock import Mock
+        plan=json.loads((self.folder/'controller.json').read_text())
+        phase=next(x for x in plan['phases'] if x['label']=='Release captured preload')
+        controller=Controller({'phases':[phase]},self.spec)
+        controller.check_grasp_slip=lambda *args,**kwargs:None
+        controller.holds['right']=dict(relative_to='holder',pos=[0,0,.0852],quat=[1,0,0,0],
+                                       opening=0.,speed=.01,feedback_gain=2.)
+        target=Mock(side_effect=lambda measured,*args,**kwargs:(np.array(measured),0.,0.))
+        controller.motion['right'].target=target
+        controller.motion['left'].target=lambda measured,*args,**kwargs:(np.array(measured),0.,0.)
+        controller.step(self.ready,copy.deepcopy(self.frame))
+        self.assertEqual(target.call_args.kwargs['feedback_gain'],2.)
+        self.assertIn('right',controller.holds)
+
+    def test_relative_hold_follows_measured_parent(self):
+        c=self.controller(dict(kind='hold',seconds=1));name=next(iter(self.frame['bodies']))
+        frame=copy.deepcopy(self.frame);target={'pos':[.01,.02,.03],'quat':[0,0,0,1],'relative_to':name}
+        first,_=c.world_target(target,frame);frame['bodies'][name]['pos'][0]+=.025
+        second,_=c.world_target(target,frame);np.testing.assert_allclose(second-first,[.025,0,0],atol=1e-12)
+
+    def test_release_supports_measured_partial_opening(self):
+        c=self.controller(dict(kind='release',opening=.4));joints=self.ready.copy();joints[6]=.4
+        frame=copy.deepcopy(self.frame)
+        for t in (0.,.5,.7):frame['time']=t;c.step(joints,frame)
+        self.assertEqual(c.index,1)
+
+    def test_invalid_release_target_fails_closed(self):
+        c=self.controller(dict(kind='release',opening=0.))
+        with self.assertRaisesRegex(ControlFailure,'Invalid release'):c.step(self.ready,self.frame)
+
+    def test_thread_free_spin_aborts_without_pitch_advance(self):
+        plan=json.loads((self.folder/'controller.json').read_text());phase=next((p for p in plan['phases'] if p['kind']=='thread'),None)
+        if phase is None:return
+        c=Controller({'phases':[phase]},self.spec);frame=copy.deepcopy(self.frame)
+        side=phase['side'];index=0 if side=='left' else 7
+        reference=frame['bodies'][phase['reference']];body=frame['bodies'][phase['body']]
+        body['pos']=(np.array(reference['pos'])+[phase['xy'][0],phase['xy'][1],.0232]).tolist()
+        tcp=np.array(body['pos'])+[0,0,.009];q=self.down
+        c.grasps[side]={'body':phase['body'],'verified':False}
+        for i in range(30):
+            body['quat']=axis_quat([0,0,1],-.2*i).tolist()
+            if i<12:c.thread_target(phase,body,tcp,q,self.ready[index:index+7],frame,i*.05)
+            else:
+                with self.assertRaisesRegex(ControlFailure,'axial advancement'):
+                    c.thread_target(phase,body,tcp,q,self.ready[index:index+7],frame,i*.05)
+                break
+
+
+    def test_plate_grasp_retains_wrist_margin_under_measured_load_tilt(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(p for p in plan['phases'] if p['label'] == 'Grasp pressure plate')
+        seed = self.ready[:6].copy()
+        for target in plan['audit_tcp_targets']:
+            if target['side'] != 'left':
+                continue
+            seed, pe, re = self.ik.solve(target['pos'], target['quat'], q_init=seed,
+                base_pos=self.station.BASES['left'], iters=500, damping=.015, tol=1e-5)
+            if target['label'] == 'Lift pressure plate':
+                break
+        lift = next(p for p in plan['phases'] if p['label'] == 'Lift pressure plate')
+        tilt = axis_quat([0, 1, 0], .06)
+        position = np.array(lift['target']['pos']) + rotate(tilt, phase['offset'])
+        orientation = multiply(tilt, phase['quat'])
+        solved, pe, re = self.ik.solve(position, orientation, q_init=seed,
+            base_pos=self.station.BASES['left'], iters=500, damping=.015, tol=1e-5)
+        self.assertLess(pe, .0015)
+        self.assertLess(re, .035)
+        self.assertGreater(min(solved[5]-self.ik.LOWER[5], self.ik.UPPER[5]-solved[5]), .04)
+        press = next(p for p in plan['phases'] if p['label'] == 'Compress all twelve terminal springs')
+        self.assertEqual(press['position_gain'], 1.)
+        self.assertEqual(len(press['required_joint_ranges']), 12)
+
+
+if __name__=='__main__':unittest.main()

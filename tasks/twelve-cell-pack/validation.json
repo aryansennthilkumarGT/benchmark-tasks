@@ -1,0 +1,107 @@
+{
+  "schema_version": 2,
+  "status": "FOCUSED_CLOSURE_SCOPE_NATIVE_VALIDATION_PENDING",
+  "ready": false,
+  "verified_at": "2026-11-07T23:59:11.353255+00:00",
+  "offline_tests": {
+    "slug": "twelve-cell-pack",
+    "python": "3.12.13",
+    "tests_run": 67,
+    "skipped": 5,
+    "passed": 62,
+    "unit_exit": 0,
+    "usd_exit": 0
+  },
+  "offline_audits": {
+    "control": {
+      "passed": true,
+      "evidence": "offline-evidence/control.json"
+    },
+    "geometry": {
+      "passed": true,
+      "evidence": "offline-evidence/geometry.json"
+    },
+    "grasps": {
+      "passed": true,
+      "evidence": "offline-evidence/grasps.json"
+    },
+    "motion": {
+      "passed": true,
+      "evidence": "offline-evidence/motion.json"
+    },
+    "threads": {
+      "passed": true,
+      "evidence": "offline-evidence/threads.json"
+    }
+  },
+  "usd_structure": {
+    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
+    "assemblies": 15,
+    "bodies": 27,
+    "joints": 12,
+    "spawn_transforms_and_anchors": "PASS",
+    "initial_joint_frames": "PASS"
+  },
+  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
+  "native_physics": "PASS_PRIOR_EVALUATED_REVISION",
+  "robot_control": "NOT_RUN",
+  "expert_trials": [],
+  "dream": null,
+  "media_id": null,
+  "media_verified": false,
+  "run_limit": 12000,
+  "native_cases_planned": {
+    "physics": 5,
+    "control": 2
+  },
+  "physics_runs": 1,
+  "expert_runs": 0,
+  "model_runs": 0,
+  "media_uploads": 0,
+  "remaining": [
+    "Real robot control tests",
+    "Two full-score expert episodes",
+    "Genuine Dream-1 evaluation",
+    "Media visual review and official upload",
+    "Runtime publication verification"
+  ],
+  "limitations": [
+    "Rigid contact shoes approximate spring terminals; conductivity is inferred from orientation, seating and measured spring compression.",
+    "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope."
+  ],
+  "evidence_scope": "The complete repeated native mechanism suite passed on the recorded evaluated commit. Real robot control, full-score expert demonstrations and Dream-1 remain pending.",
+  "native_diagnostic_evidence": {
+    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+    "commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
+    "driver": "565.57.01",
+    "status": "PASS",
+    "passed": 2,
+    "failed": 0,
+    "resets": 2,
+    "report_sha256": "e9beb9c0222ce9945a9b047bdf7eb8a3760a14aa52dc314ce6b4e4e31bb39125"
+  },
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
+  },
+  "native_physics_evidence": {
+    "kind": "NATIVE_PHYSX_TESTS",
+    "commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
+    "driver": "565.57.01",
+    "passed": 10,
+    "failed": 0,
+    "resets": 10,
+    "report_sha256": "6b6c0779f41dcbde21d281760bce24bb4daf0dcfd4563c0a125fd286b5823a00"
+  },
+  "native_collision_collection": {
+    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
+    "regression": "Nested rigid-body colliders belong only to their owning link",
+    "clearance_requirement_m": 0.02
+  },
+  "scope_revision": "Loaded starting layout with genuine pressure-plate and cross-key closure. Historical loading results do not establish feasibility of this revision."
+}

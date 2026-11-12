@@ -1,0 +1,20 @@
+# Measured-state pressure-plate closure expert
+
+The eighteen phases clear the right arm, grasp and lift the plate, align its twelve contact pads, compress the contacts, acquire the key with the other arm, insert it into the retaining channels, release the key, release the plate and withdraw both arms. The cells are already loaded in the declared starting layout.
+
+The controller uses measured native body poses, joint positions and robot proprioception. Loaded carries use body-position gain 3 with a 20 mm lead cap and measured-pose reference gain 2 per second. Plate compression uses a 5 mm lead cap at a 10 mm/s motion limit. The loaded left tracking window is 0.20 radians and the right window is 0.08 radians. URDF position, velocity and effort limits apply through native actuation.
+
+The pressure hold captures the current robot reference pose after compression. This preserves the loaded command while the right hand handles the key. Key insertion checks transverse alignment before advancing, tracks transverse and axial progress independently, and aborts a stall after two seconds. Neither body poses nor score states are written by the expert.
+
+Five completed cell-placement sequences from the earlier loading prototype remain preserved in branch history and their original evidence. This focused closure revision requires fresh native mechanism tests, control tests, two recorded full-score experts and its own genuine model evaluation.
+
+
+Compression completion requires all twelve measured terminal joints between-1.75mm and-0.40mm, together with the plate pose conditions. Position, angle and compression-range progress are tracked independently with a5second bounded stall timeout. The previous pose-only completion advanced while one measured spring had only0.039mm compression. Native scoring still independently checks cell poses, polarity, spring compression and final load capture.
+
+Each preloaded cell has two additional transverse guide walls, 24 by 4 by 44 mm, centred 9.7 mm to either side of its row centre and 25 mm above the holder root. Together with the existing longitudinal walls they form an 15.4 by 15.4 mm clear sleeve. These fused holder guides keep cells upright before plate compression. The earlier holder constrained only the x direction. Recorded native cell 4 toppled laterally before the plate arrived, leaving its terminal unloaded. The initial native stability case now runs 20 seconds and checks every cell within 3 mm of its setup position and 0.08 rad of its declared axis.
+
+The plate grasp rotates its jaw yaw by -20 degrees to increase wrist6 clearance from its -2.0944 rad stop. The 30 mm handle projects to 33 mm across the tilted jaws, within the existing 24 to 37 mm measured grip interval. The attempted 180-degree alternative failed the continuous-path joint-limit audit and was discarded. Press gain is1 with0.5s completion hold. Both axes of the cell sleeves have15.4mm clear width around14.5mm cells. The prior18mm clearance allowed1.6mm lateral cell drift beyond the unchanged1mm pose goals. The compression prefix checks every contact travel, cell pose and polarity. Its score records the actual instantaneous partial credit while the hand presses. Full-score stillness remains required after key capture and hand release.
+
+Pressure-plate grip yaw is -10 degrees. The prior -20 degree grip reached its wrist limit with actual lifted plate tilt 0.0627 rad, above the unchanged 0.06 rad carry gate. The revised yaw requires fresh native expert qualification; all twelve contact and capture requirements remain.
+
+Load transfer keeps the inserted key held with measured-position feedback while the pressure hand opens and lifts vertically with its grasp yaw preserved. The empty pressure hand retreats before the key is released. After a one-second transfer observation, the key hand opens and lifts vertically before its lateral retreat. Earlier release of the unloaded key let it shift; the pressure hand then dragged the plate during diagonal/yaw retreat. All twelve contact, 1 mm pose and released-stability requirements remain unchanged. Native qualification is pending.

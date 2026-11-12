@@ -1,0 +1,1687 @@
+{
+  "physics": [
+    {
+      "name": "sources_and_plate_settle",
+      "steps": 400,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "still",
+          "body": "retaining_plate",
+          "speed": 0.01,
+          "spin": 0.2
+        },
+        {
+          "kind": "pose",
+          "body": "cell_0",
+          "pos": [
+            0.09999999999999998,
+            -0.028,
+            0.78225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_0",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_1",
+          "pos": [
+            0.14999999999999997,
+            -0.028,
+            0.78355
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_1",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_2",
+          "pos": [
+            0.19999999999999998,
+            -0.028,
+            0.78225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_2",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_3",
+          "pos": [
+            0.25,
+            -0.028,
+            0.78355
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_3",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_4",
+          "pos": [
+            0.3,
+            -0.028,
+            0.78225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_4",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_5",
+          "pos": [
+            0.35,
+            -0.028,
+            0.78355
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_5",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_6",
+          "pos": [
+            0.09999999999999998,
+            0.028,
+            0.78225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_6",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_7",
+          "pos": [
+            0.14999999999999997,
+            0.028,
+            0.78355
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_7",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_8",
+          "pos": [
+            0.19999999999999998,
+            0.028,
+            0.78225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_8",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_9",
+          "pos": [
+            0.25,
+            0.028,
+            0.78355
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_9",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_10",
+          "pos": [
+            0.3,
+            0.028,
+            0.78225
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_10",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.08
+        },
+        {
+          "kind": "pose",
+          "body": "cell_11",
+          "pos": [
+            0.35,
+            0.028,
+            0.78355
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "axis",
+          "body": "cell_11",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.08
+        }
+      ]
+    },
+    {
+      "name": "captured_pack_retains_contact_preload",
+      "initialize_bodies": [
+        {
+          "assembly": "cell_0_asset",
+          "pos": [
+            0.09999999999999998,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_1_asset",
+          "pos": [
+            0.14999999999999997,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_2_asset",
+          "pos": [
+            0.2,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_3_asset",
+          "pos": [
+            0.25,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_4_asset",
+          "pos": [
+            0.3,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_5_asset",
+          "pos": [
+            0.35,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_6_asset",
+          "pos": [
+            0.09999999999999998,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_7_asset",
+          "pos": [
+            0.14999999999999997,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_8_asset",
+          "pos": [
+            0.2,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_9_asset",
+          "pos": [
+            0.25,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_10_asset",
+          "pos": [
+            0.3,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_11_asset",
+          "pos": [
+            0.35,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "retaining_plate_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.811
+          ]
+        },
+        {
+          "assembly": "capture_key_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.8207000000000001
+          ]
+        }
+      ],
+      "steps": 160,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "contact_spring_0",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_1",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_2",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_3",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_4",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_5",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_6",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_7",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_8",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_9",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_10",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_11",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "score",
+          "min": 1.0,
+          "max": 1.0,
+          "success": true
+        }
+      ]
+    },
+    {
+      "name": "key_blocks_plate_lift",
+      "initialize_bodies": [
+        {
+          "assembly": "cell_0_asset",
+          "pos": [
+            0.09999999999999998,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_1_asset",
+          "pos": [
+            0.14999999999999997,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_2_asset",
+          "pos": [
+            0.2,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_3_asset",
+          "pos": [
+            0.25,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_4_asset",
+          "pos": [
+            0.3,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_5_asset",
+          "pos": [
+            0.35,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_6_asset",
+          "pos": [
+            0.09999999999999998,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_7_asset",
+          "pos": [
+            0.14999999999999997,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_8_asset",
+          "pos": [
+            0.2,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_9_asset",
+          "pos": [
+            0.25,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_10_asset",
+          "pos": [
+            0.3,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_11_asset",
+          "pos": [
+            0.35,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "retaining_plate_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.811
+          ]
+        },
+        {
+          "assembly": "capture_key_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.8207000000000001
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "retaining_plate_asset",
+          "body": "retaining_plate",
+          "force": [
+            0,
+            0,
+            3
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "retaining_plate",
+          "axis": 2,
+          "min": 0.81,
+          "max": 0.8123
+        }
+      ]
+    },
+    {
+      "name": "contact_restores_after_compression",
+      "initialize_joints": [
+        {
+          "assembly": "holder_asset",
+          "joint": "contact_spring_0",
+          "value": -0.0015
+        }
+      ],
+      "steps": 100,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "contact_spring_0",
+          "min": -0.00015,
+          "max": 5e-05
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "cell_0_asset",
+          "pos": [
+            0.16,
+            -0.17,
+            0.77295
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reversed_cell_blocks_complete_pack",
+      "initialize_bodies": [
+        {
+          "assembly": "cell_0_asset",
+          "pos": [
+            0.09999999999999998,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "assembly": "cell_1_asset",
+          "pos": [
+            0.14999999999999997,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_2_asset",
+          "pos": [
+            0.2,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_3_asset",
+          "pos": [
+            0.25,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_4_asset",
+          "pos": [
+            0.3,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_5_asset",
+          "pos": [
+            0.35,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_6_asset",
+          "pos": [
+            0.09999999999999998,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_7_asset",
+          "pos": [
+            0.14999999999999997,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_8_asset",
+          "pos": [
+            0.2,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_9_asset",
+          "pos": [
+            0.25,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_10_asset",
+          "pos": [
+            0.3,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_11_asset",
+          "pos": [
+            0.35,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "retaining_plate_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.811
+          ]
+        },
+        {
+          "assembly": "capture_key_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.8207000000000001
+          ]
+        }
+      ],
+      "steps": 160,
+      "assertions": [
+        {
+          "kind": "goal",
+          "name": "cell_0_contacted",
+          "completed": false
+        },
+        {
+          "kind": "score",
+          "max": 0.95,
+          "success": false
+        }
+      ]
+    },
+    {
+      "name": "unkeyed_plate_lifts_under_same_load",
+      "initialize_bodies": [
+        {
+          "assembly": "cell_0_asset",
+          "pos": [
+            0.09999999999999998,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_1_asset",
+          "pos": [
+            0.14999999999999997,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_2_asset",
+          "pos": [
+            0.2,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_3_asset",
+          "pos": [
+            0.25,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_4_asset",
+          "pos": [
+            0.3,
+            -0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_5_asset",
+          "pos": [
+            0.35,
+            -0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_6_asset",
+          "pos": [
+            0.09999999999999998,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_7_asset",
+          "pos": [
+            0.14999999999999997,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_8_asset",
+          "pos": [
+            0.2,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_9_asset",
+          "pos": [
+            0.25,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "cell_10_asset",
+          "pos": [
+            0.3,
+            0.028,
+            0.78075
+          ],
+          "quat": [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "assembly": "cell_11_asset",
+          "pos": [
+            0.35,
+            0.028,
+            0.78205
+          ],
+          "quat": [
+            1.0,
+            0.0,
+            0.0,
+            6.123233995736766e-17
+          ]
+        },
+        {
+          "assembly": "retaining_plate_asset",
+          "pos": [
+            0.22499999999999998,
+            0,
+            0.811
+          ]
+        },
+        {
+          "assembly": "capture_key_asset",
+          "pos": [
+            0.385,
+            -0.24,
+            0.7547
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "retaining_plate_asset",
+          "body": "retaining_plate",
+          "force": [
+            0,
+            0,
+            3
+          ]
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "retaining_plate",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.003,
+          "max": 100
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "pressure_plate_grasp_and_lift",
+      "through_phase": 3,
+      "through_label": "Lift pressure plate",
+      "max_steps": 1200,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "retaining_plate",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.05,
+          "max": 0.16
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "compress_all_twelve_contacts",
+      "through_phase": 5,
+      "through_label": "Compress all twelve terminal springs",
+      "max_steps": 1800,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "contact_spring_0",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_1",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_2",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_3",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_4",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_5",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_6",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_7",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_8",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_9",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_10",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "joint",
+          "joint": "contact_spring_11",
+          "min": -0.0019,
+          "max": -0.00025
+        },
+        {
+          "kind": "score",
+          "min": 0.0,
+          "max": 0.48,
+          "success": false
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "pose",
+          "body": "cell_0",
+          "pos": [
+            0.09999999999999998,
+            -0.028,
+            0.78075
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_0",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_1",
+          "pos": [
+            0.14999999999999997,
+            -0.028,
+            0.78205
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_1",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_2",
+          "pos": [
+            0.19999999999999998,
+            -0.028,
+            0.78075
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_2",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_3",
+          "pos": [
+            0.25,
+            -0.028,
+            0.78205
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_3",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_4",
+          "pos": [
+            0.3,
+            -0.028,
+            0.78075
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_4",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_5",
+          "pos": [
+            0.35,
+            -0.028,
+            0.78205
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_5",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_6",
+          "pos": [
+            0.09999999999999998,
+            0.028,
+            0.78075
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_6",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_7",
+          "pos": [
+            0.14999999999999997,
+            0.028,
+            0.78205
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_7",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_8",
+          "pos": [
+            0.19999999999999998,
+            0.028,
+            0.78075
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_8",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_9",
+          "pos": [
+            0.25,
+            0.028,
+            0.78205
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_9",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_10",
+          "pos": [
+            0.3,
+            0.028,
+            0.78075
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_10",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            1
+          ],
+          "angle": 0.105
+        },
+        {
+          "kind": "pose",
+          "body": "cell_11",
+          "pos": [
+            0.35,
+            0.028,
+            0.78205
+          ],
+          "tolerance": 0.001
+        },
+        {
+          "kind": "axis",
+          "body": "cell_11",
+          "local_axis": [
+            0,
+            0,
+            1
+          ],
+          "direction": [
+            0,
+            0,
+            -1
+          ],
+          "angle": 0.105
+        }
+      ]
+    }
+  ]
+}
