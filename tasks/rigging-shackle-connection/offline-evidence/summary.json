@@ -1,0 +1,39 @@
+{
+  "kind": "ACTUAL_CLEAN_HTTPS_CPU_REPRODUCTION",
+  "completed_at": "2026-11-12T23:38:54.771749+00:00",
+  "tested_commit": "d3e2b3ca93daa98ea6a4767cc8205687d1911d92",
+  "source_manifest_sha256": "d96fcd1984fd8f3625d0c6ea3b624c704075052971fad2f4a298ca9de735416f",
+  "commands": [
+    "python -m pytest -q -p no:cacheprovider tasks/rigging-shackle-connection",
+    "python tasks/rigging-shackle-connection/static_check.py"
+  ],
+  "tests": {
+    "passed": 26,
+    "skipped": 0,
+    "failed": 0
+  },
+  "audit_reports": [
+    "OFFLINE_COMPOSED_USD",
+    "OFFLINE_IK_WAYPOINTS_ONLY",
+    "OFFLINE_NOMINAL_GEOMETRY",
+    "OFFLINE_IDEAL_JOINT_TRACKING_WITH_SYNTHETIC_CONTACT_APERTURES",
+    "OFFLINE_CRITICAL_POSE_COLLISION_SAMPLES"
+  ],
+  "controller_ideal_fixture": {
+    "actions": 13191,
+    "simulated_seconds": 659.55,
+    "phase_count": 299,
+    "physical_grasps_validated": false
+  },
+  "independent_https_clone": true,
+  "clean_git_status": true,
+  "physics_executed": false,
+  "model_evaluations": 0,
+  "media_uploads": 0,
+  "ready_for_submission": false,
+  "known_limits": [
+    "Ideal joint tracking and contact apertures are synthetic fixtures, not physical evidence.",
+    "Robot audit samples critical poses; continuous swept collision/contact robustness require native validation.",
+    "Website-side Cloudflare restriction prevents complete task-board coverage."
+  ]
+}
