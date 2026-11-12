@@ -1,8 +1,8 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T09:50:06.903982+00:00",
+  "updated_at": "2026-11-12T11:22:40.922601+00:00",
   "status": "FOUR_OFFICIAL_RECEIPTS_NUT_HARDWARE_PRIORITY_NATIVE_WORK",
-  "authoritative_detail": "coordination/live-execution-2026-11-10.md",
+  "authoritative_detail": "Latest chronological checkpoints and actual current per-task receipts; do not use obsolete job pointers in earlier history.",
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
@@ -260,7 +260,7 @@
       "branch": "draft/hardware-order-kit",
       "commit": "4593f20ba81a36c09510737aa794fca03ffdc328",
       "task_source_dirty": false,
-      "state": "WORLD_HOLD_FIX_AND_FREE_ROOT_FIXTURE_COMPATIBILITY_TEST",
+      "state": "FUNCTIONAL_HANGER_REDESIGN_NATIVE_REVALIDATION_REQUIRED",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-root-last-close-diagnostic.yo9n9ezl",
       "producer_pid": 2288567,
@@ -281,7 +281,7 @@
         "diagnosis": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg/cooperative-lift-target-diagnosis.json",
         "new_native_pass_claimed": false
       },
-      "next": "Verifyrequestedvsimmediate/steppedfixtureposes. Previousfixturesdidnotrestoreloadedrootcorrectly; do notcallcontrollerfailedfromgrasp-lossbeforeactions. Then actualclosure/keymanipulation, wholecoldaction-onlyexperts/physics/model.",
+      "next": "Revalidate eye-landmark observer in realnativefixtures; actualsupport-bodyservo duringkeyinsertion mustpass; fullcoldexperts/model/media/reprostillrequired. Do notsubmitgenericcollar-only prototype.",
       "controller_tests_passed": 28,
       "static_exit": 0,
       "publication_preparation": {
@@ -290,6 +290,18 @@
         "commit": "93f3310a5b0f9247318e6504b3ebb1ced5ca90d2",
         "ready": false,
         "official_pr_opened": false
+      },
+      "functional_worktree": "/data/robocurve-runs/hardware-hanger-eye",
+      "functional_commit": "0f6339d",
+      "original_core_source": "61e23271deba9409b5eff9a146c6251849d7c11b",
+      "importance_clearance": false,
+      "actual_probe": {
+        "source": "f7fda10bfb2c2ad095b69f40a7e024a66034fb20",
+        "root": "/data/robocurve-runs/resume-compat/hardware-functional-payload-contact-probes.14pf363g",
+        "positive_case": "Actual400gloadsupported/keyretained butoldrootposegoalscore0.65",
+        "negative_case": "Unkeyed400gloadopeningPASSrepeat0",
+        "whole_suite_pass": false,
+        "stopped_after_known_scoring_failure": true
       }
     },
     {
@@ -297,10 +309,10 @@
       "branch": "draft/eight-nut-bracket",
       "commit": "c62808268782ede6a38f70eb3697aeea4336e135",
       "task_source_dirty": false,
-      "state": "SERIAL_ACTION_ONLY_COLD_EXPERT_RETRY",
+      "state": "ONE_REAL_FULL_SCORE_EXPERT_AND12PHYSICS_PASSED_CLEAN_SECOND_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv",
-      "producer_pid": 2355275,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk",
+      "producer_pid": 2440234,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {
@@ -321,7 +333,26 @@
           "passing_evidence": false
         }
       },
-      "expert_trials_current_commit": [],
+      "expert_trials_current_commit": [
+        {
+          "kind": "REAL_INSPECT_ROLLOUT",
+          "mode": "expert",
+          "score": 1.0,
+          "steps": 12961,
+          "run_limit": 18000,
+          "seed": 0,
+          "reset_seed": 1415158438,
+          "commit": "c62808268782ede6a38f70eb3697aeea4336e135",
+          "record_id": "b186c0f9888b485c85cc262edad031c4",
+          "log": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial/adhoc_0d0313e4.json",
+          "log_sha256": "0c12dfe3df287490c27772133ef4ddd66e70559f70b16ed40b85850571e1502f",
+          "simulated_seconds": 648.05,
+          "duration_s": 3710.929105896008,
+          "frames": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial/frames/20261112_090335_421df8bc",
+          "camera_streams": 3,
+          "native_failure": null
+        }
+      ],
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
@@ -333,17 +364,34 @@
         "producer_exit": null,
         "state": "NATIVE_QUALIFICATION_RUNNING"
       },
-      "next": "Entirecoldrobotcommandprogrammustactuallyscore1.0; initializedsuffixPASSisnotfeasibility. Then HTTPSsecond, fullmechanismsuite andmodel afterv2gate.",
+      "next": "Preserve firstgenuine1.0 and12nativepasses. Inspect ongoingsecondC628; modelD queuedonlyafteractualboth1.0 andNativegate+freshbudget. No qualifiedDreamyet.",
       "future_stages": {
-        "native_physics": {
-          "root": "/data/robocurve-runs/resume-compat/nut-current-real-physics.54nl1_ky",
-          "producer_pid": 2382597
-        },
         "genuine_dream": {
-          "root": "/data/robocurve-runs/resume-compat/nut-clear-instruction-genuine-dream.7xvgqc12",
-          "producer_pid": 2400415
+          "root": "/data/robocurve-runs/resume-compat/nut-final-recovered-genuine-dream.8i2a519b",
+          "producer_pid": 2448352,
+          "target_commit": "deb95a46342900d5e8b9b1e65dca1da4a7cada5a",
+          "expert_source": "c62808268782ede6a38f70eb3697aeea4336e135",
+          "first_trial": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial",
+          "second_trial": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk/second-trial",
+          "actual_physics_source": "c62808268782ede6a38f70eb3697aeea4336e135",
+          "physics_actual_completed": {
+            "passed": 12,
+            "failed": 0,
+            "reset_count": 12
+          },
+          "proof_root": "/data/robocurve-runs/resume-compat/nut-final-recovered-feasibility.xl44oe3_",
+          "old_CPU_gate_failure_retained": "/data/robocurve-runs/resume-compat/nut-recovered-expert-genuine-dream.ov301sgo"
         },
-        "clean_https_full_expert": "CurrentC628 pair second-trial from fresh HTTPS checkout; actualsuccesspending"
+        "clean_second": {
+          "root": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk",
+          "producer_pid": 2440234,
+          "expert_commit": "c62808268782ede6a38f70eb3697aeea4336e135",
+          "first_trial": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial",
+          "second_trial": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk/second-trial",
+          "first_full_record_revalidated_after_outer_clone_failure": true,
+          "old_outer_producer1_retained": true,
+          "whole_pipeline_gate_remains_strict": true
+        }
       },
       "publication_preparation": {
         "worktree": "/data/robocurve-runs/resume-compat/nut-final-publication",
@@ -358,6 +406,13 @@
         "pid": 2285941,
         "second_trial_from_fresh_https_checkout": true,
         "no_full_score_claimed": true
+      },
+      "current_native_physics": {
+        "root": "/data/robocurve-runs/resume-compat/nut-current-real-physics.54nl1_ky",
+        "passed": 12,
+        "failed": 0,
+        "reset_count": 12,
+        "status": "PASS"
       }
     },
     {
@@ -554,11 +609,11 @@
     "validated_fixed_action_revision_candidates_not_applied_to_pending_PR": 1
   },
   "budget_latest": {
-    "remaining_balance_USD": 14.18,
-    "observed_at": "2026-11-12T09:31:48.090922+00:00",
+    "remaining_balance_USD": 7.9,
+    "observed_at": "2026-11-12T11:07:43.555563+00:00",
     "user_latest_reserve_USD": 0,
-    "headroom_USD": 14.18,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T093148Z.json",
+    "headroom_USD": 7.9,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T110743Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
@@ -570,9 +625,9 @@
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
     "reserve_warning": "Latest human reserve0; actual credits remain hard cap. Current internal deadline12:20 controls only mission workloads. Underlying billing freshness unverified;2USD internal metering buffer. Instance billing continues until power is stopped; only stop original after6 genuinely complete/submitted. Partner untouched.",
     "reserve_revoked_by_user": true,
-    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T093148Z.json",
+    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T110743Z.json",
     "projection_is_internal_planning_not_provider_observation": true,
-    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T093148Z.json",
+    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T110743Z.json",
     "watchdog_pid": 2390822,
     "watchdog_repair_receipt": "/data/robocurve-runs/resume-compat/budget-watchdog-recovery-receipt.json",
     "funded_deadline_extension_receipt": "/data/robocurve-runs/resume-compat/budget-deadline-extension-20261112T0934.json",
@@ -619,7 +674,7 @@
       "reason_file": "/data/robocurve-runs/resume-compat/nut-priority-available-window-20261112/early-resume-reason.json"
     }
   },
-  "next_primary_operation": "Inspect existing Nut serial first/second native trials and actual exit/validator files. Hardware diagnostic3093c78 waits for Nut first terminal. On Hardware suffix PASS, author fixed robot command program in separate worktree and require whole cold expert pair, actual14-reset native mechanism suite, genuine Dream, media and clean reproduction. Nut12-reset physics and strictly gated real Dream are queued after pair. Do not duplicate running jobs or mutate frozen task sources; original3pendingPRheads unchanged, Node1772received. Preserve2watchers and strict actual budget. MainBdeadline12:20 with actual fresh guards; watchdogPID2390822.",
+  "next_primary_operation": "Inspect existing NutcleansecondC628 actor2441903 before anynewjob. First1.0b186 record and12/12nativephysics aregenuine. Rootserialpair failedlatercloneconfig; scopedfullfirstrecordrevalidation succeeded; recoveredsecondrootgnqgntgk iscurrent. Modelroot8i2a519b waitsrecoveredsecond. Four officialreceived,0accepted. Hardwareconcrete400gloadedhanger revisedH0f6339d, no qualifiedexpert/model; oldcorekeyinsertionstalls, servoaddedonf7; pointmeasurementHneedsNativevalidation. RequestedrenderresfixgaveNOSPEEDUP,legacyfailed,TAAnoisy. CurrentboundedCPU-PhysX/GPU-rendercompatprobe pnmhar8c (PID2517638) mayprovide supportedperformancealternative; do notpromoteuntilrealpass andvisualreview. Budgetremaining7.90 at11:07, deadline12:20watchdog2390822; latestfreshguardsmayupdate. Stoponlyowncostlyworkloadsatbudgetlimit, instancebillingcontinues; noVMstopuntil6 genuinelycomplete/submitted.",
   "last_official_review_status": "/data/robocurve-runs/resume-compat/official-review-status-20261112T0236.json",
   "latest_native_observation": {
     "observed_at": "2026-11-12T09:35:43.103241+00:00",
@@ -825,24 +880,37 @@
     "next": "Use permitted revision workflow after official review; do not push to waiting PR head."
   },
   "nut_queued_actual_physics_and_model": {
-    "source_commit": "c62808268782ede6a38f70eb3697aeea4336e135",
     "physics": {
       "root": "/data/robocurve-runs/resume-compat/nut-current-real-physics.54nl1_ky",
-      "producer_pid": 2382597
+      "status": "PASS",
+      "actual_cases": 12
     },
     "model": {
-      "root": "/data/robocurve-runs/resume-compat/nut-clear-instruction-genuine-dream.7xvgqc12",
-      "producer_pid": 2400415
+      "root": "/data/robocurve-runs/resume-compat/nut-final-recovered-genuine-dream.8i2a519b",
+      "producer_pid": 2448352,
+      "target_commit": "deb95a46342900d5e8b9b1e65dca1da4a7cada5a",
+      "expert_source": "c62808268782ede6a38f70eb3697aeea4336e135",
+      "first_trial": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial",
+      "second_trial": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk/second-trial",
+      "actual_physics_source": "c62808268782ede6a38f70eb3697aeea4336e135",
+      "physics_actual_completed": {
+        "passed": 12,
+        "failed": 0,
+        "reset_count": 12
+      },
+      "proof_root": "/data/robocurve-runs/resume-compat/nut-final-recovered-feasibility.xl44oe3_",
+      "old_CPU_gate_failure_retained": "/data/robocurve-runs/resume-compat/nut-recovered-expert-genuine-dream.ov301sgo"
     },
-    "proof_root": "/data/robocurve-runs/resume-compat/nut-current-action-only-feasibility.bqud2phc",
-    "no_model_until_two_real_full_score_experts_actual12nativephysics_and_exact_gate_pass": true,
-    "all_costly_stages_require_fresh_actual_budget_receipt": true,
-    "prior_model_wait_cancelled": {
-      "root": "/data/robocurve-runs/resume-compat/nut-current-action-only-dream.9njfzjam",
-      "actual_exit": 143,
-      "no_model_was_launched": true
-    },
-    "model_target_commit": "deb95a46342900d5e8b9b1e65dca1da4a7cada5a"
+    "clean_second": {
+      "root": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk",
+      "producer_pid": 2440234,
+      "expert_commit": "c62808268782ede6a38f70eb3697aeea4336e135",
+      "first_trial": "/data/robocurve-runs/resume-compat/nut-action-only-serial-clean-pair.4bzs0giv/first-trial",
+      "second_trial": "/data/robocurve-runs/resume-compat/nut-revalidated-first-clean-second.gnqgntgk/second-trial",
+      "first_full_record_revalidated_after_outer_clone_failure": true,
+      "old_outer_producer1_retained": true,
+      "whole_pipeline_gate_remains_strict": true
+    }
   },
   "nut_thread_construct_audit": {
     "evidence": "/data/robocurve-runs/resume-compat/nut-real-thread-diameter-geometry-audit.json",
@@ -897,5 +965,24 @@
       "new_expert_execution_at_this_revision": false,
       "timestamp": "2026-11-12T09:50:06.903982+00:00"
     }
+  },
+  "render_performance_diagnostics": {
+    "first_profile": "/data/robocurve-runs/resume-compat/requested-camera-profile-compatibility.gla8cbjn",
+    "first_profile_complete": false,
+    "first_error": "NoneTypekwdefaults; SDKatexitreturned0despiteexception",
+    "resolution_forwarding": "/data/robocurve-runs/resume-compat/native-requested-resolution-profiles.12mg8ydw",
+    "requested_native_resolution_measured": true,
+    "speedup": false,
+    "legacy_failed": true,
+    "TAA_only_noisy_not_used": true,
+    "pyspy_profile": "/data/robocurve-runs/resume-compat/nut-second-live-performance.speedscope.json",
+    "measured_main_bottlenecks": "PhysX stepping/tensorcalls; mainrateLimiteralreadyfalse",
+    "next_cpu_compatibility": {
+      "root": "/data/robocurve-runs/resume-compat/native-cpu-physx-gpu-render-compatibility.pnmhar8c",
+      "producer_pid": 2517638,
+      "scope": "Native CPU PhysX +genuine L40S RTX cameras controlled compatibility test; not demonstration",
+      "driver_changed": false
+    },
+    "no_vendor_files_or_driver_modified": true
   }
 }
