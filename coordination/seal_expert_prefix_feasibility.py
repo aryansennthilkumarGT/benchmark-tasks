@@ -14,6 +14,7 @@ import tempfile
 
 from engine import artifacts, atomic, digest, fingerprint, utc
 from verify_expert_control_prefixes import verify, require
+from stage_gate import require_no_interruption
 
 
 def load(path, name):
@@ -32,9 +33,11 @@ def seal(config, verify_only=False):
     required_exits = {'qualification', 'first', 'first_validation', 'second',
                       'second_validation', 'physics', 'control'}
     require(set(config['exit_files']) == required_exits, 'Missing execution/validation exit paths')
+    require_no_interruption(root)
     exits = {}
     for name, value in config['exit_files'].items():
         path = Path(value)
+        require_no_interruption(path.parent)
         require(path.read_text().strip() == '0', 'Nonzero or incomplete actual stage: '+name)
         exits[name] = {'path': str(path), 'sha256': digest(path)}
     require(config['gpu_inventories'], 'Actual producer GPU inventories required')
