@@ -99,3 +99,26 @@ class PackageContractTests(unittest.TestCase):
             c.check_grasp_slip('left',np.zeros(7),{'bodies':{}},require_support=True)
 
 if __name__=='__main__':unittest.main()
+
+class RecordedLoadTiltClearanceTests(unittest.TestCase):
+    def test_open_upper_half_clears_shaft_at_recorded_load_tilt(self):
+        from feedback import axis_quat,rotate,multiply
+        spec=json.loads((HERE/'scene.json').read_text())
+        plan=json.loads((HERE/'controller.json').read_text())
+        definitions={body['name']:body for assembly in spec['assemblies'] for body in assembly['bodies']}
+        angle=next(x['value'] for x in plan['phases'] if x['label']=='Open the split collar')
+        lower={'pos': [0.33673980832099915, -0.006385350599884987, 0.806639552116394], 'quat': [-0.16913551092147827, 0.03595179691910744, -0.05829180032014847, 0.9832104444503784]}
+        turn=axis_quat([0,1,0],angle)
+        upper={'pos':(np.array(lower['pos'])+rotate(lower['quat'],np.array([-.03,0,0])+rotate(turn,[.03,0,0]))).tolist(),
+               'quat':multiply(lower['quat'],turn).tolist()}
+        shaft=definitions['captive_shaft']
+        minimum=float('inf')
+        for a in definitions['upper_collar']['shapes']:
+            if not a.get('collision',True):continue
+            for c in shaft['shapes']:
+                if not c.get('collision',True):continue
+                separation=_geometry.separation(_geometry.box(upper,a),_geometry.box(shaft,c))
+                if separation<.003 and (a['kind']=='cylinder' or c['kind']=='cylinder'):
+                    separation=convex_separation(polyhedron(upper,a),polyhedron(shaft,c),stop_at=.003)
+                minimum=min(minimum,separation)
+        self.assertGreater(minimum,.001)
