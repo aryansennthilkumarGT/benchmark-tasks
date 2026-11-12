@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T04:35:24.597291+00:00",
+  "updated_at": "2026-11-12T04:43:41.928307+00:00",
   "status": "TWO_TASKS_RECEIVED_FOUR_MORE_REQUIRED_SIX_CANDIDATE_DRAFTS",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -9,11 +9,11 @@
       "branch": "draft/hinged-chassis-drive",
       "commit": "f4bd71679e244987e0ec7b6ae6ed921315227214",
       "task_source_dirty": false,
-      "state": "FULL_COLD_EXPERT_FAILED_CONTACT_DIAGNOSIS_QUEUED",
+      "state": "INTACT_BACKUP_DEFERRED_FOR_NOVELTY_AND_SIX_TASK_FOCUS",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-retainer-translation-contact.l5z3gye3",
       "producer_pid": 2009849,
-      "producer_live_command_verified": true,
+      "producer_live_command_verified": false,
       "waits_for_producer_pid": 2009059,
       "native_reports": {
         "bounded-grasp-lift": {
@@ -28,7 +28,7 @@
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
-      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration.",
+      "next": "Preserve source/evidence; do not restart unless a priority task requires replacement and novelty review supports it.",
       "future_stages": {
         "genuine_dream": {
           "root": "/data/robocurve-runs/resume-compat/chassis-genuine-dream.d2anctbe",
@@ -55,18 +55,20 @@
         "validator_exit": 1,
         "score_verified_full": false,
         "geometry_receipt": "/data/robocurve-runs/resume-compat/chassis-priority-cold-qualification.e5cdjbf2/retainer-failed-pose-geometry.json"
-      }
+      },
+      "producer_exit": 143,
+      "deferral_receipt": "/data/robocurve-runs/resume-compat/chassis-retainer-translation-contact.l5z3gye3/priority-deferral.json"
     },
     {
       "slug": "switch-map-rework",
       "branch": "draft/switch-map-rework",
       "commit": "710193b7a705c6f8827c50f133239a997ca0953c",
       "task_source_dirty": false,
-      "state": "ANTI_TILT_GUIDE_STATIC_PASS_NATIVE_QUEUED",
+      "state": "INTACT_BACKUP_DEFERRED_FOR_NOVELTY_AND_SIX_TASK_FOCUS",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/switch-anti-tilt-guides-native.1qovwj2s",
       "producer_pid": 2009059,
-      "producer_live_command_verified": true,
+      "producer_live_command_verified": false,
       "waits_for_producer_pid": 2003077,
       "native_reports": {
         "selected-control": {
@@ -89,7 +91,9 @@
         "producer_exit": 143,
         "state": "NATIVE_WITHDRAWAL_FAILED_NEEDS_REPAIR"
       },
-      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration."
+      "next": "Preserve source/evidence; do not restart unless a priority task requires replacement and novelty review supports it.",
+      "producer_exit": 143,
+      "deferral_receipt": "/data/robocurve-runs/resume-compat/switch-anti-tilt-guides-native.1qovwj2s/priority-deferral.json"
     },
     {
       "slug": "node-service-closeout",
@@ -150,14 +154,14 @@
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "e0837a3fe8aeda505375cdb1fc25939b64085716",
+      "commit": "6d84833eb120fd32904a547df457e29d8443e69a",
       "task_source_dirty": false,
-      "state": "CORRECTED_SUPPORT_FEEDBACK_STATIC_PASS_NATIVE_QUEUED",
+      "state": "DEEPER_GRASP_STATIC_PASS_NEW_COLD_QUALIFICATION_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-support-feedback-native.rg0yvlsq",
-      "producer_pid": 2003077,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg",
+      "producer_pid": 2052103,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": 1992673,
+      "waits_for_producer_pid": null,
       "native_reports": {},
       "expert_trials_current_commit": [],
       "dream_score": null,
@@ -166,13 +170,14 @@
       "offline_candidate": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0",
       "static_receipt": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0/static-exit.txt",
       "prior_attempt": {
-        "commit": "890e0a9f26caeb3dd130eebaccd48abee2c40dfb",
-        "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-loaded-pose-qualified-grip.gl4uizwu",
-        "producer_pid": 1922412,
-        "producer_exit": null,
-        "state": "LOADED_POSE_GRIP_REPAIR_NATIVE_TEST_RUNNING"
+        "commit": "e0837a3fe8aeda505375cdb1fc25939b64085716",
+        "root": "/data/robocurve-runs/resume-compat/hardware-support-feedback-native.rg0yvlsq",
+        "first_case_failure": "Supporting grasp closed empty: lower_collar",
+        "failure_time_s": 54.8,
+        "producer_exit": 143,
+        "not_passing": true
       },
-      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration."
+      "next": "Inspect native deeper-grasp behavior; gated complete cold expert pair and full native suites follow only after actual success."
     },
     {
       "slug": "eight-nut-bracket",
@@ -370,7 +375,7 @@
     "projected_at_deadline_after_buffer_USD": 1.4163073253333316,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
-    "reserve_warning": "Both running instances continue billing after workload cancellation; user handles all power operations.",
+    "reserve_warning": "User removed reserve; verified available credits remain hard cap. Watchdog cutoff12:00 stops only mission workloads, not billing. Stop original instance only after6 genuinely complete/submitted; partner untouched.",
     "reserve_revoked_by_user": true,
     "receipt_policy_note": "This immutable receipt was generated by prior helper with obsolete22USD policy fields; actual provider balance32.14 remains valid. Latest user overrides reserve to0 in checkpoint. Future helper separates policy fields."
   },
@@ -532,5 +537,26 @@
       "scope": "New official PR watch, backup Nut/Switch actual implementation comparison",
       "mode": "READ_ONLY_NO_GPU_OR_EXTERNAL_POSTS"
     }
-  ]
+  ],
+  "six_task_priority_selection": {
+    "selected": [
+      "fault-module-repair",
+      "remote-battery-service",
+      "twelve-cell-pack",
+      "node-service-closeout",
+      "eight-nut-bracket",
+      "hardware-order-kit"
+    ],
+    "backups_preserved": [
+      "hinged-chassis-drive",
+      "switch-map-rework"
+    ],
+    "reason": "Independent actual-implementation reviews: defer mutually close Node/Chassis chain and same-team Switch phase-plug overlap; retain distinct helical/load-control Nut and distributed-contact/key T12 mechanics",
+    "reports": [
+      "/data/robocurve-runs/resume-compat/novelty-priority-watch/initial-deep-review.json",
+      "/data/robocurve-runs/resume-compat/novelty-new-pr-watch/initial-risk-report.json",
+      "/data/robocurve-runs/resume-compat/novelty-priority-watch/twelve-vs-nut-mutual-review.json"
+    ],
+    "acceptance_guaranteed": false
+  }
 }
