@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T02:49:35.332779+00:00",
+  "updated_at": "2026-11-12T03:32:06.361583+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -9,12 +9,12 @@
       "branch": "draft/hinged-chassis-drive",
       "commit": "f4bd71679e244987e0ec7b6ae6ed921315227214",
       "task_source_dirty": false,
-      "state": "TARGETED_GRASP_LIFT_PASS_FULL_COLD_TRIALS_QUEUED",
+      "state": "FIRST_FULL_COLD_EXPERT_RUNNING",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-priority-cold-qualification.e5cdjbf2",
       "producer_pid": 1897994,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": 1860089,
+      "waits_for_producer_pid": null,
       "native_reports": {
         "bounded-grasp-lift": {
           "kind": "NATIVE_REPLAY_DIAGNOSTIC_NOT_DEMONSTRATION",
@@ -28,7 +28,7 @@
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
-      "next": "After Node first full expert validates, preserve it and intentionally stop only Node second incomplete stage/root so this source can use the freed lane. If Node entire qualification completes naturally with0, this job waits Node clean chain to avoid two stages sharing the released lane.",
+      "next": "Monitor actual full cold expert, then full pair/native suite/model/clean gates. Recorded-fixture lift pass is diagnostic only.",
       "future_stages": {
         "genuine_dream": {
           "root": "/data/robocurve-runs/resume-compat/chassis-genuine-dream.d2anctbe",
@@ -47,65 +47,41 @@
       "branch": "draft/switch-map-rework",
       "commit": "fa1aacc9b783a803ddc8e4e82e4c975b6be2ce9e",
       "task_source_dirty": false,
-      "state": "COLD_NATIVE_WITHDRAWAL_TEST_RUNNING",
+      "state": "NATIVE_WITHDRAWAL_FAILED_NEEDS_REPAIR",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/switch-loaded-pose-requeued-qualification.ejyzqc6c",
       "producer_pid": 1873476,
-      "producer_live_command_verified": true,
+      "producer_live_command_verified": false,
       "waits_for_producer_pid": null,
       "native_reports": {
         "selected-control": {
-          "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+          "status": "FIRST_CASE_FAIL_SECOND_REPEAT_INTENTIONALLY_INCOMPLETE",
           "commit": "fa1aacc9b783a803ddc8e4e82e4c975b6be2ce9e",
-          "status": "RUNNING",
           "passed": 0,
-          "failed": 0,
-          "active_case": {
-            "name": "withdrawal_with_continuous_cable",
-            "repeat": 0
-          }
+          "failed": 1,
+          "error": "Loaded-pose-preserving withdrawal still stalled",
+          "producer_exit": 143
         }
       },
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
-      "official_pr": null
+      "official_pr": null,
+      "producer_exit": 143,
+      "intentional_stop_receipt": "/data/robocurve-runs/resume-compat/switch-loaded-pose-requeued-qualification.ejyzqc6c/intentional-stop.json"
     },
     {
       "slug": "node-service-closeout",
       "branch": "draft/node-service-closeout",
-      "commit": "a0d18ddad782b23ae4a18ded840b0400e9789418",
+      "commit": "33446a37bd62797024ece49346ce1233fde36296",
       "task_source_dirty": false,
-      "state": "NATIVE_QUALIFICATION_RUNNING",
+      "state": "REVISED_CONTROLLER_STATIC_PASS_SUFFIX_DIAGNOSTIC_DEFERRED",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/node-loaded-lid-margin-qualification.1lj2_l5c",
-      "producer_pid": 1860089,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/node-alignment-suffix-deferred.hf245vxh",
+      "producer_pid": 1955467,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": null,
-      "native_reports": {
-        "selected-control": {
-          "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
-          "status": "PASS",
-          "commit": "a0d18ddad782b23ae4a18ded840b0400e9789418",
-          "passed": 2,
-          "failed": 0,
-          "reset_count": 2,
-          "active_case": null,
-          "error": null
-        },
-        "replay": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-physics": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        }
-      },
+      "waits_for_producer_pid": 1869586,
+      "native_reports": {},
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
@@ -119,7 +95,7 @@
         "current_revision_credit": false,
         "native_control_failure_and_intentional_stop": "/data/robocurve-runs/resume-compat/node-clear-lid-qualification.ydnazynl/final-control-intentional-stop.json"
       },
-      "future_stages": {
+      "superseded_future_stages": {
         "genuine_dream": {
           "root": "/data/robocurve-runs/resume-compat/node-revised-genuine-dream.rp1ovyau",
           "producer_pid": 1869202,
@@ -130,36 +106,37 @@
           "producer_pid": 1869571,
           "requires": "Genuine model stage success; cloned exact a0d18dd"
         }
-      }
+      },
+      "failed_previous_revision": {
+        "commit": "a0d18ddad782b23ae4a18ded840b0400e9789418",
+        "native_time": 198.85,
+        "phase": "Seat new_cooler",
+        "validator_exit": 1,
+        "producer_exit": 1,
+        "log": "/data/robocurve-runs/resume-compat/node-loaded-lid-margin-qualification.1lj2_l5c/first-trial.log"
+      },
+      "next": "Obtain fresh full cold expert pair after suffix diagnostic; initialized diagnostic fixture is not an expert demo."
     },
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "01384d24d41c519aadb02aa551041e1c4a83eae9",
+      "commit": "890e0a9f26caeb3dd130eebaccd48abee2c40dfb",
       "task_source_dirty": false,
-      "state": "NATIVE_LOADED_LIFT_FAILED_OFFLINE_GRIP_REPAIR_IN_PROGRESS",
+      "state": "LOADED_POSE_GRIP_REPAIR_NATIVE_TEST_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-bounded-opening-qualification.pdecun71",
-      "producer_pid": 1873473,
-      "producer_live_command_verified": false,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-loaded-pose-qualified-grip.gl4uizwu",
+      "producer_pid": 1922412,
+      "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
-      "native_reports": {
-        "selected-control": {
-          "source_commit": "01384d24d41c519aadb02aa551041e1c4a83eae9",
-          "passed": 0,
-          "failed": 1,
-          "second_repeat_incomplete": true,
-          "error": "Right wrist limit2.0944rad during loaded lift54.3s, after full opening51.35s.",
-          "producer_exit": 143
-        }
-      },
+      "native_reports": {},
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
-      "producer_exit": 143,
+      "producer_exit": null,
       "intentional_stop_receipt": "/data/robocurve-runs/resume-compat/hardware-bounded-opening-qualification.pdecun71/intentional-stop.json",
-      "offline_candidate": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0"
+      "offline_candidate": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0",
+      "static_receipt": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0/static-exit.txt"
     },
     {
       "slug": "eight-nut-bracket",
@@ -201,7 +178,7 @@
       "branch": "draft/twelve-cell-pack",
       "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
       "task_source_dirty": false,
-      "state": "FIRST_FULL_SCORE_EXPERT_SECOND_TRIAL_RUNNING",
+      "state": "TWO_FULL_SCORE_EXPERTS_NATIVE_SUITES_RUNNING",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj",
       "producer_pid": 1818077,
@@ -217,8 +194,16 @@
           "passing_evidence": false
         },
         "final-physics": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
+          "kind": "NATIVE_PHYSX_TESTS",
+          "status": "RUNNING",
+          "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+          "passed": 3,
+          "failed": 0,
+          "reset_count": 3,
+          "active_case": {
+            "name": "contact_restores_after_compression",
+            "repeat": 0
+          }
         },
         "final-control": {
           "status": "NO_RESULT_RECORDED",
@@ -232,6 +217,13 @@
           "score": 1.0,
           "steps": 1677,
           "log_sha256": "13f841134e2e3940cc27bb897ab64586e50fbe4087b4803cf7089fbb2fe758f2"
+        },
+        {
+          "record_id": "a84f671d06c64a30826cd1adba8286ae",
+          "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+          "score": 1.0,
+          "steps": 1677,
+          "log_sha256": "8e8c4118acb5d93eea3c3c54ce24e7d02415a3b664b0b8f5c1ee4f17a04cb043"
         }
       ],
       "dream_score": null,
@@ -251,7 +243,8 @@
       },
       "first_expert_trace_verification": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/first-expert-and-trace-verification.json",
       "first_expert_media_preview": "/data/robocurve-runs/resume-compat/twelve-first-real-demo-preview/preview-verification.json",
-      "novelty_review": "/data/robocurve-runs/resume-compat/twelve-closest-flange-implementation-review/review.json"
+      "novelty_review": "/data/robocurve-runs/resume-compat/twelve-closest-flange-implementation-review/review.json",
+      "expert_pair_verification": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/expert-pair-verification.json"
     },
     {
       "slug": "fault-module-repair",
@@ -311,18 +304,18 @@
     "official_accepted": 0
   },
   "budget_latest": {
-    "remaining_balance_USD": 38.43,
-    "observed_at": "2026-11-12T02:41:46.190172+00:00",
+    "remaining_balance_USD": 35.74,
+    "observed_at": "2026-11-12T03:21:08.071539+00:00",
     "user_latest_reserve_USD": 22,
-    "headroom_USD": 16.43,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T024146Z.json",
+    "headroom_USD": 13.740000000000002,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T032108Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
     "owned_workload_deadline_UTC": "2026-11-12T06:00:00+00:00",
     "planning_account_USD_per_hour": 3.8,
     "metering_buffer_USD": 2,
-    "projected_at_deadline_after_buffer_USD": 23.875422959333335,
+    "projected_at_deadline_after_buffer_USD": 23.678519957833338,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json"
   },
@@ -357,8 +350,14 @@
       "demonstration_credit": false
     },
     "same_instance": true,
-    "no_additional_compute_purchased": true
+    "no_additional_compute_purchased": true,
+    "latest_priority_window": {
+      "controller_pid": 1939334,
+      "status": "ENDED_EARLY_ALL_OWNED_GROUPS_RESUMED",
+      "state_file": "/data/robocurve-runs/resume-compat/nut-priority-available-window-20261112/state.json",
+      "reason_file": "/data/robocurve-runs/resume-compat/nut-priority-available-window-20261112/early-resume-reason.json"
+    }
   },
-  "next_primary_operation": "Monitor Node a0 first-trial validation. Upon a full-score result, preserve actual first expert and move its lane to shorter Chassis pipeline by canceling only verified owned incomplete second stage. Preserve exact process receipts and update Node future dependent queues; do not repeat first expert or claim a pair. Continue T12 second expert/full native/model/clean chain.",
+  "next_primary_operation": "Continue T12 full native suites then strictly gated Dream and clean full expert; monitor actual full Chassis and Nut experts and Hardware890 cold test. Node334 suffix diagnostic deferred until T12 full chain ends. Investigate Switchfa failure from actual frames/contacts while other sources stay frozen. No paused jobs remain from priority window.",
   "last_official_review_status": "/data/robocurve-runs/resume-compat/official-review-status-20261112T0236.json"
 }
