@@ -4,7 +4,7 @@ This branch coordinates eight independent task branches. Two tasks are engineeri
 
 For the current execution, read `mission-checkpoint.json` and the latest entries in [the live checkpoint](live-execution-2026-11-10.md), then inspect the recorded producer PIDs and actual logs before launching anything. Existing standalone qualifications and queued jobs use four long-running GPU lanes. A bounded additional diagnostic can use verified spare memory while those runs progress; its timeout and evidence scope are recorded in the checkpoint. Do not start `--all` alongside them. A missing result or zero wrapper exit is never a passing test. Source revisions remain frozen while their qualification is active or queued.
 
-The original draft manifest and offline receipts preserve earlier reproducible coordinator runs; they are historical evidence, not the current task heads. Current task revisions, queued dependencies, official PRs and budget receipts are in the machine-readable checkpoint. The latest user-authorized reserve is $22. Owned workload cancellation does not stop Brev instance billing. Never stop the partner instance; stop the original Launchable only after all eight tasks are genuinely complete and submitted.
+The original draft manifest and offline receipts preserve earlier reproducible coordinator runs; they are historical evidence, not the current task heads. Current task revisions, queued dependencies, official PRs and budget receipts are in the machine-readable checkpoint. The latest user-authorized reserve is $22. Owned workload cancellation does not stop Brev instance billing. The latest user directive leaves ALL instance stopping to the user. Do not stop or delete either instance, including after eight submissions.
 
 ## One entry point
 

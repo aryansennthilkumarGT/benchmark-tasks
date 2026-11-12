@@ -304,20 +304,21 @@
     "official_accepted": 0
   },
   "budget_latest": {
-    "remaining_balance_USD": 35.74,
-    "observed_at": "2026-11-12T03:21:08.071539+00:00",
+    "remaining_balance_USD": 33.94,
+    "observed_at": "2026-11-12T03:50:54.519383+00:00",
     "user_latest_reserve_USD": 22,
-    "headroom_USD": 13.740000000000002,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T032108Z.json",
+    "headroom_USD": 11.939999999999998,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T035054Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
     "owned_workload_deadline_UTC": "2026-11-12T06:00:00+00:00",
     "planning_account_USD_per_hour": 3.8,
     "metering_buffer_USD": 2,
-    "projected_at_deadline_after_buffer_USD": 23.678519957833338,
+    "projected_at_deadline_after_buffer_USD": 23.764214904277775,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
-    "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json"
+    "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
+    "reserve_warning": "Both running instances continue billing after workload cancellation; user handles all power operations."
   },
   "recovery": {
     "inspect_processes_before_launch": true,
@@ -329,9 +330,10 @@
   },
   "power_policy": {
     "no_power_operation_performed": true,
-    "stop_original_only_after_all_eight_complete_and_submitted": true,
+    "all_instance_stopping_left_to_user": true,
     "never_delete": true,
-    "partner_instance_do_not_touch": "4rjseoodp"
+    "partner_instance_do_not_touch": "4rjseoodp",
+    "latest_user_directive": "leave stopping to me"
   },
   "pending_queued_sources_frozen": true,
   "gpu_execution_policy": {
@@ -359,5 +361,27 @@
     }
   },
   "next_primary_operation": "Continue T12 full native suites then strictly gated Dream and clean full expert; monitor actual full Chassis and Nut experts and Hardware890 cold test. Node334 suffix diagnostic deferred until T12 full chain ends. Investigate Switchfa failure from actual frames/contacts while other sources stay frozen. No paused jobs remain from priority window.",
-  "last_official_review_status": "/data/robocurve-runs/resume-compat/official-review-status-20261112T0236.json"
+  "last_official_review_status": "/data/robocurve-runs/resume-compat/official-review-status-20261112T0236.json",
+  "latest_native_observation": {
+    "observed_at": "2026-11-12T03:58:18Z",
+    "task": "twelve-cell-pack",
+    "evaluated_commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+    "physics_passed": 12,
+    "physics_failed": 0,
+    "physics_process_exit": 0,
+    "control_status": "RUNNING",
+    "control_passed": 1,
+    "control_failed": 0,
+    "evidence_root": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj"
+  },
+  "hardware_support_feedback_revision": {
+    "commit": "e0837a3fe8aeda505375cdb1fc25939b64085716",
+    "static_check_exit": 0,
+    "controller_tests_passed": 26,
+    "native_root": "/data/robocurve-runs/resume-compat/hardware-support-feedback-native.rg0yvlsq",
+    "producer_pid": 2003077,
+    "status": "QUEUED_AFTER_TWELVE_CONTROLS",
+    "source_frozen": true,
+    "not_full_expert_evidence": true
+  }
 }
