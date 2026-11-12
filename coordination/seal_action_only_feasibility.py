@@ -34,7 +34,7 @@ def same_components(checker, folder, target, source, names):
                 'Source implementation differs from real evidence: '+name)
         files[name] = expected
     return {'source_commit': source, 'target_commit': target, 'files': files,
-            'method': 'Exact file bytes or explicitly named launcher/phase AST component; no new physics run claimed.'}
+            'method': 'Exact file bytes or explicitly named AST/JSON component; original source revisions and actual runs retained, no new physics run claimed.'}
 
 
 def clone_evidence(source, target):
