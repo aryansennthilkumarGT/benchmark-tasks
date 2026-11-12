@@ -2,6 +2,8 @@
 
 Compress and level a spring-loaded access plate, thread three noncollinear nuts down its studs, hand support between the robot arms as needed, then release both hands while the fasteners retain the plate's spring load and level attitude.
 
+The target centre of the flat plate is14mm above the tabletop, within1mm and0.035radians of level. No visual height-marker texture is claimed.
+
 ## Reproduction
 
 Use the official bimanual YAM Launchable and stack-lock.json dependencies. The tested stack is Python3.12, Isaac Sim6.1.0.0, L40S with fixed driver565.57.01. Physics runs240Hz, robot control20Hz. Use the installed vendor stack and retain its host driver.

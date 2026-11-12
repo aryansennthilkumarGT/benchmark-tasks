@@ -1,6 +1,6 @@
 # Setup
 
-Press the grey access plate level against its marked height while turning the three orange nuts down their studs. Keep the plate controlled as the nuts capture its spring load. Seat every nut against the plate, then withdraw both hands; the plate must remain level and compressed.
+Press the grey access plate level while turning the three orange nuts down their studs. Retain the centre of the flat plate 14 mm above the tabletop (within 1 mm), level within 0.035 radians. Keep the plate controlled as the nuts capture its spring load. Seat every nut against the plate, then withdraw both hands.
 
 All dimensions use metres, masses use kg, and quaternions use XYZW. Tabletop z=0.7475. The station uses two YAM arms with parallel grippers. Fixed seed0 and zero jitter reproduce the layout.
 
