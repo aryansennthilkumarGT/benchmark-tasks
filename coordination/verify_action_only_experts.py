@@ -44,14 +44,42 @@ def completion_tick(case, phases, events, program):
     return tick
 
 
-def verify_actions(actions, program):
+def standard_yam_guards(recorded):
+    """Replay the installed official safety chain, never infer arbitrary tolerances."""
+    import numpy as np
+    from inspect_robots.guard import ClampGuard, DeltaLimitGuard
+    from inspect_robots.types import Action
+    from inspect_robots_yam.config import action_box
+    from yam_arena import ik
+    space = action_box(np.tile(np.r_[ik.LOWER, 0.0], 2),
+                       np.tile(np.r_[ik.UPPER, 1.0], 2))
+    guards = [ClampGuard(space), DeltaLimitGuard(space)]
+    expected = {'type': 'inspect_robots.guard.GuardChain',
+                'guards': [{'type': type(g).__module__+'.'+type(g).__name__,
+                            'config': g.config()} for g in guards],
+                'names': ['clamp', 'delta-limit']}
+    require(recorded == expected, 'Recorded safety chain differs from official default YAM chain')
+    store = {}
+
+    def review(values):
+        action = Action(data=np.asarray(values, dtype=float))
+        for guard in guards:
+            action = guard.review(action, store)
+        return action.data.tolist()
+
+    return review
+
+
+def verify_actions(actions, program, recorded_guard=None):
     planned = program['actions']
     require(planned and program['control_hz'] == 20 and program['action_dim'] == 14,
             'Invalid authored action program')
     require(len(actions) <= len(planned)+program['terminal_hold_actions'],
             'Executed actions exceed authored program and fixed hold')
+    review = standard_yam_guards(recorded_guard) if recorded_guard is not None else lambda x: x
     for tick, row in enumerate(actions):
-        require(row['t'] == tick and row['action'] == planned[min(tick, len(planned)-1)],
+        expected = review(planned[min(tick, len(planned)-1)])
+        require(row['t'] == tick and row['action'] == expected,
                 'Executed robot action differs from fixed authored trajectory')
 
 
@@ -127,7 +155,8 @@ def verify(folder, trials, commit, output):
         record_dir = (trial/sample['record_dirs'][0]).resolve()
         require(record_dir.is_relative_to(trial), 'Full trial record escapes its trial')
         record_file = record_dir/'record.json'
-        require(json.loads(record_file.read_text())['record_id'] == proof['record_id'],
+        record = json.loads(record_file.read_text())
+        require(record['record_id'] == proof['record_id'],
                 'Validated identity differs from actual record')
         action_streams = list(trial.glob('actions/*/*.jsonl'))
         require(len(action_streams) == 1, 'Missing or ambiguous executed-action stream')
@@ -139,7 +168,7 @@ def verify(folder, trials, commit, output):
             require(action['t'] == tick and len(action['action']) == 14
                     and all(isinstance(v, (int, float)) and math.isfinite(v)
                             for v in action['action']), 'Invalid recorded robot action')
-        verify_actions(actions[1:], program)
+        verify_actions(actions[1:], program, record['configuration']['guard'])
         events_path = trial/'expert-events.jsonl'
         events = [json.loads(line) for line in events_path.read_text().splitlines()]
         pending = {}

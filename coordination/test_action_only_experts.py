@@ -2,6 +2,7 @@
 import tempfile
 from pathlib import Path
 import unittest
+import copy
 from verify_action_only_experts import completion_tick, verify_actions, policy_audit
 
 
@@ -44,6 +45,24 @@ class ActionOnlyGuards(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'privileged'):policy_audit(p)
             p.write_text('from .feedback import Controller\n')
             with self.assertRaisesRegex(ValueError,'privileged'):policy_audit(p)
+
+    def test_official_guarded_actions_are_exact_and_modified_limits_rejected(self):
+        import numpy as np
+        from inspect_robots.guard import ClampGuard, DeltaLimitGuard
+        from inspect_robots_yam.config import action_box
+        from yam_arena import ik
+        space=action_box(np.tile(np.r_[ik.LOWER,0.],2),np.tile(np.r_[ik.UPPER,1.],2))
+        guards=[ClampGuard(space),DeltaLimitGuard(space)]
+        recorded=dict(type='inspect_robots.guard.GuardChain',names=['clamp','delta-limit'],
+            guards=[dict(type=type(g).__module__+'.'+type(g).__name__,config=g.config()) for g in guards])
+        program=copy.deepcopy(self.program)
+        program['actions']=[[0.]*14,[0.]*6+[1.]+[0.]*7]
+        executed=[dict(t=0,action=[0.]*14),dict(t=1,action=[0.]*6+[.05]+[0.]*7)]
+        verify_actions(executed,program,recorded)
+        executed[1]['action'][6]=.051
+        with self.assertRaisesRegex(ValueError,'differs'):verify_actions(executed,program,recorded)
+        recorded['guards'][1]['config']['max_delta'][6]=1.
+        with self.assertRaisesRegex(ValueError,'safety chain'):verify_actions(executed,program,recorded)
 
 
 if __name__=='__main__':unittest.main()

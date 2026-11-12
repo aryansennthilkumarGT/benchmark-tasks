@@ -176,10 +176,11 @@ def recorded_prefix(folder, source, label):
     specification = json.loads((folder / 'scene.json').read_text())
     selected = next(i for i, phase in enumerate(plan['phases']) if phase['label'] == label)
     controller = Controller(plan, specification)
+    trial = source if (source / 'native_frames.jsonl').is_file() else source / 'first-trial'
     frames = {round(row['frame']['time'] / .05): row['frame'] for row in
-              map(json.loads, (source / 'first-trial/native_frames.jsonl').read_text().splitlines())}
+              map(json.loads, (trial / 'native_frames.jsonl').read_text().splitlines())}
     proprio = {}
-    proprio_file = source / 'first-trial/measured-joints.jsonl'
+    proprio_file = trial / 'measured-joints.jsonl'
     if not proprio_file.is_file():
         proprio_file = source / 'measured-joints.jsonl'
     for row in map(json.loads, proprio_file.read_text().splitlines()):
@@ -189,7 +190,7 @@ def recorded_prefix(folder, source, label):
         if step in proprio:
             raise ValueError('Duplicate proprioception within the first source trial')
         proprio[step] = row['joint_pos']
-    recordings = list((source / 'first-trial/records').glob('*/*/chunks.jsonl'))
+    recordings = list((trial / 'records').glob('*/*/chunks.jsonl'))
     if len(recordings) != 1:
         raise ValueError('Expected exactly one source recording')
     chunks = [row for row in map(json.loads, recordings[0].read_text().splitlines()) if 't' in row]
@@ -215,6 +216,7 @@ def recorded_prefix(folder, source, label):
         'source_chunks_sha256': hashlib.sha256(recordings[0].read_bytes()).hexdigest(),
         'source_proprio_sha256': hashlib.sha256(proprio_file.read_bytes()).hexdigest(),
         'source_frame_time': frames[compared]['time'],
+        'actual_source_trial_directory': str(trial),
     }
 
 
@@ -276,6 +278,7 @@ def main():
     parser.add_argument('--snapshot', type=Path)
     parser.add_argument('--hold-steps', type=int, default=60)
     parser.add_argument('--worker', action='store_true')
+    parser.add_argument('--device', choices=('cuda:0', 'cpu'), default='cuda:0')
     args = parser.parse_args()
     args.folder = args.folder.resolve()
     args.output = args.output.resolve()
@@ -345,11 +348,15 @@ def main():
         from yam_arena.inspect_embodiment import YamArenaEmbodiment
 
         embodiment = YamArenaEmbodiment(task=str(args.folder / 'task.py'), object_jitter=0,
-                                       control_hz=20, cam_width=320, cam_height=176)
+                                       control_hz=20, cam_width=320, cam_height=176, device=args.device)
         module = embodiment.task.module
         runtime = importlib.import_module(module._name + '.arena_runtime')
         observation = embodiment.reset(Scene(id='replay-diagnostic', instruction=specification['instruction']), seed=0)
         base = embodiment._env.unwrapped
+        from isaaclab_physx.physics import PhysxManager
+        report['actual_physics_device'] = str(PhysxManager.get_physics_sim_device())
+        if report['actual_physics_device'] != args.device:
+            raise ValueError('Diagnostic native backend differs from explicit requested device')
         report['physics_hz'] = 1. / float(base.cfg.sim.dt)
         report['action_hz'] = 1. / float(base.step_dt)
         base.cfg.sim.render_interval = base.cfg.decimation * 4
