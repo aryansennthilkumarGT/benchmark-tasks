@@ -1,3 +1,5 @@
+> Archived final rejection: this package is not submission-ready. See [REVIEW_REMEDIATION.md](REVIEW_REMEDIATION.md). Do not reopen its closed PR.
+
 # Exchange two internal modules and close out an enclosure
 
 Remove the grey storage sled and cooling module, collect them in the tray, seat the marked replacement storage and keyed cooler, then close the lid. Storage rails pass beneath the cooler; the lid must be physically supported to service the internal modules. This models mechanical service access and retention, without electrical or thermal operation.

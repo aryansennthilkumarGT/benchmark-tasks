@@ -1,7 +1,7 @@
 {
   "schema_version": 3,
-  "ready": true,
-  "status": "NATIVE_ACTION_ONLY_EXPERTS_DREAM_MEDIA_CLEAN_CHECKOUT_VALIDATED",
+  "ready": false,
+  "status": "OFFICIAL_FINAL_REJECTION_REPLACEMENT_REQUIRED",
   "verified_at": "2026-11-12T09:02:47.736143+00:00",
   "expert_interface": "FIXED_ROBOT_JOINT_ACTION_TRAJECTORY",
   "physics": {
@@ -677,5 +677,24 @@
     ],
     "observations": "Actual unannotated station and parts visible; both expert sequences end with enclosure closeout; model remains unsuccessful. No identifying text or overlays observed.",
     "limits": "Contact-sheet inspection plus complete decode, not a claim of human frame-by-frame review"
+  },
+  "pre_review_readiness": true,
+  "official_review": {
+    "status": "FINAL_REJECTION_NOT_REVISABLE",
+    "official_PR": 1772,
+    "comment": "https://github.com/robocurve/benchmark-tasks/pull/1772#issuecomment-6823276094",
+    "comment_id": 6823276094,
+    "reviewed_at": "2026-11-12T12:12:31Z",
+    "reason": "Importance and construct validity: generic gravity cooler and connector-free storage.",
+    "replacement_requirements": [
+      "Choose one exact equipment model and real procedure; do not combine unrelated service manuals into invented hardware.",
+      "Model its actual retention, release, electrical/mechanical connector and handling interfaces.",
+      "Dell examples expose missing anti-tilt/captive-fastener or carrier/connector interfaces; they do not clear the existing task.",
+      "Independently establish importance and novelty. A named server alone is not evidence of qualifying core work."
+    ],
+    "runtime_results_are_historical_not_acceptance": true,
+    "no_reopen_or_revision_of_closed_PR": true,
+    "new_distinct_task_requires_fresh_validation": true,
+    "ready": false
   }
 }

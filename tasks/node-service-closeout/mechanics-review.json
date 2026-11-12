@@ -4,7 +4,7 @@
   "physical_validation": "PENDING_NATIVE_TESTS",
   "controller_kinematics": "OFFLINE_AUDITS_PASSED_NOT_PHYSICAL_SUCCESS",
   "novelty_review": {
-    "decision": "CLEARED",
+    "decision": "NOT_CLEARED_FOR_SUBMISSION",
     "scope": "Internal engineering review for native validation; not external acceptance",
     "date": "2026-11-07",
     "neighbors": [
@@ -13,15 +13,16 @@
       908
     ],
     "rationale": "The cooling shroud blocks storage removal, storage enters through capped rails, keyed cooler feet occupy a different interface, and lid closure retains the cooler. Correct replacement identities and collection of both removed parts are required.",
-    "risk": "Moderate maintenance overlap; dependencies must be physical rather than enforced solely by a scripted order. Native obstruction and retention probes are required."
+    "risk": "Moderate maintenance overlap; dependencies must be physical rather than enforced solely by a scripted order. Native obstruction and retention probes are required.",
+    "submission_clearance": "WITHDRAWN_AFTER_FINAL_OFFICIAL_REJECTION"
   },
   "criteria": {
     "importance": {
-      "status": "INTERNAL_REVIEW_PASS",
+      "status": "OFFICIAL_FINAL_REJECTION",
       "evidence": "NOVELTY.md"
     },
     "construct_validity": {
-      "status": "IMPLEMENTATION_REVIEW_PASS_NATIVE_CONFIRMATION_PENDING",
+      "status": "OFFICIAL_FINAL_REJECTION",
       "evidence": "scene.json, native-cases.json, SETUP.md"
     },
     "scoring": {
@@ -37,5 +38,23 @@
       "evidence": null
     }
   },
-  "review_notes": "Passive mechanics, source-defined contact geometry, measured-state controller and native probes implemented. Offline geometry cannot establish physical success. No task may enter the submission handoff before runtime evidence passes."
+  "review_notes": "Passive mechanics, source-defined contact geometry, measured-state controller and native probes implemented. Offline geometry cannot establish physical success. No task may enter the submission handoff before runtime evidence passes.",
+  "official_review": {
+    "status": "FINAL_REJECTION_NOT_REVISABLE",
+    "official_PR": 1772,
+    "comment": "https://github.com/robocurve/benchmark-tasks/pull/1772#issuecomment-6823276094",
+    "comment_id": 6823276094,
+    "reviewed_at": "2026-11-12T12:12:31Z",
+    "reason": "Importance and construct validity: generic gravity cooler and connector-free storage.",
+    "replacement_requirements": [
+      "Choose one exact equipment model and real procedure; do not combine unrelated service manuals into invented hardware.",
+      "Model its actual retention, release, electrical/mechanical connector and handling interfaces.",
+      "Dell examples expose missing anti-tilt/captive-fastener or carrier/connector interfaces; they do not clear the existing task.",
+      "Independently establish importance and novelty. A named server alone is not evidence of qualifying core work."
+    ],
+    "runtime_results_are_historical_not_acceptance": true,
+    "no_reopen_or_revision_of_closed_PR": true,
+    "new_distinct_task_requires_fresh_validation": true,
+    "ready": false
+  }
 }
