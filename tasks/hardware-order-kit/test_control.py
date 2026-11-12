@@ -430,4 +430,36 @@ class FeedbackTests(unittest.TestCase):
         self.assertLess(qangle(captured[0][1], multiply(turn, tcpq)), 1e-7)
 
 
+    def stationary_insertion(self, **settings):
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies']['lower_collar']
+        target = (np.asarray(body['pos']) + [0, 0, .025]).tolist()
+        c = self.controller(dict(kind='insert', body='lower_collar', timeout=25,
+                                 target=dict(pos=target, quat=[0, 0, 0, 1]), **settings))
+        c.grasps['left'] = dict(body='lower_collar', verified=False,
+            tcp_in_body=[0, 0, 0], tcp_rotation_in_body=[0, 0, 0, 1])
+        c.motion['left'].target = lambda joints, *args, **kwargs: (np.asarray(joints), 0., 0.)
+        return c, frame
+
+    def test_default_insertion_stall_still_aborts_at_two_seconds(self):
+        c, f = self.stationary_insertion()
+        c.step(self.ready, f); f['time'] = 2.1
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):c.step(self.ready, f)
+
+    def test_recovery_window_is_bounded_and_keeps_absolute_phase_timeout(self):
+        c, f = self.stationary_insertion(progress_window_seconds=5.)
+        c.step(self.ready, f); f['time'] = 2.1; c.step(self.ready, f)
+        f['time'] = 5.1
+        with self.assertRaisesRegex(ControlFailure, 'Insertion stalled'):c.step(self.ready, f)
+        c, f = self.stationary_insertion(progress_window_seconds=5.)
+        c.step(self.ready, f); f['time'] = 25.1
+        with self.assertRaisesRegex(ControlFailure, 'Phase timeout'):c.step(self.ready, f)
+
+    def test_unbounded_or_invalid_progress_windows_are_rejected(self):
+        for value in [float('inf'), float('nan'), 0, -1, 26, True]:
+            c, f = self.stationary_insertion(progress_window_seconds=value)
+            with self.assertRaisesRegex(ControlFailure, 'Invalid insertion progress window'):
+                c.step(self.ready, f)
+
+
 if __name__=='__main__':unittest.main()

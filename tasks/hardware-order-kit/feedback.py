@@ -289,12 +289,17 @@ class Controller:
                 complete=complete and np.linalg.norm(body_p-grasp['start_pos'])>=phase.get('min_displacement',.015)
                 if complete:grasp['verified']=True
             if kind=='insert':
+                progress_window = phase.get('progress_window_seconds', 2.0)
+                if (not isinstance(progress_window, (int, float)) or isinstance(progress_window, bool)
+                        or not math.isfinite(progress_window) or progress_window <= 0
+                        or progress_window > phase.get('timeout', 20)):
+                    raise ControlFailure('Invalid insertion progress window')
                 if self.last_progress is None:
                     self.last_progress, self.last_progress_t = progress_error, now
                 if np.any(progress_error < self.last_progress-progress_margin):
                     self.last_progress = np.minimum(self.last_progress, progress_error)
                     self.last_progress_t = now
-                elif now-self.last_progress_t>2.0 and not complete:
+                elif now-self.last_progress_t>progress_window and not complete:
                     # Bounded retreat/alignment recovery is specified as explicit plan phases.
                     # Fail rather than increase insertion force into a jam.
                     raise ControlFailure('Insertion stalled; no unbounded force or retry: '+phase['label'])
