@@ -8,6 +8,7 @@ from pathlib import Path
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def compile_program(folder,trial):
+    if not __debug__:raise ValueError("Source validation requires normal Python assertion checks")
     proof=json.loads((trial/'validated-rollout.json').read_text())
     assert proof['kind']=='REAL_INSPECT_ROLLOUT' and proof['mode']=='expert' and proof['score']==1
     assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=folder,text=True).strip()==proof['commit']
