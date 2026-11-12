@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T06:17:54.685322+00:00",
+  "updated_at": "2026-11-12T06:36:10.780322+00:00",
   "status": "THREE_TASKS_RECEIVED_THREE_MORE_REQUIRED",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -100,14 +100,23 @@
       "branch": "draft/node-service-closeout",
       "commit": "33446a37bd62797024ece49346ce1233fde36296",
       "task_source_dirty": false,
-      "state": "REVISED_CONTROLLER_STATIC_PASS_SUFFIX_DIAGNOSTIC_DEFERRED",
+      "state": "FIRST_CURRENT_EXPERT_VERIFIED_SECOND_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/node-alignment-suffix-deferred.hf245vxh",
-      "producer_pid": 1955467,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
+      "producer_pid": 2063385,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": 1869586,
       "native_reports": {},
-      "expert_trials_current_commit": [],
+      "expert_trials_current_commit": [
+        {
+          "score": 1.0,
+          "record_id": "44181a12b31547e9bff7001df40abcaf",
+          "commit": "33446a37bd62797024ece49346ce1233fde36296",
+          "steps": 4378,
+          "log_sha256": "1a4df4ddaf307f0505263dcfc2801d07b0ad61efee1fc300c3f00861af46df24",
+          "duration_s": 1190.2829606550076
+        }
+      ],
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
@@ -174,6 +183,13 @@
           "requires": "Genuine model exit0/validator0, fresh HTTPS exactcommitcheckout, static checks and actual budget guard",
           "commit": "33446a37bd62797024ece49346ce1233fde36296"
         }
+      },
+      "publication_preparation": {
+        "worktree": "/data/robocurve-runs/resume-compat/node-final-publication",
+        "branch": "publication/node-service-closeout",
+        "commit": "cec0cb9de57139fb3cdf25fd485aac5b16d666db",
+        "ready": false,
+        "official_pr_opened": false
       }
     },
     {
@@ -204,7 +220,14 @@
       },
       "next": "Cold control qualification after initialized replay lost upper grasp before diagnostic actions; full independent experts, physics and prefix assertions remain gated.",
       "controller_tests_passed": 28,
-      "static_exit": 0
+      "static_exit": 0,
+      "publication_preparation": {
+        "worktree": "/data/robocurve-runs/resume-compat/hardware-final-publication",
+        "branch": "publication/hardware-order-kit",
+        "commit": "93f3310a5b0f9247318e6504b3ebb1ced5ca90d2",
+        "ready": false,
+        "official_pr_opened": false
+      }
     },
     {
       "slug": "eight-nut-bracket",
@@ -275,6 +298,13 @@
           "requires": "Genuine model exit0/validator0, fresh HTTPS exactcommitcheckout, static checks and actual budget guard",
           "commit": "27f21f913be49bd7cb3e5f0732cb6c87b9a41463"
         }
+      },
+      "publication_preparation": {
+        "worktree": "/data/robocurve-runs/resume-compat/nut-final-publication",
+        "branch": "publication/eight-nut-bracket",
+        "commit": "20b409bb0ba4eb1f63a82bf3cf259e58b43a97ed",
+        "ready": false,
+        "official_pr_opened": false
       }
     },
     {

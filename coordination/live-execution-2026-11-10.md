@@ -900,3 +900,11 @@ Independentpublication/node-service-closeout basedupstream4c1bc4f preparedat nod
 ### 2026-11-12 06:30 UTC — gated Hardware model/reproduction queue
 
 Hardwared8 current coldqualification2167615 remainsactualRUNNING; no passing result claimed. Queuedstrictmodel2174558 root hardware-small-step-genuine-dream.ruii9zig and HTTPSclean2174574 root hardware-small-step-clean-https.hvv2es2x from actual qualificationexit0/strictseal/freshproviderbudgetguard. Model limit6000actions20Hz; clean runsfullindependentexpert. Queue receipt hardware-small-step-queued-chain.json. No newmodelGPU has launched whilecoldcontroller remainsunqualified. Node repeat/Nutsuffix remainlive; two noveltyagentsconfirmedrunning.
+
+### 2026-11-12 06:38 UTC — exact setup corrections and separate publication branches
+
+Prepared/pushed publication/node-service-closeout cec0cb9, publication/hardware-order-kit93f3310 and publication/eight-nut-bracket20b409b tofork, each basedupstream4c1bc4f andcontainingonlyitsownnewtaskfolder. TheseareNOTnewofficialPRs/notready; scores/validationexplicitlypartial. RuntimePython/scene/assets/scorer/controllerphases/nativecases/stacklockbyteequal to currentfrozen334/d8/143 respectively, manifestandmetadata4000/500limitschecked. Receipt three-priority-publication-runtime-equivalence-preparation.json.
+
+Hardwarepub corrects actualcollisionenvelopes lower(.119,.131,.03806497), upper(.10406497,.119,.051), handle90mmaxisoffsets, rib2.4mm width/180mmlength/4mmheight; stale160mmhandle/3mmribmetadataremoved. Explicitsteel/aluminiumsurrogates/uncalibratedfriction, no unsupportedshafttorquetransfer. Nutpub clarify two1gnoncollidinginertiallinks arenotphysicalmanipulated1mmblocks; actualcontrollerthirdturntarget3.50 documented. Allthree reviewedtext scans show noidentifyingnames/paths/teamstrings. Existingpublished1733untouched.
+
+Node firstcurrentexpert remains1.0; secondactualprocess2160392 live. Hardwarecold2167632 andNutsuffix2165566 live; actualmissingterminalresultsnevercountaspass. TwoGitHubagentsactive, ownthreePRsallwaitingreview; latestnew1736-1739 reviewedwithoutmaterialselectedduplicatematch.
