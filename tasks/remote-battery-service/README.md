@@ -1,3 +1,5 @@
+> Archived final rejection: this package is not submission-ready. See [REVIEW_REMEDIATION.md](REVIEW_REMEDIATION.md). Do not reopen its closed PR.
+
 # Replace opposed-polarity cells under a spring-return service cover
 
 Open the sliding cover. Put both grey used cells in the grey collection tray. Install the two blue replacements with each orange positive end at its orange terminal, then close the cover.
