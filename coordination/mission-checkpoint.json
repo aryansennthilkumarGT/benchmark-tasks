@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T06:41:05.539194+00:00",
-  "status": "THREE_TASKS_RECEIVED_THREE_MORE_REQUIRED",
+  "updated_at": "2026-11-12T07:03:58.109150+00:00",
+  "status": "THREE_OFFICIAL_RECEIPTS_OBSERVABILITY_REVIEW_RISK_ACTION_ONLY_VALIDATION_UNDERWAY",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
     {
@@ -100,7 +100,7 @@
       "branch": "draft/node-service-closeout",
       "commit": "33446a37bd62797024ece49346ce1233fde36296",
       "task_source_dirty": false,
-      "state": "FIRST_CURRENT_EXPERT_VERIFIED_SECOND_RUNNING",
+      "state": "ACTION_ONLY_COLD_EXPERT_VALIDATION_RUNNING",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
       "producer_pid": 2063385,
@@ -149,7 +149,7 @@
         "producer_exit": 1,
         "log": "/data/robocurve-runs/resume-compat/node-loaded-lid-margin-qualification.1lj2_l5c/first-trial.log"
       },
-      "next": "Obtain fresh full cold expert pair after suffix diagnostic; initialized diagnostic fixture is not an expert demo.",
+      "next": "Verify new complete cold action-only experts, then strict proof/model/media/fresh HTTPS reproduction. Old queued model2112882/clean2112884 intentionally stopped before GPU start.",
       "future_stages": {
         "cold_expert_pair": {
           "root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
@@ -190,17 +190,33 @@
         "commit": "cec0cb9de57139fb3cdf25fd485aac5b16d666db",
         "ready": false,
         "official_pr_opened": false
+      },
+      "action_only_validation": {
+        "branch": "validation/node-action-only",
+        "commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
+        "worktree": "/data/robocurve-runs/node-action-only",
+        "root": "/data/robocurve-runs/resume-compat/node-action-only-cold-expert-pair._l8mem6r",
+        "producer_pid": 2206551,
+        "source_feedback_record": "44181a12b31547e9bff7001df40abcaf",
+        "runtime_policy_reads_only": "Fixed14D authored joint actions, action index and robot proprioception/time; no object state or evaluator/score access.",
+        "full_score_not_yet_verified": true
+      },
+      "physics_development_current_revision": {
+        "commit": "33446a37bd62797024ece49346ce1233fde36296",
+        "passed": 10,
+        "failed": 0,
+        "status": "PASS"
       }
     },
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "d8cfbc2b88f5f50f608bd8e3118a4fc59287655e",
+      "commit": "e76fdef3691161ce5c350040504e6f40913fa35c",
       "task_source_dirty": false,
-      "state": "NATIVE_SMALL_INSERTION_STEP_COLD_QUALIFICATION_RUNNING",
+      "state": "BOUNDED_ALIGNMENT_RECOVERY_DEVELOPMENT_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-small-step-cold-qualification.plia6_dg",
-      "producer_pid": 2167615,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-realignment-recovery-development.zj_o6wx7",
+      "producer_pid": 2202057,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {},
@@ -218,7 +234,7 @@
         "diagnosis": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg/cooperative-lift-target-diagnosis.json",
         "new_native_pass_claimed": false
       },
-      "next": "Cold control qualification after initialized replay lost upper grasp before diagnostic actions; full independent experts, physics and prefix assertions remain gated.",
+      "next": "Cold selected-control then one disclosed private-feedback generation trial; no new model until action-only full-cold feasibility is validated.",
       "controller_tests_passed": 28,
       "static_exit": 0,
       "publication_preparation": {
@@ -232,12 +248,12 @@
     {
       "slug": "eight-nut-bracket",
       "branch": "draft/eight-nut-bracket",
-      "commit": "143732600e471baab1ef80aa7a2d81d813159866",
+      "commit": "197d32d07bf124616d616684a07faa1efa85b993",
       "task_source_dirty": false,
-      "state": "THIRD_NUT_SEATING_MARGIN_DIAGNOSTIC_RUNNING",
+      "state": "FINAL_SMALL_THREAD_SEGMENT_DIAGNOSTIC_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/eight-nut-bracket-bounded-correction.289btnpr",
-      "producer_pid": 2165543,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-final-segment-diagnostic.rfi3iupq",
+      "producer_pid": 2214638,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {
@@ -270,7 +286,7 @@
         "producer_exit": null,
         "state": "NATIVE_QUALIFICATION_RUNNING"
       },
-      "next": "Diagnostic must actually pass before queued fresh whole experts, physics/control, Dream and HTTPS clean chain; chain receipt nut-third-margin-queued-chain.json.",
+      "next": "Validate final-segment fix, then full cold action-only experts; previous queued private-feedback expert pair/model/clean intentionally stopped while waiting.",
       "future_stages": {
         "current_qualification_continuation": {
           "root": "/data/robocurve-runs/resume-compat/nut-complete-current-qualification.7f6azvh_",
@@ -313,7 +329,7 @@
       "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
       "task_source_dirty": false,
       "state": "OFFICIAL_RECEIVED_WAITING_FOR_REVIEW",
-      "ready": true,
+      "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj",
       "producer_pid": 1818077,
       "producer_live_command_verified": false,
@@ -420,14 +436,17 @@
         "steps": 1677,
         "log_sha256": "5e883461f75a8c64f43284d943a875a809d7528cb79cab00b25a0bf97c8c2de6",
         "duration_s": 1665.5879399080004
-      }
+      },
+      "prior_native_engineering_ready": true,
+      "observability_acceptance_risk_unresolved": true,
+      "official_received_remains_true": true
     },
     {
       "slug": "fault-module-repair",
       "branch": "draft/fault-module-repair",
       "commit": "93d23b21dd1a725c67f21ac039ab64bafe800b18",
       "evaluated_commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
-      "ready": true,
+      "ready": false,
       "state": "OFFICIALLY_RECEIVED_WAITING_FOR_REVIEW",
       "expert_scores": [
         1.0,
@@ -445,14 +464,17 @@
         "acceptance_confirmed": false
       },
       "task_validation": "/data/robocurve-runs/resume-compat/fault-final-publication/tasks/fault-module-repair/validation.json",
-      "note": "Publication metadata changes preserve evaluated executable bytes; provenance receipts in durable execution checkpoint."
+      "note": "Publication metadata changes preserve evaluated executable bytes; provenance receipts in durable execution checkpoint.",
+      "prior_native_engineering_ready": true,
+      "observability_acceptance_risk_unresolved": true,
+      "official_received_remains_true": true
     },
     {
       "slug": "remote-battery-service",
       "branch": "draft/remote-battery-service",
       "commit": "3c335ebd5c2bd006bd00d6a7bcfbc9ff4cd06ac8",
       "evaluated_commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
-      "ready": true,
+      "ready": false,
       "state": "OFFICIALLY_RECEIVED_WAITING_FOR_REVIEW",
       "expert_scores": [
         1.0,
@@ -470,7 +492,10 @@
         "acceptance_confirmed": false
       },
       "task_validation": "/data/robocurve-runs/remote-battery-service/tasks/remote-battery-service/validation.json",
-      "note": "Publication metadata changes preserve evaluated executable bytes; provenance receipts in durable execution checkpoint."
+      "note": "Publication metadata changes preserve evaluated executable bytes; provenance receipts in durable execution checkpoint.",
+      "prior_native_engineering_ready": true,
+      "observability_acceptance_risk_unresolved": true,
+      "official_received_remains_true": true
     }
   ],
   "counts": {
@@ -693,5 +718,14 @@
     "original_T12_sealed_receipts_unchanged": true,
     "validation_log": "/data/robocurve-runs/resume-compat/prefix-sealer-validation.log",
     "method_disclosure": "Does not label reused expert prefixes as separately executed native control cases; separate genuine physics and complete experts required."
+  },
+  "observability_review_risk": {
+    "source": "https://github.com/robocurve/benchmark-tasks/pull/708#issuecomment-6816775688",
+    "observed_review_time": "2026-11-12T06:44:36Z",
+    "finding": "Official review rejected simulator-internal fixture-state feedback despite ordinary robot-joint outputs. AGENTS has no explicit blanket ban; actual accepted examples support fixed-waypoint/action-only demos.",
+    "current_experts_use_hidden_body_joint_state": true,
+    "no_acceptance_exemption_claimed": true,
+    "pending_pr_materials_unchanged": true,
+    "next": "Prepare and genuinely cold-reset validate action-only robot trajectories; preserve private-feedback rollouts as disclosed generation/development evidence, never relabel them."
   }
 }
