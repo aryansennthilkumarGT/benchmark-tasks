@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T12:39:14.137829+00:00",
-  "status": "PARTIAL_REAL_VALIDATION_WITH_THREE_FINAL_REJECTIONS_ONE_PENDING_REVISION_NO_SIX_TASK_COMPLETION",
+  "updated_at": "2026-11-12T12:47:06.277680+00:00",
+  "status": "BLOCKED_AUDIT_SATISFIED_PENDING_GOAL_TOOL_CONFIRMATION_NOT_COMPLETE",
   "authoritative_detail": "Latest chronological checkpoints and actual current per-task receipts; do not use obsolete job pointers in earlier history.",
   "tasks": [
     {
@@ -676,11 +676,11 @@
     "native_families_are_historical_not_accepted": true
   },
   "budget_latest": {
-    "remaining_balance_USD": 3.41,
-    "observed_at": "2026-11-12T12:34:48.838044+00:00",
+    "remaining_balance_USD": 2.51,
+    "observed_at": "2026-11-12T12:44:53.332173+00:00",
     "user_latest_reserve_USD": 0,
-    "headroom_USD": 3.41,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T123448Z.json",
+    "headroom_USD": 2.51,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T124453Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
@@ -692,9 +692,9 @@
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
     "reserve_warning": "Actual3.41USD12:16:54. Userreserve0, internal2USD uncertaintybuffer, conservativeaccount3.8USD/h. Six cannot finish withinfunds. EarlyVMstopauthorizationrequested, notassumed; workloadstopdoesnotstopbilling.",
     "reserve_revoked_by_user": true,
-    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T123448Z.json",
+    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T124453Z.json",
     "projection_is_internal_planning_not_provider_observation": true,
-    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T123448Z.json",
+    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T124453Z.json",
     "watchdog_pid": 2390822,
     "watchdog_repair_receipt": "/data/robocurve-runs/resume-compat/budget-watchdog-recovery-receipt.json",
     "funded_deadline_extension_receipt": "/data/robocurve-runs/resume-compat/budget-deadline-extension-20261112T0934.json",
@@ -743,7 +743,7 @@
       "reason_file": "/data/robocurve-runs/resume-compat/nut-priority-available-window-20261112/early-resume-reason.json"
     }
   },
-  "next_primary_operation": "Await T12 review; preserve pendinga312. No new GPU workloads; six notachievable currentfunds. Early originalVMstoppermission pending, do not assumeapproval.",
+  "next_primary_operation": "Awaitindispensablehumanpower/fundingdecision orofficialreviewchange; no newnativeworkloads, noinstancepowerwithoutauthorization. Goalnotcomplete.",
   "last_official_review_status": "/data/robocurve-runs/resume-compat/official-review-status-20261112T0236.json",
   "latest_native_observation": {
     "observed_at": "2026-11-12T09:35:43.103241+00:00",
@@ -1095,5 +1095,6 @@
     "importance": "UNCLEARED"
   },
   "final_evidence_status": "coordination/final-evidence-status-2026-11-12.json",
-  "no_active_owned_gpu_evaluations_observed_at": "2026-11-12T12:39:14.137829+00:00"
+  "no_active_owned_gpu_evaluations_observed_at": "2026-11-12T12:39:14.137829+00:00",
+  "blocked_audit": "coordination/blocked-audit-2026-11-12.json"
 }
