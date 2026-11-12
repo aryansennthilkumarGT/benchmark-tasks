@@ -1,0 +1,234 @@
+{
+  "physics": [
+    {
+      "name": "authored_reset_settles",
+      "steps": 40,
+      "assertions": [
+        {
+          "kind": "pose",
+          "body": "shackle",
+          "pos": [
+            0.22,
+            0.006,
+            0.788
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "pose",
+          "body": "pin",
+          "pos": [
+            0.28,
+            -0.17,
+            0.808
+          ],
+          "tolerance": 0.003
+        },
+        {
+          "kind": "penetration",
+          "max": 0.0015
+        }
+      ]
+    },
+    {
+      "name": "seated_pin_resists_extraction",
+      "initialize_bodies": [
+        {
+          "assembly": "shackle_asset",
+          "pos": [
+            0.22,
+            0,
+            0.788
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "pin_asset",
+          "pos": [
+            0.22,
+            0,
+            0.8175
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "pin_asset",
+          "body": "pin",
+          "force": [
+            0,
+            0,
+            12
+          ]
+        }
+      ],
+      "steps": 30,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "pin",
+          "axis": 2,
+          "min": 0.8155,
+          "max": 0.82
+        },
+        {
+          "kind": "penetration",
+          "max": 0.0015
+        }
+      ]
+    },
+    {
+      "name": "pin_outside_eye_is_not_retained",
+      "initialize_bodies": [
+        {
+          "assembly": "pin_asset",
+          "pos": [
+            0.35,
+            -0.08,
+            0.88
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "pin_asset",
+          "body": "pin",
+          "force": [
+            0,
+            0,
+            8
+          ]
+        }
+      ],
+      "steps": 15,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "pin",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.015,
+          "max": 0.8
+        },
+        {
+          "kind": "score",
+          "max": 0.2,
+          "success": false
+        }
+      ]
+    },
+    {
+      "name": "no_unearned_thread_credit_from_fixture_placement",
+      "initialize_bodies": [
+        {
+          "assembly": "shackle_asset",
+          "pos": [
+            0.22,
+            0,
+            0.788
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "pin_asset",
+          "pos": [
+            0.22,
+            0,
+            0.8175
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "steps": 40,
+      "assertions": [
+        {
+          "kind": "goal",
+          "name": "collar_seated",
+          "completed": false
+        },
+        {
+          "kind": "score",
+          "max": 0.2,
+          "success": false
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "align_free_shackle",
+      "through_phase": 3,
+      "through_label": "Align shackle eyes with lug bore",
+      "max_steps": 2400,
+      "assertions": [
+        {
+          "kind": "pose",
+          "body": "shackle",
+          "pos": [
+            0.22,
+            0,
+            0.788
+          ],
+          "tolerance": 0.0015
+        },
+        {
+          "kind": "penetration",
+          "max": 0.0015
+        }
+      ]
+    },
+    {
+      "name": "insert_pin_through_lug",
+      "through_phase": 11,
+      "through_label": "Insert through near eye and lifting lug",
+      "max_steps": 6000,
+      "assertions": [
+        {
+          "kind": "pose",
+          "body": "pin",
+          "pos": [
+            0.22,
+            0,
+            0.83274
+          ],
+          "tolerance": 0.002
+        },
+        {
+          "kind": "penetration",
+          "max": 0.0015
+        }
+      ]
+    }
+  ]
+}

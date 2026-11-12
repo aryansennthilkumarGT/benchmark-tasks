@@ -1,0 +1,19 @@
+{
+  "title": "Fit and seat a screw-pin shackle through a lifting lug",
+  "category": "Impact on jobs",
+  "keywords": [
+    "rigging",
+    "through-pin",
+    "threaded-connection",
+    "bimanual"
+  ],
+  "instruction": "Connect the supported sling to the lifting lug with its matching screw-pin shackle. Align the eyes, pass the pin through the lug, and screw it down until its collar is fully seated. Leave the pin in place and withdraw both grippers.",
+  "context": "Riggers routinely connect lifting hardware. This unloaded bench task isolates the alignment, through-pin insertion and full collar seating of a screw-pin bow shackle; it is not a lifting certification.",
+  "setup": "A fixed steel lifting lug with a 20.6 mm vertical bore and a supported closed sling link stand on the YAM table. A free 16 mm-stock bow shackle is already through the sling link and rests in an open alignment nest, 6 mm offset from the lug bore. Its near eye is unthreaded; the far eye has a 3/4-10 UNC-pitch contact thread. Its matching 19 mm pin stands in a separate cradle. Original faceted assets follow the published nominal 3.25 t GPGHBB16 envelope: 27 mm inside eye gap, 64 mm inside length, 43 mm inside bow width, 40 mm eyes and 89 mm overall pin. This is a rigid simulation model, not certified hardware. SETUP.md and scene.json specify all authored fixtures, masses, materials, inertia, coordinates and approximations. Seed 0; no object jitter.",
+  "scoring": "0.20 for shackle/lug eye alignment within 0.8 mm; 0.25 more for through-pin insertion with at least four pitch-coupled turns; 0.55 more for full collar seating within 0.35 mm and at least 5.8 pitch-coupled turns. Full score requires 2 s of stability, both grippers at least 20 mm clear, correct through-lug span and preserved fixtures. Invalid frames, loss, excess overlap, missing parts or moved fixtures score zero. Partial credit is recomputed.",
+  "run_limit": "18000 robot actions at 20 Hz (900 simulated seconds maximum)",
+  "reset_notes": "Reset to scene.json with seed 0 and object_jitter=0. Clear scorer/thread histories and controller state. Settle the free pin and shackle in their open support nests; repeat initial-pose and camera checks. No success-triggered snapping or attachments.",
+  "fidelity": "Published shackle envelope and thread pitch; original faceted rigid assets and square thread flanks approximate UNC contact. Steel deformation, fatigue, rated lifting strength and certified tightening torque are excluded. Friction, inertia tensors, lug, supports and cradle are authored model choices. Robot jaws turn the pin tab; successful contact/retention remains unvalidated.",
+  "scores": "NOT RUN: no native mechanism, robot expert or Dream-1 trial has been executed for this task.",
+  "media": ""
+}
