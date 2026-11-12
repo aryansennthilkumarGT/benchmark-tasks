@@ -1,0 +1,96 @@
+{
+  "schema_version": 2,
+  "status": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
+  "ready": false,
+  "verified_at": "2026-11-07T23:47:00.536997+00:00",
+  "offline_tests": {
+    "slug": "node-service-closeout",
+    "python": "3.12.13",
+    "tests_run": 63,
+    "skipped": 4,
+    "passed": 59,
+    "unit_exit": 0,
+    "usd_exit": 0
+  },
+  "offline_audits": {
+    "control": {
+      "passed": true,
+      "evidence": "offline-evidence/control.json"
+    },
+    "geometry": {
+      "passed": true,
+      "evidence": "offline-evidence/geometry.json"
+    },
+    "grasps": {
+      "passed": true,
+      "evidence": "offline-evidence/grasps.json"
+    },
+    "motion": {
+      "passed": true,
+      "evidence": "offline-evidence/motion.json"
+    },
+    "threads": {
+      "passed": true,
+      "evidence": "offline-evidence/threads.json"
+    }
+  },
+  "usd_structure": {
+    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
+    "assemblies": 7,
+    "bodies": 8,
+    "joints": 1,
+    "spawn_transforms_and_anchors": "PASS",
+    "initial_joint_frames": "PASS"
+  },
+  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
+  "native_physics": "PASS_PRIOR_EVALUATED_REVISION",
+  "robot_control": "NOT_RUN",
+  "expert_trials": [],
+  "dream": null,
+  "media_id": null,
+  "media_verified": false,
+  "run_limit": 7200,
+  "native_cases_planned": {
+    "physics": 4,
+    "control": 2
+  },
+  "physics_runs": 1,
+  "expert_runs": 0,
+  "model_runs": 0,
+  "media_uploads": 0,
+  "remaining": [
+    "Real robot control tests",
+    "Two full-score expert episodes",
+    "Genuine Dream-1 evaluation",
+    "Media visual review and official upload",
+    "Runtime publication verification"
+  ],
+  "limitations": [
+    "Coarse rigid cooler fins and guide keys model handling geometry, not heat transfer or electrical functionality."
+  ],
+  "evidence_scope": "Native mechanism evidence is tied to the recorded evaluated commit. Full-score robot demonstrations and model evaluation remain pending.",
+  "native_physics_evidence": {
+    "kind": "NATIVE_PHYSX_TESTS",
+    "commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
+    "driver": "565.57.01",
+    "status": "PASS",
+    "passed": 8,
+    "failed": 0,
+    "resets": 8,
+    "report_sha256": "368c2f9cbafce3c18d8b7e1424cc3e10fb153f7435fafcf2c5e1af2b01786940"
+  },
+  "engineering_verification": {
+    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
+    "fixed_driver_preflight_regression_tests": "PASS",
+    "budget_epoch_regression_tests": "PASS",
+    "runtime_unit_tests": "PASS",
+    "updated_ideal_motion_audit": "PASS",
+    "full_static_before_incremental_runtime_changes": "PASS",
+    "ready": false
+  },
+  "native_collision_collection": {
+    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
+    "regression": "Nested rigid-body colliders belong only to their owning link",
+    "clearance_requirement_m": 0.02
+  }
+}

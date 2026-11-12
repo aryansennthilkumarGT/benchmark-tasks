@@ -1,0 +1,283 @@
+{
+  "physics": [
+    {
+      "name": "assembled_replacements_are_passively_stable",
+      "initialize_bodies": [
+        {
+          "assembly": "old_cooler_asset",
+          "pos": [
+            0.4181274175643921,
+            -0.18915338814258575,
+            0.7654659748077393
+          ],
+          "quat": [
+            0.011108487844467163,
+            0.07559101283550262,
+            0.004263358656316996,
+            0.9970678687095642
+          ]
+        },
+        {
+          "assembly": "old_storage_asset",
+          "pos": [
+            0.44,
+            -0.282,
+            0.7617
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "new_storage_asset",
+          "pos": [
+            0.3,
+            0,
+            0.7635
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "assembly": "new_cooler_asset",
+          "pos": [
+            0.3,
+            0,
+            0.7955
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "steps": 160,
+      "assertions": [
+        {
+          "kind": "score",
+          "min": 1.0,
+          "max": 1.0,
+          "success": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "settled_modules_have_clearance",
+      "steps": 100,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "coordinate",
+          "body": "old_cooler",
+          "axis": 2,
+          "min": 0.7935000000000001,
+          "max": 0.7975000000000001
+        },
+        {
+          "kind": "score",
+          "max": 0,
+          "success": false
+        }
+      ]
+    },
+    {
+      "name": "shroud_blocks_storage_removal",
+      "forces": [
+        {
+          "assembly": "old_storage_asset",
+          "body": "old_storage",
+          "force": [
+            -1,
+            0,
+            0
+          ]
+        }
+      ],
+      "steps": 60,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "old_storage",
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "min": -0.02,
+          "max": 0.002
+        }
+      ]
+    },
+    {
+      "name": "closed_lid_captures_cooling_keys",
+      "forces": [
+        {
+          "assembly": "old_cooler_asset",
+          "body": "old_cooler",
+          "force": [
+            0,
+            0,
+            3
+          ]
+        }
+      ],
+      "steps": 60,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "old_cooler",
+          "axis": 2,
+          "min": 0.7935000000000001,
+          "max": 0.8035000000000001
+        },
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": -0.01,
+          "max": 0.04
+        }
+      ]
+    },
+    {
+      "name": "lid_gravity_return",
+      "initialize_joints": [
+        {
+          "assembly": "chassis_asset",
+          "joint": "lid_hinge",
+          "value": 0.5
+        }
+      ],
+      "steps": 120,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": -0.005,
+          "max": 0.035
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "open_service_lid",
+      "through_phase": 2,
+      "max_steps": 1000,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0.79,
+          "max": 0.85
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Open and support service lid"
+    },
+    {
+      "name": "remove_dependent_cooler_first",
+      "through_phase": 5,
+      "max_steps": 1700,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "old_cooler",
+          "axis": [
+            0,
+            0,
+            1
+          ],
+          "min": 0.025,
+          "max": 0.05
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "through_label": "Verify lift of old_cooler"
+    },
+    {
+      "name": "collect_cooler_before_storage",
+      "through_phase": 12,
+      "through_label": "Withdraw from old_cooler",
+      "max_steps": 2400,
+      "assertions": [
+        {
+          "kind": "goal",
+          "name": "old_cooler_collected",
+          "completed": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "storage_extraction_after_dependent_cooler_removal",
+      "through_phase": 15,
+      "through_label": "Withdraw storage through guide mouths",
+      "max_steps": 2400,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "lid_hinge",
+          "min": 0.76,
+          "max": 1.355
+        },
+        {
+          "kind": "goal",
+          "name": "old_cooler_collected",
+          "completed": true
+        },
+        {
+          "kind": "pose",
+          "body": "old_storage",
+          "pos": [
+            0.16,
+            0,
+            0.7655
+          ],
+          "tolerance": 0.0025
+        },
+        {
+          "kind": "penetration",
+          "max": 0.002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1893 @@
+{
+  "schema": 2,
+  "status": "FEEDBACK_CONTROLLER_UNVALIDATED_IN_PHYSICS",
+  "phases": [
+    {
+      "kind": "move",
+      "label": "Approach inclined lid handle",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.19,
+          0.054,
+          0.8675
+        ],
+        "quat": [
+          -0.5792279653395694,
+          0.5792279653395693,
+          -0.40557978767263886,
+          0.4055797876726388
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp lid handle",
+      "side": "left",
+      "body": "lid",
+      "offset": [
+        -0.185,
+        0.054,
+        0.02
+      ],
+      "quat": [
+        -0.5792279653395694,
+        0.5792279653395693,
+        -0.40557978767263886,
+        0.4055797876726388
+      ],
+      "width": [
+        0.02,
+        0.038
+      ]
+    },
+    {
+      "kind": "joint",
+      "label": "Open and support service lid",
+      "side": "left",
+      "body": "lid",
+      "joint": "lid_hinge",
+      "value": 0.82,
+      "increment": 0.012,
+      "keep_hold": true,
+      "timeout": 30
+    },
+    {
+      "kind": "move",
+      "label": "Approach old_cooler",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23,
+          0,
+          0.8575
+        ],
+        "quat": [
+          -0.6123724356957947,
+          0.6123724356957946,
+          -0.3535533905932738,
+          0.35355339059327373
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp old_cooler",
+      "side": "right",
+      "body": "old_cooler",
+      "offset": [
+        -0.07,
+        0,
+        0.018
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "width": [
+        0.024,
+        0.036
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Verify lift of old_cooler",
+      "side": "right",
+      "body": "old_cooler",
+      "target": {
+        "pos": [
+          0.3,
+          0,
+          0.8385
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true,
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "tolerance": 0.01,
+      "angle": 0.15,
+      "min_lift": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Draw cooling shroud clear of the lid",
+      "side": "right",
+      "body": "old_cooler",
+      "target": {
+        "pos": [
+          0.24,
+          0,
+          0.8385
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.004,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Lift clear of enclosure",
+      "side": "right",
+      "body": "old_cooler",
+      "target": {
+        "pos": [
+          0.24,
+          0,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.004,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Clear the lid before crossing toward the tray",
+      "side": "right",
+      "body": "old_cooler",
+      "target": {
+        "pos": [
+          0.24,
+          -0.2,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.004,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Transport old_cooler",
+      "side": "right",
+      "body": "old_cooler",
+      "target": {
+        "pos": [
+          0.418,
+          -0.188,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 35,
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.004,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "insert",
+      "label": "Seat old_cooler",
+      "side": "right",
+      "body": "old_cooler",
+      "target": {
+        "pos": [
+          0.418,
+          -0.188,
+          0.7767000000000001
+        ],
+        "quat": [
+          0,
+          0.04997916927067833,
+          0,
+          0.9987502603949663
+        ]
+      },
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "release",
+      "label": "Release old_cooler",
+      "side": "right",
+      "opening": 0.5324813631522897
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from old_cooler",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.17,
+          -0.188,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.6123724356957947,
+          0.6123724356957946,
+          -0.3535533905932738,
+          0.35355339059327373
+        ]
+      },
+      "opening": 0.5324813631522897
+    },
+    {
+      "kind": "move",
+      "label": "Approach storage pull handle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.21,
+          0,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.6532814824381884,
+          0.6532814824381883,
+          -0.27059805007309856,
+          0.2705980500730985
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp storage pull handle",
+      "side": "right",
+      "body": "old_storage",
+      "offset": [
+        -0.09,
+        0,
+        0.035
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "width": [
+        0.022,
+        0.034
+      ]
+    },
+    {
+      "kind": "insert",
+      "label": "Withdraw storage through guide mouths",
+      "side": "right",
+      "body": "old_storage",
+      "target": {
+        "pos": [
+          0.16,
+          0,
+          0.7655000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Verify extracted storage lift",
+      "side": "right",
+      "body": "old_storage",
+      "target": {
+        "pos": [
+          0.16,
+          0,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true,
+      "measured_translation": true,
+      "position_gain": 2,
+      "translation_lead": 0.01,
+      "feedback_gain": 2,
+      "measured_rotation": true,
+      "rotation_about_body": true,
+      "rotation_gain": 0.3,
+      "rotation_lead": 0.02
+    },
+    {
+      "kind": "carry",
+      "label": "Transport removed storage",
+      "side": "right",
+      "body": "old_storage",
+      "target": {
+        "pos": [
+          0.44,
+          -0.282,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 35,
+      "measured_translation": true,
+      "position_gain": 2,
+      "translation_lead": 0.01,
+      "feedback_gain": 2,
+      "measured_rotation": true,
+      "rotation_about_body": true,
+      "rotation_gain": 0.3,
+      "rotation_lead": 0.02
+    },
+    {
+      "kind": "insert",
+      "label": "Place removed storage in tray",
+      "side": "right",
+      "body": "old_storage",
+      "target": {
+        "pos": [
+          0.44,
+          -0.282,
+          0.7617
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "release",
+      "label": "Release old storage",
+      "side": "right",
+      "opening": 0.5111821086261981
+    },
+    {
+      "kind": "move",
+      "label": "Clear collection tray",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.375,
+          -0.282,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.6532814824381884,
+          0.6532814824381883,
+          -0.27059805007309856,
+          0.2705980500730985
+        ]
+      },
+      "opening": 0.5111821086261981
+    },
+    {
+      "kind": "move",
+      "label": "Approach replacement storage",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.15,
+          -0.28,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.6532814824381884,
+          0.6532814824381883,
+          -0.27059805007309856,
+          0.2705980500730985
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp replacement storage",
+      "side": "right",
+      "body": "new_storage",
+      "offset": [
+        -0.09,
+        0,
+        0.035
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "width": [
+        0.022,
+        0.034
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Lift replacement storage",
+      "side": "right",
+      "body": "new_storage",
+      "target": {
+        "pos": [
+          0.24,
+          -0.28,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true,
+      "measured_translation": true,
+      "position_gain": 2,
+      "translation_lead": 0.01,
+      "feedback_gain": 2,
+      "measured_rotation": true,
+      "rotation_about_body": true,
+      "rotation_gain": 0.3,
+      "rotation_lead": 0.02
+    },
+    {
+      "kind": "carry",
+      "label": "Move ahead of storage rails",
+      "side": "right",
+      "body": "new_storage",
+      "target": {
+        "pos": [
+          0.16,
+          0,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 2,
+      "translation_lead": 0.01,
+      "feedback_gain": 2,
+      "timeout": 35,
+      "measured_rotation": true,
+      "rotation_about_body": true,
+      "rotation_gain": 0.3,
+      "rotation_lead": 0.02
+    },
+    {
+      "kind": "carry",
+      "label": "Align with storage rails",
+      "side": "right",
+      "body": "new_storage",
+      "target": {
+        "pos": [
+          0.16,
+          0,
+          0.7635
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 2,
+      "translation_lead": 0.01,
+      "feedback_gain": 2,
+      "measured_rotation": true,
+      "rotation_about_body": true,
+      "rotation_gain": 0.3,
+      "rotation_lead": 0.02
+    },
+    {
+      "kind": "insert",
+      "label": "Insert storage beneath guide caps",
+      "side": "right",
+      "body": "new_storage",
+      "target": {
+        "pos": [
+          0.3,
+          0,
+          0.7635
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 35,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "release",
+      "label": "Release new storage",
+      "side": "right",
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Lift clear of storage rails",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.21,
+          0,
+          0.8675
+        ],
+        "quat": [
+          -0.6532814824381884,
+          0.6532814824381883,
+          -0.27059805007309856,
+          0.2705980500730985
+        ]
+      },
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Clear storage handle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.21,
+          -0.075,
+          0.8875000000000001
+        ],
+        "quat": [
+          -0.6532814824381884,
+          0.6532814824381883,
+          -0.27059805007309856,
+          0.2705980500730985
+        ]
+      },
+      "opening": 0.362087326943557
+    },
+    {
+      "kind": "move",
+      "label": "Approach new_cooler",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.18,
+          -0.17,
+          0.8575
+        ],
+        "quat": [
+          -0.6123724356957947,
+          0.6123724356957946,
+          -0.3535533905932738,
+          0.35355339059327373
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "grasp",
+      "label": "Grasp new_cooler",
+      "side": "right",
+      "body": "new_cooler",
+      "offset": [
+        -0.07,
+        0,
+        0.018
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "width": [
+        0.024,
+        0.036
+      ]
+    },
+    {
+      "kind": "carry",
+      "label": "Verify lift of new_cooler",
+      "side": "right",
+      "body": "new_cooler",
+      "target": {
+        "pos": [
+          0.25,
+          -0.17,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "verify_lift": true,
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.01,
+      "angle": 0.15,
+      "min_lift": 0.025,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Transport new_cooler",
+      "side": "right",
+      "body": "new_cooler",
+      "target": {
+        "pos": [
+          0.24,
+          0,
+          0.8775000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 35,
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.004,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Lower replacement ahead of open enclosure",
+      "side": "right",
+      "body": "new_cooler",
+      "target": {
+        "pos": [
+          0.24,
+          0,
+          0.8385
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.004,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "carry",
+      "label": "Move replacement under the supported lid",
+      "side": "right",
+      "body": "new_cooler",
+      "target": {
+        "pos": [
+          0.3,
+          0,
+          0.8385
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "measured_translation": true,
+      "position_gain": 8,
+      "translation_lead": 0.025,
+      "measured_rotation": true,
+      "rotation_gain": 1,
+      "rotation_lead": 0.04,
+      "tolerance": 0.004,
+      "rotation_about_body": true,
+      "feedback_gain": 2
+    },
+    {
+      "kind": "insert",
+      "label": "Seat new_cooler",
+      "side": "right",
+      "body": "new_cooler",
+      "target": {
+        "pos": [
+          0.3,
+          0,
+          0.7955000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "timeout": 30,
+      "measured_translation": true,
+      "integrate_body_error": false,
+      "position_gain": 3,
+      "translation_lead": 0.005,
+      "measured_rotation": true,
+      "rotation_gain": 0.3,
+      "rotation_lead": 0.01,
+      "rotation_about_body": true,
+      "feedback_gain": 2,
+      "insertion_axis_world": [
+        0,
+        0,
+        1
+      ],
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
+      "lateral_tolerance": [
+        0.001,
+        0.0008,
+        0.001
+      ],
+      "axial_lead": 0.004,
+      "insertion_orientation_tolerance": 0.005
+    },
+    {
+      "kind": "release",
+      "label": "Release new_cooler",
+      "side": "right",
+      "opening": 0.5324813631522897
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw from new_cooler",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23,
+          0,
+          0.8775000000000001
+        ],
+        "quat": [
+          -0.6123724356957947,
+          0.6123724356957946,
+          -0.3535533905932738,
+          0.35355339059327373
+        ]
+      },
+      "opening": 0.5324813631522897
+    },
+    {
+      "kind": "move",
+      "label": "Clear service lid",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2,
+          -0.26,
+          0.8975000000000001
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1
+    },
+    {
+      "kind": "joint",
+      "label": "Close lid over keyed cooling module",
+      "side": "left",
+      "body": "lid",
+      "joint": "lid_hinge",
+      "value": 0,
+      "increment": 0.012,
+      "clear_hold": true,
+      "timeout": 30
+    },
+    {
+      "kind": "release",
+      "label": "Release closed lid",
+      "side": "left",
+      "opening": 0.5537806176783813
+    },
+    {
+      "kind": "move",
+      "label": "Lift released lid grasp clear of handle",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.215,
+          0.054,
+          0.8915
+        ],
+        "quat": [
+          -0.5792279653395694,
+          0.5792279653395693,
+          -0.40557978767263886,
+          0.4055797876726388
+        ]
+      },
+      "opening": 0.5537806176783813
+    },
+    {
+      "kind": "move",
+      "label": "Withdraw inclined left grasp",
+      "side": "left",
+      "target": {
+        "pos": [
+          0.22,
+          0.24,
+          0.8725
+        ],
+        "quat": [
+          -0.5792279653395694,
+          0.5792279653395693,
+          -0.40557978767263886,
+          0.4055797876726388
+        ]
+      },
+      "opening": 0.5537806176783813
+    },
+    {
+      "kind": "hold",
+      "label": "Observe released service assembly",
+      "side": "left",
+      "seconds": 1.5,
+      "opening": 1
+    }
+  ],
+  "audit_tcp_targets": [
+    {
+      "label": "Approach inclined lid handle",
+      "side": "left",
+      "pos": [
+        0.19,
+        0.054,
+        0.8675
+      ],
+      "quat": [
+        -0.5792279653395696,
+        0.5792279653395694,
+        -0.40557978767263897,
+        0.4055797876726389
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp lid handle",
+      "side": "left",
+      "pos": [
+        0.21500000000000002,
+        0.054,
+        0.8465
+      ],
+      "quat": [
+        -0.5792279653395696,
+        0.5792279653395694,
+        -0.40557978767263897,
+        0.4055797876726389
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 1/8",
+      "side": "left",
+      "pos": [
+        0.2180173898169431,
+        0.054000000000000006,
+        0.8653243427627765
+      ],
+      "quat": [
+        -0.5992443086392782,
+        0.5992443086392781,
+        -0.37537482409377687,
+        0.3753748240937768
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 2/8",
+      "side": "left",
+      "pos": [
+        0.22294506106198714,
+        0.05399999999999999,
+        0.8837411442727741
+      ],
+      "quat": [
+        -0.6176870437864951,
+        0.617687043786495,
+        -0.3441841308635553,
+        0.34418413086355526
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 3/8",
+      "side": "left",
+      "pos": [
+        0.22973128770013504,
+        0.054,
+        0.9015570823556698
+      ],
+      "quat": [
+        -0.6345077403865322,
+        0.6345077403865321,
+        -0.3120896143571227,
+        0.3120896143571226
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 4/8",
+      "side": "left",
+      "pos": [
+        0.23830483433861657,
+        0.054000000000000006,
+        0.9185851421334503
+      ],
+      "quat": [
+        -0.6496622274978907,
+        0.6496622274978906,
+        -0.27917555437838637,
+        0.2791755543783863
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 5/8",
+      "side": "left",
+      "pos": [
+        0.24857570398870854,
+        0.05399999999999999,
+        0.934646579129831
+      ],
+      "quat": [
+        -0.6631107096246076,
+        0.6631107096246075,
+        -0.2455283828422891,
+        0.24552838284228906
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 6/8",
+      "side": "left",
+      "pos": [
+        0.2604360827690557,
+        0.054000000000000006,
+        0.9495727955608149
+      ],
+      "quat": [
+        -0.6748178712187369,
+        0.6748178712187368,
+        -0.21123645680566752,
+        0.21123645680566758
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 7/8",
+      "side": "left",
+      "pos": [
+        0.2737614716338891,
+        0.054000000000000006,
+        0.9632071101148678
+      ],
+      "quat": [
+        -0.6847529694185417,
+        0.6847529694185416,
+        -0.17638982644271253,
+        0.17638982644271253
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Open and support service lid 8/8",
+      "side": "left",
+      "pos": [
+        0.28841199324632943,
+        0.054000000000000006,
+        0.975406402645228
+      ],
+      "quat": [
+        -0.6928899147788696,
+        0.6928899147788695,
+        -0.14107999857432424,
+        0.14107999857432416
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Approach old_cooler",
+      "side": "right",
+      "pos": [
+        0.23,
+        0.0,
+        0.8575
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp old_cooler",
+      "side": "right",
+      "pos": [
+        0.22999999999999998,
+        0.0,
+        0.8135000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Verify lift of old_cooler",
+      "side": "right",
+      "pos": [
+        0.22999999999999998,
+        0.0,
+        0.8565
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Draw cooling shroud clear of the lid",
+      "side": "right",
+      "pos": [
+        0.16999999999999998,
+        0.0,
+        0.8565
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Lift clear of enclosure",
+      "side": "right",
+      "pos": [
+        0.16999999999999998,
+        0.0,
+        0.8955000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Clear the lid before crossing toward the tray",
+      "side": "right",
+      "pos": [
+        0.16999999999999998,
+        -0.2,
+        0.8955000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Transport old_cooler",
+      "side": "right",
+      "pos": [
+        0.348,
+        -0.188,
+        0.8955000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Seat old_cooler",
+      "side": "right",
+      "pos": [
+        0.3501467099301811,
+        -0.188,
+        0.8015984141402825
+      ],
+      "quat": [
+        -0.6292774343645582,
+        0.6292774343645581,
+        -0.3225056752982177,
+        0.32250567529821766
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Release old_cooler",
+      "side": "right",
+      "pos": [
+        0.34199999999999997,
+        -0.185,
+        0.7947000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.5324813631522897
+    },
+    {
+      "label": "Withdraw from old_cooler",
+      "side": "right",
+      "pos": [
+        0.17,
+        -0.188,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.5324813631522897
+    },
+    {
+      "label": "Approach storage pull handle",
+      "side": "right",
+      "pos": [
+        0.21,
+        0.0,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp storage pull handle",
+      "side": "right",
+      "pos": [
+        0.21,
+        0.0,
+        0.8005000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Withdraw storage through guide mouths",
+      "side": "right",
+      "pos": [
+        0.07,
+        0.0,
+        0.8005000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Verify extracted storage lift",
+      "side": "right",
+      "pos": [
+        0.07,
+        0.0,
+        0.9125000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Transport removed storage",
+      "side": "right",
+      "pos": [
+        0.35,
+        -0.282,
+        0.9125000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Place removed storage in tray",
+      "side": "right",
+      "pos": [
+        0.35,
+        -0.282,
+        0.7967000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Release old storage",
+      "side": "right",
+      "pos": [
+        0.375,
+        -0.282,
+        0.7737
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.5111821086261981
+    },
+    {
+      "label": "Clear collection tray",
+      "side": "right",
+      "pos": [
+        0.375,
+        -0.282,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.5111821086261981
+    },
+    {
+      "label": "Approach replacement storage",
+      "side": "right",
+      "pos": [
+        0.15,
+        -0.28,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp replacement storage",
+      "side": "right",
+      "pos": [
+        0.15,
+        -0.28,
+        0.8327000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Lift replacement storage",
+      "side": "right",
+      "pos": [
+        0.15,
+        -0.28,
+        0.9125000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Move ahead of storage rails",
+      "side": "right",
+      "pos": [
+        0.07,
+        0.0,
+        0.9125000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Align with storage rails",
+      "side": "right",
+      "pos": [
+        0.07,
+        0.0,
+        0.8005000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Insert storage beneath guide caps",
+      "side": "right",
+      "pos": [
+        0.21,
+        0.0,
+        0.8005000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.29818956336528224
+    },
+    {
+      "label": "Release new storage",
+      "side": "right",
+      "pos": [
+        0.235,
+        0.0,
+        0.7775000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Lift clear of storage rails",
+      "side": "right",
+      "pos": [
+        0.21,
+        0.0,
+        0.8675
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Clear storage handle",
+      "side": "right",
+      "pos": [
+        0.21,
+        -0.075,
+        0.8875000000000001
+      ],
+      "quat": [
+        -0.6532814824381884,
+        0.6532814824381883,
+        -0.27059805007309856,
+        0.2705980500730985
+      ],
+      "opening": 0.362087326943557
+    },
+    {
+      "label": "Approach new_cooler",
+      "side": "right",
+      "pos": [
+        0.18,
+        -0.17,
+        0.8575
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Grasp new_cooler",
+      "side": "right",
+      "pos": [
+        0.18,
+        -0.17,
+        0.7887000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Verify lift of new_cooler",
+      "side": "right",
+      "pos": [
+        0.18,
+        -0.17,
+        0.8955000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Transport new_cooler",
+      "side": "right",
+      "pos": [
+        0.16999999999999998,
+        0.0,
+        0.8955000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Lower replacement ahead of open enclosure",
+      "side": "right",
+      "pos": [
+        0.16999999999999998,
+        0.0,
+        0.8565
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Move replacement under the supported lid",
+      "side": "right",
+      "pos": [
+        0.22999999999999998,
+        0.0,
+        0.8565
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Seat new_cooler",
+      "side": "right",
+      "pos": [
+        0.22999999999999998,
+        0.0,
+        0.8135000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.3194888178913738
+    },
+    {
+      "label": "Release new_cooler",
+      "side": "right",
+      "pos": [
+        0.22999999999999998,
+        0.0,
+        0.8135000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.5324813631522897
+    },
+    {
+      "label": "Withdraw from new_cooler",
+      "side": "right",
+      "pos": [
+        0.23,
+        0.0,
+        0.8775000000000001
+      ],
+      "quat": [
+        -0.6123724356957947,
+        0.6123724356957946,
+        -0.3535533905932738,
+        0.35355339059327373
+      ],
+      "opening": 0.5324813631522897
+    },
+    {
+      "label": "Clear service lid",
+      "side": "right",
+      "pos": [
+        0.2,
+        -0.26,
+        0.8975000000000001
+      ],
+      "quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "opening": 1
+    },
+    {
+      "label": "Close lid over keyed cooling module 1/8",
+      "side": "left",
+      "pos": [
+        0.2737614716338891,
+        0.05400000000000001,
+        0.9632071101148678
+      ],
+      "quat": [
+        -0.6847529694185417,
+        0.6847529694185416,
+        -0.17638982644271256,
+        0.17638982644271262
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid over keyed cooling module 2/8",
+      "side": "left",
+      "pos": [
+        0.2604360827690557,
+        0.054,
+        0.9495727955608149
+      ],
+      "quat": [
+        -0.6748178712187368,
+        0.6748178712187367,
+        -0.21123645680566755,
+        0.21123645680566758
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid over keyed cooling module 3/8",
+      "side": "left",
+      "pos": [
+        0.24857570398870854,
+        0.054000000000000006,
+        0.934646579129831
+      ],
+      "quat": [
+        -0.6631107096246076,
+        0.6631107096246075,
+        -0.24552838284228917,
+        0.2455283828422891
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid over keyed cooling module 4/8",
+      "side": "left",
+      "pos": [
+        0.23830483433861654,
+        0.05400000000000001,
+        0.9185851421334503
+      ],
+      "quat": [
+        -0.6496622274978908,
+        0.6496622274978907,
+        -0.2791755543783864,
+        0.27917555437838626
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid over keyed cooling module 5/8",
+      "side": "left",
+      "pos": [
+        0.22973128770013504,
+        0.054,
+        0.9015570823556699
+      ],
+      "quat": [
+        -0.6345077403865322,
+        0.6345077403865321,
+        -0.3120896143571227,
+        0.3120896143571227
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid over keyed cooling module 6/8",
+      "side": "left",
+      "pos": [
+        0.2229450610619871,
+        0.05400000000000001,
+        0.8837411442727741
+      ],
+      "quat": [
+        -0.6176870437864952,
+        0.6176870437864949,
+        -0.3441841308635553,
+        0.34418413086355526
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid over keyed cooling module 7/8",
+      "side": "left",
+      "pos": [
+        0.21801738981694307,
+        0.054000000000000006,
+        0.8653243427627765
+      ],
+      "quat": [
+        -0.5992443086392782,
+        0.5992443086392781,
+        -0.3753748240937769,
+        0.37537482409377676
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Close lid over keyed cooling module 8/8",
+      "side": "left",
+      "pos": [
+        0.21499999999999997,
+        0.05400000000000001,
+        0.8465
+      ],
+      "quat": [
+        -0.5792279653395696,
+        0.5792279653395694,
+        -0.4055797876726391,
+        0.4055797876726389
+      ],
+      "opening": 0.308839190628328
+    },
+    {
+      "label": "Release closed lid",
+      "side": "left",
+      "pos": [
+        0.21499999999999997,
+        0.05400000000000001,
+        0.8465
+      ],
+      "quat": [
+        -0.5792279653395696,
+        0.5792279653395694,
+        -0.4055797876726391,
+        0.4055797876726389
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Lift released lid grasp clear of handle",
+      "side": "left",
+      "pos": [
+        0.215,
+        0.054,
+        0.8915
+      ],
+      "quat": [
+        -0.5792279653395696,
+        0.5792279653395694,
+        -0.40557978767263897,
+        0.4055797876726389
+      ],
+      "opening": 0.5537806176783813
+    },
+    {
+      "label": "Withdraw inclined left grasp",
+      "side": "left",
+      "pos": [
+        0.22,
+        0.24,
+        0.8725
+      ],
+      "quat": [
+        -0.5792279653395696,
+        0.5792279653395694,
+        -0.40557978767263897,
+        0.4055797876726389
+      ],
+      "opening": 0.5537806176783813
+    }
+  ]
+}
