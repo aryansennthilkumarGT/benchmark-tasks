@@ -23,3 +23,8 @@ The run limit is 3600 actions at 20 Hz, or 180 simulated seconds. Seed 0 and zer
 A rigid pressure plate simultaneously loads twelve 500 N/m contact springs. The cross-key must retain this compression after both hands release. Cylindrical cell geometry includes polarity-dependent terminal profiles. The model omits electrical and electrochemical behavior. Geometry, masses and local transforms are defined in `scene.json` and its generated USD assets.
 
 Read [SETUP.md](SETUP.md), [SCORING.md](SCORING.md) and [NOVELTY.md](NOVELTY.md) for the fixed layout, numerical objectives and mechanism-specific comparison. Measured native, expert and model evidence is recorded in validation.json. Clean-checkout reproduction also reached full score.
+
+
+## Fixed-action expert revision
+
+The expert executes1677 offline-authored14-dimensional joint and jaw commands, reading only robot proprioception and elapsed action index. It reads no object poses, task joints or scoring state. Two complete cold episodes each scored1.0 in83.85 simulated seconds; the second ran from a fresh HTTPS checkout. The original genuine Dream-1 result remains0.0 at its original source revision; scene, scoring, physics and model inputs are unchanged. Diagnostic feedback controllers and fixture initialization are excluded from these demonstrations.

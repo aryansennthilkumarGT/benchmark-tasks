@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
-  "status": "NATIVE_PHYSICS_EXPERT_MODEL_MEDIA_AND_CLEAN_REPRODUCTION_VERIFIED",
+  "status": "FIXED_ACTION_EXPERT_REVISION_VALIDATED_NOT_YET_APPLIED_TO_PENDING_PR",
   "ready": true,
-  "verified_at": "2026-11-12T05:56:53.359669+00:00",
+  "verified_at": "2026-11-12T11:37:52.034077+00:00",
   "evaluated_commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
   "driver": "565.57.01",
   "physics_hz": 480,
@@ -39,11 +39,11 @@
       "run_limit": 3600,
       "seed": 0,
       "reset_seed": 1415158438,
-      "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
-      "record_id": "b3eb6a2f49764118b1b4e5c585f58b47",
-      "log_sha256": "13f841134e2e3940cc27bb897ab64586e50fbe4087b4803cf7089fbb2fe758f2",
+      "commit": "f724feeb2c181d1dd71eda36c2d7cbd27767d701",
+      "record_id": "9b7ac6f295424bceafe1356190285098",
+      "log_sha256": "e7f2939e400c95c2f97d9628e4f40ab0bc3ea4f97328762f77984dd05f95ad17",
       "simulated_seconds": 83.85,
-      "duration_s": 1998.3576875760045,
+      "duration_s": 1163.7423889970087,
       "camera_streams": 3,
       "native_failure": null
     },
@@ -55,11 +55,11 @@
       "run_limit": 3600,
       "seed": 0,
       "reset_seed": 1415158438,
-      "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
-      "record_id": "a84f671d06c64a30826cd1adba8286ae",
-      "log_sha256": "8e8c4118acb5d93eea3c3c54ce24e7d02415a3b664b0b8f5c1ee4f17a04cb043",
+      "commit": "f724feeb2c181d1dd71eda36c2d7cbd27767d701",
+      "record_id": "fd136e1eb12c4abd9b95cbad77674e12",
+      "log_sha256": "553d557e6514fa7b706ddb33b48156d699eab3dfc164479f8126b75f2819c6e5",
       "simulated_seconds": 83.85,
-      "duration_s": 2544.4663495610002,
+      "duration_s": 1587.7070432179898,
       "camera_streams": 3,
       "native_failure": null
     }
@@ -141,5 +141,23 @@
     "Rigid terminal shoes and passive springs approximate contact pressure; electrical conductivity, electrochemistry and corrosion are omitted.",
     "Mechanism fixtures isolate loads and are not expert demonstrations."
   ],
-  "provenance": "Original task geometry; two distinct complete cold native expert episodes and one real Dream-1 evaluation of the same executable revision. Publication edits change documentation and unused metadata annotations only."
+  "provenance": "Original task geometry; two distinct complete cold native expert episodes and one real Dream-1 evaluation of the same executable revision. Publication edits change documentation and unused metadata annotations only.",
+  "clean_https_reproduction": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "expert",
+    "score": 1.0,
+    "steps": 1677,
+    "run_limit": 3600,
+    "seed": 0,
+    "reset_seed": 1415158438,
+    "commit": "f724feeb2c181d1dd71eda36c2d7cbd27767d701",
+    "record_id": "fd136e1eb12c4abd9b95cbad77674e12",
+    "log_sha256": "553d557e6514fa7b706ddb33b48156d699eab3dfc164479f8126b75f2819c6e5",
+    "simulated_seconds": 83.85,
+    "duration_s": 1587.7070432179898,
+    "camera_streams": 3,
+    "native_failure": null
+  },
+  "expert_interface": "Fixed offline-authored14D joint/jaw commands; no runtime object-state access",
+  "source_revision_note": "Expert trials f724feeb; original physics and genuine Dream retain1e7 source revision. Exact component equality checked separately; no new Dream run claimed."
 }
