@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T04:43:41.928307+00:00",
+  "updated_at": "2026-11-12T04:54:58.006100+00:00",
   "status": "TWO_TASKS_RECEIVED_FOUR_MORE_REQUIRED_SIX_CANDIDATE_DRAFTS",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -143,11 +143,13 @@
       "next": "Obtain fresh full cold expert pair after suffix diagnostic; initialized diagnostic fixture is not an expert demo.",
       "future_stages": {
         "cold_expert_pair": {
-          "root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair.5vahpsh1",
-          "producer_pid": 2011780,
-          "requires": "Producer1955467 exit0 and actual suffix report PASS; starts two new complete episodes, does not splice suffix into demo",
+          "root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
+          "producer_pid": 2063385,
+          "requires": "Producer1955467 exit0 and genuine suffix reportPASS; two fresh complete SDK experts, no spliced demo",
           "commit": "33446a37bd62797024ece49346ce1233fde36296",
-          "workload_deadline_UTC": "2026-11-12T06:00:00+00:00"
+          "wall_bound_per_trial_seconds": 5400,
+          "action_limit_unchanged": 7200,
+          "budget_deadline_UTC": "2026-11-12T12:00:00+00:00"
         }
       }
     },
@@ -220,7 +222,23 @@
         "producer_exit": null,
         "state": "NATIVE_QUALIFICATION_RUNNING"
       },
-      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration."
+      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration.",
+      "future_stages": {
+        "current_qualification_continuation": {
+          "root": "/data/robocurve-runs/resume-compat/nut-complete-current-qualification.7f6azvh_",
+          "producer_pid": 2063842,
+          "requires": "First current SDK expert producer1994023 success and full-score validator0",
+          "stages": [
+            "second whole cold expert",
+            "validate second actual SDK rollout",
+            "declared control assertions checked on both real expert prefixes",
+            "separate full native physics cases"
+          ],
+          "canonical_evidence_root": "/data/robocurve-runs/resume-compat/nut-first-expert-extended-wall.0cviulsl",
+          "no_standalone_control_runs_claimed": true,
+          "budget_deadline_UTC": "2026-11-12T12:00:00+00:00"
+        }
+      }
     },
     {
       "slug": "twelve-cell-pack",
@@ -558,5 +576,12 @@
       "/data/robocurve-runs/resume-compat/novelty-priority-watch/twelve-vs-nut-mutual-review.json"
     ],
     "acceptance_guaranteed": false
+  },
+  "control_prefix_reuse_tool": {
+    "path": "coordination/verify_expert_control_prefixes.py",
+    "new_unit_tests_passed": 7,
+    "genuine_baseline_comparison": "/data/robocurve-runs/resume-compat/control-prefix-reuse-validation-comparison.json",
+    "scope": "Same declared assertions over two completed native SDK expert traces; source/log/action IDs/timelines/scorer checked; fixture cases rejected; no standalone native-control runs claimed",
+    "separate_mechanism_probes_and_clean_expert_still_required": true
   }
 }
