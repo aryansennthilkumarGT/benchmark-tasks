@@ -74,6 +74,33 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(set(depths),{'tip_left','tip_right'})
         self.assertGreater(min(depths.values()),.015)
 
+    def test_cooperative_carry_commands_a_consistent_relative_grasp(self):
+        # Actual first-lift state; both hand targets must move as one held assembly.
+        fixture=json.loads((self.folder/'offline-evidence/cooperative-lift-state.json').read_text())
+        phase=copy.deepcopy(fixture['phase']);phase['coordinate_relative_holds']=True
+        controller=Controller({'phases':[phase]},self.spec)
+        controller.grasps=copy.deepcopy(fixture['grasps'])
+        controller.holds=copy.deepcopy(fixture['holds'])
+        frame=copy.deepcopy(fixture['frame']);unchanged=copy.deepcopy(frame)
+        joints=np.asarray(fixture['joints']);targets={}
+        for side in ('left','right'):
+            def capture(measured,p,q,opening,*,name=side,**kwargs):
+                targets[name]=(np.asarray(p),np.asarray(q))
+                return np.asarray(measured),0.,0.
+            controller.motion[side].target=capture
+        left,lq=controller.pose(joints[:7],'left')
+        # Preserve the captured support target, including its existing measured
+        # compliance error; cooperative planning must not introduce a new one.
+        right,rq=controller.world_target(controller.holds['right'],frame)
+        controller.step(joints,frame)
+        lp,lqq=targets['left'];rp,rqq=targets['right']
+        lqi=np.asarray(lq).copy();lqi[:3]*=-1
+        lqqi=np.asarray(lqq).copy();lqqi[:3]*=-1
+        expected=rotate(lqi,right-left);commanded=rotate(lqqi,rp-lp)
+        self.assertLess(np.linalg.norm(commanded-expected),.001)
+        self.assertLess(qangle(multiply(lqi,rq),multiply(lqqi,rqq)),.003)
+        self.assertEqual(frame,unchanged)  # Joint targets only; never move simulated bodies.
+
     def test_hold_requires_actual_stationarity(self):
         c=self.controller(dict(kind='hold',seconds=1.,opening=1.))
         frame=copy.deepcopy(self.frame)

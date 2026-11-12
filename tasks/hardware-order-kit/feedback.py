@@ -215,9 +215,13 @@ class Controller:
             commanded=body_p+limit_vector(desired_p-body_p,
                 phase.get('translation_lead',0.0005 if kind=='insert' else 0.003))
             p,q=self.body_tcp(side,commanded,desired_q)
+            planned_parent_position = commanded
+            planned_parent_orientation = desired_q
             if phase.get('measured_translation'):
-                p = tcp + limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
-                                       phase.get('translation_lead', .003))
+                translation = limit_vector(phase.get('position_gain', 1.) * (desired_p - body_p),
+                                           phase.get('translation_lead', .003))
+                p = tcp + translation
+                planned_parent_position = body_p + translation
             progress_error = None
             progress_margin = .0003
             if kind == 'insert' and 'insertion_axis_world' in phase:
@@ -251,9 +255,22 @@ class Controller:
                              phase.get('rotation_lead', .08) / max(angle_error, 1e-9))
                 turn = interpolate([0, 0, 0, 1], rotation_error, amount)
                 q = multiply(turn, tcpq)
+                planned_parent_orientation = multiply(turn, body_q)
                 if phase.get('rotation_about_body'):
                     lever = tcp - body_p
                     p += rotate(turn, lever) - lever
+            if phase.get('coordinate_relative_holds'):
+                if (kind != 'carry' or not phase.get('measured_translation')
+                        or not phase.get('measured_rotation') or not phase.get('rotation_about_body')):
+                    raise ControlFailure('Cooperative carry requires measured rigid-body motion')
+                # Both hands carry the same next body pose. Following the old
+                # measured parent would anchor the support while the active hand lifts.
+                for held_side, value in self.holds.items():
+                    if (held_side != side and isinstance(value, dict)
+                            and value['relative_to'] == phase['body']):
+                        hp = planned_parent_position + rotate(planned_parent_orientation, value['pos'])
+                        hq = multiply(planned_parent_orientation, value['quat'])
+                        targets[held_side] = (hp, hq, value['opening'], value['speed'])
             speed=0.01 if kind=='insert' else phase.get('speed',0.05)
             if any(isinstance(value,dict) and value['relative_to']==phase['body'] for value in self.holds.values()):
                 speed=min(speed,.025)  # Supporting arm must be able to follow.
