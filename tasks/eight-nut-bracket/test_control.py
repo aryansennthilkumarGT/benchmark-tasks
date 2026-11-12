@@ -149,11 +149,20 @@ class FeedbackTests(unittest.TestCase):
         controller = self.controller(dict(kind='hold', seconds=1))
         self.assertEqual(controller.motion['right'].tracking_error_limit, .08)
 
-    def test_thread_plan_compensates_loaded_joint_tracking_error(self):
-        plan = json.loads((self.folder/'controller.json').read_text())
-        threads = [phase for phase in plan['phases'] if phase['kind'] == 'thread']
-        self.assertTrue(threads)
-        self.assertTrue(all(phase['feedback_gain'] == 2 for phase in threads))
+    def test_regrasp_feedback_reaches_motion_while_turn_reference_is_preserved(self):
+        from unittest.mock import Mock
+        plan=json.loads((self.folder/'controller.json').read_text())
+        phase=next(x for x in plan['phases'] if x['kind']=='thread')
+        for mode,expected_gain in [('lift',2.),('unwind',2.),('turn',0.)]:
+            controller=Controller({'phases':[phase]},self.spec)
+            controller.thread={'mode':mode,'opening':.55}
+            side=phase['side'];index=0 if side=='left' else 7
+            tcp,quat=controller.pose(self.ready[index:index+7],side)
+            controller.thread_target=lambda *args: (tcp,quat,False)
+            target=Mock(side_effect=lambda measured,*args,**kwargs: (np.array(measured),0.,0.))
+            controller.motion[side].target=target
+            controller.step(self.ready,copy.deepcopy(self.frame))
+            self.assertEqual(target.call_args.kwargs['feedback_gain'],expected_gain)
 
     def test_thread_unwind_recentres_before_closing(self):
         plan = json.loads((self.folder/'controller.json').read_text())
@@ -253,6 +262,21 @@ class FeedbackTests(unittest.TestCase):
         self.assertLess(position[2], tcp[2])
         self.assertLessEqual(np.linalg.norm(position-tcp), .000500001)
 
+
+    def test_regrasp_position_feedback_corrects_bias_at_a_stationary_reference(self):
+        side='right';reference=self.ready[7:13].copy()
+        measured=self.ready[7:14].copy();measured[1]+=.01
+        target,rotation=self.ik.tcp_pose(reference,self.station.BASES[side])
+        quat=self.ik.matrix_to_quat_xyzw(rotation)
+        measured_position,_=self.ik.tcp_pose(measured[:6],self.station.BASES[side])
+        ordinary=Motion(side);ordinary.reference=reference.copy()
+        action,_,_=ordinary.target(measured,target,quat,1.)
+        np.testing.assert_allclose(action[:6],reference,atol=1e-5)
+        corrected=Motion(side);corrected.reference=reference.copy()
+        action,_,_=corrected.target(measured,target,quat,1.,feedback_gain=2.)
+        position,_=self.ik.tcp_pose(action[:6],self.station.BASES[side])
+        self.assertGreater(np.dot(position-target,target-measured_position),1e-8)
+        self.assertLess(np.linalg.norm(position-target),.003)
 
     def test_thread_free_spin_aborts_without_pitch_advance(self):
         plan=json.loads((self.folder/'controller.json').read_text());phase=next((p for p in plan['phases'] if p['kind']=='thread'),None)

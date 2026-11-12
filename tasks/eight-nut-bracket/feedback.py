@@ -63,7 +63,7 @@ class Motion:
         self.reference = None
         self.tracking_error_limit = tracking_error_limit
 
-    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5):
+    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.):
         q=np.asarray(measured,dtype=float)
         if q.shape!=(7,) or not np.isfinite(q).all():raise ControlFailure('Invalid proprioception')
         arm = q[:6]
@@ -80,7 +80,10 @@ class Motion:
             return np.r_[command, grip], error, theta
         current, rotation = self.ik.tcp_pose(self.reference, self.base)
         current_q = self.ik.matrix_to_quat_xyzw(rotation)
-        limited = current + limit_vector(pos-current, speed*self.dt)
+        if not math.isfinite(feedback_gain) or feedback_gain < 0:
+            raise ControlFailure('Invalid measured-position feedback gain')
+        position_step = feedback_gain*self.dt*(pos-measured_pos) if feedback_gain else pos-current
+        limited = current + limit_vector(position_step, speed*self.dt)
         remaining_angle = qangle(current_q, quat)
         qtarget = interpolate(current_q, quat, min(1, angular_speed*self.dt/max(remaining_angle, 1e-9)))
         solved,position_error,rotation_error=self.ik.solve(limited,qtarget,q_init=self.reference,base_pos=self.base,
@@ -294,7 +297,10 @@ class Controller:
         for name,(p,q,opening,speed) in targets.items():
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
-            target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,speed=speed)
+            # Preserve turn torque accumulation; correct measured position during regrasp.
+            gain = (phase.get('regrasp_feedback_gain', 0.) if name == side and kind == 'thread'
+                    and self.thread['mode'] in ('lift', 'unwind', 'lower', 'close') else 0.)
+            target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,speed=speed,feedback_gain=gain)
             action[index:index+7]=target
         # Reject arm-to-arm TCP collisions; link/fixture checks run in native validation.
         left,_=self.pose(action[:7],'left');right,_=self.pose(action[7:],'right')
