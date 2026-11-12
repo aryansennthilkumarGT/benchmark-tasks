@@ -120,6 +120,28 @@ class FeedbackTests(unittest.TestCase):
             controller.step(self.ready, frame)
             self.assertAlmostEqual(float(targets[0][2]-tcp[2]), expected_axial)
 
+    def test_cooler_descent_accepts_recorded_residual_but_blocks_larger_error(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        configured = next(x for x in plan['phases'] if x['label']=='Seat new_cooler')
+        for residual, expected in [(.0006719146622344851, -.004), (.0011, 0.)]:
+            phase = copy.deepcopy(configured)
+            phase.pop('label'); phase.pop('side')
+            frame = copy.deepcopy(self.frame)
+            body = frame['bodies']['new_cooler']
+            body['pos'] = [.30032020807266235, -residual, .8320704102516174]
+            body['quat'] = [0, 0, 0, 1]
+            controller = self.controller(phase)
+            controller.grasps['left'] = dict(body='new_cooler', verified=False,
+                tcp_in_body=[0,0,0], tcp_rotation_in_body=[0,0,0,1])
+            targets = []
+            def capture(joints, position, orientation, opening, **kwargs):
+                targets.append(np.array(position))
+                return np.array(joints), 0., 0.
+            controller.motion['left'].target = capture
+            tcp, _ = controller.pose(self.ready[:7], 'left')
+            controller.step(self.ready, frame)
+            self.assertAlmostEqual(float(targets[0][2]-tcp[2]), expected)
+
     def test_keyed_seating_aligns_before_axial_advance(self):
         for lateral, tilt, expected_axial in [(.002, 0., 0.), (0., .03, 0.), (0., 0., -.001)]:
             with self.subTest(lateral=lateral, tilt=tilt):
