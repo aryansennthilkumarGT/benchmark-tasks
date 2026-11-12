@@ -38,6 +38,18 @@ class FeedbackTests(unittest.TestCase):
                    'joints':{j['name']:0. for a in cls.spec['assemblies'] for j in a.get('joints',[])}}
         cls.ready=np.tile(np.r_[READY,1.],2)
     def controller(self,phase):return Controller({'phases':[dict(label='contract-test',side='left',**phase)]},self.spec)
+    def test_upper_grip_has_margin_at_recorded_loaded_lift_pose(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        planned = next(x['quat'] for x in plan['phases'] if x['label']=='Grasp upper collar handle')
+        previous = np.array([-0.7660444431189781, 0.6427876096865394, 0.0, 0.0])
+        inverse = previous.copy(); inverse[:3] *= -1
+        target_q = multiply(multiply([0.5783732440671672, -0.48704451786169844, 0.505459012755517, -0.4156720036186043], inverse), planned)
+        solved, pe, re = self.ik.solve([0.1432722892516486, -0.0879180433802464, 0.9063154301571943], target_q, q_init=np.array([1.681949064556588, 1.7060044574807247, 0.8933529458726809, -1.448854462096858, 1.3788384620845224, 2.086443027914426]),
+                                       base_pos=self.station.BASES['right'], iters=100, damping=.015, tol=2e-5)
+        self.assertLess(pe, .0015)
+        self.assertLess(re, .035)
+        self.assertGreater(float(np.min(np.minimum(solved-self.ik.LOWER, self.ik.UPPER-solved))), .12)
+
     def test_hold_requires_actual_stationarity(self):
         c=self.controller(dict(kind='hold',seconds=1.,opening=1.))
         frame=copy.deepcopy(self.frame)
