@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T23:58:56.724109+00:00",
+  "updated_at": "2026-11-12T00:02:10.635907+00:00",
   "status": "FIXED_DRIVER_VALIDATED_TASK_DIAGNOSTICS_ONGOING",
   "tasks": [
     {
@@ -180,7 +180,23 @@
       "latest_native_run": "/data/robocurve-runs/resume-compat/fault-final-publication",
       "pr_url": "https://github.com/robocurve/benchmark-tasks/pull/1647",
       "pr_number": 1647,
-      "submission_status": "INTAKE_REJECTED_ACCOUNT_TEAM_ASSOCIATION"
+      "submission_status": "INTAKE_REJECTED_ACCOUNT_TEAM_ASSOCIATION",
+      "publication_commit": "1ff071904ca28e059926d869613c7c5405a5c796",
+      "official_intake_retry": {
+        "kind": "OFFICIAL_INTAKE_RETRY_IDENTICAL_PUBLICATION_TREE",
+        "at": "2026-11-12T00:01:36.063010+00:00",
+        "PR": 1647,
+        "url": "https://github.com/robocurve/benchmark-tasks/pull/1647",
+        "author": "aryansennthilkumarGT",
+        "prior_publication_commit": "a50a9e905bb846ad4475ef85b7942180cc605bbb",
+        "new_publication_commit": "1ff071904ca28e059926d869613c7c5405a5c796",
+        "identical_tree": "d8bc619fa18693cc05e4ba6a767c3801b3953679",
+        "file_changes": [],
+        "physical_evaluated_commit": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+        "reason": "User confirms submitting account has now been registered; official instructions permit pushing same rejected-intake branch to retry.",
+        "official_receipt_status": "PENDING"
+      },
+      "PR": "https://github.com/robocurve/benchmark-tasks/pull/1647"
     },
     {
       "slug": "hardware-order-kit",
@@ -504,12 +520,11 @@
     "retry_request": "https://github.com/robocurve/benchmark-tasks/pull/1647#issuecomment-6809944882"
   },
   "latest_board_review": {
-    "tasks": 1653,
-    "new_tasks_examined": 28,
-    "closest_new_mechanisms_examined": 6,
-    "at": "2026-11-11T20:35:24Z",
-    "evidence": "/data/robocurve-runs/resume-compat/bounded-new-task-novelty-review-2038.json",
-    "official_acceptance_unconfirmed": true
+    "at": "2026-11-12T00:00:36.552732+00:00",
+    "task_count": 1664,
+    "new_tasks_since_prior": 11,
+    "comparison_evidence": "/data/robocurve-runs/resume-compat/bounded-new-mechanism-review-20261112.json",
+    "status": "FOUR_CLOSEST_NEW_MECHANISMS_COMPARED_NO_MATERIAL_DUPLICATE_IDENTIFIED_OFFICIAL_DECISION_PENDING"
   },
   "workload_deadline_guard": {
     "plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
