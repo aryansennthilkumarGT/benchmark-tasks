@@ -1,3 +1,15 @@
+# Current recovery status — 2026-11-12 12:38 UTC
+
+The six-task mission is **not complete**. See `mission-checkpoint.json` and `final-evidence-status-2026-11-12.json` for exact evidence. Zero tasks are officially accepted. PR1733 revision TK-WS3H2A is received/waiting at a312bcac0f29098731ad40ce30df5fe3a6fcca78; do not change that pending head. PRs1647/1703/1772 are finalclosed, not candidates for routine revisions/reopening.
+
+Nut prototype: two actual GPU PhysX expert1.0 records,12/12GPU plus12/12CPU contact probes, and genuine CPU PhysX Dream-1 result0.0 over18000actions/900simseconds. Original obsolete-metadata validator failed; a corrected validator required recordedcheckpoint, explicitnon-dryrun providertranscript375requests and fullnative/camera/scorerreplay. RawSDK0 and correctedrevalidation0 are separate from originalbatch1; no failure status was fabricated. Genuine local H.264/model/expert/setup media are validated/visuallyreviewed under `/data/robocurve-runs/resume-compat/nut-revalidated-final-local-media.i11g38f0`. Nativeprototype publicationeb25b00 remains readyfalse: identifiable real-equipment/procedure importance is unresolved, so no officialmediaupload/PR. Do not rename a generic fixture into a commercial procedure or transfer old scores to redesigned physics.
+
+Hardware prototype: actual14/14CPU native cases at6d33446; no fullrobotexpert or model. Phase7shaftinsertion stillstalls. Importance uncleared. Other draft assets/history preserved.
+
+Latestconsolebalance3.41USD12:34:48, underlyingmeteringfreshnessunverified; conservativeownedworkloadcutoff12:39:10 retained. No GPU evaluations remain active. OriginalBrev rj306hdgr stillrunning/billing; no poweroperation performed. User was asked for permission tostopbefore six because six cannot befinished withinfunds; answerpending. Never infer approval fromsilence. Neverdelete; nevertouchpartner4rjseoodp. Stoppingworkloads doesnotstopinstancebilling. No additional compute purchase authorized.
+
+The remaining text is historical execution evidence; newer entries supersede old status/driver/budget/shutdown assumptions.
+
 ## November 11 12:25 native queue and source recovery
 
 Twelve-cell 1735dfd passed all 6 declared native control results with exit 0. Its full recorded expert completed cells 0–4, then timed out at Transport cell_5 at 304.9 simulated seconds. Inspect process exit 0 was rejected by both rollout validators, including the corrected actual 12000-action limit. This is an incomplete expert. Actual measured joints and frame geometry show the nominal reference within approximately 0.044 mm of its incremental target, actual TCP error approximately 1.27 mm, and body destination error approximately 55 mm. Candidate b2b2ed1 adds measured loaded carry feedback and a sixth-cell seating case. Its full offline suite passed. The new control suite requires 8 results, and its later expert uses the scene's actual action limit.
@@ -1055,3 +1067,12 @@ Initialrevision6ff8f73samePR1733failedintakefidelity>500characters. Fixed411char
 Nutgenuinefullmodelstillrunningrootnut-verified-cpu-full-model.3_ic7m6f PID2566487, actual694.25sim12:23:21score0nofailure(incomplete). TwoactualexpertmediaPASSandvisuallyreviewed. Hardware6d33446fullnative14/14PASS, butboundedrobotphase7gainfix00ca906stillstalls; noexperts/model/importanceclearance, nofurthercostlyHardwaretrialplanned.
 
 Actual3.41USD12:16:54 receipt, conservative3.8USD/haccount+2USDmeterbuffer =>owneddeadline12:39:10. UserprominentlywarnedandaskedexplicitpermissiontostopearlyoriginalVMatthefundedcutoffbecauseaftersixconditioncannotbemet; responsepending, noapprovalassumed. NoVMpoweroperation. Workloadstopdoesnotstopbilling. TwoGitHubwatchersactive through12:40, no duplicates.
+
+
+### 2026-11-12 12:38 UTC actual complete Nut model and media preserved
+
+ModelrawSDK0,18000actions900sim1737.901wall, record2aa560aea0e34f2ca3620ebee731feea, loghashbc6f8656ca76396d5668c6439bf7b4d6f6b94f2f819d5d1eb8bca0452a80a3ae, threecomplete18001framecameras,nativefailureNone, score0.0. Originalvalidator1 incorrectlyrequiredpolicy_config.model absentingenericSDKmetadata. ActualrecordpolicycheckpointandprovidertranscriptbothDream1Beta, explicitdry_runFalse,375actualproviderrequests. Newcoordination/dream_identity.py failclosednegativeguards4testsPASS; standalonecorrectedvalidatorfullrawrecord/cameras/scorerreplayPASS0rootnut-complete-dream-record-revalidation.ksrz14bn. Originalproducer1retained,noSimulatorrerun,no rawlogfieldfabrication.
+
+ActuallocalmediaallPASSrootnut-revalidated-final-local-media.i11g38f0, actualexport/producer0. ModelH264yuv420p6350485bytes18001decodedframeshash502f89467eca69837963ceac7409e0e4c6f47c39ccf108b07d350e2e66a75bc2; setup57914bytes, genuineexpertvideoscopiedwithsourcehashchecks. Expert/modelcontactsheetvisuallyreviewednoidentifiers. Importanceuncleared => no officialNutupload/PR. Publicationprototypeeb25b00code/metadataactualscoresandvalidatorfixpushedreadyfalse; staticchecksPASS0. NoactiveownedGPUprocessobservednvidiaquery/actorinspection.
+
+Finaldurablecoordination/final-evidence-status-2026-11-12.json recordsallactualscores, sources,PRstates, budgetandpowerquestion. Latestrealbalance3.41USD12:34:48, providerunderlyingmeteringfreshnessunverified; earlier12:39:10ownedcutoffkept. Earlyoriginalstopauthorizationpending, noVMpoweroperationandpartneruntouched. Sixnotdone; no officialacceptanceclaimed.
