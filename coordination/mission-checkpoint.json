@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T02:35:56.249650+00:00",
+  "updated_at": "2026-11-12T02:49:35.332779+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -47,13 +47,25 @@
       "branch": "draft/switch-map-rework",
       "commit": "fa1aacc9b783a803ddc8e4e82e4c975b6be2ce9e",
       "task_source_dirty": false,
-      "state": "QUEUED_AFTER_HARDWARE",
+      "state": "COLD_NATIVE_WITHDRAWAL_TEST_RUNNING",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/switch-loaded-pose-requeued-qualification.ejyzqc6c",
       "producer_pid": 1873476,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": 1873473,
-      "native_reports": {},
+      "waits_for_producer_pid": null,
+      "native_reports": {
+        "selected-control": {
+          "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
+          "commit": "fa1aacc9b783a803ddc8e4e82e4c975b6be2ce9e",
+          "status": "RUNNING",
+          "passed": 0,
+          "failed": 0,
+          "active_case": {
+            "name": "withdrawal_with_continuous_cable",
+            "repeat": 0
+          }
+        }
+      },
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
@@ -125,17 +137,29 @@
       "branch": "draft/hardware-order-kit",
       "commit": "01384d24d41c519aadb02aa551041e1c4a83eae9",
       "task_source_dirty": false,
-      "state": "NATIVE_QUALIFICATION_RUNNING",
+      "state": "NATIVE_LOADED_LIFT_FAILED_OFFLINE_GRIP_REPAIR_IN_PROGRESS",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-bounded-opening-qualification.pdecun71",
       "producer_pid": 1873473,
-      "producer_live_command_verified": true,
+      "producer_live_command_verified": false,
       "waits_for_producer_pid": null,
-      "native_reports": {},
+      "native_reports": {
+        "selected-control": {
+          "source_commit": "01384d24d41c519aadb02aa551041e1c4a83eae9",
+          "passed": 0,
+          "failed": 1,
+          "second_repeat_incomplete": true,
+          "error": "Right wrist limit2.0944rad during loaded lift54.3s, after full opening51.35s.",
+          "producer_exit": 143
+        }
+      },
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
-      "official_pr": null
+      "official_pr": null,
+      "producer_exit": 143,
+      "intentional_stop_receipt": "/data/robocurve-runs/resume-compat/hardware-bounded-opening-qualification.pdecun71/intentional-stop.json",
+      "offline_candidate": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0"
     },
     {
       "slug": "eight-nut-bracket",
@@ -288,13 +312,19 @@
   },
   "budget_latest": {
     "remaining_balance_USD": 38.43,
-    "observed_at": "2026-11-12T02:36:23.912372+00:00",
+    "observed_at": "2026-11-12T02:41:46.190172+00:00",
     "user_latest_reserve_USD": 22,
     "headroom_USD": 16.43,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T023623Z.json",
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T024146Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
-    "workload_cancellation_does_not_stop_instance_billing": true
+    "workload_cancellation_does_not_stop_instance_billing": true,
+    "owned_workload_deadline_UTC": "2026-11-12T06:00:00+00:00",
+    "planning_account_USD_per_hour": 3.8,
+    "metering_buffer_USD": 2,
+    "projected_at_deadline_after_buffer_USD": 23.875422959333335,
+    "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
+    "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json"
   },
   "recovery": {
     "inspect_processes_before_launch": true,
