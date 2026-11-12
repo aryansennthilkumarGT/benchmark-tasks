@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T04:15:06.916222+00:00",
+  "updated_at": "2026-11-12T04:17:17.475075+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -222,36 +222,26 @@
       "branch": "draft/twelve-cell-pack",
       "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
       "task_source_dirty": false,
-      "state": "TWO_FULL_SCORE_EXPERTS_NATIVE_SUITES_RUNNING",
+      "state": "FULL_NATIVE_SUITE_AND_EXPERT_PAIR_PASS_DREAM_FEASIBILITY_VERIFICATION_RUNNING",
       "ready": false,
       "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj",
       "producer_pid": 1818077,
-      "producer_live_command_verified": true,
+      "producer_live_command_verified": false,
       "waits_for_producer_pid": null,
       "native_reports": {
-        "selected-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "replay": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
-        },
-        "final-physics": {
-          "kind": "NATIVE_PHYSX_TESTS",
-          "status": "RUNNING",
-          "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
-          "passed": 3,
+        "physics": {
+          "report": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/final-physics/results.json",
+          "sha256": "f08323661d607143367fcb7db706fd317b159a23039398e2c4b2593f20711346",
+          "passed": 12,
           "failed": 0,
-          "reset_count": 3,
-          "active_case": {
-            "name": "contact_restores_after_compression",
-            "repeat": 0
-          }
+          "process_exit": 0
         },
-        "final-control": {
-          "status": "NO_RESULT_RECORDED",
-          "passing_evidence": false
+        "control": {
+          "report": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/final-control/results.json",
+          "sha256": "057c0000213dbc6d8d13ac4ce321a09685f949fafd0bb0d251563212bad6df1a",
+          "passed": 4,
+          "failed": 0,
+          "process_exit": 0
         }
       },
       "expert_trials_current_commit": [
@@ -290,14 +280,13 @@
       "novelty_review": "/data/robocurve-runs/resume-compat/twelve-closest-flange-implementation-review/review.json",
       "expert_pair_verification": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/expert-pair-verification.json",
       "latest_control_observed": {
-        "status": "RUNNING",
-        "passed": 3,
+        "status": "PASS",
+        "passed": 4,
         "failed": 0,
-        "active_case": {
-          "name": "compress_all_twelve_contacts",
-          "repeat": 1
-        }
-      }
+        "active_case": null
+      },
+      "producer_exit": 0,
+      "next": "Verify actual Dream stage, render and review model media, official upload, clean full expert and final publication metadata."
     },
     {
       "slug": "fault-module-repair",
@@ -416,16 +405,29 @@
   "next_primary_operation": "Continue T12 full native suites then strictly gated Dream and clean full expert; monitor actual full Chassis and Nut experts and Hardware890 cold test. Node334 suffix diagnostic deferred until T12 full chain ends. Investigate Switchfa failure from actual frames/contacts while other sources stay frozen. No paused jobs remain from priority window.",
   "last_official_review_status": "/data/robocurve-runs/resume-compat/official-review-status-20261112T0236.json",
   "latest_native_observation": {
-    "observed_at": "2026-11-12T03:58:18Z",
-    "task": "twelve-cell-pack",
-    "evaluated_commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
-    "physics_passed": 12,
-    "physics_failed": 0,
-    "physics_process_exit": 0,
-    "control_status": "RUNNING",
-    "control_passed": 1,
-    "control_failed": 0,
-    "evidence_root": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj"
+    "observed_at": "2026-11-12T04:17:17.475075+00:00",
+    "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+    "native_reports": {
+      "final-physics": {
+        "report": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/final-physics/results.json",
+        "sha256": "f08323661d607143367fcb7db706fd317b159a23039398e2c4b2593f20711346",
+        "passed": 12,
+        "failed": 0,
+        "process_exit": 0
+      },
+      "final-control": {
+        "report": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/final-control/results.json",
+        "sha256": "057c0000213dbc6d8d13ac4ce321a09685f949fafd0bb0d251563212bad6df1a",
+        "passed": 4,
+        "failed": 0,
+        "process_exit": 0
+      }
+    },
+    "scope": "Completed native tests and already independently validated expert pair; Dream/media/clean still pending",
+    "expert_scores": [
+      1.0,
+      1.0
+    ]
   },
   "hardware_support_feedback_revision": {
     "commit": "e0837a3fe8aeda505375cdb1fc25939b64085716",

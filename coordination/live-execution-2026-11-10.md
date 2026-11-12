@@ -797,3 +797,8 @@ Created `publication/twelve-cell-pack` from freshly fetched official upstream68c
 Media producer2019512 (`twelve-real-media-producer.ciji6p1_`) waits actual Dream completion and reuses existing verified expert exports, checking IDs/log/video hashes/visual reviews. It exports only the new real model recording and creates a setup image from an actual expert frame. Model visual inspection and official upload remain manual agent steps; no token loaded or upload/PR performed by this helper. Registered under unchanged06:00 watchdog deadline.
 
 Future billing helper now explicitly labels the $3.80/account-hour figure as an internal conservative planning estimate, separate from provider-observed balance/price fields. Historical receipts remain immutable. No instance power operation.
+
+
+### 2026-11-12 04:16 UTC — Twelve full native qualification completed
+
+Actual final physics12/12 PASS and controller4/4 PASS, zero failures; both stage exits and overall producer1818077 exit0. Previously validated cold expert scores1.0/1.0 remain valid at1e7df189. Root/completed-native-suite-verification.json binds report hashes and exact exits. No initialized mechanism probe is counted as a demonstration. Dream producer1868522 is now running its strict immutable feasibility sealer (actual sealerPID2021772 observed), not yet a model score. Hardware2003077 has started its new cold control probe with0PASS/0FAIL and live case; prior890 failure remains preserved. Task count remains2 complete/submitted; third still needs Dream, media, clean and official PR.
