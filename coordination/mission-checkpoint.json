@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T04:18:41.542726+00:00",
+  "updated_at": "2026-11-12T04:26:08.842487+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -493,5 +493,21 @@
     "requires": "Actual Dream producer success and validated whole rollout; existing expert identities/video hashes/visual reviews checked",
     "reuses_existing_expert_exports": true,
     "visual_model_review_and_upload_remain": true
+  },
+  "publication_metadata_audit": {
+    "report": "/data/robocurve-runs/resume-compat/publication-envelope-audit-20261112.json",
+    "twelve_setup_collision_envelopes_match": true,
+    "corrections_prepared_outside_frozen_sources": [
+      "switch-map-rework-publication-metadata-corrections",
+      "node-service-closeout-publication-metadata-corrections",
+      "hardware-order-kit-publication-metadata-corrections"
+    ],
+    "note": "Exact cylinder bounds distinguish physical collision envelopes from conservative box bounds and noncolliding visual markers."
+  },
+  "hardware_next_verification_patch": {
+    "root": "/data/robocurve-runs/resume-compat/hardware-next-verification-revision",
+    "status": "PREPARED_NOT_APPLIED_SOURCE_FROZEN",
+    "audit": "/data/robocurve-runs/resume-compat/controller-native-case-consistency-20261112.json",
+    "reason": "Separate opening test expects obsolete -1.0, current controller targets -1.30 rad; active close-around-shaft case unaffected."
   }
 }
