@@ -1,7 +1,7 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T05:40:22.460124+00:00",
-  "status": "TWO_TASKS_RECEIVED_FOUR_MORE_REQUIRED_SIX_CANDIDATE_DRAFTS",
+  "updated_at": "2026-11-12T06:17:54.685322+00:00",
+  "status": "THREE_TASKS_RECEIVED_THREE_MORE_REQUIRED",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
     {
@@ -282,8 +282,8 @@
       "branch": "draft/twelve-cell-pack",
       "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
       "task_source_dirty": false,
-      "state": "NATIVE_EXPERT_PAIR_AND_DREAM_VERIFIED_MEDIA_UPLOADED_CLEAN_EXPERT_RUNNING",
-      "ready": false,
+      "state": "OFFICIAL_RECEIVED_WAITING_FOR_REVIEW",
+      "ready": true,
       "latest_native_run": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj",
       "producer_pid": 1818077,
       "producer_live_command_verified": false,
@@ -322,7 +322,7 @@
       ],
       "dream_score": 0.0,
       "media_id": "M-JC9CBE",
-      "official_pr": null,
+      "official_pr": "https://github.com/robocurve/benchmark-tasks/pull/1733",
       "future_stages": {
         "genuine_dream": {
           "root": "/data/robocurve-runs/resume-compat/twelve-genuine-dream.9n_jrinr",
@@ -346,7 +346,7 @@
         "active_case": null
       },
       "producer_exit": 0,
-      "next": "Require actual clean expert fullscore and validator0; finalize runtime-equivalent metadata, refresh official rules/novelty/auth, then open independent PR.",
+      "next": "Await official review; do not modify pending submission.",
       "dream_evaluation_live": {
         "root": "/data/robocurve-runs/resume-compat/twelve-genuine-dream.9n_jrinr",
         "producer_pid": 1868522,
@@ -370,7 +370,9 @@
         "root": "/data/robocurve-runs/resume-compat/twelve-cell-pack-clean-https-reproduction.7wbx2rtl",
         "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
         "full_score_not_yet_verified": true
-      }
+      },
+      "official_task_id": "TK-DWT97R",
+      "published_commit": "70d421a"
     },
     {
       "slug": "fault-module-repair",
@@ -430,8 +432,8 @@
     "official_accepted": 0
   },
   "budget_latest": {
-    "remaining_balance_USD": 28.55,
-    "observed_at": "2026-11-12T05:22:36.287797+00:00",
+    "remaining_balance_USD": 24.96,
+    "observed_at": "2026-11-12T06:17:06.704647+00:00",
     "user_latest_reserve_USD": 0,
     "headroom_USD": 28.55,
     "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T052236Z.json",
@@ -445,7 +447,8 @@
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
     "reserve_warning": "User removed reserve; verified available credits remain hard cap. Watchdog cutoff12:00 stops only mission workloads, not billing. Stop original instance only after6 genuinely complete/submitted; partner untouched.",
-    "reserve_revoked_by_user": true
+    "reserve_revoked_by_user": true,
+    "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T061706Z.json"
   },
   "recovery": {
     "inspect_processes_before_launch": true,
