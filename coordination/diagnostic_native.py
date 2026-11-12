@@ -67,6 +67,8 @@ def main():
     parser.add_argument('--contact-pairs', action='store_true',
                         help='Record actual robot and task-body native contact forces every five controls')
     parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
+    parser.add_argument('--device', choices=('cuda:0', 'cpu'), default='cuda:0',
+                        help='Explicit supported native PhysX device; RTX rendering remains enabled')
     args = parser.parse_args()
     if args.render_every < 1:
         parser.error('--render-every must be positive')
@@ -84,12 +86,20 @@ def main():
 
     from yam_arena.inspect_embodiment import YamArenaEmbodiment
     from inspect_robots_yam.config import DEFAULT_CAMERAS
+    original_init = YamArenaEmbodiment.__init__
+
+    def init_with_explicit_device(embodiment, *values, **keywords):
+        keywords['device'] = args.device
+        return original_init(embodiment, *values, **keywords)
+
+    YamArenaEmbodiment.__init__ = init_with_explicit_device
 
     metadata = {
         'kind': 'NATIVE_PROBE_WITH_DIAGNOSTIC_RENDER_CADENCE',
         'scope': 'Mechanism/control probes with fixture initialization where declared. No demonstration.',
         'commit': args.commit,
         'mode': args.mode,
+        'requested_physics_device': args.device,
         'render_every_control_steps': args.render_every,
         'wrapper_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'native_script_sha256': hashlib.sha256(script.read_bytes()).hexdigest(),
@@ -133,6 +143,11 @@ def main():
             trace_controller_class(feedback.Controller)
             controller_state.clear()
         base = embodiment._env.unwrapped
+        from isaaclab_physx.physics import PhysxManager
+        actual_device = str(PhysxManager.get_physics_sim_device())
+        if actual_device != args.device:
+            raise ValueError(f'Actual PhysX device {actual_device} differs from requested {args.device}')
+        metadata['actual_physics_device'] = actual_device
         physics_dt = float(base.cfg.sim.dt)
         control_dt = float(base.step_dt)
         decimation = int(base.cfg.decimation)
