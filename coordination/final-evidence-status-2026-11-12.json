@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-12T12:47:06.277680+00:00",
+  "updated_at": "2026-11-12T13:21:45.531260+00:00",
   "target_completed": false,
   "target_tasks": 6,
   "accepted_tasks": 0,
@@ -72,15 +72,15 @@
   },
   "budget": {
     "kind": "AUTHENTICATED_CONSOLE_BILLING_PROFILE",
-    "observed_at": "2026-11-12T12:44:53.332173+00:00",
+    "observed_at": "2026-11-12T13:20:29.393347+00:00",
     "http_status": 202,
-    "server_date": "Thu, 12 Nov 2026 12:44:53 GMT",
-    "remaining_balance_USD": 2.51,
+    "server_date": "Thu, 12 Nov 2026 13:20:29 GMT",
+    "remaining_balance_USD": -0.17,
     "policy_reserve_USD": 0,
-    "policy_headroom_USD": 2.51,
+    "policy_headroom_USD": -0.17,
     "policy_note": "User explicitly revoked the22USD reserve; never exceed actual verified available funds.",
     "source": "Current console billingprofile; underlying metering freshness unverified. Generic credits endpoint earlier disagreed and is not used by console.",
-    "response_sha256": "58be1ebea831cd0f4bc3ae42726fcfc4f3e4087b5c46e3dfa932ebe3027ac105",
+    "response_sha256": "2708cb54a1f63a823d0e8c4f61d357665a3b924a3b64a96213499ea89f5c3759",
     "planning_account_USD_per_hour": 3.8,
     "planning_rate_is_provider_receipt": false,
     "planning_rate_note": "Conservative planning estimate; actual current instance price is recorded separately by authenticated inventory.",
@@ -123,7 +123,7 @@
       }
     ],
     "instance_power_operations": false,
-    "client_receipt_path": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T124453Z.json"
+    "client_receipt_path": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T132029Z.json"
   },
   "power": {
     "no_operation_performed": true,
@@ -142,5 +142,7 @@
     "Allnewdynamics/geometry requirefreshnative/expert/modelrevalidation; donottransferold scoresasnewruns",
     "Respect pendingearlypowerstopquestion and latesthumanresponse; neverdelete/touchpartner"
   ],
-  "blocked_audit": "coordination/blocked-audit-2026-11-12.json"
+  "blocked_audit": "coordination/blocked-audit-2026-11-12.json",
+  "offline_review_fixes": "coordination/pr-review-resolution-2026-11-12.json",
+  "no_new_simulations_during_offline_fixes": true
 }
