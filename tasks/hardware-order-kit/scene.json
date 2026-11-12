@@ -172,6 +172,50 @@
                 0.5
               ],
               "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                -0.0175,
+                0
+              ],
+              "radius": 0.019,
+              "height": 0.004,
+              "quat": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
+            },
+            {
+              "kind": "cylinder",
+              "pos": [
+                0,
+                0.0175,
+                0
+              ],
+              "radius": 0.019,
+              "height": 0.004,
+              "quat": [
+                0.7071067811865476,
+                0,
+                0,
+                0.7071067811865476
+              ],
+              "color": [
+                0.52,
+                0.55,
+                0.6
+              ],
+              "collision": true
             }
           ],
           "mass": 1.2,
@@ -2202,7 +2246,7 @@
   "threads": [],
   "forbidden_regions": [],
   "collision_exclusions": [],
-  "engineering_revision": "captive-shaft-hinged-collar-replacement-v1",
+  "engineering_revision": "Physical axial shoulders bound the 30mm wide collar within a31mm rail pocket; geometry fixes measured load-induced axial sliding, unchanged goal tolerances.",
   "limitations": [
     "Rigid faceted half-rings approximate a hinged service collar; they preserve a real shaft opening and cannot pass over the fixed end flanges.",
     "A square transverse key captures interleaved lugs through real collision-defined holes. No automatic attachment or fastener torque is simulated.",
