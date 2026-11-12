@@ -14,7 +14,7 @@ python tasks/eight-nut-bracket/run.py --mode expert --execute --commit "$(git re
 python tasks/eight-nut-bracket/validate_rollout.py --directory /data/plate-expert --mode expert --limit 18000 --commit "$(git rev-parse HEAD)" --folder tasks/eight-nut-bracket
 ```
 
-Run from a clean checkout using the installed environment Python. Fixed seed0 and object_jitter0 reproduce SETUP.md. The action limit is18000,900 simulated seconds. No current-revision full-score runtime is claimed while native qualification remains incomplete. This preparation copy is not submission-ready; complete experts, physics, Dream-1, media and HTTPS reproduction remain required.
+Run from a clean checkout using the installed environment Python. Fixed seed0 and object_jitter0 reproduce SETUP.md. The action limit is18000,900 simulated seconds. Two whole cold fixed-action expert episodes scored1.0 in12961 actions each (648.05 simulated seconds), including a fresh HTTPS checkout. Native contact tests passed12/12 on GPU PhysX and independently12/12 on CPU PhysX. Genuine Dream-1 evaluation and official model media remain pending, so this preparation copy is not yet submission-ready.
 
 `run.py --mode dream` uses securely configured official credentials and actual feasibility evidence via `--evidence`. The bootstrap/task runner retain their separate strict provider-budget path; their historical default policy is not an account-balance claim. Workload exit does not stop instance billing.
 
@@ -27,3 +27,12 @@ Mechanism probes exercise actual contacts and spring-load response separately fr
 ## Physical limits
 
 Faceted thread contacts, a400N/m preload spring and two passive plate-tilt axes approximate mechanical fastening. Two tiny noncolliding inertia links encode the plate guide coordinates and are not manipulated objects. Steel/aluminium materials and contact coefficients are uncalibrated surrogates. Certified tightening torque, thread wear and elastic deformation are not modeled. All three retention points have been designed around the loaded plate; no claim that three is mechanically minimal is made without separate one/two-fastener counterfactual tests.
+
+
+## Executed expert and native CPU profile
+
+The expert reads robot proprioception and its action index and emits an offline-authored14D joint/jaw program. It does not read task object poses, mechanism joints, evaluator state or score. The official SDK clamp and delta-limit safety guards remain enabled; the latter limits normalized jaw changes to0.05 per control. The two genuine expert records exactly match the authored program after those recorded official guards, including177 guarded jaw steps. No actions or recordings were rewritten.
+
+The full-score expert episodes used GPU PhysX at sourcec62808268782ede6a38f70eb3697aeea4336e135. The separately verified native CPU PhysX profile uses `cpu_launcher.py`, which accepts the same arguments as `run.py` and explicitly appends `-E device=cpu` to the actual SDK command. Physics runs on CPU while the L40S renders the three real RTX RGB views. No host driver or installed vendor file is modified. Geometry, masses, friction,240Hz physics,20Hz control, solver settings and scoring remain unchanged. The model source revision and actual result will be recorded after validation; GPU dynamics are not claimed for CPU trials.
+
+The development feedback controller is retained for engineering inspection and is not imported by the fixed-action expert. Authored checkpoints identify program indices, not measured completion. Fixture initialization and force probes are mechanism diagnostics and do not count as demonstrations.

@@ -354,7 +354,15 @@ class Controller:
             wrist_near_limit = (reference_joints is not None and
                                 abs(reference_joints[5]) >= 1.90 and
                                 state['segment'] > .2)
-            if state['segment']>=phase.get('segment_angle', math.pi/4) or wrist_near_limit:
+            finish_margin = phase.get('finish_segment_margin', 0.)
+            if (not isinstance(finish_margin, (int, float)) or isinstance(finish_margin, bool)
+                    or not math.isfinite(finish_margin) or not 0 <= finish_margin <= .4):
+                raise ControlFailure('Invalid final thread segment margin')
+            remaining = phase['turns']*2*math.pi - state['total']
+            finish_current_segment = (0 < remaining <= finish_margin and reference_joints is not None
+                and abs(reference_joints[5]) + remaining + .1 < 1.90)
+            if ((state['segment']>=phase.get('segment_angle', math.pi/4)
+                    and not finish_current_segment) or wrist_near_limit):
                 state.update(mode='open',switch=now,opening=min(1.,(phase.get('grasp_width_max',.040)+.012)/.0939),lift_q=tcpq.copy())
             turn=axis_quat(rotate(reference['quat'],[0,0,1]),phase.get('direction',-1)*0.018)
             # Advance the retained actuator reference so contact torque can build.

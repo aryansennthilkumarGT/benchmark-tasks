@@ -344,4 +344,35 @@ class FeedbackTests(unittest.TestCase):
             self.assertLess(captured[0][0]-reference[0], 0.)
 
 
+    def final_thread_segment(self, remaining=.28, wrist=.8, margin=.4):
+        phase=json.loads((self.folder/'controller.json').read_text())['phases'][27]
+        phase=dict(phase,finish_segment_margin=margin)
+        c=Controller({'phases':[phase]},self.spec);frame=copy.deepcopy(self.frame)
+        body=frame['bodies'][phase['body']];reference=frame['bodies'][phase['reference']]
+        body['pos']=(np.asarray(reference['pos'])+[phase['xy'][0],phase['xy'][1],.0172]).tolist()
+        body['quat']=[0,0,0,1];c.grasps['left']={'body':phase['body'],'verified':False}
+        tcp=np.asarray(body['pos'])+[0,0,.009]
+        c.thread_target(dict(phase,finish_segment_margin=0.),body,tcp,self.down,self.ready[:7],frame,0.)
+        total=phase['turns']*2*math.pi-remaining
+        c.thread.update(total=total,progress_total=total,progress_time=0.,
+                        z0=.0172+phase['pitch']*total/(2*math.pi),
+                        segment=phase['segment_angle']+.01)
+        c.motion['left'].reference=self.ready[:6].copy();c.motion['left'].reference[5]=wrist
+        c.thread_target(phase,body,tcp,self.down,self.ready[:7],frame,.05)
+        return c.thread['mode']
+
+    def test_last_small_segment_finishes_without_needless_opening(self):
+        self.assertEqual(self.final_thread_segment(),'turn')
+        self.assertEqual(self.final_thread_segment(remaining=.5),'open')
+
+    def test_last_segment_never_bypasses_wrist_margin_or_hardware_guard(self):
+        self.assertEqual(self.final_thread_segment(wrist=1.8),'open')
+        self.assertEqual(self.final_thread_segment(wrist=1.95),'open')
+
+    def test_unbounded_final_segment_margin_rejected(self):
+        for value in [float('inf'),float('nan'),.5,-1,True]:
+            with self.assertRaisesRegex(ControlFailure,'Invalid final thread segment'):
+                self.final_thread_segment(margin=value)
+
+
 if __name__=='__main__':unittest.main()

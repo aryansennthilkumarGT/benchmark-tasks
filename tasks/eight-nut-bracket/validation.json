@@ -1,11 +1,60 @@
 {
-  "status": "OFFLINE_STATIC_CHECKS_PASSED_NATIVE_VALIDATION_PENDING",
-  "native_physics": "NOT_RUN_FOR_THREE_FASTENER_REVISION",
+  "status": "TWO_FIXED_ACTION_EXPERTS_VALIDATED_GENUINE_MODEL_RUNNING",
+  "native_physics": {
+    "passed": 12,
+    "failed": 0,
+    "resets": 12,
+    "backend": "GPU PhysX"
+  },
   "expert_scores": [],
   "dream_score": null,
   "media": null,
   "run_limit": 18000,
   "scope": "Isolated three-fastener prototype. Offline checks provide no native physics or demonstration credit.",
   "ready": false,
-  "publication_preparation_status": "Current-revision initialized diagnostic running; no qualified complete expert or Dream-1 result. Not submission-ready."
+  "publication_preparation_status": "Current-revision initialized diagnostic running; no qualified complete expert or Dream-1 result. Not submission-ready.",
+  "expert_trials": [
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 12961,
+      "run_limit": 18000,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "c62808268782ede6a38f70eb3697aeea4336e135",
+      "record_id": "b186c0f9888b485c85cc262edad031c4",
+      "log_sha256": "0c12dfe3df287490c27772133ef4ddd66e70559f70b16ed40b85850571e1502f",
+      "simulated_seconds": 648.05,
+      "duration_s": 3710.929105896008,
+      "camera_streams": 3,
+      "native_failure": null
+    },
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 12961,
+      "run_limit": 18000,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "c62808268782ede6a38f70eb3697aeea4336e135",
+      "record_id": "58bc385104e8421e978cf8816ab2fed7",
+      "log_sha256": "0bb7dbdfc612b2ae635e203c33cbe359503b83a782703fbdeea197ad25851760",
+      "simulated_seconds": 648.05,
+      "duration_s": 5885.056759630999,
+      "camera_streams": 3,
+      "native_failure": null
+    }
+  ],
+  "additional_native_cpu_physics": {
+    "passed": 12,
+    "failed": 0,
+    "resets": 12,
+    "backend": "CPU PhysX with GPU RTX rendering"
+  },
+  "expert_source": "c62808268782ede6a38f70eb3697aeea4336e135",
+  "model_source": "ec5da4fbdc9376fbf77e44fbd50f884346792792",
+  "dream": null,
+  "verified_at": "2026-11-12T12:05:36.129539+00:00"
 }
