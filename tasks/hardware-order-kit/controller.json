@@ -346,7 +346,24 @@
       "tolerance": 0.001,
       "timeout": 30,
       "feedback_gain": 2,
-      "translation_lead": 0.0025
+      "translation_lead": 0.0025,
+      "measured_translation": true,
+      "position_gain": 2,
+      "measured_rotation": true,
+      "rotation_gain": 0.5,
+      "rotation_lead": 0.02,
+      "rotation_about_body": true,
+      "insertion_axis_world": [
+        0,
+        1,
+        0
+      ],
+      "lateral_gain": 2,
+      "lateral_lead": 0.001,
+      "lateral_tolerance": 0.0005,
+      "axial_lead": 0.001,
+      "insertion_orientation_tolerance": 0.015,
+      "progress_window_seconds": 5
     },
     {
       "kind": "release",
