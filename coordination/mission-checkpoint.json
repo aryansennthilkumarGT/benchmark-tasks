@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T03:32:06.361583+00:00",
+  "updated_at": "2026-11-12T04:07:10.215359+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -9,12 +9,12 @@
       "branch": "draft/hinged-chassis-drive",
       "commit": "f4bd71679e244987e0ec7b6ae6ed921315227214",
       "task_source_dirty": false,
-      "state": "FIRST_FULL_COLD_EXPERT_RUNNING",
+      "state": "FULL_COLD_EXPERT_FAILED_CONTACT_DIAGNOSIS_QUEUED",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-priority-cold-qualification.e5cdjbf2",
-      "producer_pid": 1897994,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-retainer-translation-contact.l5z3gye3",
+      "producer_pid": 2009849,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": null,
+      "waits_for_producer_pid": 2009059,
       "native_reports": {
         "bounded-grasp-lift": {
           "kind": "NATIVE_REPLAY_DIAGNOSTIC_NOT_DEMONSTRATION",
@@ -28,7 +28,7 @@
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
-      "next": "Monitor actual full cold expert, then full pair/native suite/model/clean gates. Recorded-fixture lift pass is diagnostic only.",
+      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration.",
       "future_stages": {
         "genuine_dream": {
           "root": "/data/robocurve-runs/resume-compat/chassis-genuine-dream.d2anctbe",
@@ -40,19 +40,34 @@
           "producer_pid": 1899391,
           "requires": "Genuine model success; exact f4bd716 clone"
         }
+      },
+      "prior_attempt": {
+        "commit": "f4bd71679e244987e0ec7b6ae6ed921315227214",
+        "latest_native_run": "/data/robocurve-runs/resume-compat/chassis-priority-cold-qualification.e5cdjbf2",
+        "producer_pid": 1897994,
+        "producer_exit": null,
+        "state": "FIRST_FULL_COLD_EXPERT_RUNNING"
+      },
+      "full_cold_failure": {
+        "time": 107.85,
+        "phase": "Translate retaining bar inside the lid leading edge",
+        "wrapper_exit": 0,
+        "validator_exit": 1,
+        "score_verified_full": false,
+        "geometry_receipt": "/data/robocurve-runs/resume-compat/chassis-priority-cold-qualification.e5cdjbf2/retainer-failed-pose-geometry.json"
       }
     },
     {
       "slug": "switch-map-rework",
       "branch": "draft/switch-map-rework",
-      "commit": "fa1aacc9b783a803ddc8e4e82e4c975b6be2ce9e",
+      "commit": "710193b7a705c6f8827c50f133239a997ca0953c",
       "task_source_dirty": false,
-      "state": "NATIVE_WITHDRAWAL_FAILED_NEEDS_REPAIR",
+      "state": "ANTI_TILT_GUIDE_STATIC_PASS_NATIVE_QUEUED",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-loaded-pose-requeued-qualification.ejyzqc6c",
-      "producer_pid": 1873476,
-      "producer_live_command_verified": false,
-      "waits_for_producer_pid": null,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/switch-anti-tilt-guides-native.1qovwj2s",
+      "producer_pid": 2009059,
+      "producer_live_command_verified": true,
+      "waits_for_producer_pid": 2003077,
       "native_reports": {
         "selected-control": {
           "status": "FIRST_CASE_FAIL_SECOND_REPEAT_INTENTIONALLY_INCOMPLETE",
@@ -67,8 +82,14 @@
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
-      "producer_exit": 143,
-      "intentional_stop_receipt": "/data/robocurve-runs/resume-compat/switch-loaded-pose-requeued-qualification.ejyzqc6c/intentional-stop.json"
+      "prior_attempt": {
+        "commit": "fa1aacc9b783a803ddc8e4e82e4c975b6be2ce9e",
+        "latest_native_run": "/data/robocurve-runs/resume-compat/switch-loaded-pose-requeued-qualification.ejyzqc6c",
+        "producer_pid": 1873476,
+        "producer_exit": 143,
+        "state": "NATIVE_WITHDRAWAL_FAILED_NEEDS_REPAIR"
+      },
+      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration."
     },
     {
       "slug": "node-service-closeout",
@@ -120,33 +141,39 @@
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "890e0a9f26caeb3dd130eebaccd48abee2c40dfb",
+      "commit": "e0837a3fe8aeda505375cdb1fc25939b64085716",
       "task_source_dirty": false,
-      "state": "LOADED_POSE_GRIP_REPAIR_NATIVE_TEST_RUNNING",
+      "state": "CORRECTED_SUPPORT_FEEDBACK_STATIC_PASS_NATIVE_QUEUED",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-loaded-pose-qualified-grip.gl4uizwu",
-      "producer_pid": 1922412,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-support-feedback-native.rg0yvlsq",
+      "producer_pid": 2003077,
       "producer_live_command_verified": true,
-      "waits_for_producer_pid": null,
+      "waits_for_producer_pid": 1992673,
       "native_reports": {},
       "expert_trials_current_commit": [],
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
-      "producer_exit": null,
-      "intentional_stop_receipt": "/data/robocurve-runs/resume-compat/hardware-bounded-opening-qualification.pdecun71/intentional-stop.json",
       "offline_candidate": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0",
-      "static_receipt": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0/static-exit.txt"
+      "static_receipt": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0/static-exit.txt",
+      "prior_attempt": {
+        "commit": "890e0a9f26caeb3dd130eebaccd48abee2c40dfb",
+        "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-loaded-pose-qualified-grip.gl4uizwu",
+        "producer_pid": 1922412,
+        "producer_exit": null,
+        "state": "LOADED_POSE_GRIP_REPAIR_NATIVE_TEST_RUNNING"
+      },
+      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration."
     },
     {
       "slug": "eight-nut-bracket",
       "branch": "draft/eight-nut-bracket",
       "commit": "27f21f913be49bd7cb3e5f0732cb6c87b9a41463",
       "task_source_dirty": false,
-      "state": "NATIVE_QUALIFICATION_RUNNING",
+      "state": "FRESH_FIRST_EXPERT_RUNNING_PRIOR_ATTEMPT_TIMEOUT_124",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-loaded-wrist-margin-qualification.ro4n93z1",
-      "producer_pid": 1838055,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/nut-first-expert-extended-wall.0cviulsl",
+      "producer_pid": 1994023,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {
@@ -171,7 +198,15 @@
       "dream_score": null,
       "media_id": null,
       "official_pr": null,
-      "measured_thread_progress": "/data/robocurve-runs/resume-compat/nut-loaded-wrist-margin-qualification.ro4n93z1/current-native-thread-progress.json"
+      "measured_thread_progress": "/data/robocurve-runs/resume-compat/nut-loaded-wrist-margin-qualification.ro4n93z1/current-native-thread-progress.json",
+      "prior_attempt": {
+        "commit": "27f21f913be49bd7cb3e5f0732cb6c87b9a41463",
+        "latest_native_run": "/data/robocurve-runs/resume-compat/nut-loaded-wrist-margin-qualification.ro4n93z1",
+        "producer_pid": 1838055,
+        "producer_exit": null,
+        "state": "NATIVE_QUALIFICATION_RUNNING"
+      },
+      "next": "Inspect genuine native outputs and process exits; no queued diagnostic or initialized suffix counts as full expert demonstration."
     },
     {
       "slug": "twelve-cell-pack",
@@ -305,10 +340,10 @@
   },
   "budget_latest": {
     "remaining_balance_USD": 33.94,
-    "observed_at": "2026-11-12T03:50:54.519383+00:00",
+    "observed_at": "2026-11-12T04:02:23.117269+00:00",
     "user_latest_reserve_USD": 22,
     "headroom_USD": 11.939999999999998,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T035054Z.json",
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T040223Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
