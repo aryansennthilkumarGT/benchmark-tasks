@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T04:54:58.006100+00:00",
+  "updated_at": "2026-11-12T05:12:05.109684+00:00",
   "status": "TWO_TASKS_RECEIVED_FOUR_MORE_REQUIRED_SIX_CANDIDATE_DRAFTS",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -150,18 +150,29 @@
           "wall_bound_per_trial_seconds": 5400,
           "action_limit_unchanged": 7200,
           "budget_deadline_UTC": "2026-11-12T12:00:00+00:00"
+        },
+        "complete_qualification": {
+          "root": "/data/robocurve-runs/resume-compat/node-complete-current-qualification.a38uwlmk",
+          "producer_pid": 2080731,
+          "requires": "Both current source334 complete cold experts validated full-score in producer2063385",
+          "stages": [
+            "control assertions on both actual full expert prefixes",
+            "separate full native physics cases"
+          ],
+          "new_standalone_control_runs_claimed": false,
+          "canonical_root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q"
         }
       }
     },
     {
       "slug": "hardware-order-kit",
       "branch": "draft/hardware-order-kit",
-      "commit": "6d84833eb120fd32904a547df457e29d8443e69a",
+      "commit": "d38e3474fda55899219bea49ba8033a795f563bb",
       "task_source_dirty": false,
-      "state": "DEEPER_GRASP_STATIC_PASS_NEW_COLD_QUALIFICATION_RUNNING",
+      "state": "COOPERATIVE_CARRY_FIXED_STATIC_PASS_NATIVE_QUALIFICATION_RUNNING",
       "ready": false,
-      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg",
-      "producer_pid": 2052103,
+      "latest_native_run": "/data/robocurve-runs/resume-compat/hardware-cooperative-carry-qualification.cq_8cfxt",
+      "producer_pid": 2085273,
       "producer_live_command_verified": true,
       "waits_for_producer_pid": null,
       "native_reports": {},
@@ -172,14 +183,16 @@
       "offline_candidate": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0",
       "static_receipt": "/data/robocurve-runs/resume-compat/hardware-loaded-lift-margin-prototype.m1m9gwl0/static-exit.txt",
       "prior_attempt": {
-        "commit": "e0837a3fe8aeda505375cdb1fc25939b64085716",
-        "root": "/data/robocurve-runs/resume-compat/hardware-support-feedback-native.rg0yvlsq",
-        "first_case_failure": "Supporting grasp closed empty: lower_collar",
-        "failure_time_s": 54.8,
+        "commit": "6d84833eb120fd32904a547df457e29d8443e69a",
+        "root": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg",
+        "first_case_failure": "Grasp slipped: lower_collar",
         "producer_exit": 143,
-        "not_passing": true
+        "diagnosis": "/data/robocurve-runs/resume-compat/hardware-deep-grasp-qualification.rz5numwg/cooperative-lift-target-diagnosis.json",
+        "new_native_pass_claimed": false
       },
-      "next": "Inspect native deeper-grasp behavior; gated complete cold expert pair and full native suites follow only after actual success."
+      "next": "Inspect native deeper-grasp behavior; gated complete cold expert pair and full native suites follow only after actual success.",
+      "controller_tests_passed": 28,
+      "static_exit": 0
     },
     {
       "slug": "eight-nut-bracket",
@@ -379,23 +392,22 @@
     "official_accepted": 0
   },
   "budget_latest": {
-    "remaining_balance_USD": 32.14,
-    "observed_at": "2026-11-12T04:26:28.080624+00:00",
+    "remaining_balance_USD": 29.45,
+    "observed_at": "2026-11-12T05:07:41.542781+00:00",
     "user_latest_reserve_USD": 0,
-    "headroom_USD": 32.14,
-    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T043332Z.json",
+    "headroom_USD": 29.45,
+    "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T050741Z.json",
     "metering_freshness": "Unverified underlying provider metering freshness",
     "deadline_plan": "/data/robocurve-runs/resume-compat/budget-workload-deadline.json",
     "workload_cancellation_does_not_stop_instance_billing": true,
     "owned_workload_deadline_UTC": "2026-11-12T12:00:00+00:00",
     "planning_account_USD_per_hour": 3.8,
     "metering_buffer_USD": 2,
-    "projected_at_deadline_after_buffer_USD": 1.4163073253333316,
+    "projected_at_deadline_after_buffer_USD": 1.3371840466111138,
     "running_inventory_receipt": "/data/robocurve-runs/resume-compat/brev-inventory-whitelisted-20261112T0240.json",
     "partner_price_metadata_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/partner-workspace-price-whitelist-20261112T0242.json",
     "reserve_warning": "User removed reserve; verified available credits remain hard cap. Watchdog cutoff12:00 stops only mission workloads, not billing. Stop original instance only after6 genuinely complete/submitted; partner untouched.",
-    "reserve_revoked_by_user": true,
-    "receipt_policy_note": "This immutable receipt was generated by prior helper with obsolete22USD policy fields; actual provider balance32.14 remains valid. Latest user overrides reserve to0 in checkpoint. Future helper separates policy fields."
+    "reserve_revoked_by_user": true
   },
   "recovery": {
     "inspect_processes_before_launch": true,
