@@ -815,3 +815,13 @@ Controller/native-case configuration audit found one contradiction: Hardware sep
 Dream/native trace17.6sim, Hardware23.3sim opening, Nut217.75sim were observed advancing at04:24. Actual completed Dream record and score remain pending.
 
 Budget04:26:28 authenticated console receipt: remaining$32.14, reserve$22, headroom$10.14; actual observed price fields retain1.740000 USD/hour. Internal account planning3.80 USD/hour includes both known running instances; metering freshness unverified and$2 buffer retained.06:00 owned workload cutoff unchanged. User warned clearly that stopping workloads does not stop billing; all instance stopping remains user-controlled.
+
+
+### Latest user directive — target six total and conditional original-instance stop
+
+User now prioritizes SIX genuinely completed, distinct tasks and six official submissions total (two already received; four more required). Preserve the eight existing drafts but focus resources on reaching six. Recheck current pending and accepted official implementations before each submission; do not claim guaranteed acceptance or knowledge of unsubmitted private work. The user explicitly authorizes stopping, never deleting, original instance rj306hdgr only AFTER six tasks are genuinely complete and submitted. This supersedes the previous leave-all-stopping-to-user directive solely at that condition. Never touch partner4rjseoodp. The existing$22 reserve and06:00 owned workload deadline remain binding absent explicit budget change; do not stop the instance at that deadline solely because workloads stop.
+
+
+### Latest user budget override — reserve explicitly revoked
+
+User explicitly says22-dollar reserve no longer applies and requests focus on6 complete official submissions, then stop original Brev. Authorized budget is current verified available credits, never additional purchases or charges beyond available funds. Latest actual console balance32.14USD at04:26:28; account planning3.80/hour includes both known running machines. With2USD metering-uncertainty buffer,12:00UTC owned-workload cutoff projects1.42USD after buffer. Updated existing watchdog plan atomically from06:00 to12:00 using actual balance; no invented provider fields. Refresh actual balance and shorten as necessary. Workload cutoff does not stop billing. Conditional original-instance stop after6 genuine completed/submitted tasks remains authorized; partner untouched; neverdelete. Acceptance remains reviewer-controlled.
