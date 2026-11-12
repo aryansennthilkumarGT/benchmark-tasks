@@ -1,107 +1,145 @@
 {
-  "schema_version": 2,
-  "status": "FOCUSED_CLOSURE_SCOPE_NATIVE_VALIDATION_PENDING",
-  "ready": false,
-  "verified_at": "2026-11-07T23:59:11.353255+00:00",
-  "offline_tests": {
-    "slug": "twelve-cell-pack",
-    "python": "3.12.13",
-    "tests_run": 67,
-    "skipped": 5,
-    "passed": 62,
-    "unit_exit": 0,
-    "usd_exit": 0
+  "schema_version": 3,
+  "status": "NATIVE_PHYSICS_EXPERT_MODEL_MEDIA_AND_CLEAN_REPRODUCTION_VERIFIED",
+  "ready": true,
+  "verified_at": "2026-11-12T05:56:53.359669+00:00",
+  "evaluated_commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+  "driver": "565.57.01",
+  "physics_hz": 480,
+  "robot_action_hz": 20,
+  "run_limit": 3600,
+  "native_physics": {
+    "kind": "NATIVE_PHYSX_TESTS",
+    "mode": "physics",
+    "status": "PASS",
+    "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+    "passed": 12,
+    "failed": 0,
+    "independent_resets": 12,
+    "report_sha256": "f08323661d607143367fcb7db706fd317b159a23039398e2c4b2593f20711346",
+    "camera_coverage": true
   },
-  "offline_audits": {
-    "control": {
-      "passed": true,
-      "evidence": "offline-evidence/control.json"
+  "native_control": {
+    "kind": "NATIVE_PHYSX_TESTS",
+    "mode": "control",
+    "status": "PASS",
+    "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+    "passed": 4,
+    "failed": 0,
+    "independent_resets": 4,
+    "report_sha256": "057c0000213dbc6d8d13ac4ce321a09685f949fafd0bb0d251563212bad6df1a",
+    "camera_coverage": true
+  },
+  "expert_trials": [
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1677,
+      "run_limit": 3600,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+      "record_id": "b3eb6a2f49764118b1b4e5c585f58b47",
+      "log_sha256": "13f841134e2e3940cc27bb897ab64586e50fbe4087b4803cf7089fbb2fe758f2",
+      "simulated_seconds": 83.85,
+      "duration_s": 1998.3576875760045,
+      "camera_streams": 3,
+      "native_failure": null
     },
-    "geometry": {
-      "passed": true,
-      "evidence": "offline-evidence/geometry.json"
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 1677,
+      "run_limit": 3600,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+      "record_id": "a84f671d06c64a30826cd1adba8286ae",
+      "log_sha256": "8e8c4118acb5d93eea3c3c54ce24e7d02415a3b664b0b8f5c1ee4f17a04cb043",
+      "simulated_seconds": 83.85,
+      "duration_s": 2544.4663495610002,
+      "camera_streams": 3,
+      "native_failure": null
+    }
+  ],
+  "dream": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "dream",
+    "score": 0.0,
+    "steps": 3600,
+    "run_limit": 3600,
+    "seed": 0,
+    "reset_seed": 1415158438,
+    "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+    "record_id": "156a69b994e04e7fb0998a4ee60c9d1a",
+    "log_sha256": "bf31396e3cc14c9f260b8a05d985455fff6efd944d1dd148f53fd1c49127262d",
+    "simulated_seconds": 180.0,
+    "duration_s": 3980.2461110930017,
+    "camera_streams": 3,
+    "native_failure": null
+  },
+  "media_id": "M-JC9CBE",
+  "media_verified": true,
+  "media_files": {
+    "demo": {
+      "sha256": "1f257e3e6888260398adc19fa6dd8f661abdea7ab0ef874bd9e5d93cbc1a053f",
+      "bytes": 493669,
+      "decoded_frames": 1678,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "full_decode": "PASS",
+      "record_id": "b3eb6a2f49764118b1b4e5c585f58b47",
+      "score": 1.0
     },
-    "grasps": {
-      "passed": true,
-      "evidence": "offline-evidence/grasps.json"
+    "demo-repeat": {
+      "sha256": "1f257e3e6888260398adc19fa6dd8f661abdea7ab0ef874bd9e5d93cbc1a053f",
+      "bytes": 493669,
+      "decoded_frames": 1678,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "full_decode": "PASS",
+      "record_id": "a84f671d06c64a30826cd1adba8286ae",
+      "score": 1.0
     },
-    "motion": {
-      "passed": true,
-      "evidence": "offline-evidence/motion.json"
-    },
-    "threads": {
-      "passed": true,
-      "evidence": "offline-evidence/threads.json"
+    "model": {
+      "sha256": "5756fbfeaaa6be5c2a0387c16b3af28563b05faa26c115a67a877e98a5ff6f24",
+      "bytes": 771772,
+      "decoded_frames": 3601,
+      "codec": "h264",
+      "pixel_format": "yuv420p",
+      "full_decode": "PASS",
+      "record_id": "156a69b994e04e7fb0998a4ee60c9d1a",
+      "score": 0.0
     }
   },
-  "usd_structure": {
-    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
-    "assemblies": 15,
-    "bodies": 27,
-    "joints": 12,
-    "spawn_transforms_and_anchors": "PASS",
-    "initial_joint_frames": "PASS"
+  "setup_image": {
+    "sha256": "b40312c1f60601ff4b36f2376438aefa1575b7cb8f186c41e83bd07984eeb0b6",
+    "bytes": 61840
   },
-  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "PASS_PRIOR_EVALUATED_REVISION",
-  "robot_control": "NOT_RUN",
-  "expert_trials": [],
-  "dream": null,
-  "media_id": null,
-  "media_verified": false,
-  "run_limit": 12000,
-  "native_cases_planned": {
-    "physics": 5,
-    "control": 2
+  "visual_review": "Actual setup and sampled full-run contact sheets inspected; every video frame decoded; no identifying overlays or paths.",
+  "clean_reproduction": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "expert",
+    "score": 1.0,
+    "steps": 1677,
+    "run_limit": 3600,
+    "seed": 0,
+    "reset_seed": 1415158438,
+    "commit": "1e7df189c4cf7e86ad57a9cb37fe584a7adfc5f3",
+    "record_id": "9dc9484837d1406ba0d5a822452cb353",
+    "log_sha256": "5e883461f75a8c64f43284d943a875a809d7528cb79cab00b25a0bf97c8c2de6",
+    "simulated_seconds": 83.85,
+    "duration_s": 1665.5879399080004,
+    "camera_streams": 3,
+    "native_failure": null,
+    "fresh_HTTPS_checkout": true
   },
-  "physics_runs": 1,
-  "expert_runs": 0,
-  "model_runs": 0,
-  "media_uploads": 0,
-  "remaining": [
-    "Real robot control tests",
-    "Two full-score expert episodes",
-    "Genuine Dream-1 evaluation",
-    "Media visual review and official upload",
-    "Runtime publication verification"
-  ],
+  "remaining": [],
   "limitations": [
-    "Rigid contact shoes approximate spring terminals; conductivity is inferred from orientation, seating and measured spring compression.",
-    "Pack preload is mechanically captured by a sliding key. Electrochemistry and terminal corrosion are outside scope."
+    "Rigid terminal shoes and passive springs approximate contact pressure; electrical conductivity, electrochemistry and corrosion are omitted.",
+    "Mechanism fixtures isolate loads and are not expert demonstrations."
   ],
-  "evidence_scope": "The complete repeated native mechanism suite passed on the recorded evaluated commit. Real robot control, full-score expert demonstrations and Dream-1 remain pending.",
-  "native_diagnostic_evidence": {
-    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
-    "commit": "56f735b91a4d8ad521411d8573f198bfb8be37a5",
-    "driver": "565.57.01",
-    "status": "PASS",
-    "passed": 2,
-    "failed": 0,
-    "resets": 2,
-    "report_sha256": "e9beb9c0222ce9945a9b047bdf7eb8a3760a14aa52dc314ce6b4e4e31bb39125"
-  },
-  "engineering_verification": {
-    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
-    "fixed_driver_preflight_regression_tests": "PASS",
-    "budget_epoch_regression_tests": "PASS",
-    "runtime_unit_tests": "PASS",
-    "updated_ideal_motion_audit": "PASS",
-    "full_static_before_incremental_runtime_changes": "PASS",
-    "ready": false
-  },
-  "native_physics_evidence": {
-    "kind": "NATIVE_PHYSX_TESTS",
-    "commit": "c25df3b9f79640ca45f9336c38dde5a8ee5fd627",
-    "driver": "565.57.01",
-    "passed": 10,
-    "failed": 0,
-    "resets": 10,
-    "report_sha256": "6b6c0779f41dcbde21d281760bce24bb4daf0dcfd4563c0a125fd286b5823a00"
-  },
-  "native_collision_collection": {
-    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
-    "regression": "Nested rigid-body colliders belong only to their owning link",
-    "clearance_requirement_m": 0.02
-  },
-  "scope_revision": "Loaded starting layout with genuine pressure-plate and cross-key closure. Historical loading results do not establish feasibility of this revision."
+  "provenance": "Original task geometry; two distinct complete cold native expert episodes and one real Dream-1 evaluation of the same executable revision. Publication edits change documentation and unused metadata annotations only."
 }
