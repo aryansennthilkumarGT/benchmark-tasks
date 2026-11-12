@@ -6,22 +6,24 @@ Engineering implementation. `validation.json` records exact executed evidence. A
 
 ## Independent reproduction
 
-This folder is self-contained; it never imports another task or the handoff branch. In an authorized official Linux x86-64 YAM/Arena GPU environment, run from the repository root:
-
-```bash
-python3 tasks/remote-battery-service/bootstrap_task.py --output /data/remote-battery-service-evidence --budget-file /data/compute-budget.json --execute --model
-```
-
-Without `--execute`, this command previews only. Add `--resume` to reuse hash-verified outputs. The bootstrap uses the pinned official installer in the evidence directory, validates the official apple/bowl smoke trial, runs static checks, then native probes and two independent full-score expert episodes. `--model` adds genuine Dream-1 and media only after those succeed. It never uploads media or opens PRs. See the shared eight-task runner on the handoff branch for upload and submission gates.
-
-For the installed Brev stack, add `--launchable-root /data` to the bootstrap command. The provider budget receipt is required for execution. If the exact pinned environment is already installed, use its Python directly:
+Use the installed Python environment for the pinned YAM Launchable in `stack-lock.json`. From a clean repository checkout:
 
 ```bash
 python tasks/remote-battery-service/static_check.py
 python tasks/remote-battery-service/task_runner.py --output /data/remote-battery-service-trials --execute --model
 ```
 
-Evidence must be outside this Git checkout, and the checkout must be clean. The same command without `--execute` is a dry run. `--retry-failed REASON` allows one documented retry of an unchanged failed stage; a code fix should produce a new commit. A failed task preserves previous evidence. Never reuse an expert video as model evidence.
+The self-contained task runner performs two reset repetitions of every native physics and control case, two independent expert episodes, Dream-1 evaluation, and media export. Securely configure the official Dream-1 plugin credentials first. `--resume` reuses hash-verified completed stages. Without `--execute`, the command previews its stages. Keep evidence outside the checkout. The ledger rejects failed or incomplete demonstrations.
+
+For one expert trial and independent rescoring of its recorded trajectory:
+
+```bash
+revision=$(git rev-parse HEAD)
+python tasks/remote-battery-service/run.py --mode expert --execute --commit "$revision" --output /data/remote-expert
+python tasks/remote-battery-service/validate_rollout.py --directory /data/remote-expert --mode expert --limit 6000 --commit "$revision" --folder tasks/remote-battery-service
+```
+
+Expert actions are robot joint/gripper targets. Diagnostic mechanism initialization is excluded from demonstrations. Uploads and PR creation are separate operations.
 
 ## Environment and cost
 
@@ -33,7 +35,7 @@ The budget receipt describes actual provider facts: `hourly_usd`, `balance_usd`,
 
 ## Trials and scoring
 
-Seed 0 and `object_jitter=0` are fixed for both expert repeats and the model. Maximum 6000 actions (300 simulated seconds). Real wall time is unmeasured and depends on physics/rendering/model latency. The scorer recomputes partial credit and requires 1 s of final stability and released-arm clearance. Read [SCORING.md](SCORING.md) for every numerical condition and [SETUP.md](SETUP.md) for every body, material, mass, dimension and pose.
+Seed 0 and `object_jitter=0` are fixed for both expert repeats and the model. Maximum 6000 actions (300 simulated seconds). Two independently validated expert trials each used 5261 actions (263.05 simulated seconds). The second took 2701.78 wall-clock seconds on the documented L40S environment while other diagnostics shared the GPU. Runtime depends on concurrency, rendering and model latency. The scorer recomputes partial credit and requires 1 s of final stability and released-arm clearance. Read [SCORING.md](SCORING.md) for every numerical condition and [SETUP.md](SETUP.md) for every body, material, mass, dimension and pose.
 
 Native probes: 8 physics cases and 2 real robot-control cases, each repeated after independent resets. Physics probes may initialize mechanism poses and apply forces for controlled measurements; those probes are explicitly excluded from demonstration/media evidence. Control probes use only robot actions. Two full expert episodes separately establish feasibility before model spending.
 
@@ -45,6 +47,8 @@ Read [CONTROLLER.md](CONTROLLER.md), [NOVELTY.md](NOVELTY.md), and `mechanics-re
 
 `build_assets.py` deterministically derives included `.usda` assets from `scene.json`; run it only when intentionally changing the scene, then update hashes and commit. `source_manifest.json` hashes LF-normalized source and asset bytes. `run.py` launches one official trial, `task_runner.py` preserves/gates native evidence, `validate_rollout.py` cross-checks logs/actions/frames/scorer replay, and `render_media.py` exports and fully decodes H.264 yuv420p media. A zero Dream score is valid evidence when the required successful demonstrations exist. Public media require visual inspection for framing, mechanical outcome and blind-review compliance before upload.
 
-Interchangeable parts are matched one-to-one to valid slots. The body names in slot predicates are templates: any listed candidate may satisfy that slot, and dependent closure/preload goals reuse the same matching. Polarity, contact-spring compression and measured turn history remain mandatory. A single part cannot earn two slot credits; changing studs resets its thread history. The expert uses one convenient assignment, which is not required by scoring.
+Interchangeable parts are matched one-to-one to valid slots. The body names in slot predicates are templates: any listed candidate may satisfy that slot, and dependent closure/preload goals reuse the same matching. Polarity and contact-spring compression remain mandatory. A single cell cannot earn two slot credits. The expert uses one convenient assignment, which is not required by scoring.
 
-The 300-second task limit accommodates the measured robot procedure for both cells. The first used-cell collection completed at about 69 simulated seconds, and the first fresh-cell lift reached its transfer pose around 92 seconds. The second cell cycle, both installations and released-cover closeout still follow. Earlier diagnostic logs retain their original 180-second limit.
+The 300-second limit accommodates the verified 263.05-second complete procedure, including both old-cell collections, polarity-correct installation, cover closure and released stability.
+
+Dream-1 (`dreamlabs/dream-1-beta`) completed 6000 actions over 300 simulated seconds and scored 0.0, with 125 recorded model requests and dry-run disabled. Recorded trial wall time was 3637.94 seconds. Session-expiration retries recovered within the same genuine simulator episode. Both full-score experts used 5261 actions over 263.05 simulated seconds. Uploaded model, demo and initial setup media are linked by the ID in `task.json`. Clean-checkout reproduction is still pending in this working publication.

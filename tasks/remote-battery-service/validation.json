@@ -1,107 +1,85 @@
 {
-  "schema_version": 2,
-  "status": "LOW_ANTI_ROLL_RAILS_NATIVE_RETEST_PENDING",
+  "schema_version": 3,
+  "status": "CLEAN_CHECKOUT_REPRODUCTION_PENDING",
   "ready": false,
-  "verified_at": "2026-11-11T00:46:41.332852+00:00",
-  "offline_tests": {
-    "slug": "remote-battery-service",
-    "python": "3.12.13",
-    "tests_run": 67,
-    "skipped": 6,
-    "passed": 61,
-    "unit_exit": 0,
-    "usd_exit": 0
-  },
-  "offline_audits": {
-    "control": {
-      "passed": true,
-      "evidence": "offline-evidence/control.json"
-    },
-    "geometry": {
-      "passed": true,
-      "evidence": "offline-evidence/geometry.json"
-    },
-    "grasps": {
-      "passed": true,
-      "evidence": "offline-evidence/grasps.json"
-    },
-    "motion": {
-      "passed": true,
-      "evidence": "offline-evidence/motion.json"
-    },
-    "threads": {
-      "passed": true,
-      "evidence": "offline-evidence/threads.json"
-    }
-  },
-  "usd_structure": {
-    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
-    "assemblies": 7,
-    "bodies": 10,
-    "joints": 3,
-    "spawn_transforms_and_anchors": "PASS",
-    "initial_joint_frames": "PASS"
-  },
-  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "PRIOR_REVISION_PASSED_NEW_STAGING_RETEST_PENDING",
-  "robot_control": "FAILED_PRIOR_REVISION_TRACKING_RETEST_PENDING",
-  "expert_trials": [],
-  "dream": null,
-  "media_id": null,
-  "media_verified": false,
-  "run_limit": 3600,
-  "native_cases_planned": {
-    "physics": 7,
-    "control": 2
-  },
-  "physics_runs": 1,
-  "expert_runs": 0,
-  "model_runs": 0,
-  "media_uploads": 0,
-  "remaining": [
-    "Native mechanism and reset probes",
-    "Real robot control tests",
-    "Two full-score expert episodes",
-    "Genuine Dream-1 evaluation",
-    "Media visual review and official upload",
-    "Runtime publication verification"
-  ],
-  "limitations": [
-    "Rigid cells and flat spring-contact shoes approximate compliant terminals; no electrochemical simulation.",
-    "Electrical readiness is a geometric contact-compression and polarity proxy, not a measured voltage.",
-    "The captive service cover has a light 2.5 N/m closing spring to require sustained access support; this is a reproducible bench fixture, not a calibrated model of a particular commercial remote."
-  ],
-  "evidence_scope": "The recorded controller physically collected and released the first used cell. The fresh-cell staging geometry and full expert episode require native validation.",
-  "native_physics_evidence": {
-    "commit": "6594c6ba628cb77a411ab0251df253ed7fb11705",
-    "driver": "565.57.01",
-    "passed": 12,
+  "verified_at": "2026-11-12T00:44:33.909077+00:00",
+  "evaluated_commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
+  "native_physics": {
+    "passed": 16,
     "failed": 0,
-    "resets": 12,
-    "report_sha256": "3fe83dc0a47aae282c06e98ffeb1b5b3d2b0b0909136e2718f5db6b5bddb34d3"
+    "resets": 16
   },
-  "native_control_diagnostic_evidence": {
-    "kind": "NATIVE_PHYSX_DIAGNOSTIC_CASES",
-    "commit": "1f8ad0b427f9ecd213f5c5fa629b2f1bd834b155",
-    "driver": "565.57.01",
-    "status": "FAIL",
-    "passed": 0,
-    "failed": 2,
-    "resets": 2,
-    "report_sha256": "24a51a2d3fa29bdb55d88f6b8397d554f20f2a496584747501eafcfe94afe812"
+  "robot_control": {
+    "passed": 4,
+    "failed": 0,
+    "resets": 4
   },
-  "engineering_verification": {
-    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
-    "fixed_driver_preflight_regression_tests": "PASS",
-    "budget_epoch_regression_tests": "PASS",
-    "runtime_unit_tests": "PASS",
-    "updated_ideal_motion_audit": "PASS",
-    "full_static_before_incremental_runtime_changes": "PASS",
-    "ready": false
+  "expert_trials": [
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 5261,
+      "run_limit": 6000,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
+      "record_id": "9615ff8e6f3944218b5c505f29051b88",
+      "log_sha256": "830fe50e9b377b48b138d22c836c9f3ac26e8b9c200597cb9f405480a280f291",
+      "simulated_seconds": 263.05,
+      "duration_s": 3393.1391651680024,
+      "camera_streams": 3,
+      "native_failure": null
+    },
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 5261,
+      "run_limit": 6000,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
+      "record_id": "71bc58ceac65440d9ca9d4f8ad4b5447",
+      "log_sha256": "c95c6ddc6ee2e3565a53a7d357d5b7a99d1a45f56487bf76aaa9373cf0aa529b",
+      "simulated_seconds": 263.05,
+      "duration_s": 2701.777199766002,
+      "camera_streams": 3,
+      "native_failure": null
+    }
+  ],
+  "dream_trial": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "dream",
+    "score": 0.0,
+    "steps": 6000,
+    "run_limit": 6000,
+    "seed": 0,
+    "reset_seed": 1415158438,
+    "commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
+    "record_id": "d889ab4ebcab4d9bb7ac20701e79bb67",
+    "log_sha256": "0872822dfd57b7358a3431e55e5daa1121d3cc5dc4997677911b507a55e56edd",
+    "simulated_seconds": 300.0,
+    "duration_s": 3637.9433699350047,
+    "camera_streams": 3,
+    "native_failure": null
   },
-  "native_collision_collection": {
-    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
-    "regression": "Nested rigid-body colliders belong only to their owning link",
-    "clearance_requirement_m": 0.02
+  "driver_version": "565.57.01",
+  "media_uploaded": true,
+  "clean_checkout_reproduction": "RUNNING_SEPARATE_EXACT_HTTPS_CHECKOUT",
+  "source_publication_changes": "Documentation and actual metadata only; code/scene/controller/assets remain exact evaluated bytes.",
+  "media_id": "M-3JA7DA",
+  "media_validation": {
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "all_frames_decoded": true,
+    "model_visual_review": true,
+    "expert_visual_review": true,
+    "report_sha256": "81b073bac8c1458663cba6242a33f8697b4a682bdd8be7e747b66d0511f018e1"
+  },
+  "dream_requests": {
+    "count": 125,
+    "dry_run": false,
+    "model": "dreamlabs/dream-1-beta"
   }
 }
