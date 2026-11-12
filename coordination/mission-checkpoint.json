@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T09:06:34.406942+00:00",
+  "updated_at": "2026-11-12T09:20:11.070806+00:00",
   "status": "THREE_OFFICIAL_RECEIPTS_OBSERVABILITY_REVIEW_RISK_ACTION_ONLY_VALIDATION_UNDERWAY",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -100,7 +100,7 @@
       "branch": "draft/node-service-closeout",
       "commit": "2e287b67f253c7dba4177818b5c44f2149fef546",
       "task_source_dirty": false,
-      "state": "OFFICIAL_PR_OPEN_AWAITING_INTAKE",
+      "state": "OFFICIAL_RECEIVED_WAITING_REVIEW",
       "ready": true,
       "latest_native_run": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair-bounded.69zwh19q",
       "producer_pid": 2063385,
@@ -251,7 +251,9 @@
       ],
       "clean_expert_score": 1.0,
       "source_method": "Fixed14D authored robot commands; no hidden object/scorer state feedback",
-      "exact_evidence": "/data/robocurve-runs/resume-compat/node-final-publication/tasks/node-service-closeout/validation.json"
+      "exact_evidence": "/data/robocurve-runs/resume-compat/node-final-publication/tasks/node-service-closeout/validation.json",
+      "official_task_id": "TK-NGL8A3",
+      "observability_acceptance_risk_unresolved": false
     },
     {
       "slug": "hardware-order-kit",
@@ -561,13 +563,16 @@
   ],
   "counts": {
     "target": 6,
-    "engineering_complete": 2,
-    "official_received": 2,
-    "official_accepted": 0
+    "official_received": 4,
+    "official_accepted": 0,
+    "native_task_families_with_full_score_experts": 4,
+    "verified_fixed_action_expert_pairs": 2,
+    "official_heads_with_fixed_action_expert_pair": 1,
+    "validated_fixed_action_revision_candidates_not_applied_to_pending_PR": 1
   },
   "budget_latest": {
-    "remaining_balance_USD": 15.98,
-    "observed_at": "2026-11-12T09:03:35+00:00",
+    "remaining_balance_USD": 14.18,
+    "observed_at": "2026-11-12T09:18:25.343428+00:00",
     "user_latest_reserve_USD": 0,
     "headroom_USD": 24.06,
     "provider_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
@@ -584,7 +589,7 @@
     "reserve_revoked_by_user": true,
     "receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T064038Z.json",
     "projection_is_internal_planning_not_provider_observation": true,
-    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T090335Z.json"
+    "source_receipt": "/data/robocurve-runs/resume-compat/billing-cli-refresh-20261111/provider-credit-balance-20261112T091825Z.json"
   },
   "recovery": {
     "inspect_processes_before_launch": true,
@@ -720,10 +725,16 @@
     "note": "Exact cylinder bounds distinguish physical collision envelopes from conservative box bounds and noncolliding visual markers."
   },
   "hardware_next_verification_patch": {
-    "root": "/data/robocurve-runs/resume-compat/hardware-next-verification-revision",
-    "status": "PREPARED_NOT_APPLIED_SOURCE_FROZEN",
-    "audit": "/data/robocurve-runs/resume-compat/controller-native-case-consistency-20261112.json",
-    "reason": "Separate opening test expects obsolete -1.0, current controller targets -1.30 rad; active close-around-shaft case unaffected."
+    "commit": "3093c7804eb7360920e5943e8ac581c8a72511de",
+    "control_units_passed": 35,
+    "prefix_compared_actions": 703,
+    "prefix_negative_test": "Changed earlier10mmapproach rejected at action392",
+    "diagnostic_queue": {
+      "root": "/data/robocurve-runs/resume-compat/hardware-key-measured-carry-diagnostic.ng5c_3k6",
+      "producer_pid": 2365223,
+      "commit": "3093c7804eb7360920e5943e8ac581c8a72511de"
+    },
+    "demonstration_credit": false
   },
   "target_scope_latest_user": {
     "target_total_completed_and_submitted": 6,
@@ -802,6 +813,41 @@
     "fresh_checkout_expert": 1,
     "dream": 0,
     "accepted": false,
-    "intake": "pending observation"
+    "intake": "Received; waiting for review",
+    "official_task_id": "TK-NGL8A3"
+  },
+  "pending_action_only_validation_queue": [
+    {
+      "task": "twelve-cell-pack",
+      "root": "/data/robocurve-runs/resume-compat/twelve-action-only-queued-clean-pair.3q4d05pa",
+      "producer_pid": 2368442,
+      "commit": "f724feeb2c181d1dd71eda36c2d7cbd27767d701",
+      "waits_for_terminal_root": "/data/robocurve-runs/resume-compat/hardware-key-measured-carry-diagnostic.ng5c_3k6",
+      "official_pending_branch_unchanged": true
+    },
+    {
+      "task": "remote-battery-service",
+      "root": "/data/robocurve-runs/resume-compat/remote-action-only-queued-clean-pair.nxb7p3hs",
+      "producer_pid": 2368446,
+      "commit": "3a78aa53645acc4179116114a679e3e6c0930ddb",
+      "waits_for_terminal_root": "/data/robocurve-runs/resume-compat/twelve-action-only-queued-clean-pair.3q4d05pa",
+      "official_pending_branch_unchanged": true
+    }
+  ],
+  "fault_prepared_action_only_revision": {
+    "branch": "revision/fault-action-only",
+    "commit": "c3abf20",
+    "worktree": "/data/robocurve-runs/fault-action-only-publication",
+    "expert_scores": [
+      1,
+      1
+    ],
+    "clean_checkout_in_pair": true,
+    "original_dream_source": "46bf1008e01546b266b5ba973d31e75e64bf8f89",
+    "new_expert_source": "57fbf749faaa494d58e5a0c04faabb70e0ebcb13",
+    "media_id": "M-N92KNQ",
+    "exact_target_gate_passed": true,
+    "not_applied_to_pending_PR": 1647,
+    "next": "Use permitted revision workflow after official review; do not push to waiting PR head."
   }
 }

@@ -124,7 +124,49 @@ def control_recorded_prefix(folder, source, label):
     }
 
 
+def diagnostic_recorded_prefix(folder, source, label):
+    """Reuse an initialized diagnostic prefix; never demonstration evidence."""
+    descriptor = json.loads((source/'diagnostic-prefix.json').read_text())
+    anchor = Path(descriptor['anchor_source']).resolve()
+    if anchor == source.resolve():
+        raise ValueError('Diagnostic prefix cannot reference itself')
+    controller, specification, _, _, previous, proof = recorded_prefix(
+        folder, anchor, descriptor['anchor_phase_label'])
+    directory = source/'replay'
+    before = json.loads((directory/'controller-state-before-actions.json').read_text())
+    if before['phase_index'] != controller.index:
+        raise ValueError('Diagnostic initial controller phase mismatch')
+    frame, joints = before['frame'], np.asarray(before['joint_pos'])
+    selected = next(i for i,p in enumerate(controller.phases) if p['label']==label)
+    if selected < controller.index:
+        raise ValueError('Requested diagnostic phase precedes anchor')
+    compared = 0
+    stream = directory/'native-actions.jsonl'
+    for line in stream.open():
+        if controller.index == selected:
+            break
+        row = json.loads(line)
+        if row['step'] != compared:
+            raise ValueError('Diagnostic actions are discontinuous')
+        actual = controller.step(joints, frame)
+        if not np.allclose(actual, row['action'], rtol=0., atol=1e-9):
+            raise ValueError(f'Diagnostic prefix diverged at action {compared}')
+        previous = np.asarray(row['action'])
+        frame, joints = row['frame'], np.asarray(row['joint_pos'])
+        compared += 1
+    if controller.index != selected:
+        raise ValueError('Diagnostic did not reach requested phase')
+    return controller, specification, frame, joints, previous, {
+        'source_kind':'INITIALIZED_DIAGNOSTIC_PREFIX_NOT_DEMONSTRATION',
+        'demonstration_credit':False, 'compared_actions':compared,
+        'absolute_action_tolerance':1e-9, 'anchor_prefix':proof,
+        'source_actions_sha256':hashlib.sha256(stream.read_bytes()).hexdigest(),
+        'source_initial_state_sha256':hashlib.sha256((directory/'controller-state-before-actions.json').read_bytes()).hexdigest()}
+
+
 def recorded_prefix(folder, source, label):
+    if (source/'diagnostic-prefix.json').is_file():
+        return diagnostic_recorded_prefix(folder, source, label)
     if (source / 'control/robot-actions.jsonl').is_file():
         return control_recorded_prefix(folder, source, label)
     sys.path.insert(0, str(folder))
