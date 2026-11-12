@@ -363,7 +363,30 @@
       "lateral_tolerance": 0.0005,
       "axial_lead": 0.0025,
       "insertion_orientation_tolerance": 0.015,
-      "progress_window_seconds": 5
+      "progress_window_seconds": 5,
+      "body_support": {
+        "side": "left",
+        "body": "lower_collar",
+        "target": {
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_to": "captive_shaft"
+        },
+        "position_gain": 1,
+        "translation_lead": 0.0015,
+        "rotation_gain": 0.5,
+        "rotation_lead": 0.015,
+        "feedback_gain": 2
+      }
     },
     {
       "kind": "release",

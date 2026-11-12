@@ -486,3 +486,33 @@ class FeedbackTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+class BodySupportTests(unittest.TestCase):
+    def setUp(self):
+        from yam_arena.constants import READY
+        self.joints=np.tile(np.r_[READY,1.],2)
+        self.spec=json.loads((Path(__file__).resolve().parent/'scene.json').read_text())
+        self.c=Controller({'phases':[dict(kind='hold',label='support contract',side='right',seconds=1)]},self.spec)
+        tcp,q=self.c.pose(self.joints[:7],'left')
+        pos=tcp-np.array([.05,0,0])
+        self.frame={'bodies':{'lower_collar':{'pos':pos.tolist(),'quat':axis_quat([0,1,0],.05).tolist()}}}
+        self.c.holds['left']=(tcp,q,0.,.02)
+        self.c.grasps['left']={'body':'lower_collar','verified':True}
+        self.support=dict(side='left',body='lower_collar',target=dict(pos=pos.tolist(),quat=[0,0,0,1]),rotation_lead=.01,translation_lead=.001,feedback_gain=2)
+
+    def test_support_uses_bounded_motion_without_mutating_body_state(self):
+        before=copy.deepcopy(self.frame);tcp,q=self.c.pose(self.joints[:7],'left')
+        side,target,gain=self.c.support_target(self.support,self.joints,self.frame,'right')
+        self.assertEqual(side,'left');self.assertEqual(gain,2)
+        self.assertLessEqual(qangle(target[1],q),.010001)
+        self.assertGreater(qangle(target[1],q),.001)
+        self.assertLess(np.linalg.norm(target[0]-tcp),.00051)
+        self.assertEqual(self.frame,before)
+
+    def test_support_rejects_active_hand(self):
+        with self.assertRaises(ControlFailure):self.c.support_target(self.support,self.joints,self.frame,'left')
+
+    def test_support_rejects_unverified_grasp(self):
+        self.c.grasps['left']['verified']=False
+        with self.assertRaises(ControlFailure):self.c.support_target(self.support,self.joints,self.frame,'right')

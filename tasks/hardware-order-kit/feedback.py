@@ -130,6 +130,27 @@ class Controller:
         p,r=self.ik.tcp_pose(joints[:6],self.station.BASES[side])
         return p,self.ik.matrix_to_quat_xyzw(r)
 
+    def support_target(self, support, joints, frame, active_side):
+        side=support['side'];body_name=support['body']
+        if side==active_side or side not in self.holds or side not in self.grasps:
+            raise ControlFailure('Body support requires a separately held grasp')
+        if self.grasps[side]['body']!=body_name or not self.grasps[side].get('verified'):
+            raise ControlFailure('Body support grasp is not verified')
+        index=0 if side=='left' else 7
+        tcp,tcpq=self.pose(joints[index:index+7],side)
+        body=frame['bodies'][body_name];bp=np.asarray(body['pos'])
+        desired_p,desired_q=self.world_target(support['target'],frame)
+        translation=limit_vector(support.get('position_gain',1.)*(desired_p-bp),support.get('translation_lead',.0015))
+        error=multiply(desired_q,conjugate(body['quat']))
+        angle=qangle(error,[0,0,0,1])
+        amount=min(support.get('rotation_gain',.5),support.get('rotation_lead',.015)/max(angle,1e-9))
+        turn=interpolate([0,0,0,1],error,amount)
+        lever=tcp-bp
+        target_p=tcp+translation+rotate(turn,lever)-lever
+        target_q=multiply(turn,tcpq)
+        held=self.holds[side];opening=held['opening'] if isinstance(held,dict) else held[2]
+        return side,(target_p,target_q,opening,.02),support.get('feedback_gain',2.)
+
     def world_target(self,target,frame):
         p=np.asarray(target['pos'],dtype=float);q=unit(target.get('quat',[0,0,0,1]))
         if target.get('relative_to'):
@@ -332,15 +353,20 @@ class Controller:
             p,q,complete=self.thread_target(phase,body,tcp,tcpq,observed,frame,now)
             targets[side]=(p,q,self.thread['opening'],0.012)
         else:raise ControlFailure('Unknown phase '+kind)
+        support_gains={}
+        if phase.get('body_support'):
+            held_side,held_target,held_gain=self.support_target(phase['body_support'],joints,frame,side)
+            targets[held_side]=held_target;support_gains[held_side]=held_gain
+            self.holds[held_side]=dict(relative_to=None,pos=held_target[0].tolist(),quat=held_target[1].tolist(),opening=held_target[2],speed=held_target[3],feedback_gain=held_gain)
         # Inactive arms hold their last measured target, rather than moving through the work.
         action=joints.copy()
         for name,(p,q,opening,speed) in targets.items():
             index=0 if name=='left' else 7
             if p[2]<self.spec['table_top']+0.004:raise ControlFailure('TCP target below table guard')
             target,_,_=self.motion[name].target(joints[index:index+7],p,q,opening,speed=speed,
-                                                     feedback_gain=(phase.get('feedback_gain', 0.) if name == side else
+                                                     feedback_gain=(support_gains.get(name,phase.get('feedback_gain', 0.) if name == side else
                                                                     (self.holds[name].get('feedback_gain', 0.)
-                                                                     if isinstance(self.holds.get(name), dict) else 0.)))
+                                                                     if isinstance(self.holds.get(name), dict) else 0.))))
             action[index:index+7]=target
         # Reject arm-to-arm TCP collisions; link/fixture checks run in native validation.
         left,_=self.pose(action[:7],'left');right,_=self.pose(action[7:],'right')
