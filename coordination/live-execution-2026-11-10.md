@@ -788,3 +788,12 @@ Twelve controls have 2 PASS, 0 FAIL observed; repeat1 grasp/lift active. Nut fre
 Official refresh04:07 confirms PR1647 and1703 open, received and waiting for review, neither merged; no source changes made. Latest AGENTS.md/README.md/uploader fetched through authenticated gh API are byte-identical to local versions; receipts `official-rules-20261112T0408`. Board04:08 has1649 tasks and17 new relative to01:41; external publication novelty drafts updated. Same-team TK-KHQPEW phase-lead swap overlaps switch plug exchange; release-catch mechanics and continuously preserved third link provide the proposed distinction, with importance-review risk retained. Partner submission untouched.
 
 Node full cold expert-pair producer2011780, root `node-current-cold-expert-pair.5vahpsh1`, is queued after1955467 and explicitly validates that suffix producer exit0 and actual reportPASS before beginning. Two fresh complete episodes are required and independently validated; initialized suffix receives no demo credit. Same33446a37 source remains frozen. All producers remain under06:00 owned workload cancellation. User retains all instance power control.
+
+
+### 2026-11-12 04:15 UTC — independent publication checkout prepared
+
+Created `publication/twelve-cell-pack` from freshly fetched official upstream68c0840494f68902846b85da3e5873ae00b63977; copied all69 tracked files from evaluated1e7df189 without rerunning completed native or expert tests. Only README/NOVELTY/source_manifest metadata differ; all other66 tracked files byte-identical. Full static checks PASS. Preparation commit005add6 is pushed to fork; exactly one task folder differs from baseline. No PR opened; metadata explicitly says model/clean proof pending. Evaluated draft source remains untouched and frozen. Publication equivalence/status receipts are in twelve-publication-draft.
+
+Media producer2019512 (`twelve-real-media-producer.ciji6p1_`) waits actual Dream completion and reuses existing verified expert exports, checking IDs/log/video hashes/visual reviews. It exports only the new real model recording and creates a setup image from an actual expert frame. Model visual inspection and official upload remain manual agent steps; no token loaded or upload/PR performed by this helper. Registered under unchanged06:00 watchdog deadline.
+
+Future billing helper now explicitly labels the $3.80/account-hour figure as an internal conservative planning estimate, separate from provider-observed balance/price fields. Historical receipts remain immutable. No instance power operation.
