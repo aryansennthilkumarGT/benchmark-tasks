@@ -8,6 +8,6 @@
   "run_limit": "18,000 control steps (900 simulated seconds at 20 Hz)",
   "reset_notes": "Native reset restores the authored layout and zero joint coordinates, settles through the official adapter, clears scorer history, and records a new episode. Native probes compare two reset repetitions within 3 mm. Seed 0; object_jitter=0.",
   "fidelity": "Coarse rigid helical thread facets model real contact-driven nut advance at4mm pitch. A400N/m prismatic spring and two passive tilt axes approximate plate compliance; two1g noncolliding links represent guide coordinates. Aluminium/steel parts use prescribed masses and uncalibrated friction. Enlarged grasp handles aid YAM access. Thread deformation, detailed thread friction and certified tightening torque are not modeled.",
-  "scores": "Current-revision initialized diagnostic running; no qualified complete expert or Dream-1 result. Not submission-ready.",
+  "scores": "Dream-1:0.0 (18000 actions, CPU PhysX); expert:1.0 twice (12961 actions each, GPU PhysX).",
   "media": ""
 }

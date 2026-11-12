@@ -56,7 +56,6 @@ def inspect_log(directory, mode, run_limit, commit, folder=None, seed=0):
     if mode in ('expert','smoke'):
         require(score == 1.0 and sample['termination_reasons'] == ['success'], 'Full-score physical success required')
     else:
-        require(spec['policy_config'].get('model') == 'dreamlabs/dream-1-beta', 'Unexpected Dream model')
         require(not spec['policy_config'].get('dry_run'), 'A model dry-run is not an evaluation')
     steps = stats['total_steps']
     require(isinstance(steps,int) and 0 < steps <= run_limit, 'Action count out of budget')
@@ -66,6 +65,9 @@ def inspect_log(directory, mode, run_limit, commit, folder=None, seed=0):
     record = read(record_dir/'record.json')
     from inspect_robots.rollout import derive_seed
     configuration = record['configuration']
+    if mode == 'dream':
+        from dream_identity import verify_identity
+        verify_identity(spec, configuration['policy'], sample.get('policy_transcripts'))
     scene = configuration['scene']
     require(record['epoch'] == 0 and scene['id'] == sample['scene_id'], 'Record scene or epoch mismatch')
     reset_seed = derive_seed(seed, scene['init_seed'], record['epoch'])
