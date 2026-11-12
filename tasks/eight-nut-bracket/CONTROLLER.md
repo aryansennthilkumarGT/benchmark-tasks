@@ -54,3 +54,5 @@ The78mm low-height alternative failed its fixture envelope audit and was discard
 Thread turns retain angular motor-reference advance while correcting measured radial and axial error against the 4 mm/revolution helix, capped at 0.5 mm per action. The original coaxial and pitch guards remain. Native qualification is required after this change.
 
 Open-jaw lift, unwind, lower and close stages integrate measured TCP position error with gain 2/s. Pure turns retain angular-reference accumulation and measured helical-position correction. Earlier configured generic feedback_gain was not consumed by this motion implementation; it is replaced by explicit regrasp_feedback_gain. Pose/attitude, 1.5 mm pitch, coaxial, joint-rate and six-second regrasp guards are unchanged. Fresh native qualification is required.
+
+Loaded turning begins an early physical open/lift/unwind/lower/regrasp cycle when retained wrist reference reaches 1.90 rad after at least 0.2 rad measured nut advance. This preserves margin to the unchanged 2.0944 rad hardware limit; it changes robot control only, never the required thread advance or scoring.

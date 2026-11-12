@@ -350,7 +350,11 @@ class Controller:
                 raise ControlFailure('Thread rotation stalled: ' + phase['label'])
             self.check_grasp_slip(side,observed,frame)
             state['segment']+=phase.get('direction',-1)*delta
-            if state['segment']>=phase.get('segment_angle', math.pi/4):
+            reference_joints = self.motion[side].reference
+            wrist_near_limit = (reference_joints is not None and
+                                abs(reference_joints[5]) >= 1.90 and
+                                state['segment'] > .2)
+            if state['segment']>=phase.get('segment_angle', math.pi/4) or wrist_near_limit:
                 state.update(mode='open',switch=now,opening=min(1.,(phase.get('grasp_width_max',.040)+.012)/.0939),lift_q=tcpq.copy())
             turn=axis_quat(rotate(reference['quat'],[0,0,1]),phase.get('direction',-1)*0.018)
             # Advance the retained actuator reference so contact torque can build.

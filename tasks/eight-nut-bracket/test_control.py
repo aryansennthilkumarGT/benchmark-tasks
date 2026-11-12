@@ -231,6 +231,30 @@ class FeedbackTests(unittest.TestCase):
         self.assertEqual(controller.thread['mode'], 'open')
         self.assertGreaterEqual(controller.thread['opening']*.0939, .05)
 
+    def test_thread_regrasps_before_loaded_wrist_limit(self):
+        plan = json.loads((self.folder/'controller.json').read_text())
+        phase = next(value for value in plan['phases'] if value['kind'] == 'thread')
+        controller = Controller({'phases': [phase]}, self.spec)
+        frame = copy.deepcopy(self.frame)
+        body = frame['bodies'][phase['body']]
+        reference = frame['bodies'][phase['reference']]
+        side = phase['side']
+        index = 0 if side == 'left' else 7
+        controller.grasps[side] = dict(body=phase['body'], verified=False)
+        for step in range(3):
+            angle = step * .15
+            body['pos'] = (np.array(reference['pos']) +
+                           [*phase['xy'], .0232-phase['pitch']*angle/(2*math.pi)]).tolist()
+            body['quat'] = axis_quat([0, 0, 1], -angle).tolist()
+            tcp = np.array(body['pos']) + [0, 0, .009]
+            controller.motion[side].reference = self.ready[index:index+6].copy()
+            controller.motion[side].reference[5] = 1.95
+            controller.thread_target(phase, body, tcp, self.down,
+                                     self.ready[index:index+7], frame, step*.05)
+        self.assertLess(controller.thread['segment'], phase['segment_angle'])
+        self.assertEqual(controller.thread['mode'], 'open')
+        self.assertGreater(controller.thread['opening'], .5)
+
     def test_thread_turn_advances_retained_orientation_reference(self):
         plan = json.loads((self.folder/'controller.json').read_text())
         phase = next(value for value in plan['phases'] if value['kind'] == 'thread')
