@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
-  "status": "CLEAN_CHECKOUT_REPRODUCTION_PENDING",
-  "ready": false,
-  "verified_at": "2026-11-12T00:44:33.909077+00:00",
+  "status": "VALIDATED_NATIVE_EXPERT_MODEL_MEDIA_AND_CLEAN_REPRODUCTION",
+  "ready": true,
+  "verified_at": "2026-11-12T01:41:23.051849+00:00",
   "evaluated_commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
   "native_physics": {
     "passed": 16,
@@ -66,7 +66,29 @@
   },
   "driver_version": "565.57.01",
   "media_uploaded": true,
-  "clean_checkout_reproduction": "RUNNING_SEPARATE_EXACT_HTTPS_CHECKOUT",
+  "clean_checkout_reproduction": {
+    "source": "Independent clean HTTPS clone of the exact evaluated revision",
+    "static_exit": 0,
+    "expert_exit": 0,
+    "validator_exit": 0,
+    "checkout_commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
+    "expert_trial": {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 5261,
+      "run_limit": 6000,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "0b6f32b31578c508ed8ca6909f1f89079656bc31",
+      "record_id": "b05e80e605e44d26a0602d0fb12de12d",
+      "log_sha256": "d63c8fcaae2134f74897a38c6eae9e7cbcdc2b93bae7c61624587400aaa29232",
+      "simulated_seconds": 263.05,
+      "duration_s": 3467.6893016000104,
+      "camera_streams": 3,
+      "native_failure": null
+    }
+  },
   "source_publication_changes": "Documentation and actual metadata only; code/scene/controller/assets remain exact evaluated bytes.",
   "media_id": "M-3JA7DA",
   "media_validation": {
