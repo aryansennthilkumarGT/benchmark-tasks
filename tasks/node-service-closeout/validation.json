@@ -1,106 +1,681 @@
 {
-  "schema_version": 2,
-  "status": "NATIVE_PHYSICS_PASSED_CONTROL_PENDING",
-  "ready": false,
-  "verified_at": "2026-11-07T23:47:00.536997+00:00",
-  "offline_tests": {
-    "slug": "node-service-closeout",
-    "python": "3.12.13",
-    "tests_run": 63,
-    "skipped": 4,
-    "passed": 59,
-    "unit_exit": 0,
-    "usd_exit": 0
-  },
-  "offline_audits": {
-    "control": {
-      "passed": true,
-      "evidence": "offline-evidence/control.json"
-    },
-    "geometry": {
-      "passed": true,
-      "evidence": "offline-evidence/geometry.json"
-    },
-    "grasps": {
-      "passed": true,
-      "evidence": "offline-evidence/grasps.json"
-    },
-    "motion": {
-      "passed": true,
-      "evidence": "offline-evidence/motion.json"
-    },
-    "threads": {
-      "passed": true,
-      "evidence": "offline-evidence/threads.json"
-    }
-  },
-  "usd_structure": {
-    "kind": "USD_STRUCTURE_AND_COMPOSED_PHYSICS_DESCRIPTORS_NOT_SIMULATION",
-    "assemblies": 7,
-    "bodies": 8,
-    "joints": 1,
-    "spawn_transforms_and_anchors": "PASS",
-    "initial_joint_frames": "PASS"
-  },
-  "official_source_import_contract": "PASS_NO_SIMULATOR_CREATED",
-  "native_physics": "PASS_PRIOR_EVALUATED_REVISION",
-  "robot_control": "NOT_RUN",
-  "expert_trials": [],
-  "dream": null,
-  "media_id": null,
-  "media_verified": false,
-  "run_limit": 7200,
-  "native_cases_planned": {
-    "physics": 4,
-    "control": 2
-  },
-  "physics_runs": 1,
-  "expert_runs": 0,
-  "model_runs": 0,
-  "media_uploads": 0,
-  "remaining": [
-    "Real robot control tests",
-    "Two full-score expert episodes",
-    "Genuine Dream-1 evaluation",
-    "Media visual review and official upload",
-    "Runtime publication verification"
-  ],
-  "limitations": [
-    "Coarse rigid cooler fins and guide keys model handling geometry, not heat transfer or electrical functionality."
-  ],
-  "evidence_scope": "Native mechanism evidence is tied to the recorded evaluated commit. Full-score robot demonstrations and model evaluation remain pending.",
-  "native_physics_evidence": {
+  "schema_version": 3,
+  "ready": true,
+  "status": "NATIVE_ACTION_ONLY_EXPERTS_DREAM_MEDIA_CLEAN_CHECKOUT_VALIDATED",
+  "verified_at": "2026-11-12T09:02:47.736143+00:00",
+  "expert_interface": "FIXED_ROBOT_JOINT_ACTION_TRAJECTORY",
+  "physics": {
     "kind": "NATIVE_PHYSX_TESTS",
-    "commit": "cfd8eec0c9197ba6e7394a37bcbc1b0617d07f33",
-    "driver": "565.57.01",
+    "mode": "physics",
+    "commit": "33446a37bd62797024ece49346ce1233fde36296",
+    "reset_count": 10,
+    "passed": 10,
+    "failed": 0,
+    "cases": [
+      {
+        "name": "assembled_replacements_are_passively_stable",
+        "repeat": 0,
+        "status": "PASS",
+        "scoring": {
+          "score": 1.0,
+          "success": true,
+          "completed": [
+            "new_cooler_seated",
+            "new_storage_seated",
+            "old_cooler_collected",
+            "old_storage_collected",
+            "service_closed_out"
+          ],
+          "failure": null,
+          "first_completion": [
+            [
+              "new_cooler_seated",
+              0.05
+            ],
+            [
+              "new_storage_seated",
+              0.05
+            ],
+            [
+              "old_cooler_collected",
+              0.05
+            ],
+            [
+              "old_storage_collected",
+              0.05
+            ],
+            [
+              "service_closed_out",
+              0.05
+            ]
+          ],
+          "recoveries": 0,
+          "simulated_seconds": 8.999999999999993
+        }
+      },
+      {
+        "name": "settled_modules_have_clearance",
+        "repeat": 0,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 5.999999999999987
+        }
+      },
+      {
+        "name": "shroud_blocks_storage_removal",
+        "repeat": 0,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 2.9999999999999973
+        }
+      },
+      {
+        "name": "closed_lid_captures_cooling_keys",
+        "repeat": 0,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 2.9999999999999973
+        }
+      },
+      {
+        "name": "lid_gravity_return",
+        "repeat": 0,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 6.999999999999983
+        }
+      },
+      {
+        "name": "assembled_replacements_are_passively_stable",
+        "repeat": 1,
+        "status": "PASS",
+        "scoring": {
+          "score": 1.0,
+          "success": true,
+          "completed": [
+            "new_cooler_seated",
+            "new_storage_seated",
+            "old_cooler_collected",
+            "old_storage_collected",
+            "service_closed_out"
+          ],
+          "failure": null,
+          "first_completion": [
+            [
+              "new_cooler_seated",
+              0.05
+            ],
+            [
+              "new_storage_seated",
+              0.05
+            ],
+            [
+              "old_cooler_collected",
+              0.05
+            ],
+            [
+              "old_storage_collected",
+              0.05
+            ],
+            [
+              "service_closed_out",
+              0.05
+            ]
+          ],
+          "recoveries": 0,
+          "simulated_seconds": 8.999999999999993
+        }
+      },
+      {
+        "name": "settled_modules_have_clearance",
+        "repeat": 1,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 5.999999999999987
+        }
+      },
+      {
+        "name": "shroud_blocks_storage_removal",
+        "repeat": 1,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 2.9999999999999973
+        }
+      },
+      {
+        "name": "closed_lid_captures_cooling_keys",
+        "repeat": 1,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 2.9999999999999973
+        }
+      },
+      {
+        "name": "lid_gravity_return",
+        "repeat": 1,
+        "status": "PASS",
+        "scoring": {
+          "score": 0,
+          "success": false,
+          "completed": [],
+          "failure": null,
+          "first_completion": [],
+          "recoveries": 0,
+          "simulated_seconds": 6.999999999999983
+        }
+      }
+    ],
+    "camera_coverage": true,
+    "initialization_probes_are_not_demonstrations": true,
+    "status": "PASS",
+    "active_case": null
+  },
+  "control_assertions": {
+    "kind": "NATIVE_CONTROL_ASSERTIONS_FROM_ACTION_ONLY_EXPERTS",
+    "mode": "control",
+    "commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
     "status": "PASS",
     "passed": 8,
     "failed": 0,
-    "resets": 8,
-    "report_sha256": "368c2f9cbafce3c18d8b7e1424cc3e10fb153f7435fafcf2c5e1af2b01786940"
+    "independent_expert_resets": 2,
+    "standalone_native_case_runs_claimed": false,
+    "cases": [
+      {
+        "name": "open_service_lid",
+        "repeat": 0,
+        "status": "PASS",
+        "source_record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+        "control_steps": 419,
+        "authored_checkpoint_input_time": 20.9,
+        "post_action_frame_time": 20.950000000000163,
+        "assertions": [
+          {
+            "kind": "joint",
+            "joint": "lid_hinge",
+            "min": 0.79,
+            "max": 0.85
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      },
+      {
+        "name": "remove_dependent_cooler_first",
+        "repeat": 0,
+        "status": "PASS",
+        "source_record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+        "control_steps": 614,
+        "authored_checkpoint_input_time": 30.65,
+        "post_action_frame_time": 30.7000000000003,
+        "assertions": [
+          {
+            "kind": "displacement",
+            "body": "old_cooler",
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "min": 0.025,
+            "max": 0.05
+          },
+          {
+            "kind": "penetration",
+            "max": 0.002
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      },
+      {
+        "name": "collect_cooler_before_storage",
+        "repeat": 0,
+        "status": "PASS",
+        "source_record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+        "control_steps": 1151,
+        "authored_checkpoint_input_time": 57.5,
+        "post_action_frame_time": 57.54999999999887,
+        "assertions": [
+          {
+            "kind": "goal",
+            "name": "old_cooler_collected",
+            "completed": true
+          },
+          {
+            "kind": "penetration",
+            "max": 0.002
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      },
+      {
+        "name": "storage_extraction_after_dependent_cooler_removal",
+        "repeat": 0,
+        "status": "PASS",
+        "source_record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+        "control_steps": 1589,
+        "authored_checkpoint_input_time": 79.4,
+        "post_action_frame_time": 79.44999999999763,
+        "assertions": [
+          {
+            "kind": "joint",
+            "joint": "lid_hinge",
+            "min": 0.76,
+            "max": 1.355
+          },
+          {
+            "kind": "goal",
+            "name": "old_cooler_collected",
+            "completed": true
+          },
+          {
+            "kind": "pose",
+            "body": "old_storage",
+            "pos": [
+              0.16,
+              0,
+              0.7655
+            ],
+            "tolerance": 0.0025
+          },
+          {
+            "kind": "penetration",
+            "max": 0.002
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      },
+      {
+        "name": "open_service_lid",
+        "repeat": 1,
+        "status": "PASS",
+        "source_record_id": "322a0637511f44abadf16c1810da8f00",
+        "control_steps": 419,
+        "authored_checkpoint_input_time": 20.9,
+        "post_action_frame_time": 20.950000000000163,
+        "assertions": [
+          {
+            "kind": "joint",
+            "joint": "lid_hinge",
+            "min": 0.79,
+            "max": 0.85
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      },
+      {
+        "name": "remove_dependent_cooler_first",
+        "repeat": 1,
+        "status": "PASS",
+        "source_record_id": "322a0637511f44abadf16c1810da8f00",
+        "control_steps": 614,
+        "authored_checkpoint_input_time": 30.65,
+        "post_action_frame_time": 30.7000000000003,
+        "assertions": [
+          {
+            "kind": "displacement",
+            "body": "old_cooler",
+            "axis": [
+              0,
+              0,
+              1
+            ],
+            "min": 0.025,
+            "max": 0.05
+          },
+          {
+            "kind": "penetration",
+            "max": 0.002
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      },
+      {
+        "name": "collect_cooler_before_storage",
+        "repeat": 1,
+        "status": "PASS",
+        "source_record_id": "322a0637511f44abadf16c1810da8f00",
+        "control_steps": 1151,
+        "authored_checkpoint_input_time": 57.5,
+        "post_action_frame_time": 57.54999999999887,
+        "assertions": [
+          {
+            "kind": "goal",
+            "name": "old_cooler_collected",
+            "completed": true
+          },
+          {
+            "kind": "penetration",
+            "max": 0.002
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      },
+      {
+        "name": "storage_extraction_after_dependent_cooler_removal",
+        "repeat": 1,
+        "status": "PASS",
+        "source_record_id": "322a0637511f44abadf16c1810da8f00",
+        "control_steps": 1589,
+        "authored_checkpoint_input_time": 79.4,
+        "post_action_frame_time": 79.44999999999763,
+        "assertions": [
+          {
+            "kind": "joint",
+            "joint": "lid_hinge",
+            "min": 0.76,
+            "max": 1.355
+          },
+          {
+            "kind": "goal",
+            "name": "old_cooler_collected",
+            "completed": true
+          },
+          {
+            "kind": "pose",
+            "body": "old_storage",
+            "pos": [
+              0.16,
+              0,
+              0.7655
+            ],
+            "tolerance": 0.0025
+          },
+          {
+            "kind": "penetration",
+            "max": 0.002
+          },
+          {
+            "kind": "valid"
+          }
+        ],
+        "evidence_method": "Numeric assertions at authored checkpoints in a complete cold action-only expert"
+      }
+    ],
+    "sources": [
+      {
+        "record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+        "validated_rollout_sha256": "d237dc10f3921b3b0c544a1e0d94d185ed6d3ad4d12178583ad7cb860b011519",
+        "log_sha256": "0311b3ec40097df2843e29e502b6a4a0e45becdf7d80499888aa19b3d2b70289",
+        "native_trace_sha256": "30a97ba88e3d4e1383c23dce3f9dcd5bd6871cb41d179c352ab898a23b3a4216",
+        "events_sha256": "1a4ef5a225289591dc41c702bac615865d3bb6a0d362d43a91a13f558caa3e71",
+        "steps": 4378,
+        "record_sha256": "6aaebdb1da0fbf867093028812b1209b21ad42c0e94472c574bb84a04aa2c5a6",
+        "actions_sha256": "1fd53a5f17ab34f9d11690a9676a02ed38b20f8d60ea414a822fdceb15667d82"
+      },
+      {
+        "record_id": "322a0637511f44abadf16c1810da8f00",
+        "validated_rollout_sha256": "e4c6e69c805a88ebef7550c4f48d46f843ff55027e70d6cea095ca18c7701859",
+        "log_sha256": "95ade0c83921090e981ce1f6755cf4863741de4d5275be589589078873feeac4",
+        "native_trace_sha256": "30a97ba88e3d4e1383c23dce3f9dcd5bd6871cb41d179c352ab898a23b3a4216",
+        "events_sha256": "1a4ef5a225289591dc41c702bac615865d3bb6a0d362d43a91a13f558caa3e71",
+        "steps": 4378,
+        "record_sha256": "01d88c7b5707cea655429474400724264035f0214181e80e35f4811bedbe67c5",
+        "actions_sha256": "1a08c6ade9a6b80e67ac133578edd06563feb91deaf9ac8ce2fe46d0731df202"
+      }
+    ],
+    "native_cases_sha256": "741918c8698b22d51d8dba6adffe304e6e738ec2b423a46b21c983ca6bb1c11a",
+    "assertion_implementation_sha256": "eb11bec01e6f5b426b8ffb0682246ecee9a3060416fd6fabf0f412f055f93fe1",
+    "policy_source_sha256": "c606c129022c62717b74a2878fea18578704eae7fd3acf0c0edf994bef1745b4",
+    "joint_trajectory_sha256": "17067e78fdaf0d6015f522b143f1e591ced82c1ee97f2e40b23d5e274b17e664",
+    "every_executed_action_matches_authored_trajectory": true,
+    "authored_checkpoints_are_not_measured_phase_completion": true,
+    "scope": "Actual numeric predicates on two complete independent cold action-only experts; no new standalone control episodes and no measured phase-completion claim. Mechanism fixtures and clean reproduction remain separate."
   },
-  "engineering_verification": {
-    "installed_launchable_preflight": "PASS_SOURCE_AND_VERSION_CHECKS",
-    "fixed_driver_preflight_regression_tests": "PASS",
-    "budget_epoch_regression_tests": "PASS",
-    "runtime_unit_tests": "PASS",
-    "updated_ideal_motion_audit": "PASS",
-    "full_static_before_incremental_runtime_changes": "PASS",
-    "ready": false
+  "experts": [
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 4378,
+      "run_limit": 7200,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
+      "record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+      "log_sha256": "0311b3ec40097df2843e29e502b6a4a0e45becdf7d80499888aa19b3d2b70289",
+      "simulated_seconds": 218.9,
+      "duration_s": 2306.5801608969923,
+      "camera_streams": 3,
+      "native_failure": null
+    },
+    {
+      "kind": "REAL_INSPECT_ROLLOUT",
+      "mode": "expert",
+      "score": 1.0,
+      "steps": 4378,
+      "run_limit": 7200,
+      "seed": 0,
+      "reset_seed": 1415158438,
+      "commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
+      "record_id": "322a0637511f44abadf16c1810da8f00",
+      "log_sha256": "95ade0c83921090e981ce1f6755cf4863741de4d5275be589589078873feeac4",
+      "simulated_seconds": 218.9,
+      "duration_s": 958.6758148259978,
+      "camera_streams": 3,
+      "native_failure": null
+    }
+  ],
+  "dream": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "dream",
+    "score": 0.0,
+    "steps": 7200,
+    "run_limit": 7200,
+    "seed": 0,
+    "reset_seed": 1415158438,
+    "commit": "3254488e4d2257343643ed11febf2aed2433bea9",
+    "record_id": "5ba61671af724a2d8b89106bec3c5bd0",
+    "log_sha256": "ead64d06dc76bc824e7d7f17f1777ebaf52724005edd1cbc3eaaa8ac177b6071",
+    "simulated_seconds": 360.0,
+    "duration_s": 2876.010233558991,
+    "camera_streams": 3,
+    "native_failure": null
   },
-  "native_collision_collection": {
-    "status": "RIGID_LINK_OWNERSHIP_FIXED_NATIVE_RETEST_PENDING",
-    "regression": "Nested rigid-body colliders belong only to their owning link",
-    "clearance_requirement_m": 0.02
-  },
-  "publication_preparation_status": "Current-revision expert1: 1.0; independent expert2 pending; Dream-1 pending. Validation incomplete; not submission-ready.",
-  "current_revision_first_expert": {
-    "commit": "33446a37bd62797024ece49346ce1233fde36296",
+  "clean_checkout_expert": {
+    "kind": "REAL_INSPECT_ROLLOUT",
+    "mode": "expert",
     "score": 1.0,
     "steps": 4378,
-    "record_id": "44181a12b31547e9bff7001df40abcaf",
-    "log_sha256": "1a4df4ddaf307f0505263dcfc2801d07b0ad61efee1fc300c3f00861af46df24",
+    "run_limit": 7200,
+    "seed": 0,
+    "reset_seed": 1415158438,
+    "commit": "2262b60ee5e7064ac5135eefde35326df90beda2",
+    "record_id": "44d8364fc5df4df7be69219fd10fd41f",
+    "log_sha256": "1ef2e086cf04a8f7e42f482143fa486015b9a45e2f8d2421cf2bb5e1c8a7bcad",
     "simulated_seconds": 218.9,
-    "duration_s": 1190.2829606550076
+    "duration_s": 1132.7383917520056,
+    "camera_streams": 3,
+    "native_failure": null
+  },
+  "source_equivalence": {
+    "mechanics": {
+      "source_commit": "33446a37bd62797024ece49346ce1233fde36296",
+      "target_commit": "3254488e4d2257343643ed11febf2aed2433bea9",
+      "files": {
+        "arena_runtime.py": "155165552caa16229d138d3b92450a61de9957196483bcd701b13f926bbd51af",
+        "assets/chassis_asset.usda": "3c643f6159105dad89e88fe376bad6c5f15cfadaad090eab9e7ab817a7e5fb0d",
+        "assets/new_cooler_asset.usda": "6dfbf4b535f7a03522728d3efc3d2d52461c492990dba61730eddf3af1de174c",
+        "assets/new_storage_asset.usda": "8db3ed77cb68f28dd2ea930b3d436a8a64e697b964e965773eb4107b2c85f17d",
+        "assets/old_cooler_asset.usda": "1be857ecfa7fc88ce644baf78477a996a26a11f0651fc90d13f89a4da43e0c92",
+        "assets/old_storage_asset.usda": "3d6e857d3383bbf19a27c6c349e966cf8928be4486e56b3593409a8d82d5ed03",
+        "assets/removed_parts_asset.usda": "9cd6e5eecfc32877fd7c5ed21cc74d5768138249ff8a024f581f82ad40b74125",
+        "assets/storage_source_stand_asset.usda": "02f572ed62b6dc3659ea8616d37587160d7b0e8edffe1cd1ada30e5cad6fa04f",
+        "audit_control.py": "bfa0a11f239be2247f914714a7e4c606c6c6b5e32765372d1e882f47d0e0cfa1",
+        "audit_geometry.py": "cd6522f220299e122a32fcd843dea72e6fd3f6a86cc552b67ff44cecc127c4ad",
+        "audit_grasps.py": "f7b3f934d66b2a4c32afd326f7cd857699e82b381b532de9e3e614c450480acf",
+        "audit_motion.py": "6e95182e55046b4144e29625510d196e6d849de56969da65f4f44f0a316ed11c",
+        "audit_threads.py": "85e408d4a4d6b8ff4969cb72a2b16be3413b40554e65756ea8366f223116781e",
+        "bootstrap_task.py": "a921979b0da6ac971cfa25721843187650887a8de0bf7aa13c184d6f7ef9bbcc",
+        "build_assets.py": "7ac22f158321de58ac0ee4675e11e0228d9523d1a4a7b937cda78b852c0589c0",
+        "controller.json#phases": "0ecb6d81a355fef8c76adfcdbc376cfffcc0d91825229fd4c18e104236001426",
+        "feedback.py": "e47ed2870156996e6851e55d144d0b44ebbb5d0550e3c388c037d1659275f05d",
+        "geometry.py": "61e0631ff9e81d0a1d7bda6400f14f2a2dbc34bbecd5e4ebc04f456de0088bf0",
+        "native-cases.json": "741918c8698b22d51d8dba6adffe304e6e738ec2b423a46b21c983ca6bb1c11a",
+        "native_tests.py": "eb11bec01e6f5b426b8ffb0682246ecee9a3060416fd6fabf0f412f055f93fe1",
+        "render_media.py": "0a5e7587809b252efbf45a50dd883941aa84e283b245b24f94ca6bd4b048d901",
+        "robot_geometry.py": "d3341f5012c0b7c7eefb5547a9277a89dcefc06986319596ba40518be9c2e08f",
+        "run.py#excluding_feasible": "4f12bb64f7a9cd833332b401b169e4838192c9dd9a66f4293e8db99cf2b2d1f2",
+        "run_ledger.py": "c0793bccd7e5134af57824ddfd30f5e7b6e12c3239d9b0632f5833bffbd5f2f1",
+        "scene.json": "61bcdd92c63cc05daf18dccb0597cfd1e5235611dbbfa8542a087d3d2602022a",
+        "scoring.py": "f338cb3b339c1d3f56da854d85db2dfb2eda8fb16c7f6c1ea759a2b628cafefb",
+        "setup_environment.py": "9b971bb9517a688f3b80388e10108f8baac59ec567e971b14e53be8244378553",
+        "stack-lock.json": "d78235334cf77437c0e104465d355ebb0000aecffb782f7750461ba3ea46043d",
+        "static_check.py": "071d603b55951894d5ed60b75284f780b9119ca7a1c8d3de6852340f7e32f542",
+        "task.py": "726498d3e245f2b26363cf565394ffa1cd67209ddd66c283ede47288de66fcef",
+        "task_runner.py": "08f1542ef79cb6c41f1b8e8f5dd449e8a9200c7e4197d5e65836302ff2060d7e",
+        "validate_rollout.py": "7ec580b57ef7c30d0baeda20110768644d4b09e3f5005c46fd4fdf616a0348f0",
+        "verify_assets.py": "af5c53bbf25133c170896cf93bbb347335a087fa469b093f64e686d898e1c21e"
+      },
+      "method": "Exact file bytes or explicitly named launcher/phase AST component; no new physics run claimed."
+    },
+    "expert": {
+      "source_commit": "ecd12084b76c31c03a19a5b07bfe9523862d04ab",
+      "target_commit": "3254488e4d2257343643ed11febf2aed2433bea9",
+      "files": {
+        "expert.py": "c606c129022c62717b74a2878fea18578704eae7fd3acf0c0edf994bef1745b4",
+        "expert_joint_trajectory.json": "17067e78fdaf0d6015f522b143f1e591ced82c1ee97f2e40b23d5e274b17e664",
+        "run.py#excluding_feasible": "4f12bb64f7a9cd833332b401b169e4838192c9dd9a66f4293e8db99cf2b2d1f2"
+      },
+      "method": "Exact file bytes or explicitly named launcher/phase AST component; no new physics run claimed."
+    },
+    "publication_files_match": true,
+    "fresh_checkout_commit": "2262b60ee5e7064ac5135eefde35326df90beda2",
+    "fresh_checkout_changes_only": "test contract and source manifest; runtime identical to actual Dream revision"
+  },
+  "media_validation": {
+    "status": "PASS",
+    "kind": "ACTUAL_ROLLOUT_MEDIA",
+    "files": {
+      "demo": {
+        "sha256": "208c2799fec539e6234e097aa92f7da7c8be75adf2f4c6f6af755efe9387661c",
+        "bytes": 1218628,
+        "decoded_frames": 4379,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": "PASS",
+        "record_id": "4a4a92293e0847b3a187728ac2b26cfd",
+        "score": 1.0
+      },
+      "demo-repeat": {
+        "sha256": "208c2799fec539e6234e097aa92f7da7c8be75adf2f4c6f6af755efe9387661c",
+        "bytes": 1218628,
+        "decoded_frames": 4379,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": "PASS",
+        "record_id": "322a0637511f44abadf16c1810da8f00",
+        "score": 1.0
+      },
+      "model": {
+        "sha256": "ca3caca353785f7b4c797eafbc059d0ab2334be74df9d71185587405459924b9",
+        "bytes": 2686837,
+        "decoded_frames": 7201,
+        "codec": "h264",
+        "pixel_format": "yuv420p",
+        "full_decode": "PASS",
+        "record_id": "5ba61671af724a2d8b89106bec3c5bd0",
+        "score": 0.0
+      }
+    },
+    "setup": {
+      "sha256": "b54deb19729662158854c80e87034463907741257801a9eb9d36ce5413bc6ece",
+      "bytes": 59381
+    },
+    "native_camera_coverage_source": {
+      "sha256": "c97d6f73b13deed444de169a768a6bbf892a6c093a8590a0406a7a8b628a5db0",
+      "actual_commit": "33446a37bd62797024ece49346ce1233fde36296",
+      "camera_coverage": true
+    },
+    "blind_review": {
+      "public_text_scan": "PASS",
+      "overlays_added": false
+    },
+    "visual_checks": [
+      "native projected geometry coverage",
+      "sampled nonblank frames",
+      "all encoded frames decoded",
+      "setup matches actual initial observation"
+    ],
+    "human_visual_review": "REQUIRED: inspect contact sheets before submission",
+    "resumed_after": "Original exporter completed encodes then rejected omitted camera_coverage input. This CPU-only finalizer verifies retained encodes and actual original native coverage receipt; no simulation rerun."
+  },
+  "limitations": [
+    "Rigid generic mechanical-service surrogate, no standard server or calibrated force claim",
+    "Native initialization probes are not demonstrations; control assertions reuse two real whole expert episodes",
+    "Actual source revisions are retained per record; no claim Dream ran at the final metadata commit"
+  ],
+  "media_id": "M-LK9JRD",
+  "media_visual_review": {
+    "reviewer": "coding agent visual inspection",
+    "checked": [
+      "setup",
+      "first expert contact sheet",
+      "independent expert contact sheet",
+      "model contact sheet"
+    ],
+    "observations": "Actual unannotated station and parts visible; both expert sequences end with enclosure closeout; model remains unsuccessful. No identifying text or overlays observed.",
+    "limits": "Contact-sheet inspection plus complete decode, not a claim of human frame-by-frame review"
   }
 }

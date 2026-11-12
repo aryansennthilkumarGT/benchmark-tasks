@@ -10,11 +10,11 @@ From a clean repository checkout, using the installed environment Python:
 
 ```bash
 python tasks/node-service-closeout/static_check.py
-python tasks/node-service-closeout/run.py --mode expert --execute --commit "$(git rev-parse HEAD)" --output /data/node-expert
-python tasks/node-service-closeout/validate_rollout.py --directory /data/node-expert --mode expert --limit 7200 --commit "$(git rev-parse HEAD)" --folder tasks/node-service-closeout
+python tasks/node-service-closeout/run.py --mode expert --execute --commit "$(git rev-parse HEAD)" --output ./node-expert
+python tasks/node-service-closeout/validate_rollout.py --directory ./node-expert --mode expert --limit 7200 --commit "$(git rev-parse HEAD)" --folder tasks/node-service-closeout
 ```
 
-The model gets7200 control actions,360 simulated seconds. The current revision's first measured full-score expert took218.9 simulated seconds and1190.3 wall seconds; wall time depends on rendering, contention and model latency. Independent reset repetitions and model results must be verified in `validation.json` before publication. This preparation copy is not submission-ready while those records remain incomplete.
+The model gets 7200 control actions (360 simulated seconds). Two cold scripted demonstrations each scored 1.0 in 4378 actions (218.9 simulated seconds), taking 2306.6 and 958.7 wall seconds. An independent fresh HTTPS checkout scored 1.0 in 1132.7 wall seconds. The genuine Dream-1 run used all 7200 actions and scored 0.0 (2876.0 wall seconds). Wall time varies with rendering, contention and model latency. See `validation.json` for the actual evaluated source revisions; documentation and upload metadata were finalized afterward.
 
 `run.py --mode dream` uses the configured official Dream-1 credentials and requires genuine native feasibility evidence via `--evidence`; credentials must stay outside this repository. `task_runner.py` and `bootstrap_task.py` retain a separate strict provider-budget path. Their historical default caps are configurable runner policy, not a claim about another operator's account balance. No script exit stops instance billing.
 
@@ -22,9 +22,9 @@ The model gets7200 control actions,360 simulated seconds. The current revision's
 
 Read `SCORING.md` for every numeric predicate, weights, invalid outcomes, clearance and stability requirements. `scene.json` contains all authored shapes, transforms, masses, joints and predicates; `build_assets.py` deterministically generates the included USD. Raw native traces must replay through the unchanged scorer; offline synthetic tests are not physics evidence.
 
-Mechanism probes exercise genuine contacts and independent resets. Default-reset controller assertions may be checked against post-action phase-completion frames in two independently completed full-score expert trials; that method reuses actual expert traces and does not claim extra standalone native runs. Initialized suffix diagnostics receive no demonstration credit. A fresh HTTPS checkout must independently reproduce a complete expert before submission.
+Mechanism probes exercise genuine contacts and independent resets. Default-reset controller assertions are checked against authored action-index checkpoint frames in two independently completed full-score expert trials; that method reuses actual expert traces and does not claim extra standalone native runs. Initialized suffix diagnostics receive no demonstration credit. A fresh HTTPS checkout must independently reproduce a complete expert before submission.
 
-The scripted expert submits14-dimensional absolute robot-joint and jaw commands. It reads measured body/joint state, verifies grasps and alignment, and changes object state through physical robot contacts. No object teleportation or scripted scoring updates are used during demonstrations. The official camera observations are320x176 RGB from three cameras.
+The scripted expert submits14-dimensional absolute robot-joint and jaw commands. Its fixed joint-command program is authored offline and uses no runtime object state, scorer state or hidden fixture feedback. Only robot proprioception and fixed action indexing are available to the policy. Task completion is established independently by the scorer, not by the program ending. No object teleportation or scripted scoring updates are used during demonstrations. The official camera observations are320x176 RGB from three cameras.
 
 ## Limits and provenance
 

@@ -68,23 +68,23 @@ class PackageContractTests(unittest.TestCase):
         expert.bind(SimpleNamespace(environment_id='offline-contract-only'))
         expert.reset(None)
         self.assertEqual(expert.info.action_space.shape,(14,))
-        self.assertEqual(len(expert.controller.phases),len(json.loads((HERE/'controller.json').read_text())['phases']))
-        # No environment, simulator, real sensor, or model is created here.
-        with self.assertRaisesRegex(expert_module.ControlFailure,'Native frame unavailable'):
-            expert.act(SimpleNamespace(state_time=0))
-        # Finishing waypoints is not a full-score demonstration. Waiting is
-        # bounded and only the actual scorer can approve terminal success.
-        expert.controller.done=True
-        expert.evaluator=SimpleNamespace(result=SimpleNamespace(failure=None,success=False,score=.95))
-        self.assertFalse(expert.terminal_stop(0))
-        self.assertFalse(expert.terminal_stop(1))
-        with self.assertRaisesRegex(expert_module.ControlFailure,'without a stable full-score'):
-            expert.terminal_stop(10)
-        expert.evaluator.result.success=True
-        self.assertTrue(expert.terminal_stop(10))
-        expert.evaluator.result.failure='lost part'
-        with self.assertRaisesRegex(expert_module.ControlFailure,'Terminal state invalid'):
-            expert.terminal_stop(10)
+        program=json.loads((HERE/'expert_joint_trajectory.json').read_text())
+        self.assertEqual(expert.actions.shape,(len(program['actions']),14))
+        self.assertFalse(hasattr(expert,'runtime'));self.assertFalse(hasattr(expert,'evaluator'))
+        class OnlyRobotProprio:
+            def __getitem__(self,key):
+                if key!='joint_pos':raise AssertionError('Expert requested hidden task state: '+str(key))
+                return np.tile([0,1,1,-.6,0,0,1.],2)
+        observation=SimpleNamespace(state=OnlyRobotProprio(),state_time=0.)
+        chunk=expert.act(observation)
+        np.testing.assert_array_equal(chunk.actions[0].data,program['actions'][0])
+        self.assertFalse(chunk.actions[0].meta['request_stop'])
+        expert.index=len(expert.actions)+expert.hold-1
+        observation.state_time=expert.index/20
+        self.assertTrue(expert.act(observation).actions[0].meta['request_stop'])
+        # Ending a fixed program is not task success. No physics is executed;
+        # only an actual future scorer/record can establish full feasibility.
+        self.assertFalse(task.success({}));self.assertEqual(task.score({}),0)
     def test_control_probe_labels_match_current_phases(self):
         phases=json.loads((HERE/'controller.json').read_text())['phases']
         for case in json.loads((HERE/'native-cases.json').read_text())['control']:

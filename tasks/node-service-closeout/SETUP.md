@@ -28,7 +28,7 @@ A 24 by 44 by 4 mm lid pad sits above the cooler handle with 2 mm nominal cleara
 A second 24 by 64 by 13 mm pad spans the far cooler fins with 3 mm nominal clearance. The two pads restrict upward translation and pitching of a seated cooler.
 
 
-Both storage sleds have a connected raised pull grip centred90 mm forward and35 mm above the sled origin. The grip is6 by28 by20 mm. A45 by18 by12 mm horizontal neck and6 by18 by35 mm upright connect it to the sled. This clears the measured angled gripper/floor interference. The taller grips require fresh dependent-removal, lid-clearance, scoring and robot-control validation.
+Both storage sleds have a connected raised pull grip centred90 mm forward and35 mm above the sled origin. The grip is6 by28 by20 mm. A45 by18 by12 mm horizontal neck and6 by18 by35 mm upright connect it to the sled. This clears the measured angled gripper/floor interference. The taller grips were subjected to dependent-removal and lid-retention native probes, objective scorer replay and cold full-score robot demonstrations; see validation.json.
 
 
 Each storage sled retains the original14 by28 by20mm low lug centred at local(-65,0,12)mm. That lug engages the cooling-shroud lip and blocks premature withdrawal. The new raised pull grip provides robot access while preserving this physical dependent-removal constraint. The prior raised-grip revision failed both shroud-blocking force probes, and that failure remains in the execution evidence.

@@ -23,37 +23,9 @@ def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def feasible(path,commit):
-    data=json.loads(path.read_text())
-    if data['commit']!=commit:raise ValueError('Feasibility revision differs')
-    records=[data['physics'],data['control'],*data['experts']]
-    if len(records)!=4:raise ValueError('Two separate expert demonstrations required')
-    ids=[]
-    for record in records:
-        if record['status']!='PASS' or record['inputs']['commit']!=commit:raise ValueError('Failed/mismatched prerequisite')
-        # Receipts use paths relative to the run root, which feasibility.json lives below.
-        root=path.parent.parent
-        receipt=(root/record['receipt']).resolve()
-        directory=receipt.parent
-        if not directory.is_relative_to(root.resolve()):raise ValueError('Evidence path escapes run root')
-        if json.loads(receipt.read_text())!=record:raise ValueError('Feasibility record differs from its immutable receipt')
-        actual={p.relative_to(directory).as_posix():sha(p) for p in directory.rglob('*')
-                if p.is_file() and p.name!='receipt.json'}
-        if actual!=record['artifacts']:raise ValueError('Prerequisite evidence missing or changed')
-    for record in data['experts']:
-        result=record['result']
-        if result['score']!=1 or result['mode']!='expert':raise ValueError('Full-score experts required')
-        ids.append(result['record_id'])
-    if len(set(ids))!=2:raise ValueError('Expert trial reused')
-    for mode in ('physics','control'):
-        result=data[mode]['result']
-        if result.get('kind')!='NATIVE_PHYSX_TESTS' or result.get('mode')!=mode or result.get('commit')!=commit:
-            raise ValueError('Native prerequisite provenance mismatch')
-        if result.get('failed')!=0 or result.get('passed',0)<2:raise ValueError('Native prerequisites did not pass')
-        cases=json.loads((HERE/'native-cases.json').read_text())[mode]
-        expected={(case['name'],repeat) for case in cases for repeat in (0,1)}
-        actual={(case['name'],case['repeat']) for case in result['cases'] if case['status']=='PASS'}
-        if actual!=expected or len(result['cases'])!=len(expected) or result.get('reset_count')!=len(expected):
-            raise ValueError('Native prerequisites have incomplete case/repeat coverage')
+    loader=importlib.util.spec_from_file_location('task_feasibility_v2',HERE/'feasibility_v2.py')
+    module=importlib.util.module_from_spec(loader);loader.loader.exec_module(module)
+    return module.check(path,commit,HERE)
 
 
 def command(mode,output,commit,seed=0):
