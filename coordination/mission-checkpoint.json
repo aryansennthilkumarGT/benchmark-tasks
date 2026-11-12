@@ -1,6 +1,6 @@
 {
   "schema_version": 4,
-  "updated_at": "2026-11-12T04:07:10.215359+00:00",
+  "updated_at": "2026-11-12T04:09:41.322636+00:00",
   "status": "TWO_TASKS_RECEIVED_SIX_TASKS_IN_ENGINEERING",
   "authoritative_detail": "coordination/live-execution-2026-11-10.md",
   "tasks": [
@@ -136,7 +136,16 @@
         "producer_exit": 1,
         "log": "/data/robocurve-runs/resume-compat/node-loaded-lid-margin-qualification.1lj2_l5c/first-trial.log"
       },
-      "next": "Obtain fresh full cold expert pair after suffix diagnostic; initialized diagnostic fixture is not an expert demo."
+      "next": "Obtain fresh full cold expert pair after suffix diagnostic; initialized diagnostic fixture is not an expert demo.",
+      "future_stages": {
+        "cold_expert_pair": {
+          "root": "/data/robocurve-runs/resume-compat/node-current-cold-expert-pair.5vahpsh1",
+          "producer_pid": 2011780,
+          "requires": "Producer1955467 exit0 and actual suffix report PASS; starts two new complete episodes, does not splice suffix into demo",
+          "commit": "33446a37bd62797024ece49346ce1233fde36296",
+          "workload_deadline_UTC": "2026-11-12T06:00:00+00:00"
+        }
+      }
     },
     {
       "slug": "hardware-order-kit",
@@ -279,7 +288,16 @@
       "first_expert_trace_verification": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/first-expert-and-trace-verification.json",
       "first_expert_media_preview": "/data/robocurve-runs/resume-compat/twelve-first-real-demo-preview/preview-verification.json",
       "novelty_review": "/data/robocurve-runs/resume-compat/twelve-closest-flange-implementation-review/review.json",
-      "expert_pair_verification": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/expert-pair-verification.json"
+      "expert_pair_verification": "/data/robocurve-runs/resume-compat/twelve-supported-transfer-qualification.s6r4z7dj/expert-pair-verification.json",
+      "latest_control_observed": {
+        "status": "RUNNING",
+        "passed": 3,
+        "failed": 0,
+        "active_case": {
+          "name": "compress_all_twelve_contacts",
+          "repeat": 1
+        }
+      }
     },
     {
       "slug": "fault-module-repair",
@@ -418,5 +436,26 @@
     "status": "QUEUED_AFTER_TWELVE_CONTROLS",
     "source_frozen": true,
     "not_full_expert_evidence": true
+  },
+  "official_review_refresh": {
+    "observed_at": "2026-11-12T04:07:23Z",
+    "receipt_directory": "/data/robocurve-runs/resume-compat/official-pr-refresh-20261112T0408",
+    "both_open": true,
+    "both_waiting_review": true,
+    "accepted": 0
+  },
+  "latest_official_rules": {
+    "receipt": "/data/robocurve-runs/resume-compat/official-rules-20261112T0408/receipt.json",
+    "all_three_identical_to_local": true
+  },
+  "latest_board_review": {
+    "snapshot": "/data/robocurve-runs/resume-compat/official-board-review-20261112T040832Z.json",
+    "total_tasks": 1649,
+    "new_relative_to_0141": 17,
+    "switch_overlap_risk": "TK-KHQPEW same-team phase-lead swap; distinguish spring-release catches and continuous third-link preservation, remains review risk",
+    "publication_novelty_drafts": [
+      "/data/robocurve-runs/resume-compat/twelve-publication-draft/NOVELTY.md",
+      "/data/robocurve-runs/resume-compat/switch-publication-draft/NOVELTY.md"
+    ]
   }
 }
