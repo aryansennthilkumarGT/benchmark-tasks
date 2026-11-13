@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T12:16:59.666990+00:00",
+  "updated_at": "2026-11-13T13:44:38.339157+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -217,7 +217,7 @@
     "head_changed_by_this_mission": false,
     "last_read_utc": "2026-11-13T10:05:16.907596+00:00"
   },
-  "current_work": "Active nailer replacement implements all code paths but remains under actual-FK collision repair. Three internally OFFLINE READY packages preserved; continue productive mission after completing this package.",
+  "current_work": "Finish nailer complete FK/scoring and clean HTTPS checks, then immediately repair confirmed cargo USD angular units. Shackle and ER remain offline high confidence; cargo needs this new concrete export repair before counting the top three again.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
   "protected_shackle_control_review_note": "Original ef13ec77 remains untouched. Independent repair/rigging-shackle-v21 fixes shared interpolation, full path, retry and native negative-force calibration; new evidence binds source65b6ed7, not the historical original.",
   "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
@@ -368,7 +368,7 @@
   "next_implementation_command": "Continue /workspace/nailer-jam. Inspect /tmp/nailer-path-9-hull.json and running session22082; repair actual contact/interarm collisions, finish source-bound controller/FK/scoring audit, clean HTTPS test, push completed package.",
   "nailer_progress": {
     "branch": "draft/brad-nailer-jam-recovery",
-    "commit": "b0dcf9fc5164dc13f20581c4105ca0f5c039bf0a",
+    "commit": "69cb3fb8767ea9b5f67541e83890411b794ed950",
     "scene_sha256": "12ee91197542b38d4d178347aaf94cd4892869b86834ffffe1605a0a7d5c132b",
     "tests": "33 unit tests passed;13 affected geometry/controller regressions passed after passive-opening fix;4 new metadata/source-identity tests and2 convex-hull-equivalence tests passed. Full final suite/clean checkout not yet run.",
     "supplemental_cycle": {
@@ -379,7 +379,7 @@
       "native_isaac_executed": false
     },
     "remaining": "Finish full FK collision repair: wide fingers during center-pin acquisition strike lever; narrower openings have endpoint clearance. Exact convex hulls replace redundant STL SAT edges with equivalence tests. Add full runtime hash binding, verify full synthetic scoring and released clearance, clean HTTPS verification.",
-    "implementation": "Original complete scene/3USDs, physical scorer,47-phase native-state14D expert, native harness, Dream/media preparation and fixture provenance/documentation committed. Active controller FK repairs; NOT OFFLINE READY.",
+    "implementation": "Active49-phase sequential expert, left-arm brad removal, upper-pin grasp, physical scoring/FK replay.47-unit source stage passed;48 now pass after USD drive unit test. Full final qualification/clean checkout still pending.",
     "ideal_controller": {
       "passed": true,
       "actions": 2811,
@@ -387,6 +387,15 @@
       "maximum_grasp_constraint_residual_m": 2.671535751863854e-06,
       "physical_grasps_assumed": true,
       "native_isaac_executed": false
-    }
+    },
+    "next": "Inspect /tmp/nailer-ideal-standoff.json and run source-bound audit_path.py. Stand-off7.2mm and bonded stop repairs address final jaw contacts; current full mechanism cycle passed at97um penetration."
+  },
+  "usd_angular_drive_repair": {
+    "discovered": "2026-11-13",
+    "primary_reference": "https://openusd.org/release/api/class_usd_physics_drive_a_p_i.html",
+    "finding": "USD angular drive stiffness/damping are per degree. Scene and Isaac actuator configuration are per radian. Export requires division by180/pi.",
+    "nailer": "Fixed, tested in actual USD attributes; no native execution claim.",
+    "cargo": "Confirmed affected:4 revolute joints with nonzero damping,2 pawl springs. Repair exporter and assets on an independent successor, recheck affected tests and clean reproduction before restoring HIGH CONFIDENCE. Native SI actuator config may override imported values; no native physics result exists.",
+    "shackle_and_er": "Actual scene inspection found no revolute joints; their assets do not exercise the affected code path. Do not invalidate or repeat their physical checks for an unused builder branch."
   }
 }
