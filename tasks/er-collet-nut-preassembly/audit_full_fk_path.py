@@ -15,7 +15,7 @@ from audit_geometry import geometry_module
 from robot_geometry import arm_hulls,task_collisions,table_intersections,inter_arm_intersections
 
 
-def audit(folder):
+def audit(folder,collision_checks=True):
  s=json.loads((folder/'scene.json').read_text());plan=json.loads((folder/'controller.json').read_text())
  runtime_files=list(folder.glob('*.py'))+[folder/n for n in ('scene.json','controller.json','stack-lock.json')]+list((folder/'assets').glob('*.usda'))+list((folder/'test_fixtures').glob('*.json'))
  identity=lambda:{p.relative_to(folder).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(runtime_files)}
@@ -30,13 +30,13 @@ def audit(folder):
    tcp,tq=pose(side,q);b=states[name]
    held[side]=dict(body=name,offset=rotate(conjugate(tq),np.array(b['pos'])-tcp),quat=multiply(conjugate(tq),b['quat']))
   if not width:held.pop(side,None)
-  try:q=c.step(q,{'time':step/20}).copy()
+  try:q=c.step(q,{'time':step/20,'bodies':states,'joints':{}}).copy()
   except ControlFailure as exc:error=str(exc);break
   for arm,target in c.targets.items():
    if target.get('grasp_width',0.):q[(0 if arm=='left' else 7)+6]=max(q[(0 if arm=='left' else 7)+6],(target['grasp_width']+.0003)/.0939)
   for arm,h in held.items():
    tcp,tq=pose(arm,q);states[h['body']]=dict(pos=(tcp+rotate(tq,h['offset'])).tolist(),quat=multiply(tq,h['quat']).tolist())
-  if step%5==0 or c.index!=index or c.done:
+  if collision_checks and (step%5==0 or c.index!=index or c.done):
    hulls={a:arm_hulls(a,q[(0 if a=='left' else 7):(7 if a=='left' else 14)]) for a in ('left','right')};contacts=[];table=[]
    for arm in hulls:
     for hit in task_collisions(g,hulls[arm],s,states,threshold=.00005):
@@ -46,8 +46,8 @@ def audit(folder):
    cross=inter_arm_intersections(g,hulls['left'],hulls['right'],threshold=.00005)
    rows.append(dict(step=step,phase=index,contacts=contacts,table=table,inter_arm=cross,passed=not contacts and not table and not cross))
   if c.done:break
- result=dict(kind='OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS',physics_executed=False,grasps_validated=False,
+ result=dict(kind='OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS' if collision_checks else 'IDEAL_CONTROLLER_SYNTHETIC_PART_GRASPS',collision_checks_executed=collision_checks,physics_executed=False,grasps_validated=False,
    swept_volume_validated=False,sampling='20 Hz control, every fifth action plus every phase boundary',unintentional_contact_bound_m=.00005,intended_finger_contact_bound_m=.0008,runtime_inputs_sha256=sources,source_bound=identity()==sources,checks=rows,error=error,
-   actions=step+1,passed=identity()==sources and bool(rows) and error is None and c.done and all(x['passed'] for x in rows))
+   actions=step+1,passed=identity()==sources and (bool(rows) or not collision_checks) and error is None and c.done and all(x['passed'] for x in rows))
  print(json.dumps(result,indent=2));return 0 if result['passed'] else 1
 if __name__=='__main__':raise SystemExit(audit(Path(__file__).resolve().parent))

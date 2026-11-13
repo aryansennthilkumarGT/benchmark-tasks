@@ -1,0 +1,1533 @@
+{
+  "kind": "OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS",
+  "collision_checks_executed": true,
+  "physics_executed": false,
+  "grasps_validated": false,
+  "swept_volume_validated": false,
+  "sampling": "20 Hz control, every fifth action plus every phase boundary",
+  "unintentional_contact_bound_m": 5e-05,
+  "intended_finger_contact_bound_m": 0.0008,
+  "runtime_inputs_sha256": {
+    "arena_runtime.py": "ae65c6113d5cef39a48d752b5ec72371bbee4e99606e495be33c8c98a1ab1c56",
+    "assets/bench_nut_asset.usda": "be43ec1bed8535254b4909c43155afb4dc782f23ca31100141850c4ddbc927a9",
+    "assets/collet_asset.usda": "ad6e241568c63e27cbb21edc6cdf22e26bf6d8818f030fc851eee9fbff451809",
+    "assets/collet_cradle_asset.usda": "01c2a28b2a6a290f780e0a585179bc04c8145c4f1c13d1bfffe08236902e7716",
+    "audit_control.py": "d0097501a0ebcca2ce347d16ddbdd13f66abcec6608417008452491e9629395c",
+    "audit_full_fk_path.py": "283795d01281c474ad0f223136d769bd0fc337b44c42ce32f34903ecf568705b",
+    "audit_geometry.py": "62fe11799c54983108a3f9f66c92853f097e38089bd2aa8df83e8d658643e2ab",
+    "audit_kinematic_preassembly.py": "c5a20cf1bdad3ed3a5dc8d24c2045337f6c0910cc3494e2a8e92190088d38199",
+    "audit_robot.py": "c0eeb642f08fe3fe44c73528863415f806c266fab1cf7d44f691cd240e378b2a",
+    "audit_sequence.py": "fe0a0766c3a85eca79bc60991cf3c8a150ffd3c8da2155bd01b6bba237edcec2",
+    "bootstrap_task.py": "a921979b0da6ac971cfa25721843187650887a8de0bf7aa13c184d6f7ef9bbcc",
+    "build_assets.py": "7ff7efecc537c326cd853e59dcedf2c96e82fa1e79a48082b659d9cda887761a",
+    "controller.json": "825a3f0a1e3ea85ed1d953dbaad2b8399e1fde8eb953ef01111eaca44b0947e2",
+    "convex_box_backend.py": "9a47a7666a62218dbd7bf1ecfca6dd7a37e267ec6d5ba942b52bba0ae639069e",
+    "cpu_contact_probe.py": "283255cfac0a9d91e4e1c77014f1d3fc0c6192e1bc3b16ea502c75bbc4e8339f",
+    "dream_identity.py": "53726f21bcf945cf8d6a452683f371fc185d3b1f447e7ef32a3f400efe9fca72",
+    "expert.py": "2d4c5c836d75f2ccf18515d734d2beffe3f840f1ee29648eedb64bab9dcd2a37",
+    "feedback.py": "9fe39cd3fa79a002292697b5bb4b8126959f1f2b9ee9c62ee285ee3f5826a3b3",
+    "freeze_source.py": "b7495db8ca1ab43f9e7d6696d72fe26c95853cb6d8ca8dbd53d9f9436868c960",
+    "generate_scene.py": "8f91b0a09dee1b5a7b2054e5867d67ffdc4127a314d18046b9d49e32edeac4b5",
+    "geometry.py": "400a1da56e494c89d227a7abe71109003b59de21f8f91a69a5da927d59e88144",
+    "install_cpu.py": "6efa3d4d764b586fbcb322c5fc89e7e88ff341148a9c0c31265f02298f9c827d",
+    "motion.py": "a6455fbfd725539f6facf3d18f45788e5e01337fec3c483c64953fc77f4f2fba",
+    "native_feedback.py": "86365bd8d21e1389729d0cf77199191e5aea4a27749b97206307d8114b69a8bf",
+    "native_tests.py": "6a08d4b9e0a5f436c7811e64e9a278d3ed13414e8a817d55a7f0c18d155a6ee1",
+    "prepare_submission.py": "575bb78cff8f39de791a0a20cf2128facd26495accc195618abe6e0329b236d8",
+    "primitives.py": "269e54e25b92312473e84012e863e7e08c586068a660693be3dc25768b0103bf",
+    "probe_cam_path_cpu.py": "2662342e64d95a3451963bab0263de7f55d388d783186ff8b4f6b9862011131c",
+    "render_media.py": "0a5e7587809b252efbf45a50dd883941aa84e283b245b24f94ca6bd4b048d901",
+    "robot_geometry.py": "d3341f5012c0b7c7eefb5547a9277a89dcefc06986319596ba40518be9c2e08f",
+    "run.py": "fb9a4c6b5db617e97ad4fa01e1d7b6c67a3282f231e33f9f8d695eed08f67f25",
+    "run_ledger.py": "c0793bccd7e5134af57824ddfd30f5e7b6e12c3239d9b0632f5833bffbd5f2f1",
+    "scene.json": "431066fa38dd0a5b970c5c9150fb2d3420f066800e3c2306d9e7b83b6910bacb",
+    "scoring.py": "61c8a3d8c4a2d835c06e9d7bf2da013a0aa87ce7db516fc5b89b06a8b98c84f5",
+    "setup_environment.py": "9b971bb9517a688f3b80388e10108f8baac59ec567e971b14e53be8244378553",
+    "stack-lock.json": "d78235334cf77437c0e104465d355ebb0000aecffb782f7750461ba3ea46043d",
+    "static_check.py": "4e938df95b1088fffeaf110f57bfcef4ad847757c9569284c5deb0ee86fdaf95",
+    "task.py": "680262637bc6333accc253194db0eb9642943157ef1935df72e631441a9d0dcc",
+    "task_runner.py": "08f1542ef79cb6c41f1b8e8f5dd449e8a9200c7e4197d5e65836302ff2060d7e",
+    "test_actuator_tracking.py": "4513c0002646411e1892799fff0d1b1fb642cdbb779affe980b14b82a3efa8be",
+    "test_cam_fixture.py": "85651ce471150a8d8cef408eb18d8cf1300491f3168613acd6699c67486fc9a2",
+    "test_cpu_contact_probe.py": "b4d205587a83566bbf5fe213536ccdc1e95838c84bc526bd03ab0698d648df75",
+    "test_dream_identity.py": "6ee4194030118f6b7b711a4ee282f849a83d7d0541d833e80d4e0b1122537771",
+    "test_er.py": "123ce7b1e10a621a7a09ed08d6ac8650f6e42cfd7b296724a9d952c32406c109",
+    "test_fixtures/loaded-lift-stall.json": "5d226f1e2bda3c77088d62bb15b371a5c73f4465c64419783e4cbf0e5d22d04d",
+    "test_fixtures/tilt-slip-keyframe.json": "6a6a973efc7ea912fcdcf663a2ddcb188642b6f5d6696c5b5ae8ea684d315fb4",
+    "test_native_feedback.py": "4b8e0de9df44c1f7ee0e4f577148a5cc9216c7992793ebe5f394023eba79ad23",
+    "validate_rollout.py": "b70e3c26f86769e725033ade91b6d8e0819d1284f6074f75a121c9beb119337e",
+    "verify_assets.py": "c710c9a01027218a38808ed267a46c65dc84e52463b7a277627f9a386484dcdd",
+    "write_native_cases.py": "8e62a5fd3e8530ddced329dff9700953ffba0c3fa8421f8a34cca99711f70d90",
+    "write_parameters.py": "b18dc654164035dc01a80318510fae6b9c83d9ae6e2971499a0df9d05c3f80cf"
+  },
+  "source_bound": true,
+  "checks": [
+    {
+      "step": 0,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 5,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 10,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 15,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 20,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 25,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 30,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 35,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 40,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 45,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 50,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 55,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 60,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 65,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 70,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 75,
+      "phase": 0,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 79,
+      "phase": 1,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 80,
+      "phase": 2,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 85,
+      "phase": 2,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 90,
+      "phase": 2,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 95,
+      "phase": 2,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 100,
+      "phase": 2,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 103,
+      "phase": 2,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 105,
+      "phase": 3,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 110,
+      "phase": 3,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 115,
+      "phase": 3,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 120,
+      "phase": 3,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 125,
+      "phase": 3,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 130,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 135,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 140,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 145,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 150,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 155,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 160,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 165,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 170,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 172,
+      "phase": 4,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 175,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 180,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 185,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 190,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 195,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 200,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 205,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 210,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 215,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 220,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 225,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 230,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 235,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 240,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 245,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 250,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 255,
+      "phase": 5,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 260,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 265,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 270,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 275,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 280,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 285,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 290,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 295,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 299,
+      "phase": 6,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 300,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 305,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 310,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 315,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 320,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 325,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 330,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 335,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 340,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 345,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 350,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 355,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 360,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 365,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 370,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 375,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 380,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 385,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 390,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 395,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 400,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 405,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 410,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 414,
+      "phase": 7,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 415,
+      "phase": 8,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 420,
+      "phase": 8,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 425,
+      "phase": 8,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 430,
+      "phase": 8,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 435,
+      "phase": 8,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 440,
+      "phase": 9,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 442,
+      "phase": 9,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 445,
+      "phase": 10,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 450,
+      "phase": 10,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 452,
+      "phase": 10,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 455,
+      "phase": 11,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 460,
+      "phase": 11,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 462,
+      "phase": 11,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 465,
+      "phase": 12,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 470,
+      "phase": 12,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 472,
+      "phase": 12,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 475,
+      "phase": 13,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 480,
+      "phase": 13,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 482,
+      "phase": 13,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 485,
+      "phase": 14,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 490,
+      "phase": 14,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 492,
+      "phase": 14,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 495,
+      "phase": 15,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 500,
+      "phase": 15,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 502,
+      "phase": 15,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 505,
+      "phase": 16,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 510,
+      "phase": 16,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 512,
+      "phase": 16,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 515,
+      "phase": 17,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 520,
+      "phase": 17,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 522,
+      "phase": 17,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 525,
+      "phase": 18,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 530,
+      "phase": 18,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 532,
+      "phase": 18,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 535,
+      "phase": 19,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 540,
+      "phase": 19,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 542,
+      "phase": 19,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 545,
+      "phase": 20,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 550,
+      "phase": 20,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 552,
+      "phase": 20,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 555,
+      "phase": 21,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 560,
+      "phase": 21,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 562,
+      "phase": 21,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 565,
+      "phase": 22,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 570,
+      "phase": 22,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 572,
+      "phase": 22,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 575,
+      "phase": 23,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 580,
+      "phase": 23,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 582,
+      "phase": 23,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 585,
+      "phase": 24,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 590,
+      "phase": 24,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 592,
+      "phase": 24,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 595,
+      "phase": 25,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 600,
+      "phase": 25,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 602,
+      "phase": 25,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 605,
+      "phase": 26,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 610,
+      "phase": 26,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 612,
+      "phase": 26,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 615,
+      "phase": 27,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 620,
+      "phase": 27,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 622,
+      "phase": 27,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 625,
+      "phase": 28,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 630,
+      "phase": 28,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 632,
+      "phase": 28,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 635,
+      "phase": 29,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 640,
+      "phase": 29,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 645,
+      "phase": 29,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 650,
+      "phase": 30,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 655,
+      "phase": 30,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 660,
+      "phase": 30,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 665,
+      "phase": 30,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 670,
+      "phase": 30,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 672,
+      "phase": 30,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 675,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 680,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 685,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 690,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 695,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 700,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 705,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 710,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 715,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 720,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 725,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 730,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 735,
+      "phase": 31,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 740,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 745,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 750,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 755,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 760,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 765,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 770,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 775,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "step": 780,
+      "phase": 32,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    }
+  ],
+  "error": null,
+  "actions": 781,
+  "passed": true
+}

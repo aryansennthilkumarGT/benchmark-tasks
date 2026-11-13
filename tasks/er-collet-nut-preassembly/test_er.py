@@ -92,8 +92,11 @@ class Tests(unittest.TestCase):
   self.assertFalse(SPEC['collision_exclusions'])
  def test_official_loader_and_expert_binding(self):
   from yam_arena import task_file
-  t=task_file.load(HERE/'task.py');task_file.register('er-cpu-contract',t);x=importlib.import_module(t.module._name+'.expert').policy();x.bind(types.SimpleNamespace(environment_id='er-cpu-contract'));x.reset(None);self.assertEqual(x.info.action_space.shape,(14,))
- def test_no_privileged_pose_reads_or_writes_in_policy(self):
+  t=task_file.load(HERE/'task.py');task_file.register('er-cpu-contract',t);x=importlib.import_module(t.module._name+'.expert').policy();x.bind(types.SimpleNamespace(environment_id='er-cpu-contract'));
+  from unittest.mock import patch
+  with tempfile.TemporaryDirectory() as tmp,patch.dict('os.environ',{'ROBOCURVE_TRACE':str(Path(tmp)/'native.jsonl')}):x.reset(None)
+  self.assertEqual(x.info.action_space.shape,(14,))
+ def test_no_score_reads_or_task_state_writes_in_policy(self):
   for n in ['expert.py','motion.py','feedback.py']:
    attrs={x.attr for x in ast.walk(ast.parse((HERE/n).read_text())) if isinstance(x,ast.Attribute)}
    for forbidden in ['LATEST','EVALUATOR','write_root_pose_to_sim_index','write_joint_position_to_sim_index']:self.assertNotIn(forbidden,attrs)
@@ -117,8 +120,8 @@ class Tests(unittest.TestCase):
   class Ideal:
    reference=None
    def target(self,q,pos,quat,opening,**kw):return q,0.,0.
-  c.motion={s:Ideal() for s in ('left','right')};q=np.zeros(14);q[13]=p['opening'];c.step(q,{'time':0.});c.step(q,{'time':.2});self.assertIsNotNone(c.recovery)
-  with self.assertRaises(ControlFailure):c.step(q,{'time':13.})
+  c.motion={s:Ideal() for s in ('left','right')};q=np.zeros(14);q[13]=p['opening'];c.step(q,frame(t=0.));c.step(q,frame(t=.2));self.assertIsNotNone(c.recovery)
+  with self.assertRaises(ControlFailure):c.step(q,frame(t=13.))
  def test_actual_media_decode_and_frame_count(self):
   import shutil,subprocess
   from render_media import video_check

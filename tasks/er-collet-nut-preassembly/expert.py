@@ -1,4 +1,4 @@
-"""Official Inspect policy. Uses the same robot proprioception available to policies."""
+"""Official Inspect policy. Read-only synchronized part poses are privileged expert feedback."""
 import json
 import os
 from pathlib import Path
@@ -8,13 +8,14 @@ from inspect_robots.types import Action, ActionChunk
 from inspect_robots_yam.config import action_box
 from yam_arena import ik, task_file
 from .feedback import Controller, ControlFailure
+from .native_feedback import NativeFrameReader
 
 
 class Expert(PolicyBase):
     def __init__(self):
         self.info=PolicyInfo(name='rc_expert',action_space=action_box(
             np.tile(np.r_[ik.LOWER,0.],2),np.tile(np.r_[ik.UPPER,1.],2)))
-        self.controller=None;self.last_event=0
+        self.controller=None;self.last_event=0;self.frames=None
 
     def bind(self, info):
         task=task_file.lookup(info.environment_id)
@@ -24,9 +25,13 @@ class Expert(PolicyBase):
     def reset(self, scene):
         if self.controller is None:raise ControlFailure('Expert not bound')
         self.controller.reset();self.last_event=0
+        trace=os.environ.get('ROBOCURVE_TRACE')
+        if not trace:raise ControlFailure('Native frame trace required for state-aware expert')
+        self.frames=NativeFrameReader(trace)
 
     def act(self, observation):
-        command=self.controller.step(observation.state['joint_pos'],{'time':observation.state_time})
+        frame=self.frames.read(observation.state_time)
+        command=self.controller.step(observation.state['joint_pos'],frame)
         path=os.getenv('ROBOCURVE_EXPERT_EVENTS')
         if path:
             with Path(path).open('a') as stream:

@@ -1,9 +1,10 @@
 """ER preassembly expert: absolute joint/gripper actions with bounded proprioceptive recovery.
 
-The scorer observes objects independently. The policy reads only robot joints and
-observation time. No state writes, part attachments or score queries are present.
+The scorer observes objects independently. This scripted expert reads synchronized
+physical part poses and robot joints; model observations are unchanged. No state writes, part attachments or score queries are present.
 """
-import math
+import math,copy
+from yam_arena import ik,station
 import numpy as np
 try:
     from .motion import Motion,ControlFailure,axis_quat,rotate,multiply,qangle,conjugate
@@ -40,6 +41,25 @@ class Controller:
         self.targets[phase['side']]=retry
         self.events.append(dict(event='RECOVERY_START',phase=self.index,kind=kind,attempt=attempts+1,time=now))
 
+    def target_for_part(self,p,frame,q):
+        """Real observed part-pose error mapped through the measured TCP grasp.
+
+        This changes only a robot action target. It never poses/attaches a part.
+        Follow actual grip displacement rather than assuming a rigid nominal
+        transform while the tapered collet rolls/slips in the stock fingers.
+        """
+        name=p.get('contact_body')
+        if not p.get('grasp_width') or name!='collet':return p['target'],None
+        try:b=frame['bodies'][name];pos=np.asarray(b['pos']);quat=np.asarray(b['quat'])
+        except (KeyError,TypeError):raise ControlFailure('Synchronized physical collet pose required')
+        if pos.shape!=(3,) or quat.shape!=(4,) or not np.isfinite(pos).all() or not np.isfinite(quat).all() or abs(np.linalg.norm(quat)-1)>1e-5:
+            raise ControlFailure('Invalid physical collet pose')
+        off=0 if p['side']=='left' else 7;tcp,rotation=ik.tcp_pose(q[off:off+6],station.BASES[p['side']]);tq=ik.matrix_to_quat_xyzw(rotation)
+        desired=p['nominal_bodies'][name];relative=rotate(conjugate(quat),tcp-pos);rq=multiply(conjugate(quat),tq)
+        target=dict(pos=np.asarray(desired['pos'])+rotate(desired['quat'],relative),quat=multiply(desired['quat'],rq))
+        errors=(float(np.linalg.norm(pos-desired['pos'])),qangle(quat,desired['quat']))
+        return target,errors
+
     def step(self,joints,frame):
         now=float(frame['time']);q=np.asarray(joints,dtype=float)
         if q.shape!=(14,) or not np.isfinite(q).all() or not math.isfinite(now):raise ControlFailure('Invalid robot observation')
@@ -51,18 +71,22 @@ class Controller:
         phase=self.phases[self.index]
         if self.started is None:
             self.started=now;self.progress_time=now;self.best=float('inf');self.stable=None
-            self.targets[phase['side']]=phase
+            self.targets[phase['side']]=copy.deepcopy(phase)
+            if phase.get('release_current'):
+                off=0 if phase['side']=='left' else 7;tcp,r=ik.tcp_pose(q[off:off+6],station.BASES[phase['side']])
+                self.targets[phase['side']]['target']=dict(pos=tcp.tolist(),quat=ik.matrix_to_quat_xyzw(r).tolist())
             self.events.append(dict(event='PHASE_START',phase=self.index,label=phase['label'],time=now))
         active=self.recovery['phase'] if self.recovery else phase
         output=q.copy();error=theta=0.
         try:
             for side,p in self.targets.items():
                 start=0 if side=='left' else 7
-                action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],
+                target,part_error=self.target_for_part(p,frame,q)
+                action,pe,re=self.motion[side].target(q[start:start+7],target['pos'],target['quat'],
                     p['opening'],speed=p['speed'],angular_speed=.5,
                     feedback_gain=3. if p.get('grasp_width',0.) else 0.)
                 output[start:start+7]=action
-                if side==phase['side']:error,theta=pe,re
+                if side==phase['side']:error,theta=part_error if part_error is not None else (pe,re)
         except ControlFailure as exc:self.fail(str(exc))
         offset=0 if phase['side']=='left' else 7
         closed=active.get('grasp_width',0.)>0
@@ -89,7 +113,7 @@ class Controller:
         if reached:
             if self.stable is None:self.stable=now
             if now-self.stable>=phase['dwell']:
-                self.events.append(dict(event='PROPRIOCEPTIVE_PHASE_COMPLETE',phase=self.index,label=phase['label'],time=now,
+                self.events.append(dict(event='PHYSICAL_PART_PHASE_COMPLETE' if phase.get('grasp_width') else 'PROPRIOCEPTIVE_PHASE_COMPLETE',phase=self.index,label=phase['label'],time=now,
                     position_error_m=error,rotation_error_rad=theta))
                 self.index+=1;self.started=None;self.done=self.index==len(self.phases)
         else:self.stable=None

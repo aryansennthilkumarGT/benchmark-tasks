@@ -88,7 +88,7 @@ def make_scene():
 
 def make_plan(spec):
     from yam_arena.demo import DOWN_GRIP
-    down=DOWN_GRIP.tolist();states={b['name']:dict(pos=b['pos'].copy(),quat=b['quat'].copy()) for a in spec['assemblies'] for b in a['bodies']};phases=[]
+    down=multiply(DOWN_GRIP,axis_quat([0,0,1],-math.pi/2)).tolist();states={b['name']:dict(pos=b['pos'].copy(),quat=b['quat'].copy()) for a in spec['assemblies'] for b in a['bodies']};phases=[]
     def phase(label,pos,q=down,opening=1.,width=0.,dwell=.12,speed=.06,pose=None):
         if pose:states['collet']=dict(pos=list(pose[0]),quat=list(pose[1]))
         phases.append(dict(label=label,side='right',target=dict(pos=list(pos),quat=q),opening=opening,grasp_width=width,contact_body='collet' if width else None,
@@ -113,6 +113,7 @@ def make_plan(spec):
         p,q=hook_pose(ANGLE*(1-i/20));tool=multiply(q,down).tolist()
         phase(f'Rock groove onto cam increment {i}',tcp(p,q),tool,.22,width,speed=.008,pose=(p,q))
     phase('Release supported preassembly',tcp(CENTER,identity),opening=.65,dwell=.25)
+    phases[-1]['release_current']=True
     phase('Withdraw above preassembly',[CENTER[0],CENTER[1],.91],opening=.65)
     phase('Park handling arm',[.28,-.17,.90],opening=1.)
     phase('Supported preassembly hold',[.28,-.17,.90],opening=1.,dwell=2.2)
