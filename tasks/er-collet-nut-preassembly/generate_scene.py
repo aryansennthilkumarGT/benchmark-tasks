@@ -73,7 +73,7 @@ def make_scene():
       instruction='Prepare the supported ER nut and collet for later toolholder installation. Pick up the collet, tilt it to engage its extraction groove at the marked eccentric-cam side, and rock it upright into the supported nut. Release and withdraw the grippers. Do not insert a cutting tool or tighten a holder.',
       control_hz=20,physics_dt=1/480,gravity=[0,0,-9.81],run_limit=2400,table_top=TABLE,hold_seconds=2.,penetration_limit=.00035,
       assemblies=assemblies,collision_exclusions=[],
-      score_spec=dict(target=CENTER.copy(),hook_pivot=PIVOT,hook_angle=ANGLE,anchors={b['name']:dict(pos=b['pos'],quat=b['quat']) for b in [nut,cradle]},
+      score_spec=dict(initial_collet=PICK.copy(),target=CENTER.copy(),hook_pivot=PIVOT,hook_angle=ANGLE,anchors={b['name']:dict(pos=b['pos'],quat=b['quat']) for b in [nut,cradle]},
         lateral_tolerance=.0006,axial_tolerance=.0003,angle_tolerance=.025,hook_position_tolerance=.001,hook_angle_tolerance=.06,
         hold_seconds=2.,control_hz=20,release_clearance=.020,speed_limit=.008,spin_limit=.15,penetration_limit=.00035,fixture_tolerance=.001,loss_plane=TABLE-.02),
       parameters=dict(collet_D1=.033,collet_D2=.032,collet_D3=.0292,collet_length=LENGTH,collet_groove_width=GROOVE,collet_nose_length=HEAD,collet_bore=.008,

@@ -41,6 +41,11 @@ class Scorer:
    if t==self.time and f==self.previous:return self.result
    return self.fail('time_order')
   if self.time is not None and t-self.time>1.5/s['control_hz']:self.stable=None
+  if self.time is None:
+   if math.dist(bodies['collet']['pos'],s['initial_collet'])>.003:return self.fail('initial_layout')
+  else:
+   distance=math.dist(bodies['collet']['pos'],self.previous['bodies']['collet']['pos'])
+   if distance>2.*(t-self.time)+.010:return self.fail('unobserved_state_jump')
   self.time=t;self.previous=copy.deepcopy(f)
   if self.failed:return self.fail(self.failed)
   for n,a in s['anchors'].items():
@@ -48,19 +53,18 @@ class Scorer:
    if math.dist(a['pos'],bodies[n]['pos'])>s['fixture_tolerance'] or dot<math.cos(s['angle_tolerance']/2):return self.fail('fixture_moved:'+n)
   b=bodies['collet'];p=b['pos'];axis=rotate(b['quat'],[0,0,1]);target=s['target']
   if p[2]<s['loss_plane']:return self.fail('collet_lost')
-  a=s['hook_angle'];pivot=s['hook_pivot'];expected_axis=[math.sin(a),0,math.cos(a)]
-  # R_y(angle) about the declared groove-side pivot, derived from geometry.
-  expected=[target[0]+pivot[0]*(1-math.cos(a)),target[1],target[2]+pivot[0]*math.sin(a)]
-  hook=math.dist(p,expected)<=s['hook_position_tolerance'] and sum(x*y for x,y in zip(axis,expected_axis))>=math.cos(s['hook_angle_tolerance'])
-  if hook:self.hooked=True
-  if math.dist(p,target)>.008:self.hooked=False
+  # Partial credit describes current geometric hook engagement over a range
+  # of valid entry angles. Final seating never requires an exact expert path.
+  pivot=s['hook_pivot'];point=rotate(b['quat'],pivot)+p
+  hook=math.dist(point,[target[0]+pivot[0],target[1],target[2]])<=.0012 and .05<=math.acos(max(-1.,min(1.,axis[2])))<=.45
+  self.hooked=bool(hook)
   seated=math.dist(p[:2],target[:2])<=s['lateral_tolerance'] and abs(p[2]-target[2])<=s['axial_tolerance'] and axis[2]>=math.cos(s['angle_tolerance'])
   still=all(math.sqrt(sum(x*x for x in b['linear']))<=s['speed_limit'] and math.sqrt(sum(x*x for x in b['angular']))<=s['spin_limit'] for b in bodies.values())
-  ready=self.hooked and seated and still and f['robot_clearance']>=s['release_clearance']
+  ready=seated and still and f['robot_clearance']>=s['release_clearance']
   if ready:
    if self.stable is None:self.stable=t
   else:self.stable=None
   success=self.stable is not None and t-self.stable+1e-9>=s['hold_seconds']
-  goals=tuple(n for n,ok in [('groove_hooked',self.hooked),('supported_preassembly',self.hooked and seated)] if ok)
-  score=(.25 if self.hooked else 0.)+(.5 if self.hooked and seated else 0.)
+  goals=tuple(n for n,ok in [('groove_hooked',hook or seated),('supported_preassembly',seated)] if ok)
+  score=.75 if seated else (.25 if hook else 0.)
   self.result=Result(1. if success else score,success,None,goals);return self.result

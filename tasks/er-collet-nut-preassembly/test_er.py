@@ -13,7 +13,7 @@ def frame(states=None,t=0.):
  return dict(schema=1,time=t,bodies={n:dict(pos=list(b['pos']),quat=list(b['quat']),linear=[0,0,0],angular=[0,0,0]) for n,b in states.items()},joints={},max_penetration=0.,robot_clearance=.025)
 
 def completed(s):
- for i,p in enumerate(PLAN['phases']):f=frame(p['nominal_bodies'],i*.05);r=s.update(f)
+ for i,p in enumerate(PLAN['phases']):f=frame(p['nominal_bodies'],i*1.);r=s.update(f)
  for _ in range(41):f['time']+=.05;r=s.update(copy.deepcopy(f))
  return f,r
 
@@ -29,8 +29,8 @@ class Tests(unittest.TestCase):
   p,q=hook_pose();f=frame();f['bodies']['collet'].update(pos=[.48-p[0],p[1],p[2]],quat=[0,-q[1],0,q[3]])
   self.assertEqual(Scorer(SPEC).update(f).score,0.)
  def test_partial_hook_and_out_of_zone_reset(self):
-  p,q=hook_pose();f=frame();f['bodies']['collet'].update(pos=p,quat=q);s=Scorer(SPEC);self.assertEqual(s.update(f).score,.25)
-  f['time']=.05;f['bodies']['collet']['pos'][2]+=.01;self.assertEqual(s.update(f).score,0.)
+  p,q=hook_pose();f=frame();f['bodies']['collet'].update(pos=p,quat=q);s=Scorer(SPEC);s.update(frame());f['time']=1.;self.assertEqual(s.update(f).score,.25)
+  f['time']=1.05;f['bodies']['collet']['pos'][2]+=.01;self.assertEqual(s.update(f).score,0.)
  def test_missing_or_extra_body_nonfinite_and_quaternion_fail(self):
   for change in [lambda f:f['bodies'].pop('collet'),lambda f:f['bodies'].update(fake=f['bodies']['collet']),lambda f:f.update(time=float('nan')),lambda f:f['bodies']['collet'].update(quat=[0,0,0,2])]:
    f=frame();change(f);r=Scorer(SPEC).update(f);self.assertEqual(r.score,0.);self.assertIsNotNone(r.failure)
@@ -58,6 +58,18 @@ class Tests(unittest.TestCase):
  def test_supported_setup_does_not_claim_unsupported_cam_retention(self):
   text=(HERE/'FIDELITY.md').read_text().lower();self.assertIn('not guaranteed',text);self.assertIn('unsupported',text)
   self.assertTrue(SPEC['assemblies'][0]['fixed']);self.assertFalse(SPEC['assemblies'][1]['joints'])
+ def test_alternate_valid_entry_angle_is_not_rejected_by_expert_history(self):
+  from audit_geometry import geometry_module
+  g=geometry_module(HERE);s=Scorer(SPEC);s.update(frame())
+  for i,a in enumerate(np.linspace(-.15,0,21)):
+   pos,q=hook_pose(float(a));f=frame(t=1.+i*.05);f['bodies']['collet'].update(pos=pos,quat=q)
+   self.assertLess(g.maximum_penetration(SPEC,f['bodies']),.00001)
+   r=s.update(copy.deepcopy(f))
+  for _ in range(41):f['time']+=.05;r=s.update(copy.deepcopy(f))
+  self.assertTrue(r.success)
+ def test_impossible_single_frame_pose_jump_is_rejected(self):
+  s=Scorer(SPEC);s.update(frame());f=frame(PLAN['phases'][-1]['nominal_bodies'],.05)
+  self.assertEqual(s.update(f).failure,'unobserved_state_jump')
  def test_composed_usd_mass_and_real_bores(self):
   from verify_assets import verify
   self.assertTrue(verify(HERE)['passed'])
