@@ -1,6 +1,6 @@
 # Eight-task rebuild status
 
-One substantive replacement is implemented and published. The overall eight-task mission remains incomplete: six rebuilds remain, plus the existing twelve-cell package under official review. No new physical or model qualification is claimed.
+Two substantive packages are implemented and published offline. The overall eight-task mission remains incomplete: five rebuilds remain, plus the existing twelve-cell package under official review. No new physical or model qualification is claimed.
 
 ## Completed CPU package
 
@@ -26,22 +26,28 @@ The updated environment successfully accessed GitHub API, Schaeffler, Dell, O*NE
 
 PR #1733 remains open at `a312bcac0f29098731ad40ce30df5fe3a6fcca78`, with the same recorded update timestamp. Its latest visible revision receipt still awaits review. Final closures #1647/#1703/#1772 are preserved. No official PR, upload, GPU provisioning or paid evaluation was performed.
 
-## SAC work in progress — not a completed rebuild
+## Completed SAC CPU package
 
-The independent branch `draft/sac-clutch-tool-installation` is pushed at `297acae264704e7caf46cd24bc8bfacde555987e`. It implements a strict measured-input contract and an executable three-site mounting scorer with continuous helical-history checks, C3 carrier symmetry, independent retainer credit, hand-release hold, fixture/lost-part guards and adversarial tests. The reusable YAM executor is present, but no SAC-specific phase plan is generated.
+The second implemented package is **Mount and retain a SAC installation-tool carrier**, independent branch `draft/sac-clutch-tool-installation` at `b4ba66ee4190f883d27123e889d853e9346815c8`. Its protected tested source is `9da125fd0f52d320782db459ab9f2e13e34ea11b`; the final commit adds evidence only. It replaces the generic spring-plate implementation with the explicitly bounded LuK p29 unloaded carrier/retainer mounting step, before pressure-spindle compression.
 
-All **21 synthetic core tests passed** locally and in a clean HTTPS checkout of that exact commit, with no skips. Free-spin-then-drop and malformed-body observations are explicitly rejected. These are numerical unit tests, not native physics, grasp, controller, IK or collision evidence. The initial clean-checkout pytest command used the wrong directory and collected no tests; running from the actual clone passed. The previous baseline and shackle suites were not rerun.
+The user explicitly authorized original benchmark-fixture geometry. Manufacturer-documented stud count/120° arrangement and available flywheel thread families are distinguished from authored component dimensions, custom upper 12 mm/3 mm contact threads, material assumptions and derived clearances. No upper thread is inferred from the lower M8×1.25 choice. The package includes a full parameter table/CSV, manufacturing and reset instructions, fidelity and adversarial review, seven original USD assets, real open bores/slots and male/female threads, an executable 597-phase YAM expert with bounded recovery, observable scoring, four native mechanism probes/two control prefixes, and future Dream/media/submission tooling.
 
-The provisionally selected scope is the unloaded three-arm spindle-carrier mounting and three knurled retainers, after disc centering, cover dowel location and stud preparation, and before pressure-spindle contact with the diaphragm (LuK section 10.6 p29). It does not claim full clutch installation. The measured support/flush datum must be confirmed before freezing this subset.
+From an independent clean HTTPS checkout, `static_check.py` passed:
 
-LuK and the corroborating Sealey VS011A.V3 manufacturer manual establish the operation and flywheel thread families, but do not supply the carrier/retainer/stud geometry and masses needed to author an accurate scene. Flywheel-side M6×1/M7×1/M8×1.25 does not establish the separate upper stud/retainer thread. Kit weight is not component mass; permanent-fastener torque is not a spindle force law. The additional primary-source retrievals are recorded with hashes in the task's SOURCES.json and `sac-mounting-progress.json` here.
+- 48 unit/contract/controller/adversarial/media tests, zero skips/failures.
+- All 597 IK endpoints and all 597 nominal robot/fixture/table/inter-arm endpoint collision checks.
+- Seven composed USD assets with positive masses/inertia and expected colliders.
+- Nine initial/carrier/thread geometry states with nominal penetration at numerical roundoff.
+- The actual controller completed the ideal joint-tracking fixture in 28,855 actions / 1,442.75 simulated seconds, within the 42,000-action limit. Synthetic jaw contact is assumed; this is not a physics or grasp demonstration.
 
-**The SAC task is incomplete.** Scene/USD assets, SAC phase plan, native harness, task metadata and future evaluation/media workflows are not implemented. The user forbids invented dimensions; a question about allowing explicitly disclosed benchmark-fixture dimensions is unanswered. Synthetic unit-test values cannot be exported as measured hardware. No task count is reduced, no physics evidence is fabricated and no official PR is opened.
+Initial wrist/height reachability failures and an opened-knuckle/carrier-tab collision were repaired before final validation. Adversarial free-spin-then-drop and wrong absolute thread phase are rejected. See `sac-rebuild-result.json` and the task's `offline-evidence/summary.json` for source hashes and exact evidence. The original 648/32 baseline and unchanged shackle suite were not rerun.
+
+Native physics, actual control/expert trials, Dream-1, hardware validation and real media remain **NOT RUN**. Full board inventory/novelty clearance is still unresolved; no official PR or paid evaluation was performed. The protected shackle, pending #1733 and rejected heads remain intact.
 
 ## Precise continuation
 
-Read `CHECKPOINT.json` and `sac-mounting-progress.json`, then switch to `draft/sac-clutch-tool-installation`. Supply manufacturer-dimensioned drawings or measured component data enumerated in `dimensions.REQUIRED`, or obtain explicit permission for labeled benchmark-fixture geometry. Then implement the actual scene, physical interfaces, SAC controller phases and native/runtime workflows; execute geometry, IK, collision, controller and adversarial checks. Complete SAC before moving on.
+Read `CHECKPOINT.json`. Continue the next substantive equipment-grounded rebuild, beginning with the latest hinged-chassis-drive candidate. Its old generic lid/retaining-bar fixture is not completed; inspect actual occupational equipment and nearby official PRs before selecting its successor. Work one package through implementation, affected CPU tests, independent branch push and clean reproduction before moving to another.
 
-Six rebuilds remain: remote-battery-service and node-service-closeout replacements, and hinged-chassis-drive, switch-map-rework, eight-nut-bracket and hardware-order-kit redesigns. The completed shackle package, pending #1733 and rejected PR heads were preserved. Hardware metadata-only repair remains separate at 2f29738. No GPU provision, spending, paid evaluation, credentials or uploads occurred.
+Five rebuilds remain: remote-battery-service and node-service-closeout replacements, and hinged-chassis-drive, switch-map-rework and hardware-order-kit redesigns. Hardware metadata-only repair remains separate at 2f29738. No GPU provision, spending, paid evaluation, credentials or uploads occurred.
 
 The missing original /data raw trajectories and media remain historical evidence gaps. Future native qualification requires renewed GPU authorization and actual provider budget. See GPU_RESUME_PLAN.md at repository root. Existing GPU evidence is historical only.

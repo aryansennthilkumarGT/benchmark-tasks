@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T00:11:26.014377+00:00",
+  "updated_at": "2026-11-13T00:50:48.721875+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -54,21 +54,23 @@
       "classification": "REDESIGN",
       "reason": "Generic spring plate does not implement the cited LuK SAC procedure: centering/dowels, diaphragm, spindle, permanent fastening and tool removal are missing.",
       "existing_branch": "draft/eight-nut-bracket",
-      "replacement_implemented": false,
+      "replacement_implemented": true,
       "reviewer_acceptance_cleared": false,
-      "implementation_in_progress": {
+      "replacement": {
         "slug": "sac-clutch-tool-installation",
         "branch": "draft/sac-clutch-tool-installation",
-        "commit": "297acae264704e7caf46cd24bc8bfacde555987e",
-        "complete_task": false,
-        "cpu_core_tests": {
-          "passed": 21,
+        "commit": "b4ba66ee4190f883d27123e889d853e9346815c8",
+        "tested_source_commit": "9da125fd0f52d320782db459ab9f2e13e34ea11b",
+        "cpu_tests": {
+          "passed": 48,
           "failed": 0,
           "skipped": 0
         },
-        "scene_generated": false,
+        "ik_endpoints": 597,
+        "collision_endpoints": 597,
+        "clean_https_reproduction": true,
         "native_physics": "NOT_RUN",
-        "progress": "coordination/recovery/sac-mounting-progress.json"
+        "reviewer_acceptance_cleared": false
       }
     },
     {
@@ -114,23 +116,22 @@
     }
   ],
   "next": [
-    "git switch draft/sac-clutch-tool-installation",
-    "Read tasks/sac-clutch-tool-installation/README.md and dimensions.py",
-    "Obtain measured/dimensioned component data or explicit permission for disclosed benchmark-fixture geometry. Do not silently use synthetic test dimensions.",
-    "Then implement scene/USD, helical mechanical interfaces, SAC motion plan, scorer adapter, native cases and runtime workflows; run affected geometry/IK/collision/controller tests.",
-    "Complete and verify SAC package before moving to the other five rebuilds. Six rebuilds still remain; preserve shackle ef13ec77 and pending #1733. No GPU spending or official replacement PR."
+    "Next candidate: inspect latest draft/hinged-chassis-drive and select a documented real equipment service procedure before implementing a new independent package. Existing generic hinged lid/retainer and its historical stall are not a completed redesign.",
+    "Check occupational importance and meaningful novelty against official nearby PRs (including drive-lever PR #146); do not assume a generic drive tray is novel. If weak, choose a better documented replacement.",
+    "Implement scene/assets, native interfaces, robot phases and feedback, objective scoring/reset, native probes, metadata and future workflows, then affected CPU tests and clean-checkout verification; push that package before moving on.",
+    "Remaining five: hinged-chassis-drive and switch-map-rework and hardware-order-kit redesigns; remote-battery-service and node-service-closeout replacements.",
+    "Preserve shackle ef13ec77 and SAC b4ba66e, pending PR #1733, and finally rejected heads. No GPU spending, paid model calls or official unvalidated replacement PRs."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
-    "Strict measured-dimension input contract with units/provenance and no silent production defaults",
-    "C3 carrier alignment and independent, continuous pitch-consistent retainer histories",
-    "Released-hand hold and physical-state invalidation core",
-    "Reusable YAM joint-observation executor; no SAC-specific phase plan",
-    "Pushed partial SAC implementation at 297acae264704e7caf46cd24bc8bfacde555987e; 21 synthetic core tests passed in a clean HTTPS checkout. This is not a completed task."
+    "Complete independent SAC BENCHMARK_AUTHORED scene with seven original USD assets and physical square-profile contact threads",
+    "597-phase executable YAM expert, bounded recovery, scorer/anti-shortcut tests, native/Dream/media/metadata/manufacturing workflows",
+    "48 tests, all 597 IK endpoints, all 597 robot collision endpoints, nine contact-geometry states; actual controller completed 28855 actions in ideal tracking fixture",
+    "Clean HTTPS static_check.py passed exact source 9da125fd0f52d320782db459ab9f2e13e34ea11b; evidence-only final branch tip b4ba66ee4190f883d27123e889d853e9346815c8"
   ],
   "current_review_outcomes_verified_via_public_github_html": true,
-  "offline_implemented_replacements": 1,
-  "remaining_rebuilds": 6,
+  "offline_implemented_replacements": 2,
+  "remaining_rebuilds": 5,
   "research_access": {
     "tasks.robocurve.org": "HTTP 403, Cloudflare 1010, website-side",
     "api.github.com": "HTTP 200",
@@ -147,6 +148,6 @@
     "updated_at": "2026-11-12T12:22:25Z",
     "head_changed_by_this_mission": false
   },
-  "current_work": "SAC mounting core committed and tested; scene authoring blocked on absent measured dimensions or explicit benchmark-fixture modeling choice.",
-  "sac_progress": "coordination/recovery/sac-mounting-progress.json"
+  "current_work": "SAC offline package implemented and clean-checkout verified; continue next substantive equipment-grounded rebuild.",
+  "sac_progress": "coordination/recovery/sac-rebuild-result.json"
 }
