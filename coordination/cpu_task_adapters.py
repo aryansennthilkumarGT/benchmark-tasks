@@ -16,7 +16,7 @@ from yam_arena.urdf import forward_kinematics
 
 
 def runtime_hashes(folder):
- files=list(folder.glob('*.py'))+list(folder.glob('*.json'))+list((folder/'assets').glob('*.usda'))
+ files=list(folder.glob('*.py'))+list(folder.glob('*.json'))+list((folder/'assets').glob('*.usda'))+list((folder/'test_fixtures').glob('*.json'))
  return {p.relative_to(folder).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}
 
 

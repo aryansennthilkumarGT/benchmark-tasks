@@ -9,13 +9,14 @@
       "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "task_folder": "tasks/er-collet-nut-preassembly",
       "priority": 1,
-      "offline_state": "OFFLINE READY",
+      "offline_state": "REVISION_REQUIRED",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",
       "maximum_qualification_seconds": 7200,
       "offline_evidence": {
         "path": "coordination/recovery/offline-bundles/er-collet-nut-preassembly/bundle.json",
         "sha256": "79b19b1de3afcad5c79e64374c3cea1a9fa297b337560c600be74c0dd48fb4d1"
-      }
+      },
+      "readiness_reason": "Fresh clean actuated MuJoCo robot trial fails Lift collet from cradle under load and exceeds SDK gripper speed; repair on independent successor. Historical geometric/contact evidence preserved."
     },
     {
       "slug": "rigging-shackle-connection",
@@ -41,14 +42,15 @@
       "commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "task_folder": "tasks/cargo-bar-controlled-release",
       "priority": 2,
-      "offline_state": "OFFLINE READY",
+      "offline_state": "REVISION_REQUIRED",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",
       "maximum_qualification_seconds": 7200,
       "offline_evidence": {
         "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/bundle.json",
         "sha256": "433403e52cabfe95809446d63688af06667e1d89f5dcb7fdc7f4a5ffefe009ef"
       },
-      "status": "OFFLINE HIGH CONFIDENCE"
+      "status": "OFFLINE HIGH CONFIDENCE",
+      "readiness_reason": "New clean actuated robot run fails constrained handle completion at physical score0.25, SDK gripvelocity1.456; actual joint/trigger conditions meet but TCP352.7um is just outside350um controller tolerance. Independent controller repair needed."
     },
     {
       "slug": "brad-nailer-jam-recovery",

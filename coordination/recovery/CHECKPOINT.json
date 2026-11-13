@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T19:35:28.565601+00:00",
+  "updated_at": "2026-11-13T19:50:58.515530+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -61,12 +61,13 @@
         "clean_https_current_source": true,
         "source_manifest_sha256": "1ee21cdb40010b146f7b0deebd058b2b1ba8295c101af7e57f6a501d2ada63d2",
         "static_stages_passed": 16,
-        "offline_state": "OFFLINE READY",
+        "offline_state": "REVISION_REQUIRED",
         "readiness_bundle": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/bundle.json",
         "max_grasp_constraint_residual_m": 7.134141751239107e-05,
         "joint_interface_checks": 576,
         "guard_motion_samples": 83,
-        "guard_shapes": 207
+        "guard_shapes": 207,
+        "historical_offline_state": "OFFLINE READY"
       }
     },
     {
@@ -247,8 +248,8 @@
   "review_v21": {
     "integrated": true,
     "top_three_milestone_reached": false,
-    "confirmed_offline_high_confidence_count": 2,
-    "reason": "New supplemental actuated-robot/contact coverage exposes an unresolved nailer acquisition stall. Historical offline tests remain valid in their scope; readiness held pending repair or verified model explanation. ER/cargo preserved.",
+    "confirmed_offline_high_confidence_count": 0,
+    "reason": "Fresh actual actuated CPU robot coverage finds fixable controller/SDK speed failures on ER, cargo and nailer. Historical source/evidence preserved; no task remains internally qualified until affected repairs pass.",
     "repair_branches": {
       "shackle-v21": {
         "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
@@ -363,13 +364,14 @@
       "clean_https_current_source": true,
       "source_manifest_sha256": "090367e8a24cd641db5256d021b8e64d74eca5a4ce516d13b56ddb865acb27db",
       "static_stages_passed": 16,
-      "offline_state": "OFFLINE HIGH CONFIDENCE",
+      "offline_state": "REVISION_REQUIRED",
       "readiness_bundle": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/bundle.json",
       "max_grasp_constraint_residual_m": 7.134141751239107e-05,
       "joint_interface_checks": 576,
       "guard_motion_samples": 83,
       "guard_shapes": 207,
-      "unchanged_runtime_evidence_source": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7"
+      "unchanged_runtime_evidence_source": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7",
+      "historical_offline_state": "OFFLINE HIGH CONFIDENCE"
     },
     "nailer": {
       "branch": "draft/brad-nailer-jam-recovery",
@@ -501,14 +503,14 @@
     "optimized_prefix": "7of49phases/520actions/26s; working-tree diagnostic only, not full success; gripper velocity mismatch unresolved",
     "harness": "coordination/cpu_yam_trial.py",
     "source_initial_harness_commit": "937f7f6",
-    "next": "Inspect actual report or last frame. Do not start duplicate process. If interrupted, resume exact clean sources/model from integration-checkpoint.npz with --resume; repair any remaining full-controller failures.",
+    "next": "Implement slow live-pose crosspin acquisition, retain actual empty-grip guard and failure replay; full clean-source run required.",
     "repair_commit": "0d27a3bd4663dc2fae63f522a73c1230d4f9b78c",
     "cpu_tests": 56,
     "full_actual_fk_samples": 637,
     "ideal_actions": 2799,
     "ideal_seconds": 139.95,
     "geometry_failure_fixed": "409um stock-finger bumper intrusion fixed by2mm forward grasp;50um unintentional-contact screen passes full path",
-    "new_real_physics_result": "Reach fixed; acquisition fails after2bounded retries in old compliant robot-contact model. SDK velocity ratio now0.723, not1.44.",
+    "new_real_physics_result": "Door reacquisition repair succeeds; phase30 real crosspin grip fails after2bounded retries. Full2614actions/130.7s, score0.5, no warnings, velocity ratio0.7328. Dynamic pin moves while frozen grasp target closes quickly.",
     "contact_calibration": "Subdivision4/8 converge to0.923/0.933mm real jaw aperture; empty controls0; no solver warnings. No geometry/mass/friction/score changes.",
     "environment_interruption": "Fresh005078a/e13c03c refined4 run stopped by environment restart at phase17/~84.7s; no report. Complete retained frames prove aperture0.923mm but0.73mm TCP deflection prevents former0.4mm grip check.",
     "capture_repair": "Only brad acquisition permits1mm TCP compliance; actual jaw check/scoring unchanged; actual recorded capture and empty-grip negative regression pass.",
@@ -518,7 +520,7 @@
     "clean_harness_tests": 11,
     "clean_task_tests": 55,
     "full_run_output": "/tmp/nailer-yam-door-wide-clean-refined4",
-    "full_run_state": "RUNNING_NO_FULL_RESULT_YET",
+    "full_run_state": "FAILED_NEW_PIN_ACQUISITION_FAILURE",
     "resume_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /workspace/.robocurve-offline/venv/bin/python /tmp/cpu-score-gate-harness-clean/coordination/cpu_yam_trial.py --task-folder /tmp/nailer-door-wide-clean/tasks/brad-nailer-jam-recovery --output /tmp/nailer-yam-door-wide-clean-refined4 --max-actions 5000 --wall-seconds 3600 --physics-subdivision 4 --checkpoint-every 50 --resume",
     "prior_complete_failure": "4315875 actual fresh run1993actions/99.65s: brad extracted and deposited, physical score0.5; stalls phase26 door reacquisition. No warnings, velocity ratio0.7322; evidence retained in cpu-yam-diagnostics/nailer-clean-capture-failure-4315875.",
     "door_approach_repair": "Open approach/reach32.9mm, unchanged closed grasp; actual recorded displaced door geometry regression rejects former3.758mm finger intrusion and passes wider aperture."
@@ -537,5 +539,57 @@
     },
     "scope": "Preservation/initialization audit, not full controller or native success",
     "harness_tests_passed": 13
+  },
+  "active_supplemental_cpu_trials": {
+    "native_isaac": false,
+    "gpu_services": false,
+    "harness_commit": "3e41d67b9f261bba386023559dc0b28f53f8fe55",
+    "clean_harness_tests": 13,
+    "sources_equal_preservation_audits": true,
+    "trials": [
+      {
+        "slug": "er-collet-nut-preassembly",
+        "source_commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+        "output": "/tmp/er-yam-actual-clean-refined4",
+        "max_actions": 2400,
+        "physics_subdivision": 4,
+        "state": "FAILED_NEEDS_ACTUATOR_REPAIR"
+      },
+      {
+        "slug": "cargo-bar-controlled-release",
+        "source_commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
+        "output": "/tmp/cargo-yam-actual-clean-refined4",
+        "max_actions": 5000,
+        "physics_subdivision": 4,
+        "state": "FAILED_NEEDS_ACTUATOR_REPAIR"
+      }
+    ],
+    "resume": "Inspect real report first. If process died, same clean source/harness, same output/actions/subdivision/wall3600, add --resume. Never resume finished reports or changed sources."
+  },
+  "er_robot_repair": {
+    "branch": "optimization/er-actuator-tracking",
+    "worktree": "/workspace/er-tracking",
+    "preserved_source": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+    "state": "IN_PROGRESS_NOT_QUALIFIED",
+    "actual_failure": "Fresh clean actual CPU controller349actions/17.45s fails Lift collet from cradle; score0, no solver warnings, SDK peakvelocity ratio1.5357. Real contacts hold/lift actual collet; no virtual grasp.",
+    "evidence": "coordination/recovery/cpu-yam-diagnostics/er-clean-robot-failure-1263eb9",
+    "next": "Fresh clean HTTPS full actual CPU robot trial at subdivision4, preserving native/scorer requirements.",
+    "repair_commit": "c17e60091ab3ca50e77d557a7c371ca76657c280",
+    "unit_tests": 38,
+    "ideal_actions": 770,
+    "ideal_seconds": 38.5,
+    "strict_actual_fk_samples": 165,
+    "strict_unintentional_contact_bound_m": 5e-05
+  },
+  "cargo_robot_repair": {
+    "preserved_source": "72e33f89853577aadebb78e64a1e783bd9087e84",
+    "state": "IN_PROGRESS_NOT_QUALIFIED",
+    "failure": "Actual clean1410actions/70.5s, phase8, score0.25, no warnings, velocity ratio1.4556. All physical handle/trigger checks true, measured acquired-grasp TCP error352.706um vs350um tolerance; angleerror0.001355rad.",
+    "next": "Separate successor:0.05gripper slew, bounded SDK-consistent tracking; optimize persistent arc reference; reconcile constrained-handle controller tolerance with measured compliant grasp without changing independent scoring/joint criteria.",
+    "branch": "optimization/cargo-actuator-tracking",
+    "worktree": "/workspace/cargo-tracking",
+    "unit_tests": 46,
+    "paired_carry_tracking_guard_rad": 0.025,
+    "normal_tracking_guard_rad": 0.08
   }
 }
