@@ -145,6 +145,10 @@ class Controller:
   if self.started is None:
    self.targets[p['side']]=self.bind(p,frame,q);self.started=now;self.progress_time=now;self.best=float('inf');self.stable=None
    self.events.append(dict(event='PHASE_START',phase=self.index,label=p['label'],time=now))
+  if not self.recovery and p.get('reference_live'):
+   # Follow the measured free pin during slow jaw closure. A frozen world
+   # grasp lets one pad eject the low-inertia bail before the second contacts.
+   self.targets[p['side']]=self.bind(p,frame,q)
   active=self.recovery['target'] if self.recovery else self.targets[p['side']];output=q.copy();error=theta=0.
   try:
    for side,target in self.targets.items():
@@ -156,7 +160,7 @@ class Controller:
      output[start+6]=q[start+6]+float(np.clip(target['opening']-q[start+6],-.05,.05))
      continue
     if 'arc' in target:continue
-    action,pe,re=self.motion[side].target(q[start:start+7],target['target']['pos'],target['target']['quat'],target['opening'],speed=target['speed'],angular_speed=.6)
+    action,pe,re=self.motion[side].target(q[start:start+7],target['target']['pos'],target['target']['quat'],target['opening'],speed=target['speed'],angular_speed=.6,gripper_step=target.get('gripper_step',.05))
     output[start:start+7]=action
     if side==p['side']:error,theta=pe,re
    if 'arc' in active:output,error,theta=self.arc_action(active,frame,q,output)

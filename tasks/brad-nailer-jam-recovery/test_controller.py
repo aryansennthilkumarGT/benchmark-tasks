@@ -137,3 +137,17 @@ def test_released_door_entry_clears_recorded_motion_before_jaw_closure():
  assert any(h['body']=='nose_door' and h['penetration_m']>.002 for h in hits(.06))
  assert hits(p['opening'])==[]
  assert next(p for p in c.phases if p['label']=='Regrasp open nose door')['opening']==0.
+
+
+def test_pin_capture_tracks_actual_free_pin_motion_and_preserves_empty_jaw_guard():
+ data=json.loads((HERE/'test_fixtures/pin-capture-keyframes.json').read_text());assert data['not_success'] and data['not_isaac']
+ f,c=fixture();c.index=30;p=c.phases[30];assert p['grasp_width']==.0022
+ previous=None;displacement=0.
+ for row in data['frames']:
+  q=np.array(row['robot_q']);frame=copy.deepcopy(row['frame']);action=c.step(q,frame)
+  bound=np.array(c.targets['right']['target']['pos'])
+  expected=c.bind(p,frame,q)['target']['pos'];assert np.allclose(bound,expected)
+  if previous is not None:displacement+=float(np.linalg.norm(bound-previous))
+  previous=bound
+  assert abs(action[13]-q[13])<=.005001
+ assert displacement>p['position_tolerance'] and not c.done and c.index==30

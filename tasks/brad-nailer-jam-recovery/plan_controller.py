@@ -93,6 +93,7 @@ def make_plan(spec):
  grip('Approach outboard crosspin','right','bail_crosspin',local,tool,.05,away=.015)
  grip('Reach outboard crosspin','right','bail_crosspin',local,tool,.05)
  grip('Grip outboard crosspin','right','bail_crosspin',local,tool,0.,.0022,dwell=.35)
+ phases[-1].update(reference_live=True,gripper_step=.005)
  arc('Close door while carrying pin clear','left','nose_door','door_rotation',0.,0.,.003,coupled='rigid',follower='right')
  # Engage both ends BEFORE the separate lever push, as manufacturer step6
  # specifies. No second hand occupies the pin during the final lever stroke.

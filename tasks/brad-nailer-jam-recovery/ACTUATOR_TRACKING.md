@@ -22,3 +22,8 @@ The optional root CPU diagnostic now preserves actual MuJoCo integration state, 
 ## Actual door reacquisition failure and entry repair
 
 Clean source4315875 with clean CPU harness06b8c7f completes brad acquisition, extraction and deposition, but stops at phase26/1993actions/99.65s with physical score0.5. No solver warnings; SDK velocity ratio0.7322. It is a failed supplemental run, not native qualification. The5.6mm entry gap contacts the freely hinged3mm door and pushes its angle from1.9159rad to1.7613rad; the phase retains its bound world target. The new32.9mm approach/reach opening matches the successful initial door entry; final acquisition still closes onto the unchanged3mm plate. A regression uses the actual start/stall observations and original stock finger meshes: the former target overlaps the displaced door by3.758mm; the wider entry has no task collision at that same target/door state. A fresh full physical run is required; static clearance does not prove the capture or relatching succeeds.
+
+
+## Actual free-pin capture failure and live slow closure
+
+Clean0d27a3b completes the formerly failing door reach/regrasp, then exhausts two bounded retries on phase30 crosspin grip.2614actions/130.7s, score0.5, no solver warnings, SDK velocity ratio0.7328. The initial finger contact rotates the unrestrained bail/lever and the frozen world target closes on empty space. The successor follows measured pin pose only during acquisition and closes at0.005normalized per tick (0.47mm jaw aperture per50ms). Actual nonempty-jaw, TCP, timeout and two-retry checks remain. All task mechanics/scoring are unchanged. Recorded early failed frames exercise live reference updating and the slower command bound, without claiming fresh physics success.

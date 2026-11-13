@@ -68,7 +68,7 @@ class Motion:
         self.reference = None
         self.tracking_error_limit = tracking_error_limit
 
-    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.):
+    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.,gripper_step=.05):
         q=np.asarray(measured,dtype=float)
         if q.shape!=(7,) or not np.isfinite(q).all():raise ControlFailure('Invalid proprioception')
         arm = q[:6]
@@ -77,7 +77,9 @@ class Motion:
         quat = unit(quat)
         error = float(np.linalg.norm(measured_pos - pos))
         theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
-        grip = q[6] + float(np.clip(opening-q[6], -0.05, 0.05))
+        if not math.isfinite(gripper_step) or not 0 < gripper_step <= .05:
+            raise ControlFailure('Invalid gripper reference slew')
+        grip = q[6] + float(np.clip(opening-q[6], -gripper_step, gripper_step))
         if self.reference is None:
             self.reference = arm.copy()
         if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:
