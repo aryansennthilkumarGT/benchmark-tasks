@@ -72,8 +72,8 @@ For SDK measurements on the first authorized cargo diagnostic, prefer the instru
 Keep coordinator and task sources in separate checkouts:
 
 ```bash
-git clone --no-checkout https://github.com/aryansennthilkumarGT/benchmark-tasks.git /data/robocurve-coordinator
-git -C /data/robocurve-coordinator checkout --detach dcac58e442a0d2da083ecdd13bd76f3c189c3576
+git -C /data/benchmark-tasks fetch origin dcac58e442a0d2da083ecdd13bd76f3c189c3576
+git -C /data/benchmark-tasks worktree add --detach /data/robocurve-coordinator dcac58e442a0d2da083ecdd13bd76f3c189c3576
 # TASK checkout stays at4740eba2b60a17041798e690d307b37a120ebfc1.
 timeout --signal=TERM --kill-after=30s 1200s "$GPU_PY" \
  /data/robocurve-coordinator/coordination/diagnostic_native.py \
@@ -83,4 +83,4 @@ timeout --signal=TERM --kill-after=30s 1200s "$GPU_PY" \
  --expected-physics-hz 960 --render-every 1 --sdk-limits --fail-fast
 ```
 
-If the coordinator checkout already exists, verify its clean exact dcac58e source instead of cloning over it. Native telemetry appears in native-sdk-samples.jsonl and the adjacent render-diagnostic.json receipt, including original native script/wrapper hashes, actual configured device/timing and SDK SI caps. The ordinary native failure artifact retains controller/gripper references and actual applied efforts. No source controller/scorer, gain, task geometry or state is changed by this diagnostic. For an explicitly authorized ER/nailer diagnostic the same helper accepts their actual480/1920Hz physics; keep the exact task source/case/timeouts above. No authorization to execute is implied by any command here.
+If the coordinator checkout already exists, verify its clean exact dcac58e source instead of adding another worktree over it. This shares the existing Git object cache and leaves the task checkout unchanged. Native telemetry appears in native-sdk-samples.jsonl and the adjacent render-diagnostic.json receipt, including original native script/wrapper hashes, actual configured device/timing and SDK SI caps. The ordinary native failure artifact retains controller/gripper references and actual applied efforts. No source controller/scorer, gain, task geometry or state is changed by this diagnostic. For an explicitly authorized ER/nailer diagnostic the same helper accepts their actual480/1920Hz physics; keep the exact task source/case/timeouts above. No authorization to execute is implied by any command here.
