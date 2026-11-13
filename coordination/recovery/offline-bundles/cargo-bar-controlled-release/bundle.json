@@ -2,9 +2,9 @@
   "schema": 1,
   "slug": "cargo-bar-controlled-release",
   "decision": "OFFLINE READY",
-  "published_commit": "2f8212379c039c70abfe569c4917ed6cb4fadd46",
-  "tested_source_commit": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7",
-  "source_manifest_sha256": "1ee21cdb40010b146f7b0deebd058b2b1ba8295c101af7e57f6a501d2ada63d2",
+  "published_commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
+  "tested_source_commit": "e62f3f7f890efeaf91955cf10257e1cacc3ee325",
+  "source_manifest_sha256": "090367e8a24cd641db5256d021b8e64d74eca5a4ce516d13b56ddb865acb27db",
   "physics_executed": false,
   "supplemental_mujoco_executed": true,
   "physics_field_scope": "No native Isaac/PhysX; named supplemental CPU probes only.",
@@ -13,38 +13,38 @@
     "technical": {
       "passed": true,
       "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/technical.json",
-      "sha256": "27a6b794942ae0dd1db9808bdd78860a0d02f124a1b882b5188eac668ebf5ffb"
+      "sha256": "2116f7ef4c1e15e328cf9a06527e88f6a70a9850ead456da0fb3d9af07dd9281"
     },
     "occupation_and_novelty": {
       "passed": true,
       "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/occupation_and_novelty.json",
-      "sha256": "a1715b5b900c6412d05ffad3893199a06770a3bff515b48c5be3c5d3b70a11df"
+      "sha256": "809a4d3e1df2c77634c5ac9d935fca873285768907b9bca7a2660b662707a494"
     },
     "scoring_and_measurement": {
       "passed": true,
       "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/scoring_and_measurement.json",
-      "sha256": "d275e9315dcc1480ad065cb35724510e13817cc287c849d7b1dc5deb5938ac76"
+      "sha256": "2bd818620af81159b3cdeee5c744453293d043a6833216a8e0cb8ec0e91d44a4"
     },
     "independent_reproduction": {
       "passed": true,
       "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/independent_reproduction.json",
-      "sha256": "da88a1e5f2d6d66a1d40acaadcb1903553132a618635cf4eee871dc08793b425"
+      "sha256": "455ef5bd24bb497d42628e93f508cde1d73230a4785c3e3fe2774b24d028ade5"
     },
     "final_readiness": {
       "passed": true,
       "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/final_readiness.json",
-      "sha256": "2e9e7f9f62c8eb22ddeb4d34f01c826d7de0d00c0f5efd9a9143a7ee9771973c"
+      "sha256": "f4f64fc4292e2cf1b4a0cd3fc3759509357504320db8542a0bcaee5a435353bf"
     }
   },
   "reports": {
     "unit": {
       "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/unit.json",
-      "sha256": "a2e5f56a393631acfc93d00d9c82f6ec834bb6c385ab6991e6e00ea7d4bfc625",
+      "sha256": "b3790109a3b5e051cc5ae12e799c0e03bf97021ea77afe1ab451ddd43a3f1f12",
       "passed": true
     },
     "clean_checkout": {
       "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/clean_checkout.json",
-      "sha256": "a2e5f56a393631acfc93d00d9c82f6ec834bb6c385ab6991e6e00ea7d4bfc625",
+      "sha256": "b3790109a3b5e051cc5ae12e799c0e03bf97021ea77afe1ab451ddd43a3f1f12",
       "passed": true
     },
     "assets": {
@@ -85,5 +85,11 @@
   ],
   "inventory_limit": "Authenticated task board unavailable; scoped accessible semantic comparisons only.",
   "submission_ready": false,
-  "external_acceptance": false
+  "external_acceptance": false,
+  "readiness_label": "OFFLINE HIGH CONFIDENCE",
+  "reuse_proof": {
+    "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/source-equivalence.json",
+    "sha256": "09347d6d56c3a7277cc67905a637f3d8ad6514ef8dcc8d2691c83092ce2cc381"
+  },
+  "historical_validated_source": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7"
 }

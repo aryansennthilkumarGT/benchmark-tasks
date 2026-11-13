@@ -34,20 +34,19 @@
     },
     {
       "slug": "cargo-bar-controlled-release",
-      "branch": "draft/cargo-bar-controlled-release",
-      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/cargo-bar-controlled-release",
-      "commit": "2f8212379c039c70abfe569c4917ed6cb4fadd46",
+      "branch": "repair/cargo-bar-angular-units",
+      "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/repair/cargo-bar-angular-units",
+      "commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "task_folder": "tasks/cargo-bar-controlled-release",
       "priority": 3,
-      "offline_state": "REPAIR REQUIRED",
+      "offline_state": "OFFLINE READY",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",
       "maximum_qualification_seconds": 7200,
       "offline_evidence": {
         "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/bundle.json",
-        "sha256": "76e2e5ef250a8ddf33a4e40688454847885abc3fb945266b36eb0f9ed2f78ed1"
+        "sha256": "433403e52cabfe95809446d63688af06667e1d89f5dcb7fdc7f4a5ffefe009ef"
       },
-      "status": "REPAIR REQUIRED",
-      "repair_reason": "Confirmed USD angular drive coefficient unit conversion; native SI actuator override is not a standalone asset validation. Revalidate successor source."
+      "status": "OFFLINE HIGH CONFIDENCE"
     },
     {
       "slug": "drive-bracket-pin-release",
@@ -60,5 +59,6 @@
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",
       "maximum_qualification_seconds": 7200
     }
-  ]
+  ],
+  "offline_evidence_root": "../.."
 }

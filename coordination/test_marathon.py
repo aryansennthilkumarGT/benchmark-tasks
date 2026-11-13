@@ -35,3 +35,25 @@ def test_quality_rank_precedes_speed():
 def test_protected_pending_and_rejected_branches_cannot_be_selected():
  t=task(0);t['branch']='publication/twelve-cell-pack'
  with pytest.raises(Incomplete,match='Unexpected|Protected'):marathon.ranked(dict(schema_version=3,tasks=[t]))
+
+
+def test_nested_manifest_resolves_declared_evidence_root_without_network(tmp_path):
+ from test_offline_gate import fixture
+ from engine import read
+ t,d,bundle=fixture(tmp_path)
+ t.update(branch='repair/fixture',task_folder='tasks/fixture',offline_state='OFFLINE READY',priority=1)
+ nested=tmp_path/'nested'/'recovery';nested.mkdir(parents=True)
+ path=nested/'manifest.json';m=dict(schema_version=3,offline_evidence_root='../..',tasks=[t]);atomic(path,m)
+ with patch.object(marathon.pipeline,'main',side_effect=AssertionError('Preview executed paid work')),contextlib.redirect_stdout(io.StringIO()) as out:
+  assert marathon.main(['--manifest',str(path),'--run-root',str(tmp_path/'runs'),'--verify-offline'])==0
+ result=json.loads(out.getvalue());assert result['verified_offline_bundles'][0]['published_commit']==t['commit']
+ assert not (tmp_path/'runs').exists()
+
+
+def test_preview_verification_fails_on_changed_real_bundle_before_any_runtime(tmp_path):
+ from test_offline_gate import fixture
+ t,d,bundle=fixture(tmp_path);t.update(branch='repair/fixture',task_folder='tasks/fixture',offline_state='OFFLINE READY',priority=1)
+ path=tmp_path/'manifest.json';atomic(path,dict(schema_version=3,tasks=[t]));bundle.write_text('{}')
+ with pytest.raises(Incomplete,match='bundle changed'),patch.object(marathon.pipeline,'main',side_effect=AssertionError('Paid work executed')):
+  marathon.main(['--manifest',str(path),'--run-root',str(tmp_path/'runs'),'--verify-offline'])
+ assert not (tmp_path/'runs').exists()

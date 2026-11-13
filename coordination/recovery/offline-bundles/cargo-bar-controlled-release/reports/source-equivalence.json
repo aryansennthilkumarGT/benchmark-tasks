@@ -1,0 +1,38 @@
+{
+  "kind": "EXACT_FILE_EQUIVALENCE_AND_TARGETED_USD_REVALIDATION",
+  "passed": true,
+  "previous_tested_source_commit": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7",
+  "previous_published_commit": "2f8212379c039c70abfe569c4917ed6cb4fadd46",
+  "tested_source_commit": "e62f3f7f890efeaf91955cf10257e1cacc3ee325",
+  "source_manifest_sha256": "090367e8a24cd641db5256d021b8e64d74eca5a4ce516d13b56ddb865acb27db",
+  "changed_files": {
+    "test_physical_contracts.py": {
+      "old": "4e93a354db10f793e20555383edda999d99f3e9160689523c1e0d50f760b9739",
+      "new": "1c813bd795ece3f2a91192e7af62fcf5dd0b2be5055bf2112ccf3ba9f836e997"
+    },
+    "USD_UNITS.md": {
+      "old": null,
+      "new": "ac94c86f9037607e20fed26125557a0273766a77a11c449f004c5373e02e885e"
+    },
+    "assets/cargo_bar_asset.usda": {
+      "old": "8d370b79895b5f7f2de9ef44ba57181be09fec93aa243efca5be369398de104b",
+      "new": "216b84646d0e83d281b2a29f8faa78ad0c19061e6d843103b79330c09eeec70f"
+    },
+    "build_assets.py": {
+      "old": "870d229830b72807b7f0fc3aa6b401718f55fd57c7d73ef1d27b1386b414ee7a",
+      "new": "3b3bbbddae509c8150f033fc57e850dd7d1448aaca4d8362b075dd6b78b34bd0"
+    }
+  },
+  "unchanged_manifest_files": 81,
+  "usd_change_scope": "Only six angular damping/stiffness attributes; no geometry/mass/material/frame changes",
+  "reused_evidence": "Original16-stage source-bound clean evidence remains valid only for unchanged scene, MuJoCo, controller, scorer, IK/FK and interfaces. These did not rerun.",
+  "actual_checks_rerun": [
+    "45 pytest tests",
+    "actual USD drive/limits/targets attributes",
+    "byte-identical USD rebuild",
+    "complete source-manifest integrity",
+    "fresh HTTPS checkout and clean Git status"
+  ],
+  "native_isaac_executed": false,
+  "hardware_executed": false
+}

@@ -1,3 +1,9 @@
+# Confirmed cargo angular-unit repair — 2026-11-13
+
+The cargo successor repair/cargo-bar-angular-units at72e33f8 preserves the old2f82123 head. Fresh HTTPS sourcee62f3f7 passes45 tests, actual USD regeneration and manifest integrity. Exact old/new file comparison proves only the exporter, six angular USD coefficient attributes, regression test and units documentation changed. Existing long controller/contact/FK evidence is explicitly reused for byte-identical inputs, not claimed rerun. Shackle/ER remain qualified; the three internal high-confidence gates are restored. No native Isaac/YAM or hardware success is implied.
+
+The pipeline now resolves evidence paths against an explicit manifest-relative root and can verify real bundles during a pure preview. Fourteen affected orchestration/guard tests pass. Nailer full clean HTTPS verification is running; a metadata-only review-contract successor also needs source-equivalence confirmation. Continue beyond these milestones into remaining quality replacements.
+
 # Active source qualification — 2026-11-13
 
 Shackle and ER retain their source-bound internal offline qualification. Cargo has a newly confirmed angular USD drive-unit defect: per-radian scene coefficients were written unchanged to per-degree USD fields. Its original2f82123 head/evidence are preserved; repair/cargo-bar-angular-units in /workspace/cargo-units corrects four rotational dampers and two pawl springs with actual-attribute regression tests. The top-three gate is reopened until the successor is verified. Unused revolute exporter branches do not affect shackle/ER, whose actual scenes have no revolute joints.

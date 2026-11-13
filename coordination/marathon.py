@@ -19,9 +19,17 @@ def ranked(manifest):
                                       t.get('estimated_qualification_seconds',7200)))
 
 
+def verify_ready(tasks, manifest, manifest_path):
+    """Resolve evidence from an explicit manifest-relative root, never cwd."""
+    from offline_gate import verify
+    root=(Path(manifest_path).resolve().parent / manifest.get('offline_evidence_root','.')).resolve()
+    return [verify(task,root) for task in tasks if task.get('offline_state')=='OFFLINE READY']
+
+
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--manifest',type=Path,required=True);p.add_argument('--run-root',type=Path,required=True)
+    p.add_argument('--verify-offline',action='store_true',help='Read and verify source-bound bundles during the pure preview')
     p.add_argument('--execute',action='store_true');p.add_argument('--resume',action='store_true')
     p.add_argument('--budget-file',type=Path);p.add_argument('--launchable-root',type=Path)
     p.add_argument('--registered-account');p.add_argument('--submit',action='store_true')
@@ -32,12 +40,15 @@ def main(argv=None):
       ranking=[dict(slug=t['slug'],priority=t.get('priority'),offline_state=t.get('offline_state'),
                     timing_basis=t.get('timing_basis','OFFLINE_ASSUMPTION')) for t in tasks],
       blocked=[t['slug'] for t in tasks if t.get('offline_state')!='OFFLINE READY'])
-    if not a.execute:print(json.dumps(plan,indent=2));return 0
+    if not a.execute:
+        if a.verify_offline:
+            bundles=verify_ready(tasks,m,a.manifest)
+            plan['verified_offline_bundles']=[dict(slug=b['slug'],published_commit=b['published_commit'],tested_source_commit=b['tested_source_commit']) for b in bundles]
+        print(json.dumps(plan,indent=2));return 0
     if not a.budget_file or not a.launchable_root:raise Incomplete('Fresh provider receipt and installed runtime are required')
     ready=[t for t in tasks if t.get('offline_state')=='OFFLINE READY']
     if len(ready)<3:raise Incomplete('Fewer than three candidates meet the offline gate; do not start paid qualification')
-    from offline_gate import verify
-    for task in ready:verify(task,a.manifest.resolve().parent)
+    verify_ready(ready,m,a.manifest)
     a.run_root.mkdir(parents=True,exist_ok=True)
     runtime_manifest=a.run_root/'ranked-source-manifest.json'
     atomic(runtime_manifest,dict(m,tasks=ready))
