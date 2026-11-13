@@ -26,3 +26,7 @@ python tasks/er-collet-nut-preassembly/run.py --mode dream --output /data/er-dre
 These are previews. `task_runner.py --execute` later runs three native contact/layout probes and two robot prefixes, each repeated after reset, then two independent actual expert episodes. Diagnostic pose initializations are never demonstrations. Dream execution requires the hash-bound native suites and both full-score experts; `--model` also requires completion of the outstanding board novelty review. The real-media pipeline decodes/render-checks videos and binds model/two demos/setup image to receipts and visual review. Submission preparation rejects unexecuted prerequisites. Default workflows do not upload or create PRs; no upload credentials are needed in this offline phase.
 
 Read FIDELITY.md, SETUP.md, PARAMETERS.md, SCORING.md, CONTROLLER.md, CONSTRUCT_VALIDITY.md and NOVELTY.md before native qualification.
+
+## Supplemental CPU contact diagnostics
+
+The offline requirements now include MuJoCo3.3.7. static_check.py runs the exact-scene contact probes twice after reset, as well as unit/geometry/kinematic checks. Read CPU_CONTACT_DIAGNOSTICS.md for solver differences, transient risks and the strict distinction from native Isaac/robot evidence. The standalone command is `python cpu_contact_probe.py --folder . --output /tmp/new-contact-probe`. No GPU or rendering is used.
