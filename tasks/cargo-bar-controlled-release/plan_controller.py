@@ -34,10 +34,10 @@ def make_plan(spec,reference):
   phase(label,'left',point('inner_tube',[0,.24,0],up),sideways,opening,'inner_tube',width,dwell=dwell,
         reference_body='inner_tube',reference_offset=[0,.24,0],reference_quat=local_side,world_offset=[0,0,up],live=live,checks=checks)
  def handle(label,phi,opening=.20,width=.0255,dwell=.10,checks=None,live=True,**extra):
-  local=np.array([0,0,-.032])+rotate(axis_quat([1,0,0],phi),[.054,.06325,0]);tool=multiply(axis_quat([0,0,1],phi),down)
-  target=(np.array(root['pos'])+rotate(base,local)+[0,0,.024]).tolist()
+  local=np.array([0,0,-.032])+rotate(axis_quat([1,0,0],phi),[.060,.06325,0]);tool=multiply(axis_quat([0,0,1],phi),down)
+  target=(np.array(root['pos'])+rotate(base,local)+[0,0,.014]).tolist()
   phase(label,'right',target,tool,opening,'handle',width,dwell=dwell,speed=.020,
-        reference_body='outer_tube',reference_offset=local,reference_quat=multiply(conjugate(base),tool),world_offset=[0,0,.024],
+        reference_body='outer_tube',reference_offset=local,reference_quat=multiply(conjugate(base),tool),world_offset=[0,0,.014],
         live=live,checks=checks,**extra)
  def check(name,lo,hi,angular=False):return dict(name=name,min=lo,max=hi,angular=angular)
  phase('Initialize support arm','left',[.24,.25,.92],sideways,1.)
@@ -55,7 +55,7 @@ def make_plan(spec,reference):
  phi=2.6;js['handle_rotation']=phi
  for name in ('holding_pawl_rotation','driving_pawl_rotation'):js[name]=float(np.interp(phi,angles,[r['joints'][name] for r in rows]))
  handle('Open handle on its physical circular path',phi,dwell=.1,
-        arc=dict(angle=phi,pivot=[0,0,-.032],grip=[.054,.06325,0],world_offset=[0,0,.024],tool_zero=multiply(conjugate(base),down).tolist()),
+        arc=dict(angle=phi,pivot=[0,0,-.032],grip=[.060,.06325,0],world_offset=[0,0,.014],tool_zero=multiply(conjugate(base),down).tolist()),
         checks=[check('handle_rotation',2.55,2.63,True),check('trigger_pull',.007,.0093)])
  handle('Verify both physical pawls clear',2.6,dwell=.3,pawls_clear=True,checks=[check('handle_rotation',2.45,2.63,True)])
  handle('Hold outer tube through released handle',2.6,dwell=.2,live=False,pawls_clear=True)
@@ -72,16 +72,16 @@ def make_plan(spec,reference):
  # The inner tube is now free; one held handle translates/lowers the bar onto
  # the two diameter-matched cradles. This never sets a task pose in the simulator.
  root['pos'][1]=0.;js['left_compliance']=0.
- phi=2.6;local=np.array([0,0,-.032])+rotate(axis_quat([1,0,0],phi),[.054,.06325,0]);tool=multiply(axis_quat([0,0,1],phi),down)
+ phi=2.6;local=np.array([0,0,-.032])+rotate(axis_quat([1,0,0],phi),[.060,.06325,0]);tool=multiply(axis_quat([0,0,1],phi),down)
  def place(label,root_target,speed=.010):
   root['pos']=list(root_target)
-  phase(label,'right',(np.array(root_target)+rotate(base,local)+[0,0,.024]).tolist(),tool,.20,'handle',.0255,
+  phase(label,'right',(np.array(root_target)+rotate(base,local)+[0,0,.014]).tolist(),tool,.20,'handle',.0255,
         speed=speed,root_target=list(root_target),checks=[check('left_compliance',0.,.0005),check('right_compliance',-.0005,0.)])
  place('Clear both wall faces',[root['pos'][0],0.,root['pos'][2]])
  place('Lower unloaded bar onto cradles',spec['parameters']['authored_cradle_root'],speed=.004)
  js['trigger_pull']=0.
- phase('Release supported handle','right',(np.array(root['pos'])+rotate(base,local)+[0,0,.024]).tolist(),tool,.50,'handle',0.,dwell=.3)
- phase('Withdraw release fingers','right',(np.array(root['pos'])+rotate(base,local)+[0,0,.070]).tolist(),tool,.70)
+ phase('Release supported handle','right',(np.array(root['pos'])+rotate(base,local)+[0,0,.014]).tolist(),tool,.50,'handle',0.,dwell=.3)
+ phase('Withdraw release fingers','right',(np.array(root['pos'])+rotate(base,local)+[0,0,.060]).tolist(),tool,.70)
  phase('Park release arm','right',[.23,-.16,.92],down,1.)
  phase('Released unloaded bar hold','right',[.23,-.16,.92],down,1.,dwell=2.5,require_still=True,
        checks=[check('telescope',0.,.006),check('left_compliance',0.,.0005),check('right_compliance',-.0005,0.)])

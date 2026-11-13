@@ -64,6 +64,38 @@ def joint(name,kind,parent,child,pivot_parent,pivot_child,axis,lower,upper,stiff
              axis=axis,lower=lower,upper=upper,stiffness=stiffness,damping=damping,rest=rest)
 
 
+def housing_shapes():
+ # Original rigid polycarbonate guard, not claimed OEM dimensions. Closed
+ # sidewalls and close-fitting circular tube/hub ports prevent direct fingers
+ # reaching the pawl followers while leaving the actual handle/trigger free.
+ shapes=[]
+ def panel(center,size):shapes.append(box(center,size,BLUE))
+ low,high=-.035,.0505;mid=(low+high)/2;height=high-low
+ zlo,zhi=GEAR[2]-.066,GEAR[2]+.066
+ # Floor stops0.5mm before the shaft end and1mm above the frame base at rest.
+ panel([-.03425,.0225,GEAR[2]],[.0015,.197,.132])
+ # Two continuous long walls.
+ for z in (zlo,zhi):panel([mid,.0225,z],[height,.197,.0015])
+ # End panels with genuine circular tube clearances, not square corner holes.
+ for y,radius,slot in [(-.075,.01875,.021),(.120,.01325,.015)]:
+  for x0,x1 in [(low,-slot),(slot,high)]:
+   panel([(x0+x1)/2,y,(zlo+zhi)/2],[x1-x0,.0015,zhi-zlo])
+  for z0,z1 in [(zlo,-slot),(slot,zhi)]:
+   panel([0,y,(z0+z1)/2],[2*slot,.0015,z1-z0])
+  shapes+=transformed(ring(radius,slot*math.sqrt(2)+.001,.0015,count=64,color=BLUE),
+                      quat([1,0,0],math.pi/2),[0,y,0])
+ # Ceiling panels join an annular hub opening. The square panel opening is
+ # completely covered by the overlapping ring, leaving only the circular bore.
+ slot=.0105
+ for y0,y1 in [(-.076,-slot),(slot,.121)]:
+  panel([.050,(y0+y1)/2,GEAR[2]],[.001,y1-y0,.132])
+ for z0,z1 in [(zlo,GEAR[2]-slot),(GEAR[2]+slot,zhi)]:
+  panel([.050,0,(z0+z1)/2],[.001,2*slot,z1-z0])
+ shapes+=transformed(ring(.008,.015,.001,count=64,color=BLUE),quat([0,1,0],math.pi/2),[.050,0,GEAR[2]])
+ for shape in shapes:shape['role']='protective_housing'
+ return shapes
+
+
 def make_scene():
  # Original wall frame, plus two passive cradles that support weight only.
  frame_shapes=[box([0,0,.005],[.22,1.32,.010],BLUE)]
@@ -78,44 +110,62 @@ def make_scene():
  # Open service window for the rack and release link; the rear circular guide
  # remains full length. This is an explicit authored housing cutout.
  end_shapes=transformed(ring(.014,.018,.090,count=48,color=STEEL),quat([1,0,0],math.pi/2),[0,-.015,0])
- outer_shapes += [shape for shape in end_shapes if shape['pos'][2]>=.004]
+ outer_shapes += [shape for shape in end_shapes if shape['pos'][0]<=-.012]
  # Housing/axle supports are adjacent to joined gear/handle; gear-rack and
  # pawl-wheel contacts remain fully enabled between nonadjacent bodies.
  # Real open bearings and connected brackets, not solid plates across a shaft.
  for x in (-.024,.032):
   outer_shapes+=transformed(ring(.0067,.012,.006,count=40,color=BLUE),quat([0,1,0],math.pi/2),[x,GEAR[1],GEAR[2]])
-  dy,dz=.026,.044;length=math.hypot(dy,dz)
-  outer_shapes.append(box([x,dy/2,GEAR[2]+dz/2],[.006,length,.006],BLUE,quat([1,0,0],math.atan2(dz,dy))))
-  target=.010 if x>0 else -.010
+  dy,dz=.026,.044;length=math.hypot(dy,dz);start=.010/length
+  outer_shapes.append(box([x,dy*(1+start)/2,GEAR[2]+dz*(1+start)/2],[.006,length-.010,.006],BLUE,quat([1,0,0],math.atan2(dz,dy))))
+  target=.018 if x>0 else -.018
   outer_shapes.append(box([(x+target)/2,.026,.012],[abs(x-target)+.006,.009,.008],BLUE))
+ # A bridge above the inner tube joins both bearing supports to the retained
+ # tube shell without filling the shaft bore or colliding with the rack.
+ outer_shapes.append(box([0,.026,.022],[.062,.009,.006],BLUE))
+ for x in (-.024,.032):outer_shapes.append(box([x,.026,.017],[.006,.009,.016],BLUE))
  # Connected closed-handle keeper, beyond the rotating carrier's axial plane.
  outer_shapes += [box([.065,.015,GEAR[2]+.0095],[.008,.008,.005],ORANGE),
-                  box([.065,.010,GEAR[2]-.004],[.008,.004,.032],BLUE),
-                  box([.0485,.010,GEAR[2]-.015],[.039,.004,.004],BLUE),
-                  box([.032,.010,GEAR[2]-.011],[.006,.004,.012],BLUE)]
+                  box([.065,.010,GEAR[2]-.024],[.008,.004,.072],BLUE),
+                  box([.0575,.010,GEAR[2]-.060],[.019,.004,.004],BLUE),
+                  box([.03925,.026,.022],[.0225,.009,.006],BLUE)]
  outer_shapes+=arc_cam(.046,-3.15,-1.00,.0330,lambda a:.0345+.007*min(1.,max(0.,(-a-1.00)/1.45)),GEAR)
  outer_shapes+=transformed(ring(.008,.012,.014,count=40,color=BLUE),quat([0,1,0],math.pi/2),[.039,0,GEAR[2]])
  a=-3.15;outer_shapes.append(box([.046,.0255*math.sin(a),GEAR[2]+.0255*math.cos(a)],[.006,.002,.033],BLUE,quat([1,0,0],-a)))
- outer=member('outer_tube',[0,0,0],outer_shapes,.85)
+ outer_shapes+=transformed(ring(.0054,.014,.008,count=40,color=STEEL),quat([1,0,0],math.pi/2),[0,-.566,0])
+ outer_shapes+=housing_shapes()
+ outer=member('outer_tube',[0,0,0],outer_shapes,1.05)
  inner_shapes=transformed(ring(.009,.0125,.600,count=40,color=STEEL),quat([1,0,0],math.pi/2),[0,.270,0])
  # Pinion is offset32mm from the tube axis. The rack pitch plane is exactly
  # one pitch radius from its centre, with50um radial design clearance.
  inner_shapes+=transformed(rack(length=.10,pitch_plane=GEAR[2]+RADIUS+.00005,phase=PITCH/2),[0,0,0,1],[0,-.040,0])
+ inner_shapes+=transformed(ring(.0054,.009,.008,count=40,color=STEEL),quat([1,0,0],math.pi/2),[0,.566,0])
  inner=member('inner_tube',[0,0,0],inner_shapes,.48)
- left=member('left_pad',[0,-.584,0],[box([0,0,0],[.0635,.012,.1016],RUBBER)],.06)
- right=member('right_pad',[0,.584,0],[box([0,0,0],[.0635,.012,.1016],RUBBER)],.06)
+ left=member('left_pad',[0,-.584,0],[box([0,0,0],[.0635,.012,.1016],RUBBER),cylinder([0,.012,0],.0048,.024,STEEL,quat([1,0,0],math.pi/2))],.06)
+ right=member('right_pad',[0,.584,0],[box([0,0,0],[.0635,.012,.1016],RUBBER),cylinder([0,-.012,0],.0048,.024,STEEL,quat([1,0,0],math.pi/2))],.06)
  gears=pinion()+transformed(ratchet_wheel(),quat([1,0,0],.029),[.016,0,0])+[cylinder([0,0,0],.0048,.066,STEEL,quat([0,1,0],math.pi/2))]
  gear=member('gear_set',GEAR,gears,.16)
- handle_shapes=[box([.054,.034,0],[.006,.072,.008],BLUE),box([.054,.070,0],[.036,.012,.010],BLUE)]
- handle_shapes+=transformed(ring(.0054,.0062,.032,count=40,color=BLUE),quat([0,1,0],math.pi/2),[.040,0,0])
+ # Hollow slide guide: the trigger stem is not embedded in a solid beam.
+ handle_shapes=[box([.060,.070,0],[.012,.012,.010],BLUE),
+                box([.05225,.034,0],[.003,.072,.0105],BLUE),
+                box([.054,.070,0],[.002,.010,.010],BLUE)]
+ for z in (-.0045,.0045):handle_shapes.append(box([.056,.0185,z],[.004,.041,.0015],BLUE))
+ # Front cover with a real slot for the moving latch cross-link.
+ for y0,y1 in [(-.002,.0135),(.0315,.039)]:
+  handle_shapes.append(box([.0595,(y0+y1)/2,0],[.001,y1-y0,.0105],BLUE))
+ for z0,z1 in [(-.00525,-.0015),(.0015,.00525)]:
+  handle_shapes.append(box([.0595,.0225,(z0+z1)/2],[.001,.018,z1-z0],BLUE))
+ handle_shapes+=transformed(ring(.0054,.0062,.040,count=40,color=BLUE),quat([0,1,0],math.pi/2),[.044,0,0])
  a=2.82;handle_shapes.append(box([.040,.017*math.sin(a),.017*math.cos(a)],[.006,.003,.028],BLUE,quat([1,0,0],-a)))
  handle_shapes+=arc_cam(.040,1.85,2.85,.0250,lambda a:.0275+.009*min(1.,max(0.,(a-1.85)/.70)))
  handle=member('handle',GEAR,handle_shapes,.07)
- trigger=member('release_trigger',GEAR,[box([.054,.045,0],[.028,.006,.010],ORANGE),
-             box([.054,.018,0],[.004,.052,.004],ORANGE),
-             box([.060,.018,.004],[.014,.006,.003],ORANGE)],.012)
+ trigger=member('release_trigger',GEAR,[box([.060,.045,0],[.012,.006,.010],ORANGE),
+             box([.056,.027,0],[.004,.034,.004],ORANGE),
+             box([.060,.018,0],[.008,.006,.002],ORANGE),
+             box([.062,.018,.002],[.004,.006,.004],ORANGE),
+             box([.064,.018,.004],[.006,.006,.003],ORANGE)],.012)
  holding=member('holding_pawl',[.0155,-.018,GEAR[2]+.020],pawl_shapes((.0245,.020,.011)),.008)
- driving=member('driving_pawl',[.020,-.018,GEAR[2]+.020],pawl_shapes((.028,.010,.019)),.008)
+ driving=member('driving_pawl',[.020,-.018,GEAR[2]+.020],pawl_shapes((.026,.010,.019)),.008)
  joints=[joint('telescope','prismatic','outer_tube','inner_tube',[0,0,0],[0,0,0],'Y',0,.05,damping=.05),
          joint('left_compliance','prismatic','outer_tube','left_pad',[0,-.584,0],[0,0,0],'Y',0,.004,12000.,2.),
          joint('right_compliance','prismatic','inner_tube','right_pad',[0,.584,0],[0,0,0],'Y',-.004,0,12000.,2.),
@@ -140,7 +190,7 @@ def make_scene():
    materials=dict(cam=dict(static_friction=.12,dynamic_friction=.08,restitution=0.,classification='Benchmark-authored approximation; greased cam/follower contact, not measured OEM material')),
    parameters=dict(reference_minimum_length=1.016,reference_maximum_length=1.778,wall_span=1.200,
       authored_initial_foot_span=1.180,authored_pad_stiffness=12000.,authored_gear_pitch=PITCH,authored_pinion_pitch_radius=RADIUS,
-      authored_gear_teeth=20,authored_ratchet_teeth=24,authored_ratchet_phase=.029,authored_fixture_geometry=True),
+      authored_gear_teeth=20,authored_ratchet_teeth=24,authored_ratchet_phase=.029,authored_fixture_geometry=True,authored_housing_mass=.20,authored_housing_hub_bore_radius=.008,authored_housing_outer_port_radius=.01875,authored_housing_inner_port_radius=.01325),
    limitations=['Original benchmark fixture, not OEM dimensional compatibility or measured cargo rating.',
        'Steel gear/rack/pawls and spring-pad surrogates preserve contact-driven advancement/retention. Pad compliance is authored, not measured rubber data.',
        'Bar starts clamped 4mm above the weight-support cradles. No vehicle, live cargo or load certification is simulated.'])
