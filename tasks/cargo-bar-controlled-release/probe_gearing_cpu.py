@@ -8,6 +8,7 @@ from pathlib import Path
 import xml.etree.ElementTree as ET
 import mujoco
 from gearing import pinion,rack,RADIUS,PITCH
+from cpu_contact import options,solid_default,description
 
 
 def fmt(v):return ' '.join(str(float(x)) for x in v)
@@ -33,8 +34,8 @@ def add_geoms(assets,b,shapes,name,contact_enabled=True,materials=None):
 
 def probe(friction=.5,margin=.00002,torque=-.0015,contact_enabled=True):
  root=ET.Element('mujoco',model='AUTHORED_GEAR_CPU_CONTACT_PROBE')
- ET.SubElement(root,'option',timestep=str(1/960),gravity='0 0 0',iterations='60',tolerance='1e-10',solver='Newton')
- default=ET.SubElement(root,'default');ET.SubElement(default,'geom',density='0',friction=fmt([friction,0.,0.]),margin=str(margin),solref='.0022 1',solimp='.99 .999 .0001')
+ options(root,1/960,'0 0 0')
+ solid_default(root,fmt([friction,0.,0.]),margin)
  assets=ET.SubElement(root,'asset');world=ET.SubElement(root,'worldbody')
  for name,pos,shapes,mass,inertia in [('pinion',[0,.04,0],pinion(),.04,[.000004,.000003,.000003]),
             ('rack',[0,0,0],rack(pitch_plane=RADIUS+.00005,phase=PITCH/2),.12,[.00011,.00001,.00011])]:
@@ -50,7 +51,7 @@ def probe(friction=.5,margin=.00002,torque=-.0015,contact_enabled=True):
    rows.append(dict(step=i,pinion_rad=float(d.qpos[0]),rack_m=float(d.qpos[1]),lead_error_m=error,
                     penetration_m=max([0.]+[-float(c.dist) for c in d.contact[:d.ncon]])))
  result=dict(kind='SUPPLEMENTAL_MUJOCO_CONTACT_DRIVEN_GEARING',engine=mujoco.__version__,isaac_executed=False,
-             robot_executed=False,virtual_gear_constraint=False,applied_torque_Nm=torque,friction=friction,margin_m=margin,checks=rows,
+             robot_executed=False,virtual_gear_constraint=False,applied_torque_Nm=torque,friction=friction,margin_m=margin,contact_model=description(margin),checks=rows,
              passed=bool(d.qpos[1]>.002 and d.qpos[0]<-.15 and max(abs(r['lead_error_m']) for r in rows)<.0003 and max(r['penetration_m'] for r in rows)<.0003))
  return result
 if __name__=='__main__':

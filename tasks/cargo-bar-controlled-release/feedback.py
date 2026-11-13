@@ -14,7 +14,7 @@ except ImportError:
 class Controller:
  def __init__(self,plan,spec):self.phases=plan['phases'];self.spec=spec;self.reset()
  def reset(self):
-  self.index=0;self.done=False;self.failed=None;self.events=[];self.grasps={};self.thread=None
+  self.index=0;self.done=False;self.failed=None;self.events=[];self.carry_pair=None;self.carry_command=None
   self.motion={s:Motion(s,tracking_error_limit=.025) for s in ('left','right')}
   self.targets={};self.started=None;self.last_time=None;self.stable=None;self.best=float('inf');self.progress_time=None
   self.actions=0;self.recovery=None;self.attempts={};self.arc_grasps={}
@@ -58,6 +58,36 @@ class Controller:
  def bind(self,p,frame):
   if p.get('reference_live'):return p
   out=self.resolve(p,frame);out=dict(out);out.pop('reference_body',None);return out
+ def coordinate_carry(self,q,output):
+  """Preserve the acquired two-TCP transform using real FK and bounded IK.
+
+  Neither task poses nor joints are written. If the follower cannot match a
+  proposed leader step, halve that leader step instead of stretching a grasp.
+  """
+  left,right=self.motion['left'],self.motion['right']
+  lp,lr=left.ik.tcp_pose(q[:6],left.base);rp,rr=right.ik.tcp_pose(q[7:13],right.base)
+  lq=left.ik.matrix_to_quat_xyzw(lr);rq=right.ik.matrix_to_quat_xyzw(rr)
+  if self.carry_pair is None:
+   self.carry_pair=(rotate(conjugate(rq),lp-rp),multiply(conjugate(rq),lq))
+  offset,relative=self.carry_pair
+  # A delayed physical follower holds both prior references until it catches up.
+  if left.reference is not None and np.max(np.abs(left.reference-q[:6]))>left.tracking_error_limit:
+   result=output.copy()
+   result[:6]=self.carry_command[:6] if self.carry_command is not None else q[:6]
+   result[7:13]=self.carry_command[7:13] if self.carry_command is not None else q[7:13]
+   left.reference=result[:6].copy();right.reference=result[7:13].copy()
+   return result
+  delta=output[7:13]-q[7:13]
+  for _ in range(12):
+   leader=q[7:13]+delta;position,rotation=right.ik.tcp_pose(leader,right.base)
+   quaternion=right.ik.matrix_to_quat_xyzw(rotation)
+   goal=position+rotate(quaternion,offset);tool=multiply(quaternion,relative)
+   follower,pe,re=left.ik.solve(goal,tool,q_init=q[:6],base_pos=left.base,iters=150,damping=.015,tol=1e-5)
+   if pe<3e-5 and re<.0001 and np.all(follower>left.ik.LOWER+1e-5) and np.all(follower<left.ik.UPPER-1e-5) and np.max(np.abs(follower-q[:6]))<=.020001:
+    result=output.copy();result[:6]=follower;result[7:13]=leader
+    left.reference=follower.copy();right.reference=leader.copy();self.carry_command=result.copy();return result
+   delta*=.5
+  raise ControlFailure('Bimanual carry cannot preserve both grasps within joint limits/rates')
  def physical_checks(self,p,frame):
   metric=0.;ok=True
   for check in p.get('joint_checks',[]):
@@ -107,6 +137,7 @@ class Controller:
     else:action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],p['opening'],speed=p['speed'],angular_speed=.5)
     output[start:start+7]=action
     if side==phase['side']:error,theta=pe,re
+   if phase.get('bimanual_carry'):output=self.coordinate_carry(q,output)
   except (ControlFailure,KeyError,ValueError) as exc:self.fail(str(exc))
   offset=0 if phase['side']=='left' else 7;width=active.get('grasp_width',0.)/.0939
   gripped=(max(active['opening']+.01,width-.035)<q[offset+6]<width+.04) if width else abs(q[offset+6]-active['opening'])<.03

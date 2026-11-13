@@ -3,7 +3,7 @@
   "physics": [
     {
       "name": "preloaded_free_root_gravity_hold",
-      "steps": 40,
+      "steps": 200,
       "settle_steps": 0,
       "assertions": [
         {
@@ -27,6 +27,18 @@
           "body": "outer_tube",
           "speed": 0.008,
           "spin": 0.15
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "displacement",
+          "body": "outer_tube",
+          "min": 0.0,
+          "max": 0.003
         }
       ]
     },
@@ -58,6 +70,12 @@
           "min": -0.0003,
           "max": 0.001
         },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ],
+      "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.00035
@@ -95,6 +113,12 @@
           "min": 0.0223,
           "max": 0.0244
         },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ],
+      "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.00035
@@ -149,6 +173,12 @@
           "min": -0.0003,
           "max": 0.02
         },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ],
+      "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.00035
@@ -265,6 +295,12 @@
             0
           ],
           "angle": 0.05
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.00035
         }
       ]
     }

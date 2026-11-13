@@ -1,0 +1,16 @@
+# Supplemental contact model and rejected hold experiments
+
+This is a MuJoCo3.3.7 diagnostic backend. It is neither native Isaac/PhysX nor a YAM robot demonstration. Native assets, coefficients, controller actions and acceptance bounds are independently specified and still require genuine native execution.
+
+The original exporter set margin30µm without gap. MuJoCo's active constraint offset is margin-gap, so this imposed a30µm separation target rather than the intended zero rest offset. cpu_contact.py now sets detection margin=gap, retaining nearby inactive contacts with zero active rest offset. Native PhysX remains contact_offset30µm/rest_offset0. Elliptic Coulomb friction, impedance ratio100, Newton tolerance1e-10 and120 iterations follow the official MuJoCo guidance for suppressing gradual manipulation slip. This is a disclosed engine-specific approximation, not a proof of solver equivalence. No contact pair is disabled; all8 task joints collide.
+
+Primary sources retrieved2026-11-13:
+
+- https://mujoco.readthedocs.io/en/3.3.7/XMLreference.html#body-geom-gap — the reference states that distances between margin and margin-gap generate inactive contacts. Retrieved HTML SHA2564a4581d09107726f38938ca29878aab3b1f0901fa9ad5618dfc5b14402fbb661.
+- https://mujoco.readthedocs.io/en/3.3.7/modeling.html#preventing-slip — gradual slip is a property of the soft contact model; the documentation recommends elliptic cones, large impratio and Newton with small tolerance before the optional Noslip solver. Retrieved HTML SHA2565a246d2d9b51229f7cb653106081419e0d72b4cefd6123d9a133d1358fc3d156.
+
+The retained engineering history includes failed higher-preload, damping, pad-mass, exact-convex-box, integrator, timestep, torsional-patch and contact-softness variants. Those variants were not adopted. A short2s passing higher-preload case was rejected when5–10s tests exposed continued drift onto the cradles. High impedance alone, a smaller timestep alone and Noslip alone did not establish a stable hold. The paired rest-offset/friction correction retained the existing12kN/m springs,20N nominal normal loads,1.908kg articulated mass,0.575 dynamic pair coefficient,3mm hold bound and0.35mm penetration bound.
+
+The final standalone probe_hold_cpu.py starts with a completely free root and no applied test forces. It checks30s at both960/1920Hz, every physics-step displacement and integrity, and absence of any receiving-frame support force≥0.01N. Endpoint resolution difference must be≤50µm. Native physics cases strengthen the free hold from2s to10s with continuous control-frame checks; the ideal controller first completes support acquisition at about7.85s. Tiny residual numerical drift is reported rather than claimed as exact static equilibrium. Actual reports and source hashes, not this description, establish which revision passes.
+
+The cam fixture retains the0.25N·m diagnostic actuator cap. Its observations bind both scene SHA256 and exact fixed-root/actuated XML SHA256; the plan refuses a stale export. Diagnostic initialization and external test-rig actuators are never used as robot demonstrations. The body velocity reader uses the ordinary XBODY datum, matching the scored link pose instead of its offset inertial COM.

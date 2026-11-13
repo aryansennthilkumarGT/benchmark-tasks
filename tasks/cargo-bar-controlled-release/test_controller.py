@@ -50,3 +50,50 @@ def test_grasp_recovery_is_bounded_and_reset_clears_failure():
  c.begin_recovery(p,1.);assert c.attempts[3]==2
  with pytest.raises(ControlFailure,match='exhausted'):c.begin_recovery(p,2.)
  c.reset();assert not c.failed and not c.attempts and not c.arc_grasps
+
+
+def carry_start():
+ c=Controller(PLAN,SPEC);q=np.tile(np.r_[READY,1.],2)
+ for side,index,phase in [('left',0,11),('right',7,10)]:
+  target=PLAN['phases'][phase]['target']
+  arm,pe,re=ik.solve(target['pos'],target['quat'],base_pos=station.BASES[side],q_init=READY,iters=500,tol=1e-5)
+  assert pe<2e-5 and re<1e-4;q[index:index+6]=arm
+ q[6]=.18;q[13]=.20
+ return c,q
+
+
+def test_bimanual_carry_preserves_two_tcp_constraint_and_both_grasps_until_support():
+ c,q=carry_start();initial=None;peak=0.
+ assert all(PLAN['phases'][i].get('bimanual_carry') for i in (12,13))
+ assert PLAN['phases'][14]['label']=='Release supported inner tube'
+ for _ in range(100):
+  proposed=q.copy();p=PLAN['phases'][12]
+  proposed[7:],_,_=c.motion['right'].target(q[7:],p['target']['pos'],p['target']['quat'],p['opening'],speed=p['speed'])
+  result=c.coordinate_carry(q,proposed)
+  assert np.max(np.abs(result[:6]-q[:6]))<=.020001
+  assert np.max(np.abs(result[7:13]-q[7:13]))<=.020001
+  q=result
+  lp,lr=ik.tcp_pose(q[:6],station.BASES['left']);rp,rr=ik.tcp_pose(q[7:13],station.BASES['right'])
+  offset=rr.T@(lp-rp);relative=rr.T@lr
+  if initial is None:initial=(offset,relative)
+  peak=max(peak,float(np.linalg.norm(offset-initial[0])))
+  assert np.linalg.norm(relative-initial[1])<.0002
+ assert peak<3e-5
+
+
+def test_delayed_carry_follower_holds_both_previous_commands_and_reset_clears_capture():
+ c,q=carry_start();command=c.coordinate_carry(q,q.copy())
+ delayed=command.copy();delayed[0]-=.05
+ proposed=delayed.copy();proposed[7]+=.01
+ result=c.coordinate_carry(delayed,proposed)
+ assert np.array_equal(result[:6],command[:6])
+ assert np.array_equal(result[7:13],command[7:13])
+ c.reset();assert c.carry_pair is None and c.carry_command is None
+
+
+def test_carry_ik_failure_is_bounded_and_does_not_stretch_a_grasp(monkeypatch):
+ c,q=carry_start();calls=[]
+ def failed(*args,**kwargs):calls.append(1);return q[:6].copy(),.1,.1
+ monkeypatch.setattr(c.motion['left'].ik,'solve',failed)
+ with pytest.raises(ControlFailure,match='Bimanual carry'):c.coordinate_carry(q,q.copy())
+ assert len(calls)==12

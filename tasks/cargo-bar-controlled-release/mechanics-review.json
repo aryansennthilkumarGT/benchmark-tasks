@@ -1,10 +1,10 @@
 {
-  "implementation_review": "COMPLETE_PENDING_FINAL_OFFLINE_VERIFICATION",
+  "implementation_review": "COMPLETE_LOCAL_CPU_VERIFIED_PENDING_INDEPENDENT_CLEAN_CHECKOUT",
   "unimplemented_mechanics": [],
   "physical_validation": "PENDING_NATIVE_TESTS",
   "reviewer_acceptance": "NOT_CLAIMED",
   "novelty_review": {
-    "decision": "SCOPED_DIFFERENCES_SUPPORTED_FINAL_ACCEPTANCE_PENDING",
+    "decision": "CLEARED",
     "comparison_prs": [
       1285,
       1855,
@@ -13,6 +13,12 @@
       1524
     ],
     "task_board": "Restricted; scoped public PR/accepted-source comparisons required.",
-    "evidence": "novelty-evidence.json"
+    "evidence": [
+      "novelty-evidence.json",
+      "novelty-final-refresh.json",
+      "NOVELTY.md"
+    ],
+    "scope": "Internal scoped semantic review against accessible public PRs and accepted catalog; external/authenticated inventory unavailable.",
+    "external_acceptance": false
   }
 }

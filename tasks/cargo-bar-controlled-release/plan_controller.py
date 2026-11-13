@@ -15,6 +15,8 @@ HERE=Path(__file__).resolve().parent
 
 def make_plan(spec,reference):
  if reference['scene_sha256']!=hashlib.sha256((HERE/'scene.json').read_bytes()).hexdigest():raise ValueError('Cam reference belongs to different scene geometry')
+ from mechanism_cpu import export
+ if reference.get('contact_export_sha256')!=hashlib.sha256(export(spec,True,True).encode()).hexdigest():raise ValueError('Cam reference belongs to different physical export')
  root=next(b for a in spec['assemblies'] for b in a['bodies'] if b['name']=='outer_tube');root=copy.deepcopy(dict(pos=root['pos'],quat=root['quat']))
  frame=next(b for a in spec['assemblies'] for b in a['bodies'] if b['name']=='wall_frame');js=spec['initial_joint_values'].copy();phases=[]
  down=DOWN_GRIP.tolist();sideways=multiply(axis_quat([0,0,1],-math.pi/2),down).tolist();base=root['quat']
@@ -66,19 +68,19 @@ def make_plan(spec,reference):
  phase('Retract controlled inner tube','left',(np.array(root['pos'])+rotate(base,local)+[0,0,.010]).tolist(),tool,.18,'inner_tube',.025,
        speed=.005,checks=[check('telescope',0.,.0045)],reference_body='outer_tube',reference_offset=local,
        reference_quat=local_side,world_offset=[0,0,.010],live=True)
- inner('Release shortened inner tube',.55)
- inner('Withdraw support fingers',.7,up=.090)
- phase('Park support arm','left',[.24,.25,.92],sideways,1.)
- # The inner tube is now free; one held handle translates/lowers the bar onto
- # the two diameter-matched cradles. This never sets a task pose in the simulator.
+ # Keep both grasps through transport. A coupled TCP constraint lets the left
+ # support follow the right command in the same action, without one-tick lag.
  root['pos'][1]=0.;js['left_compliance']=0.
  phi=2.6;local=np.array([0,0,-.032])+rotate(axis_quat([1,0,0],phi),[.060,.06325,0]);tool=multiply(axis_quat([0,0,1],phi),down)
  def place(label,root_target,speed=.010):
   root['pos']=list(root_target)
   phase(label,'right',(np.array(root_target)+rotate(base,local)+[0,0,.014]).tolist(),tool,.20,'handle',.0255,
-        speed=speed,root_target=list(root_target),checks=[check('left_compliance',0.,.0005),check('right_compliance',-.0005,0.)])
+        speed=speed,root_target=list(root_target),bimanual_carry=True,checks=[check('left_compliance',0.,.0005),check('right_compliance',-.0005,0.)])
  place('Clear both wall faces',[root['pos'][0],0.,root['pos'][2]])
  place('Lower unloaded bar onto cradles',spec['parameters']['authored_cradle_root'],speed=.004)
+ inner('Release supported inner tube',.55)
+ inner('Withdraw support fingers',.7,up=.090)
+ phase('Park support arm','left',[.24,.25,.92],sideways,1.)
  js['trigger_pull']=0.
  phase('Release supported handle','right',(np.array(root['pos'])+rotate(base,local)+[0,0,.014]).tolist(),tool,.50,'handle',0.,dwell=.3)
  phase('Withdraw release fingers','right',(np.array(root['pos'])+rotate(base,local)+[0,0,.060]).tolist(),tool,.70)

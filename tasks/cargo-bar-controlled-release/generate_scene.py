@@ -127,8 +127,7 @@ def make_scene():
   outer_shapes.append(box([-.0213,y,-.0156],[.026,.006,.004],BLUE))
   outer_shapes.append(box([-.012975,y,-.026],[.045,.006,.004],BLUE))
   outer_shapes.append(box([.0083,y,-.021],[.002,.006,.014],BLUE))
- # Housing/axle supports are adjacent to joined gear/handle; gear-rack and
- # pawl-wheel contacts remain fully enabled between nonadjacent bodies.
+ # All moving pairs, including joined parent/child bodies, retain collisions.
  # Real open bearings and connected brackets, not solid plates across a shaft.
  for x in (-.024,.032):
   outer_shapes+=transformed(ring(.0067,.012,.006,count=40,color=BLUE),quat([0,1,0],math.pi/2),[x,GEAR[1],GEAR[2]])
@@ -213,7 +212,7 @@ def make_scene():
                   pad=dict(static_friction=.80,dynamic_friction=.65,restitution=0.,cpu_dynamic_against_default=.575,classification='Benchmark-authored dry elastomer/steel assumption. CPU .575 is the mean of pad .65 and default metal .50; no manufacturer measurement.')),
    parameters=dict(reference_minimum_length=1.016,reference_maximum_length=1.778,wall_span=1.200,
       authored_initial_foot_span=1.180,authored_pad_stiffness=12000.,authored_gear_pitch=PITCH,authored_pinion_pitch_radius=RADIUS,
-      authored_gear_teeth=20,authored_ratchet_teeth=24,authored_ratchet_phase=.029,authored_fixture_geometry=True,authored_housing_mass=.20,authored_housing_hub_bore_radius=.008,authored_housing_outer_port_radius=.01875,authored_housing_inner_port_radius=.01325,authored_outer_tube_length=.740,authored_inner_tube_length=.600,authored_rack_side_clearance=.0003),
+      authored_gear_teeth=20,authored_ratchet_teeth=24,authored_ratchet_phase=.029,authored_fixture_geometry=True,authored_housing_hub_bore_radius=.008,authored_housing_outer_port_radius=.01875,authored_housing_inner_port_radius=.01325,authored_outer_tube_length=.740,authored_inner_tube_length=.600,authored_rack_side_clearance=.0003),
    limitations=['Original benchmark fixture, not OEM dimensional compatibility or measured cargo rating.',
        'Steel gear/rack/pawls and spring-pad surrogates preserve contact-driven advancement/retention. Pad compliance is authored, not measured rubber data.',
        'Bar starts clamped 4mm above the weight-support cradles. No vehicle, live cargo or load certification is simulated.'])

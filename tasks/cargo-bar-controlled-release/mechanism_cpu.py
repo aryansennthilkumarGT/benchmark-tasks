@@ -4,20 +4,21 @@ Joint frames, convex contact pieces and initial joint coordinates come from the
 same original scene. Optional position actuators are explicit diagnostic test-rig
 inputs, not claimed YAM capabilities. No virtual rack/pawl/cam update exists.
 """
-import json,math
+import hashlib,json,math
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import mujoco,numpy as np
 from probe_gearing_cpu import add_geoms,fmt
 from motion import rotate,conjugate
+from cpu_contact import options,solid_default,description
 
 
 def export(spec,fixed_root=False,actuators=False):
  root=ET.Element('mujoco',model='CARGO_BAR_SUPPLEMENTAL_CPU')
  ET.SubElement(root,'compiler',angle='radian',inertiafromgeom='false',fusestatic='false')
- ET.SubElement(root,'option',timestep=str(spec['physics_dt']),gravity=fmt(spec['gravity']),iterations='80',tolerance='1e-10',solver='Newton',integrator='implicitfast')
+ options(root,spec['physics_dt'],fmt(spec['gravity']))
  if any(j.get('collision_enabled',False) for a in spec['assemblies'] for j in a['joints']):ET.SubElement(root.find('option'),'flag',filterparent='disable')
- default=ET.SubElement(root,'default');ET.SubElement(default,'geom',density='0',friction='.5 0 0',margin='.00003',solref='.0022 1',solimp='.99 .999 .0001')
+ solid_default(root,'.5 0 0',spec['material']['contact_offset'])
  assets=ET.SubElement(root,'asset');world=ET.SubElement(root,'worldbody');ET.SubElement(world,'geom',name='table',type='plane',size='2 2 .05',pos=fmt([0,0,spec['table_top']]))
  defs={b['name']:b for a in spec['assemblies'] for b in a['bodies']};js={j['child']:j for a in spec['assemblies'] for j in a['joints']}
  def inertial(node,b):ET.SubElement(node,'inertial',pos=fmt(b.get('center_of_mass',[0,0,0])),mass=str(b['mass']),diaginertia=fmt(b['diagonal_inertia']),quat=fmt([b.get('principal_axes',[0,0,0,1])[3],*b.get('principal_axes',[0,0,0,1])[:3]]))
@@ -78,7 +79,7 @@ def probe(folder):
  from audit_geometry import geometry_module
  initial={b['name']:dict(pos=b['pos'],quat=b['quat']) for a in spec['assemblies'] for b in a['bodies']}
  if geometry_module(folder).maximum_penetration(spec,initial)>.00005:raise ValueError('Initial solid interference: repair CAD before contact simulation')
- model=mujoco.MjModel.from_xml_string(export(spec,True,True));data=mujoco.MjData(model);initialize(model,data,spec)
+ xml=export(spec,True,True);model=mujoco.MjModel.from_xml_string(xml);data=mujoco.MjData(model);initialize(model,data,spec)
  rows=[]
  for step in range(4801):
   t=step*spec['physics_dt']
@@ -103,6 +104,7 @@ def probe(folder):
    contacts.append(dict(geom1=mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_GEOM,c.geom1),geom2=mujoco.mj_id2name(model,mujoco.mjtObj.mjOBJ_GEOM,c.geom2),normal_force_N=float(force[0]),distance_m=float(c.dist)))
  contacts.sort(key=lambda r:-abs(r['normal_force_N']))
  return dict(kind='SUPPLEMENTAL_MUJOCO_DIAGNOSTIC_CAM_ACTUATION',engine=mujoco.__version__,isaac_executed=False,robot_executed=False,
+             contact_export_sha256=hashlib.sha256(xml.encode()).hexdigest(),contact_model=description(spec['material']['contact_offset']),
              test_rig_actuators=True,test_rig_handle_torque_cap_Nm=.25,robot_grasp_validated=False,pawl_clearance_lower_bounds_m=clearances,virtual_gear_constraint=False,checks=rows,actuator_force=data.actuator_force.tolist(),contacts=contacts[:25],
              passed=min(clearances.values())>=.0008 and rows[-1]['joints']['handle_rotation']>2.45 and max(r['contact_depth_m'] for r in rows)<.00035 and all(j['lower']-(.0003 if j['kind']=='prismatic' else .03)<=r['joints'][j['name']]<=j['upper']+(.0003 if j['kind']=='prismatic' else .03) for a in spec['assemblies'] for j in a['joints'] for r in rows))
 

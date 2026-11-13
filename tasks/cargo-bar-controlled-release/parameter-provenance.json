@@ -1,324 +1,516 @@
 {
   "schema": 1,
   "mode": "BENCHMARK_AUTHORED",
-  "scene_sha256": "e5a532774183a1f69125074c16db02a8fe42288b5462ec1f89bdd7cbc26039ef",
+  "scene_sha256": "c76249e6631a2892554dbb3e6d1317ae0906a69a61caa7d3f05001d7d7b4de1d",
   "entries": [
     {
       "pointer": "",
       "category": "BENCHMARK_AUTHORED",
-      "basis": "Original fully specified benchmark fixture and test configuration; no OEM dimensional, torque, force, friction or mass measurement is claimed. Covers all numeric fields unless a more specific entry overrides it."
+      "basis": "Original fully specified benchmark fixture, material assumptions and test configuration. No OEM dimensions, force, friction, mass or torque measurement is claimed. Covers numeric fields unless an explicitly derived/source entry overrides it."
     },
     {
       "pointer": "/parameters/reference_minimum_length",
       "category": "DERIVED",
-      "basis": "Manufacturer-documented inch range, converted to SI.",
+      "basis": "Documented reference operating span, converted to SI.",
       "derivation": "40 inch * 0.0254 m/inch",
       "source_url": "https://manuals.harborfreight.com/manuals/96000-96999/96811-792363968119.pdf",
-      "source_sha256": "a486b18f2445e9a74fd1230a538f6bbf602ac46e1e3eb6f7d9c165c0ecf14489"
+      "source_sha256": "a486b18f2445e9a74fd1230a538f6bbf602ac46e1e3eb6f7d9c165c0ecf14489",
+      "quote": "40 to 70 inch range, manual page2"
     },
     {
       "pointer": "/parameters/reference_maximum_length",
       "category": "DERIVED",
-      "basis": "Manufacturer-documented inch range, converted to SI.",
+      "basis": "Documented reference operating span, converted to SI.",
       "derivation": "70 inch * 0.0254 m/inch",
       "source_url": "https://manuals.harborfreight.com/manuals/96000-96999/96811-792363968119.pdf",
-      "source_sha256": "a486b18f2445e9a74fd1230a538f6bbf602ac46e1e3eb6f7d9c165c0ecf14489"
+      "source_sha256": "a486b18f2445e9a74fd1230a538f6bbf602ac46e1e3eb6f7d9c165c0ecf14489",
+      "quote": "40 to 70 inch range, manual page2"
     },
     {
       "pointer": "/assemblies/0/bodies/0/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/0/bodies/0/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/0/bodies/0/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/0/bodies/0/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/0/bodies/0/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/0/bodies/0/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/0/bodies/0/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/0/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/0/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/0/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/0/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/0/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/0/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/0/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/1/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/1/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/1/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/1/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/1/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/1/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/1/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/2/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/2/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/2/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/2/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/2/shapes/0/size/0",
       "category": "DERIVED",
-      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "basis": "Separate commercial US Cargo Control pad envelope; never attributed to HF96811.",
       "derivation": "2.5 inch * 0.0254 m/inch",
       "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
-      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b",
+      "quote": "2.5 inch x 4 inch pads"
     },
     {
       "pointer": "/assemblies/1/bodies/2/shapes/0/size/2",
       "category": "DERIVED",
-      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "basis": "Separate commercial US Cargo Control pad envelope; never attributed to HF96811.",
       "derivation": "4 inch * 0.0254 m/inch",
       "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
-      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b",
+      "quote": "2.5 inch x 4 inch pads"
     },
     {
       "pointer": "/assemblies/1/bodies/3/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/3/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/3/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/3/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/3/shapes/0/size/0",
       "category": "DERIVED",
-      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "basis": "Separate commercial US Cargo Control pad envelope; never attributed to HF96811.",
       "derivation": "2.5 inch * 0.0254 m/inch",
       "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
-      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b",
+      "quote": "2.5 inch x 4 inch pads"
     },
     {
       "pointer": "/assemblies/1/bodies/3/shapes/0/size/2",
       "category": "DERIVED",
-      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "basis": "Separate commercial US Cargo Control pad envelope; never attributed to HF96811.",
       "derivation": "4 inch * 0.0254 m/inch",
       "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
-      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b",
+      "quote": "2.5 inch x 4 inch pads"
     },
     {
       "pointer": "/assemblies/1/bodies/4/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/4/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/4/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/4/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/4/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/4/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/4/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/5/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/5/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/5/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/5/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/5/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/5/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/5/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/6/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/6/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/6/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/6/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/6/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/6/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/6/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/7/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/7/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/7/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/7/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/7/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/7/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/7/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/8/bounds_min",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/8/bounds_max",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Enclosing bounds computed from authored oriented primitive envelopes.",
+      "derivation": "primitives.body: extrema of transformed enclosing primitive-box corners; not a mass model."
     },
     {
       "pointer": "/assemblies/1/bodies/8/diagonal_inertia",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/assemblies/1/bodies/8/center_of_mass",
       "category": "DERIVED",
-      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
-      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/8/principal_axes",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/8/nominal_component_mass_kg",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/8/density_normalization",
+      "category": "DERIVED",
+      "basis": "Density-weighted compound primitive moments, normalized to separately authored total mass. Overlapping pieces counted; not measured hardware or exact boolean CAD.",
+      "derivation": "mass_properties.py: mi=rhoi*Vi; C=sum(mi*Ci)/sum(mi); covariance=sum(mi*(Qi+(Ci-C)(Ci-C)^T))/sum(mi); I=M*(trace(Q)*identity-Q); principal axes/eigenvalues=eigh(I); density scale=M/sum(mi). Boxes/cylinders analytic, convex closed surfaces signed tetrahedra."
     },
     {
       "pointer": "/parameters/authored_pinion_pitch_radius",
       "category": "DERIVED",
-      "basis": "Exact authored gearing/load geometry.",
-      "derivation": "R=pitch*20/(2*pi); extension=7*(2*pi/24)*R; each compression=(extension-0.020)/2, respectively."
+      "basis": "Exact authored gearing/prepared layout.",
+      "derivation": "R=pitch*20/(2*pi)"
     },
     {
       "pointer": "/parameters/authored_initial_extension",
       "category": "DERIVED",
-      "basis": "Exact authored gearing/load geometry.",
-      "derivation": "R=pitch*20/(2*pi); extension=7*(2*pi/24)*R; each compression=(extension-0.020)/2, respectively."
+      "basis": "Exact authored gearing/prepared layout.",
+      "derivation": "extension=7*(2*pi/24)*R"
     },
     {
       "pointer": "/parameters/authored_initial_pad_compression",
       "category": "DERIVED",
-      "basis": "Exact authored gearing/load geometry.",
-      "derivation": "R=pitch*20/(2*pi); extension=7*(2*pi/24)*R; each compression=(extension-0.020)/2, respectively."
+      "basis": "Exact authored gearing/prepared layout.",
+      "derivation": "compression=(extension-0.020m)/2"
     },
     {
       "pointer": "/initial_joint_values",
       "category": "DERIVED",
-      "basis": "Initial contact-compatible prepared layout.",
-      "derivation": "Initial q derived in generate_scene.py from seven ratchet pitches, symmetric pad compression and -extension/R; remaining joints zero."
+      "basis": "Prepared contact-compatible layout.",
+      "derivation": "generate_scene.py: seven ratchet pitches, symmetric foot compression, pinion=-extension/R; other coordinates zero."
+    },
+    {
+      "pointer": "/materials/pad/cpu_dynamic_against_default",
+      "category": "DERIVED",
+      "basis": "Supplemental single-coefficient approximation to a dynamic pad/metal pair; not measured static friction.",
+      "derivation": "(materials.pad.dynamic_friction + material.dynamic_friction)/2"
     }
   ],
   "independently_measured_hardware": false

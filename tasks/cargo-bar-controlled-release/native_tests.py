@@ -172,9 +172,13 @@ def main():
                             asset.permanent_wrench_composer.add_forces_and_torques_index(
                                 torch.tensor([[force.get('force',[0,0,0])]],dtype=torch.float32,device=base.device),
                                 torch.tensor([[force.get('torque',[0,0,0])]],dtype=torch.float32,device=base.device),body_ids=[index],is_global=True)
-                        for _ in range(case['steps']):embodiment.step(Action(data=ready))
+                        for _ in range(case['steps']):
+                            embodiment.step(Action(data=ready))
+                            checks(case.get('continuous_assertions',[]),frame,runtime.LATEST,module.EVALUATOR.result)
                         for asset in touched:asset.permanent_wrench_composer.reset()
-                        for _ in range(case.get('settle_steps',20)):embodiment.step(Action(data=ready))
+                        for _ in range(case.get('settle_steps',20)):
+                            embodiment.step(Action(data=ready))
+                            checks(case.get('continuous_assertions',[]),frame,runtime.LATEST,module.EVALUATOR.result)
                     else:
                         controller=controller_class(json.loads((HERE/'controller.json').read_text()),module.SPEC)
                         prefix=case['through_phase']
@@ -183,6 +187,7 @@ def main():
                         for step in range(case['max_steps']):
                             action=controller.step(observation.state['joint_pos'],runtime.LATEST)
                             result=embodiment.step(Action(data=action));observation=result.observation
+                            checks(case.get('continuous_assertions',[]),frame,runtime.LATEST,module.EVALUATOR.result)
                             if controller.index>prefix:break
                         else:raise AssertionError('Robot control prefix exceeded test action limit')
                         save(args.output/f'{case["name"]}-{repeat}-events.json',controller.events)
@@ -207,15 +212,11 @@ def main():
                                 side: runtime.array(base.scene[f'{side}_robot'].data.applied_torque)[0].tolist()
                                 for side in ('left', 'right')
                             },
-                            'thread_state': {
-                                name: value.tolist() if isinstance(value, np.ndarray) else value
-                                for name, value in (controller.thread or {}).items()
+                            'arc_grasp_transforms': {
+                                str(phase): {'offset': offset.tolist(), 'tool_quat': tool.tolist()}
+                                for phase, (offset, tool) in controller.arc_grasps.items()
                             },
-                            'grasp_transforms': {
-                                side: {name: value.tolist() if isinstance(value, np.ndarray) else value
-                                       for name, value in grasp.items()}
-                                for side, grasp in getattr(controller,'grasps',{}).items()
-                            },
+                            'carry_tcp_transform': [value.tolist() for value in controller.carry_pair] if controller.carry_pair is not None else None,
                             'last_frame': copy.deepcopy(runtime.LATEST),
                         }
                         save(args.output/f'{case["name"]}-{repeat}-control-failure.json', diagnostic)

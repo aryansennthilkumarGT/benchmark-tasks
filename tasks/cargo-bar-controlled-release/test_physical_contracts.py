@@ -82,3 +82,35 @@ def test_pad_material_pair_uses_declared_dynamic_mean_without_static_substitutio
         assert np.isclose(api.GetStaticFrictionAttr().Get(), values['static_friction'])
         index = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_GEOM, name+'0')
         assert np.isclose(model.geom_friction[index, 0], expected)
+
+
+def test_diagnostic_velocities_use_the_same_link_origin_as_scored_positions():
+    from mechanism_cpu import initialize
+    from cpu_native_cases import frame
+    spec = scene()
+    model = mujoco.MjModel.from_xml_string(export(spec))
+    data = mujoco.MjData(model)
+    initialize(model, data, spec)
+    data.qvel[:] = np.linspace(-.2, .3, model.nv)
+    mujoco.mj_forward(model, data)
+    result = frame(model, data, spec)
+    for name, body in result['bodies'].items():
+        index = mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, name)
+        linear = np.zeros((3, model.nv))
+        angular = np.zeros((3, model.nv))
+        mujoco.mj_jacBody(model, data, linear, angular, index)
+        assert np.allclose(body['linear'], linear @ data.qvel, atol=1e-12)
+        assert np.allclose(body['angular'], angular @ data.qvel, atol=1e-12)
+
+
+def test_detection_margin_is_separate_from_rest_offset_and_reference_binds_export():
+    import copy,hashlib,pytest
+    from plan_controller import make_plan
+    spec=scene();tree=ET.fromstring(export(spec));geom=tree.find('default/geom')
+    assert float(geom.get('margin'))==spec['material']['contact_offset']
+    assert float(geom.get('margin'))-float(geom.get('gap'))==spec['material']['rest_offset']==0.
+    assert tree.find('option').get('cone')=='elliptic'
+    reference=json.loads((HERE/'cam-reference.json').read_text())
+    assert reference['contact_export_sha256']==hashlib.sha256(export(spec,True,True).encode()).hexdigest()
+    stale=copy.deepcopy(reference);stale['contact_export_sha256']='0'*64
+    with pytest.raises(ValueError,match='physical export'):make_plan(spec,stale)

@@ -2,7 +2,7 @@
 import argparse,hashlib,json,os,subprocess,sys,tempfile
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
-AUDITS=('provenance.py','verify_assets.py','audit_gearing.py','probe_gearing_cpu.py','probe_pawl_cpu.py','mechanism_cpu.py','cpu_native_cases.py','audit_control.py','audit_geometry.py','audit_robot.py','audit_sequence.py','audit_path.py')
+AUDITS=('provenance.py','verify_assets.py','audit_gearing.py','probe_gearing_cpu.py','probe_pawl_cpu.py','mechanism_cpu.py','cpu_native_cases.py','probe_hold_cpu.py','audit_interfaces.py','audit_housing.py','audit_control.py','audit_geometry.py','audit_robot.py','audit_sequence.py','audit_path.py')
 
 
 def integrity():

@@ -15,7 +15,9 @@ def frame(model,data,spec):
  row=observe(model,data,spec)
  for name,b in row['bodies'].items():
   i=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_BODY,name);velocity=np.zeros(6)
-  mujoco.mj_objectVelocity(model,data,mujoco.mjtObj.mjOBJ_BODY,i,velocity,0)
+  # Poses above use the ordinary link frame. BODY queries the inertial COM
+  # frame; XBODY keeps linear velocity at the same datum as the scored pose.
+  mujoco.mj_objectVelocity(model,data,mujoco.mjtObj.mjOBJ_XBODY,i,velocity,0)
   b.update(linear=velocity[3:].tolist(),angular=velocity[:3].tolist())
  return dict(schema=1,time=row['time'],bodies=row['bodies'],joints=row['joints'],max_penetration=row['contact_depth_m'],robot_clearance=None)
 
@@ -40,10 +42,16 @@ def probe(folder):
     for _ in range(substeps):
      mujoco.mj_step(model,d);peak=max(peak,max([0.]+[-float(c.dist) for c in d.contact[:d.ncon]]))
     samples.append(frame(model,d,spec))
-   final=samples[-1];error=None
-   try:checks(case['assertions'],initial,final)
+   final=samples[-1];error=None;first_continuous_failure=None
+   try:
+    for sample in samples:
+     try:checks(case.get('continuous_assertions',[]),initial,sample)
+     except AssertionError as exc:
+      first_continuous_failure=dict(time=sample['time'],error=str(exc));raise
+    checks(case['assertions'],initial,final)
    except AssertionError as exc:error=str(exc)
-   rows.append(dict(name=case['name'],repeat=repeat,passed=error is None,error=error,initial=initial,final=final,peak_contact_depth_m=peak))
+   if peak>spec['penetration_limit'] and error is None:error='Physics-substep penetration exceeded integrity bound'
+   rows.append(dict(name=case['name'],repeat=repeat,passed=error is None,error=error,initial=initial,final=final,peak_contact_depth_m=peak,first_continuous_failure=first_continuous_failure))
  report=dict(kind='SUPPLEMENTAL_MUJOCO_ARTICULATED_NATIVE_CASE_PROTOCOL',engine=mujoco.__version__,isaac_executed=False,
              robot_executed=False,initialization_is_not_demonstration=True,cases=rows,passed=all(r['passed'] for r in rows))
  print(json.dumps(report,indent=2));return 0 if report['passed'] else 1
