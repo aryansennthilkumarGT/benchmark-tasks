@@ -35,15 +35,12 @@ def body(name, pos, shapes, mass, fixed=False):
                     for axis in range(3):
                         value=point[axis]+shape['pos'][axis]
                         low[axis]=min(low[axis],value);high[axis]=max(high[axis],value)
-    extent=[b-a for a,b in zip(low,high)]
-    inertia=[mass*(extent[(i+1)%3]**2+extent[(i+2)%3]**2)/12 for i in range(3)]
+    from mass_properties import compound
+    for shape in shapes:shape.setdefault('mass_density',2700.)
+    values=compound(shapes,mass)
     return dict(name=name,pos=pos,quat=[0,0,0,1],mass=mass,shapes=shapes,
-                bounds_min=low,bounds_max=high,anchor=fixed,diagonal_inertia=inertia,
-                center_of_mass=[(a+b)/2 for a,b in zip(low,high)],
-                inertia_model='bounding-box equivalent about its bounding centre, not a manufacturer mass tensor')
+                bounds_min=low,bounds_max=high,anchor=fixed,**values)
 
 
 def assembly(b, fixed=False):
     return dict(name=b['name']+'_asset',origin=b['pos'],fixed=fixed,bodies=[b],joints=[])
-
-

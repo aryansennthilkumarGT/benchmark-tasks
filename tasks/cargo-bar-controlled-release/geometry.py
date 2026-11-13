@@ -23,7 +23,7 @@ def compiled_shapes(spec):
     for name,items in shapes.items():
         values=[box({'pos':[0,0,0],'quat':[0,0,0,1]},s) for s in items]
         local[name]=tuple(np.asarray([v[i] for v in values]) for i in range(3))
-    excluded={frozenset((j['parent'],j['child'])) for a in spec['assemblies'] for j in a.get('joints',[])}
+    excluded={frozenset((j['parent'],j['child'])) for a in spec['assemblies'] for j in a.get('joints',[]) if not j.get('collision_enabled',False)}
     excluded.update(frozenset(p) for p in spec.get('collision_exclusions',[]))
     result=dict(spec=spec,definitions=definitions,shapes=shapes,local=local,excluded=excluded,world={})
     _compiled[key]=result;return result
@@ -203,7 +203,7 @@ def robot_clearance(robot_boxes,spec,bodies):
 def intersection_details(spec,bodies,threshold=.002):
     """Slow diagnostic used only for the first failing offline sample."""
     definitions={b['name']:b for a in spec['assemblies'] for b in a['bodies']}
-    excluded={frozenset((j['parent'],j['child'])) for a in spec['assemblies'] for j in a.get('joints',[])}
+    excluded={frozenset((j['parent'],j['child'])) for a in spec['assemblies'] for j in a.get('joints',[]) if not j.get('collision_enabled',False)}
     excluded.update(frozenset(p) for p in spec.get('collision_exclusions',[]))
     rows=[]
     for left,right in itertools.combinations(definitions,2):

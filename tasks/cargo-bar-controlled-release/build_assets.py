@@ -47,6 +47,7 @@ def compile_assets(spec, directory):
             mass=UsdPhysics.MassAPI.Apply(body.GetPrim());mass.CreateMassAttr(b['mass'])
             if 'center_of_mass' in b:mass.CreateCenterOfMassAttr(Gf.Vec3f(*b['center_of_mass']))
             if 'diagonal_inertia' in b:mass.CreateDiagonalInertiaAttr(Gf.Vec3f(*b['diagonal_inertia']))
+            q=b.get('principal_axes',[0,0,0,1]);mass.CreatePrincipalAxesAttr(Gf.Quatf(q[3],Gf.Vec3f(*q[:3])))
             for i, s in enumerate(b['shapes']):
                 shape_path = body_path + f'/shape_{i}'
                 if s['kind'] == 'box':
@@ -114,7 +115,7 @@ def compile_assets(spec, directory):
             for index in (0,1):
                 q=j.get('rotation_'+str(index),[0,0,0,1])
                 getattr(joint,'CreateLocalRot'+str(index)+'Attr')(Gf.Quatf(q[3],Gf.Vec3f(*q[:3])))
-            joint.CreateCollisionEnabledAttr(False)
+            joint.CreateCollisionEnabledAttr(j.get('collision_enabled',False))
             if unit is not None:
                 joint.CreateAxisAttr(j['axis'])
                 joint.CreateLowerLimitAttr(j['lower'] * unit)

@@ -12,10 +12,14 @@ from gearing import pinion,rack,RADIUS,PITCH
 
 def fmt(v):return ' '.join(str(float(x)) for x in v)
 
-def add_geoms(assets,b,shapes,name,contact_enabled=True):
+def add_geoms(assets,b,shapes,name,contact_enabled=True,materials=None):
  for i,s in enumerate(shapes):
   q=s['quat'];a=dict(name=name+str(i),pos=fmt(s['pos']),quat=fmt([q[3],*q[:3]]),contype='1' if contact_enabled else '0',conaffinity='1' if contact_enabled else '0')
-  if s.get('material')=='cam':a['friction']='.08 0 0'
+  if s.get('material'):
+   values=(materials or {'cam':dict(dynamic_friction=.08)}).get(s['material'])
+   if values is None:raise ValueError('Missing explicit CPU material: '+s['material'])
+   coefficient=values.get('cpu_dynamic_against_default',values['dynamic_friction'])
+   a['friction']=fmt([coefficient,0,0])
   if s['kind']=='box':a.update(type='box',size=fmt([v/2 for v in s['size']]))
   elif s['kind']=='convex':
    mesh=name+str(i)+'mesh';triangles=[]

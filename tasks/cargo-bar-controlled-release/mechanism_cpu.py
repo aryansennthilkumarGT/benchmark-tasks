@@ -16,17 +16,18 @@ def export(spec,fixed_root=False,actuators=False):
  root=ET.Element('mujoco',model='CARGO_BAR_SUPPLEMENTAL_CPU')
  ET.SubElement(root,'compiler',angle='radian',inertiafromgeom='false',fusestatic='false')
  ET.SubElement(root,'option',timestep=str(spec['physics_dt']),gravity=fmt(spec['gravity']),iterations='80',tolerance='1e-10',solver='Newton',integrator='implicitfast')
+ if any(j.get('collision_enabled',False) for a in spec['assemblies'] for j in a['joints']):ET.SubElement(root.find('option'),'flag',filterparent='disable')
  default=ET.SubElement(root,'default');ET.SubElement(default,'geom',density='0',friction='.5 0 0',margin='.00003',solref='.0022 1',solimp='.99 .999 .0001')
  assets=ET.SubElement(root,'asset');world=ET.SubElement(root,'worldbody');ET.SubElement(world,'geom',name='table',type='plane',size='2 2 .05',pos=fmt([0,0,spec['table_top']]))
  defs={b['name']:b for a in spec['assemblies'] for b in a['bodies']};js={j['child']:j for a in spec['assemblies'] for j in a['joints']}
- def inertial(node,b):ET.SubElement(node,'inertial',pos=fmt(b.get('center_of_mass',[0,0,0])),mass=str(b['mass']),diaginertia=fmt(b['diagonal_inertia']))
+ def inertial(node,b):ET.SubElement(node,'inertial',pos=fmt(b.get('center_of_mass',[0,0,0])),mass=str(b['mass']),diaginertia=fmt(b['diagonal_inertia']),quat=fmt([b.get('principal_axes',[0,0,0,1])[3],*b.get('principal_axes',[0,0,0,1])[:3]]))
  def descend(parent,name):
   b=defs[name];j=js[name];pos=np.array(j['pivot_parent'])-np.array(j['pivot_child'])
   node=ET.SubElement(parent,'body',name=name,pos=fmt(pos));inertial(node,b)
   attrs=dict(name=j['name'],type='hinge' if j['kind']=='revolute' else 'slide',axis={'X':'1 0 0','Y':'0 1 0','Z':'0 0 1'}[j['axis']],
              pos=fmt(j['pivot_child']),limited='true',range=fmt([j['lower'],j['upper']]),stiffness=str(j.get('stiffness',0)),
              springref=str(j.get('rest',0)),damping=str(j.get('damping',0)),solreflimit='.0022 1',solimplimit='.99 .999 .0001')
-  ET.SubElement(node,'joint',**attrs);add_geoms(assets,node,b['shapes'],name)
+  ET.SubElement(node,'joint',**attrs);add_geoms(assets,node,b['shapes'],name,materials=spec.get('materials',{}))
   for child,link in js.items():
    if link['parent']==name:descend(node,child)
  for name,b in defs.items():
@@ -35,11 +36,12 @@ def export(spec,fixed_root=False,actuators=False):
   if not b.get('anchor'):
    inertial(node,b)
    if not fixed_root:ET.SubElement(node,'freejoint',name=name+'_free')
-  add_geoms(assets,node,b['shapes'],name)
+  add_geoms(assets,node,b['shapes'],name,materials=spec.get('materials',{}))
   for child,link in js.items():
    if link['parent']==name:descend(node,child)
  contact=ET.SubElement(root,'contact')
- for child,j in js.items():ET.SubElement(contact,'exclude',body1=j['parent'],body2=child)
+ for child,j in js.items():
+  if not j.get('collision_enabled',False):ET.SubElement(contact,'exclude',body1=j['parent'],body2=child)
  if actuators:
   motors=ET.SubElement(root,'actuator')
   ET.SubElement(motors,'position',name='fixture_handle',joint='handle_rotation',kp='3',kv='.10',forcelimited='true',forcerange='-.25 .25')
@@ -72,7 +74,11 @@ def observe(model,data,spec):
 
 
 def probe(folder):
- spec=json.loads((folder/'scene.json').read_text());model=mujoco.MjModel.from_xml_string(export(spec,True,True));data=mujoco.MjData(model);initialize(model,data,spec)
+ spec=json.loads((folder/'scene.json').read_text())
+ from audit_geometry import geometry_module
+ initial={b['name']:dict(pos=b['pos'],quat=b['quat']) for a in spec['assemblies'] for b in a['bodies']}
+ if geometry_module(folder).maximum_penetration(spec,initial)>.00005:raise ValueError('Initial solid interference: repair CAD before contact simulation')
+ model=mujoco.MjModel.from_xml_string(export(spec,True,True));data=mujoco.MjData(model);initialize(model,data,spec)
  rows=[]
  for step in range(4801):
   t=step*spec['physics_dt']
