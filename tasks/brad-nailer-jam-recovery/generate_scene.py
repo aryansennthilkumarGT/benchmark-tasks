@@ -66,7 +66,8 @@ def make_scene():
  # Open service trough and narrow U-shaped muzzle; ordinary straight brads
  # fit the muzzle. The pre-bent head fits its rear pocket but cannot exit the
  # closed narrow muzzle; opening the door supplies the missing extraction DOF.
- shapes+=boxes([([.0525,-.0035,0],[.105,.004,.028])])
+ # Rear side overhang remains accessible to the stock parallel gripper.
+ shapes+=boxes([([.0425,-.0035,0],[.085,.004,.016]),([.095,-.0035,0],[.020,.004,.028])])
  for z in (-.007,.007):shapes+=boxes([([.0475,.00025,z],[.075,.0035,.002])])
  for z in (-.00215,.00215):shapes+=boxes([([.0925,.00025,z],[.015,.0035,.0017])])
  # Continuous outer shoulders prevent bypassing the narrow muzzle around its
