@@ -15,7 +15,10 @@ def probe(recording,phase,side='left',seconds=2.,subdivisions=(1,2,4,8),empty_co
  if hashlib.sha256(xml).hexdigest()!=report['model_sha256']:raise ValueError('Recorded model was changed')
  if not report.get('source_bound') or report.get('isaac_executed') is not False:raise ValueError('Not a source-bound supplemental diagnostic')
  row=None
- with gzip.open(recording/'frames.jsonl.gz','rt') as stream:
+ trace=recording/'frames.jsonl.gz'
+ opener=gzip.open if trace.exists() else open
+ if not trace.exists():trace=recording/'frames.jsonl'
+ with opener(trace,'rt') as stream:
   for line in stream:
    r=json.loads(line)
    if r['phase']==phase:row=r;break

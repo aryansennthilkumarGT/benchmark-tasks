@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T18:55:08.864508+00:00",
+  "updated_at": "2026-11-13T19:17:22.978516+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -498,7 +498,7 @@
     "optimized_prefix": "7of49phases/520actions/26s; working-tree diagnostic only, not full success; gripper velocity mismatch unresolved",
     "harness": "coordination/cpu_yam_trial.py",
     "source_initial_harness_commit": "937f7f6",
-    "next": "Commit refined harness, clean HTTPS clone repaired task and harness, run full real MuJoCo/YAM controller with subdivision4; diagnose further actual failures.",
+    "next": "Finish/freeze new nailer source, push it, clone task+harness via HTTPS, run full refined4 controller with checkpoints and --resume after interruption; repair further real failures.",
     "repair_commit": "005078a",
     "cpu_tests": 54,
     "full_actual_fk_samples": 638,
@@ -506,6 +506,10 @@
     "ideal_seconds": 139.65,
     "geometry_failure_fixed": "409um stock-finger bumper intrusion fixed by2mm forward grasp;50um unintentional-contact screen passes full path",
     "new_real_physics_result": "Reach fixed; acquisition fails after2bounded retries in old compliant robot-contact model. SDK velocity ratio now0.723, not1.44.",
-    "contact_calibration": "Subdivision4/8 converge to0.923/0.933mm real jaw aperture; empty controls0; no solver warnings. No geometry/mass/friction/score changes."
-  }
+    "contact_calibration": "Subdivision4/8 converge to0.923/0.933mm real jaw aperture; empty controls0; no solver warnings. No geometry/mass/friction/score changes.",
+    "environment_interruption": "Fresh005078a/e13c03c refined4 run stopped by environment restart at phase17/~84.7s; no report. Complete retained frames prove aperture0.923mm but0.73mm TCP deflection prevents former0.4mm grip check.",
+    "capture_repair": "Only brad acquisition permits1mm TCP compliance; actual jaw check/scoring unchanged; actual recorded capture and empty-grip negative regression pass.",
+    "restart_resilience": "11 CPU harness tests plus real killed/resumed task-prefix70actions; exact integration/policy/scorer checkpointing, source and trace hashes, monotonic times. No native claim."
+  },
+  "reviewer_occupation_threshold": "Over500,000 U.S. workers collectively, with the actual procedure core/regular in the named disjoint occupations. Do not incorrectly require1million."
 }
