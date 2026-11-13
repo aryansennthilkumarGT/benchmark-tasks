@@ -39,6 +39,11 @@ class Scorer:
         for s in studs:
             if not finite(s['axis_xy'],2):raise ValueError('Invalid stud axis')
         if len({tuple(s['axis_xy']) for s in studs})!=3:raise ValueError('Duplicate stud site')
+        for s in studs:
+            if not finite([s[k] for k in ('tip_z','engagement_min_z','engagement_max_z','minimum_turns')],4):
+                raise ValueError('Invalid stud engagement specification')
+            if s['minimum_turns']<=0 or s['engagement_min_z']>=s['engagement_max_z']:
+                raise ValueError('Invalid stud engagement interval')
         if not math.isfinite(spec['pitch']) or spec['pitch']<=0:raise ValueError('Invalid pitch')
         tolerances=('lateral_tolerance','axial_tolerance','tilt_tolerance','hold_seconds')
         if any(isinstance(spec[k],bool) or not 0<spec[k]<float('inf') for k in tolerances):raise ValueError('Invalid scoring tolerance')
@@ -60,6 +65,7 @@ class Scorer:
         bodies=frame.get('bodies')
         if not isinstance(bodies,dict) or set(bodies)!=required:return self.fail('missing_or_extra_body')
         for b in bodies.values():
+            if not isinstance(b,dict):return self.fail('invalid_body_state')
             for key,n in [('pos',3),('quat',4),('linear',3),('angular',3)]:
                 if not finite(b.get(key),n):return self.fail('nonfinite_body_state')
             if abs(sum(v*v for v in b['quat'])-1)>1e-5:return self.fail('quaternion_norm')
@@ -110,10 +116,16 @@ class Scorer:
                 delta=(yaw-prev['yaw']+math.pi)%(2*math.pi)-math.pi
                 if abs(delta)>.75:return self.fail('undersampled_retainer_rotation')
                 prev=dict(prev,yaw=yaw,angle=prev['angle']+delta)
-            self.history[name]=prev
             turns=-prev['angle']/(2*math.pi)
             expected=prev['origin_z']+self.spec['pitch']*prev['angle']/(2*math.pi)
             consistent=abs(b['pos'][2]-expected)<=self.spec['axial_tolerance']
+            # Once motion leaves the helical path, past free rotations must not
+            # become valid merely by dropping the retainer to the final height.
+            # Reacquisition starts a new engagement history without old credit.
+            if not consistent:
+                self.history.pop(name,None)
+                continue
+            self.history[name]=prev
             s=self.spec['studs'][site]
             flush=abs(b['pos'][2]+self.spec['retainer_top_offset']-s['tip_z'])<=self.spec['axial_tolerance']
             if consistent and flush and turns>=s['minimum_turns']:matches[site].append(name)

@@ -110,6 +110,18 @@ class ScorerTests(unittest.TestCase):
         f['time']+=.05;f['bodies']['nut0']['pos'][:2]=s['studs'][1]['axis_xy']
         r=c.update(f);self.assertNotIn(0,r.secured_studs)
 
+    def test_free_spin_then_drop_cannot_recover_old_turn_credit(self):
+        s=spec();c=Scorer(s);f,_=turn_sequence(s,c,spin_only=True)
+        f['time']+=.05
+        for name in s['retainers']:f['bodies'][name]['pos'][2]=.815
+        r=c.update(f)
+        self.assertEqual(r.secured_studs,());self.assertFalse(r.success)
+
+    def test_malformed_body_state_fails_closed(self):
+        s=spec();f=frame(s);f['bodies']['carrier']=None
+        r=Scorer(s).update(f)
+        self.assertEqual(r.score,0.);self.assertEqual(r.failure,'invalid_body_state')
+
 
 class DimensionTests(unittest.TestCase):
     def fixture(self):
