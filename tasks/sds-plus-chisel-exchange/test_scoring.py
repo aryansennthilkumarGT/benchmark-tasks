@@ -58,3 +58,7 @@ def test_pairwise_witness_drift_rejects_opposed_small_excursions():
 def test_ball_in_rear_insertion_relief_is_not_locked_even_with_closed_sleeve():
  j=Scorer(SPEC);j.update(initial());f=goal();f['bodies']['locking_ball']['pos'][0]+=.0045;f['bodies']['locking_ball']['pos'][2]+=.0005
  assert not retained(SPEC,f['bodies'],f['joints']);assert hold(j,f).score==.5
+
+
+def test_intact_full_insertion_near_real_backstop_is_not_rejected_by_arbitrary_depth():
+ j=Scorer(SPEC);j.update(initial());f=goal();f['bodies']['replacement_flat_chisel']['pos'][0]=SPEC['parameters']['holder_mouth'][0]+.0448;assert hold(j,f).success

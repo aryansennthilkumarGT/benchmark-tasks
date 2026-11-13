@@ -1,11 +1,9 @@
 {
   "schema": 1,
-  "implementation_review": "IN_PROGRESS",
-  "unimplemented_mechanics": [
-    "Complete source-bound acquired-grasp controller/actualFK audit, clean qualification and final native/workflow checks"
-  ],
+  "implementation_review": "COMPLETE",
+  "unimplemented_mechanics": [],
   "physical_validation": "PENDING_NATIVE_TESTS",
-  "implementation_status": "ACTIVE_NOT_OFFLINE_READY",
+  "implementation_status": "CPU_IMPLEMENTED_NOVELTY_HOLD",
   "reviewer_kind": "INTERNAL_CPU_ENGINEERING",
   "external_review": false,
   "independent_agent": false,
@@ -14,7 +12,14 @@
     "source": "SOURCES.json"
   },
   "novelty_review": {
-    "decision": "SCOPED_COMPARISON_IN_PROGRESS",
-    "basis": "NOVELTY.md and novelty-search.json; authenticated full board unavailable"
-  }
+    "decision": "BLOCKED",
+    "scope": "Primary public PR1868 pending and PR1636 finally rejected compared after the first engineering screen",
+    "basis": "PR1868 has the same independently retracted spring sleeve/land/radial latch/grooved male insertion; keyed slots and axial play do not securely establish a distinct core skill. Preserve technically complete backup; do not qualify for submission. See NOVELTY.md and novelty-neighbors/."
+  },
+  "remaining": [
+    "Obtain separate exact-source clean HTTPS verification; this will not resolve fundamental novelty",
+    "Native Isaac/YAM contact/reset/grasp/expert validation NOT RUN",
+    "Authorized future Dream/media/visual inspection/submission NOT RUN",
+    "Full authenticated board unavailable; recheck before official submission"
+  ]
 }

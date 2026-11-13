@@ -29,7 +29,7 @@ class Controller:
  def bind(self,p,f,q):
   target=copy.deepcopy(p);mode=p['mode'];tcp=self.tcp(p['side'],q);self.context={}
   if mode=='grasp':
-   b=f['bodies'][p['body']];quat=np.asarray(p['tool_quat']);pos=np.asarray(b['pos'])+rotate(b['quat'],p['offset'])-rotate(quat,[0,0,p['away']]);target['target']=dict(pos=pos,quat=quat)
+   b=f['bodies'][p['body']];quat=np.asarray(p['tool_quat']);offset=rotate(b['quat'],[p['offset'][0],0.,0.])+np.array([0.,0.,p['offset'][2]]) if p.get('world_up_offset') else rotate(b['quat'],p['offset']);pos=np.asarray(b['pos'])+offset-rotate(quat,[0,0,p['away']]);target['target']=dict(pos=pos,quat=quat)
   elif mode in ('release','withdraw'):
    target['target']=tcp
    if mode=='withdraw':target['target']['pos']=tcp['pos']-rotate(tcp['quat'],[0,0,p['distance']])

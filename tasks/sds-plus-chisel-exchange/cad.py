@@ -16,7 +16,7 @@ def convex(points,color=STEEL,role='contact'):
   faces.append(f)
  return dict(kind='convex',pos=center.tolist(),quat=[0,0,0,1],vertices=p.tolist(),faces=faces,size=(hi-lo).tolist(),color=color,role=role)
 
-def annular_slice(x0,x1,inner0,inner1,outer,count=64,skip=None,color=STEEL,role='sleeve'):
+def annular_slice(x0,x1,inner0,inner1,outer,count=64,skip=None,color=STEEL,role='sleeve',inner_circumscribed=True):
  shapes=[]
  for i in range(count):
   a=2*math.pi*i/count;b=2*math.pi*(i+1)/count;mid=(a+b)/2
@@ -24,7 +24,7 @@ def annular_slice(x0,x1,inner0,inner1,outer,count=64,skip=None,color=STEEL,role=
   points=[]
   for x,inner in [(x0,inner0),(x1,inner1)]:
    # Circumscribed inner polygon guarantees stated minimum bore clearance.
-   for r in [inner/math.cos(math.pi/count),outer]:
+   for r in [inner/math.cos(math.pi/count) if inner_circumscribed else inner,outer]:
     for t in [a,b]:points.append([x,r*math.cos(t),r*math.sin(t)])
   shapes.append(convex(points,color,role))
  return shapes

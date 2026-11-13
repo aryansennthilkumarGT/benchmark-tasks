@@ -22,10 +22,11 @@ def compile_assets(spec, directory):
         origin = assembly['origin']
         material = UsdShade.Material.Define(stage, '/Asset/Material')
         physics = UsdPhysics.MaterialAPI.Apply(material.GetPrim())
-        physics.CreateStaticFrictionAttr(0.65)
-        physics.CreateDynamicFrictionAttr(0.5)
-        physics.CreateRestitutionAttr(0.0)
+        physics.CreateStaticFrictionAttr(spec['material']['static_friction'])
+        physics.CreateDynamicFrictionAttr(spec['material']['dynamic_friction'])
+        physics.CreateRestitutionAttr(spec['material']['restitution'])
         materials={'default':material}
+        visual_materials={}
         for name,values in spec.get('materials',{}).items():
             extra=UsdShade.Material.Define(stage,'/Asset/Material_'+name)
             properties=UsdPhysics.MaterialAPI.Apply(extra.GetPrim())
@@ -85,6 +86,21 @@ def compile_assets(spec, directory):
                 rot.Set(Gf.Quatf(q[3], Gf.Vec3f(*q[:3])))
                 shape.SetXformOpOrder([trans, rot] + scale)
                 shape.CreateDisplayColorAttr([Gf.Vec3f(*s['color'])])
+                if s.get('opacity',1.)<1.:
+                    shape.CreateDisplayOpacityAttr([s['opacity']])
+                    key=(tuple(s['color']),float(s['opacity']))
+                    if key not in visual_materials:
+                        appearance=UsdShade.Material.Define(stage,'/Asset/InspectionAppearance_'+str(len(visual_materials)))
+                        shader=UsdShade.Shader.Define(stage,str(appearance.GetPath())+'/Shader');shader.CreateIdAttr('UsdPreviewSurface')
+                        shader.CreateInput('diffuseColor',Sdf.ValueTypeNames.Color3f).Set(Gf.Vec3f(*s['color']))
+                        shader.CreateInput('opacity',Sdf.ValueTypeNames.Float).Set(s['opacity'])
+                        shader.CreateInput('roughness',Sdf.ValueTypeNames.Float).Set(.12)
+                        shader.CreateInput('metallic',Sdf.ValueTypeNames.Float).Set(0.)
+                        appearance.CreateSurfaceOutput().ConnectToSource(shader.ConnectableAPI(),'surface')
+                        visual_materials[key]=appearance
+                    appearance=visual_materials[key]
+                    UsdShade.MaterialBindingAPI.Apply(shape.GetPrim()).Bind(appearance)
+
                 if s.get('collision', True):
                     UsdPhysics.CollisionAPI.Apply(shape.GetPrim())
                     UsdShade.MaterialBindingAPI.Apply(shape.GetPrim()).Bind(materials[s.get('material','default')], materialPurpose='physics')

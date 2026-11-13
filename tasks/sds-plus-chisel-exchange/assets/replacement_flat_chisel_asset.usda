@@ -11,9 +11,18 @@ def Xform "Asset"
         prepend apiSchemas = ["PhysicsMaterialAPI"]
     )
     {
-        float physics:dynamicFriction = 0.5
+        float physics:dynamicFriction = 0.45
         float physics:restitution = 0
         float physics:staticFriction = 0.65
+    }
+
+    def Material "Material_inspection_lubricated" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.12
+        float physics:restitution = 0
+        float physics:staticFriction = 0.18
     }
 
     def Material "Material_lubricated" (
@@ -29,10 +38,10 @@ def Xform "Asset"
         prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
-        point3f physics:centerOfMass = (-0.11258844, -0, 0)
-        float3 physics:diagonalInertia = (0.000002495707, 0.00044798316, 0.00044816016)
-        float physics:mass = 0.14
-        quatf physics:principalAxes = (1.9e-13, 1, -0, 0)
+        point3f physics:centerOfMass = (-0.10640634, -0, 0)
+        float3 physics:diagonalInertia = (0.0000028743684, 0.0004777121, 0.00047793298)
+        float physics:mass = 0.16137116
+        quatf physics:principalAxes = (1, -1.3e-13, -0, 0)
         quatf xformOp:orient = (0.9238795, 0.38268343, 0, 0)
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
@@ -7210,12 +7219,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.15
+            double height = 0.135
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.5, 0.52, 0.54)]
             double radius = 0.006
             quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
-            double3 xformOp:translate = (-0.12, 0, 0)
+            double3 xformOp:translate = (-0.1125, 0, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 

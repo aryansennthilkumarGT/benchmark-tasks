@@ -137,6 +137,19 @@ def sphere_qa_polyhedron(radius):
     return v,h.equations[:,:3],edges/np.linalg.norm(edges,axis=1)[:,None]
 
 
+
+_sphere_mesh_data={}
+def sphere_mesh_data(shape):
+    """Cache only immutable local mesh arithmetic, never body poses or contacts."""
+    key=id(shape)
+    if key not in _sphere_mesh_data or _sphere_mesh_data[key][0] is not shape:
+        v=np.asarray(shape['vertices']);tri=np.array([v[[f[0],f[i],f[i+1]]] for f in shape['faces'] for i in range(1,len(f)-1)])
+        a,b,c=tri[:,0],tri[:,1],tri[:,2];u=b-a;w=c-a;n=np.cross(u,w);n=n/np.linalg.norm(n,axis=1)[:,None]
+        uu=np.einsum('ij,ij->i',u,u);uw=np.einsum('ij,ij->i',u,w);ww=np.einsum('ij,ij->i',w,w);det=uu*ww-uw*uw
+        starts=np.concatenate([a,b,c]);ends=np.concatenate([b,c,a]);delta=ends-starts;denom=np.einsum('ij,ij->i',delta,delta)
+        _sphere_mesh_data[key]=(shape,(a,u,w,n,uu,uw,ww,det,starts,delta,denom))
+    return _sphere_mesh_data[key][1]
+
 def sphere_pair_depth(body_a,shape_a,body_b,shape_b):
     """Exact sphere SDF against boxes/cylinders and triangle distances for convex solids.
 
@@ -155,13 +168,12 @@ def sphere_pair_depth(body_a,shape_a,body_b,shape_b):
         q=np.array([np.linalg.norm(local[:2])-shape_b['radius'],abs(local[2])-shape_b['height']/2]);signed=float(np.linalg.norm(np.maximum(q,0.))+min(float(q.max()),0.))
         return max(0.,radius-signed)
     if kind!='convex':raise ValueError('Unsupported sphere pair '+kind)
-    v=np.asarray(shape_b['vertices']);tri=np.array([v[[f[0],f[i],f[i+1]]] for f in shape_b['faces'] for i in range(1,len(f)-1)])
-    a,b,c=tri[:,0],tri[:,1],tri[:,2];u=b-a;w=c-a;n=np.cross(u,w);length=np.linalg.norm(n,axis=1);n=n/length[:,None];signed=np.einsum('ij,ij->i',local-a,n)
+    a,u,w,n,uu,uw,ww,det,starts,delta,denom=sphere_mesh_data(shape_b);signed=np.einsum('ij,ij->i',local-a,n)
     if signed.max()<=0.:return radius-float(signed.max())
-    projected=local-signed[:,None]*n;ap=projected-a;uu=np.einsum('ij,ij->i',u,u);uw=np.einsum('ij,ij->i',u,w);ww=np.einsum('ij,ij->i',w,w);pu=np.einsum('ij,ij->i',ap,u);pw=np.einsum('ij,ij->i',ap,w);det=uu*ww-uw*uw
+    projected=local-signed[:,None]*n;ap=projected-a;pu=np.einsum('ij,ij->i',ap,u);pw=np.einsum('ij,ij->i',ap,w)
     alpha=(ww*pu-uw*pw)/det;beta=(uu*pw-uw*pu)/det;inside=(alpha>=-1e-12)&(beta>=-1e-12)&(alpha+beta<=1+1e-12)
     best=float(np.min(signed[inside]**2)) if inside.any() else float('inf')
-    starts=np.concatenate([a,b,c]);ends=np.concatenate([b,c,a]);delta=ends-starts;t=np.clip(np.einsum('ij,ij->i',local-starts,delta)/np.einsum('ij,ij->i',delta,delta),0.,1.);closest=starts+t[:,None]*delta;best=min(best,float(np.min(np.einsum('ij,ij->i',local-closest,local-closest))))
+    t=np.clip(np.einsum('ij,ij->i',local-starts,delta)/denom,0.,1.);closest=starts+t[:,None]*delta;best=min(best,float(np.min(np.einsum('ij,ij->i',local-closest,local-closest))))
     return max(0.,radius-np.sqrt(best))
 
 

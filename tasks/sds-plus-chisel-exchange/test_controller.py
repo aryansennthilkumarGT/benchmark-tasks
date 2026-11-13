@@ -26,3 +26,8 @@ def test_native_prefixes_refer_to_real_phases_and_bounded_action_limits():
  for case in d['control']:assert PLAN['phases'][case['through_phase']]['label']==case['through_label'] and case['max_steps']<=SPEC['run_limit']
  for mode in ['physics','control']:
   for case in d[mode]:assert dict(kind='penetration',max=SPEC['penetration_limit']) in case['continuous_assertions'] and dict(kind='valid') in case['continuous_assertions']
+
+
+def test_rolled_replacement_grasp_stays_centered_on_actual_stem():
+ c=Controller(PLAN,SPEC);p=next(p for p in PLAN['phases'] if p['label']=='Grip replacement chisel');f=initial();bound=c.bind(p,f,configuration());body=f['bodies']['replacement_flat_chisel'];expected=np.asarray(body['pos'])+np.array([p['offset'][0],0.,p['offset'][2]])
+ assert np.allclose(bound['target']['pos'],expected,atol=1e-12)

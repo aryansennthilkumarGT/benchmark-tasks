@@ -70,8 +70,9 @@ def initialize(model,data,spec):
  mujoco.mj_forward(model,data)
 
 
-def observe(model,data,spec):
- mujoco.mj_forward(model,data);states={};joints={}
+def observe(model,data,spec,refresh=True):
+ if refresh:mujoco.mj_forward(model,data)
+ states={};joints={}
  for name in spec['initial_joint_values']:
   i=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_JOINT,name);joints[name]=float(data.qpos[model.jnt_qposadr[i]])
  for a in spec['assemblies']:

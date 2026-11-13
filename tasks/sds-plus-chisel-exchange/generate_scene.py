@@ -32,7 +32,12 @@ def make_scene():
   shapes.append(convex(pts,role='authored_gravity_return_lip'))
  # Two opposed drive keys occupy open-ended grooves; closed slots are90deg away.
  for s in (-1,1):shapes.append(box([.0085,s*.005,.0],[.007,.0024,.0014]))
- for shape in shapes:shape['material']='lubricated'
+ for shape in shapes:shape.update(material='lubricated',mass_density=7850.)
+ # A real clear polycarbonate insert replaces the non-load-bearing positive-Y
+ # guide wall; every collision face remains. It supports calibrated inspection.
+ for shape in shapes:
+  if shape['kind']=='box' and abs(shape['pos'][1]-.00455)<1e-9 and shape['size']==[.0116,.002,.0034]:shape.update(material='inspection_lubricated',mass_density=1200.,opacity=.12,color=[.72,.88,.98],role='physical_clear_ball_guide_window')
+
  # Rear mechanical stop prevents over-insertion; context casing and workholding.
  shapes.append(box([.047,0,0],[.004,.012,.012]))
  shapes.append(cylinder([.11,0,0],.032,.11,[.12,.25,.40],axis_quat([0,1,0],math.pi/2).tolist()))
@@ -46,23 +51,37 @@ def make_scene():
  holder=body('tool_holder',D.ROOT,shapes,3.0,True)
  collarsh=[]
  for a,b,r0,r1 in [(-.002,.015,D.COLLAR_BORE_RELEASED,D.COLLAR_BORE_RELEASED),(.015,.017,D.COLLAR_BORE_RELEASED,D.COLLAR_BORE_CLOSED),(.017,.022,D.COLLAR_BORE_CLOSED,D.COLLAR_BORE_CLOSED),(.022,.024,D.COLLAR_BORE_CLOSED,D.COLLAR_BORE_RELEASED),(.024,.035,D.COLLAR_BORE_RELEASED,D.COLLAR_BORE_RELEASED)]:collarsh+=annular_slice(a,b,r0,r1,.014,color=[.15,.17,.19],role='positive_locking_land_and_front_rear_reliefs')
- for shape in collarsh:shape['material']='lubricated'
- collarsh+=annular_slice(-.002,.035,.014,.014,D.COLLAR_OUTER,color=[.15,.17,.19],role='dry_gripping_shell')
+ for shape in collarsh:shape.update(material='lubricated',mass_density=7850.)
+ # The roof over the ball remains steel. Clear side sectors allow a +Y photo
+ # through the original inspection fixture without deleting any collider.
+ for shape in collarsh:
+  angle=math.atan2(shape['pos'][2],shape['pos'][1])
+  if math.radians(20)<=angle<=math.radians(75):shape.update(material='inspection_lubricated',mass_density=2500.,opacity=.12,color=[.72,.88,.98],role='physical_glass_cam_side_window')
+
+ collarsh+=annular_slice(-.002,.035,.014,.014,D.COLLAR_OUTER,color=[.15,.17,.19],role='dry_gripping_shell',inner_circumscribed=False)
  # Outer gripping shell is dry; only the inner cam is lightly lubricated.
- collar=body('locking_sleeve',D.ROOT,collarsh,.045)
- j=joint('sleeve_retraction','tool_holder','locking_sleeve','X',[0,0,0],0.,D.COLLAR_TRAVEL,0.,2000.,2.,-.001)
+ for shape in collarsh:
+  if 'mass_density' not in shape:shape.update(mass_density=1200.,opacity=.12,color=[.72,.88,.98])
+ from mass_properties import primitive
+ collar_mass=sum(primitive(shape)[0]*shape['mass_density'] for shape in collarsh)
+ collar=body('locking_sleeve',D.ROOT,collarsh,collar_mass)
+ j=joint('sleeve_retraction','tool_holder','locking_sleeve','X',[0,0,0],0.,D.COLLAR_TRAVEL,0.,2000.,5.,-.001)
  ball=body('locking_ball',(root+[D.BALL_X,0,D.BALL_Z]).tolist(),[dict(kind='sphere',pos=[0.,0.,0.],quat=[0.,0.,0.,1.],radius=D.BALL_RADIUS,color=[.68,.70,.72],role='manufacturer_documented_7mm_sphere')],7850*4/3*math.pi*D.BALL_RADIUS**3)
- ball['shapes'][0]['material']='lubricated'
+ ball['shapes'][0].update(material='lubricated',mass_density=7850.)
+ from mass_properties import compound
+ ball.update(compound(ball['shapes'],ball['mass']))
  bitsh=shank()
- for shape in bitsh:shape['material']='lubricated'
- shaft=cylinder([-.120,0,0],.006,.150,[.50,.52,.54],axis_quat([0,1,0],math.pi/2).tolist());shaft['role']='inert_chisel_stem';bitsh.append(shaft)
+ for shape in bitsh:shape.update(material='lubricated',mass_density=7850.)
+ shaft=cylinder([-.1125,0,0],.006,.135,[.50,.52,.54],axis_quat([0,1,0],math.pi/2).tolist());shaft['role']='inert_chisel_stem';bitsh.append(shaft)
  def chisel(name,pos,flat,roll):
   import copy
   ss=copy.deepcopy(bitsh)
   # Blunt original tips: cutting/breaking concrete is outside this operation.
   if flat:ss.append(convex([[-.200,y,z] for y in (-.010,.010) for z in (-.001,.001)]+[[-.180,y,z] for y in (-.006,.006) for z in (-.006,.006)],[.58,.60,.62],'blunt_flat_chisel_tip'))
   else:ss.append(convex([[-.200,y,z] for y in (-.001,.001) for z in (-.001,.001)]+[[-.180,y,z] for y in (-.006,.006) for z in (-.006,.006)],[.48,.50,.52],'blunt_point_chisel_tip'))
-  b=body(name,pos,ss,.140 if flat else .130);b['quat']=axis_quat([1,0,0],roll).tolist();return b
+  for shape in ss:shape['mass_density']=7850.
+  bit_mass=sum(primitive(shape)[0]*7850. for shape in ss)
+  b=body(name,pos,ss,bit_mass);b['quat']=axis_quat([1,0,0],roll).tolist();return b
  old=chisel('used_point_chisel',(root+[D.STEM_INSERTION,0,0]).tolist(),False,0.)
  new=chisel('replacement_flat_chisel',[.37,.30,D.TABLE+.025],True,math.pi/4)
  def tray(name,pos,supports=False):
@@ -80,7 +99,7 @@ def make_scene():
  spec=dict(schema=1,task='sds-plus-chisel-exchange',geometry_mode=D.MODE.value,instruction='Replace the used point chisel with the flat chisel. Put the used chisel in its tray, secure the replacement in the unpowered holder, and leave both hands clear.',control_hz=20,physics_dt=1/1920,gravity=[0,0,-9.81],run_limit=3200,table_top=D.TABLE,hold_seconds=2.,penetration_limit=.00020,
  assemblies=[dict(name='sds_holder_asset',origin=D.ROOT,fixed=True,bodies=[holder,collar],joints=[j]),assembly(ball),assembly(old),assembly(new),assembly(oldtray,True),assembly(newtray,True)],initial_joint_values={'sleeve_retraction':0.},collision_exclusions=[],
  material=dict(static_friction=.65,dynamic_friction=.45,restitution=0.,contact_offset=.00002,rest_offset=0.),
- materials=dict(lubricated=dict(static_friction=.18,dynamic_friction=.12,restitution=0.,classification='Benchmark-authored lightly greased steel interface assumption; manufacturer prescribes clean/lightly grease, not measured coefficient.')),
+ materials=dict(inspection_lubricated=dict(static_friction=.18,dynamic_friction=.12,restitution=0.,classification='Authored clear glass/polycarbonate inspection inserts; lightly lubricated0.12 assumption, not OEM hardware.'),lubricated=dict(static_friction=.18,dynamic_friction=.12,restitution=0.,classification='Benchmark-authored lightly greased steel interface assumption; manufacturer prescribes clean/lightly grease, not measured coefficient.')),
  parameters=dict(ball_diameter_manufacturer=D.BALL_DIAMETER,holder_mouth=D.ROOT,ball_port_x=D.BALL_X,shank_radius=D.SHAFT_RADIUS,closed_slot_rear=D.SLOT_REAR,closed_slot_front=D.SLOT_FRONT,closed_slot_floor_radius=D.SLOT_RADIUS,open_groove_floor_radius=D.OPEN_GROOVE_RADIUS,authored_closed_ball_radial_limit=D.COLLAR_BORE_CLOSED-D.BALL_RADIUS,authored_free_axial_play=True,authored_ball_race_x_min=.0194,authored_ball_race_x_max=.0251,authored_locked_ball_x_max=.0210,authored_gravity_return_lip_slope=.10,authored_clamped_inert_workholding=True),
  limitations=['Original authored benchmark fixture; not OEM dimensional compatibility or measured hardware. Only7mm retaining-ball diameter is manufacturer documented.','Groove profiles, gravity-biased axial ball race and sleeve locking land are engineered approximations preserving separate torque drive, radial ball retention, free axial play, automatic insertion and independent sleeve release.','Exact7mm sphere in both USD and supplemental CPU physics. No drilling, cutting, powered rotation, hammer action, grease flow or real dust seal is simulated.'])
  return spec

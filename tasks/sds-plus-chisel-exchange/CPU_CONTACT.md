@@ -1,0 +1,9 @@
+# Supplemental CPU contact evidence
+
+MuJoCo3.3.7 is an independent diagnostic backend, not PhysX or a YAM robot. Exact original contact solids, mass/COM/tensors, materials and passive joints come from scene.json. Sphere contacts are exact primitives. All adjacent contacts remain enabled. The contact profile uses zero active rest offset (margin=gap), elliptic friction, impratio100 and120 Newton iterations; it is not claimed native-equivalent.
+
+Seven protocols repeat twice from independent resets: free prepared hold; closed-ball withdrawal resistance; drive-groove torque transmission; retained axial play; sleeve return; sleeve-retracted withdrawal; and empty-holder ball caging. Support forces explicitly cancel the declared chisel weight for the isolated comparison; they are diagnostic inputs, not robot strength or OEM loads. The free reset hold separately includes actual gravity.
+
+probe_cycle_cpu.py only places its diagnostic fixtures at initialization. It then uses capped translational12N/rotational0.060Nm feedback wrenches with separate explicit gravity compensation. Real integrated contacts perform alignment, automatic insertion, bounded pull and3s released retention. The current profile passes at47.37um peak depth under200um, with no warning in that run. Raw failures remain historical. Final qualification reruns the frozen source and records actual warnings rather than hiding them.
+
+A cached observation is read only after mj_forward refreshes Cartesian state after integration; a direct cache/fresh comparison test covers this contract. Eliminating duplicate forwards improves CPU time without changing forces, contacts, timestep or integrity bounds. IdealFixture is a separate quasistatic geometric projection/rigid-grasp model and cannot validate robot contact or grasp dynamics.

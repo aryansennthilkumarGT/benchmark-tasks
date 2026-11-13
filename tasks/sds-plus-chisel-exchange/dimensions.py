@@ -21,7 +21,7 @@ BALL_RADIUS=BALL_DIAMETER/2
 HOLDER_INNER=.00515
 HOLDER_OUTER=.00620
 PORT_HALF=.00310
-COLLAR_BORE_CLOSED=.01165
+COLLAR_BORE_CLOSED=.01160
 COLLAR_BORE_RELEASED=.01340
 COLLAR_OUTER=.01850
 COLLAR_TRAVEL=.008
@@ -35,7 +35,7 @@ OPEN_GROOVE_RADIUS=.00360
 STEM_INSERTION=.040
 OLD_GRIP=[-.140,0.,.002]
 NEW_GRIP=[-.130,0.,.002]
-COLLAR_GRIP=[.020,0.,.005]
+COLLAR_GRIP=[.020,.005/math.sqrt(2),.005/math.sqrt(2)]
 OLD_TRAY=[.27,-.30,TABLE+.002]
 NEW_CRADLE=[.27,.30,TABLE+.002]
 PARAMETERS={n:dict(value=v,classification=('Manufacturer-documented' if n=='BALL_DIAMETER' else 'Derived from other explicitly stated geometry' if n=='BALL_RADIUS' else 'Benchmark-authored approximation'),source=('Bosch GBH2-26 parts record1903230013; SOURCES.json' if n=='BALL_DIAMETER' else 'BALL_DIAMETER/2' if n=='BALL_RADIUS' else 'Original inert fixture design; not OEM measurement')) for n,v in list(globals().items()) if n.isupper() and isinstance(v,(int,float,list))}

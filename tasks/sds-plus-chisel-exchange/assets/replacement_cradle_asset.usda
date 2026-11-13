@@ -11,9 +11,18 @@ def Xform "Asset"
         prepend apiSchemas = ["PhysicsMaterialAPI"]
     )
     {
-        float physics:dynamicFriction = 0.5
+        float physics:dynamicFriction = 0.45
         float physics:restitution = 0
         float physics:staticFriction = 0.65
+    }
+
+    def Material "Material_inspection_lubricated" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.12
+        float physics:restitution = 0
+        float physics:staticFriction = 0.18
     }
 
     def Material "Material_lubricated" (

@@ -19,7 +19,7 @@ def test_every_contact_pair_remains_physical_and_ball_is_free():
 def test_original_usd_assets_rebuild_exactly_and_preserve_material_units_and_drive(tmp_path):
  compile_assets(SPEC,tmp_path)
  for f in (HERE/'assets').glob('*.usda'):assert f.read_bytes()==(tmp_path/f.name).read_bytes()
- a=SPEC['assemblies'][0];stage=Usd.Stage.Open(str(HERE/'assets'/('sds_holder_asset.usda')));j=UsdPhysics.PrismaticJoint(stage.GetPrimAtPath('/Asset/sleeve_retraction'));assert j.GetCollisionEnabledAttr().Get() is True;d=UsdPhysics.DriveAPI(j.GetPrim(),'linear');assert np.isclose(d.GetStiffnessAttr().Get(),2000) and np.isclose(d.GetDampingAttr().Get(),2) and np.isclose(d.GetTargetPositionAttr().Get(),-.001)
+ a=SPEC['assemblies'][0];stage=Usd.Stage.Open(str(HERE/'assets'/('sds_holder_asset.usda')));j=UsdPhysics.PrismaticJoint(stage.GetPrimAtPath('/Asset/sleeve_retraction'));assert j.GetCollisionEnabledAttr().Get() is True;d=UsdPhysics.DriveAPI(j.GetPrim(),'linear');assert np.isclose(d.GetStiffnessAttr().Get(),2000) and np.isclose(d.GetDampingAttr().Get(),5) and np.isclose(d.GetTargetPositionAttr().Get(),-.001)
 
 def test_all_convex_parts_have_positive_volume_and_consistent_face_winding():
  for a in SPEC['assemblies']:
@@ -58,3 +58,44 @@ def test_sphere_robot_qa_hull_conservatively_contains_exact_sphere():
  from scipy.spatial import ConvexHull
  g=geometry_module(HERE);v,_,_=g.sphere_qa_polyhedron(.0035);h=ConvexHull(v);assert np.min(-h.equations[:,3])>=.0035-1e-12
  assert np.max(np.linalg.norm(v,axis=1))-.0035<.00006
+
+
+def test_actual_usd_materials_match_scene_and_clear_windows_keep_collisions():
+ from pxr import UsdShade,UsdGeom
+ count=0
+ for a in SPEC['assemblies']:
+  stage=Usd.Stage.Open(str(HERE/'assets'/(a['name']+'.usda')))
+  for b in a['bodies']:
+   for i,s in enumerate(b['shapes']):
+    prim=stage.GetPrimAtPath('/Asset/'+b['name']+'/shape_'+str(i));mat=UsdShade.MaterialBindingAPI(prim).ComputeBoundMaterial(materialPurpose='physics')[0];api=UsdPhysics.MaterialAPI(mat.GetPrim());values=SPEC.get('materials',{}).get(s.get('material'),SPEC['material'])
+    assert np.isclose(api.GetStaticFrictionAttr().Get(),values['static_friction']) and np.isclose(api.GetDynamicFrictionAttr().Get(),values['dynamic_friction'])
+    if s.get('opacity',1.)<1.:
+     assert prim.HasAPI(UsdPhysics.CollisionAPI);visual=UsdShade.MaterialBindingAPI(prim).ComputeBoundMaterial()[0];shader=visual.ComputeSurfaceSource()[0];assert np.isclose(shader.GetInput('opacity').Get(),s['opacity']);count+=1
+ assert count>60
+
+
+def test_physical_inspection_inserts_provide_macro_centerline_access():
+ from audit_visibility import audit
+ assert audit()['passed']
+
+
+def test_cached_mujoco_observations_match_a_fresh_forward_after_step():
+ import mujoco
+ from mechanism_cpu import initialize,observe
+ m=mujoco.MjModel.from_xml_string(export(SPEC));d=mujoco.MjData(m);initialize(m,d,SPEC);mujoco.mj_step(m,d);mujoco.mj_forward(m,d);cached=observe(m,d,SPEC,refresh=False);fresh=observe(m,d,SPEC)
+ for n in cached['bodies']:
+  for k in ['pos','quat','linear','angular']:assert np.allclose(cached['bodies'][n][k],fresh['bodies'][n][k],atol=1e-12)
+
+
+def test_cached_convex_sphere_distances_follow_current_rigid_pose():
+ from cad import convex
+ from motion import axis_quat,rotate
+ g=geometry_module(HERE);cube=convex([[x,y,z] for x in (-.01,.01) for y in (-.01,.01) for z in (-.01,.01)]);sphere=dict(kind='sphere',pos=[0.,0.,0.],quat=[0.,0.,0.,1.],radius=.0035)
+ for angle in [0.,.4,-1.1,.8]:
+  q=axis_quat([0,0,1],angle);body=dict(pos=[.2,.1,.8],quat=q);point=np.array(body['pos'])+rotate(q,[.0134,0,0]);ball=dict(pos=point,quat=[0.,0.,0.,1.]);assert np.isclose(g.sphere_pair_depth(ball,sphere,body,cube),.0001,atol=1e-10)
+
+
+def test_full_insertion_backstop_state_is_physically_noninterfering():
+ from test_scoring import goal
+ g=geometry_module(HERE);f=goal();f['bodies']['replacement_flat_chisel']['pos'][0]=SPEC['parameters']['holder_mouth'][0]+.0448
+ assert g.maximum_penetration(SPEC,f['bodies'])<=SPEC['penetration_limit']
