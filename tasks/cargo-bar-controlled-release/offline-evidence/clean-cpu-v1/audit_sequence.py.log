@@ -1,0 +1,319 @@
+{
+  "kind": "OFFLINE_IDEAL_TRACKING_SYNTHETIC_PHYSICAL_FEEDBACK",
+  "physics_executed": false,
+  "native_feedback_synthetic": true,
+  "grasps_validated": false,
+  "released_support_assumed": true,
+  "actions": 1161,
+  "simulated_seconds": 58.05,
+  "phases": 21,
+  "phase_count": 21,
+  "max_grasp_constraint_residual_m": 7.999922579521426e-05,
+  "synthetic_score": 1.0,
+  "scorer_failure": null,
+  "first_failure": null,
+  "constraint_peak": {
+    "step": 696,
+    "phase": 8,
+    "label": "Open handle on its physical circular path",
+    "residual_m": 7.999922579521426e-05
+  },
+  "error": null,
+  "events": [
+    {
+      "event": "PHASE_START",
+      "phase": 0,
+      "label": "Initialize support arm",
+      "time": 0.0
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 0,
+      "label": "Initialize support arm",
+      "time": 4.049999999999994,
+      "position_error_m": 5.427437978008625e-06,
+      "rotation_error_rad": 2.4107702613369305e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 1,
+      "label": "Approach inner tube support",
+      "time": 4.099999999999993
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 1,
+      "label": "Approach inner tube support",
+      "time": 5.04999999999999,
+      "position_error_m": 7.477202423705405e-06,
+      "rotation_error_rad": 1.822157957702776e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 2,
+      "label": "Reach inner tube support",
+      "time": 5.09999999999999
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 2,
+      "label": "Reach inner tube support",
+      "time": 7.099999999999983,
+      "position_error_m": 1.2126112685927315e-05,
+      "rotation_error_rad": 2.2213348467531752e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 3,
+      "label": "Grip loaded inner tube",
+      "time": 7.149999999999983
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 3,
+      "label": "Grip loaded inner tube",
+      "time": 7.84999999999998,
+      "position_error_m": 1.2126112685927315e-05,
+      "rotation_error_rad": 2.2213348467531752e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 4,
+      "label": "Initialize release arm",
+      "time": 7.89999999999998
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 4,
+      "label": "Initialize release arm",
+      "time": 12.35000000000004,
+      "position_error_m": 1.273345124416032e-06,
+      "rotation_error_rad": 3.315165118869928e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 5,
+      "label": "Approach latch and handle",
+      "time": 12.400000000000041
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 5,
+      "label": "Approach latch and handle",
+      "time": 23.5000000000002,
+      "position_error_m": 6.098142882494075e-06,
+      "rotation_error_rad": 1.5077324491090747e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 6,
+      "label": "Reach latch and handle",
+      "time": 23.5500000000002
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 6,
+      "label": "Reach latch and handle",
+      "time": 27.250000000000252,
+      "position_error_m": 9.041253216386002e-06,
+      "rotation_error_rad": 2.2536192231944127e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 7,
+      "label": "Squeeze latch release",
+      "time": 27.300000000000253
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 7,
+      "label": "Squeeze latch release",
+      "time": 27.85000000000026,
+      "position_error_m": 9.041253216395223e-06,
+      "rotation_error_rad": 2.2536192231944127e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 8,
+      "label": "Open handle on its physical circular path",
+      "time": 27.90000000000026
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 8,
+      "label": "Open handle on its physical circular path",
+      "time": 36.300000000000075,
+      "position_error_m": 2.217908477215698e-06,
+      "rotation_error_rad": 2.3557279617020942e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 9,
+      "label": "Verify both physical pawls clear",
+      "time": 36.35000000000007
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 9,
+      "label": "Verify both physical pawls clear",
+      "time": 36.70000000000005,
+      "position_error_m": 8.030128911373263e-06,
+      "rotation_error_rad": 2.7676073947755143e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 10,
+      "label": "Hold outer tube through released handle",
+      "time": 36.75000000000005
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 10,
+      "label": "Hold outer tube through released handle",
+      "time": 37.000000000000036,
+      "position_error_m": 8.030128911373263e-06,
+      "rotation_error_rad": 2.7676073947755143e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 11,
+      "label": "Retract controlled inner tube",
+      "time": 37.05000000000003
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 11,
+      "label": "Retract controlled inner tube",
+      "time": 41.29999999999979,
+      "position_error_m": 2.594727342119933e-06,
+      "rotation_error_rad": 2.2213328475525126e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 12,
+      "label": "Release shortened inner tube",
+      "time": 41.34999999999979
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 12,
+      "label": "Release shortened inner tube",
+      "time": 41.69999999999977,
+      "position_error_m": 4.5330632282387564e-06,
+      "rotation_error_rad": 2.2213328475525126e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 13,
+      "label": "Withdraw support fingers",
+      "time": 41.749999999999766
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 13,
+      "label": "Withdraw support fingers",
+      "time": 43.74999999999965,
+      "position_error_m": 1.1900788178767969e-05,
+      "rotation_error_rad": 2.3269965540425398e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 14,
+      "label": "Park support arm",
+      "time": 43.79999999999965
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 14,
+      "label": "Park support arm",
+      "time": 44.84999999999959,
+      "position_error_m": 1.3112259069912952e-05,
+      "rotation_error_rad": 2.3971629128096083e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 15,
+      "label": "Clear both wall faces",
+      "time": 44.89999999999959
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 15,
+      "label": "Clear both wall faces",
+      "time": 46.24999999999951,
+      "position_error_m": 1.606904298742956e-06,
+      "rotation_error_rad": 4.1342599711091335e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 16,
+      "label": "Lower unloaded bar onto cradles",
+      "time": 46.29999999999951
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 16,
+      "label": "Lower unloaded bar onto cradles",
+      "time": 47.44999999999944,
+      "position_error_m": 2.7716479247411324e-07,
+      "rotation_error_rad": 7.80001421469598e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 17,
+      "label": "Release supported handle",
+      "time": 47.49999999999944
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 17,
+      "label": "Release supported handle",
+      "time": 47.94999999999941,
+      "position_error_m": 2.7716479247411324e-07,
+      "rotation_error_rad": 7.80001421469598e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 18,
+      "label": "Withdraw release fingers",
+      "time": 47.99999999999941
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 18,
+      "label": "Withdraw release fingers",
+      "time": 49.24999999999934,
+      "position_error_m": 1.4527445050706244e-05,
+      "rotation_error_rad": 3.2393191476796766e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 19,
+      "label": "Park release arm",
+      "time": 49.299999999999336
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 19,
+      "label": "Park release arm",
+      "time": 55.39999999999899,
+      "position_error_m": 9.34163118683157e-06,
+      "rotation_error_rad": 3.9532968807631944e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 20,
+      "label": "Released unloaded bar hold",
+      "time": 55.44999999999899
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 20,
+      "label": "Released unloaded bar hold",
+      "time": 57.99999999999884,
+      "position_error_m": 9.34163118683157e-06,
+      "rotation_error_rad": 3.9532968807631944e-05
+    }
+  ],
+  "passed": true
+}

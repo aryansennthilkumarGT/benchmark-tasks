@@ -1,0 +1,86 @@
+{
+  "kind": "OFFLINE_CPU_ONLY_PACKAGE_CHECKS",
+  "physics_engine": "Supplemental MuJoCo only for named probes; no Isaac",
+  "native_executed": false,
+  "checks": [
+    {
+      "check": "pytest",
+      "returncode": 0,
+      "passed": true,
+      "log": "pytest.log"
+    },
+    {
+      "check": "provenance.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "provenance.py.log"
+    },
+    {
+      "check": "verify_assets.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "verify_assets.py.log"
+    },
+    {
+      "check": "audit_gearing.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_gearing.py.log"
+    },
+    {
+      "check": "probe_gearing_cpu.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "probe_gearing_cpu.py.log"
+    },
+    {
+      "check": "probe_pawl_cpu.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "probe_pawl_cpu.py.log"
+    },
+    {
+      "check": "mechanism_cpu.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "mechanism_cpu.py.log"
+    },
+    {
+      "check": "cpu_native_cases.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "cpu_native_cases.py.log"
+    },
+    {
+      "check": "audit_control.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_control.py.log"
+    },
+    {
+      "check": "audit_geometry.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_geometry.py.log"
+    },
+    {
+      "check": "audit_robot.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_robot.py.log"
+    },
+    {
+      "check": "audit_sequence.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_sequence.py.log"
+    },
+    {
+      "check": "audit_path.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_path.py.log"
+    }
+  ],
+  "passed": true
+}
