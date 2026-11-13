@@ -26,3 +26,16 @@ An additional repository-path screen of LIBERO, RoboCasa and BDDL at the recorde
 ## Rejection risks
 
 Importance has primary occupational and equipment evidence. Construct validity still depends on showing that declared rigid/faceted interfaces and robot turning contacts preserve the assembly operation; real friction, reset and seating need native tests. Scoring avoids inaccessible internal compression, but real optical measurements must be calibrated. Novelty is adjacent to clevis/cotter and threaded-fastener tasks, and an official reviewer may weigh that adjacency differently. Feasibility remains unproven until the actual expert episodes succeed. No old prototype score or video supports this new task.
+
+## Additional accepted-source comparison and v21 adversarial pass
+
+A fresh upstream-main inventory retrieved 93 task.json files. novelty-accepted-shortlist.json records the reproducible lexical shortlist and content hashes; retrieval ranks are not semantic decisions. Manual comparison of the closest mechanisms found:
+
+- **Pin fit** selects one smooth pin for a single fixture hole. This operation joins a sling bow around a lug, spans three separated bores and mechanically retains the pin in the far eye by a real thread/collar.
+- **Lock before loading** also spans three holes, but a smooth pin locks a hinge before placing blocks near a hand. It has no threaded-eye connection or removable lifting-hardware assembly. The shared multi-hole alignment is real; novelty relies on the complete screw-pin load connection, not the presence of three holes alone.
+- **Feed shaft** aligns bearings with a hex shaft, with free protruding ends. There is no threaded eye, collar seating or bow/lug connection.
+- **RoboDojo fasten screws** inserts three screws into same-colored loose nuts. It shares pitch-coupled fastening. Here the pin is also the transverse connector across two bow eyes and a lifting lug; the occupational operation is load attachment and removal, rather than independent bolt/nut pairs. This is an adjacency to disclose, not proof of universal novelty.
+
+Our rejected generic service-arm prototype did not implement this assembly or these interfaces; it is preserved as historical code only. SAC also uses threading, but its carrier/three-retainer mounting is a separate operation and has a higher duplication risk against RoboDojo. No generic fastener variant is being counted as novel solely because its shape differs.
+
+The full pending inventory remains inaccessible. Indexed official PR and accepted-source coverage is scoped; rerun the live screen before any future paid model evaluation or submission. Importance now uses the explicit material-mover load-attachment duty and BLS population rather than relying on the small rigger population. Scoring and calibrated physical measurements remain in SCORING.md/MEASUREMENT.md. Native friction, actual grasps, thread stability and continuous path safety remain unverified.

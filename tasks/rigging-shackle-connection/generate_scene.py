@@ -192,12 +192,12 @@ def make_plan(spec):
         phase(f'Tighten pin stroke {i+1}','right',[x,0,height],rotated,.010/.0939,speed=.004)
         if i!=segments-1:
             phase(f'Open for regrasp {i+1}','right',[x,0,height],rotated,.45)
-            phase(f'Clear pin head {i+1}','right',[x,0,height+.040],rotated,.45)
-            phase(f'Unwind wrist {i+1}','right',[x,0,height+.040],right_q,.45)
-            phase(f'Lower around pin head {i+1}','right',[x,0,height],right_q,.45,speed=.006)
+            phase(f'Clear pin head {i+1}','right',[x,0,height+.020],rotated,.45)
+            phase(f'Unwind wrist {i+1}','right',[x,0,height+.020],right_q,.45)
+            phase(f'Lower around pin head {i+1}','right',[x,0,height],right_q,.45,speed=.025)
             phase(f'Regrasp pin {i+1}','right',[x,0,height],right_q,.010/.0939,.4)
     phase('Release seated pin','right',[x,0,entry-TURNS*PITCH],rotated,.45)
-    phase('Lift clear after pin release','right',[x,0,entry-TURNS*PITCH+.040],rotated,.45)
+    phase('Lift clear after pin release','right',[x,0,entry-TURNS*PITCH+.020],rotated,.45)
     phase('Withdraw pin tool gripper','right',[.28,-.17,.93],right_q,1.)
     phase('Final clear hold','right',[.28,-.17,.93],right_q,1.,dwell=2.5)
     states={b['name']:dict(pos=b['pos'],quat=b['quat']) for a in spec['assemblies'] for b in a['bodies']}
@@ -209,6 +209,15 @@ def make_plan(spec):
             i=int(p['label'].split()[-1]);states['pin']=dict(pos=[x,0,p['target']['pos'][2]-.027],quat=quat([0,0,1],-i*math.pi/4))
         p['nominal_bodies']=json.loads(json.dumps(states))
         p['contact_body']='shackle' if p['side']=='left' else 'pin'
+        p['grasp_width']=0.
+        if p['opening']<.3:
+            if p['side']=='left':p['grasp_width']=.016
+            else:
+                from motion import rotate
+                import numpy as np
+                jaw=rotate(p['target']['quat'],[1,0,0]);bq=p['nominal_bodies']['pin']['quat']
+                p['grasp_width']=sum(abs(float(np.dot(jaw,rotate(bq,axis))))*length
+                    for axis,length in [([1,0,0],.024),([0,1,0],.012)])
     return dict(schema=1,feedback='robot_proprioception_only',phases=phases)
 
 

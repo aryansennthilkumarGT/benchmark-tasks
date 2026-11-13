@@ -213,7 +213,7 @@ class ControllerTests(unittest.TestCase):
         q=np.zeros(14);t=0.
         for _ in range(16000):
             if c.done:break
-            for side,p in c.targets.items():q[(0 if side=='left' else 7)+6]=p['opening']+(.02 if p['opening']<.3 else 0.)
+            for side,p in c.targets.items():q[(0 if side=='left' else 7)+6]=p['grasp_width']/.0939 if p.get('grasp_width',0.) else p['opening']
             c.step(q,{'time':t});t+=.05
         self.assertTrue(c.done)
         self.assertEqual(sum(e['event']=='PROPRIOCEPTIVE_PHASE_COMPLETE' for e in c.events),len(PLAN['phases']))
@@ -226,8 +226,9 @@ class ControllerTests(unittest.TestCase):
             def target(self,q,pos,quat,opening,**kwargs):return q,0.,0.
         c.motion={s:AtTarget() for s in ('left','right')}
         q=np.zeros(14);q[6]=p['opening'] # fully closed in air, not contact
-        c.step(q,{'time':0.})
-        with self.assertRaisesRegex(ControlFailure,'timeout'):c.step(q,{'time':.25})
+        c.step(q,{'time':0.});c.step(q,{'time':.25})
+        self.assertIsNotNone(c.recovery)
+        with self.assertRaisesRegex(ControlFailure,'Recovery timeout'):c.step(q,{'time':13.})
 
 
 if __name__=='__main__':unittest.main()

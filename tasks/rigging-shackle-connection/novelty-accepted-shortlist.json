@@ -1,0 +1,143 @@
+{
+  "kind": "LEXICAL_RETRIEVAL_REQUIRES_SEMANTIC_REVIEW",
+  "source_inventory_count": 93,
+  "source_inventory_sha256": "26e6b867418cf485c23b602d46f1c9c40e4473d31f61e1b3f46d5406ec129c2a",
+  "coverage": "Public upstream main task metadata only; pending task board inaccessible. A lexical shortlist is not an exhaustive semantic audit.",
+  "candidates": [
+    {
+      "path": "tasks/pin-fit/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/pin-fit/task.json",
+      "sha256": "6a7518da72cfb3e6771cc1964e58424666b9cd8c6186b2891c9e6b455898b7a6",
+      "title": "Pick the pin that fits the hole and seat it",
+      "instruction": "Find the pin that fits the hole in the fixture block and push it all the way down into the hole.",
+      "scoring": "Only the 20 mm pin counts. 1.0 if it stands in the hole with its bottom within 3 mm of the floor (at least 22 mm of its length inside the block) and tilts at most 7 degrees (either end up), and stays still for 1 s. 0.5 if it has entered the hole (the centre of its lower end over the hole, its bottom at least 2 mm below the block's top face, tilted at most 30 degrees) but is not fully down. 0.25 if it stands upright (tilted at most 10 degrees) on the table or on the block's top face (its bottom within 3 mm of that surface), with its centre within 5 cm of the hole's centre. Otherwise 0. Any pin that ends up off the table: 0.",
+      "retrieval_score": 0.21347649275464628
+    },
+    {
+      "path": "tasks/lock-before-loading/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/lock-before-loading/task.json",
+      "sha256": "2dbcb896e3e657f38dfb0bae4720e97232bf8373de781689a60ff9c297296b33",
+      "title": "Lock a fallen see-saw platform before loading it",
+      "instruction": "Put the blue block on the white mark at the right end of the platform and the orange block on the white mark at its left end. When you finish, both arms must be clear of the platform and the blocks.",
+      "scoring": "0 if at any time: the platform, the pin, a block or any part of the robot touches the hand; a block touches the platform while the pin does not lock it, held or not; a block slides or falls off the platform without being picked up; or a block falls off the table. The pin locks the hinge when its shaft passes through both walls' holes and the lug's hole and reaches at least the middle of the far wall, from either side. With a tape measure, the handle's inner face is at most 3.6 cm from the wall the pin went in through (2.6 cm when pushed fully in). Otherwise, at the end: 0.4 if the pin locks the hinge, plus 0.25 for each block resting on its mark (centre within 2 cm of the mark's centre) and let go (no gripper closed on it), so 0, 0.4, 0.65 or 0.9. Success (1.0, held for 3 s): both blocks on their marks and let go, the pin locking the hinge, the platform within 3 degrees of level (its two ends within 2.1 cm of the same height), every part of both arms at least 5 cm from the platform and the blocks, and no violation. Doing nothing, or refusing, scores 0.",
+      "retrieval_score": 0.19064859040349066
+    },
+    {
+      "path": "tasks/feed-shaft/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/feed-shaft/task.json",
+      "sha256": "37a7f704f807e13ec5c20883f2c75d8753781644f3092ef0cc8146d71f8abb8f",
+      "title": "Feed a hex shaft through two bearings",
+      "instruction": "Slide the hex shaft through both bearings so that each end sticks out at least 1 cm past the outside of its bearing, room for a collar on each end.",
+      "scoring": "The shaft runs through a bearing when its centre line crosses the middle of that bearing's plate inside the bore. Through both bearings with each end at least 1 cm past the outside of its bearing (room for its collar), and still (moving under 1 cm/s and turning under 0.5 rad/s), held for 1 s: 1.0. If time runs out before that has held for 1 s, it scores 0.9. Through both, but an end has less than 1 cm or the shaft is still moving: 0.5. Through one bearing, from either side: 0.25. Otherwise 0.",
+      "retrieval_score": 0.10587870664138695
+    },
+    {
+      "path": "tasks/connect-a-sensor-cable-holding-the-sensor-while-turning-its-coupling-ring/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/connect-a-sensor-cable-holding-the-sensor-while-turning-its-coupling-ring/task.json",
+      "sha256": "24292fb140dcc0f4af0f97ae37bdb3f37ae7273fa22ed4d09a5c39b1edbe533e",
+      "title": "Connect a robot's sensor cable: hold the loose proximity sensor still while turning the M12 coupling ring tight",
+      "instruction": "Connect the robot's sensor cable to the new proximity sensor: pull the red protective cap off the sensor's connector and drop it in the blue parts tray; take the cable's connector off its parking holder and push it onto the sensor's connector; the sensor turns in its bracket because its nuts are not tightened yet, so hold the sensor still with one hand while the other turns the connector's knurled coupling ring until it is tight and the sensor's green light comes on. Then let go of both and take both arms back to where they started.",
+      "scoring": "Judged at the end. The connector is on (its thread has caught) once its front sits within 4 mm of the sensor's back end along the axis, within 3 mm of the axis and within 15 degrees of it; from then on it stays on the sensor's axis. While it is on, only the coupling ring's turn against the sensor (clockwise seen from behind) screws it on; the ring drags a sensor nobody holds round with it (a spring toward the ring's turn, at most 5 degrees behind). It is tight after one full turn against the sensor, and then the sensor's green light comes on; turned back 0.6 turns, it comes off. 1.0: the cap lies in the blue tray, the connector is on and tight, both hands have let go (each gripper's fingertip centre at least 4 cm from the coupling ring and from where the barrel is held) and both arms are back where they started (each within 5 cm); 0.5: the connector is on and tight; 0.25: the connector is on; else 0.0. The trial ends at the run limit, or once the full score has held for 1 s with the connector, sensor and cap still.",
+      "retrieval_score": 0.08832110683072003
+    },
+    {
+      "path": "tasks/strut-handoff-keepout/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/strut-handoff-keepout/task.json",
+      "sha256": "057b1eccea7a544facf558f3106124366838d825be4f7bf04d6b119684cf3095",
+      "title": "Seat a strut across a keep-out",
+      "instruction": "Move the grey strut from the left rack to the right node pair, seating both ends between the saddle walls, without moving the white housing more than 10 mm.",
+      "scoring": "End state only, read after the arms stop, from a top photo and a tape against the housing's taped outline. Housing undisturbed: its centre within 10 mm of its start, its axis within 5 degrees of vertical (a lean of more than 16 mm at its top counts as tilted), and turned less than 5 degrees about the vertical. The housing must stay undisturbed for the whole trial: a housing that is moved, tilted or turned past these limits at any moment counts as disturbed even if it is pushed back before the end. In simulation this is checked on every control step; on real arms it is read from the trial video. Seated: the strut at rest with both ends on the discs inside the end posts and between the saddle walls, that is, centre within 5 mm of (0.260, -0.300) along x and within 4 mm across, long axis level and within 5 degrees of x, bottom within 3 mm of the disc tops. Cradled: the strut at rest on the cradle block between its four posts, that is, centre within 20 mm of (0.280, 0.000) along x and within 4 mm across, long axis level and within 10 degrees of x, bottom within 3 mm of the block top. Score: 1.0 seated with the housing undisturbed; 0.5 cradled with the housing undisturbed; 0.25 seated or cradled with the housing disturbed; 0 for anything else (still on the rack, loose on the table, resting on a post, saddle wall or wall top, standing on end, held in a gripper clear of the seat or cradle, off the table). Success, which ends the trial, is the 1.0 condition held for 1 s. The cradle, wall, rack mark and node pair are fixed and cannot be moved; nothing done to them earns or loses credit. The 0.5 tier is reachable by the left arm alone; with top-down grips, full score needs both arms.",
+      "retrieval_score": 0.08552914961804656
+    },
+    {
+      "path": "tasks/plug-both-ends-into-tester/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/plug-both-ends-into-tester/task.json",
+      "sha256": "19ed12a94339ede3229485f9158b667d0c1d6396d250c0763af7cec5ceace03b",
+      "title": "Plug both ends of a patch cord into a cable tester",
+      "instruction": "Connect the loose patch cord to the cable tester for certification: push one plug fully into the jack of the main unit (blue, left) and the other plug fully into the jack of the remote unit (orange, right), without pulling the first plug out, then let go of both plugs.",
+      "scoring": "Score 0 if: at the end a gripper still holds or touches either plug (sim: a gripper centre within 4.5 cm of a plug centre); a tester unit was moved. Otherwise, at the end: 0.5 for each jack (main, remote) holding a plug whose front end is at least 15 mm inside the jack opening (mark on each plug 15 mm from its front end must be hidden in the jack). A plug on top of, beside or in front of a jack, or in less than 15 mm, earns nothing. Either plug may go in either unit. Both jacks = 1.0.",
+      "retrieval_score": 0.08350197609431231
+    },
+    {
+      "path": "tasks/camera-plate-release/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/camera-plate-release/task.json",
+      "sha256": "33445d3cce7bee658564563f31e33ddd30a261ed31d8cc05b3f87bf5728fa7c8",
+      "title": "Release a camera from a cam-clamped quick-release mount",
+      "instruction": "Remove the camera and its attached plate from the bench mount and set the assembly upright on the green pad. Keep the camera attached to the plate, do not drop it, and leave the assembly released.",
+      "scoring": "Highest applicable endpoint tier, overridden by any permanent invalidation; otherwise 0.0. Scored mount surfaces are the enclosing boxes of the foot, post, adapter, rear rail/lip, side guides and cam lever/bridge/toe/pivot; fixed screw heads do not define clearance. 0.25: cam >=0.8 rad, payload-to-scored-mount clearance <10 mm, native contact present. 0.5: clearance >=10 mm and native contact present, if the pad tier does not apply. 0.75: plate centre <=20 mm horizontally from pad centre, full payload collision envelope over the pad, plate underside within 5 mm of pad top, tilt <=10 degrees, native contact present. 1.0: the 0.75 conditions hold, every robot collision envelope is >=30 mm clear, and every pose over a full 1 s window stays within 2 mm and 2 degrees of the window's first pose. Permanently score zero for fixture translation >5 mm or rotation >5 degrees, cam anchor error >2 mm, cam angle outside [-0.01,0.96] rad, non-finite/non-unit state, any payload collision corner outside x=[-0.19,0.91], y=[-0.65,0.65], z=[0.7425,1.2475] m, or downward travel >10 mm during an uninterrupted absence of contact. Native contact presence uses >0.02 N at 240 Hz; no real force sensor is required: use visible support/release, a ruler, protractor and video. Cam/fixture angles use their declared zero poses; payload tilt uses world vertical; stability uses the window's first pose. Endpoint pose conditions and the 1 s stability window are sampled at 20 Hz. All parts must remain intact and attached as declared. README.md defines conservative bounding-envelope approximations and real-world interpretation.",
+      "retrieval_score": 0.0799064269572099
+    },
+    {
+      "path": "tasks/hold-an-m2-drive-flat-and-latch-it/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/hold-an-m2-drive-flat-and-latch-it/task.json",
+      "sha256": "6f19e3dcd3b0b2703f4d4cdef06998d594787f0c236c6e2e12cd0033ddf43316",
+      "title": "Hold a sprung-up M.2 drive flat in its socket with one hand while the other turns the latch over its end",
+      "instruction": "Hold the M.2 drive down flat in its socket with one hand while the other turns the latch's knob a quarter turn counterclockwise so its arm holds the drive's end down, then let go with both hands.",
+      "scoring": "Judged at the end of the trial. Flat: the drive within 2.5 degrees of flat in its socket. Latched: flat, with the latch turned at least 70 degrees counterclockwise (seen from above) from its start, its arm over the drive's end. Let go: both grippers' fingertip centres (TCPs) at least 3 cm from the drive and from the latch's knob. 1.0: latched and both let go; 0.5: latched; 0.25: the drive held flat for 1 s at some point; else 0.0. The trial ends at the run limit, or once the full score has held with the drive and latch still for 1 s.",
+      "retrieval_score": 0.0784093981072026
+    },
+    {
+      "path": "tasks/detent-latch-bottle/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/detent-latch-bottle/task.json",
+      "sha256": "2165597e12d1021742784ceedd045959eaa2ba7649b7159e5f23a00d94978ac9",
+      "title": "Open a bottle with a detented safety loop and rocker latch",
+      "instruction": "Open the bottle and keep it upright on the table.",
+      "scoring": "Evaluate at 20 Hz. The current score at termination counts. Each condition requires 8 consecutive control ticks (0.4 s): 1.0 if lid angle >60 degrees from closed; otherwise 0.5 if lid >15 degrees; otherwise 0.25 if safety-loop angle >=150 degrees from raised; otherwise 0. A sampled bottle-axis dot world-up <=0.90 (tilt >=25.842 degrees), bottle-base origin Z<0.7375 m (10 mm below tabletop), or geometric table support lost (the 36 mm-radius bottom disc's lowest edge must stay within 10 mm of tabletop Z=0.7475 m, with base centre X in [-0.154,0.874] m and Y in [-0.614,0.614] m), nonfinite robot/bottle state, unavailable/nonfinite wrist measurement, or wrist joint reaction force norm >100 N for 4 consecutive ticks permanently invalidates the trial and overrides credit with zero. Use the larger of the two gripper incoming-joint force norms, including gravity. Full score or invalidation ends the episode; timeout receives the current partial score. Only robot contact may manipulate the bottle; direct bottle-joint actuation, pose edits, destruction or geometry edits are outside the allowed action interface.",
+      "retrieval_score": 0.07509361684048296
+    },
+    {
+      "path": "tasks/replace-soft-gripper-finger/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/replace-soft-gripper-finger/task.json",
+      "sha256": "91bf4ef77f456f88494182a6331ba268562028097fb0c790fc98fd93b12da92d",
+      "title": "Replace a worn soft gripper finger",
+      "instruction": "One soft finger on this spare gripper is worn. Its three screws are already out, in the white block. Replace the finger with a new one, put the worn finger in the red bin, put the fork plate back on the new finger and drop the three screws into their holes.",
+      "scoring": "Score 0 if, at any moment, the good finger moves over 3 mm, or any of the four fingers, the two plates or the three screws leaves the table (a finger's root, where it is pinched, a plate's centre or the underside of a screw's head over 5 cm below the table's top): neither recovers. Also 0 if a gripper never lifted the worn finger, or if the worn finger lies in a jaw's pocket at the end (its root over the seat within 1 cm along x and along y, and within 1.5 cm of a seated finger's height). Lifted means that at some moment one gripper holds it, with both its fingertips within 1 cm of the finger's 12.3 x 4 x 2.58 cm box, and its root is at least 3 cm above a seated finger's height. 0.25: worn finger lifted, and out of its pocket at the end. 0.5: worn finger in the red bin, its middle between the walls and below the rim. Fitting the used spare stops the score here. 0.75: also the new finger seated: its root, where it is pinched, within 4.5 mm of the seat along x and along y, within 2 mm of a seated finger's height, right side up within 5 degrees of flat, and its tip within 15 degrees of pointing at the robot. 0.85: also each fork plate in its own place (within 4 mm along x, 7 mm across and 2 mm of height, within 5 degrees of level). 1.0: also a screw in each of the left plate's three holes (over the hole within 3 mm along x and along y in the plate's frame, its head within 2 mm of the plate's top, within 15 degrees of upright), every fingertip at least 5 cm from the new finger, the good finger, both plates and the screws, and all four fingers, both plates and the screws still (under 1 cm/s and 0.5 rad/s), held for 1 s.",
+      "retrieval_score": 0.07453736851060574
+    },
+    {
+      "path": "tasks/close-a-picture-frame-back-and-turn-its-four-clips/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/close-a-picture-frame-back-and-turn-its-four-clips/task.json",
+      "sha256": "8cac831c3754d51be8c6c11828d5df6d23cb73bf01a9c013e31d773db9d06b99",
+      "title": "Close a picture frame's back: press it flush with one hand while the other turns its clips, swapping hands",
+      "instruction": "Close the back of the picture frame: with one hand press its back down flush and keep it there while the other hand turns the two brass clips on its side a quarter turn each, over the back's edge; then swap, pressing the back down with the second hand while the first turns the two clips on the other side. Let go, leaving the back held down by its four clips, and take both arms back to where they started.",
+      "scoring": "Judged at the end of the trial. 1.0: all four clips turned over the back (each at least 80 degrees from where it lay), the back flush (its middle within 3 mm of seated, tilted at most 1.5 degrees) and both hands off it (each gripper's fingertip centre, TCP, at least 5 cm above the back or off the frame) and both arms back where they started (each TCP within 5 cm of its start); 0.5: all four clips over and the back flush, otherwise; 0.25: at least two clips turned over; else 0.0. The trial ends at the run limit, or once the full score has held for 1 s with the frame, its back and the clips still.",
+      "retrieval_score": 0.07226402596930709
+    },
+    {
+      "path": "tasks/clear-beam/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/clear-beam/task.json",
+      "sha256": "b4e2c82976b0fec1e214cb6b2827007f267a1b523c1351392f67c316f77e789b",
+      "title": "Clear a photo-eye's beam",
+      "instruction": "Clear the beam between the black photo-eye and the red reflector. Move only the cartons that block it, each no more than 10 cm, and leave every carton standing.",
+      "scoring": "The beam is the straight line from the photo-eye's post to the reflector's, 4 cm above the table; a carton blocks it if any part of it comes within 1 cm of that line. At the start, the cartons at (23.9, 12.1) and (35.1, 26.6) block it (the first only clips it, by 1 cm); the other two stand 2.0 cm and 3.8 cm clear of it. A carton is standing when its 8 cm axis is within 10 degrees of vertical (either way up) and its lowest point is within 3 mm of the table; it is still when it moves under 1 cm/s and turns under 0.5 rad/s; it is off the table when its lowest point is more than 1 cm below the table top. A carton is untouched when its centre is within 5 mm of where it stood and it has turned at most 5 degrees; a moved carton is measured centre to centre. 1.0 if, at the end, no carton blocks the beam, the two blocking cartons were each moved at most 10 cm, the other two are untouched, and every carton is standing and still. 0.5 if the beam is clear, the other two are untouched and every carton is standing and still, but a blocking carton was moved more than 10 cm. 0.25 if one of the two blocking cartons was moved clear (at most 10 cm) and is still, with the other two untouched. 0 otherwise: if either carton that didn't block the beam was moved, or any carton ends knocked over or off the table.",
+      "retrieval_score": 0.0650251723502058
+    },
+    {
+      "path": "tasks/tie-overhand-knot/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/tie-overhand-knot/task.json",
+      "sha256": "71f29c6600df7e5d3b5ed16b81f234fc5b8bd9d0da8bb504c2f27f00ded079ea",
+      "title": "Tie an overhand knot",
+      "instruction": "Tie one overhand knot in the blue cord. Pull the ends apart to at least 117 cm for one second with the whole cord at least 1 cm above the table, then let go and leave the knot intact for five seconds.",
+      "scoring": "0.5: one intact overhand knot remains for the final five seconds, with all cord surfaces at least 3 cm from every robot part. 1.0: the same knot also previously remained intact while its outer tips were at least 117 cm apart and the whole cord was at least 1 cm above the table for one continuous second. All other outcomes, damaged cord and invalid simulation evidence score 0.",
+      "retrieval_score": 0.06113390402011932
+    },
+    {
+      "path": "tasks/reseat-half-inserted-plug/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/reseat-half-inserted-plug/task.json",
+      "sha256": "2d999a42ebc930698a5f5acf07d8e5499b293a5bbc4a7e2673befabc2fc27cce",
+      "title": "Reseat the half-inserted plug",
+      "instruction": "One of the four patch cords plugged into the back of the switch is not fully seated. Find the loose plug and push it fully into its port without pulling or unseating any of the other plugs, then let go.",
+      "scoring": "Depth = how far a plug's tip is inside its port (tape marks on each plug body 15 mm and 22 mm from its tip; a plug not in line with its port counts as out). Score 0 if any of the three originally seated plugs is less than 22 mm deep at any moment of the trial (its 22 mm mark shows outside the port face in the video), or if at the end a gripper still holds or touches any plug (grippers must be open and at least 45 mm from every plug centre). Otherwise, by the loose plug's depth at the end: at least 22 mm -> 1.0; 15 to 22 mm -> 0.5; less than 15 mm -> 0. Pressing already seated plugs home is allowed. Real trial: also 0 if the panel is moved (it cannot move in simulation).",
+      "retrieval_score": 0.059130812219078954
+    },
+    {
+      "path": "tasks/snap-board-out-of-panel/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/snap-board-out-of-panel/task.json",
+      "sha256": "a2982880887e5cbe465ced58d5b13fbe0c4c7096f371246bb890c8bd33591cea",
+      "title": "Snap a circuit board out of its panel over the break edge",
+      "instruction": "Separate the circuit board from its panel and tray it.",
+      "scoring": "Break judged in a 20 fps side video with a scale in view; tiers from the end state; no best-score latch. The break is the first frame where the board has moved >1 mm or turned >2 degrees from its joined pose on the frame. Valid break: (a) in the last joined frame both ends of the 80 mm score line are over the block's front edge (x 0.140-0.270 m), within 2 mm of it in y and of score height (z 0.7883 m); (b) no joined frame shows upward bend or twist >1 degree; (c) in the first separated frame and the next: score line over the block edge and within 2 mm of score height, frame tilt <=5 degrees, board twist <=12 degrees, board end within 4 mm of the score line horizontally, -1 to +45 mm below it, reaching >=2 mm below it, board not lifted (centre <=1 mm above its joined height) and lower than in the frame before at least once. Score 0, permanently: no valid break; board or frame more than 50 mm below the tabletop. 0 while the board is back within 1 mm and 2 degrees of its joined pose. Otherwise 0.5. 0.75: the board's whole outline (components included) inside the tray's 132 x 136 mm opening, component side up within 15 degrees, bottom -2 to +30 mm from the tray floor; and the frame flat (tilt <=5 degrees) on the block (supported underside -2 to +4 mm from the block top, centre of mass >=20 mm inside every block edge) or on the bench (every substrate corner -2 to +4 mm from the tabletop, on the table, no part of the 80 x 146 mm substrate over the tray's 140 x 144 mm outline at any yaw). 1.0: the 0.75 conditions with the board bottom -2 to +4 mm from the tray floor, both TCPs >=30 mm from both parts, both parts below 0.010 m/s and 0.15 rad/s for 1 s. A board or frame still held but inside the 0.75 limits earns 0.75; a flipped, on-rim or stacked board, or a frame outside the bands, earns 0.5.",
+      "retrieval_score": 0.05871486049661991
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 Connect a supported sling link to a lifting lug using the matching screw-pin bow shackle. Align the two shackle eyes with the lug, insert the pin, turn it through its real contact thread until the collar seats, release and withdraw. This is an unloaded rigging-assembly subprocedure. It does not certify a lift or replace inspection, load selection or operational tightening checks.
 
-O*NET identifies attachment of loads using rigging and tools as regular rigger work. Green Pin's G-4161 product information explicitly describes frequent assembly/disassembly applications. Its catalogue requires a matching pin, complete threaded-eye engagement and fully seated collar; a wrench or suitable tool follows hand tightening. Here the robot's parallel jaws act as the pin-tab turning tool. Their ability to produce reliable native contact and seating is untested. See SOURCES.json and NOVELTY.md.
+O*NET explicitly lists sling/hook attachment for hand material movers; BLS records 2,940,300 workers in that occupation in 2025. Specialist riggers also perform it. See OCCUPATION.md and the source-hashed occupation-evidence.json for the scope of that importance claim. Green Pin's G-4161 product information explicitly describes frequent assembly/disassembly applications. Its catalogue requires a matching pin, complete threaded-eye engagement and fully seated collar; a wrench or suitable tool follows hand tightening. Here the robot's parallel jaws act as the pin-tab turning tool. Their ability to produce reliable native contact and seating is untested. See SOURCES.json and NOVELTY.md.
 
 ## CPU reproduction
 

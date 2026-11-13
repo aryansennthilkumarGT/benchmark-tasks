@@ -1,7 +1,6 @@
-"""Conservative critical-pose robot/fixture collision checks using pinned URDF hulls.
+"""Conservative all-endpoint robot/fixture collision checks using pinned URDF hulls.
 
-Checks every approach/alignment/transfer endpoint and the first, middle and last
-thread/regrasp cycles. This is sampled geometry, not swept-volume or native proof.
+Checks every authored endpoint, including all thread/regrasp cycles. This is sampled geometry, not swept-volume or native proof.
 """
 import json
 from pathlib import Path
@@ -19,9 +18,6 @@ def audit(folder):
     held={};checks=[]
     for index,p in enumerate(plan['phases']):
         label=p['label'];side=p['side']
-        is_thread=any(k in label.lower() for k in ['stroke','regrasp','head','wrist'])
-        tail=label.split()[-1]
-        if is_thread and tail.isdigit() and int(tail) not in (1,24,47,48):continue
         target=p['target']
         solved,pe,re=ik.solve(target['pos'],target['quat'],q_init=q[side][:6],base_pos=station.BASES[side],iters=500,damping=.015,tol=1e-5)
         aperture=p['opening']
@@ -51,7 +47,7 @@ def audit(folder):
             contacts=contacts,table=table,inter_arm=crossing,
             passed=pe<.00035 and re<.025 and not contacts and not table and not crossing)
         checks.append(row)
-    report=dict(kind='OFFLINE_CRITICAL_POSE_COLLISION_SAMPLES',physics_executed=False,
+    report=dict(kind='OFFLINE_ALL_ENDPOINT_COLLISION_SAMPLES',physics_executed=False,
                 swept_volume_validated=False,checks=checks,passed=all(r['passed'] for r in checks))
     print(json.dumps(report,indent=2));return 0 if report['passed'] else 1
 
