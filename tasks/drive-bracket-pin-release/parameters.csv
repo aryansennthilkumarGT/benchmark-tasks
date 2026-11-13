@@ -1,0 +1,926 @@
+parameter,value,units,classification,source_or_derivation
+drive_length,0.1,SI,Manufacturer-documented,Samsung 870 EVO datasheet
+drive_width,0.06985,SI,Manufacturer-documented,Samsung 870 EVO datasheet
+drive_height,0.0068,SI,Manufacturer-documented,Samsung 870 EVO datasheet
+drive_mass,0.045,SI,Benchmark-authored approximation,Original fixture design
+pin_radius,0.0015,SI,Benchmark-authored approximation,Original fixture design
+pin_length,0.006,SI,Benchmark-authored approximation,Original fixture design
+pin_x_spacing,0.06,SI,Benchmark-authored approximation,Original fixture design
+pin_centres_y,"[-0.035, 0.035]",SI,Benchmark-authored approximation,Original fixture design
+bore_radius,0.0024,SI,Benchmark-authored approximation,Original fixture design
+bore_depth,0.006,SI,Benchmark-authored approximation,Original fixture design
+rail_travel,0.006,SI,Benchmark-authored approximation,Original fixture design
+rail_limit,0.007,SI,Benchmark-authored approximation,Original fixture design
+rail_stiffness,180.0,SI,Benchmark-authored approximation,Original fixture design
+rail_damping,1.0,SI,Benchmark-authored approximation,Original fixture design
+rail_mass,0.016,SI,Benchmark-authored approximation,Original fixture design
+tilt_angle,0.25,SI,Benchmark-authored approximation,Original fixture design
+opposite_pin_release_translation,0.0045,SI,Benchmark-authored approximation,Original fixture design
+material.static_friction,0.65,SI,Benchmark-authored approximation,Native contact model; not measured Dell/Samsung data
+material.dynamic_friction,0.5,SI,Benchmark-authored approximation,Native contact model; not measured Dell/Samsung data
+material.restitution,0.0,SI,Benchmark-authored approximation,Native contact model; not measured Dell/Samsung data
+material.contact_offset,3e-05,SI,Benchmark-authored approximation,Native contact model; not measured Dell/Samsung data
+material.rest_offset,0.0,SI,Benchmark-authored approximation,Native contact model; not measured Dell/Samsung data
+bracket.pos,"[0.24, 0, 0.7975000000000001]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+bracket.quat,"[0, 0, 0, 1]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+bracket.mass,0.3,SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+bracket.center_of_mass,"[0.0, 0.0, 0.003]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+bracket.diagonal_inertia,"[0.0002194, 0.00037689999999999995, 0.0005625]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+bracket.bounds_min,"[-0.06, -0.045, -0.01]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+bracket.bounds_max,"[0.06, 0.045, 0.016]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+bracket.shape_0.pos,"[0, 0, -0.005]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_0.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_0.size,"[0.12, 0.09, 0.01]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_1.pos,"[0.006, -0.039, 0.008]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_1.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_1.size,"[0.078, 0.004, 0.016]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_2.pos,"[-0.03, -0.035, 0.0064]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_2.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_2.radius,0.0015,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_2.height,0.006,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_3.pos,"[0.03, -0.035, 0.0064]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_3.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_3.radius,0.0015,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_3.height,0.006,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_4.pos,"[-0.04, 0, 0.0015]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_4.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_4.size,"[0.012, 0.05, 0.003]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_5.pos,"[0.04, 0, 0.0015]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_5.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+bracket.shape_5.size,"[0.012, 0.05, 0.003]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.pos,"[0.24, 0, 0.7975000000000001]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+release_rail.quat,"[0, 0, 0, 1]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+release_rail.mass,0.016,SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+release_rail.center_of_mass,"[0.005999999999999998, 0.08650000000000001, 0.013500000000000002]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+release_rail.diagonal_inertia,"[1.6813333333333337e-05, 9.084000000000001e-06, 2.3953333333333337e-05]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+release_rail.bounds_min,"[-0.033, 0.032, 0.0]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+release_rail.bounds_max,"[0.045, 0.14100000000000001, 0.027000000000000003]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+release_rail.shape_0.pos,"[0.006, 0.039, 0.008]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_0.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_0.size,"[0.078, 0.004, 0.016]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_1.pos,"[0, 0.08, 0.016]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_1.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_1.size,"[0.016, 0.084, 0.01]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_2.pos,"[0, 0.13, 0.021]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_2.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_2.size,"[0.02, 0.022, 0.012]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_3.pos,"[-0.03, 0.035, 0.0064]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_3.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_3.radius,0.0015,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_3.height,0.006,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_4.pos,"[0.03, 0.035, 0.0064]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_4.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_4.radius,0.0015,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+release_rail.shape_4.height,0.006,SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+joint.rail_flexure.name,rail_flexure,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.kind,prismatic,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.parent,bracket,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.child,release_rail,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.pivot_parent,"[0, 0, 0]",SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.pivot_child,"[0, 0, 0]",SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.axis,Y,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.lower,0.0,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.upper,0.007,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.rest,0.0,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.stiffness,180.0,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+joint.rail_flexure.damping,1.0,SI,Benchmark-authored approximation,"Lumped compliant rail, not manufacturer data"
+drive.pos,"[0.24, 0, 0.8039000000000001]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+drive.quat,"[0, 0, 0, 1]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+drive.mass,0.045,SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+drive.center_of_mass,"[0.0, 0.0, 1.999999999999962e-05]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+drive.diagonal_inertia,"[1.8471780374999995e-05, 3.767544600000001e-05, 5.5796334375000005e-05]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+drive.bounds_min,"[-0.05, -0.034925, -0.0034000000000000007]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+drive.bounds_max,"[0.05, 0.034925, 0.00344]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+drive.shape_0.pos,"[0, 0, 0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_0.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_0.size,"[0.1, 0.05785, 0.0068]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_1.pos,"[-0.0417, -0.031924999999999995, 0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_1.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_1.size,"[0.016600000000000004, 0.006, 0.0068]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_2.pos,"[0.0, -0.031924999999999995, 0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_2.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_2.size,"[0.0532, 0.006, 0.0068]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_3.pos,"[0.0417, -0.031924999999999995, 0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_3.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_3.size,"[0.016600000000000004, 0.006, 0.0068]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_4.pos,"[-0.0271, -0.031924999999999995, 0.0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_4.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_4.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_5.pos,"[-0.027113964292650627, -0.031924999999999995, 0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_5.quat,"[0.7062550401009887, -0.03469608525397034, 0.034696085253970346, 0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_5.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_6.pos,"[-0.02715572268683063, -0.031924999999999995, 0.0005657619338467718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_6.quat,"[0.7037018687631912, -0.06930858459954573, 0.06930858459954574, 0.7037018687631913]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_6.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_7.pos,"[-0.027224873026376592, -0.031924999999999995, 0.0008418255640379407]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_7.quat,"[0.699453417986539, -0.10375411349410577, 0.10375411349410579, 0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_7.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_8.pos,"[-0.027320749355717266, -0.031924999999999995, 0.0011097819538587602]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_8.quat,"[0.6935199226610737, -0.13794968964147147, 0.1379496896414715, 0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_8.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_9.pos,"[-0.02744242833338977, -0.031924999999999995, 0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_9.quat,"[0.6859156770967468, -0.17181293290352515, 0.17181293290352517, 0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_9.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_10.pos,"[-0.027588738124322616, -0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_10.quat,"[0.6766590005871762, -0.20526226376117865, 0.20526226376117868, 0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_10.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_11.pos,"[-0.027758269685248062, -0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_11.quat,"[0.6657721932768627, -0.2382170998465806, 0.23821709984658063, 0.6657721932768628]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_11.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_12.pos,"[-0.02794939033455901, -0.031924999999999995, 0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_12.quat,"[0.6532814824381882, -0.27059805007309845, 0.2705980500730985, 0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_12.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_13.pos,"[-0.028160259475925428, -0.031924999999999995, 0.002241730314751937]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_13.quat,"[0.6392169592876203, -0.30232710589540035, 0.3023271058954004, 0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_13.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_14.pos,"[-0.028388846324243152, -0.031924999999999995, 0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_14.quat,"[0.6236125064933355, -0.3333278292388732, 0.3333278292388733, 0.6236125064933357]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_14.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_15.pos,"[-0.028632949463204604, -0.031924999999999995, 0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_15.quat,"[0.606505716548904, -0.36352553664563997, 0.36352553664564, 0.6065057165489041]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_15.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_16.pos,"[-0.02889021804614124, -0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_16.quat,"[0.5879378012096793, -0.392847479193551, 0.39284747919355106, 0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_16.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_17.pos,"[-0.029158174435962057, -0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_17.quat,"[0.5679534922100713, -0.4212230177547096, 0.42122301775470966, 0.5679534922100714]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_17.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_18.pos,"[-0.029434238066153227, -0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_18.quat,"[0.5466009335008787, -0.4485837931713181, 0.4485837931713182, 0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_18.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_19.pos,"[-0.029715750293044272, -0.031924999999999995, 0.0028860357073493704]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_19.quat,"[0.5239315652662951, -0.4748638909388771, 0.47486389093887715, 0.5239315652662953]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_19.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_20.pos,"[-0.03, -0.031924999999999995, 0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_20.quat,"[0.5, -0.4999999999999999, 0.5, 0.5000000000000001]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_20.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_21.pos,"[-0.030284249706955726, -0.031924999999999995, 0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_21.quat,"[0.4748638909388771, -0.5239315652662951, 0.5239315652662953, 0.47486389093887715]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_21.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_22.pos,"[-0.03056576193384677, -0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_22.quat,"[0.4485837931713181, -0.5466009335008787, 0.5466009335008788, 0.4485837931713182]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_22.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_23.pos,"[-0.030841825564037938, -0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_23.quat,"[0.42122301775470966, -0.5679534922100713, 0.5679534922100713, 0.4212230177547097]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_23.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_24.pos,"[-0.03110978195385876, -0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_24.quat,"[0.3928474791935511, -0.5879378012096793, 0.5879378012096794, 0.3928474791935512]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_24.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_25.pos,"[-0.03136705053679539, -0.031924999999999995, 0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_25.quat,"[0.36352553664563997, -0.606505716548904, 0.6065057165489041, 0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_25.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_26.pos,"[-0.03161115367575684, -0.031924999999999995, 0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_26.quat,"[0.33332782923887333, -0.6236125064933355, 0.6236125064933355, 0.3333278292388734]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_26.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_27.pos,"[-0.03183974052407457, -0.031924999999999995, 0.0022417303147519376]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_27.quat,"[0.3023271058954004, -0.6392169592876203, 0.6392169592876205, 0.30232710589540046]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_27.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_28.pos,"[-0.03205060966544099, -0.031924999999999995, 0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_28.quat,"[0.2705980500730985, -0.6532814824381882, 0.6532814824381883, 0.27059805007309856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_28.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_29.pos,"[-0.032241730314751936, -0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_29.quat,"[0.2382170998465806, -0.6657721932768627, 0.6657721932768628, 0.23821709984658063]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_29.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_30.pos,"[-0.03241126187567738, -0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_30.quat,"[0.20526226376117865, -0.6766590005871763, 0.6766590005871764, 0.20526226376117868]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_30.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_31.pos,"[-0.032557571666610226, -0.031924999999999995, 0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_31.quat,"[0.17181293290352523, -0.6859156770967468, 0.685915677096747, 0.17181293290352526]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_31.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_32.pos,"[-0.03267925064428273, -0.031924999999999995, 0.0011097819538587606]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_32.quat,"[0.13794968964147153, -0.6935199226610737, 0.6935199226610738, 0.13794968964147156]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_32.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_33.pos,"[-0.032775126973623406, -0.031924999999999995, 0.0008418255640379408]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_33.quat,"[0.10375411349410577, -0.699453417986539, 0.6994534179865391, 0.10375411349410579]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_33.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_34.pos,"[-0.03284427731316937, -0.031924999999999995, 0.0005657619338467729]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_34.quat,"[0.06930858459954585, -0.7037018687631911, 0.7037018687631912, 0.06930858459954585]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_34.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_35.pos,"[-0.03288603570734937, -0.031924999999999995, 0.00028424970695572636]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_35.quat,"[0.03469608525397042, -0.7062550401009887, 0.7062550401009888, 0.03469608525397043]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_35.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_36.pos,"[-0.0329, -0.031924999999999995, 3.551475717527324e-19]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_36.quat,"[4.329780281177466e-17, -0.7071067811865475, 0.7071067811865476, 4.329780281177467e-17]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_36.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_37.pos,"[-0.03288603570734937, -0.031924999999999995, -0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_37.quat,"[-0.03469608525397034, -0.7062550401009887, 0.7062550401009888, -0.034696085253970346]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_37.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_38.pos,"[-0.03284427731316937, -0.031924999999999995, -0.0005657619338467722]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_38.quat,"[-0.06930858459954575, -0.7037018687631912, 0.7037018687631913, -0.06930858459954577]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_38.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_39.pos,"[-0.032775126973623406, -0.031924999999999995, -0.0008418255640379401]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_39.quat,"[-0.1037541134941057, -0.699453417986539, 0.6994534179865391, -0.10375411349410571]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_39.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_40.pos,"[-0.03267925064428273, -0.031924999999999995, -0.00110978195385876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_40.quat,"[-0.13794968964147145, -0.6935199226610737, 0.6935199226610738, -0.13794968964147147]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_40.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_41.pos,"[-0.032557571666610226, -0.031924999999999995, -0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_41.quat,"[-0.17181293290352515, -0.6859156770967468, 0.685915677096747, -0.17181293290352517]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_41.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_42.pos,"[-0.03241126187567738, -0.031924999999999995, -0.0016111536757568456]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_42.quat,"[-0.20526226376117854, -0.6766590005871763, 0.6766590005871764, -0.20526226376117856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_42.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_43.pos,"[-0.032241730314751936, -0.031924999999999995, -0.0018397405240745711]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_43.quat,"[-0.23821709984658052, -0.6657721932768627, 0.6657721932768628, -0.23821709984658054]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_43.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_44.pos,"[-0.03205060966544099, -0.031924999999999995, -0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_44.quat,"[-0.27059805007309845, -0.6532814824381882, 0.6532814824381883, -0.2705980500730985]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_44.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_45.pos,"[-0.031839740524074574, -0.031924999999999995, -0.0022417303147519363]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_45.quat,"[-0.3023271058954002, -0.6392169592876205, 0.6392169592876206, -0.30232710589540024]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_45.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_46.pos,"[-0.03161115367575684, -0.031924999999999995, -0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_46.quat,"[-0.3333278292388733, -0.6236125064933355, 0.6236125064933357, -0.33332782923887333]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_46.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_47.pos,"[-0.03136705053679539, -0.031924999999999995, -0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_47.quat,"[-0.36352553664563997, -0.606505716548904, 0.6065057165489041, -0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_47.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_48.pos,"[-0.031109781953858762, -0.031924999999999995, -0.0026792506442827307]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_48.quat,"[-0.39284747919355084, -0.5879378012096794, 0.5879378012096795, -0.39284747919355095]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_48.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_49.pos,"[-0.03084182556403794, -0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_49.quat,"[-0.4212230177547096, -0.5679534922100713, 0.5679534922100714, -0.42122301775470966]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_49.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_50.pos,"[-0.03056576193384677, -0.031924999999999995, -0.0028442773131693673]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_50.quat,"[-0.448583793171318, -0.5466009335008788, 0.5466009335008789, -0.4485837931713181]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_50.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_51.pos,"[-0.030284249706955726, -0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_51.quat,"[-0.47486389093887715, -0.5239315652662951, 0.5239315652662951, -0.47486389093887726]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_51.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_52.pos,"[-0.03, -0.031924999999999995, -0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_52.quat,"[-0.4999999999999999, -0.5, 0.5000000000000001, -0.5]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_52.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_53.pos,"[-0.029715750293044275, -0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_53.quat,"[-0.523931565266295, -0.47486389093887726, 0.4748638909388773, -0.5239315652662951]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_53.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_54.pos,"[-0.029434238066153227, -0.031924999999999995, -0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_54.quat,"[-0.5466009335008787, -0.4485837931713181, 0.4485837931713182, -0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_54.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_55.pos,"[-0.02915817443596206, -0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_55.quat,"[-0.5679534922100713, -0.42122301775470966, 0.4212230177547097, -0.5679534922100713]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_55.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_56.pos,"[-0.02889021804614124, -0.031924999999999995, -0.002679250644282731]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_56.quat,"[-0.5879378012096794, -0.392847479193551, 0.39284747919355106, -0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_56.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_57.pos,"[-0.028632949463204604, -0.031924999999999995, -0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_57.quat,"[-0.6065057165489038, -0.36352553664564, 0.36352553664564013, -0.606505716548904]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_57.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_58.pos,"[-0.028388846324243155, -0.031924999999999995, -0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_58.quat,"[-0.6236125064933355, -0.3333278292388734, 0.33332782923887344, -0.6236125064933355]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_58.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_59.pos,"[-0.028160259475925428, -0.031924999999999995, -0.0022417303147519367]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_59.quat,"[-0.6392169592876203, -0.3023271058954003, 0.30232710589540035, -0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_59.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_60.pos,"[-0.02794939033455901, -0.031924999999999995, -0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_60.quat,"[-0.6532814824381882, -0.27059805007309856, 0.2705980500730986, -0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_60.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_61.pos,"[-0.027758269685248062, -0.031924999999999995, -0.001839740524074573]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_61.quat,"[-0.6657721932768625, -0.2382170998465808, 0.23821709984658082, -0.6657721932768627]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_61.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_62.pos,"[-0.027588738124322616, -0.031924999999999995, -0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_62.quat,"[-0.6766590005871762, -0.20526226376117868, 0.20526226376117873, -0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_62.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_63.pos,"[-0.027442428333389772, -0.031924999999999995, -0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_63.quat,"[-0.6859156770967468, -0.17181293290352528, 0.1718129329035253, -0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_63.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_64.pos,"[-0.027320749355717266, -0.031924999999999995, -0.0011097819538587622]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_64.quat,"[-0.6935199226610737, -0.13794968964147172, 0.13794968964147175, -0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_64.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_65.pos,"[-0.027224873026376592, -0.031924999999999995, -0.0008418255640379412]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_65.quat,"[-0.699453417986539, -0.1037541134941058, 0.10375411349410582, -0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_65.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_66.pos,"[-0.02715572268683063, -0.031924999999999995, -0.0005657619338467733]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_66.quat,"[-0.7037018687631911, -0.06930858459954588, 0.06930858459954589, -0.7037018687631912]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_66.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_67.pos,"[-0.027113964292650627, -0.031924999999999995, -0.00028424970695572544]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_67.quat,"[-0.7062550401009887, -0.03469608525397031, 0.03469608525397031, -0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_67.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_68.pos,"[0.0329, -0.031924999999999995, 0.0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_68.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_68.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_69.pos,"[0.03288603570734937, -0.031924999999999995, 0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_69.quat,"[0.7062550401009887, -0.03469608525397034, 0.034696085253970346, 0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_69.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_70.pos,"[0.03284427731316937, -0.031924999999999995, 0.0005657619338467718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_70.quat,"[0.7037018687631912, -0.06930858459954573, 0.06930858459954574, 0.7037018687631913]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_70.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_71.pos,"[0.032775126973623406, -0.031924999999999995, 0.0008418255640379407]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_71.quat,"[0.699453417986539, -0.10375411349410577, 0.10375411349410579, 0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_71.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_72.pos,"[0.03267925064428273, -0.031924999999999995, 0.0011097819538587602]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_72.quat,"[0.6935199226610737, -0.13794968964147147, 0.1379496896414715, 0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_72.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_73.pos,"[0.032557571666610226, -0.031924999999999995, 0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_73.quat,"[0.6859156770967468, -0.17181293290352515, 0.17181293290352517, 0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_73.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_74.pos,"[0.03241126187567738, -0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_74.quat,"[0.6766590005871762, -0.20526226376117865, 0.20526226376117868, 0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_74.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_75.pos,"[0.032241730314751936, -0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_75.quat,"[0.6657721932768627, -0.2382170998465806, 0.23821709984658063, 0.6657721932768628]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_75.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_76.pos,"[0.03205060966544099, -0.031924999999999995, 0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_76.quat,"[0.6532814824381882, -0.27059805007309845, 0.2705980500730985, 0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_76.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_77.pos,"[0.031839740524074574, -0.031924999999999995, 0.002241730314751937]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_77.quat,"[0.6392169592876203, -0.30232710589540035, 0.3023271058954004, 0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_77.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_78.pos,"[0.03161115367575684, -0.031924999999999995, 0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_78.quat,"[0.6236125064933355, -0.3333278292388732, 0.3333278292388733, 0.6236125064933357]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_78.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_79.pos,"[0.03136705053679539, -0.031924999999999995, 0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_79.quat,"[0.606505716548904, -0.36352553664563997, 0.36352553664564, 0.6065057165489041]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_79.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_80.pos,"[0.03110978195385876, -0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_80.quat,"[0.5879378012096793, -0.392847479193551, 0.39284747919355106, 0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_80.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_81.pos,"[0.03084182556403794, -0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_81.quat,"[0.5679534922100713, -0.4212230177547096, 0.42122301775470966, 0.5679534922100714]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_81.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_82.pos,"[0.03056576193384677, -0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_82.quat,"[0.5466009335008787, -0.4485837931713181, 0.4485837931713182, 0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_82.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_83.pos,"[0.030284249706955726, -0.031924999999999995, 0.0028860357073493704]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_83.quat,"[0.5239315652662951, -0.4748638909388771, 0.47486389093887715, 0.5239315652662953]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_83.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_84.pos,"[0.03, -0.031924999999999995, 0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_84.quat,"[0.5, -0.4999999999999999, 0.5, 0.5000000000000001]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_84.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_85.pos,"[0.029715750293044272, -0.031924999999999995, 0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_85.quat,"[0.4748638909388771, -0.5239315652662951, 0.5239315652662953, 0.47486389093887715]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_85.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_86.pos,"[0.029434238066153227, -0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_86.quat,"[0.4485837931713181, -0.5466009335008787, 0.5466009335008788, 0.4485837931713182]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_86.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_87.pos,"[0.02915817443596206, -0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_87.quat,"[0.42122301775470966, -0.5679534922100713, 0.5679534922100713, 0.4212230177547097]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_87.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_88.pos,"[0.02889021804614124, -0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_88.quat,"[0.3928474791935511, -0.5879378012096793, 0.5879378012096794, 0.3928474791935512]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_88.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_89.pos,"[0.028632949463204604, -0.031924999999999995, 0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_89.quat,"[0.36352553664563997, -0.606505716548904, 0.6065057165489041, 0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_89.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_90.pos,"[0.028388846324243152, -0.031924999999999995, 0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_90.quat,"[0.33332782923887333, -0.6236125064933355, 0.6236125064933355, 0.3333278292388734]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_90.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_91.pos,"[0.028160259475925428, -0.031924999999999995, 0.0022417303147519376]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_91.quat,"[0.3023271058954004, -0.6392169592876203, 0.6392169592876205, 0.30232710589540046]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_91.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_92.pos,"[0.02794939033455901, -0.031924999999999995, 0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_92.quat,"[0.2705980500730985, -0.6532814824381882, 0.6532814824381883, 0.27059805007309856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_92.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_93.pos,"[0.027758269685248062, -0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_93.quat,"[0.2382170998465806, -0.6657721932768627, 0.6657721932768628, 0.23821709984658063]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_93.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_94.pos,"[0.027588738124322616, -0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_94.quat,"[0.20526226376117865, -0.6766590005871763, 0.6766590005871764, 0.20526226376117868]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_94.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_95.pos,"[0.02744242833338977, -0.031924999999999995, 0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_95.quat,"[0.17181293290352523, -0.6859156770967468, 0.685915677096747, 0.17181293290352526]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_95.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_96.pos,"[0.027320749355717266, -0.031924999999999995, 0.0011097819538587606]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_96.quat,"[0.13794968964147153, -0.6935199226610737, 0.6935199226610738, 0.13794968964147156]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_96.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_97.pos,"[0.027224873026376592, -0.031924999999999995, 0.0008418255640379408]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_97.quat,"[0.10375411349410577, -0.699453417986539, 0.6994534179865391, 0.10375411349410579]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_97.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_98.pos,"[0.02715572268683063, -0.031924999999999995, 0.0005657619338467729]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_98.quat,"[0.06930858459954585, -0.7037018687631911, 0.7037018687631912, 0.06930858459954585]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_98.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_99.pos,"[0.02711396429265063, -0.031924999999999995, 0.00028424970695572636]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_99.quat,"[0.03469608525397042, -0.7062550401009887, 0.7062550401009888, 0.03469608525397043]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_99.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_100.pos,"[0.0271, -0.031924999999999995, 3.551475717527324e-19]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_100.quat,"[4.329780281177466e-17, -0.7071067811865475, 0.7071067811865476, 4.329780281177467e-17]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_100.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_101.pos,"[0.027113964292650627, -0.031924999999999995, -0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_101.quat,"[-0.03469608525397034, -0.7062550401009887, 0.7062550401009888, -0.034696085253970346]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_101.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_102.pos,"[0.02715572268683063, -0.031924999999999995, -0.0005657619338467722]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_102.quat,"[-0.06930858459954575, -0.7037018687631912, 0.7037018687631913, -0.06930858459954577]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_102.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_103.pos,"[0.027224873026376592, -0.031924999999999995, -0.0008418255640379401]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_103.quat,"[-0.1037541134941057, -0.699453417986539, 0.6994534179865391, -0.10375411349410571]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_103.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_104.pos,"[0.027320749355717266, -0.031924999999999995, -0.00110978195385876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_104.quat,"[-0.13794968964147145, -0.6935199226610737, 0.6935199226610738, -0.13794968964147147]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_104.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_105.pos,"[0.02744242833338977, -0.031924999999999995, -0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_105.quat,"[-0.17181293290352515, -0.6859156770967468, 0.685915677096747, -0.17181293290352517]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_105.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_106.pos,"[0.027588738124322616, -0.031924999999999995, -0.0016111536757568456]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_106.quat,"[-0.20526226376117854, -0.6766590005871763, 0.6766590005871764, -0.20526226376117856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_106.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_107.pos,"[0.027758269685248062, -0.031924999999999995, -0.0018397405240745711]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_107.quat,"[-0.23821709984658052, -0.6657721932768627, 0.6657721932768628, -0.23821709984658054]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_107.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_108.pos,"[0.02794939033455901, -0.031924999999999995, -0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_108.quat,"[-0.27059805007309845, -0.6532814824381882, 0.6532814824381883, -0.2705980500730985]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_108.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_109.pos,"[0.028160259475925424, -0.031924999999999995, -0.0022417303147519363]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_109.quat,"[-0.3023271058954002, -0.6392169592876205, 0.6392169592876206, -0.30232710589540024]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_109.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_110.pos,"[0.028388846324243152, -0.031924999999999995, -0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_110.quat,"[-0.3333278292388733, -0.6236125064933355, 0.6236125064933357, -0.33332782923887333]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_110.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_111.pos,"[0.028632949463204604, -0.031924999999999995, -0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_111.quat,"[-0.36352553664563997, -0.606505716548904, 0.6065057165489041, -0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_111.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_112.pos,"[0.028890218046141235, -0.031924999999999995, -0.0026792506442827307]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_112.quat,"[-0.39284747919355084, -0.5879378012096794, 0.5879378012096795, -0.39284747919355095]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_112.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_113.pos,"[0.029158174435962057, -0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_113.quat,"[-0.4212230177547096, -0.5679534922100713, 0.5679534922100714, -0.42122301775470966]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_113.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_114.pos,"[0.029434238066153227, -0.031924999999999995, -0.0028442773131693673]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_114.quat,"[-0.448583793171318, -0.5466009335008788, 0.5466009335008789, -0.4485837931713181]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_114.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_115.pos,"[0.029715750293044272, -0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_115.quat,"[-0.47486389093887715, -0.5239315652662951, 0.5239315652662951, -0.47486389093887726]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_115.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_116.pos,"[0.03, -0.031924999999999995, -0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_116.quat,"[-0.4999999999999999, -0.5, 0.5000000000000001, -0.5]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_116.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_117.pos,"[0.030284249706955722, -0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_117.quat,"[-0.523931565266295, -0.47486389093887726, 0.4748638909388773, -0.5239315652662951]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_117.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_118.pos,"[0.03056576193384677, -0.031924999999999995, -0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_118.quat,"[-0.5466009335008787, -0.4485837931713181, 0.4485837931713182, -0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_118.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_119.pos,"[0.030841825564037938, -0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_119.quat,"[-0.5679534922100713, -0.42122301775470966, 0.4212230177547097, -0.5679534922100713]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_119.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_120.pos,"[0.03110978195385876, -0.031924999999999995, -0.002679250644282731]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_120.quat,"[-0.5879378012096794, -0.392847479193551, 0.39284747919355106, -0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_120.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_121.pos,"[0.03136705053679539, -0.031924999999999995, -0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_121.quat,"[-0.6065057165489038, -0.36352553664564, 0.36352553664564013, -0.606505716548904]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_121.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_122.pos,"[0.03161115367575684, -0.031924999999999995, -0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_122.quat,"[-0.6236125064933355, -0.3333278292388734, 0.33332782923887344, -0.6236125064933355]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_122.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_123.pos,"[0.031839740524074574, -0.031924999999999995, -0.0022417303147519367]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_123.quat,"[-0.6392169592876203, -0.3023271058954003, 0.30232710589540035, -0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_123.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_124.pos,"[0.03205060966544099, -0.031924999999999995, -0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_124.quat,"[-0.6532814824381882, -0.27059805007309856, 0.2705980500730986, -0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_124.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_125.pos,"[0.032241730314751936, -0.031924999999999995, -0.001839740524074573]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_125.quat,"[-0.6657721932768625, -0.2382170998465808, 0.23821709984658082, -0.6657721932768627]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_125.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_126.pos,"[0.03241126187567738, -0.031924999999999995, -0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_126.quat,"[-0.6766590005871762, -0.20526226376117868, 0.20526226376117873, -0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_126.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_127.pos,"[0.032557571666610226, -0.031924999999999995, -0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_127.quat,"[-0.6859156770967468, -0.17181293290352528, 0.1718129329035253, -0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_127.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_128.pos,"[0.03267925064428273, -0.031924999999999995, -0.0011097819538587622]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_128.quat,"[-0.6935199226610737, -0.13794968964147172, 0.13794968964147175, -0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_128.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_129.pos,"[0.032775126973623406, -0.031924999999999995, -0.0008418255640379412]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_129.quat,"[-0.699453417986539, -0.1037541134941058, 0.10375411349410582, -0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_129.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_130.pos,"[0.032844277313169364, -0.031924999999999995, -0.0005657619338467733]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_130.quat,"[-0.7037018687631911, -0.06930858459954588, 0.06930858459954589, -0.7037018687631912]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_130.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_131.pos,"[0.03288603570734937, -0.031924999999999995, -0.00028424970695572544]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_131.quat,"[-0.7062550401009887, -0.03469608525397031, 0.03469608525397031, -0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_131.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_132.pos,"[-0.0417, 0.031924999999999995, 0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_132.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_132.size,"[0.016600000000000004, 0.006, 0.0068]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_133.pos,"[0.0, 0.031924999999999995, 0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_133.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_133.size,"[0.0532, 0.006, 0.0068]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_134.pos,"[0.0417, 0.031924999999999995, 0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_134.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_134.size,"[0.016600000000000004, 0.006, 0.0068]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_135.pos,"[-0.0271, 0.031924999999999995, 0.0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_135.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_135.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_136.pos,"[-0.027113964292650627, 0.031924999999999995, 0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_136.quat,"[0.7062550401009887, -0.03469608525397034, 0.034696085253970346, 0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_136.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_137.pos,"[-0.02715572268683063, 0.031924999999999995, 0.0005657619338467718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_137.quat,"[0.7037018687631912, -0.06930858459954573, 0.06930858459954574, 0.7037018687631913]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_137.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_138.pos,"[-0.027224873026376592, 0.031924999999999995, 0.0008418255640379407]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_138.quat,"[0.699453417986539, -0.10375411349410577, 0.10375411349410579, 0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_138.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_139.pos,"[-0.027320749355717266, 0.031924999999999995, 0.0011097819538587602]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_139.quat,"[0.6935199226610737, -0.13794968964147147, 0.1379496896414715, 0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_139.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_140.pos,"[-0.02744242833338977, 0.031924999999999995, 0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_140.quat,"[0.6859156770967468, -0.17181293290352515, 0.17181293290352517, 0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_140.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_141.pos,"[-0.027588738124322616, 0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_141.quat,"[0.6766590005871762, -0.20526226376117865, 0.20526226376117868, 0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_141.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_142.pos,"[-0.027758269685248062, 0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_142.quat,"[0.6657721932768627, -0.2382170998465806, 0.23821709984658063, 0.6657721932768628]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_142.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_143.pos,"[-0.02794939033455901, 0.031924999999999995, 0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_143.quat,"[0.6532814824381882, -0.27059805007309845, 0.2705980500730985, 0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_143.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_144.pos,"[-0.028160259475925428, 0.031924999999999995, 0.002241730314751937]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_144.quat,"[0.6392169592876203, -0.30232710589540035, 0.3023271058954004, 0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_144.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_145.pos,"[-0.028388846324243152, 0.031924999999999995, 0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_145.quat,"[0.6236125064933355, -0.3333278292388732, 0.3333278292388733, 0.6236125064933357]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_145.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_146.pos,"[-0.028632949463204604, 0.031924999999999995, 0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_146.quat,"[0.606505716548904, -0.36352553664563997, 0.36352553664564, 0.6065057165489041]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_146.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_147.pos,"[-0.02889021804614124, 0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_147.quat,"[0.5879378012096793, -0.392847479193551, 0.39284747919355106, 0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_147.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_148.pos,"[-0.029158174435962057, 0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_148.quat,"[0.5679534922100713, -0.4212230177547096, 0.42122301775470966, 0.5679534922100714]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_148.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_149.pos,"[-0.029434238066153227, 0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_149.quat,"[0.5466009335008787, -0.4485837931713181, 0.4485837931713182, 0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_149.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_150.pos,"[-0.029715750293044272, 0.031924999999999995, 0.0028860357073493704]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_150.quat,"[0.5239315652662951, -0.4748638909388771, 0.47486389093887715, 0.5239315652662953]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_150.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_151.pos,"[-0.03, 0.031924999999999995, 0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_151.quat,"[0.5, -0.4999999999999999, 0.5, 0.5000000000000001]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_151.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_152.pos,"[-0.030284249706955726, 0.031924999999999995, 0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_152.quat,"[0.4748638909388771, -0.5239315652662951, 0.5239315652662953, 0.47486389093887715]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_152.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_153.pos,"[-0.03056576193384677, 0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_153.quat,"[0.4485837931713181, -0.5466009335008787, 0.5466009335008788, 0.4485837931713182]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_153.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_154.pos,"[-0.030841825564037938, 0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_154.quat,"[0.42122301775470966, -0.5679534922100713, 0.5679534922100713, 0.4212230177547097]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_154.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_155.pos,"[-0.03110978195385876, 0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_155.quat,"[0.3928474791935511, -0.5879378012096793, 0.5879378012096794, 0.3928474791935512]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_155.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_156.pos,"[-0.03136705053679539, 0.031924999999999995, 0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_156.quat,"[0.36352553664563997, -0.606505716548904, 0.6065057165489041, 0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_156.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_157.pos,"[-0.03161115367575684, 0.031924999999999995, 0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_157.quat,"[0.33332782923887333, -0.6236125064933355, 0.6236125064933355, 0.3333278292388734]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_157.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_158.pos,"[-0.03183974052407457, 0.031924999999999995, 0.0022417303147519376]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_158.quat,"[0.3023271058954004, -0.6392169592876203, 0.6392169592876205, 0.30232710589540046]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_158.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_159.pos,"[-0.03205060966544099, 0.031924999999999995, 0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_159.quat,"[0.2705980500730985, -0.6532814824381882, 0.6532814824381883, 0.27059805007309856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_159.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_160.pos,"[-0.032241730314751936, 0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_160.quat,"[0.2382170998465806, -0.6657721932768627, 0.6657721932768628, 0.23821709984658063]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_160.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_161.pos,"[-0.03241126187567738, 0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_161.quat,"[0.20526226376117865, -0.6766590005871763, 0.6766590005871764, 0.20526226376117868]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_161.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_162.pos,"[-0.032557571666610226, 0.031924999999999995, 0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_162.quat,"[0.17181293290352523, -0.6859156770967468, 0.685915677096747, 0.17181293290352526]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_162.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_163.pos,"[-0.03267925064428273, 0.031924999999999995, 0.0011097819538587606]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_163.quat,"[0.13794968964147153, -0.6935199226610737, 0.6935199226610738, 0.13794968964147156]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_163.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_164.pos,"[-0.032775126973623406, 0.031924999999999995, 0.0008418255640379408]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_164.quat,"[0.10375411349410577, -0.699453417986539, 0.6994534179865391, 0.10375411349410579]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_164.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_165.pos,"[-0.03284427731316937, 0.031924999999999995, 0.0005657619338467729]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_165.quat,"[0.06930858459954585, -0.7037018687631911, 0.7037018687631912, 0.06930858459954585]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_165.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_166.pos,"[-0.03288603570734937, 0.031924999999999995, 0.00028424970695572636]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_166.quat,"[0.03469608525397042, -0.7062550401009887, 0.7062550401009888, 0.03469608525397043]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_166.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_167.pos,"[-0.0329, 0.031924999999999995, 3.551475717527324e-19]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_167.quat,"[4.329780281177466e-17, -0.7071067811865475, 0.7071067811865476, 4.329780281177467e-17]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_167.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_168.pos,"[-0.03288603570734937, 0.031924999999999995, -0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_168.quat,"[-0.03469608525397034, -0.7062550401009887, 0.7062550401009888, -0.034696085253970346]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_168.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_169.pos,"[-0.03284427731316937, 0.031924999999999995, -0.0005657619338467722]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_169.quat,"[-0.06930858459954575, -0.7037018687631912, 0.7037018687631913, -0.06930858459954577]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_169.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_170.pos,"[-0.032775126973623406, 0.031924999999999995, -0.0008418255640379401]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_170.quat,"[-0.1037541134941057, -0.699453417986539, 0.6994534179865391, -0.10375411349410571]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_170.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_171.pos,"[-0.03267925064428273, 0.031924999999999995, -0.00110978195385876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_171.quat,"[-0.13794968964147145, -0.6935199226610737, 0.6935199226610738, -0.13794968964147147]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_171.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_172.pos,"[-0.032557571666610226, 0.031924999999999995, -0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_172.quat,"[-0.17181293290352515, -0.6859156770967468, 0.685915677096747, -0.17181293290352517]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_172.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_173.pos,"[-0.03241126187567738, 0.031924999999999995, -0.0016111536757568456]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_173.quat,"[-0.20526226376117854, -0.6766590005871763, 0.6766590005871764, -0.20526226376117856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_173.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_174.pos,"[-0.032241730314751936, 0.031924999999999995, -0.0018397405240745711]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_174.quat,"[-0.23821709984658052, -0.6657721932768627, 0.6657721932768628, -0.23821709984658054]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_174.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_175.pos,"[-0.03205060966544099, 0.031924999999999995, -0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_175.quat,"[-0.27059805007309845, -0.6532814824381882, 0.6532814824381883, -0.2705980500730985]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_175.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_176.pos,"[-0.031839740524074574, 0.031924999999999995, -0.0022417303147519363]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_176.quat,"[-0.3023271058954002, -0.6392169592876205, 0.6392169592876206, -0.30232710589540024]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_176.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_177.pos,"[-0.03161115367575684, 0.031924999999999995, -0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_177.quat,"[-0.3333278292388733, -0.6236125064933355, 0.6236125064933357, -0.33332782923887333]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_177.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_178.pos,"[-0.03136705053679539, 0.031924999999999995, -0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_178.quat,"[-0.36352553664563997, -0.606505716548904, 0.6065057165489041, -0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_178.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_179.pos,"[-0.031109781953858762, 0.031924999999999995, -0.0026792506442827307]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_179.quat,"[-0.39284747919355084, -0.5879378012096794, 0.5879378012096795, -0.39284747919355095]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_179.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_180.pos,"[-0.03084182556403794, 0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_180.quat,"[-0.4212230177547096, -0.5679534922100713, 0.5679534922100714, -0.42122301775470966]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_180.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_181.pos,"[-0.03056576193384677, 0.031924999999999995, -0.0028442773131693673]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_181.quat,"[-0.448583793171318, -0.5466009335008788, 0.5466009335008789, -0.4485837931713181]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_181.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_182.pos,"[-0.030284249706955726, 0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_182.quat,"[-0.47486389093887715, -0.5239315652662951, 0.5239315652662951, -0.47486389093887726]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_182.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_183.pos,"[-0.03, 0.031924999999999995, -0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_183.quat,"[-0.4999999999999999, -0.5, 0.5000000000000001, -0.5]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_183.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_184.pos,"[-0.029715750293044275, 0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_184.quat,"[-0.523931565266295, -0.47486389093887726, 0.4748638909388773, -0.5239315652662951]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_184.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_185.pos,"[-0.029434238066153227, 0.031924999999999995, -0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_185.quat,"[-0.5466009335008787, -0.4485837931713181, 0.4485837931713182, -0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_185.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_186.pos,"[-0.02915817443596206, 0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_186.quat,"[-0.5679534922100713, -0.42122301775470966, 0.4212230177547097, -0.5679534922100713]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_186.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_187.pos,"[-0.02889021804614124, 0.031924999999999995, -0.002679250644282731]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_187.quat,"[-0.5879378012096794, -0.392847479193551, 0.39284747919355106, -0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_187.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_188.pos,"[-0.028632949463204604, 0.031924999999999995, -0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_188.quat,"[-0.6065057165489038, -0.36352553664564, 0.36352553664564013, -0.606505716548904]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_188.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_189.pos,"[-0.028388846324243155, 0.031924999999999995, -0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_189.quat,"[-0.6236125064933355, -0.3333278292388734, 0.33332782923887344, -0.6236125064933355]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_189.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_190.pos,"[-0.028160259475925428, 0.031924999999999995, -0.0022417303147519367]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_190.quat,"[-0.6392169592876203, -0.3023271058954003, 0.30232710589540035, -0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_190.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_191.pos,"[-0.02794939033455901, 0.031924999999999995, -0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_191.quat,"[-0.6532814824381882, -0.27059805007309856, 0.2705980500730986, -0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_191.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_192.pos,"[-0.027758269685248062, 0.031924999999999995, -0.001839740524074573]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_192.quat,"[-0.6657721932768625, -0.2382170998465808, 0.23821709984658082, -0.6657721932768627]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_192.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_193.pos,"[-0.027588738124322616, 0.031924999999999995, -0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_193.quat,"[-0.6766590005871762, -0.20526226376117868, 0.20526226376117873, -0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_193.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_194.pos,"[-0.027442428333389772, 0.031924999999999995, -0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_194.quat,"[-0.6859156770967468, -0.17181293290352528, 0.1718129329035253, -0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_194.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_195.pos,"[-0.027320749355717266, 0.031924999999999995, -0.0011097819538587622]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_195.quat,"[-0.6935199226610737, -0.13794968964147172, 0.13794968964147175, -0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_195.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_196.pos,"[-0.027224873026376592, 0.031924999999999995, -0.0008418255640379412]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_196.quat,"[-0.699453417986539, -0.1037541134941058, 0.10375411349410582, -0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_196.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_197.pos,"[-0.02715572268683063, 0.031924999999999995, -0.0005657619338467733]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_197.quat,"[-0.7037018687631911, -0.06930858459954588, 0.06930858459954589, -0.7037018687631912]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_197.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_198.pos,"[-0.027113964292650627, 0.031924999999999995, -0.00028424970695572544]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_198.quat,"[-0.7062550401009887, -0.03469608525397031, 0.03469608525397031, -0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_198.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_199.pos,"[0.0329, 0.031924999999999995, 0.0]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_199.quat,"[0.7071067811865475, 0.0, 0.0, 0.7071067811865476]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_199.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_200.pos,"[0.03288603570734937, 0.031924999999999995, 0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_200.quat,"[0.7062550401009887, -0.03469608525397034, 0.034696085253970346, 0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_200.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_201.pos,"[0.03284427731316937, 0.031924999999999995, 0.0005657619338467718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_201.quat,"[0.7037018687631912, -0.06930858459954573, 0.06930858459954574, 0.7037018687631913]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_201.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_202.pos,"[0.032775126973623406, 0.031924999999999995, 0.0008418255640379407]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_202.quat,"[0.699453417986539, -0.10375411349410577, 0.10375411349410579, 0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_202.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_203.pos,"[0.03267925064428273, 0.031924999999999995, 0.0011097819538587602]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_203.quat,"[0.6935199226610737, -0.13794968964147147, 0.1379496896414715, 0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_203.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_204.pos,"[0.032557571666610226, 0.031924999999999995, 0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_204.quat,"[0.6859156770967468, -0.17181293290352515, 0.17181293290352517, 0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_204.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_205.pos,"[0.03241126187567738, 0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_205.quat,"[0.6766590005871762, -0.20526226376117865, 0.20526226376117868, 0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_205.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_206.pos,"[0.032241730314751936, 0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_206.quat,"[0.6657721932768627, -0.2382170998465806, 0.23821709984658063, 0.6657721932768628]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_206.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_207.pos,"[0.03205060966544099, 0.031924999999999995, 0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_207.quat,"[0.6532814824381882, -0.27059805007309845, 0.2705980500730985, 0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_207.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_208.pos,"[0.031839740524074574, 0.031924999999999995, 0.002241730314751937]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_208.quat,"[0.6392169592876203, -0.30232710589540035, 0.3023271058954004, 0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_208.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_209.pos,"[0.03161115367575684, 0.031924999999999995, 0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_209.quat,"[0.6236125064933355, -0.3333278292388732, 0.3333278292388733, 0.6236125064933357]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_209.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_210.pos,"[0.03136705053679539, 0.031924999999999995, 0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_210.quat,"[0.606505716548904, -0.36352553664563997, 0.36352553664564, 0.6065057165489041]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_210.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_211.pos,"[0.03110978195385876, 0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_211.quat,"[0.5879378012096793, -0.392847479193551, 0.39284747919355106, 0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_211.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_212.pos,"[0.03084182556403794, 0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_212.quat,"[0.5679534922100713, -0.4212230177547096, 0.42122301775470966, 0.5679534922100714]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_212.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_213.pos,"[0.03056576193384677, 0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_213.quat,"[0.5466009335008787, -0.4485837931713181, 0.4485837931713182, 0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_213.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_214.pos,"[0.030284249706955726, 0.031924999999999995, 0.0028860357073493704]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_214.quat,"[0.5239315652662951, -0.4748638909388771, 0.47486389093887715, 0.5239315652662953]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_214.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_215.pos,"[0.03, 0.031924999999999995, 0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_215.quat,"[0.5, -0.4999999999999999, 0.5, 0.5000000000000001]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_215.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_216.pos,"[0.029715750293044272, 0.031924999999999995, 0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_216.quat,"[0.4748638909388771, -0.5239315652662951, 0.5239315652662953, 0.47486389093887715]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_216.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_217.pos,"[0.029434238066153227, 0.031924999999999995, 0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_217.quat,"[0.4485837931713181, -0.5466009335008787, 0.5466009335008788, 0.4485837931713182]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_217.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_218.pos,"[0.02915817443596206, 0.031924999999999995, 0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_218.quat,"[0.42122301775470966, -0.5679534922100713, 0.5679534922100713, 0.4212230177547097]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_218.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_219.pos,"[0.02889021804614124, 0.031924999999999995, 0.0026792506442827315]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_219.quat,"[0.3928474791935511, -0.5879378012096793, 0.5879378012096794, 0.3928474791935512]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_219.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_220.pos,"[0.028632949463204604, 0.031924999999999995, 0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_220.quat,"[0.36352553664563997, -0.606505716548904, 0.6065057165489041, 0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_220.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_221.pos,"[0.028388846324243152, 0.031924999999999995, 0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_221.quat,"[0.33332782923887333, -0.6236125064933355, 0.6236125064933355, 0.3333278292388734]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_221.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_222.pos,"[0.028160259475925428, 0.031924999999999995, 0.0022417303147519376]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_222.quat,"[0.3023271058954004, -0.6392169592876203, 0.6392169592876205, 0.30232710589540046]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_222.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_223.pos,"[0.02794939033455901, 0.031924999999999995, 0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_223.quat,"[0.2705980500730985, -0.6532814824381882, 0.6532814824381883, 0.27059805007309856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_223.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_224.pos,"[0.027758269685248062, 0.031924999999999995, 0.0018397405240745718]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_224.quat,"[0.2382170998465806, -0.6657721932768627, 0.6657721932768628, 0.23821709984658063]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_224.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_225.pos,"[0.027588738124322616, 0.031924999999999995, 0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_225.quat,"[0.20526226376117865, -0.6766590005871763, 0.6766590005871764, 0.20526226376117868]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_225.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_226.pos,"[0.02744242833338977, 0.031924999999999995, 0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_226.quat,"[0.17181293290352523, -0.6859156770967468, 0.685915677096747, 0.17181293290352526]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_226.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_227.pos,"[0.027320749355717266, 0.031924999999999995, 0.0011097819538587606]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_227.quat,"[0.13794968964147153, -0.6935199226610737, 0.6935199226610738, 0.13794968964147156]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_227.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_228.pos,"[0.027224873026376592, 0.031924999999999995, 0.0008418255640379408]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_228.quat,"[0.10375411349410577, -0.699453417986539, 0.6994534179865391, 0.10375411349410579]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_228.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_229.pos,"[0.02715572268683063, 0.031924999999999995, 0.0005657619338467729]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_229.quat,"[0.06930858459954585, -0.7037018687631911, 0.7037018687631912, 0.06930858459954585]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_229.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_230.pos,"[0.02711396429265063, 0.031924999999999995, 0.00028424970695572636]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_230.quat,"[0.03469608525397042, -0.7062550401009887, 0.7062550401009888, 0.03469608525397043]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_230.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_231.pos,"[0.0271, 0.031924999999999995, 3.551475717527324e-19]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_231.quat,"[4.329780281177466e-17, -0.7071067811865475, 0.7071067811865476, 4.329780281177467e-17]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_231.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_232.pos,"[0.027113964292650627, 0.031924999999999995, -0.0002842497069557257]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_232.quat,"[-0.03469608525397034, -0.7062550401009887, 0.7062550401009888, -0.034696085253970346]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_232.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_233.pos,"[0.02715572268683063, 0.031924999999999995, -0.0005657619338467722]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_233.quat,"[-0.06930858459954575, -0.7037018687631912, 0.7037018687631913, -0.06930858459954577]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_233.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_234.pos,"[0.027224873026376592, 0.031924999999999995, -0.0008418255640379401]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_234.quat,"[-0.1037541134941057, -0.699453417986539, 0.6994534179865391, -0.10375411349410571]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_234.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_235.pos,"[0.027320749355717266, 0.031924999999999995, -0.00110978195385876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_235.quat,"[-0.13794968964147145, -0.6935199226610737, 0.6935199226610738, -0.13794968964147147]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_235.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_236.pos,"[0.02744242833338977, 0.031924999999999995, -0.0013670505367953932]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_236.quat,"[-0.17181293290352515, -0.6859156770967468, 0.685915677096747, -0.17181293290352517]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_236.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_237.pos,"[0.027588738124322616, 0.031924999999999995, -0.0016111536757568456]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_237.quat,"[-0.20526226376117854, -0.6766590005871763, 0.6766590005871764, -0.20526226376117856]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_237.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_238.pos,"[0.027758269685248062, 0.031924999999999995, -0.0018397405240745711]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_238.quat,"[-0.23821709984658052, -0.6657721932768627, 0.6657721932768628, -0.23821709984658054]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_238.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_239.pos,"[0.02794939033455901, 0.031924999999999995, -0.0020506096654409876]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_239.quat,"[-0.27059805007309845, -0.6532814824381882, 0.6532814824381883, -0.2705980500730985]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_239.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_240.pos,"[0.028160259475925424, 0.031924999999999995, -0.0022417303147519363]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_240.quat,"[-0.3023271058954002, -0.6392169592876205, 0.6392169592876206, -0.30232710589540024]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_240.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_241.pos,"[0.028388846324243152, 0.031924999999999995, -0.002411261875677381]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_241.quat,"[-0.3333278292388733, -0.6236125064933355, 0.6236125064933357, -0.33332782923887333]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_241.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_242.pos,"[0.028632949463204604, 0.031924999999999995, -0.002557571666610229]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_242.quat,"[-0.36352553664563997, -0.606505716548904, 0.6065057165489041, -0.36352553664564]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_242.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_243.pos,"[0.028890218046141235, 0.031924999999999995, -0.0026792506442827307]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_243.quat,"[-0.39284747919355084, -0.5879378012096794, 0.5879378012096795, -0.39284747919355095]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_243.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_244.pos,"[0.029158174435962057, 0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_244.quat,"[-0.4212230177547096, -0.5679534922100713, 0.5679534922100714, -0.42122301775470966]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_244.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_245.pos,"[0.029434238066153227, 0.031924999999999995, -0.0028442773131693673]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_245.quat,"[-0.448583793171318, -0.5466009335008788, 0.5466009335008789, -0.4485837931713181]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_245.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_246.pos,"[0.029715750293044272, 0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_246.quat,"[-0.47486389093887715, -0.5239315652662951, 0.5239315652662951, -0.47486389093887726]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_246.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_247.pos,"[0.03, 0.031924999999999995, -0.0029]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_247.quat,"[-0.4999999999999999, -0.5, 0.5000000000000001, -0.5]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_247.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_248.pos,"[0.030284249706955722, 0.031924999999999995, -0.002886035707349371]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_248.quat,"[-0.523931565266295, -0.47486389093887726, 0.4748638909388773, -0.5239315652662951]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_248.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_249.pos,"[0.03056576193384677, 0.031924999999999995, -0.002844277313169368]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_249.quat,"[-0.5466009335008787, -0.4485837931713181, 0.4485837931713182, -0.5466009335008788]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_249.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_250.pos,"[0.030841825564037938, 0.031924999999999995, -0.0027751269736234056]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_250.quat,"[-0.5679534922100713, -0.42122301775470966, 0.4212230177547097, -0.5679534922100713]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_250.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_251.pos,"[0.03110978195385876, 0.031924999999999995, -0.002679250644282731]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_251.quat,"[-0.5879378012096794, -0.392847479193551, 0.39284747919355106, -0.5879378012096794]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_251.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_252.pos,"[0.03136705053679539, 0.031924999999999995, -0.0025575716666102295]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_252.quat,"[-0.6065057165489038, -0.36352553664564, 0.36352553664564013, -0.606505716548904]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_252.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_253.pos,"[0.03161115367575684, 0.031924999999999995, -0.0024112618756773818]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_253.quat,"[-0.6236125064933355, -0.3333278292388734, 0.33332782923887344, -0.6236125064933355]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_253.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_254.pos,"[0.031839740524074574, 0.031924999999999995, -0.0022417303147519367]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_254.quat,"[-0.6392169592876203, -0.3023271058954003, 0.30232710589540035, -0.6392169592876205]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_254.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_255.pos,"[0.03205060966544099, 0.031924999999999995, -0.002050609665440988]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_255.quat,"[-0.6532814824381882, -0.27059805007309856, 0.2705980500730986, -0.6532814824381883]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_255.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_256.pos,"[0.032241730314751936, 0.031924999999999995, -0.001839740524074573]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_256.quat,"[-0.6657721932768625, -0.2382170998465808, 0.23821709984658082, -0.6657721932768627]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_256.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_257.pos,"[0.03241126187567738, 0.031924999999999995, -0.0016111536757568462]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_257.quat,"[-0.6766590005871762, -0.20526226376117868, 0.20526226376117873, -0.6766590005871763]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_257.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_258.pos,"[0.032557571666610226, 0.031924999999999995, -0.0013670505367953938]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_258.quat,"[-0.6859156770967468, -0.17181293290352528, 0.1718129329035253, -0.685915677096747]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_258.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_259.pos,"[0.03267925064428273, 0.031924999999999995, -0.0011097819538587622]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_259.quat,"[-0.6935199226610737, -0.13794968964147172, 0.13794968964147175, -0.6935199226610738]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_259.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_260.pos,"[0.032775126973623406, 0.031924999999999995, -0.0008418255640379412]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_260.quat,"[-0.699453417986539, -0.1037541134941058, 0.10375411349410582, -0.6994534179865391]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_260.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_261.pos,"[0.032844277313169364, 0.031924999999999995, -0.0005657619338467733]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_261.quat,"[-0.7037018687631911, -0.06930858459954588, 0.06930858459954589, -0.7037018687631912]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_261.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_262.pos,"[0.03288603570734937, 0.031924999999999995, -0.00028424970695572544]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_262.quat,"[-0.7062550401009887, -0.03469608525397031, 0.03469608525397031, -0.7062550401009888]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_262.size,"[0.001, 0.0003340625784323773, 0.006]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_263.pos,"[-0.045, 0, 0.00342]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_263.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+drive.shape_263.size,"[0.007, 0.025, 4e-05]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.pos,"[0.25, -0.19, 0.7475]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+staging_tray.quat,"[0, 0, 0, 1]",SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+staging_tray.mass,0.12,SI (quaternion unitless),Benchmark-authored approximation,Bounding-box mass model / original scene
+staging_tray.center_of_mass,"[0.0, 0.0, 0.0125]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+staging_tray.diagonal_inertia,"[8.724999999999999e-05, 0.00015025, 0.00022499999999999997]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+staging_tray.bounds_min,"[-0.06, -0.045, 0.0]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+staging_tray.bounds_max,"[0.06, 0.045, 0.025]",SI (quaternion unitless),Derived from other explicitly stated geometry,Bounding-box mass model / original scene
+staging_tray.shape_0.pos,"[0, 0, 0.0015]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_0.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_0.size,"[0.12, 0.09, 0.003]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_1.pos,"[-0.04, -0.025, 0.014]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_1.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_1.size,"[0.012, 0.012, 0.022]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_2.pos,"[-0.04, 0.025, 0.014]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_2.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_2.size,"[0.012, 0.012, 0.022]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_3.pos,"[0.04, -0.025, 0.014]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_3.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_3.size,"[0.012, 0.012, 0.022]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_4.pos,"[0.04, 0.025, 0.014]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_4.quat,"[0, 0, 0, 1]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+staging_tray.shape_4.size,"[0.012, 0.012, 0.022]",SI,Derived from other explicitly stated geometry,generate_scene.py construction from stated dimensions
+scoring.anchors,"{'bracket': {'pos': [0.24, 0, 0.7975000000000001], 'quat': [0, 0, 0, 1]}, 'staging_tray': {'pos': [0.25, -0.19, 0.7475], 'quat': [0, 0, 0, 1]}}",SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.initial_drive,"[0.24, 0, 0.8039000000000001]",SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.target_drive,"[0.25, -0.19, 0.7759]",SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.rail_origin,"[0.24, 0, 0.7975000000000001]",SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.rail_joint,rail_flexure,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.rail_release,0.0045,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.rail_return,0.0005,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.rail_limit,0.007,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.hold_seconds,2.0,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.release_clearance,0.02,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.speed_limit,0.008,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.spin_limit,0.15,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.position_tolerance,0.0015,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.axial_tolerance,0.0005,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.tilt_tolerance,0.025,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.loss_plane,0.7275,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.penetration_limit,0.00035,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.fixture_tolerance,0.001,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry
+scoring.control_hz,20,SI,Benchmark-authored approximation,Numerical benchmark acceptance criterion / stated initial geometry

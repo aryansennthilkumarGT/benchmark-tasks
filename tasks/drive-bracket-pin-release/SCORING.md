@@ -1,0 +1,9 @@
+# Score, physical checks and invalid strategies
+
+Score reads actual native poses, velocities, rail joint and conservative collision measurements. It never uses expert phase names. Rail pose must agree with its joint to 0.4 mm and 0.025 rad. Anchor movement beyond 1 mm/0.025 rad, missing or nonfinite state, incorrect quaternion norms, lost drive below z=0.7275, joint outside [-0.2,7.2] mm, and inter-part penetration >0.35 mm latch zero.
+
+A correctly observed ≥4.5 mm opening while the drive is still seated earns 0.25. It enables a required observed tilt: freed edge ≥12 mm above its original midplane while the opposite edge remains within 2 mm of its pin axis and drive X stays within 2 mm. The opposite pin withdrawal then requires +Y translation ≥2.5 mm while the drive is still below its initial height+25 mm and the rail remains open. Merely teleporting a drive to the staging tray cannot establish these events.
+
+After that release sequence, a drive fully clear above the bracket (origin +55 mm) or horizontally >125 mm away earns 0.5. An additional 0.25 requires rail return to ≤0.5 mm. Correct staging earns another 0.25: target (0.25,-0.19,0.7759) within 1.5 mm lateral, 0.5 mm vertical and 0.025 rad. Credit for extraction/staging is recomputed; replacing or dislodging the drive removes it.
+
+Full score requires 2 s with every body's speed ≤8 mm/s, spin ≤0.15 rad/s and robot collision geometry ≥20 mm from dynamic parts. Otherwise the sum is capped at 0.95. Observation gaps >1.5 control periods reset the hold timer; conflicting/stale frames fail, identical duplicates are idempotent. Physical checks use a displacement gauge on the rail, witness video/height gauge for released-edge tilt and remaining-pin withdrawal, calipers for final position, and a ruler/video for release clearance and stability. The physical pin contacts enforce the topology; event history rejects nonphysical final-state substitution.

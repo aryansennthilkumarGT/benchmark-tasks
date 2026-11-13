@@ -1,0 +1,153 @@
+{
+  "physics": [
+    {
+      "name": "closed-pins-resist-straight-lift",
+      "forces": [
+        {
+          "assembly": "drive_asset",
+          "body": "drive",
+          "force": [
+            0,
+            0,
+            2.0
+          ]
+        }
+      ],
+      "steps": 20,
+      "settle_steps": 20,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "drive",
+          "axis": 2,
+          "min": 0.8036000000000001,
+          "max": 0.8054
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "score",
+          "max": 0,
+          "success": false
+        }
+      ]
+    },
+    {
+      "name": "force-opens-compliant-rail",
+      "forces": [
+        {
+          "assembly": "bracket_asset",
+          "body": "release_rail",
+          "force": [
+            0,
+            1.08,
+            0
+          ]
+        }
+      ],
+      "steps": 40,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "rail_flexure",
+          "min": 0.005,
+          "max": 0.0071
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ]
+    },
+    {
+      "name": "released-rail-returns",
+      "initialize_joints": [
+        {
+          "assembly": "bracket_asset",
+          "joint": "rail_flexure",
+          "value": 0.006
+        }
+      ],
+      "steps": 80,
+      "settle_steps": 20,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "rail_flexure",
+          "min": -0.0002,
+          "max": 0.0005
+        },
+        {
+          "kind": "score",
+          "max": 0,
+          "success": false
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "release-and-opposite-pin-prefix",
+      "through_phase": 19,
+      "through_label": "Slide away from opposite locating pins",
+      "max_steps": 3500,
+      "assertions": [
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "joint",
+          "joint": "rail_flexure",
+          "min": 0.0045,
+          "max": 0.0071
+        }
+      ]
+    },
+    {
+      "name": "removal-and-stage-prefix",
+      "through_phase": 28,
+      "through_label": "Withdraw extraction gripper",
+      "max_steps": 6500,
+      "assertions": [
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "pose",
+          "body": "drive",
+          "pos": [
+            0.25,
+            -0.19,
+            0.7759
+          ],
+          "tolerance": 0.0015,
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "angle": 0.025
+        }
+      ]
+    }
+  ]
+}
