@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "slug": "brad-nailer-jam-recovery",
+  "decision": "OFFLINE READY",
+  "readiness_label": "OFFLINE HIGH CONFIDENCE",
+  "published_commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+  "tested_source_commit": "1351d4ba80860b18085616df4cc7f08bbf29fab2",
+  "full_runtime_tested_source_commit": "c13f2e384bf69cc7b8d21915716e0d4ded98e808",
+  "source_manifest_sha256": "61953e3b2be7f5ad7afb1a6a4176278dda1186aeded5f8eabe1ee11c33898a89",
+  "physics_executed": false,
+  "supplemental_mujoco_executed": true,
+  "fundamental_open_risks": [],
+  "review_passes": {
+    "independent_reproduction": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reviews/independent_reproduction.json",
+      "sha256": "140aa220f0e7a80aa1bdf42633756b18301675f771f3a8760ce7f8d785b512c9"
+    },
+    "technical": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reviews/technical.json",
+      "sha256": "91ea4e32e55e17c99d18b2702c4063ff05387aac2b179d06492b4fc0643a9bc5"
+    },
+    "final_readiness": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reviews/final_readiness.json",
+      "sha256": "b5a6765d8574abcfa0532e635b9ac00031e07678440ec0a0301e46f939b3c917"
+    },
+    "occupation_and_novelty": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reviews/occupation_and_novelty.json",
+      "sha256": "de145306049af3fee8c1ad5b46655dd7a67b2c797e0929c4f0fdb0b1e5a40bae"
+    },
+    "scoring_and_measurement": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reviews/scoring_and_measurement.json",
+      "sha256": "52045f9e0ada443ee192af1e5b47d1f0e75370d32b10c29949322d6f0b7cdeed"
+    }
+  },
+  "reports": {
+    "unit": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/unit.json",
+      "sha256": "5818f23af01d6c629ed9cdaf344d0af2edc378100507e363a69393188f1dbc0e",
+      "passed": true
+    },
+    "clean_checkout": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/clean_checkout.json",
+      "sha256": "5818f23af01d6c629ed9cdaf344d0af2edc378100507e363a69393188f1dbc0e",
+      "passed": true
+    },
+    "assets": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/assets.json",
+      "sha256": "f9a8c8e8aaff2f096dbd15b0b909e31e0e632a57b5c3d745d1f63d2b4f53e7c7",
+      "passed": true
+    },
+    "geometry": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/geometry.json",
+      "sha256": "f25a2b4d94fb04f5249f238d1bc331bc8d405f6946152b5179a0f18442e13777",
+      "passed": true
+    },
+    "ik": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/ik.json",
+      "sha256": "920f3e34400c100ad4bf9d8d6ce4ccc63629085419982cfacef0b0bae46d6cc8",
+      "passed": true
+    },
+    "endpoint_collisions": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/endpoint_collisions.json",
+      "sha256": "8b4f0890b740486aa89de2e3a52eb57b965f7d7c3f1ac9ff6012372e108a2428",
+      "passed": true
+    },
+    "fk_path": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/fk_path.json",
+      "sha256": "d4eea61c311e06cf0985693e0558ff1ca5f49215d8ade91dd2a5fa165da82ad8",
+      "passed": true
+    },
+    "ideal_controller": {
+      "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/reports/ideal_controller.json",
+      "sha256": "49b553a51987d07f3d5120f360d4b96d4ed53f5043c9fb8c53088e55d2ae7eff",
+      "passed": true
+    }
+  },
+  "numerical_limits": [
+    "Supplemental full cycle emits7 nonfatal MuJoCo line-search warnings despite passing stated integrity/retention checks",
+    "637 sampled FK configurations do not prove continuous swept clearance"
+  ],
+  "inventory_limit": "Scoped accessible public sources; authenticated full board unavailable",
+  "standard_gpu_remaining": [
+    "Actual native PhysX resets/contacts/grasp acquisition/free-door hold/crosspin seating and released retention",
+    "Genuine same-source experts including independent clean checkout",
+    "Fresh authorization/billing reserve then Dream/media/visual verification"
+  ],
+  "submission_ready": false,
+  "external_acceptance": false
+}

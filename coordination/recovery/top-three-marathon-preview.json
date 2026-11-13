@@ -52,7 +52,7 @@
       "slug": "er-collet-nut-preassembly",
       "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "branch": "repair/er-collet-v21",
-      "worktree": "/tmp/robocurve-six-hour-preview-unused/worktrees/er-collet-nut-preassembly/1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/er-collet-nut-preassembly/1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -132,7 +132,7 @@
       "slug": "rigging-shackle-connection",
       "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
       "branch": "repair/rigging-shackle-v21",
-      "worktree": "/tmp/robocurve-six-hour-preview-unused/worktrees/rigging-shackle-connection/ce43ba49685b76affdb6f84e2850387d8620edef",
+      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/rigging-shackle-connection/ce43ba49685b76affdb6f84e2850387d8620edef",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -212,7 +212,7 @@
       "slug": "cargo-bar-controlled-release",
       "commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "branch": "repair/cargo-bar-angular-units",
-      "worktree": "/tmp/robocurve-six-hour-preview-unused/worktrees/cargo-bar-controlled-release/72e33f89853577aadebb78e64a1e783bd9087e84",
+      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/cargo-bar-controlled-release/72e33f89853577aadebb78e64a1e783bd9087e84",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -289,10 +289,90 @@
       ]
     },
     {
+      "slug": "brad-nailer-jam-recovery",
+      "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+      "branch": "draft/brad-nailer-jam-recovery",
+      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/brad-nailer-jam-recovery/d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+      "stages": [
+        "MECHANICS_COMPLETE",
+        "STATIC_TESTS_PASSED",
+        "NATIVE_PHYSICS_PASSED",
+        "ROBOT_CONTROL_PASSED",
+        "EXPERT_DEMO_1_PASSED",
+        "EXPERT_DEMO_2_PASSED",
+        "CLEAN_CHECKOUT_EXPERT_PASSED",
+        "MODEL_EVALUATED",
+        "MEDIA_RENDERED",
+        "MEDIA_VERIFIED",
+        "MEDIA_UPLOADED",
+        "EXACT_COMMIT_VERIFIED",
+        "READY_FOR_PR"
+      ],
+      "commands": [
+        [
+          "git",
+          "fetch",
+          "origin",
+          "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/native_tests.py",
+          "--mode",
+          "physics"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/native_tests.py",
+          "--mode",
+          "control"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/run.py",
+          "--mode",
+          "dream",
+          "--execute"
+        ],
+        [
+          "inspect-robots",
+          "video",
+          "<validated-log>",
+          "--out",
+          "<media-directory>"
+        ],
+        [
+          "python",
+          "tools/upload_media.py",
+          "tasks/brad-nailer-jam-recovery",
+          "--video",
+          "<model.mp4>",
+          "--demo",
+          "<demo.mp4>",
+          "--screenshot",
+          "<setup.png>"
+        ]
+      ]
+    },
+    {
       "slug": "drive-bracket-pin-release",
       "commit": "391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
       "branch": "repair/drive-bracket-v21",
-      "worktree": "/tmp/robocurve-six-hour-preview-unused/worktrees/drive-bracket-pin-release/391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
+      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/drive-bracket-pin-release/391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -394,6 +474,12 @@
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
+      "slug": "brad-nailer-jam-recovery",
+      "priority": 4,
+      "offline_state": "OFFLINE READY",
+      "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
+    },
+    {
       "slug": "drive-bracket-pin-release",
       "priority": 99,
       "offline_state": "REPLACE",
@@ -418,6 +504,11 @@
       "slug": "cargo-bar-controlled-release",
       "published_commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "tested_source_commit": "e62f3f7f890efeaf91955cf10257e1cacc3ee325"
+    },
+    {
+      "slug": "brad-nailer-jam-recovery",
+      "published_commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+      "tested_source_commit": "1351d4ba80860b18085616df4cc7f08bbf29fab2"
     }
   ]
 }

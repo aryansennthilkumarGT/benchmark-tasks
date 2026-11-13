@@ -1,3 +1,9 @@
+# Latest verified source checkpoint — 2026-11-13
+
+Four independent packages now pass the internal offline gate: ER1263eb9, shacklece43ba4, repaired cargo72e33f8 and nailerd8d454b. Nailer clean runtime sourcec13f2e3 passes53 tests/all10 stages,49 actual live-bound phase endpoints,637 sampled actual-FK configurations and2780 ideal actions/139s with synthetic score1. Metadata-only source1351d4b passes9 affected tests and exact runtime equivalence. Twelve repeated contact cases and the full feedback-gated supplemental cycle pass at40.53um peak depth, with seven nonfatal MuJoCo line-search warnings preserved. No native Isaac/YAM, physical grasp, Dream, hardware or external review success is claimed.
+
+Nailer replaces remote-battery-service; old rejected heads remain untouched. Three quality slots remain: node-service-closeout, switch-map-rework, and the weak SAC concept. Pending twelve-cell PR1733 remains preserved at a312bcac. The other top three remain ranked ahead of nailer; its hidden authored mechanism/access and numerical warnings are explicit risks. Continue the next substantive replacement, beginning bounded primary-source verification of SDS-plus tool changing. Do not stop at this publication.
+
 # Confirmed cargo angular-unit repair — 2026-11-13
 
 The cargo successor repair/cargo-bar-angular-units at72e33f8 preserves the old2f82123 head. Fresh HTTPS sourcee62f3f7 passes45 tests, actual USD regeneration and manifest integrity. Exact old/new file comparison proves only the exporter, six angular USD coefficient attributes, regression test and units documentation changed. Existing long controller/contact/FK evidence is explicitly reused for byte-identical inputs, not claimed rerun. Shackle/ER remain qualified; the three internal high-confidence gates are restored. No native Isaac/YAM or hardware success is implied.

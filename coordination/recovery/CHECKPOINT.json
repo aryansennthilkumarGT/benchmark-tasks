@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T13:44:38.339157+00:00",
+  "updated_at": "2026-11-13T15:19:23.520543+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -74,8 +74,15 @@
       "classification": "REPLACE",
       "reason": "Final rejection #1703: DexHand Remote Battery Swap overlap and missing occupational importance.",
       "existing_branch": "draft/remote-battery-service",
-      "replacement_implemented": false,
-      "reviewer_acceptance_cleared": false
+      "replacement_implemented": true,
+      "reviewer_acceptance_cleared": false,
+      "replacement": {
+        "slug": "brad-nailer-jam-recovery",
+        "branch": "draft/brad-nailer-jam-recovery",
+        "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+        "offline_state": "OFFLINE HIGH CONFIDENCE",
+        "native_physics": "NOT_RUN"
+      }
     },
     {
       "slug": "switch-map-rework",
@@ -185,10 +192,9 @@
     }
   ],
   "next": [
-    "Preserve cargo evidence2f82123/sourcea1b3a8e, ER1263eb9 and shacklece43ba4 without claiming native success.",
-    "Finish primary-source grounding and implement the next independent brad-nailer jam-recovery package: latch lift, nose-door opening, accessible trapped bent-brad extraction, door close, pin under both arms and overcenter locking. Driver is already retracted; battery removed/lock-off/magazine unloaded.",
-    "Complete the other original rebuild slots and replace weak SAC if its fundamental novelty remains unresolved.",
-    "Continue controller/interface/scoring and pipeline hardening after packages; no milestone stop."
+    "Inspect /workspace/sds-tool-research manufacturer GBH2-26 manual1 609 92A D8H printedp17 FigE/F and genuine parts diagram. Verify keyed open-drive grooves/closed ball-lock grooves, automatic insertion and sleeve-release mechanism; compare accepted bayonet/connectors and external suites before selecting. If defensible, create independent branch from7df8bd8 and implement complete package.",
+    "Preserve shacklece43ba4, ER1263eb9, cargo72e33f8, nailerd8d454bf5f8fc3a16925df1beacfe6124d50ee9a and PR1733 a312bcac unchanged.",
+    "Continue all productive CPU engineering; no paid services, uploads or official PRs."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
@@ -217,7 +223,7 @@
     "head_changed_by_this_mission": false,
     "last_read_utc": "2026-11-13T10:05:16.907596+00:00"
   },
-  "current_work": "Nailer complete implementation sourcec13f2e3 undergoing full clean HTTPS check. Metadata-only successor0b14c05 adds portfolio execution review contract; separately prove sole-file metadata equivalence and integrity. Then publish evidence and continue remaining three quality rebuilds.",
+  "current_work": "Four independent quality packages internally qualified; three remaining quality rebuilds plus preserved pending twelve-cell. Continue next substantive replacement. SDS-plus tool change primary Bosch manual retrieved; first verify exact drive/retention mechanics and meaningful novelty, then implement if defensible. No GPU authorization.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
   "protected_shackle_control_review_note": "Original ef13ec77 remains untouched. Independent repair/rigging-shackle-v21 fixes shared interpolation, full path, retry and native negative-force calibration; new evidence binds source65b6ed7, not the historical original.",
   "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
@@ -239,7 +245,7 @@
   "review_v21": {
     "integrated": true,
     "top_three_milestone_reached": true,
-    "confirmed_offline_high_confidence_count": 3,
+    "confirmed_offline_high_confidence_count": 4,
     "reason": "Cargo angular USD unit successor verified with45 tests/actual assets/clean HTTPS and strict equivalence for unaffected prior contact/controller/FK checks; shackle and ER preserved.",
     "repair_branches": {
       "shackle-v21": {
@@ -317,7 +323,7 @@
       "offline_gate_affected_tests_passed": 12,
       "review_artifact_integrity": "Requires five actual named/hash-bound review records and checks report contents, not passed labels alone.",
       "latest_dry_run": "coordination/recovery/top-three-marathon-preview.json",
-      "preview_verified_internal_bundles": 3,
+      "preview_verified_internal_bundles": 4,
       "latest_affected_test_scope": "coordination/test_marathon.py and test_offline_gate.py",
       "evidence_path_repair": "Explicit manifest-relative offline_evidence_root resolves repository-root bundle paths. --verify-offline enables real read-only hash/content verification in preview."
     },
@@ -356,43 +362,73 @@
       "guard_motion_samples": 83,
       "guard_shapes": 207,
       "unchanged_runtime_evidence_source": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7"
+    },
+    "nailer": {
+      "branch": "draft/brad-nailer-jam-recovery",
+      "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+      "tested_source_commit": "1351d4ba80860b18085616df4cc7f08bbf29fab2",
+      "full_suite_tested_source_commit": "c13f2e384bf69cc7b8d21915716e0d4ded98e808",
+      "source_manifest_sha256": "61953e3b2be7f5ad7afb1a6a4176278dda1186aeded5f8eabe1ee11c33898a89",
+      "scene_sha256": "0de827b14d9ea80d8f490b60047f72b1c61f0106233c35b565e1173a10d4d74d",
+      "implementation": "COMPLETE_INTERNALLY_OFFLINE_HIGH_CONFIDENCE",
+      "unit_tests": 53,
+      "metadata_tests": 9,
+      "static_stages": 10,
+      "phase_endpoints": 49,
+      "actual_fk_samples": 637,
+      "ideal_actions": 2780,
+      "ideal_seconds": 139.0,
+      "synthetic_score": 1.0,
+      "maximum_grasp_constraint_residual_m": 2.7216275268080474e-06,
+      "repeated_contact_cases": 12,
+      "full_cycle_peak_contact_depth_m": 4.052802431295768e-05,
+      "full_cycle_nonfatal_warning_count": 7,
+      "clean_https": true,
+      "native_physics": "NOT_RUN",
+      "robot_expert": "NOT_RUN",
+      "dream": "NOT_RUN",
+      "hardware": "NOT_RUN",
+      "evidence": "tasks/brad-nailer-jam-recovery/offline-evidence/final/source-verification.json",
+      "readiness_bundle": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/bundle.json"
     }
   },
   "next_commands": [
-    "Preserve cargo evidence2f82123/sourcea1b3a8e, ER1263eb9 and shacklece43ba4 without claiming native success.",
-    "Finish primary-source grounding and implement the next independent brad-nailer jam-recovery package: latch lift, nose-door opening, accessible trapped bent-brad extraction, door close, pin under both arms and overcenter locking. Driver is already retracted; battery removed/lock-off/magazine unloaded.",
-    "Complete the other original rebuild slots and replace weak SAC if its fundamental novelty remains unresolved.",
-    "Continue controller/interface/scoring and pipeline hardening after packages; no milestone stop."
+    "Inspect /workspace/sds-tool-research manufacturer GBH2-26 manual1 609 92A D8H printedp17 FigE/F and genuine parts diagram. Verify keyed open-drive grooves/closed ball-lock grooves, automatic insertion and sleeve-release mechanism; compare accepted bayonet/connectors and external suites before selecting. If defensible, create independent branch from7df8bd8 and implement complete package.",
+    "Preserve shacklece43ba4, ER1263eb9, cargo72e33f8, nailerd8d454bf5f8fc3a16925df1beacfe6124d50ee9a and PR1733 a312bcac unchanged.",
+    "Continue all productive CPU engineering; no paid services, uploads or official PRs."
   ],
   "additional_quality_replacements_required": [
     "drive-bracket-pin-release is superseded by internally qualified cargo; preserve original drive history.",
     "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept."
   ],
-  "next_implementation_command": "Finish frozen nailer checks (/tmp/nailer-frozen-local), commit/push source, verify full static suite from fresh HTTPS clone. Cargo successor /workspace/cargo-units repair/cargo-bar-angular-units has corrected USD coefficients and new regression; complete source-equivalence, clean HTTPS verification.",
+  "next_implementation_command": "Inspect /workspace/sds-tool-research manufacturer GBH2-26 manual1 609 92A D8H printedp17 FigE/F and genuine parts diagram. Verify keyed open-drive grooves/closed ball-lock grooves, automatic insertion and sleeve-release mechanism; compare accepted bayonet/connectors and external suites before selecting. If defensible, create independent branch from7df8bd8 and implement complete package.",
   "nailer_progress": {
     "branch": "draft/brad-nailer-jam-recovery",
-    "commit": "69cb3fb8767ea9b5f67541e83890411b794ed950",
-    "scene_sha256": "12ee91197542b38d4d178347aaf94cd4892869b86834ffffe1605a0a7d5c132b",
-    "tests": "33 unit tests passed;13 affected geometry/controller regressions passed after passive-opening fix;4 new metadata/source-identity tests and2 convex-hull-equivalence tests passed. Full final suite/clean checkout not yet run.",
-    "supplemental_cycle": {
-      "engine": "MuJoCo 3.3.7",
-      "passed": true,
-      "peak_contact_depth_m": 0.00017350464862215484,
-      "robot_executed": false,
-      "native_isaac_executed": false
-    },
-    "remaining": "Finish full FK collision repair: wide fingers during center-pin acquisition strike lever; narrower openings have endpoint clearance. Exact convex hulls replace redundant STL SAT edges with equivalence tests. Add full runtime hash binding, verify full synthetic scoring and released clearance, clean HTTPS verification.",
-    "implementation": "Active49-phase sequential expert, left-arm brad removal, upper-pin grasp, physical scoring/FK replay.47-unit source stage passed;48 now pass after USD drive unit test. Full final qualification/clean checkout still pending.",
-    "ideal_controller": {
-      "passed": true,
-      "actions": 2811,
-      "simulated_seconds": 140.55,
-      "maximum_grasp_constraint_residual_m": 2.671535751863854e-06,
-      "physical_grasps_assumed": true,
-      "native_isaac_executed": false
-    },
-    "next": "Inspect /tmp/nailer-ideal-standoff.json and run source-bound audit_path.py. Stand-off7.2mm and bonded stop repairs address final jaw contacts; current full mechanism cycle passed at97um penetration.",
-    "current_local_source": "Uncommitted final implementation:53 tests,49 phases/2780 synthetic actions,637 FK samples synthetic score1,12 repeated contact cases; frozen full qualification running. No native Isaac/YAM."
+    "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+    "tested_source_commit": "1351d4ba80860b18085616df4cc7f08bbf29fab2",
+    "full_suite_tested_source_commit": "c13f2e384bf69cc7b8d21915716e0d4ded98e808",
+    "source_manifest_sha256": "61953e3b2be7f5ad7afb1a6a4176278dda1186aeded5f8eabe1ee11c33898a89",
+    "scene_sha256": "0de827b14d9ea80d8f490b60047f72b1c61f0106233c35b565e1173a10d4d74d",
+    "implementation": "COMPLETE_INTERNALLY_OFFLINE_HIGH_CONFIDENCE",
+    "unit_tests": 53,
+    "metadata_tests": 9,
+    "static_stages": 10,
+    "phase_endpoints": 49,
+    "actual_fk_samples": 637,
+    "ideal_actions": 2780,
+    "ideal_seconds": 139.0,
+    "synthetic_score": 1.0,
+    "maximum_grasp_constraint_residual_m": 2.7216275268080474e-06,
+    "repeated_contact_cases": 12,
+    "full_cycle_peak_contact_depth_m": 4.052802431295768e-05,
+    "full_cycle_nonfatal_warning_count": 7,
+    "clean_https": true,
+    "native_physics": "NOT_RUN",
+    "robot_expert": "NOT_RUN",
+    "dream": "NOT_RUN",
+    "hardware": "NOT_RUN",
+    "evidence": "tasks/brad-nailer-jam-recovery/offline-evidence/final/source-verification.json",
+    "readiness_bundle": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/bundle.json"
   },
   "usd_angular_drive_repair": {
     "discovered": "2026-11-13",
@@ -401,5 +437,12 @@
     "nailer": "Fixed, tested in actual USD attributes; no native execution claim.",
     "cargo": "Completed independent successor 72e33f89853577aadebb78e64a1e783bd9087e84; testedsource e62f3f7f890efeaf91955cf10257e1cacc3ee325;45 tests and exact USD assets from fresh HTTPS clone. Six angular coefficients only; unchanged prior CPU physics/controller evidence reused through explicit equivalence. No Isaac/YAM executed.",
     "shackle_and_er": "Actual scene inspection found no revolute joints; their assets do not exercise the affected code path. Do not invalidate or repeat their physical checks for an unused builder branch."
-  }
+  },
+  "remaining_quality_slots": [
+    "node-service-closeout REPLACE",
+    "switch-map-rework REDESIGN OR REPLACE",
+    "weak SAC/eight-nut-bracket REPLACE unless substantive novelty cleared"
+  ],
+  "quality_packages_completed": 4,
+  "pending_original_preserved": "twelve-cell PR1733"
 }
