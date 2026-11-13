@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T09:13:31.539113+00:00",
+  "updated_at": "2026-11-13T10:05:16.907596+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -36,9 +36,9 @@
       "replacement_candidate": {
         "slug": "cargo-bar-controlled-release",
         "branch": "draft/cargo-bar-controlled-release",
-        "commit": "905f760",
-        "implementation": "ACTIVE_CONTACT_INERTIA_REPAIR_NOT_QUALIFIED",
-        "cpu_tests_passed": 31,
+        "commit": "2f8212379c039c70abfe569c4917ed6cb4fadd46",
+        "implementation": "COMPLETE_INTERNALLY_OFFLINE_READY",
+        "cpu_tests_passed": 44,
         "ik_endpoints": 21,
         "robot_collision_endpoints": 21,
         "full_fk_samples": 250,
@@ -51,16 +51,22 @@
         "dream": "NOT_RUN",
         "reviewer_acceptance_cleared": false,
         "clean_https": true,
-        "novelty": "Scoped differences supported; loaded pawl release PR538, strapPR1285 and telescopingPR1855 remain final semantic review comparators.",
-        "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
-        "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
-        "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
-        "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json",
+        "novelty": "Internally scoped CLEARED against accessed semantic comparators; authenticated inventory and external acceptance remain unavailable.",
+        "parameter_provenance": "22,794 numeric values classified; no independently measured hardware",
+        "cpu_mechanism": "Ten repeated strengthened mechanism cases pass;30s free holds at960/1920Hz pass without receiving support. Margin-gap/elliptic-friction repair preserves original12kN/m preload,0.575 coefficient and integrity bounds.",
+        "tested_source_commit": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7",
+        "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/guard-complete-clean/source-verification.json",
         "historical_offline_evidence_commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
         "historical_tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
-        "clean_https_current_source": false,
-        "current_blocker": "Initial free bar drifts onto receiving cradles; 12kN/m source fails strict2s/3mm hold. Longer duration and solver convergence diagnostics show higher preload alone only conceals drift temporarily. All8 joint contacts now enabled, compound COM/inertia derived;8 new analytic/export tests pass.",
-        "qualification_warning": "Historical31-test/13-stage source is preserved; those results do not qualify changed mechanics. Provenance/source manifests intentionally stale pending final review."
+        "clean_https_current_source": true,
+        "source_manifest_sha256": "1ee21cdb40010b146f7b0deebd058b2b1ba8295c101af7e57f6a501d2ada63d2",
+        "static_stages_passed": 16,
+        "offline_state": "OFFLINE READY",
+        "readiness_bundle": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/bundle.json",
+        "max_grasp_constraint_residual_m": 7.134141751239107e-05,
+        "joint_interface_checks": 576,
+        "guard_motion_samples": 83,
+        "guard_shapes": 207
       }
     },
     {
@@ -179,17 +185,17 @@
     }
   ],
   "next": [
-    "Finish cargo clean HTTPS static check, preserve exact reports/source and push evidence; no native claim.",
-    "Complete distinct source-bound acceptance/readiness passes for shackle, ER and cargo; repair actionable findings, do not falsely count three ready.",
-    "Continue original remote-battery-service, node-service-closeout and switch-map-rework rebuilds, replacing any weaker concepts; preserve all original histories.",
-    "Do not revive WAGO766, cam/groove1084, DIN37/324 or knockout971 equivalents.",
-    "SAC optimized source remains separately preserved; novelty and authentic mechanics still need an honest decision."
+    "Preserve cargo evidence2f82123/sourcea1b3a8e, ER1263eb9 and shacklece43ba4 without claiming native success.",
+    "Finish primary-source grounding and implement the next independent brad-nailer jam-recovery package: latch lift, nose-door opening, accessible trapped bent-brad extraction, door close, pin under both arms and overcenter locking. Driver is already retracted; battery removed/lock-off/magazine unloaded.",
+    "Complete the other original rebuild slots and replace weak SAC if its fundamental novelty remains unresolved.",
+    "Continue controller/interface/scoring and pipeline hardening after packages; no milestone stop."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
     "Complete independent manufacturer-grounded ER collet/cam preassembly task, hardware-order-kit replacement. Supported setup honors manufacturer warning that cam need not hold collet unsupported.",
     "28 tests, three composed USDs, 33 IK/nominal geometry/robot collision endpoints, 220 actual FK critical cam-path samples; ideal controller586 actions/29.3s. Clean HTTPS source ca3dd90, evidence tip09f7e59.",
-    "Separate SAC efficiency branch4f5848d, clean source7c05369:49 tests,597 endpoints,1345 actual-FK samples;15315 actions versus28800 (46.8% reduction), unchanged thread turns/mechanics/scorer. Original three package branches unchanged."
+    "Separate SAC efficiency branch4f5848d, clean source7c05369:49 tests,597 endpoints,1345 actual-FK samples;15315 actions versus28800 (46.8% reduction), unchanged thread turns/mechanics/scorer. Original three package branches unchanged.",
+    "Cargo guarded/all-contact compound-inertia repair and two-arm transport sourcea1b3a8e; independent clean evidence2f82123.44 tests/16 stages,21 endpoints/250 FK samples,1161 synthetic actions,576 unfiltered interface checks,30s two-resolution free holds. Third internal offline gate established without native or paid execution."
   ],
   "current_review_outcomes_verified_via_public_github_html": true,
   "offline_implemented_replacements": 4,
@@ -208,9 +214,10 @@
     "state": "open",
     "head": "a312bcac0f29098731ad40ce30df5fe3a6fcca78",
     "updated_at": "2026-11-12T12:22:25Z",
-    "head_changed_by_this_mission": false
+    "head_changed_by_this_mission": false,
+    "last_read_utc": "2026-11-13T10:05:16.907596+00:00"
   },
-  "current_work": "Two internally qualified offline candidates. Cargo final adversarial construct review found exposed pawl-access risk; implement physical housing guards, then rerun affected contacts/controller/FK tests and clean-source verification before final readiness. Continue remaining packages thereafter.",
+  "current_work": "Three internally OFFLINE READY sources are preserved. Continue three original rebuild slots plus a stronger replacement for weak SAC; milestone is not a stopping point. Next candidate: documented DeWaltDCN680 brad-nailer jam recovery, pending exact occupation/novelty/physical-interface gate before scene implementation.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
   "protected_shackle_control_review_note": "Original ef13ec77 remains untouched. Independent repair/rigging-shackle-v21 fixes shared interpolation, full path, retry and native negative-force calibration; new evidence binds source65b6ed7, not the historical original.",
   "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
@@ -231,9 +238,9 @@
   "standing_directive": "Continuous autonomous CPU engineering; priority is three genuinely qualified offline tasks, then eight; milestones never imply stopping.",
   "review_v21": {
     "integrated": true,
-    "top_three_milestone_reached": false,
-    "confirmed_offline_high_confidence_count": 2,
-    "reason": "Shackle and ER now have source-bound internal OFFLINE READY bundles with five distinct review records each. Cargo final construct review identified exposed pawl-access risk; housing improvement next. Top-three gate not reached.",
+    "top_three_milestone_reached": true,
+    "confirmed_offline_high_confidence_count": 3,
+    "reason": "Shackle, ER and cargo each pass the source-bound internal gate with five distinct internal engineering review records and complete offline/clean-source evidence. No independent agent, official acceptance or native feasibility is implied. Continue all remaining engineering.",
     "repair_branches": {
       "shackle-v21": {
         "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
@@ -308,14 +315,16 @@
       "dry_run_pending": false,
       "billing_shutdown_not_automatic": true,
       "offline_gate_affected_tests_passed": 12,
-      "review_artifact_integrity": "Requires five actual named/hash-bound review records and checks report contents, not passed labels alone."
+      "review_artifact_integrity": "Requires five actual named/hash-bound review records and checks report contents, not passed labels alone.",
+      "latest_dry_run": "coordination/recovery/top-three-marathon-preview.json",
+      "preview_verified_internal_bundles": 3
     },
     "cargo": {
       "slug": "cargo-bar-controlled-release",
       "branch": "draft/cargo-bar-controlled-release",
-      "commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
-      "implementation": "COMPLETE_OFFLINE_VERIFIED_FINAL_ACCEPTANCE_PENDING",
-      "cpu_tests_passed": 31,
+      "commit": "2f8212379c039c70abfe569c4917ed6cb4fadd46",
+      "implementation": "COMPLETE_INTERNALLY_OFFLINE_READY",
+      "cpu_tests_passed": 44,
       "ik_endpoints": 21,
       "robot_collision_endpoints": 21,
       "full_fk_samples": 250,
@@ -328,21 +337,33 @@
       "dream": "NOT_RUN",
       "reviewer_acceptance_cleared": false,
       "clean_https": true,
-      "novelty": "Scoped differences supported; loaded pawl release PR538, strapPR1285 and telescopingPR1855 remain final semantic review comparators.",
-      "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
-      "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
-      "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
-      "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json"
+      "novelty": "Internally scoped CLEARED against accessed semantic comparators; authenticated inventory and external acceptance remain unavailable.",
+      "parameter_provenance": "22,794 numeric values classified; no independently measured hardware",
+      "cpu_mechanism": "Ten repeated strengthened mechanism cases pass;30s free holds at960/1920Hz pass without receiving support. Margin-gap/elliptic-friction repair preserves original12kN/m preload,0.575 coefficient and integrity bounds.",
+      "tested_source_commit": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7",
+      "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/guard-complete-clean/source-verification.json",
+      "historical_offline_evidence_commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
+      "historical_tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
+      "clean_https_current_source": true,
+      "source_manifest_sha256": "1ee21cdb40010b146f7b0deebd058b2b1ba8295c101af7e57f6a501d2ada63d2",
+      "static_stages_passed": 16,
+      "offline_state": "OFFLINE READY",
+      "readiness_bundle": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/bundle.json",
+      "max_grasp_constraint_residual_m": 7.134141751239107e-05,
+      "joint_interface_checks": 576,
+      "guard_motion_samples": 83,
+      "guard_shapes": 207
     }
   },
   "next_commands": [
-    "Cargo: add an authored connected housing around the two pawls/cams, preserving trigger/handle/telescope access; no virtual path/scoring gate.",
-    "Verify housing clearances even across joint-adjacent bodies, recheck actual robot paths and contact probes, then publish exact-source reports.",
-    "Continue three original rebuild slots and weak-SAC replacement work after top-three quality gate; milestones are not stopping points."
+    "Preserve cargo evidence2f82123/sourcea1b3a8e, ER1263eb9 and shacklece43ba4 without claiming native success.",
+    "Finish primary-source grounding and implement the next independent brad-nailer jam-recovery package: latch lift, nose-door opening, accessible trapped bent-brad extraction, door close, pin under both arms and overcenter locking. Driver is already retracted; battery removed/lock-off/magazine unloaded.",
+    "Complete the other original rebuild slots and replace weak SAC if its fundamental novelty remains unresolved.",
+    "Continue controller/interface/scoring and pipeline hardening after packages; no milestone stop."
   ],
   "additional_quality_replacements_required": [
-    "drive-bracket-pin-release excluded by officialPR1750; cargo-bar candidate awaits clean checkout and final acceptance",
-    "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept"
+    "drive-bracket-pin-release is superseded by internally qualified cargo; preserve original drive history.",
+    "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept."
   ],
-  "next_implementation_command": "In /workspace/cargo-bar inspect /tmp/cargo-hold-backend-duration.json. Repair stable free initial hold; regenerate physical cam reference; run affected contact/FK/controller/provenance checks, update docs, then independent HTTPS verify. Continue remaining task replacements after qualification; no milestone stop."
+  "next_implementation_command": "Verify BLS/O*NET carpentry importance and DCN680 manual p12/FigJ; create independent draft/brad-nailer-jam-recovery from7df8bd8. Implement original complete nose/latch/bail/channel/bent-fastener fixture with all authored dimensions labelled, actual robot phases and physical retention scoring; run CPU contacts/FK/adversarial/clean HTTPS tests and push completed package."
 }

@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "slug": "cargo-bar-controlled-release",
+  "decision": "OFFLINE READY",
+  "published_commit": "2f8212379c039c70abfe569c4917ed6cb4fadd46",
+  "tested_source_commit": "a1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7",
+  "source_manifest_sha256": "1ee21cdb40010b146f7b0deebd058b2b1ba8295c101af7e57f6a501d2ada63d2",
+  "physics_executed": false,
+  "supplemental_mujoco_executed": true,
+  "physics_field_scope": "No native Isaac/PhysX; named supplemental CPU probes only.",
+  "fundamental_open_risks": [],
+  "review_passes": {
+    "technical": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/technical.json",
+      "sha256": "27a6b794942ae0dd1db9808bdd78860a0d02f124a1b882b5188eac668ebf5ffb"
+    },
+    "occupation_and_novelty": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/occupation_and_novelty.json",
+      "sha256": "a1715b5b900c6412d05ffad3893199a06770a3bff515b48c5be3c5d3b70a11df"
+    },
+    "scoring_and_measurement": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/scoring_and_measurement.json",
+      "sha256": "d275e9315dcc1480ad065cb35724510e13817cc287c849d7b1dc5deb5938ac76"
+    },
+    "independent_reproduction": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/independent_reproduction.json",
+      "sha256": "da88a1e5f2d6d66a1d40acaadcb1903553132a618635cf4eee871dc08793b425"
+    },
+    "final_readiness": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reviews/final_readiness.json",
+      "sha256": "2e9e7f9f62c8eb22ddeb4d34f01c826d7de0d00c0f5efd9a9143a7ee9771973c"
+    }
+  },
+  "reports": {
+    "unit": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/unit.json",
+      "sha256": "a2e5f56a393631acfc93d00d9c82f6ec834bb6c385ab6991e6e00ea7d4bfc625",
+      "passed": true
+    },
+    "clean_checkout": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/clean_checkout.json",
+      "sha256": "a2e5f56a393631acfc93d00d9c82f6ec834bb6c385ab6991e6e00ea7d4bfc625",
+      "passed": true
+    },
+    "assets": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/assets.json",
+      "sha256": "b4f1b3e5ac35b13d15eca80d51241874147a5efe2a2c400e7cb46f3b115c0898",
+      "passed": true
+    },
+    "ik": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/ik.json",
+      "sha256": "6bc1d579afc36089b3572046c0200fbcee6578e1768793990fb6a459bf1bbb8f",
+      "passed": true
+    },
+    "endpoint_collisions": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/endpoint_collisions.json",
+      "sha256": "f0757f987f2d8c68fe22f0ec11877f7d9c07f4f1db20c3fdb33d10dff7bba0e3",
+      "passed": true
+    },
+    "fk_path": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/fk_path.json",
+      "sha256": "0e67af691d03a5bae95b6eaa68a06192a35967eb05a301275ae32113228b2dcd",
+      "passed": true
+    },
+    "ideal_controller": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/ideal_controller.json",
+      "sha256": "66e7e0fe4e2ce6c16333924148d5f57866a14938d63569619c5840b3c2668c8b",
+      "passed": true
+    },
+    "geometry": {
+      "path": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/reports/geometry.json",
+      "sha256": "57d29583c943a958b55bb2c41be511614ac43850725a8deaeb3d87628aa423e8",
+      "passed": true
+    }
+  },
+  "standard_gpu_remaining": [
+    "Actual native YAM grasp, load sharing, contact/reset and end-state behavior",
+    "Two native expert demonstrations and third independent clean-checkout expert",
+    "Authorized Dream evaluation, genuine sensor media and visually verified evidence"
+  ],
+  "inventory_limit": "Authenticated task board unavailable; scoped accessible semantic comparisons only.",
+  "submission_ready": false,
+  "external_acceptance": false
+}

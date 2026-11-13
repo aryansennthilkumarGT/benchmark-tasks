@@ -1,3 +1,15 @@
+# Latest continuation checkpoint — 2026-11-13
+
+Three candidates now pass the **internal OFFLINE READY** gate: shacklece43ba4, ER1263eb9, cargo2f8212379c039c70abfe569c4917ed6cb4fadd46. Cargo tested sourcea1b3a8e6f86ed88b5fbc7e48f6bed0d7c87182a7 passes44 tests and all16 static stages from a clean independent HTTPS checkout. Its complete guard, all8 joint contacts, compound inertia and two-arm carry are implemented. There is no native Isaac/YAM, hardware, Dream or external-review success claim.
+
+The prolonged hold blocker was a supplemental contact-model issue: margin without gap imposed a positive rest offset; corrected margin=gap with elliptic friction/impratio100 supports30s holds at960/1920Hz without cradle contact or external force. Existing12kN/m springs,0.575 pair coefficient and3mm/0.35mm bounds remain. The native hold is strengthened to10s continuously. Ten repeated mechanism protocols,576 unfiltered interfaces,83 housing samples,21 endpoints and250 actual FK samples pass. Ideal replay is1161actions/58.05s with71µm grasp residual; it remains synthetic. Historical failed prototypes are retained, rather than disguised by brief higher-preload passes.
+
+All three source-bound bundles verify. The six-hour pipeline preview at top-three-marathon-preview.json is a pure dry run, and creates no runtime directory. Authorization/fresh provider receipts/credit reserve remain blocking; workload termination still does not automatically terminate billing. PR1733 is still open at preserveda312bcac0f29098731ad40ce30df5fe3a6fcca78; rejected heads remain untouched.
+
+Continue immediately. Three original rebuild slots and the weak-SAC replacement remain. Next investigated candidate is the actual DCN680 jam-clearing procedure, manufacturer p12/FigJ: remove a trapped bent nail through an unlatched/opened nose, then capture the real bail pin beneath two arms and lock the lever. Prepared scope is battery removed, trigger locked, magazine empty and driver already retracted. Do not invent dimensions or hidden OEM mechanics. Verify occupation and novelty before the independent original fixture scene; implement all logic/assets/tests rather than another report. JOST landing-gear sources were also retrieved, but full-scale layout/two-handed-crank constraints need resolution before selecting it.
+
+Earlier checkpoint history follows.
+
 # Current recovery state
 
 The quality-first directive supersedes preserving weak concepts. **The top-three offline milestone is not reached.** Continue engineering; this checkpoint is not a stopping point. Original task branches and evidence remain preserved. No GPU, paid evaluation, upload or official PR occurred.
