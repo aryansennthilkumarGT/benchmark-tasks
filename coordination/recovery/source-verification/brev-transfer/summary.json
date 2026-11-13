@@ -12,5 +12,30 @@
   "brev_accessed": false,
   "gpu_started": false,
   "paid_services_called": false,
-  "clean_published_checkout": "PENDING_AFTER_SOURCE_FREEZE"
+  "clean_published_checkout": "PASS",
+  "tested_payload_commit": "2f97f4e639ef2317abc7467d69f450f21b9fa2cb",
+  "clean_published_tests_passed": 89,
+  "clean_published_subtests_passed": 13,
+  "github_api_bootstrap_bytes_verified": true,
+  "bootstrap_sha256": "ed011bb6b58e01aab445c36f644dd5304acb41861f1fc7f8f590d02f4ab33921",
+  "critical_payload_equivalent": {
+    "GPU_RESUME_PLAN.md": true,
+    "coordination/brev_policy.py": true,
+    "coordination/brev_transfer/START_HERE.md": true,
+    "coordination/brev_transfer/bootstrap.sh": true,
+    "coordination/brev_transfer/codex_session.sh": true,
+    "coordination/brev_transfer/preflight.sh": true,
+    "coordination/brev_transfer/run_first_diagnostic.sh": true,
+    "coordination/brev_transfer/runtime_probe.py": true,
+    "coordination/brev_transfer/transfer.py": true,
+    "coordination/diagnostic_native.py": true,
+    "coordination/engine.py": true,
+    "coordination/environment.py": true,
+    "coordination/marathon.py": true,
+    "coordination/pipeline.py": true,
+    "coordination/session_budget.py": true,
+    "coordination/sprint_diagnostic.py": true,
+    "coordination/sprint_state.py": true,
+    "coordination/stack-lock.json": true
+  }
 }

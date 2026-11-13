@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T23:16:17.273336+00:00",
+  "updated_at": "2026-11-13T23:18:53.815165+00:00",
   "mission": "Final source-pinned Cloud-to-existing-Brev CLI/TMUX transfer",
   "engineering_complete": false,
   "target_packages": 8,
@@ -194,7 +194,7 @@
       "observed": "Upstream Cloudflare HTTP 403 / error 1010; GitHub PR API and primary sources work. Accessible official GitHub comparisons used with stated coverage limitation."
     }
   ],
-  "next": "Publish/clean-check the transfer; user will start existing Brev when ready. No Cloud Brev access/start. Follow START_HERE with exact final recovery commit, fresh provider facts and dedicated session.",
+  "next": "User transfers the exact final published recovery commit to independent /data/robocurve-ops and Cargo4740eba checkout. Follow START_HERE; after user startup enter fresh actual provider facts. No Cloud Brev access/start or charges.",
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
     "Complete independent manufacturer-grounded ER collet/cam preassembly task, hardware-order-kit replacement. Supported setup honors manufacturer warning that cam need not hold collet unsupported.",
@@ -839,7 +839,35 @@
       "brev_accessed": false,
       "gpu_started": false,
       "paid_services_called": false,
-      "clean_published_checkout": "PENDING_AFTER_SOURCE_FREEZE"
-    }
+      "clean_published_checkout": "PASS",
+      "tested_payload_commit": "2f97f4e639ef2317abc7467d69f450f21b9fa2cb",
+      "clean_published_tests_passed": 89,
+      "clean_published_subtests_passed": 13,
+      "github_api_bootstrap_bytes_verified": true,
+      "bootstrap_sha256": "ed011bb6b58e01aab445c36f644dd5304acb41861f1fc7f8f590d02f4ab33921",
+      "critical_payload_equivalent": {
+        "GPU_RESUME_PLAN.md": true,
+        "coordination/brev_policy.py": true,
+        "coordination/brev_transfer/START_HERE.md": true,
+        "coordination/brev_transfer/bootstrap.sh": true,
+        "coordination/brev_transfer/codex_session.sh": true,
+        "coordination/brev_transfer/preflight.sh": true,
+        "coordination/brev_transfer/run_first_diagnostic.sh": true,
+        "coordination/brev_transfer/runtime_probe.py": true,
+        "coordination/brev_transfer/transfer.py": true,
+        "coordination/diagnostic_native.py": true,
+        "coordination/engine.py": true,
+        "coordination/environment.py": true,
+        "coordination/marathon.py": true,
+        "coordination/pipeline.py": true,
+        "coordination/session_budget.py": true,
+        "coordination/sprint_diagnostic.py": true,
+        "coordination/sprint_state.py": true,
+        "coordination/stack-lock.json": true
+      }
+    },
+    "status": "CPU_VERIFIED_AND_PUBLISHED_PAYLOAD_HANDOFF_READY",
+    "tested_payload_commit": "2f97f4e639ef2317abc7467d69f450f21b9fa2cb",
+    "resolved_coordinator_commit": "Use exact final recovery commit from handoff reply as --ops-ref; all critical files identical to tested payload"
   }
 }
