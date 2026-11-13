@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T10:05:16.907596+00:00",
+  "updated_at": "2026-11-13T11:49:28.814914+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -217,7 +217,7 @@
     "head_changed_by_this_mission": false,
     "last_read_utc": "2026-11-13T10:05:16.907596+00:00"
   },
-  "current_work": "Three internally OFFLINE READY sources are preserved. Continue three original rebuild slots plus a stronger replacement for weak SAC; milestone is not a stopping point. Next candidate: documented DeWaltDCN680 brad-nailer jam recovery, pending exact occupation/novelty/physical-interface gate before scene implementation.",
+  "current_work": "Active brad-nailer jam recovery implementation on independent draft/brad-nailer-jam-recovery. Contact-only guided cycle passes after brad withdrawal and rear access repair. Expert/controller/metadata/native workflows unfinished; NOT OFFLINE READY.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
   "protected_shackle_control_review_note": "Original ef13ec77 remains untouched. Independent repair/rigging-shackle-v21 fixes shared interpolation, full path, retry and native negative-force calibration; new evidence binds source65b6ed7, not the historical original.",
   "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
@@ -365,5 +365,19 @@
     "drive-bracket-pin-release is superseded by internally qualified cargo; preserve original drive history.",
     "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept."
   ],
-  "next_implementation_command": "Verify BLS/O*NET carpentry importance and DCN680 manual p12/FigJ; create independent draft/brad-nailer-jam-recovery from7df8bd8. Implement original complete nose/latch/bail/channel/bent-fastener fixture with all authored dimensions labelled, actual robot phases and physical retention scoring; run CPU contacts/FK/adversarial/clean HTTPS tests and push completed package."
+  "next_implementation_command": "Continue /workspace/nailer-jam: implement real YAM 14D controller with physical hinge arcs, brad transfer, dual-grasp door carry, pin handoff and overcenter close. MuJoCo force fixtures are not robot physics evidence.",
+  "nailer_progress": {
+    "branch": "draft/brad-nailer-jam-recovery",
+    "commit": "1c2e628",
+    "scene_sha256": "12ee91197542b38d4d178347aaf94cd4892869b86834ffffe1605a0a7d5c132b",
+    "tests": "17 affected unit tests passed",
+    "supplemental_cycle": {
+      "engine": "MuJoCo 3.3.7",
+      "passed": true,
+      "peak_contact_depth_m": 0.00017350464862215484,
+      "robot_executed": false,
+      "native_isaac_executed": false
+    },
+    "remaining": "Complete expert and handoff path; full path collision/IK audits; metadata/fidelity/native harness; clean HTTPS validation."
+  }
 }
