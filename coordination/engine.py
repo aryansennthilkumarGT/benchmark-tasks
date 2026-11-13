@@ -103,6 +103,12 @@ class Budget:
             raise Incomplete('Balance observation must fall between instance start and current time')
         if r['hourly_usd'] <= 0:
             raise Incomplete('Invalid hourly rate')
+        self.authorized_cap = r.get('authorized_session_spend_usd')
+        if self.authorized_cap is not None:
+            if (isinstance(self.authorized_cap,bool) or not isinstance(self.authorized_cap,(int,float))
+                    or not math.isfinite(self.authorized_cap) or self.authorized_cap<=0
+                    or not r.get('authorization_reference')):
+                raise Incomplete('Explicit session cap requires a positive amount and authorization reference')
 
     def estimate(self, extra_seconds=0):
         r = self.receipt
@@ -112,11 +118,14 @@ class Budget:
         r = self.receipt
         projected = self.estimate(extra_seconds)
         charge_after_balance = (self.clock() - self.balance_observed_at + extra_seconds) * r['hourly_usd'] / 3600
-        if projected + r['spent_before_start_usd'] > 170 or r['balance_usd'] - charge_after_balance < 30:
+        shutdown_headroom = r['hourly_usd']/60 if self.authorized_cap is not None else 0.
+        if self.authorized_cap is not None and projected + shutdown_headroom > self.authorized_cap:
+            raise Incomplete('Explicit approved session spending cap reached; provider billing still requires shutdown')
+        if projected + shutdown_headroom + r['spent_before_start_usd'] > 170 or r['balance_usd'] - charge_after_balance - shutdown_headroom < 30:
             raise Incomplete('Compute budget or credit reserve reached; instance billing continues until the operator stops it.')
         return {'estimated_instance_charge_usd': self.estimate(), 'projected_charge_usd': projected,
                 'projected_balance_usd': r['balance_usd'] - charge_after_balance,
-                'cap_usd': 170, 'reserve_usd': 30, 'checked_at': utc()}
+                'cap_usd': 170, 'reserve_usd': 30, 'authorized_session_spend_usd':self.authorized_cap, 'shutdown_headroom_usd':shutdown_headroom, 'checked_at': utc()}
 
 
 @contextlib.contextmanager

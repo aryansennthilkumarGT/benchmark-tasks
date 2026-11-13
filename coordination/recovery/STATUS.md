@@ -1,3 +1,15 @@
+# Latest execution plan: one continuous authorized sprint
+
+No Launchable start, Brev connection, GPU spending, upload or official PR is authorized or performed now. The user will separately approve startup and the spend cap. Once approved, the session includes diagnostic, actual repairs/switching, full expert/model/media qualification and immediate individual PR submission; no routine stop or new permission request at each milestone.
+
+Target at least three genuinely qualified NEW PRs, then continue if productive resources remain. Existing per-task importance/novelty/scoring/reproducibility/native evidence gates remain. Current candidates are unproven; this is an objective, not a claim that three are ready or guaranteed. Nailer's importance hold cannot be bypassed to reach the target.
+
+Prepared code: budgeted sprint_diagnostic.py for the first Cargo native prefix; persistent sprint_state.py for original deadline/cap/provider observations, two repair approaches per blocker and genuinely new PR URLs; marathon now begins qualification with one genuinely qualified task, while pipeline submits each ready task immediately before the next. Created-but-unverified PRs retain durable URLs and are not re-evaluated or double-counted. A real Dream score0 remains acceptable evidence when experts and all official requirements pass.53affected tests plus11subtests pass using only CPU fixtures/local processes.
+
+Read [the continuous sprint plan](../../GPU_RESUME_PLAN.md). The active assistant handles the continuous engineering/visual-review loop; a returned incomplete command does not end the user mission. No automatic provider billing stop is falsely claimed: the actual authorized operator/assistant must stop and verify the Brev instance before the approved limit; killed workloads are insufficient.
+
+Earlier source-specific evidence follows and remains valid in its stated scope.
+
 # Current submission-first checkpoint
 
 Cargo is first; ER second; nailer third. No task has native feasibility, genuine full-score robot demonstrations, Dream or media evidence. No paid compute, Brev connection, credentials, upload or official PR is authorized or performed.

@@ -1,3 +1,5 @@
+> Execution update: the user now wants one continuous authorized engineering/submission sprint, targeting at least three new PRs and then more if feasible. The commands/technical diagnostic scope below remain useful, but diagnostic completion is no longer a session stop. Use the budgeted same-session entry point in [the current sprint plan](../../GPU_RESUME_PLAN.md). Paid start is still unauthorized until explicit start/spend approval.
+
 # First task: cargo native retraction diagnostic
 
 **GO FOR A SEPARATELY AUTHORIZED BOUNDED GPU DIAGNOSTIC. NO-GO for paid Dream, qualification claims or official submission. No paid execution is authorized now.**

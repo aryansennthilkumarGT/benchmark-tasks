@@ -35,6 +35,8 @@ def cli(argv=None):
     scope.add_argument('--task')
     scope.add_argument('--preflight',action='store_true')
     parser.add_argument('--resume',action='store_true')
+    parser.add_argument('--submit',action='store_true',help='During an authorized sprint, submit each verified task immediately')
+    parser.add_argument('--registered-account')
     parser.add_argument('--dry-run',action='store_true')
     parser.add_argument('--offline',action='store_true',help='Run cheap source/asset/controller checks only; never claims physical completion')
     parser.add_argument('--retry-failed',metavar='REASON')
@@ -357,12 +359,35 @@ def smoke_validation_command(python, trial, adapter_commit):
             '--mode', 'smoke', '--limit', '600', '--commit', adapter_commit]
 
 
+def submit_individual(row, root, registered_account):
+    """Publish one verified task before work on the next; retain all outcomes."""
+    from submit_ready import main as submit
+    from sprint_state import record_submission
+    atomic(root/'individual-ready-handoff.json',{'tasks':[row]})
+    current=[]
+    try:
+        submit([str(root/'individual-ready-handoff.json'),'--execute','--registered-account',registered_account])
+    finally:
+        status_path=root/'submission-status.json'
+        if status_path.is_file():
+            status=read(status_path)
+            current=[dict(result,branch=row['branch'],commit=row['commit']) for result in status['tasks'] if result['slug']==row['slug']]
+            if current:
+                atomic(root/'submissions'/(row['slug']+'.json'),{'tasks':current})
+                for result in current:record_submission(root,result)
+    require(current,'Submission returned without a durable outcome; do not repeat evaluations')
+    return current
+
+
+
 def main(argv=None):
     args=cli(argv);args.run_root=args.run_root.resolve()
     try:
         manifest=read(args.manifest);tasks=selected(manifest,args.task);lock=read(HERE/'stack-lock.json')
         if args.dry_run:
             print(json.dumps(plan(tasks,args.run_root,lock),indent=2));return 0
+        if args.submit:
+            require(not args.offline and bool(args.registered_account),'Immediate submission requires a paid authorized run and registered account')
         if args.preflight:
             result=hardware();result['stack_lock']=lock
             result['budget_receipt_present']=args.budget_file.is_file()
@@ -376,6 +401,11 @@ def main(argv=None):
             if not args.offline:
                 preflight=hardware();atomic(args.run_root/'preflight.json',preflight)
                 require(not preflight['problems'],'; '.join(preflight['problems']))
+                if args.submit:
+                    require(all(preflight['credentials_present'].get(k) for k in ('dream','robocurve','github_cli')),
+                            'Configure existing Dream/media/GitHub credentials securely before paid qualification')
+                    require(capture(['gh','api','user','--jq','.login'])==args.registered_account,
+                            'GitHub account differs from registered submitting account')
                 from session_budget import session
                 budget=session(args.budget_file,args.deadline_unix)
                 require(preflight['selected_gpu']['uuid']==budget.receipt['gpu_uuid'],'Budget receipt names a different GPU')
@@ -422,18 +452,32 @@ def main(argv=None):
                 except (Incomplete,OSError,ValueError,KeyError) as exc:
                     row={'slug':task['slug'],'ready':False,'status':'INCOMPLETE','error':str(exc)}
                 report['tasks'].append(row)
-                if row.get('ready'):report['ready'].append(row)
+                if row.get('ready'):
+                    report['ready'].append(row)
+                    # Checkpoint qualification before the external PR mutation.
+                    atomic(args.run_root/'ready-handoff.json',{'tasks':report['ready'],'count':len(report['ready']),'all_requested_ready':False})
+                    if args.submit:
+                        try:
+                            budget.check()
+                            row['submissions']=submit_individual(row,args.run_root,args.registered_account)
+                        except (Incomplete,OSError,ValueError,KeyError) as exc:
+                            row['submission_error']=str(exc)
+                            # A failed read-back must not hide a created PR or trigger a new evaluation.
+                            atomic(args.run_root/'report.json',report)
+
                 if budget:
                     try:report['compute']=budget.check()
                     except Incomplete as exc:
                         report['stop_reason']=str(exc);atomic(args.run_root/'report.json',report);break
                 atomic(args.run_root/'report.json',report)
                 print(f'{task["slug"]}: {row["status"]}',flush=True)
-            report['complete']=len(report['ready'])==len(tasks)
+            report['qualification_complete']=len(report['ready'])==len(tasks)
+            report['submission_complete']=not args.submit or all(row.get('submissions') and not row.get('submission_error') for row in report['tasks'])
+            report['complete']=report['qualification_complete'] and report['submission_complete']
             report['offline_checks_passed']=args.offline and all(t['status']=='STATIC_TESTS_PASSED' for t in report['tasks'])
             atomic(args.run_root/'report.json',report)
             atomic(args.run_root/'ready-handoff.json',{'tasks':report['ready'],'count':len(report['ready']),
-                                                      'all_requested_ready':report['complete']})
+                                                      'all_requested_ready':report['qualification_complete']})
             print(f'Report: {args.run_root/"report.json"}')
             return 0 if report['complete'] or report['offline_checks_passed'] else 2
     except (Incomplete,OSError,ValueError,KeyError) as exc:

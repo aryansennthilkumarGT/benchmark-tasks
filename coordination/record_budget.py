@@ -16,6 +16,8 @@ def main():
     p.add_argument('--instance-started-unix',type=float,required=True)
     p.add_argument('--instance-id',required=True);p.add_argument('--gpu-uuid',required=True)
     p.add_argument('--provider-evidence',required=True,help='Reference to the verified provider price/balance record; no credentials')
+    p.add_argument('--authorized-session-spend-usd',type=float,required=True,help='Exact separately approved cap for this continuous session')
+    p.add_argument('--authorization-reference',required=True,help='Reference to actual user start/spend authorization; not a token')
     a=p.parse_args();data=vars(a).copy();target=data.pop('output')
     if target.exists():
         raise SystemExit('Budget receipt already exists; preserve prior cost records')

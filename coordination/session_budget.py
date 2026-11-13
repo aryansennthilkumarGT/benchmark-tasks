@@ -25,9 +25,13 @@ class Window:
 
 def session(receipt,deadline=None,clock=time.time):
     budget=Budget(receipt,clock=clock)
+    if budget.authorized_cap is None:
+        raise Incomplete('Paid session needs an explicit approved cap and authorization reference')
     age=clock()-budget.balance_observed_at
     if not 0<=age<=300:raise Incomplete('Observe the provider balance/rate again: the initial receipt is older than five minutes')
     now=clock();end=now+21600 if deadline is None else deadline
     if not now<end<=now+21600:raise Incomplete('GPU session must fit within six hours')
     budget.check()
-    return Window(budget,end,clock)
+    # Leave one minute to stop and verify the actual provider instance.
+    # Workload termination itself cannot stop billing.
+    return Window(budget,end-60,clock)

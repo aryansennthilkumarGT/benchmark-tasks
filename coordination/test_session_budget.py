@@ -8,6 +8,7 @@ from session_budget import session,Window
 
 def receipt(p,now=1000,balance=100):
  atomic(p,dict(hourly_usd=2.,balance_usd=balance,spent_before_start_usd=0.,instance_started_unix=now,
+               authorized_session_spend_usd=100.,authorization_reference='CPU_ONLY_AUTH_FORMAT_FIXTURE',
                balance_observed_unix=now,instance_id='CPU_TEST_FIXTURE',gpu_uuid='NOT_A_GPU',provider_evidence='SYNTHETIC_TEST'))
 
 def test_stale_balance_and_protected_reserve_block_start(tmp_path):
@@ -20,7 +21,7 @@ def test_task_deadline_does_not_cancel_other_tasks_or_extend_session(tmp_path):
  now=[1000.];p=tmp_path/'b.json';receipt(p);b=session(p,clock=lambda:now[0]);task=b.task(60)
  now[0]=1061.
  with pytest.raises(Incomplete,match='deadline'):task.check()
- assert b.check()['remaining_seconds']==21539
+ assert b.check()['remaining_seconds']==21479
  assert b.task(50000).deadline==b.deadline
  now[0]=22601.
  with pytest.raises(Incomplete):b.check()

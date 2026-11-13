@@ -18,10 +18,11 @@ def test_dry_run_never_executes_network_or_paid_work(tmp_path):
  d=json.loads(out.getvalue());assert d['stop_after_three'] is False and len(d['tasks'])==4 and len(d['blocked'])==4
  assert not (tmp_path/'runs').exists()
 
-def test_incomplete_first_three_block_before_execution(tmp_path):
- p=tmp_path/'m.json';atomic(p,dict(schema_version=3,tasks=[task(0,'OFFLINE READY'),task(1)]))
- with pytest.raises(Incomplete,match='Fewer than three'),patch.object(marathon.pipeline,'main',side_effect=AssertionError('Paid work executed')):
+def test_no_qualified_candidate_blocks_without_launching(tmp_path):
+ p=tmp_path/'m.json';atomic(p,dict(schema_version=3,tasks=[task(0),task(1)]))
+ with pytest.raises(Incomplete,match='No candidate'),patch.object(marathon.pipeline,'main',side_effect=AssertionError('Paid work executed')):
   marathon.main(['--execute','--manifest',str(p),'--run-root',str(tmp_path/'runs'),'--budget-file','unused','--launchable-root','unused'])
+
 
 def test_offline_label_alone_does_not_authorize_pipeline(tmp_path):
  p=tmp_path/'m.json';atomic(p,dict(schema_version=3,tasks=[task(i,'OFFLINE READY') for i in range(3)]))
@@ -70,5 +71,15 @@ def test_relocated_runtime_manifest_keeps_absolute_evidence_root(tmp_path):
   assert manifest['offline_evidence_root']==str(tmp_path.resolve())
   assert len(manifest['tasks'])==3
   return 0
- with patch.object(marathon,'verify_ready',return_value=[]),patch.object(marathon.pipeline,'main',side_effect=inspect_runtime):
+ with patch.object(marathon,'verify_ready',return_value=[]),patch.object(marathon,'open_sprint',return_value={'deadline_unix':12345}),patch.object(marathon.pipeline,'main',side_effect=inspect_runtime):
   assert marathon.main(['--execute','--manifest',str(p),'--run-root',str(run),'--budget-file','unused','--launchable-root','unused'])==0
+
+
+def test_one_qualified_task_can_begin_and_submit_without_waiting_for_three(tmp_path):
+ p=tmp_path/'m.json';atomic(p,dict(schema_version=3,tasks=[task(0,'OFFLINE READY'),task(1)]))
+ def inspect(args):
+  assert '--submit' in args and args[args.index('--deadline-unix')+1]=='12345'
+  m=json.loads((tmp_path/'runs/ranked-source-manifest.json').read_text());assert len(m['tasks'])==1
+  return 2  # Labelled orchestration fixture remains incomplete, no GPU claim.
+ with patch.object(marathon,'verify_ready',return_value=[]),patch.object(marathon,'open_sprint',return_value={'deadline_unix':12345}),patch.object(marathon.pipeline,'main',side_effect=inspect):
+  assert marathon.main(['--execute','--submit','--registered-account','fixture-account','--manifest',str(p),'--run-root',str(tmp_path/'runs'),'--budget-file','unused','--launchable-root','unused'])==2

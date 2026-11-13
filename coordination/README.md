@@ -1,3 +1,5 @@
+> Current workflow: [single continuous sprint](../GPU_RESUME_PLAN.md). After explicit start/spend approval, qualify and submit each candidate immediately; continue toward at least three new PRs and beyond within resources. Prior separate-per-stage approval and three-ready batch-start instructions below are superseded. Per-task evidence and actual visual review remain mandatory. No paid start is authorized yet.
+
 # Current RoboCurve execution instructions
 
 Read [the current checkpoint](recovery/CHECKPOINT.json), [status](recovery/STATUS.md) and [cargo diagnostic handoff](recovery/GPU_DIAGNOSTIC_HANDOFF.md). The prior broad portfolio mission and historical authorization notes are superseded by the current submission-first directive. **No paid compute, Brev connection/provisioning, Dream, upload, credentials collection or official PR is authorized now.** PR1733 is pending;1647/1703/1772 are finally rejected and their heads must remain unchanged.
@@ -27,7 +29,7 @@ python coordination/pipeline.py --task cargo-bar-controlled-release \
   --budget-file /data/provider-facts-fresh.json --launchable-root /data
 ```
 
-The qualified manifest must name the exact source and actual reviewed bundle. It is not the diagnostic-only manifest above. The executor preserves the existing hard cap/reserve and refuses unresolved quality holds. It never provisions compute or changes the driver. Official minimum and our stronger internal repeat/clean-expert checks are distinguished in the forensic report. The six-hour batch wrapper remains blocked until its actual candidate gate passes; it is not required for a single bounded diagnostic.
+The qualified manifest must name the exact source and actual reviewed bundle. It is not the diagnostic-only manifest above. The executor preserves the existing hard cap/reserve and refuses unresolved quality holds. It never provisions compute or changes the driver. Official minimum and our stronger internal repeat/clean-expert checks are distinguished in the forensic report. The continuous six-hour runner can begin qualification with one genuinely qualified task; it does not wait for three. Diagnostics/repairs use the same persisted session budget.
 
 After actual rendering, inspect setup, model/demo/repeat videos and contact sheets before recording a real review:
 

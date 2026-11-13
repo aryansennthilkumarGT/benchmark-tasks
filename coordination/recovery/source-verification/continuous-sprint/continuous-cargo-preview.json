@@ -1,0 +1,26 @@
+{
+  "kind": "DRY_RUN_NO_PAID_WORK",
+  "stage": "BOUNDED_NATIVE_PREFIX_NOT_QUALIFICATION",
+  "command": [
+    "/data/IsaacLab-Arena/.venv/bin/python",
+    "/workspace/benchmark-tasks/coordination/diagnostic_native.py",
+    "--folder",
+    "/workspace/cargo-tracking/tasks/cargo-bar-controlled-release",
+    "--mode",
+    "control",
+    "--case",
+    "retract_controlled_inner_tube",
+    "--commit",
+    "4740eba2b60a17041798e690d307b37a120ebfc1",
+    "--output",
+    "/tmp/continuous-cargo-preview-only/diagnostic-preview/native",
+    "--expected-physics-hz",
+    "960",
+    "--render-every",
+    "1",
+    "--sdk-limits",
+    "--fail-fast"
+  ],
+  "timeout_seconds": 1200,
+  "required_authorization": "Actual user start approval and explicit cap"
+}
