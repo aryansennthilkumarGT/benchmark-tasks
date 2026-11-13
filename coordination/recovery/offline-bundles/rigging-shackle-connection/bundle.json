@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "slug": "rigging-shackle-connection",
+  "decision": "OFFLINE READY",
+  "published_commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
+  "tested_source_commit": "65b6ed7b762e0157977290b2dc2df398202cc65e",
+  "metadata_tested_commit": "9cdaad9a9d1b15f660cf4ec57d0d4a5579b2c106",
+  "source_manifest_sha256": "02901e4e0110323398ed52e4a69b79a7342c621c24102d9d914f26b0621b6344",
+  "physics_executed": false,
+  "supplemental_mujoco_executed": true,
+  "physics_field_scope": "No native Isaac/PhysX execution; supplemental CPU contact probes are separately named.",
+  "fundamental_open_risks": [],
+  "review_passes": {
+    "technical": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/rigging-shackle-connection/reviews/technical.json",
+      "sha256": "85c271f206b3f424ed6c2fe8afa1e925ac7f39b7c8811c4f7944d294d53f7b96"
+    },
+    "occupation_and_novelty": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/rigging-shackle-connection/reviews/occupation_and_novelty.json",
+      "sha256": "2e9f0f50d4706d3d0eefe7acdd4cf1103f61a7d4cb0647f97952f21321e039d1"
+    },
+    "scoring_and_measurement": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/rigging-shackle-connection/reviews/scoring_and_measurement.json",
+      "sha256": "c80327965be542a9e4f11f414f9b8dff55c3e0babb5f94cf0bddadeeba431461"
+    },
+    "independent_reproduction": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/rigging-shackle-connection/reviews/independent_reproduction.json",
+      "sha256": "e8023a254bde8bda47b6cbe3bf0e3f7a0ad459ad381afc20da41a7f709108160"
+    },
+    "final_readiness": {
+      "passed": true,
+      "evidence": "coordination/recovery/offline-bundles/rigging-shackle-connection/reviews/final_readiness.json",
+      "sha256": "18dc3e6462ba67db610fd53345b5eed2a2cf0d7ac48bf83a9da2a95ef7084cff"
+    }
+  },
+  "reports": {
+    "unit": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/unit.json",
+      "sha256": "5482d43378c9096ec59faaf422020d4b688528a800eac689217b6fe72ae745a9",
+      "passed": true
+    },
+    "assets": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/assets.json",
+      "sha256": "a31825eda3366ece32c053b0c7606de5642801af198346a107bc2ba6701bc930",
+      "passed": true
+    },
+    "ik": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/ik.json",
+      "sha256": "027a625f9508e485c481451ba3458f7dc20f4aca6d9fa2b6e83708082d432115",
+      "passed": true
+    },
+    "geometry": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/geometry.json",
+      "sha256": "b1d682f54a47cb52ebf53ba3729a0fa41a6879aa8074c8cc541897742293aeb1",
+      "passed": true
+    },
+    "endpoint_collisions": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/endpoint_collisions.json",
+      "sha256": "3b85cfcad09dca0a376a52eafe799e38917fdb8279ca3b1f995f1056a123e755",
+      "passed": true
+    },
+    "fk_path": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/fk_path.json",
+      "sha256": "31ccd253368aebb29cd747f732f646dbec037e37548d111505f1e2ccc5ff446f",
+      "passed": true
+    },
+    "ideal_controller": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/ideal_controller.json",
+      "sha256": "ed8e4c7a29e0e53343b9168ab1c07ad7e5fb53cc9402c22a72870ccd35389ae9",
+      "passed": true
+    },
+    "clean_checkout": {
+      "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/reports/clean_checkout.json",
+      "sha256": "4aeea934b002777d08ead8655ec2b86c56778fbb4661d75c005c6a7014210fa2",
+      "passed": true
+    }
+  },
+  "standard_gpu_remaining": [
+    "Actual reset/contact/grasp/thread stability",
+    "Native robot-control prefixes",
+    "Two original and third independent clean-checkout expert runs",
+    "Dream-1/provider result and media on a newly authorized budget"
+  ],
+  "inventory_limit": "Full authenticated board inaccessible; scoped actual-source comparisons only",
+  "submission_ready": false,
+  "external_acceptance": false
+}

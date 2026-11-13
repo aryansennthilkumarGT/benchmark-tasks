@@ -1,15 +1,15 @@
 {
   "integrated": true,
   "top_three_milestone_reached": false,
-  "confirmed_offline_high_confidence_count": 0,
-  "reason": "Two strengthened candidates have clean CPU evidence; final distinct acceptance/readiness passes remain. Drive importance claim is contradicted by official PR1750 final rejection. Do not relabel three ready.",
+  "confirmed_offline_high_confidence_count": 1,
+  "reason": "Shackle has five source-bound internal offline review passes and verified bundle. ER contact/scorer repairs await new clean reproduction; cargo final quality passes remain. This is not official acceptance or native feasibility.",
   "repair_branches": {
     "shackle-v21": {
-      "commit": "70a0c7b2f7c4d339466e35e1a7b732e0b5889c19",
+      "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
       "branch": "repair/rigging-shackle-v21"
     },
     "er-v21": {
-      "commit": "191fe8f6a0a6f683d96c6200e518dc336df495eb",
+      "commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
       "branch": "repair/er-collet-v21"
     },
     "drive-v21": {
@@ -26,10 +26,14 @@
     "ideal_seconds": 360.85,
     "clean_https": true,
     "cpu_contact_cases": 8,
-    "tested_source_commit": "65b6ed7b762e0157977290b2dc2df398202cc65e"
+    "tested_source_commit": "65b6ed7b762e0157977290b2dc2df398202cc65e",
+    "offline_state": "OFFLINE READY",
+    "readiness_bundle": "coordination/recovery/offline-bundles/rigging-shackle-connection/bundle.json",
+    "metadata_revalidation_source": "9cdaad9a9d1b15f660cf4ec57d0d4a5579b2c106",
+    "unchanged_runtime_full_checks_source": "65b6ed7b762e0157977290b2dc2df398202cc65e"
   },
   "er": {
-    "tests": 32,
+    "tests": 37,
     "ik": 33,
     "collision_endpoints": 33,
     "full_fk_samples": 63,
@@ -40,7 +44,11 @@
     "audit_lookup_failure_repaired": true,
     "cpu_contact_cases": 6,
     "tested_source_commit": "2b89fb4e8907fb4bedbf5f59101ebdd225ee821a",
-    "transient_contact_risk": "Forced initialized entry has about1.26mm peak MuJoCo overlap despite passing final assertions; unresolved native contact risk."
+    "transient_contact_risk": "Historical MuJoCo manifold distance was mislabeled as literal overlap. Actual geometry and manifold distance are now separated; historical failures preserved. Native PhysX/grasp validation still required.",
+    "implementation_commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
+    "clean_https_new_source": "RUNNING",
+    "scoring_repair": "Observable2s pairwise position/axis window0.4mm/0.015rad; yaw irrelevant. Ignores microscopic instantaneous solver velocity spikes without loosening seating bounds.",
+    "cpu_contact_repair": "Exact8-corner convex export avoids observed primitive-box manifold anomaly. All1874original corner sets verified. Full correct fixture path scores1 and straight entry physically stops about1.90mm short, scores0; no YAM or Isaac executed."
   },
   "drive": {
     "decision": "FUNDAMENTAL_REPLACEMENT_REQUIRED",
