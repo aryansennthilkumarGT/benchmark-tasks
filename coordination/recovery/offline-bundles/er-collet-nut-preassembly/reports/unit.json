@@ -1,0 +1,100 @@
+{
+  "kind": "ACTUAL_CLEAN_HTTPS_CPU_REPRODUCTION",
+  "passed": true,
+  "tested_source_commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
+  "completed_utc": "2026-11-13T07:14:45.954009+00:00",
+  "source_manifest_sha256": "ee43489e8b69ea6726c1fea0e07406ae7b8b547a8cc827ed62c32de7f1f4757e",
+  "tests": {
+    "passed": 37,
+    "failed": 0,
+    "skipped": 0
+  },
+  "independent_https_clone": true,
+  "clean_git_status": true,
+  "native_physics_executed": false,
+  "robot_executed": false,
+  "supplemental_mujoco_executed": true,
+  "grasps_validated": false,
+  "model_evaluations": 0,
+  "media_uploads": 0,
+  "log_sha256": "710fb6f06859db616f9c3b07dcce104ea8f5c9155b24c98f49b06b15d2749184",
+  "audit_reports": [
+    {
+      "kind": "OFFLINE_COMPOSED_USD",
+      "strategy": null,
+      "path": "01-offline_composed_usd.json",
+      "sha256": "e2ac4dd726766bb53201294f6fec293dc1aa8a19617b54a94d5d087d1cd08f87",
+      "checks": 3
+    },
+    {
+      "kind": "OFFLINE_IK_WAYPOINTS_ONLY",
+      "strategy": null,
+      "path": "02-offline_ik_waypoints_only.json",
+      "sha256": "440d34d346b02ecc2808fa973261ceba2a7169f19e61a0b767cb5ffd70531338",
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_NOMINAL_GEOMETRY",
+      "strategy": null,
+      "path": "03-offline_nominal_geometry.json",
+      "sha256": "bde4acf393bc7c9ce3d2ab7e351392e9c94538d57d3e10029cf885ebd1586a2e",
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_IDEAL_JOINT_TRACKING_WITH_SYNTHETIC_CONTACT_APERTURES",
+      "strategy": null,
+      "path": "04-offline_ideal_joint_tracking_with_synthetic_contact_apertures.json",
+      "sha256": "1088e3d2f0890b599786d0054cfb4dfd3dd285c8c21c50d09b36be23cb767f2d",
+      "checks": 0
+    },
+    {
+      "kind": "OFFLINE_CRITICAL_POSE_COLLISION_SAMPLES",
+      "strategy": null,
+      "path": "05-offline_critical_pose_collision_samples.json",
+      "sha256": "b60ee4c7e64e0241c17ced807e5c1bc5232fea6b5b1778e1d96b3623c923ef2e",
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS",
+      "strategy": null,
+      "path": "06-offline_actual_controller_fk_path_ideal_grasps.json",
+      "sha256": "4b1cdb25924ef0f9a02790548f09758fc59f7a166ad0886d6d9d0236967d5caa",
+      "checks": 63
+    },
+    {
+      "kind": "OFFLINE_ACTUAL_FK_CAM_PATH_SYNTHETIC_CONTACT",
+      "strategy": null,
+      "path": "07-offline_actual_fk_cam_path_synthetic_contact.json",
+      "sha256": "5fcd1654e7e7c5f968baeedf5c98de2e699d775bc80f6ef553978159cc1ffc32",
+      "checks": 220
+    },
+    {
+      "kind": "SUPPLEMENTAL_MUJOCO_CPU_CONTACT_DIAGNOSTIC",
+      "strategy": null,
+      "path": "08-supplemental_mujoco_cpu_contact_diagnostic.json",
+      "sha256": "7a2fd9d61e074053e032c128e1d8736720a7d7b7c15e2540fef926b0b6a34ac5",
+      "checks": 0
+    },
+    {
+      "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+      "strategy": "tilted",
+      "path": "09-supplemental_mujoco_force_limited_cam_path_fixture-tilted.json",
+      "sha256": "0d4f52eee5a6b3abb426c10ff01e8c6f038245c994865046c9e7ace9f3e2014c",
+      "checks": 25
+    },
+    {
+      "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+      "strategy": "straight",
+      "path": "10-supplemental_mujoco_force_limited_cam_path_fixture-straight.json",
+      "sha256": "46bb52d24bb566e22e0bcf8cd119df91ee3c7ad9031e1edd78acad891b3cce9f",
+      "checks": 3
+    }
+  ],
+  "full_fk_samples": 63,
+  "critical_cam_fk_samples": 220,
+  "exact_original_box_hulls_tested": 1874,
+  "cpu_fixture_positive_diagnostic_score": 1.0,
+  "cpu_fixture_negative_diagnostic_score": 0.0,
+  "cpu_fixture_is_not_robot_demonstration": true,
+  "ready_for_submission": false
+}

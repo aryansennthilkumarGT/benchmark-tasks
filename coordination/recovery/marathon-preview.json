@@ -49,6 +49,86 @@
   ],
   "tasks": [
     {
+      "slug": "er-collet-nut-preassembly",
+      "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+      "branch": "repair/er-collet-v21",
+      "worktree": "/tmp/robocurve-six-hour-preview/worktrees/er-collet-nut-preassembly/1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+      "stages": [
+        "MECHANICS_COMPLETE",
+        "STATIC_TESTS_PASSED",
+        "NATIVE_PHYSICS_PASSED",
+        "ROBOT_CONTROL_PASSED",
+        "EXPERT_DEMO_1_PASSED",
+        "EXPERT_DEMO_2_PASSED",
+        "CLEAN_CHECKOUT_EXPERT_PASSED",
+        "MODEL_EVALUATED",
+        "MEDIA_RENDERED",
+        "MEDIA_VERIFIED",
+        "MEDIA_UPLOADED",
+        "EXACT_COMMIT_VERIFIED",
+        "READY_FOR_PR"
+      ],
+      "commands": [
+        [
+          "git",
+          "fetch",
+          "origin",
+          "1263eb9658f67ddc0e632ee8b22d8621cbd625f5"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/native_tests.py",
+          "--mode",
+          "physics"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/native_tests.py",
+          "--mode",
+          "control"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/run.py",
+          "--mode",
+          "dream",
+          "--execute"
+        ],
+        [
+          "inspect-robots",
+          "video",
+          "<validated-log>",
+          "--out",
+          "<media-directory>"
+        ],
+        [
+          "python",
+          "tools/upload_media.py",
+          "tasks/er-collet-nut-preassembly",
+          "--video",
+          "<model.mp4>",
+          "--demo",
+          "<demo.mp4>",
+          "--screenshot",
+          "<setup.png>"
+        ]
+      ]
+    },
+    {
       "slug": "rigging-shackle-connection",
       "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
       "branch": "repair/rigging-shackle-v21",
@@ -119,86 +199,6 @@
           "python",
           "tools/upload_media.py",
           "tasks/rigging-shackle-connection",
-          "--video",
-          "<model.mp4>",
-          "--demo",
-          "<demo.mp4>",
-          "--screenshot",
-          "<setup.png>"
-        ]
-      ]
-    },
-    {
-      "slug": "er-collet-nut-preassembly",
-      "commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
-      "branch": "repair/er-collet-v21",
-      "worktree": "/tmp/robocurve-six-hour-preview/worktrees/er-collet-nut-preassembly/9b6f6f645cbcb8d969d404a194019f439091aca2",
-      "stages": [
-        "MECHANICS_COMPLETE",
-        "STATIC_TESTS_PASSED",
-        "NATIVE_PHYSICS_PASSED",
-        "ROBOT_CONTROL_PASSED",
-        "EXPERT_DEMO_1_PASSED",
-        "EXPERT_DEMO_2_PASSED",
-        "CLEAN_CHECKOUT_EXPERT_PASSED",
-        "MODEL_EVALUATED",
-        "MEDIA_RENDERED",
-        "MEDIA_VERIFIED",
-        "MEDIA_UPLOADED",
-        "EXACT_COMMIT_VERIFIED",
-        "READY_FOR_PR"
-      ],
-      "commands": [
-        [
-          "git",
-          "fetch",
-          "origin",
-          "9b6f6f645cbcb8d969d404a194019f439091aca2"
-        ],
-        [
-          "python",
-          "tasks/er-collet-nut-preassembly/native_tests.py",
-          "--mode",
-          "physics"
-        ],
-        [
-          "python",
-          "tasks/er-collet-nut-preassembly/native_tests.py",
-          "--mode",
-          "control"
-        ],
-        [
-          "python",
-          "tasks/er-collet-nut-preassembly/run.py",
-          "--mode",
-          "expert",
-          "--execute"
-        ],
-        [
-          "python",
-          "tasks/er-collet-nut-preassembly/run.py",
-          "--mode",
-          "expert",
-          "--execute"
-        ],
-        [
-          "python",
-          "tasks/er-collet-nut-preassembly/run.py",
-          "--mode",
-          "dream",
-          "--execute"
-        ],
-        [
-          "inspect-robots",
-          "video",
-          "<validated-log>",
-          "--out",
-          "<media-directory>"
-        ],
-        [
-          "python",
-          "tools/upload_media.py",
-          "tasks/er-collet-nut-preassembly",
           "--video",
           "<model.mp4>",
           "--demo",
@@ -376,15 +376,15 @@
   "billing_shutdown": "Workload termination does not stop billing. Authorized operator must stop the existing instance.",
   "ranking": [
     {
-      "slug": "rigging-shackle-connection",
-      "priority": 2,
+      "slug": "er-collet-nut-preassembly",
+      "priority": 1,
       "offline_state": "OFFLINE READY",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
-      "slug": "er-collet-nut-preassembly",
-      "priority": 1,
-      "offline_state": "FINAL REVIEW REQUIRED",
+      "slug": "rigging-shackle-connection",
+      "priority": 2,
+      "offline_state": "OFFLINE READY",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
@@ -401,7 +401,6 @@
     }
   ],
   "blocked": [
-    "er-collet-nut-preassembly",
     "cargo-bar-controlled-release",
     "drive-bracket-pin-release"
   ]

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T07:11:06.868592+00:00",
+  "updated_at": "2026-11-13T07:22:56.296136+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -205,7 +205,7 @@
     "updated_at": "2026-11-12T12:22:25Z",
     "head_changed_by_this_mission": false
   },
-  "current_work": "Shackle internally offline-ready (1of3 priority gate). ER exact-hull contact and observable-stability scorer repairs published; fresh clean HTTPS static verification running. Cargo complete offline package awaits final source-bound quality passes. Continue remaining portfolio afterward.",
+  "current_work": "Two internally qualified offline candidates. Cargo final adversarial construct review found exposed pawl-access risk; implement physical housing guards, then rerun affected contacts/controller/FK tests and clean-source verification before final readiness. Continue remaining packages thereafter.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
   "protected_shackle_control_review_note": "Original ef13ec77 remains untouched. Independent repair/rigging-shackle-v21 fixes shared interpolation, full path, retry and native negative-force calibration; new evidence binds source65b6ed7, not the historical original.",
   "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
@@ -227,15 +227,15 @@
   "review_v21": {
     "integrated": true,
     "top_three_milestone_reached": false,
-    "confirmed_offline_high_confidence_count": 1,
-    "reason": "Shackle has five source-bound internal offline review passes and verified bundle. ER contact/scorer repairs await new clean reproduction; cargo final quality passes remain. This is not official acceptance or native feasibility.",
+    "confirmed_offline_high_confidence_count": 2,
+    "reason": "Shackle and ER now have source-bound internal OFFLINE READY bundles with five distinct review records each. Cargo final construct review identified exposed pawl-access risk; housing improvement next. Top-three gate not reached.",
     "repair_branches": {
       "shackle-v21": {
         "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
         "branch": "repair/rigging-shackle-v21"
       },
       "er-v21": {
-        "commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
+        "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
         "branch": "repair/er-collet-v21"
       },
       "drive-v21": {
@@ -269,12 +269,15 @@
       "clean_https": true,
       "audit_lookup_failure_repaired": true,
       "cpu_contact_cases": 6,
-      "tested_source_commit": "2b89fb4e8907fb4bedbf5f59101ebdd225ee821a",
+      "tested_source_commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
       "transient_contact_risk": "Historical MuJoCo manifold distance was mislabeled as literal overlap. Actual geometry and manifold distance are now separated; historical failures preserved. Native PhysX/grasp validation still required.",
       "implementation_commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
-      "clean_https_new_source": "RUNNING",
+      "clean_https_new_source": true,
       "scoring_repair": "Observable2s pairwise position/axis window0.4mm/0.015rad; yaw irrelevant. Ignores microscopic instantaneous solver velocity spikes without loosening seating bounds.",
-      "cpu_contact_repair": "Exact8-corner convex export avoids observed primitive-box manifold anomaly. All1874original corner sets verified. Full correct fixture path scores1 and straight entry physically stops about1.90mm short, scores0; no YAM or Isaac executed."
+      "cpu_contact_repair": "Exact8-corner convex export avoids observed primitive-box manifold anomaly. All1874original corner sets verified. Full correct fixture path scores1 and straight entry physically stops about1.90mm short, scores0; no YAM or Isaac executed.",
+      "offline_state": "OFFLINE READY",
+      "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+      "readiness_bundle": "coordination/recovery/offline-bundles/er-collet-nut-preassembly/bundle.json"
     },
     "drive": {
       "decision": "FUNDAMENTAL_REPLACEMENT_REQUIRED",
@@ -298,7 +301,9 @@
       "cpu_integration_tests_passed": 29,
       "native_execution": false,
       "dry_run_pending": false,
-      "billing_shutdown_not_automatic": true
+      "billing_shutdown_not_automatic": true,
+      "offline_gate_affected_tests_passed": 12,
+      "review_artifact_integrity": "Requires five actual named/hash-bound review records and checks report contents, not passed labels alone."
     },
     "cargo": {
       "slug": "cargo-bar-controlled-release",
@@ -326,9 +331,9 @@
     }
   },
   "next_commands": [
-    "Read /tmp/er-refined-clean-static.log; preserve full reports only if every check passes for exact9b6f6f6 source.",
-    "Finish ER source-bound five-pass qualification and cargo final quality review; do not infer native success or official acceptance.",
-    "Continue three original rebuild slots and replace weak SAC concept if its fasten-screws overlap remains fundamental. No GPU or paid services authorized."
+    "Cargo: add an authored connected housing around the two pawls/cams, preserving trigger/handle/telescope access; no virtual path/scoring gate.",
+    "Verify housing clearances even across joint-adjacent bodies, recheck actual robot paths and contact probes, then publish exact-source reports.",
+    "Continue three original rebuild slots and weak-SAC replacement work after top-three quality gate; milestones are not stopping points."
   ],
   "additional_quality_replacements_required": [
     "drive-bracket-pin-release excluded by officialPR1750; cargo-bar candidate awaits clean checkout and final acceptance",
