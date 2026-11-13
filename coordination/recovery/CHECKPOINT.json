@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T01:26:16.241580+00:00",
+  "updated_at": "2026-11-13T02:58:07.250315+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -117,8 +117,25 @@
       "classification": "REDESIGN",
       "reason": "Captive-shaft collar geometry and motion have no identified equipment procedure; shaft insertion still stalls in committed diagnostics.",
       "existing_branch": "draft/hardware-order-kit",
-      "replacement_implemented": false,
-      "reviewer_acceptance_cleared": false
+      "replacement_implemented": true,
+      "reviewer_acceptance_cleared": false,
+      "replacement": {
+        "slug": "er-collet-nut-preassembly",
+        "branch": "draft/er-collet-nut-preassembly",
+        "commit": "09f7e591d1404ecad28d7a86cca5f8805a29eca4",
+        "tested_source_commit": "ca3dd902328496ea4ae956e7ca53d28f4c695b50",
+        "cpu_tests": {
+          "passed": 28,
+          "failed": 0,
+          "skipped": 0
+        },
+        "ik_endpoints": 33,
+        "collision_endpoints": 33,
+        "actual_fk_path_samples": 220,
+        "clean_https_reproduction": true,
+        "native_physics": "NOT_RUN",
+        "reviewer_acceptance_cleared": false
+      }
     }
   ],
   "review_evidence": "coordination/recovery/live-pr-observations.json",
@@ -133,19 +150,22 @@
     }
   ],
   "next": [
-    "Choose the next task from remaining four: remote-battery-service and node-service-closeout replacements, switch-map-rework and hardware-order-kit redesigns. Preserve rejected PR heads; create a new independent one-folder branch from 7df8bd8.",
-    "Do not use WAGO single-wire lever termination: official PR #766 directly matches open lever / insert bare wire / close lever. Primary WAGO sources were retrieved but that candidate was dropped before implementation.",
-    "Next candidate groundwork: read coordination/recovery/next-candidate-grounding.json. Actual REGO-FIX ER dimension sheets are retrieved and inspected; manufacturer assembly video located but not yet verified. First verify the eccentric-ring procedure, then model the actual ring/groove capture and feasible insertion path. No ER task package is implemented or counted.",
-    "Do not rerun unchanged baseline/shackle suites. Native physics, actual experts, Dream, media and hardware remain unrun for new packages; no GPU spending or official unvalidated PRs."
+    "Remaining: remote-battery-service REPLACE, node-service-closeout REPLACE, switch-map-rework REDESIGN. Do not count ER/SAC efficiency twice. Start a new independent task branch from7df8bd8 after selecting a documented real procedure.",
+    "Do not revive WAGO single-wire termination (officialPR766). Cam-and-groove hose coupling also has a direct official task match PR1084; candidate dropped before implementation.",
+    "Possible next operation: installed spring channel nut inserted through slot, compressed and quarter-turned, with channel ends inaccessible. OfficialPR939/181 feed a nut through the open channel end instead; verify meaningful novelty and exact manufacturer spring/serration/installation constraints before accepting this candidate.",
+    "Primary procedure and exact dimensions for that next operation are NOT verified yet. See next-candidate-grounding.json for public source locations and the critical YAM access issue; do not invent a manufacturer handle or spring force.",
+    "After selecting, implement one complete scene/controller/scorer/reset/native/workflow package, audit all feasible geometry and actual FK paths and action counts, clean-HTTPS test, then commit/push before moving on.",
+    "SAC efficiency is CPU-only and must be natively qualified independently on source7c05369 or a later protected equivalent. Original SAC0fadbf0, drive92b5c95 and shackleef13ec77 are preserved; pending1733/rejected heads untouched. No paid work authorized."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
-    "Completed SAC independent package; synchronized Cartesian/rotary motion after a genuine FK regression exposed 0.335 mm screw-lead error. 49 tests, 597 IK/collision endpoints, clean HTTPS source fd4b41b; final 0fadbf0.",
-    "Completed Dell-procedure drive bracket pin-release package: three original USDs, real side bores/opposed pins and passive rail, 30-phase expert, scorer, native/model/media workflows. 28 tests, 30 IK/collision endpoints, 164 actual-FK contact-geometry samples; clean HTTPS source 896c070; final 92b5c95."
+    "Complete independent manufacturer-grounded ER collet/cam preassembly task, hardware-order-kit replacement. Supported setup honors manufacturer warning that cam need not hold collet unsupported.",
+    "28 tests, three composed USDs, 33 IK/nominal geometry/robot collision endpoints, 220 actual FK critical cam-path samples; ideal controller586 actions/29.3s. Clean HTTPS source ca3dd90, evidence tip09f7e59.",
+    "Separate SAC efficiency branch4f5848d, clean source7c05369:49 tests,597 endpoints,1345 actual-FK samples;15315 actions versus28800 (46.8% reduction), unchanged thread turns/mechanics/scorer. Original three package branches unchanged."
   ],
   "current_review_outcomes_verified_via_public_github_html": true,
-  "offline_implemented_replacements": 3,
-  "remaining_rebuilds": 4,
+  "offline_implemented_replacements": 4,
+  "remaining_rebuilds": 3,
   "research_access": {
     "tasks.robocurve.org": "HTTP 403, Cloudflare 1010, website-side",
     "api.github.com": "HTTP 200",
@@ -162,8 +182,22 @@
     "updated_at": "2026-11-12T12:22:25Z",
     "head_changed_by_this_mission": false
   },
-  "current_work": "SAC and documented drive-bracket task complete offline; next choose a stronger replacement for remote-battery-service or a documented hardware-order-kit redesign.",
+  "current_work": "ER package complete offline; SAC efficiency candidate published without changing protected original. Three remaining rebuilds are unimplemented.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
   "protected_shackle_control_review_note": "Shackle ef13ec77 remains untouched as requested. Its independent translation/rotation limiter predates the new screw-lead fix; review that contact-path risk before future native validation. Do not transfer SAC correction evidence or alter protected historical evidence.",
-  "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json"
+  "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
+  "sac_efficiency_variant": {
+    "branch": "optimization/sac-controller-efficiency",
+    "commit": "4f5848d8e7acac52c7cee62d15efa96891eb33b7",
+    "tested_source_commit": "7c0536926caa345040b81f15c0af32b86dd6b4f2",
+    "baseline_actions": 28800,
+    "optimized_actions": 15315,
+    "optimized_ideal_seconds": 765.75,
+    "action_limit": 24000,
+    "reduction_fraction": 0.4682291666666667,
+    "actual_fk_path_samples": 1345,
+    "clean_https_reproduction": true,
+    "native_physics": "NOT_RUN",
+    "original_branch_changed": false
+  }
 }

@@ -1,6 +1,6 @@
 # Eight-task rebuild status
 
-Three substantive packages are implemented and published offline. The overall eight-task mission remains incomplete: four rebuilds remain, plus the existing twelve-cell package under official review. No new physical or model qualification is claimed.
+Four substantive packages are implemented and published offline. The overall eight-task mission remains incomplete: three rebuilds remain, plus the existing twelve-cell package under official review. No new physical or model qualification is claimed.
 
 ## Completed CPU package
 
@@ -54,12 +54,20 @@ Independent clean HTTPS verification passed 28 tests, 30 IK endpoints, all 30 no
 
 The SAC controller additionally received a real path correction: independent translation/rotation saturation could violate screw lead despite passing endpoint checks. A new FK/IK regression demonstrated 0.335 mm error in the historical code; synchronized interpolation passes an 80 µm bound and a new full clean-checkout suite. Earlier SAC evidence is retained as historical. Shackle ef13ec77 remains untouched; review that older limiter before any future native run, without transferring evidence or modifying its historical record.
 
+## Completed ER CPU package and SAC cost optimization
+
+**ER collet/nut supported preassembly** replaces hardware-order-kit on independent branch `draft/er-collet-nut-preassembly`, tip `09f7e591d1404ecad28d7a86cca5f8805a29eca4`, clean tested source `ca3dd902328496ea4ae956e7ca53d28f4c695b50`. Primary manufacturer FAQ verifies eccentric-groove/tilt assembly and explicitly says the cam need not hold an unsupported collet; the scene therefore supports the final preassembly and makes no false pullout/clamping claim. REGO-FIX Drawing4 supplies the actual collet dimensions; the cam/nut/supports and physical parameters are clearly authored.
+
+The complete package contains three original USDs, a 33-phase robot-proprioception expert/recovery, objective current-geometry scorer with initial-layout/state-jump guards, reset/manufacturing/fidelity/measurement/novelty documentation, native probes/control prefixes and genuine future evaluation/media guards. A construct-validity correction removed an expert-specific entry-angle gate: both scripted−0.25 and alternate−0.15 rad collision-free entry can succeed.
+
+Clean HTTPS verification passed 28 tests; all33 IK, geometry and robot collision endpoints;220 actual-FK cam-path samples (maximum inferred inter-part depth2.36µm). The ideal controller takes586 actions/29.3s under a2400-action/120s limit. These assume jaw contact and are not native evidence. `er-rebuild-result.json` records exact source/hashes/results.
+
+**SAC efficiency candidate** is independent at `optimization/sac-controller-efficiency`, tip `4f5848d8e7acac52c7cee62d15efa96891eb33b7`, clean tested source `7c0536926caa345040b81f15c0af32b86dd6b4f2`. It preserves the original SAC branch0fadbf0 and its evidence. The same thread strokes/turns/mechanics/scorer now use20mm unloaded regrasp lift instead of45mm and25mm/s open-jaw return instead of6mm/s. Ideal actions fall from28,800 to15,315 (46.8%), duration from1440 to765.75s. The budget is24,000 instead of42,000 actions.49 tests,597 endpoints and1345 sampled actual controller FK poses with ideal held-part transforms passed from a clean HTTPS checkout. Sampling is1Hz plus every phase boundary, not a continuous swept-volume certificate. Native requalification remains mandatory. See `sac-efficiency-result.json`.
+
 ## Precise continuation
 
-Read `CHECKPOINT.json`. Four rebuilds remain: remote-battery-service and node-service-closeout replacements, switch-map-rework and hardware-order-kit redesigns. A WAGO single-wire termination candidate was researched and dropped because official PR #766 directly matches its operation. Do not implement that near-duplicate.
+Three tasks remain unimplemented: remote-battery-service and node-service-closeout replacements, and switch-map-rework redesign. Do not claim the eight-package mission complete. ER is one task, SAC efficiency is not another task.
 
-Next select a documented, mechanically distinctive occupational procedure (hardware-order-kit may be replaced by a genuine equipment retention operation), verify primary procedure/near neighbors first, then code/test/push one independent package from base 7df8bd8 before moving on. Do not add more generic fixtures or research-only completion claims.
+WAGO single-wire termination remains excluded byPR766. A cam-and-groove hose coupling candidate was excluded by directPR1084. A possible spring channel-nut task differs from the end-fed nut inPR939/181, but its actual manufacturer procedure, meaningful novelty and YAM access still require verification; no package or manufacturer handle/force was invented. Read `next-candidate-grounding.json` before choosing it.
 
-Pending #1733, rejected PR heads and shackle source are preserved. Hardware metadata repair stays separate at 2f29738. The 648/32 baseline was not rerun. No GPU provisioning/spending, paid evaluation, credentials, uploads or official replacement PRs occurred. Native physics/expert/Dream/hardware qualification remains unrun for new packages. Original /data trajectories/media remain unavailable historical evidence. See GPU_RESUME_PLAN.md for future qualification.
-
-Next-candidate primary sources and exact unresolved step are preserved in `next-candidate-grounding.json`. REGO-FIX ER dimensional sheets were actually read, while its assembly video remains unverified. No additional package is counted from that research.
+Continue one operation through complete implementation, affected CPU/FK/action-count checks, clean HTTPS verification and independent push. Preserve original shackleef13ec77, SAC0fadbf0, drive92b5c95, pending1733 and rejected heads. Hardware metadata repair remains separate. The648/32 baseline and protected old suites were not rerun. No GPU provisioning/spending, paid model evaluation, upload credentials or official replacement PR occurred. Native physics/expert/Dream/hardware validation remain NOT RUN for new packages; missing original/data media remain historical evidence gaps.

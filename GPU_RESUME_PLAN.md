@@ -81,3 +81,8 @@ This preview does not create a runtime. The README gives the future authorized e
 ## CPU control-path correction discovered during SAC/drive rebuild
 
 SAC source fd4b41b uses one interpolation fraction for translation and rotation; the old independent limiter failed a real FK lead regression by 0.335 mm. SAC evidence at 0fadbf0 and drive-bracket evidence at 92b5c95 remain CPU-only. Before spending GPU time on protected shackle ef13ec77, review whether its older limiter requires an authorized independent source revision. Preserve its historical branch/evidence; do not claim the newer tests validate that older controller.
+
+
+## Current lower-cost CPU candidates
+
+ER preassembly sourceca3dd90 (tip09f7e59):586 ideal actions,2400 maximum; preserve manufacturer unsupported-cam warning. SAC efficiency source7c05369 (tip4f5848d):15315 ideal actions,24000 maximum versus original28800/42000. Both require their own actual native/control/expert qualification; ideal tracking and1345 sampled FK poses do not certify contact success. No new GPU spending is authorized.
