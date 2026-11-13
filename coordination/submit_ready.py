@@ -41,7 +41,7 @@ def main(argv=None):
         require(isinstance(task['dream_score'],(int,float)) and not isinstance(task['dream_score'],bool)
                 and math.isfinite(task['dream_score']) and 0<=task['dream_score']<=1,'Invalid model score')
         required={'MECHANICS_COMPLETE','STATIC_TESTS_PASSED','NATIVE_PHYSICS_PASSED','ROBOT_CONTROL_PASSED',
-                  'EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED','MODEL_EVALUATED','MEDIA_RENDERED','MEDIA_VERIFIED','MEDIA_UPLOADED','EXACT_COMMIT_VERIFIED'}
+                  'EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED','CLEAN_CHECKOUT_EXPERT_PASSED','MODEL_EVALUATED','MEDIA_RENDERED','MEDIA_VERIFIED','MEDIA_UPLOADED','EXACT_COMMIT_VERIFIED'}
         require(set(task.get('evidence',{}))==required,'Required validation receipts missing')
         for record in task['evidence'].values():
             receipt=within(args.handoff.resolve().parent,args.handoff.resolve().parent/record['receipt'])

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T02:58:07.250315+00:00",
+  "updated_at": "2026-11-13T04:15:33.975939+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -11,8 +11,8 @@
   "tasks": [
     {
       "slug": "hinged-chassis-drive",
-      "classification": "REDESIGN",
-      "reason": "Ground the drive carrier, lid retainer and installation in actual equipment documentation; repair the documented retaining-bar translation stall.",
+      "classification": "REPLACE",
+      "reason": "New official PR1750 final feedback rejects the same physical operation and support-specialist regular-core-work claim. Preserve code; do not qualify this candidate.",
       "existing_branch": "draft/hinged-chassis-drive",
       "replacement_implemented": true,
       "reviewer_acceptance_cleared": false,
@@ -199,5 +199,77 @@
     "clean_https_reproduction": true,
     "native_physics": "NOT_RUN",
     "original_branch_changed": false
-  }
+  },
+  "standing_directive": "Continuous autonomous CPU engineering; priority is three genuinely qualified offline tasks, then eight; milestones never imply stopping.",
+  "review_v21": {
+    "integrated": true,
+    "top_three_milestone_reached": false,
+    "confirmed_offline_high_confidence_count": 0,
+    "reason": "Two strengthened candidates have clean CPU evidence; final distinct acceptance/readiness passes remain. Drive importance claim is contradicted by official PR1750 final rejection. Do not relabel three ready.",
+    "repair_branches": {
+      "shackle-v21": {
+        "commit": "d931b8f1fd37b9f66b57ce7ebc6af6adc7034c6a",
+        "branch": "repair/rigging-shackle-v21"
+      },
+      "er-v21": {
+        "commit": "11a7b90abd1425ab4236e20958f1597c2308cfd9",
+        "branch": "repair/er-collet-v21"
+      },
+      "drive-v21": {
+        "commit": "391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
+        "branch": "repair/drive-bracket-v21"
+      }
+    },
+    "shackle": {
+      "tests": 27,
+      "ik": 299,
+      "collision_endpoints": 299,
+      "full_fk_samples": 639,
+      "ideal_actions": 7217,
+      "ideal_seconds": 360.85,
+      "clean_https": true
+    },
+    "er": {
+      "tests": 28,
+      "ik": 33,
+      "collision_endpoints": 33,
+      "full_fk_samples": 63,
+      "critical_cam_fk_samples": 220,
+      "ideal_actions": 583,
+      "ideal_seconds": 29.15,
+      "clean_https": true,
+      "audit_lookup_failure_repaired": true
+    },
+    "drive": {
+      "decision": "FUNDAMENTAL_REPLACEMENT_REQUIRED",
+      "official_same_procedure_PR": 1750,
+      "feedback": "Computer repair occupation below threshold; drive removal not plainly regular core work for user support specialists.",
+      "technical_repairs_preserved": true,
+      "tests": 29,
+      "collision_endpoints": 32,
+      "full_fk_samples": 116,
+      "ideal_actions": 1702
+    },
+    "pipeline": {
+      "implemented_changes": [
+        "Exact-source independent clean HTTPS expert stage",
+        "Self-contained rebuilt-package static audits",
+        "Six-hour global deadline and bounded task windows",
+        "Fresh provider receipt and protected reserve checks",
+        "Quality-first candidate ranking with no stop-after-three",
+        "Source-bound offline evidence gate before paid execution"
+      ],
+      "cpu_integration_tests_passed": 29,
+      "native_execution": false,
+      "dry_run_pending": true,
+      "billing_shutdown_not_automatic": true
+    }
+  },
+  "next_commands": [
+    "Read review-v21-progress.json and GPU_RESUME_PLAN.md. Preserve original drafts and PR1733.",
+    "Finish final scoped acceptance/evidence passes for shackle and ER repair sources; do not invent third readiness.",
+    "Use supplemental CPU contact probes to expose physics risks; these are not Isaac evidence.",
+    "Select and implement a stronger third operation. Current gladhand candidate has primary NJ CDL procedure, explicit truck-driver core duty and Grote hardware evidence, but accepted bayonet-mate is a significant novelty comparator. No package exists yet.",
+    "Complete three remaining original rebuild slots plus replace drive; SAC duplication risk versus RoboDojo also requires a decision."
+  ]
 }

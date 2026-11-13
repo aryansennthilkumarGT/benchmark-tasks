@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 import shutil
 import sys
+import time
 from engine import Incomplete, Ledger, Budget, atomic, digest, execute, exclusive, fingerprint, read, utc
 from environment import hardware, bootstrap, capture, verify_runtime, launchable_runtime
 from evidence import public_text, require
@@ -23,7 +24,7 @@ REPO = HERE.parent
 FORK = 'https://github.com/aryansennthilkumarGT/benchmark-tasks.git'
 BASELINE = '7df8bd8ad8cb19df51718e5ff46d4d610a9da6f1'
 STAGES = ('MECHANICS_COMPLETE','STATIC_TESTS_PASSED','NATIVE_PHYSICS_PASSED','ROBOT_CONTROL_PASSED',
-          'EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED','MODEL_EVALUATED','MEDIA_RENDERED','MEDIA_VERIFIED',
+          'EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED','CLEAN_CHECKOUT_EXPERT_PASSED','MODEL_EVALUATED','MEDIA_RENDERED','MEDIA_VERIFIED',
           'MEDIA_UPLOADED','EXACT_COMMIT_VERIFIED','READY_FOR_PR')
 
 
@@ -43,17 +44,25 @@ def cli(argv=None):
     parser.add_argument('--budget-file',type=Path,default=Path(os.getenv('ROBOCURVE_BUDGET_FILE',str(REPO/'.robocurve-budget.json'))))
     parser.add_argument('--launchable-root', type=Path,
                         help='Reuse the verified installed Arena and adapter under this directory')
+    parser.add_argument('--deadline-unix',type=float,help='Hard wall-clock deadline; at most six hours from startup')
+    parser.add_argument('--task-seconds',type=float,default=7200,help='Bound one candidate before switching to the next')
     parser.add_argument('--manifest',type=Path,default=HERE/'draft-manifest.json')
     return parser.parse_args(argv)
 
 
 def selected(manifest, slug):
     tasks = manifest['tasks']
-    require(len(tasks)==8 and len({t['slug'] for t in tasks})==8,'Manifest must contain eight independent tasks')
+    expected=8 if manifest.get('schema_version',2)<3 else len(tasks)
+    require(1<=expected<=8 and len(tasks)==expected and len({t['slug'] for t in tasks})==expected,
+            'Manifest must contain one to eight independent tasks (legacy manifests require eight)')
     for task in tasks:
         require(re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',task['slug']),'Unsafe task slug')
         require(re.fullmatch(r'[0-9a-f]{40}',task['commit']),'Task commit must be a full SHA')
-        require(task['branch']=='draft/'+task['slug'],'Unexpected task branch')
+        require(re.fullmatch(r'(?:draft|repair|optimization)/[a-z0-9]+(?:[a-z0-9/-]*[a-z0-9])?',task['branch']),
+                'Unexpected independent task branch')
+        require(task['branch'] not in {'draft/twelve-cell-pack','publication/twelve-cell-pack',
+                'draft/service-arm','draft/remote-battery-service','draft/node-service-closeout'},
+                'Protected pending/rejected branch cannot enter replacement publication')
         require(task['task_folder']=='tasks/'+task['slug'],'Task folder mismatch')
     if slug:
         tasks=[t for t in tasks if t['slug']==slug]
@@ -98,9 +107,9 @@ def checkout(task, root, evidence):
     return destination
 
 
-def integrity(folder, evidence, python):
+def integrity(folder, evidence, python, budget=None):
     required=('task.py','scene.json','scoring.py','run.py','expert.py','controller.json','native_tests.py',
-              'mechanics-review.json','test_scoring.py','test_control.py','verify_assets.py','source_manifest.json','README.md')
+              'mechanics-review.json','verify_assets.py','source_manifest.json','README.md')
     for name in required:
         require((folder/name).is_file(),'Missing required package file: '+name)
     for path in folder.rglob('*'):
@@ -119,11 +128,15 @@ def integrity(folder, evidence, python):
     for path in folder.glob('*.py'):
         require(not re.search(r'from coordination|import coordination|[A-Z]:\\Users\\',path.read_text()),
                 'Task depends on private coordination/development paths')
-    execute([python,'-m','unittest','discover','-s',str(folder),'-p','test_*.py','-v'],folder,evidence/'unit-tests.log',900)
-    execute([python,str(folder/'verify_assets.py')],folder,evidence/'usd-structure.log',180)
-    execute([python,str(folder/'audit_control.py')],folder,evidence/'kinematics.log',1800)
-    for script in ('audit_geometry.py','audit_grasps.py','audit_motion.py','audit_threads.py'):
-        execute([python,str(folder/script)],folder,evidence/(script.replace('.py','.json')),1800)
+    require(any(folder.glob('test_*.py')),'No executable offline tests')
+    if (folder/'static_check.py').is_file():
+        # New self-contained packages declare their actual audits, including full
+        # controller FK sampling. Do not require unrelated legacy audit filenames.
+        execute([python,str(folder/'static_check.py')],folder,evidence/'static-check.log',3600,budget=budget)
+    else:
+        execute([python,'-m','unittest','discover','-s',str(folder),'-p','test_*.py','-v'],folder,evidence/'unit-tests.log',900)
+        for script in ('verify_assets.py','audit_control.py','audit_geometry.py','audit_grasps.py','audit_motion.py','audit_threads.py'):
+            execute([python,str(folder/script)],folder,evidence/(script.replace('.py','.json')),1800)
     result=public_text(folder)
     result.update(kind='OFFLINE_STATIC_UNIT_USD_KINEMATICS_ONLY', physics_executed=False)
     atomic(evidence/'static.json',result)
@@ -147,7 +160,7 @@ def execute_trial(python, folder, out, mode, commit, budget, evidence_roots=None
     if evidence_roots:
         command+=['--evidence',str(evidence_roots)]
     execute(command,folder,out/'process.log',max(1800,spec['run_limit']//20*8),budget=budget)
-    execute([python,str(HERE/'evidence.py'),'--directory',str(out/'trial'),'--mode',mode,
+    execute([python,str(folder/'validate_rollout.py') if (folder/'validate_rollout.py').is_file() else str(HERE/'evidence.py'),'--directory',str(out/'trial'),'--mode',mode,
              '--limit',str(spec['run_limit']),'--commit',commit,'--folder',str(folder)],
             folder,out/'validation.log',900)
     summary=read(out/'trial/validated-rollout.json')
@@ -235,7 +248,7 @@ def run_task(task,args,ledger,python,lock,budget,implementation_hash):
         completed[name]=record
         return record
     stage('MECHANICS_COMPLETE',lambda out:mechanics(folder,out))
-    stage('STATIC_TESTS_PASSED',lambda out:integrity(folder,out,python))
+    stage('STATIC_TESTS_PASSED',lambda out:integrity(folder,out,python,budget))
     if args.offline:
         return {'slug':slug,'status':'STATIC_TESTS_PASSED','ready':False,'remaining':list(STAGES[2:])}
     stage('NATIVE_PHYSICS_PASSED',lambda out:native(python,folder,out,'physics',task['commit'],budget))
@@ -244,6 +257,16 @@ def run_task(task,args,ledger,python,lock,budget,implementation_hash):
         row=stage(f'EXPERT_DEMO_{index}_PASSED',lambda out:execute_trial(python,folder,out,'expert',task['commit'],budget))
         runtime['experts'].append(row['result'])
     require(runtime['experts'][0]['record_id']!=runtime['experts'][1]['record_id'],'Expert demonstrations reused one trial')
+    def clean_expert(out):
+        fresh=out/'clean-source'
+        execute(['git','clone','--no-checkout',FORK,str(fresh)],out,out/'clone.log',600,budget=budget)
+        execute(['git','checkout','--detach',task['commit']],fresh,out/'checkout.log',120,budget=budget)
+        require(capture(['git','rev-parse','HEAD'],fresh)==task['commit'],'Independent source mismatch')
+        require(not capture(['git','status','--porcelain'],fresh),'Independent checkout is dirty')
+        result=execute_trial(python,fresh/task['task_folder'],out,'expert',task['commit'],budget)
+        require(result['record_id'] not in {r['record_id'] for r in runtime['experts']},'Clean expert reused a prior episode')
+        return dict(result,independent_https_checkout=True)
+    runtime['clean_expert']=stage('CLEAN_CHECKOUT_EXPERT_PASSED',clean_expert)['result']
     require(read(folder/'mechanics-review.json').get('novelty_review',{}).get('decision')=='CLEARED',
             'Novelty review is unresolved; preserve expert evidence and defer paid model evaluation')
     proof=args.run_root/slug/'feasibility.json'
@@ -256,7 +279,7 @@ def run_task(task,args,ledger,python,lock,budget,implementation_hash):
                     'camera_coverage':completed['NATIVE_PHYSICS_PASSED']['result'].get('camera_coverage') is True}
         atomic(out/'inputs.json',references)
         execute([python,str(HERE/'media.py'),'--inputs',str(out/'inputs.json'),'--folder',str(folder),
-                 '--output',str(out/'media')],folder,out/'render.log',1800)
+                 '--output',str(out/'media')],folder,out/'render.log',1800,budget=budget)
         result=read(out/'media/media-validation.json')
         require(result.get('status')=='PASS','Media validation incomplete')
         return dict(result,path=str(out/'media'))
@@ -322,7 +345,8 @@ def main(argv=None):
             if not args.offline:
                 preflight=hardware();atomic(args.run_root/'preflight.json',preflight)
                 require(not preflight['problems'],'; '.join(preflight['problems']))
-                budget=Budget(args.budget_file)
+                from session_budget import session
+                budget=session(args.budget_file,args.deadline_unix)
                 require(preflight['selected_gpu']['uuid']==budget.receipt['gpu_uuid'],'Budget receipt names a different GPU')
                 os.environ['CUDA_VISIBLE_DEVICES']=preflight['selected_gpu']['uuid']
                 if args.launchable_root:
@@ -348,7 +372,7 @@ def main(argv=None):
                              '--scorer','success_at_end','--max-steps','600','--store-frames','--seed','0',
                              '--environment-revision',lock['adapter']['commit'],'--log-dir',str(trial)],
                             REPO,out/'smoke.log',1800,budget=budget)
-                    execute([python,str(HERE/'evidence.py'),'--directory',str(trial),'--mode','smoke',
+                    execute([python,str(folder/'validate_rollout.py') if (folder/'validate_rollout.py').is_file() else str(HERE/'evidence.py'),'--directory',str(trial),'--mode','smoke',
                              '--limit','600','--commit',lock['adapter']['commit']],REPO,out/'smoke-validation.log',600)
                     return read(trial/'validated-rollout.json')
                 gpu_identity = {key: preflight['selected_gpu'][key] for key in ('name', 'uuid', 'driver')}
@@ -362,12 +386,16 @@ def main(argv=None):
                     'tasks':[],'ready':[],'complete':False}
             for task in tasks:
                 try:
-                    row=run_task(task,args,ledger,python,lock,budget,implementation_hash)
+                    task_budget=budget.task(task.get('maximum_qualification_seconds',args.task_seconds)) if budget else None
+                    row=run_task(task,args,ledger,python,lock,task_budget,implementation_hash)
                 except (Incomplete,OSError,ValueError,KeyError) as exc:
                     row={'slug':task['slug'],'ready':False,'status':'INCOMPLETE','error':str(exc)}
                 report['tasks'].append(row)
                 if row.get('ready'):report['ready'].append(row)
-                if budget:report['compute']=budget.check()
+                if budget:
+                    try:report['compute']=budget.check()
+                    except Incomplete as exc:
+                        report['stop_reason']=str(exc);atomic(args.run_root/'report.json',report);break
                 atomic(args.run_root/'report.json',report)
                 print(f'{task["slug"]}: {row["status"]}',flush=True)
             report['complete']=len(report['ready'])==len(tasks)
