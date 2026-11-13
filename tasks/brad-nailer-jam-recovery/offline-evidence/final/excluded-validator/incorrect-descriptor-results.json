@@ -1,0 +1,452 @@
+{
+  "kind": "INDEPENDENT_DIRECT_NOMINAL_ENDPOINT_IK",
+  "script_sha256": "6ce9727fbb70f63281e6a44aaef5b922252a87ec23942237aaa247aed1f91aeb",
+  "controller_sha256": "d2f710fbd4885a35f67dd738664a7bec8c75b414c8033a20191a7fa0a6bd0d71",
+  "physics_executed": false,
+  "collisions_tested": false,
+  "seeds": "Trace final-phase configurations plus prior successful solve and SDK ready pose; no failed-solve propagation",
+  "checks": [
+    {
+      "phase": 0,
+      "label": "Park left arm",
+      "side": "left",
+      "position_error_m": 1.7741479155400443e-07,
+      "rotation_error_rad": 4.1751537056532253e-07,
+      "minimum_joint_margin_rad": 0.009995807098671206,
+      "passed": true
+    },
+    {
+      "phase": 1,
+      "label": "Park right arm",
+      "side": "right",
+      "position_error_m": 3.329832541052662e-07,
+      "rotation_error_rad": 7.232213651651657e-07,
+      "minimum_joint_margin_rad": 0.01386480248794797,
+      "passed": true
+    },
+    {
+      "phase": 2,
+      "label": "Approach latch lever",
+      "side": "right",
+      "position_error_m": 5.6092210717026285e-08,
+      "rotation_error_rad": 1.6034215077768372e-07,
+      "minimum_joint_margin_rad": 0.3134524304271682,
+      "passed": true
+    },
+    {
+      "phase": 3,
+      "label": "Reach latch lever",
+      "side": "right",
+      "position_error_m": 7.052885924110101e-08,
+      "rotation_error_rad": 2.103709693220335e-07,
+      "minimum_joint_margin_rad": 0.3738333726656362,
+      "passed": true
+    },
+    {
+      "phase": 4,
+      "label": "Grip latch lever",
+      "side": "right",
+      "position_error_m": 7.052885924110101e-08,
+      "rotation_error_rad": 2.103709693220335e-07,
+      "minimum_joint_margin_rad": 0.3738333726656362,
+      "passed": true
+    },
+    {
+      "phase": 5,
+      "label": "Lift jam-clear lever",
+      "side": "right",
+      "position_error_m": 0.0003366895376061627,
+      "rotation_error_rad": 0.6820631913199866,
+      "minimum_joint_margin_rad": 0.0,
+      "passed": false
+    },
+    {
+      "phase": 6,
+      "label": "Release lifted lever",
+      "side": "right",
+      "position_error_m": 1.594669930381297e-08,
+      "rotation_error_rad": 4.007299657457533e-08,
+      "minimum_joint_margin_rad": 0.33594147251629414,
+      "passed": true
+    },
+    {
+      "phase": 7,
+      "label": "Withdraw from lifted lever",
+      "side": "right",
+      "position_error_m": 1.527564884895017e-07,
+      "rotation_error_rad": 4.3490888171574076e-07,
+      "minimum_joint_margin_rad": 0.29451265025181517,
+      "passed": true
+    },
+    {
+      "phase": 8,
+      "label": "Park right arm",
+      "side": "right",
+      "position_error_m": 6.206490751553391e-08,
+      "rotation_error_rad": 1.4241772943109744e-07,
+      "minimum_joint_margin_rad": 0.013863333991602556,
+      "passed": true
+    },
+    {
+      "phase": 9,
+      "label": "Approach nose door",
+      "side": "left",
+      "position_error_m": 1.2462068386141803e-07,
+      "rotation_error_rad": 3.3253136943275725e-07,
+      "minimum_joint_margin_rad": 0.25407448547206113,
+      "passed": true
+    },
+    {
+      "phase": 10,
+      "label": "Reach nose door",
+      "side": "left",
+      "position_error_m": 3.89729089384893e-08,
+      "rotation_error_rad": 1.177243497083222e-07,
+      "minimum_joint_margin_rad": 0.5297685392547642,
+      "passed": true
+    },
+    {
+      "phase": 11,
+      "label": "Grip nose door",
+      "side": "left",
+      "position_error_m": 3.89729089384893e-08,
+      "rotation_error_rad": 1.177243497083222e-07,
+      "minimum_joint_margin_rad": 0.5297685392547642,
+      "passed": true
+    },
+    {
+      "phase": 12,
+      "label": "Open nose door",
+      "side": "left",
+      "position_error_m": 2.4330746975862177e-07,
+      "rotation_error_rad": 7.674872987310996e-07,
+      "minimum_joint_margin_rad": 0.6346064868409276,
+      "passed": true
+    },
+    {
+      "phase": 13,
+      "label": "Release open nose door",
+      "side": "left",
+      "position_error_m": 3.448946181791272e-08,
+      "rotation_error_rad": 1.0246910125334668e-07,
+      "minimum_joint_margin_rad": 0.5360944970166057,
+      "passed": true
+    },
+    {
+      "phase": 14,
+      "label": "Withdraw from open nose door",
+      "side": "left",
+      "position_error_m": 5.579670650297565e-07,
+      "rotation_error_rad": 1.6128153615584376e-06,
+      "minimum_joint_margin_rad": 0.42063269372267875,
+      "passed": true
+    },
+    {
+      "phase": 15,
+      "label": "Approach bent brad",
+      "side": "left",
+      "position_error_m": 3.1447348603423345e-07,
+      "rotation_error_rad": 8.977694878488073e-07,
+      "minimum_joint_margin_rad": 0.32004697581711095,
+      "passed": true
+    },
+    {
+      "phase": 16,
+      "label": "Reach bent brad",
+      "side": "left",
+      "position_error_m": 3.7471131531666677e-08,
+      "rotation_error_rad": 1.1479589606651673e-07,
+      "minimum_joint_margin_rad": 0.4376707597398297,
+      "passed": true
+    },
+    {
+      "phase": 17,
+      "label": "Grip bent brad",
+      "side": "left",
+      "position_error_m": 3.7471131531666677e-08,
+      "rotation_error_rad": 1.1479589606651673e-07,
+      "minimum_joint_margin_rad": 0.4376707597398297,
+      "passed": true
+    },
+    {
+      "phase": 18,
+      "label": "Extract bent brad through open service face",
+      "side": "left",
+      "position_error_m": 3.607669943907634e-07,
+      "rotation_error_rad": 1.025990905208836e-06,
+      "minimum_joint_margin_rad": 0.3621892108629554,
+      "passed": true
+    },
+    {
+      "phase": 19,
+      "label": "Lift extracted brad clear of nose",
+      "side": "left",
+      "position_error_m": 1.0662564667610341e-07,
+      "rotation_error_rad": 2.896669389838298e-07,
+      "minimum_joint_margin_rad": 0.19026095420656985,
+      "passed": true
+    },
+    {
+      "phase": 20,
+      "label": "Carry brad clear above tray",
+      "side": "left",
+      "position_error_m": 1.828366169313481e-07,
+      "rotation_error_rad": 4.4894339605614365e-07,
+      "minimum_joint_margin_rad": 0.13574414094219223,
+      "passed": true
+    },
+    {
+      "phase": 21,
+      "label": "Lower brad inside tray",
+      "side": "left",
+      "position_error_m": 4.03988467000998e-08,
+      "rotation_error_rad": 1.253762907107696e-07,
+      "minimum_joint_margin_rad": 0.7679613277446032,
+      "passed": true
+    },
+    {
+      "phase": 22,
+      "label": "Release brad into tray",
+      "side": "left",
+      "position_error_m": 4.03988467000998e-08,
+      "rotation_error_rad": 1.253762907107696e-07,
+      "minimum_joint_margin_rad": 0.7679613277446032,
+      "passed": true
+    },
+    {
+      "phase": 23,
+      "label": "Withdraw from tray",
+      "side": "left",
+      "position_error_m": 1.525773915736182e-07,
+      "rotation_error_rad": 3.501008864571952e-07,
+      "minimum_joint_margin_rad": 0.13574408724072562,
+      "passed": true
+    },
+    {
+      "phase": 24,
+      "label": "Park left arm",
+      "side": "left",
+      "position_error_m": 3.39637011208741e-08,
+      "rotation_error_rad": 8.781172353259832e-08,
+      "minimum_joint_margin_rad": 0.009995043541135562,
+      "passed": true
+    },
+    {
+      "phase": 25,
+      "label": "Approach open door again",
+      "side": "left",
+      "position_error_m": 1.328894400278029e-07,
+      "rotation_error_rad": 3.8457433427603566e-07,
+      "minimum_joint_margin_rad": 0.4206296384002164,
+      "passed": true
+    },
+    {
+      "phase": 26,
+      "label": "Reach open door again",
+      "side": "left",
+      "position_error_m": 2.490847699802825e-07,
+      "rotation_error_rad": 7.952797668939053e-07,
+      "minimum_joint_margin_rad": 0.5360928568372116,
+      "passed": true
+    },
+    {
+      "phase": 27,
+      "label": "Regrasp open nose door",
+      "side": "left",
+      "position_error_m": 2.490847699802825e-07,
+      "rotation_error_rad": 7.952797668939053e-07,
+      "minimum_joint_margin_rad": 0.5360928568372116,
+      "passed": true
+    },
+    {
+      "phase": 28,
+      "label": "Approach outboard crosspin",
+      "side": "right",
+      "position_error_m": 2.500686871041567e-08,
+      "rotation_error_rad": 8.837297018484066e-08,
+      "minimum_joint_margin_rad": 0.19842593383267237,
+      "passed": true
+    },
+    {
+      "phase": 29,
+      "label": "Reach outboard crosspin",
+      "side": "right",
+      "position_error_m": 1.9040302963151252e-08,
+      "rotation_error_rad": 6.867852315268955e-08,
+      "minimum_joint_margin_rad": 0.24425739238718802,
+      "passed": true
+    },
+    {
+      "phase": 30,
+      "label": "Grip outboard crosspin",
+      "side": "right",
+      "position_error_m": 1.9040302963151252e-08,
+      "rotation_error_rad": 6.867852315268955e-08,
+      "minimum_joint_margin_rad": 0.24425739238718802,
+      "passed": true
+    },
+    {
+      "phase": 31,
+      "label": "Close door while carrying pin clear",
+      "side": "left",
+      "position_error_m": 0.0001986358360313121,
+      "rotation_error_rad": 0.29966732391436357,
+      "minimum_joint_margin_rad": 0.0,
+      "passed": false
+    },
+    {
+      "phase": 32,
+      "label": "Guide outboard pin toward hook mouth",
+      "side": "right",
+      "position_error_m": 3.6100726213550086e-07,
+      "rotation_error_rad": 1.035889282687744e-06,
+      "minimum_joint_margin_rad": 0.31943427246902156,
+      "passed": true
+    },
+    {
+      "phase": 33,
+      "label": "Bring pin below both retaining lips",
+      "side": "right",
+      "position_error_m": 1.4718160845435838e-07,
+      "rotation_error_rad": 4.065184176706263e-07,
+      "minimum_joint_margin_rad": 0.22276994105343784,
+      "passed": true
+    },
+    {
+      "phase": 34,
+      "label": "Seat crosspin while passive lever follows",
+      "side": "right",
+      "position_error_m": 4.168651467719514e-07,
+      "rotation_error_rad": 1.1618499331580451e-06,
+      "minimum_joint_margin_rad": 0.24666581806686683,
+      "passed": true
+    },
+    {
+      "phase": 35,
+      "label": "Release engaged crosspin",
+      "side": "right",
+      "position_error_m": 0.7611252332797498,
+      "rotation_error_rad": 0.5996844250140068,
+      "minimum_joint_margin_rad": 0.0,
+      "passed": false
+    },
+    {
+      "phase": 36,
+      "label": "Withdraw pin-guiding hand",
+      "side": "right",
+      "position_error_m": 0.6148066849660418,
+      "rotation_error_rad": 0.822530325542277,
+      "minimum_joint_margin_rad": 0.0,
+      "passed": false
+    },
+    {
+      "phase": 37,
+      "label": "Park right arm",
+      "side": "right",
+      "position_error_m": 1.5434228738425523e-08,
+      "rotation_error_rad": 3.5094730463739134e-08,
+      "minimum_joint_margin_rad": 0.013863090575915615,
+      "passed": true
+    },
+    {
+      "phase": 38,
+      "label": "Release reseated door",
+      "side": "left",
+      "position_error_m": 3.863647479317081e-08,
+      "rotation_error_rad": 1.328947580851816e-07,
+      "minimum_joint_margin_rad": 0.5297686595159052,
+      "passed": true
+    },
+    {
+      "phase": 39,
+      "label": "Withdraw door hand",
+      "side": "left",
+      "position_error_m": 1.8107773990187074e-07,
+      "rotation_error_rad": 4.7644965398617136e-07,
+      "minimum_joint_margin_rad": 0.21222088320453492,
+      "passed": true
+    },
+    {
+      "phase": 40,
+      "label": "Park left arm",
+      "side": "left",
+      "position_error_m": 2.9507203988361905e-07,
+      "rotation_error_rad": 7.357787076576535e-07,
+      "minimum_joint_margin_rad": 0.009995666435391737,
+      "passed": true
+    },
+    {
+      "phase": 41,
+      "label": "Approach partially closed lever",
+      "side": "right",
+      "position_error_m": 5.7959754197243763e-08,
+      "rotation_error_rad": 1.9702850653083673e-07,
+      "minimum_joint_margin_rad": 0.36212455795710197,
+      "passed": true
+    },
+    {
+      "phase": 42,
+      "label": "Reach partially closed lever",
+      "side": "right",
+      "position_error_m": 3.441444602608351e-08,
+      "rotation_error_rad": 1.4740219151492683e-07,
+      "minimum_joint_margin_rad": 0.40123230533572407,
+      "passed": true
+    },
+    {
+      "phase": 43,
+      "label": "Regrasp partially closed lever",
+      "side": "right",
+      "position_error_m": 3.441444602608351e-08,
+      "rotation_error_rad": 1.4740219151492683e-07,
+      "minimum_joint_margin_rad": 0.40123230533572407,
+      "passed": true
+    },
+    {
+      "phase": 44,
+      "label": "Push lever shut with pin already captured",
+      "side": "right",
+      "position_error_m": 1.5582988304516873e-07,
+      "rotation_error_rad": 4.592054408019795e-07,
+      "minimum_joint_margin_rad": 0.3847036189189559,
+      "passed": true
+    },
+    {
+      "phase": 45,
+      "label": "Release secured lever",
+      "side": "right",
+      "position_error_m": 0.7260971184873898,
+      "rotation_error_rad": 0.6499244578722396,
+      "minimum_joint_margin_rad": 0.0,
+      "passed": false
+    },
+    {
+      "phase": 46,
+      "label": "Withdraw secured lever hand",
+      "side": "right",
+      "position_error_m": 1.0073444407875398,
+      "rotation_error_rad": 1.5708155847437446,
+      "minimum_joint_margin_rad": 0.0,
+      "passed": false
+    },
+    {
+      "phase": 47,
+      "label": "Park right arm",
+      "side": "right",
+      "position_error_m": 1.8894132322248472e-07,
+      "rotation_error_rad": 4.5336395409301457e-07,
+      "minimum_joint_margin_rad": 0.013863775478777596,
+      "passed": true
+    },
+    {
+      "phase": 48,
+      "label": "Released fixture hold",
+      "side": "right",
+      "position_error_m": 1.8894132322248472e-07,
+      "rotation_error_rad": 4.5336395409301457e-07,
+      "minimum_joint_margin_rad": 0.013863775478777596,
+      "passed": true
+    }
+  ],
+  "passed": false
+}

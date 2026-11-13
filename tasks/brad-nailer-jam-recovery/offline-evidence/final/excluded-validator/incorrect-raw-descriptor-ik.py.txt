@@ -1,0 +1,20 @@
+"""Independent direct IK solve of all declared nominal phase TCP endpoints.
+Actual acquired-transform/coupled paths are separately checked by full replay.
+"""
+import argparse,json,hashlib
+from pathlib import Path
+import numpy as np
+from yam_arena import ik,station
+from yam_arena.constants import READY
+p=argparse.ArgumentParser();p.add_argument('folder',type=Path);p.add_argument('--trace',type=Path,required=True);a=p.parse_args();trace=json.loads(a.trace.read_text());warm={row['index']:np.asarray(row['q']) for row in trace['samples']};plan=json.loads((a.folder/'controller.json').read_text());seeds={s:np.array(READY) for s in ('left','right')};rows=[]
+for n,phase in enumerate(plan['phases']):
+ side=phase['side'];target=phase['target'];offset=0 if side=='left' else 7
+ candidates=[]
+ for seed in (warm[n][offset:offset+6],seeds[side],np.asarray(READY)):
+  candidate=ik.solve(target['pos'],target['quat'],q_init=seed,base_pos=station.BASES[side],iters=400,damping=.015,tol=1e-6);candidates.append(candidate)
+  if candidate[1]<3e-5 and candidate[2]<1e-4:break
+ q,pe,re=min(candidates,key=lambda item:item[1]+.1*item[2])
+ ok=bool(pe<3e-5 and re<1e-4 and np.all(q>ik.LOWER+1e-5) and np.all(q<ik.UPPER-1e-5))
+ if ok:seeds[side]=q
+ rows.append(dict(phase=n,label=phase['label'],side=side,position_error_m=pe,rotation_error_rad=re,minimum_joint_margin_rad=float(min((q-ik.LOWER).min(),(ik.UPPER-q).min())),passed=ok))
+print(json.dumps(dict(kind='INDEPENDENT_DIRECT_NOMINAL_ENDPOINT_IK',script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),controller_sha256=hashlib.sha256((a.folder/'controller.json').read_bytes()).hexdigest(),physics_executed=False,collisions_tested=False,seeds='Trace final-phase configurations plus prior successful solve and SDK ready pose; no failed-solve propagation',checks=rows,passed=all(x['passed'] for x in rows)),indent=2));raise SystemExit(0 if all(x['passed'] for x in rows) else 1)
