@@ -1,0 +1,7 @@
+# Executable robot expert and cost
+
+The 33-phase expert initializes the right YAM arm, acquires the collet's long tapered body, lifts/transfers, tilts at clearance, lowers the nose with an authored offset through the eccentric opening, translates the groove to the negative-X cam edge, rocks upright in 20 small pivot increments, releases, withdraws and holds clear. The passive bench clamp replaces hand stabilization. No gripper capability outside the standard 93.9 mm opening is required; the contact region is about 27 mm wide.
+
+Only observed robot joints/time enter feedback. FK/IK targets absolute 14-D joint/gripper actions, with synchronized Cartesian/rotary interpolation and tracking limits. Measured jaw obstruction must match the expected band. Progress, acquisition dwell, phase timeout and total actions are bounded. Grip acquisition permits two reopen/reacquire retries, each ≤12 s; other stalls or IK/measurement failures stop. The policy does not read the scorer/native part state, attach objects or set poses. Grasp aperture alone cannot prove no slip on the taper.
+
+The actual controller completed ideal tracking in 586 actions/29.3 s, below the 2,400-action/120-s limit. Its small pivot increments are needed to preserve the cam path, not arbitrary waiting. The separately executed FK audit reconstructs the held collet from actual robot FK at every critical lower/engage/rock step and tests it against the complete nut geometry. Synthetic jaw contact and rigid holding are explicit assumptions; native tracking/friction are unqualified.

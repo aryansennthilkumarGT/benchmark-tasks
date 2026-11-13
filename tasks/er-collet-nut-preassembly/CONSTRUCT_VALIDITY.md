@@ -1,0 +1,9 @@
+# Adversarial review
+
+The manufacturer's explicit warning prevents a false task: a snapped ER collet is not guaranteed to remain unsupported. Therefore this package requires supported preassembly and never awards pull-out strength, hanging retention or cutting-load certification. The eccentric cam, annular groove, nose passage and rocking insertion remain essential, physical interfaces. It is not a generic collar with renamed metadata.
+
+A straight coaxial descent has >0.35 mm actual geometric interference near the cam, while the intended entry/pivot path has zero nominal intersection and micro-metre actual-FK sampling error. The collet is a rigid unslotted approximation: real slits may permit alternative elastic insertion. The authored nut deliberately tests a geometric tilt/engagement path and is not advertised as exact production hardware. The supports and bench clamp stabilize the parts; they do not replace the cam or fill its opening. No joint/snap connects the free collet to the fixture.
+
+Negative controls cover direct final-pose substitution without engagement, wrong cam side/tilt, leaving the engagement region, dislodging a seated collet, gripper support, overspeed, fixture movement, excess penetration, loss, invalid quaternions/body sets/timestamps and reset history. Physical robot/fixture/table/inter-arm endpoint checks and actual FK critical-path samples supplement unit tests. Native contact, jaw slip, solver resolution, reset and two independent expert trials remain required.
+
+There are no manufacturer force/torque claims, no invented measurement evidence and no copied GPU result. The manufacturer dimensions are used where available; the unreported nut/cam dimensions are explicitly engineered as a benchmark fixture. Scope is a bounded tool-setting preparation step, not the complete occupational tool setup. Complete board inventory remains unavailable, so acceptance/unique novelty are not guaranteed.

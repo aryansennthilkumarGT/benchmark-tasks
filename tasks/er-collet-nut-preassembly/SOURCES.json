@@ -1,0 +1,47 @@
+{
+  "sources": [
+    {
+      "url": "https://www.rego-fix.com/system/files/docs/2017-09/RFAG_TD_ER_Spannzangen-Masse_EN_0.pdf",
+      "sha256": "adc1a3b64c6b71c96a54d1efa1a227090c64836412aa939f7ed2a9ebd29ef70d",
+      "scope": "ER32 Drawing4 dimensioned collet profile; interpreted from actual drawing."
+    },
+    {
+      "url": "https://www.rego-fix.com/system/files/docs/2017-09/RFAG_TD_ER_Spannzangenaufnahme_EN_0.pdf",
+      "sha256": "2216c39403f1493c945f3dbddbaf73c5b1588b9d0de93eb1c66d7222e21a1a6a",
+      "scope": "Matching standard ER32 cavity/nut family M40x1.5; no cam dimensions."
+    },
+    {
+      "url": "https://www.maritool.com/faq/collet-questions",
+      "sha256": "07287e5332f7c1cb870d46918ef2e67e04f5d98bb5a6097518a934ae1d7215da",
+      "scope": "Manufacturer explicitly describes groove/eccentric ring, tilt-assisted snapping and warns cam is not designed to hold an unsupported collet."
+    },
+    {
+      "url": "https://regousa.com/wp-content/uploads/dl_files/ER-Catalog.pdf",
+      "sha256": "130cd2e987ffa277ef84d2a29d212e051cb5a5da9f7673a516865f03f8c30403",
+      "scope": "Manufacturer ER equipment catalogue; actual complete 147-page ER section retrieved. Not claimed as assembly-step text."
+    },
+    {
+      "url": "https://regousa.com/2021/04/expanding-the-horizons-of-er-collet-technology-part-1-collets-and-more/",
+      "sha256": "75edb30c1ae983cf88b99014c9fc991deb5d4641ab5221c6b8886698e21a7043",
+      "scope": "Importance: precision machining, compatible toolholder/collet/nut systems; do not transfer precision/runout claims to fixture."
+    },
+    {
+      "url": "https://www.onetonline.org/link/summary/51-4041.00",
+      "sha256": "4399123415c02994fdaf6ecb250edd745fa6328a9019f336ea8c5118d1681e6f",
+      "scope": "Machinists occupation: set up/operate precision machine tools; page retrieved."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Lifelong-Robot-Learning/LIBERO/master/libero/libero/benchmark/libero_suite_task_map.py",
+      "sha256": "0c950df0a785aa55de968bb38ccd865d2017f71ddbe6f48cfd05ac0742b6d62d",
+      "scope": "Actual named household task catalog inspected for collet/toolholder names; no exact match, not broad mechanism uniqueness."
+    },
+    {
+      "url": "https://api.github.com/search/issues?q=repo%3Arobocurve%2Fbenchmark-tasks+is%3Apr+%28%22ER32%22+OR+%22toolholder%22+OR+%22collet+nut%22%29",
+      "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "scope": "Current official PR keyword search returned zero matches; complements three generic collet pipe-fitting matches, not exhaustive inventory."
+    }
+  ],
+  "assembly_authority": "MariTool manufacturer ER FAQ corroborates standard groove/eccentric-ring mechanism; REGO-FIX supplies dimensioned profile. No unsupported cam holding claim.",
+  "independently_measured": false,
+  "novelty_inventory_complete": false
+}

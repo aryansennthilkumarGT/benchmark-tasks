@@ -1,0 +1,161 @@
+{
+  "physics": [
+    {
+      "name": "prepared-cradle-gravity",
+      "steps": 60,
+      "settle_steps": 20,
+      "assertions": [
+        {
+          "kind": "displacement",
+          "body": "collet",
+          "min": 0,
+          "max": 0.001
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "score",
+          "max": 0,
+          "success": false
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "supported-preassembly-is-not-history",
+      "initialize_bodies": [
+        {
+          "assembly": "collet_asset",
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "steps": 60,
+      "settle_steps": 20,
+      "assertions": [
+        {
+          "kind": "pose",
+          "body": "collet",
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "tolerance": 0.0006
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "score",
+          "max": 0,
+          "success": false
+        }
+      ]
+    },
+    {
+      "name": "cam-contact-descent-probe",
+      "initialize_bodies": [
+        {
+          "assembly": "collet_asset",
+          "pos": [
+            0.24,
+            0,
+            0.8175
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "collet_asset",
+          "body": "collet",
+          "force": [
+            0,
+            0,
+            -1.0
+          ]
+        }
+      ],
+      "steps": 20,
+      "settle_steps": 20,
+      "assertions": [
+        {
+          "kind": "coordinate",
+          "body": "collet",
+          "axis": 2,
+          "min": 0.8045,
+          "max": 0.8195
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "eccentric-hook-prefix",
+      "through_phase": 8,
+      "through_label": "Engage groove at eccentric hook",
+      "max_steps": 1200,
+      "assertions": [
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ]
+    },
+    {
+      "name": "supported-preassembly-prefix",
+      "through_phase": 30,
+      "through_label": "Withdraw above preassembly",
+      "max_steps": 2400,
+      "assertions": [
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "pose",
+          "body": "collet",
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "tolerance": 0.0007
+        }
+      ]
+    }
+  ]
+}

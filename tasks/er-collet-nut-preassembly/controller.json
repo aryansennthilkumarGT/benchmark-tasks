@@ -1,0 +1,2184 @@
+{
+  "schema": 1,
+  "feedback": "robot_proprioception_only",
+  "phases": [
+    {
+      "label": "Initialize handling arm",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.28,
+          -0.17,
+          0.9
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1.0,
+      "grasp_width": 0.0,
+      "contact_body": null,
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Approach ER collet",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.28,
+          -0.17,
+          0.9
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1.0,
+      "grasp_width": 0.0,
+      "contact_body": null,
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Reach collet tapered body",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.28,
+          -0.17,
+          0.8385
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1.0,
+      "grasp_width": 0.0,
+      "contact_body": null,
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Grip collet tapered body",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.28,
+          -0.17,
+          0.8385
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.3,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Lift collet from cradle",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.28,
+          -0.17,
+          0.903
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.87
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Transfer above supported nut",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.24,
+          0.0,
+          0.903
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.24,
+            0,
+            0.87
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Tilt for eccentric cam entry",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23433566934460073,
+          0.0,
+          0.8819741099164513
+        ],
+        "quat": [
+          -0.7015896987753322,
+          0.7015896987753321,
+          -0.08815834941931937,
+          0.08815834941931935
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.2425,
+            0,
+            0.85
+          ],
+          "quat": [
+            -0.0,
+            -0.12467473338522769,
+            -0.0,
+            0.992197667229329
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Lower tilted nose through eccentric opening",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23433566934460073,
+          0.0,
+          0.8413336116808219
+        ],
+        "quat": [
+          -0.7015896987753322,
+          0.7015896987753321,
+          -0.08815834941931937,
+          0.08815834941931935
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.2425,
+            0,
+            0.8093595017643705
+          ],
+          "quat": [
+            -0.0,
+            -0.12467473338522769,
+            -0.0,
+            0.992197667229329
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Engage groove at eccentric hook",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2313507031232868,
+          0.0,
+          0.8413336116808219
+        ],
+        "quat": [
+          -0.7015896987753322,
+          0.7015896987753321,
+          -0.08815834941931937,
+          0.08815834941931935
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.006,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23951503377868605,
+            0.0,
+            0.8093595017643705
+          ],
+          "quat": [
+            -0.0,
+            -0.12467473338522769,
+            -0.0,
+            0.992197667229329
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 1",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23179806858819013,
+          0.0,
+          0.8412439306899009
+        ],
+        "quat": [
+          -0.7021269819928392,
+          0.7021269819928391,
+          -0.08377172051251855,
+          0.08377172051251854
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23956209544776402,
+            0.0,
+            0.8091702672427077
+          ],
+          "quat": [
+            -0.0,
+            -0.11847110329213212,
+            -0.0,
+            0.9929575004423629
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 2",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2322442781199279,
+          0.0,
+          0.8411486647825304
+        ],
+        "quat": [
+          -0.702636838464392,
+          0.7026368384643918,
+          -0.07938181928353735,
+          0.07938181928353734
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.2396067880702755,
+            0.0,
+            0.8089804592492552
+          ],
+          "quat": [
+            -0.0,
+            -0.11226284543662858,
+            -0.0,
+            0.9936785463792964
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 3",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23268926199916856,
+          0.0,
+          0.8410478288438147
+        ],
+        "quat": [
+          -0.703119248273787,
+          0.7031192482737869,
+          -0.07498881721233427,
+          0.07498881721233426
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.2396491046630891,
+            0.0,
+            0.8087901074411261
+          ],
+          "quat": [
+            -0.0,
+            -0.1060502023280001,
+            -0.0,
+            0.9943607768743647
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 4",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23313295069808634,
+          0.0,
+          0.8409414386291639
+        ],
+        "quat": [
+          -0.7035741925769525,
+          0.7035741925769524,
+          -0.07059288589999416,
+          0.07059288589999416
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23968903861432336,
+            0.0,
+            0.808599241560403
+          ],
+          "quat": [
+            -0.0,
+            -0.09983341664682815,
+            -0.0,
+            0.9950041652780258
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 5",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23357527489122468,
+          0.0,
+          0.8408295107618329
+        ],
+        "quat": [
+          -0.7040016536026844,
+          0.7040016536026843,
+          -0.06619419706202491,
+          0.0661941970620249
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23972658368437957,
+            0.0,
+            0.8084078914294914
+          ],
+          "quat": [
+            -0.0,
+            -0.09361273123551289,
+            -0.0,
+            0.9956086864580017
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 6",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23401616546632828,
+          0.0,
+          0.8407120627303228
+        ],
+        "quat": [
+          -0.7044016146533408,
+          0.7044016146533407,
+          -0.06179292252164994,
+          0.06179292252164993
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23976173400691694,
+            0.0,
+            0.8082160869464601
+          ],
+          "quat": [
+            -0.0,
+            -0.0873883890887872,
+            -0.0,
+            0.996174316800261
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 7",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23445555353514183,
+          0.0,
+          0.8405891128856501
+        ],
+        "quat": [
+          -0.7047740601054939,
+          0.7047740601054938,
+          -0.05738923420309634,
+          0.05738923420309633
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.2397944840897691,
+            0.0,
+            0.8080238580803693
+          ],
+          "quat": [
+            -0.0,
+            -0.08116063334422473,
+            -0.0,
+            0.9967010342099402
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 8",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23489337044417347,
+          0.0,
+          0.8404606804384775
+        ],
+        "quat": [
+          -0.7051189754105408,
+          0.7051189754105407,
+          -0.05298330412487909,
+          0.05298330412487908
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23982482881580225,
+            0.0,
+            0.8078312348665881
+          ],
+          "quat": [
+            -0.0,
+            -0.07492970727274234,
+            -0.0,
+            0.9971888181122075
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 9",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23532954778542192,
+          0.0,
+          0.8403267854561137
+        ],
+        "quat": [
+          -0.705436347095271,
+          0.7054363470952709,
+          -0.04857530439308163,
+          0.04857530439308162
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23985276344371464,
+            0.0,
+            0.807638247402102
+          ],
+          "quat": [
+            -0.0,
+            -0.06869585426909741,
+            -0.0,
+            0.9976376494530662
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 10",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.235764017407065,
+          0.0,
+          0.8401874488593774
+        ],
+        "quat": [
+          -0.7057261627623936,
+          0.7057261627623935,
+          -0.04416540719463297,
+          0.044165407194632966
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23987828360877753,
+            0.0,
+            0.8074449258408095
+          ],
+          "quat": [
+            -0.0,
+            -0.0624593178423802,
+            -0.0,
+            0.9980475107000991
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 11",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23619671142410828,
+          0.0,
+          0.8400426924193283
+        ],
+        "quat": [
+          -0.705988411091021,
+          0.7059884110910208,
+          -0.03975378479058168,
+          0.03975378479058168
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.239901385323517,
+            0.0,
+            0.8072513003888114
+          ],
+          "quat": [
+            -0.0,
+            -0.05622034160650187,
+            -0.0,
+            0.9984183858431536
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 12",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23662756222899187,
+          0.0,
+          0.8398925387538654
+        ],
+        "quat": [
+          -0.7062230818371109,
+          0.7062230818371108,
+          -0.03534060950936697,
+          0.03534060950936697
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.2399220649783372,
+            0.0,
+            0.8070574012996905
+          ],
+          "quat": [
+            -0.0,
+            -0.04997916927067833,
+            -0.0,
+            0.9987502603949663
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 13",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.2370565025021541,
+          0.0,
+          0.8397370113241936
+        ],
+        "quat": [
+          -0.7064301658338675,
+          0.7064301658338674,
+          -0.030926053740087077,
+          0.03092605374008707
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23994031934208407,
+            0.0,
+            0.806863258869785
+          ],
+          "quat": [
+            -0.0,
+            -0.04373604462991031,
+            -0.0,
+            0.9990431213917298
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 14",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23748346522254993,
+          0.0,
+          0.8395761344311576
+        ],
+        "quat": [
+          -0.7066096549920983,
+          0.7066096549920982,
+          -0.026510289925765415,
+          0.02651028992576541
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23995614556255043,
+            0.0,
+            0.8066689034334548
+          ],
+          "quat": [
+            -0.0,
+            -0.03749121155546027,
+            -0.0,
+            0.9992969573935987
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 15",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.237908383678123,
+          0.0,
+          0.8394099332114444
+        ],
+        "quat": [
+          -0.7067615423005308,
+          0.7067615423005307,
+          -0.022093490556614474,
+          0.02209349055661447
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23996954116692154,
+            0.0,
+            0.8064743653583412
+          ],
+          "quat": [
+            -0.0,
+            -0.03124491398532608,
+            -0.0,
+            0.9995117584851364
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 16",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23833119147622908,
+          0.0,
+          0.8392384336336565
+        ],
+        "quat": [
+          -0.7068858218260866,
+          0.7068858218260865,
+          -0.01767582816329799,
+          0.017675828163297987
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23998050406216145,
+            0.0,
+            0.8062796750406226
+          ],
+          "quat": [
+            -0.0,
+            -0.024997395914712325,
+            -0.0,
+            0.9996875162757026
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 17",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23875182255400992,
+          0.0,
+          0.839061662494254
+        ],
+        "quat": [
+          -0.7069824887141123,
+          0.7069824887141122,
+          -0.013257475310191485,
+          0.013257475310191481
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23998903253534012,
+            0.0,
+            0.8060848629002652
+          ],
+          "quat": [
+            -0.0,
+            -0.018748901386499248,
+            -0.0,
+            0.999824223899781
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 18",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23917021118871545,
+          0.0,
+          0.8388796474133677
+        ],
+        "quat": [
+          -0.70705153918857,
+          0.7070515391885699,
+          -0.008838604588641436,
+          0.008838604588641434
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23999512525390096,
+            0.0,
+            0.8058899593762695
+          ],
+          "quat": [
+            -0.0,
+            -0.012499674481709785,
+            -0.0,
+            0.9999218760172474
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 19",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.23958629200797263,
+          0.0,
+          0.8386924168304838
+        ],
+        "quat": [
+          -0.7070929705521842,
+          0.7070929705521841,
+          -0.004419388610223539,
+          0.004419388610223538
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.23999878126586904,
+            0.0,
+            0.8056949949219147
+          ],
+          "quat": [
+            -0.0,
+            -0.006249959309975311,
+            -0.0,
+            0.9999804688135782
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Rock groove onto cam increment 20",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.24,
+          0.0,
+          0.8385
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.22,
+      "grasp_width": 0.027,
+      "contact_body": "collet",
+      "dwell": 0.12,
+      "speed": 0.008,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.24,
+            0.0,
+            0.8055
+          ],
+          "quat": [
+            -0.0,
+            -0.0,
+            -0.0,
+            1.0
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Release supported preassembly",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.24,
+          0.0,
+          0.8385
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.65,
+      "grasp_width": 0.0,
+      "contact_body": null,
+      "dwell": 0.25,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.24,
+            0.0,
+            0.8055
+          ],
+          "quat": [
+            -0.0,
+            -0.0,
+            -0.0,
+            1.0
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Withdraw above preassembly",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.24,
+          0,
+          0.91
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 0.65,
+      "grasp_width": 0.0,
+      "contact_body": null,
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.24,
+            0.0,
+            0.8055
+          ],
+          "quat": [
+            -0.0,
+            -0.0,
+            -0.0,
+            1.0
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Park handling arm",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.28,
+          -0.17,
+          0.9
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1.0,
+      "grasp_width": 0.0,
+      "contact_body": null,
+      "dwell": 0.12,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.24,
+            0.0,
+            0.8055
+          ],
+          "quat": [
+            -0.0,
+            -0.0,
+            -0.0,
+            1.0
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "label": "Supported preassembly hold",
+      "side": "right",
+      "target": {
+        "pos": [
+          0.28,
+          -0.17,
+          0.9
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "opening": 1.0,
+      "grasp_width": 0.0,
+      "contact_body": null,
+      "dwell": 2.2,
+      "speed": 0.06,
+      "timeout": 40.0,
+      "position_tolerance": 0.00025,
+      "angle_tolerance": 0.02,
+      "nominal_bodies": {
+        "bench_nut": {
+          "pos": [
+            0.24,
+            0,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        "collet": {
+          "pos": [
+            0.24,
+            0.0,
+            0.8055
+          ],
+          "quat": [
+            -0.0,
+            -0.0,
+            -0.0,
+            1.0
+          ]
+        },
+        "collet_cradle": {
+          "pos": [
+            0.28,
+            -0.17,
+            0.8055
+          ],
+          "quat": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      }
+    }
+  ]
+}

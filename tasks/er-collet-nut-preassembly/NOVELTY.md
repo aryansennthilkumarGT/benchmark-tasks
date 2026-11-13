@@ -1,0 +1,9 @@
+# Occupation, equipment and comparison limits
+
+ER collets/nuts are recognizable machining tool-setting equipment. REGO-FIX's dimensioned profile and manufacturer ER catalogue identify the actual interface. Its tooling article explains machining precision and proper matching of holders/collets/nuts. MariTool's manufacturer FAQ establishes tilt-assisted eccentric-groove preassembly and its unsupported-retention limitation. SOURCES.json records retrieved primary content hashes. No manual images, manufacturer meshes or unverified video transcript are redistributed.
+
+The official `collet` PR search returned #1784/#662/#1654, which concern push-to-connect pipe fittings, not ER extraction-groove/cam toolholding. This task has no pneumatic manifold, tube clamp, connector lever or generic pinned collar. The preserved shackle and SAC tasks use helical threads; the present task uses eccentric clearance and a non-helical groove/pivot path. Generic placement primitives and broad assembly remain shared with existing suites, so extra steps/colors are not a novelty claim.
+
+Search coverage is limited. Full RoboCurve board access was previously blocked by upstream Cloudflare 403/1010. Recheck the current official inventory/near-neighbor implementations before model spending or submission; mechanics-review.json intentionally keeps inventory clearance unresolved. No exclusive reservation or reviewer acceptance is claimed. Do not revive WAGO single-wire lever termination, which directly matches official PR #766.
+
+O*NET 51-4041.00 (Machinists) was retrieved as the occupational source. The current official ER32/toolholder/collet-nut PR keyword search returned zero results; the actual LIBERO named-task catalog contained no collet/toolholder/machining entry. These are scoped comparisons, not exhaustive coverage of all assembly mechanisms.
