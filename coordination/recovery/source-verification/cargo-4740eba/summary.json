@@ -1,0 +1,25 @@
+{
+  "kind": "CLEAN_HTTPS_AFFECTED_SOURCE_VERIFICATION",
+  "passed": true,
+  "source_commit": "4740eba2b60a17041798e690d307b37a120ebfc1",
+  "pytest_passed": 50,
+  "full_fk_samples": 250,
+  "ideal_actions": 1172,
+  "clean_https": true,
+  "unchanged_mechanics_predecessor": "6bc24e156af488d2cc1676f6afff51286a99282c",
+  "predecessor_complete_cpu_stages": 16,
+  "changed_files": [
+    "tasks/cargo-bar-controlled-release/ACTUATOR_TRACKING.md",
+    "tasks/cargo-bar-controlled-release/GPU_DIAGNOSTIC.md",
+    "tasks/cargo-bar-controlled-release/controller.json",
+    "tasks/cargo-bar-controlled-release/expert.py",
+    "tasks/cargo-bar-controlled-release/feedback.py",
+    "tasks/cargo-bar-controlled-release/plan_controller.py",
+    "tasks/cargo-bar-controlled-release/source_manifest.json",
+    "tasks/cargo-bar-controlled-release/test_controller.py",
+    "tasks/cargo-bar-controlled-release/test_fixtures/pawl-verification-state.json"
+  ],
+  "mechanics_not_retested_without_source_changes": true,
+  "native_isaac_success": false,
+  "actual_supplemental_task_passed": false
+}

@@ -1,0 +1,233 @@
+{
+  "not_external_official_reviews": true,
+  "no_gpu_or_paid_execution": true,
+  "reviewers": {
+    "A": {
+      "scope": "Occupational importance and novelty, read-only independent agent",
+      "findings": [
+        {
+          "id": "A1",
+          "severity": "HIGH",
+          "task": "nailer",
+          "evidence": "OCCUPATION.md and SOURCES establish general carpentry/nail-gun use and authentic jam instructions, not measured routine core-job jam clearing",
+          "repair": "Hold acceptance spending until primary routine-work evidence exists; do not relabel a generic fixture",
+          "verification": "UNRESOLVED; NO-GO for qualification/Dream"
+        },
+        {
+          "id": "A2",
+          "severity": "MEDIUM",
+          "task": "cargo",
+          "evidence": "HF96811 is marketed for pickup/SUV/hatchback; USCC commercial pressure-bar evidence links equipment class, not identical internal OEM mechanism",
+          "repair": "Keep truthful authored-fixture/class scope; disclose commercial procedure corroboration gap",
+          "verification": "Scope disclosed; native diagnostic allowed, acceptance uncertainty remains"
+        },
+        {
+          "id": "A3",
+          "severity": "MEDIUM",
+          "task": "ER",
+          "evidence": "Nearest accepted hook/pivot/snap PR37 and overtravel/swing PR903 missing from prior comparison",
+          "repair": "Add actual contact-topology comparison",
+          "verification": "Added to ER NOVELTY.md; no exact duplicate established in accessed corpus"
+        }
+      ]
+    },
+    "B": {
+      "reviewer": "B_physical_construct",
+      "mode": "read_only",
+      "heads": {
+        "cargo": "6bc24e156af488d2cc1676f6afff51286a99282c plus dirty hold-reference repair",
+        "er": "d2d0e611d5fe0d6aac059f76c9409328a1e9f3e8 plus dirty axis-servo experiment",
+        "nailer": "9307894a0ddf6bbcb2bf6ec62adc691b4a8fe684 plus dirty radial/door-grasp experiment"
+      },
+      "findings": [
+        {
+          "id": "B1",
+          "severity": "P2",
+          "task": "er-collet-nut-preassembly",
+          "title": "Straight upright entry passes the integrity/scoring envelope at allowed lateral offset",
+          "evidence": [
+            "scoring.py:38 allows penetration <=0.350mm",
+            "scoring.py:61 accepts lateral error <=0.600mm",
+            "test_er.py:63 checks straight entry only at exact x=.240m",
+            "CONSTRUCT_VALIDITY.md:5 claims straight descent interference blocks shortcut"
+          ],
+          "independent_result": {
+            "scope": "synthetic geometry/scorer replay, not physical simulation",
+            "samples": 343,
+            "start": "exact scene reset on cradle",
+            "path": "identity quaternion throughout; lift to z=.8655m, transfer to x=.240599/y=0, descend via z=.8215 to .8055, released hold2.1s",
+            "maximum_penetration_m": 0.0003319657067615625,
+            "final_score": 1.0,
+            "success": true,
+            "failure": null
+          },
+          "impact": "The geometric integrity argument does not establish tilt/rock necessity across the accepted final pose envelope. A physically forced-through shortcut is not proven.",
+          "action": "Add shifted-upright negative control across complete final-tolerance envelope and establish contact behavior. Repair geometric safety margin or justified numeric tolerances; do not impose exact expert history."
+        },
+        {
+          "id": "B2",
+          "severity": "P1_feasibility_hold",
+          "task": "brad-nailer-jam-recovery",
+          "title": "Relatching has no successful actual demonstration and selected radial path has true arm interference",
+          "evidence": [
+            "cpu-yam-diagnostics/nailer-live-pin-limit-failure-9307894/report.json:424-436:2065 actions,phase30,IK joint limit,score0.5",
+            "/tmp/nailer-radial-selected-path.json:635 samples,54 failed checks,passed=false;phase28 link4/link4 overlap235.052um,phase29/30 gripper/gripper255.045um",
+            "ACTUATOR_TRACKING.md:45 records dirty seven-mm door-grasp repair but requires fresh ideal/FK/dynamics"
+          ],
+          "impact": "Successful brad extraction/deposition does not establish two-arm capture/locking construct feasibility. Old radial report is not evidence for latest door-grasp edit.",
+          "action": "Require exact-source collision-clean full path and actual released relatch; preserve gate/scene/scorer."
+        },
+        {
+          "id": "B3",
+          "severity": "P1_feasibility_hold",
+          "task": "er-collet-nut-preassembly",
+          "title": "Tapered-collet grasp/orientation control fails before entry",
+          "evidence": [
+            "ACTUATOR_TRACKING.md:10 actual collet pitch+0.052 versus target-0.250 despite wrist completion",
+            "ACTUATOR_TRACKING.md:22 clean d2d0e61 loses part during lift,531actions,score0",
+            "/tmp/er-supported-axis-path.json passes830-action ideal/FK but physics_executed=false and grasps_validated=false"
+          ],
+          "impact": "No real robot run demonstrates controlled cam entry/rocking; rigid ideal grasp suppresses essential failure. MuJoCo point-friction limits cannot be assumed equivalent to native pads.",
+          "action": "Validate actual collet-axis tracking and retained grasp through released supported seat with native/contact evidence."
+        },
+        {
+          "id": "B4",
+          "severity": "P1_feasibility_hold",
+          "task": "cargo-bar-controlled-release",
+          "title": "Actual robot release exists, controlled shortening/placement remains incomplete",
+          "evidence": [
+            "/tmp/cargo-priority-actual-clean-refined4/report.json:973actions,phase9,score0.25,physical-feedback stall,passed=false",
+            "ACTUATOR_TRACKING.md:29 all release guards true but redundant TCP target differs520.7um;dirty hold-reference repair awaits validation"
+          ],
+          "impact": "No actual robot demonstration establishes shortening,maintained support,and cradle release. Existing failure is controller reference compliance, not proof physical mechanism impossible.",
+          "action": "Validate dirty repair at exact source, then retraction/support/placement/release without replacing contact with synthetic grasps."
+        }
+      ],
+      "nonfindings": [
+        "MariTool FAQ retrieved directly: cam is not designed to hold collet; snapped collet falling out normal. Unsupported pullout retention not required in supported bounded task.",
+        "Harbor Freight manual independently retrieved: latch-lock/full-forward handle release and parts list containing rack/gear/two pawls; DeWalt manual independently retrieved:door/bent-nail/two-arm pin steps. No absent driver-reset or powered firing requirement in disclosed bounded task.",
+        "No substantiated impossible force assumption or essential mechanics omission from authored springs/materials alone. Accepted Ujoint,pushfit,sensor coupling and camera fixtures also disclose nominal/estimated parameters and substitutions. Public native artifacts were not rerun.",
+        "Exact pinned IsaacLab91a0906 PhysX API explicitly returns XYZW root/body_link_pose_w; pinned Arena c7edf3a Pose/init/reset is XYZW. Native quaternion-copy suspicion disproved; do not introduce WXYZ conversion."
+      ]
+    },
+    "C": {
+      "scope": "Scoring/reproducibility, independent read-only agent",
+      "findings": [
+        {
+          "id": "C1",
+          "severity": "MEDIUM",
+          "task": "all three",
+          "evidence": "Scorer.update occurs at20Hz _task_step, not every native physics substep; accepted camera has240Hz integrity monitor",
+          "repair": "Disclose sampled monitoring; native transient-contact validation remains necessary",
+          "verification": "Sampling gap established; native tunneling exploit NOT demonstrated; no continuous-time claim"
+        },
+        {
+          "id": "C2",
+          "severity": "MEDIUM",
+          "task": "nailer",
+          "evidence": "Valid reset then .373577689m brad substitution at t=.05 receives.75, then1.0",
+          "repair": "Previous-frame free-brad continuity guard, >2m/s*dt+10mm; regression",
+          "verification": "Implemented; unit replay now fails closed; not a demonstrated native-action exploit"
+        },
+        {
+          "id": "C3",
+          "severity": "LOW",
+          "task": "nailer",
+          "evidence": "Negative time/depth and extra joint keys accepted; malformed clearance retains partial credit",
+          "repair": "Validate time, contact telemetry, exact joint set and finite clearance",
+          "verification": "Implemented; six malformed telemetry regressions pass"
+        }
+      ]
+    },
+    "D": {
+      "scope": "Robot execution, independent read-only agent",
+      "findings": [
+        {
+          "id": "D1",
+          "severity": "HIGH",
+          "task": "ER/nailer",
+          "evidence": "Measured-position-based aperture slew caps blocked-jaw command error/force indefinitely",
+          "repair": "Persistent command reference in ordinary, arc and follower paths, preserving chosen slew and SDK limits",
+          "verification": "Implemented; blocked-jaw regressions pass; physical grasp retention NOT established"
+        },
+        {
+          "id": "D2",
+          "severity": "HIGH",
+          "task": "cargo",
+          "evidence": "6bc24e1 verification stalls at520.7um nominalTCP error despite true physical guards",
+          "repair": "Hold achieved valid reference while verifying unchanged physical pawl guards",
+          "verification": "4740eba 50tests/250FK pass; actual supplemental run passes phases9/10 then fails retraction at998actions score.25"
+        },
+        {
+          "id": "D3",
+          "severity": "HIGH",
+          "task": "nailer experiment",
+          "evidence": "Complete independent SAT confirms207um interarm gripper overlap >50um bound",
+          "repair": "Exclude collision-failing radial experiment; retain baseline path",
+          "verification": "Preserved experiments/nailer-radial-clearance438c2ad; excluded from qualification"
+        },
+        {
+          "id": "D4",
+          "severity": "MEDIUM",
+          "task": "all three",
+          "evidence": "request_stop=controller.done could precede independent final-state scorer success",
+          "repair": "Keep acting after phase completion until native scorer success or run limit",
+          "verification": "Implemented in all three; genuine full-score native episodes remain absent"
+        }
+      ]
+    },
+    "E": {
+      "scope": "Submission compliance/tooling, independent read-only agent",
+      "findings": [
+        {
+          "id": "E1",
+          "severity": "HIGH",
+          "task": "coordinator",
+          "evidence": "submit_ready git show used ambient caller object database for new metadata-only publication commit",
+          "repair": "Resolve verified receipt publication checkout explicitly",
+          "verification": "Real temporary Git test succeeds from unrelated /tmp working directory"
+        },
+        {
+          "id": "E2",
+          "severity": "HIGH",
+          "task": "coordinator",
+          "evidence": "Handoff claims not compared to intact receipts",
+          "repair": "Bind slug/stage/source/prerequisite chain/publication/scores/media to receipt content and published metadata",
+          "verification": "Mismatched claim and disconnected-chain tests pass; no real native receipts manufactured"
+        },
+        {
+          "id": "E3",
+          "severity": "MEDIUM",
+          "task": "coordinator",
+          "evidence": "Official PR head history checked only after branch push",
+          "repair": "Check before paid task flow and recheck before publication mutation",
+          "verification": "Pending-head test proves no publication mutation occurs"
+        },
+        {
+          "id": "E4",
+          "severity": "LOW",
+          "task": "category enum",
+          "evidence": "Latest official1754 renames Societal relevance to Societal relatability",
+          "repair": "Align enum at next affected edit; all current tasks Impact on jobs",
+          "verification": "Not a current submission blocker; remaining drift explicitly recorded"
+        },
+        {
+          "id": "E5",
+          "severity": "MEDIUM",
+          "task": "media interfaces",
+          "evidence": "MEDIA_RENDERED missing path and review attestation missing visually_reviewed flag",
+          "repair": "Return real rendered-media path and require explicit review flag bound to bytes",
+          "verification": "Cargo source6bc24e1 path fix; rootb671b12 attestation fix;23coordinator tests pass"
+        }
+      ]
+    }
+  },
+  "verification_updates": {
+    "cargo_source": "4740eba2b60a17041798e690d307b37a120ebfc1",
+    "er_source": "e6659287a5ac2e2d968bc0d39122659ef7cd2a11",
+    "nailer_source": "b742696e49a506bfd4ef2362a06145b8a6cd3c65",
+    "clean_suites": "All final source checks passed; evidence in ../source-verification/",
+    "coordinator_tests": "40 passed,11subtests; includes post-PR readback fixtures",
+    "category_enum": "Root coordinator and ER/nailer updated to official Societal relatability. Frozen cargo remains Impact on jobs; old unused category spelling is not a current blocker."
+  }
+}

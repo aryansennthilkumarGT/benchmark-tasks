@@ -78,6 +78,27 @@ def validated_metadata(task, handoff_path):
     return metadata
 
 
+def audit_official_pr(task, number):
+    """Read back the actual official PR; never edits an existing submission."""
+    info = json.loads(capture(['gh','api',f'repos/{OFFICIAL}/pulls/{number}']))
+    require(info['head']['sha'] == task['commit'] and info['head']['ref'] == task['branch']
+            and info['head']['repo']['full_name'] == FORK and info['base']['ref'] == 'main',
+            'Official PR head/base differs from verified publication')
+    pages = json.loads(capture(['gh','api','--paginate','--slurp',
+                               f'repos/{OFFICIAL}/pulls/{number}/files']))
+    files = [row for page in pages for row in page]; prefix = 'tasks/' + task['slug'] + '/'
+    require(files and all(row['filename'].startswith(prefix)
+            and (not row.get('previous_filename') or row['previous_filename'].startswith(prefix))
+            for row in files), 'Official PR changes more than its one task folder')
+    names = {row['filename'][len(prefix):] for row in files if row['status'] != 'removed'}
+    require({'task.json','task.py','README.md'} <= names and any(n.endswith(('.usd','.usda','.usdc')) for n in names),
+            'Official PR is missing metadata, task entry, setup documentation or USD assets')
+    return {'status':'PASS','number':info['number'],'url':info['html_url'],
+            'head':info['head']['sha'],'state':info['state'],'file_count':len(files),
+            'one_task_folder':True,'metadata_receipts_validated':True,
+            'visual_anonymity':'BOUND_TO_PREVIOUS_REAL_MEDIA_REVIEW_NOT_REVIEWED_AGAIN'}
+
+
 def main(argv=None):
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('handoff',type=Path)
@@ -116,12 +137,25 @@ def main(argv=None):
         if existing:
             require(len(existing)==1,'Multiple prior PRs require review')
             require(existing[0]['state'] in ('OPEN','MERGED'),'Prior closed PR: inspect review before any resubmission')
-            result.append({'slug':task['slug'],'action':'ALREADY_EXISTS',**existing[0]});continue
+            row={'slug':task['slug'],'action':'ALREADY_EXISTS',**existing[0]}
+            row['audit']=audit_official_pr(task,existing[0]['number']);result.append(row)
+            atomic(args.handoff.resolve().parent/'submission-status.json',{'tasks':result});continue
         with tempfile.TemporaryDirectory(prefix='robocurve-pr-') as temporary:
             body_file=Path(temporary)/'body.txt';body_file.write_text(body,encoding='utf-8')
             url=capture(['gh','pr','create','--repo',OFFICIAL,'--base','main','--head',head,'--title',title,
                          '--body-file',str(body_file)])
-        result.append({'slug':task['slug'],'action':'CREATED','url':url})
+        row={'slug':task['slug'],'action':'CREATED','url':url,'audit_status':'PENDING_READ_BACK'}
+        result.append(row)
+        # Persist creation before read-back: API failure must not hide a real PR.
+        status_path=args.handoff.resolve().parent/'submission-status.json'
+        atomic(status_path,{'tasks':result})
+        try:
+            row['audit']=audit_official_pr(task,int(url.rstrip('/').split('/')[-1]));row['audit_status']='PASS'
+        except (Incomplete,ValueError,KeyError,OSError,subprocess.CalledProcessError) as exc:
+            row['audit_status']='READ_BACK_FAILED';row['audit_error']=str(exc)
+            atomic(status_path,{'tasks':result})
+            raise Incomplete(f'Official PR was created at {url}; read-back failed: {exc}') from exc
+        atomic(status_path,{'tasks':result})
     print(json.dumps(result,indent=2))
 
 

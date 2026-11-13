@@ -154,7 +154,7 @@ def public_text(folder):
     required = {'title','category','instruction','setup','scoring','run_limit','fidelity','scores','media'}
     require(required <= task.keys(),'Missing required task.json fields')
     require(len(task['fidelity'])<=500,'Fidelity field exceeds the task-board 500-character limit')
-    require(task['category'] in {'Impact on jobs','Impact on AI timelines','Safety and alignment','Societal relevance','Other'},
+    require(task['category'] in {'Impact on jobs','Impact on AI timelines','Safety and alignment','Societal relatability','Other'},
             'Unknown category')
     text = '\n'.join(str(v) for v in task.values())
     require(not re.search(r'(?i)aryan|senthil|georgia\s*tech|doubling\s*time|T-06|[A-Z]:[\\/]|/home/|/Users/',text),

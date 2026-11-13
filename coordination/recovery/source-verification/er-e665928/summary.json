@@ -1,0 +1,80 @@
+{
+  "kind": "INDEPENDENT_CLEAN_HTTPS_CPU_VERIFICATION",
+  "passed": true,
+  "tested_source_commit": "e6659287a5ac2e2d968bc0d39122659ef7cd2a11",
+  "clean_git_status": true,
+  "independent_https_checkout": true,
+  "source_manifest_sha256": "ff42408fc4e35955e98ad2254eb5624b0c2a2a624c2f4705b2ba2dd6d2b6bd68",
+  "pytest_passed": 47,
+  "isaac_executed": false,
+  "native_robot_success": false,
+  "summaries": [
+    {
+      "kind": "OFFLINE_COMPOSED_USD",
+      "passed": true,
+      "checks": 3
+    },
+    {
+      "kind": "OFFLINE_IK_WAYPOINTS_ONLY",
+      "passed": true,
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_NOMINAL_GEOMETRY",
+      "passed": true,
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_UPRIGHT_ENTRY_ENVELOPE_BOUND",
+      "minimum_sampled_overlap_m": 0.0003309669113053847,
+      "overlap_lower_bound_over_disk_m": 0.00014035054760679226,
+      "integrity_limit_m": 0.0001,
+      "passed": true,
+      "checks": 0
+    },
+    {
+      "kind": "IDEAL_CONTROLLER_SYNTHETIC_PART_GRASPS",
+      "error": null,
+      "actions": 831,
+      "passed": true,
+      "checks": 0
+    },
+    {
+      "kind": "OFFLINE_CRITICAL_POSE_COLLISION_SAMPLES",
+      "passed": true,
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS",
+      "error": null,
+      "actions": 831,
+      "passed": true,
+      "checks": 189
+    },
+    {
+      "kind": "OFFLINE_ACTUAL_FK_CAM_PATH_SYNTHETIC_CONTACT",
+      "error": null,
+      "passed": true,
+      "checks": 373
+    },
+    {
+      "kind": "SUPPLEMENTAL_MUJOCO_CPU_CONTACT_DIAGNOSTIC",
+      "passed": true,
+      "checks": 0
+    },
+    {
+      "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+      "strategy": "tilted",
+      "sampled_geometric_peak_overlap_m": 0.0,
+      "passed": true,
+      "checks": 25
+    },
+    {
+      "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+      "strategy": "straight",
+      "sampled_geometric_peak_overlap_m": 0.0,
+      "passed": true,
+      "checks": 3
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "kind": "DRY_RUN_NO_SIMULATION_OR_NETWORK",
+  "stack": {
+    "schema": 1,
+    "walkthrough": "https://tasks.robocurve.org/walkthrough",
+    "checked_date": "2026-11-07",
+    "launchable": {
+      "url": "https://github.com/ttpierson/YAM-inspect-Isaac.git",
+      "commit": "25a2963d10451265dd2a6cbddea69d6a3b3b9b0d"
+    },
+    "adapter": {
+      "url": "https://github.com/kairosiann/yam-isaac-lab-arena.git",
+      "commit": "0059d02a1a91bc6834c1d0846022891df0c78730"
+    },
+    "arena": {
+      "url": "https://github.com/isaac-sim/IsaacLab-Arena.git",
+      "branch": "release/0.3.1",
+      "commit": "c7edf3a9d5d8276565208f72422f8f8a0806d6cf"
+    },
+    "isaaclab_commit": "91a0906f93802eb859192dcb0bca879f891e92d6",
+    "inspect": {
+      "url": "https://github.com/robocurve/inspect-robots.git",
+      "commit": "fc5ace923ce85117f9c86f35274122212fbcfe2c",
+      "version": "1.0.0"
+    },
+    "dream": {
+      "url": "https://github.com/kairosiann/inspect-robots-dream.git",
+      "commit": "b5e936a201cec66c54c297e522c920d98445e339"
+    },
+    "python": [
+      3,
+      12
+    ],
+    "isaacsim": "6.1.0.0",
+    "numpy": "2.3.1",
+    "inspect_robots_yam": "0.38.0",
+    "control_hz": 20,
+    "camera_width": 320,
+    "camera_height": 176,
+    "model": "dreamlabs/dream-1-beta",
+    "note": "Arena labels its release branch 0.3.1 but distribution metadata remains 0.3.0; verify commit and uv.lock, not that label alone. The launchable's older Isaac Sim 5.1 environment is not used."
+  },
+  "estimated_storage_gib": 250,
+  "gpu_workloads_concurrent": 1,
+  "budget": "Measured instance time; hard $170 cap, $30 credit reserve. No cloud provisioning.",
+  "bootstrap": [
+    "official pinned adapter/setup.sh in isolated stack directory",
+    "official apple/bowl smoke"
+  ],
+  "tasks": [
+    {
+      "slug": "cargo-bar-controlled-release",
+      "commit": "4740eba2b60a17041798e690d307b37a120ebfc1",
+      "branch": "optimization/cargo-actuator-tracking",
+      "worktree": "/tmp/robocurve-diagnostic-plan-only/worktrees/cargo-bar-controlled-release/4740eba2b60a17041798e690d307b37a120ebfc1",
+      "stages": [
+        "MECHANICS_COMPLETE",
+        "STATIC_TESTS_PASSED",
+        "NATIVE_PHYSICS_PASSED",
+        "ROBOT_CONTROL_PASSED",
+        "EXPERT_DEMO_1_PASSED",
+        "EXPERT_DEMO_2_PASSED",
+        "CLEAN_CHECKOUT_EXPERT_PASSED",
+        "MODEL_EVALUATED",
+        "MEDIA_RENDERED",
+        "MEDIA_VERIFIED",
+        "MEDIA_UPLOADED",
+        "EXACT_COMMIT_VERIFIED",
+        "READY_FOR_PR"
+      ],
+      "commands": [
+        [
+          "git",
+          "fetch",
+          "origin",
+          "4740eba2b60a17041798e690d307b37a120ebfc1"
+        ],
+        [
+          "python",
+          "tasks/cargo-bar-controlled-release/native_tests.py",
+          "--mode",
+          "physics"
+        ],
+        [
+          "python",
+          "tasks/cargo-bar-controlled-release/native_tests.py",
+          "--mode",
+          "control"
+        ],
+        [
+          "python",
+          "tasks/cargo-bar-controlled-release/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/cargo-bar-controlled-release/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/cargo-bar-controlled-release/run.py",
+          "--mode",
+          "dream",
+          "--execute"
+        ],
+        [
+          "inspect-robots",
+          "video",
+          "<validated-log>",
+          "--out",
+          "<media-directory>"
+        ],
+        [
+          "python",
+          "tools/upload_media.py",
+          "tasks/cargo-bar-controlled-release",
+          "--video",
+          "<model.mp4>",
+          "--demo",
+          "<demo.mp4>",
+          "--screenshot",
+          "<setup.png>"
+        ]
+      ]
+    },
+    {
+      "slug": "er-collet-nut-preassembly",
+      "commit": "e6659287a5ac2e2d968bc0d39122659ef7cd2a11",
+      "branch": "optimization/er-actuator-tracking",
+      "worktree": "/tmp/robocurve-diagnostic-plan-only/worktrees/er-collet-nut-preassembly/e6659287a5ac2e2d968bc0d39122659ef7cd2a11",
+      "stages": [
+        "MECHANICS_COMPLETE",
+        "STATIC_TESTS_PASSED",
+        "NATIVE_PHYSICS_PASSED",
+        "ROBOT_CONTROL_PASSED",
+        "EXPERT_DEMO_1_PASSED",
+        "EXPERT_DEMO_2_PASSED",
+        "CLEAN_CHECKOUT_EXPERT_PASSED",
+        "MODEL_EVALUATED",
+        "MEDIA_RENDERED",
+        "MEDIA_VERIFIED",
+        "MEDIA_UPLOADED",
+        "EXACT_COMMIT_VERIFIED",
+        "READY_FOR_PR"
+      ],
+      "commands": [
+        [
+          "git",
+          "fetch",
+          "origin",
+          "e6659287a5ac2e2d968bc0d39122659ef7cd2a11"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/native_tests.py",
+          "--mode",
+          "physics"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/native_tests.py",
+          "--mode",
+          "control"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/er-collet-nut-preassembly/run.py",
+          "--mode",
+          "dream",
+          "--execute"
+        ],
+        [
+          "inspect-robots",
+          "video",
+          "<validated-log>",
+          "--out",
+          "<media-directory>"
+        ],
+        [
+          "python",
+          "tools/upload_media.py",
+          "tasks/er-collet-nut-preassembly",
+          "--video",
+          "<model.mp4>",
+          "--demo",
+          "<demo.mp4>",
+          "--screenshot",
+          "<setup.png>"
+        ]
+      ]
+    },
+    {
+      "slug": "brad-nailer-jam-recovery",
+      "commit": "b742696e49a506bfd4ef2362a06145b8a6cd3c65",
+      "branch": "repair/nailer-integrity-and-grip",
+      "worktree": "/tmp/robocurve-diagnostic-plan-only/worktrees/brad-nailer-jam-recovery/b742696e49a506bfd4ef2362a06145b8a6cd3c65",
+      "stages": [
+        "MECHANICS_COMPLETE",
+        "STATIC_TESTS_PASSED",
+        "NATIVE_PHYSICS_PASSED",
+        "ROBOT_CONTROL_PASSED",
+        "EXPERT_DEMO_1_PASSED",
+        "EXPERT_DEMO_2_PASSED",
+        "CLEAN_CHECKOUT_EXPERT_PASSED",
+        "MODEL_EVALUATED",
+        "MEDIA_RENDERED",
+        "MEDIA_VERIFIED",
+        "MEDIA_UPLOADED",
+        "EXACT_COMMIT_VERIFIED",
+        "READY_FOR_PR"
+      ],
+      "commands": [
+        [
+          "git",
+          "fetch",
+          "origin",
+          "b742696e49a506bfd4ef2362a06145b8a6cd3c65"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/native_tests.py",
+          "--mode",
+          "physics"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/native_tests.py",
+          "--mode",
+          "control"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/brad-nailer-jam-recovery/run.py",
+          "--mode",
+          "dream",
+          "--execute"
+        ],
+        [
+          "inspect-robots",
+          "video",
+          "<validated-log>",
+          "--out",
+          "<media-directory>"
+        ],
+        [
+          "python",
+          "tools/upload_media.py",
+          "tasks/brad-nailer-jam-recovery",
+          "--video",
+          "<model.mp4>",
+          "--demo",
+          "<demo.mp4>",
+          "--screenshot",
+          "<setup.png>"
+        ]
+      ]
+    }
+  ],
+  "note": "Placeholders are filled by the executor from validated stage receipts; no mocked GPU or model results."
+}

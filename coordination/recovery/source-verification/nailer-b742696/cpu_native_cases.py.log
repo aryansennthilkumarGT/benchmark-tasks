@@ -1,0 +1,215 @@
+{
+  "scene_sha256": "0de827b14d9ea80d8f490b60047f72b1c61f0106233c35b565e1173a10d4d74d",
+  "passive_export_sha256": "dd15ae1fdfe2b5a4a0853a592b117d79a0b1dfe0fc909fa051eebf3a5b9dde8e",
+  "kind": "SUPPLEMENTAL_MUJOCO_NOSE_JAM_MECHANISM_PROTOCOL",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "grasps_validated": false,
+  "cases": [
+    {
+      "name": "latched_door_resists",
+      "repeat": 0,
+      "passed": true,
+      "peak_contact_depth_m": 3.1070516241922595e-05,
+      "peak_nail_displacement_m": 2.846572735127244e-07,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": -9.284953763104021e-08,
+      "final_nail_delta_m": [
+        1.025799967191432e-08,
+        0.0,
+        -2.844723832051699e-07
+      ]
+    },
+    {
+      "name": "released_door_opens",
+      "repeat": 0,
+      "passed": true,
+      "peak_contact_depth_m": 9.555519698148695e-05,
+      "peak_nail_displacement_m": 2.846572735127244e-07,
+      "initialization_is_diagnostic": true,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": 1.7414292632607986,
+      "final_nail_delta_m": [
+        1.025799967191432e-08,
+        0.0,
+        -2.844723832051699e-07
+      ]
+    },
+    {
+      "name": "closed_nail_normal_retention",
+      "repeat": 0,
+      "passed": true,
+      "peak_contact_depth_m": 3.106176795733754e-05,
+      "peak_nail_displacement_m": 0.001527396143456652,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": -1.1055175652789446e-07,
+      "final_nail_delta_m": [
+        -5.170313621682965e-10,
+        -0.0015008111416126013,
+        5.735683518692802e-06
+      ]
+    },
+    {
+      "name": "closed_nail_axial_retention",
+      "repeat": 0,
+      "passed": true,
+      "peak_contact_depth_m": 3.106176795733754e-05,
+      "peak_nail_displacement_m": 0.008673021082057846,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": -1.1941141064010774e-07,
+      "final_nail_delta_m": [
+        0.00852587136984756,
+        1.609823385706477e-15,
+        0.0013640304980409024
+      ]
+    },
+    {
+      "name": "opened_nail_wrench_extraction",
+      "repeat": 0,
+      "passed": true,
+      "peak_contact_depth_m": 3.98997802469208e-05,
+      "peak_nail_displacement_m": 0.04729731186896075,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": true,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": 1.9000003169789936,
+      "final_nail_delta_m": [
+        -3.2254178256030386e-07,
+        -0.039999245615048945,
+        -9.604982154631792e-06
+      ]
+    },
+    {
+      "name": "opened_door_free_hold",
+      "repeat": 0,
+      "passed": true,
+      "peak_contact_depth_m": 3.98997802469208e-05,
+      "peak_nail_displacement_m": 2.8465879881543654e-07,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": true,
+      "external_wrench_fixture": false,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": 1.9006363110535587,
+      "final_nail_delta_m": [
+        1.030020591041847e-08,
+        0.0,
+        -2.844723844264152e-07
+      ]
+    },
+    {
+      "name": "latched_door_resists",
+      "repeat": 1,
+      "passed": true,
+      "peak_contact_depth_m": 3.1070516241922595e-05,
+      "peak_nail_displacement_m": 2.846572735127244e-07,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": -9.284953763104021e-08,
+      "final_nail_delta_m": [
+        1.025799967191432e-08,
+        0.0,
+        -2.844723832051699e-07
+      ]
+    },
+    {
+      "name": "released_door_opens",
+      "repeat": 1,
+      "passed": true,
+      "peak_contact_depth_m": 9.555519698148695e-05,
+      "peak_nail_displacement_m": 2.846572735127244e-07,
+      "initialization_is_diagnostic": true,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": 1.7414292632607986,
+      "final_nail_delta_m": [
+        1.025799967191432e-08,
+        0.0,
+        -2.844723832051699e-07
+      ]
+    },
+    {
+      "name": "closed_nail_normal_retention",
+      "repeat": 1,
+      "passed": true,
+      "peak_contact_depth_m": 3.106176795733754e-05,
+      "peak_nail_displacement_m": 0.001527396143456652,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": -1.1055175652789446e-07,
+      "final_nail_delta_m": [
+        -5.170313621682965e-10,
+        -0.0015008111416126013,
+        5.735683518692802e-06
+      ]
+    },
+    {
+      "name": "closed_nail_axial_retention",
+      "repeat": 1,
+      "passed": true,
+      "peak_contact_depth_m": 3.106176795733754e-05,
+      "peak_nail_displacement_m": 0.008673021082057846,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": false,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": -1.1941141064010774e-07,
+      "final_nail_delta_m": [
+        0.00852587136984756,
+        1.609823385706477e-15,
+        0.0013640304980409024
+      ]
+    },
+    {
+      "name": "opened_nail_wrench_extraction",
+      "repeat": 1,
+      "passed": true,
+      "peak_contact_depth_m": 3.98997802469208e-05,
+      "peak_nail_displacement_m": 0.04729731186896075,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": true,
+      "external_wrench_fixture": true,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": 1.9000003169789936,
+      "final_nail_delta_m": [
+        -3.2254178256030386e-07,
+        -0.039999245615048945,
+        -9.604982154631792e-06
+      ]
+    },
+    {
+      "name": "opened_door_free_hold",
+      "repeat": 1,
+      "passed": true,
+      "peak_contact_depth_m": 3.98997802469208e-05,
+      "peak_nail_displacement_m": 2.8465879881543654e-07,
+      "initialization_is_diagnostic": false,
+      "test_rig_actuation": true,
+      "external_wrench_fixture": false,
+      "force_input": "Bounded force/torque with explicit velocity damping to prevent destructive diagnostic impact; no manufacturer force claim.",
+      "final_door_angle_rad": 1.9006363110535587,
+      "final_nail_delta_m": [
+        1.030020591041847e-08,
+        0.0,
+        -2.844723844264152e-07
+      ]
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,33 @@
+# First task: cargo native retraction diagnostic
+
+**GO FOR A SEPARATELY AUTHORIZED BOUNDED GPU DIAGNOSTIC. NO-GO for paid Dream, qualification claims or official submission. No paid execution is authorized now.**
+
+Source branch: `optimization/cargo-actuator-tracking`  
+Exact source: `4740eba2b60a17041798e690d307b37a120ebfc1`  
+Task folder: `tasks/cargo-bar-controlled-release`
+
+Independent clean HTTPS checkout:50 tests pass;1172 ideal actions (58.6 simulated seconds),250 sampled full-path FK configurations pass50um unintentional/800um intended pad bounds. Ideal grasps remain assumptions. Geometry, joint mechanics and scoring are unchanged from6bc24e1, whose complete16-stage clean CPU suite passed. The affected controller/unit/FK checks were rerun rather than repeating the unchanged648-test baseline.
+
+The genuine supplemental MuJoCo3.3.7 YAM run, source clean and hash bound, clears the handle and both pawls, passes repaired phases9/10, then stalls at phase11 controlled retraction:998 actions/49.90 simulated seconds,286.34 wall seconds, score0.25; no warnings, maximum measured SDK velocity ratio0.7896435, maximum task interference128.74um (below350um), robot contact depth21.60um. This is NOT Isaac or full task success. Persistent gripper command and physical-hold verification repairs are implemented. At the terminal state the left grip command has reached0.18 (measured0.265574), telescope remains16.266mm against the≤4.5mm target, and left TCP is12.736mm behind the retraction goal inY. Handle2.59909rad and both pawls are physically clear; this is not the earlier verification defect. Repeated substantial CPU repairs have not established controlled shortening; stop speculative same-blocker iterations and measure actual native behavior. See cpu-yam-diagnostics/cargo-retraction-stall-4740eba for immutable report/model/trace and clean checks.
+
+On an already running, separately authorized existing Brev terminal (no provisioning), verify the installed pinned runtime and scored official station smoke. No driver changes or reinstall are requested. Fresh actual rate/balance and an explicitly bounded spend authorization are prerequisites to paid work. Historical$29.60 is not current funding. Then:
+
+```bash
+source /data/IsaacLab-Arena/yam.env
+GPU_PY=/data/IsaacLab-Arena/.venv/bin/python
+SOURCE_REV=4740eba2b60a17041798e690d307b37a120ebfc1
+git -C /data/benchmark-tasks fetch origin optimization/cargo-actuator-tracking
+git -C /data/benchmark-tasks checkout --detach "$SOURCE_REV"
+test "$(git -C /data/benchmark-tasks rev-parse HEAD)" = "$SOURCE_REV"
+test -z "$(git -C /data/benchmark-tasks status --porcelain)"
+TASK=/data/benchmark-tasks/tasks/cargo-bar-controlled-release
+timeout --signal=TERM --kill-after=30s 1200s "$GPU_PY" "$TASK/native_tests.py" \
+  --mode control --case retract_controlled_inner_tube --fail-fast \
+  --commit "$SOURCE_REV" --output /data/robocurve-diagnostics/cargo-4740-retract
+```
+
+Use a new output directory. Expected allowance10–20minutes including startup and two reset repeats is a planning estimate, not measured native timing. At approximately1000actions per repeat the two prefixes cover100simulated seconds; the estimate is informed by public accepted native traces, not measured performance of this source. Each prefix permits3500actions/175simulated seconds, so a worst-case run can exceed the20minute allowance and must terminate as a timeout. Stop at first failure or wall timeout, preserving results.json, events, controller failure state, native frames, robot effort/command references and process output. Specifically distinguish startup/API errors, failed forceful loaded grasp, pawl reengagement, blocked telescope, part slip and insufficient grip force. Do not equate zero Kit exit or passing a prefix with task success. Workload timeout does not stop provider billing.
+
+After genuine passing prefixes and only within separately authorized scope, `"$GPU_PY" "$TASK/task_runner.py" --output /data/robocurve-cargo-qualification --execute` runs every native case twice and two full experts. A third clean-checkout expert is our stronger internal reproducibility check, not an official minimum. Full scorer1.0, real release/stability, camera streams and source hashes must validate before Dream. Then `--execute --resume --model` on the same task-runner output performs genuine Dream and media. Inspect actual model/demo videos and setup/contact sheets before an explicit visual attestation. `prepare_submission.py` gates genuine evidence and the official uploader; never fabricate scores/media or collect credentials in this CPU phase. The coordinator now binds handoff claims to their actual receipts/publication checkout and checks official PR history before a push. One task-folder PR only after actual native, model/media evidence and authorized submission. PR1733 and finally rejected heads remain untouched.
+
+ER is second: current grip retention and upright-entry scoring repair require source freeze/clean tests, then a separately bounded native grip/entry diagnostic. Nailer is third and remains NO-GO for acceptance spending because routine core-job importance is unproven and real pin capture has not completed. The radial experiment has confirmed arm collisions and is explicitly excluded. These holds do not delay the first cargo diagnostic.

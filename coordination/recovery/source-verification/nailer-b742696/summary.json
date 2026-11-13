@@ -1,0 +1,80 @@
+{
+  "kind": "CPU_ONLY_PACKAGE_CHECKS",
+  "native_isaac_executed": false,
+  "hardware_executed": false,
+  "supplemental_engine": "MuJoCo3.3.7",
+  "source_manifest_sha256": "7ad8d6e306b10d186e1adec3e8794e3eb49fc79d0cd6d10d320fca8d1736a40e",
+  "checks": [
+    {
+      "check": "pytest",
+      "returncode": 0,
+      "passed": true,
+      "log": "pytest.log",
+      "stderr": "pytest.stderr.log"
+    },
+    {
+      "check": "provenance.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "provenance.py.log",
+      "stderr": "provenance.py.stderr.log"
+    },
+    {
+      "check": "verify_assets.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "verify_assets.py.log",
+      "stderr": "verify_assets.py.stderr.log"
+    },
+    {
+      "check": "audit_control.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_control.py.log",
+      "stderr": "audit_control.py.stderr.log"
+    },
+    {
+      "check": "audit_geometry.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_geometry.py.log",
+      "stderr": "audit_geometry.py.stderr.log"
+    },
+    {
+      "check": "mechanism_cpu.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "mechanism_cpu.py.log",
+      "stderr": "mechanism_cpu.py.stderr.log"
+    },
+    {
+      "check": "cpu_native_cases.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "cpu_native_cases.py.log",
+      "stderr": "cpu_native_cases.py.stderr.log"
+    },
+    {
+      "check": "probe_cycle_cpu.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "probe_cycle_cpu.py.log",
+      "stderr": "probe_cycle_cpu.py.stderr.log"
+    },
+    {
+      "check": "audit_controller.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_controller.py.log",
+      "stderr": "audit_controller.py.stderr.log"
+    },
+    {
+      "check": "audit_path.py",
+      "returncode": 0,
+      "passed": true,
+      "log": "audit_path.py.log",
+      "stderr": "audit_path.py.stderr.log"
+    }
+  ],
+  "passed": true
+}
