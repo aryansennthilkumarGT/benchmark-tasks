@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T11:49:28.814914+00:00",
+  "updated_at": "2026-11-13T12:16:59.666990+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -217,7 +217,7 @@
     "head_changed_by_this_mission": false,
     "last_read_utc": "2026-11-13T10:05:16.907596+00:00"
   },
-  "current_work": "Active brad-nailer jam recovery implementation on independent draft/brad-nailer-jam-recovery. Contact-only guided cycle passes after brad withdrawal and rear access repair. Expert/controller/metadata/native workflows unfinished; NOT OFFLINE READY.",
+  "current_work": "Active nailer replacement implements all code paths but remains under actual-FK collision repair. Three internally OFFLINE READY packages preserved; continue productive mission after completing this package.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
   "protected_shackle_control_review_note": "Original ef13ec77 remains untouched. Independent repair/rigging-shackle-v21 fixes shared interpolation, full path, retry and native negative-force calibration; new evidence binds source65b6ed7, not the historical original.",
   "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
@@ -365,12 +365,12 @@
     "drive-bracket-pin-release is superseded by internally qualified cargo; preserve original drive history.",
     "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept."
   ],
-  "next_implementation_command": "Continue /workspace/nailer-jam: implement real YAM 14D controller with physical hinge arcs, brad transfer, dual-grasp door carry, pin handoff and overcenter close. MuJoCo force fixtures are not robot physics evidence.",
+  "next_implementation_command": "Continue /workspace/nailer-jam. Inspect /tmp/nailer-path-9-hull.json and running session22082; repair actual contact/interarm collisions, finish source-bound controller/FK/scoring audit, clean HTTPS test, push completed package.",
   "nailer_progress": {
     "branch": "draft/brad-nailer-jam-recovery",
-    "commit": "1c2e628",
+    "commit": "b0dcf9fc5164dc13f20581c4105ca0f5c039bf0a",
     "scene_sha256": "12ee91197542b38d4d178347aaf94cd4892869b86834ffffe1605a0a7d5c132b",
-    "tests": "17 affected unit tests passed",
+    "tests": "33 unit tests passed;13 affected geometry/controller regressions passed after passive-opening fix;4 new metadata/source-identity tests and2 convex-hull-equivalence tests passed. Full final suite/clean checkout not yet run.",
     "supplemental_cycle": {
       "engine": "MuJoCo 3.3.7",
       "passed": true,
@@ -378,6 +378,15 @@
       "robot_executed": false,
       "native_isaac_executed": false
     },
-    "remaining": "Complete expert and handoff path; full path collision/IK audits; metadata/fidelity/native harness; clean HTTPS validation."
+    "remaining": "Finish full FK collision repair: wide fingers during center-pin acquisition strike lever; narrower openings have endpoint clearance. Exact convex hulls replace redundant STL SAT edges with equivalence tests. Add full runtime hash binding, verify full synthetic scoring and released clearance, clean HTTPS verification.",
+    "implementation": "Original complete scene/3USDs, physical scorer,47-phase native-state14D expert, native harness, Dream/media preparation and fixture provenance/documentation committed. Active controller FK repairs; NOT OFFLINE READY.",
+    "ideal_controller": {
+      "passed": true,
+      "actions": 2811,
+      "simulated_seconds": 140.55,
+      "maximum_grasp_constraint_residual_m": 2.671535751863854e-06,
+      "physical_grasps_assumed": true,
+      "native_isaac_executed": false
+    }
   }
 }
