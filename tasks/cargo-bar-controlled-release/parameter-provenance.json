@@ -1,0 +1,325 @@
+{
+  "schema": 1,
+  "mode": "BENCHMARK_AUTHORED",
+  "scene_sha256": "e5a532774183a1f69125074c16db02a8fe42288b5462ec1f89bdd7cbc26039ef",
+  "entries": [
+    {
+      "pointer": "",
+      "category": "BENCHMARK_AUTHORED",
+      "basis": "Original fully specified benchmark fixture and test configuration; no OEM dimensional, torque, force, friction or mass measurement is claimed. Covers all numeric fields unless a more specific entry overrides it."
+    },
+    {
+      "pointer": "/parameters/reference_minimum_length",
+      "category": "DERIVED",
+      "basis": "Manufacturer-documented inch range, converted to SI.",
+      "derivation": "40 inch * 0.0254 m/inch",
+      "source_url": "https://manuals.harborfreight.com/manuals/96000-96999/96811-792363968119.pdf",
+      "source_sha256": "a486b18f2445e9a74fd1230a538f6bbf602ac46e1e3eb6f7d9c165c0ecf14489"
+    },
+    {
+      "pointer": "/parameters/reference_maximum_length",
+      "category": "DERIVED",
+      "basis": "Manufacturer-documented inch range, converted to SI.",
+      "derivation": "70 inch * 0.0254 m/inch",
+      "source_url": "https://manuals.harborfreight.com/manuals/96000-96999/96811-792363968119.pdf",
+      "source_sha256": "a486b18f2445e9a74fd1230a538f6bbf602ac46e1e3eb6f7d9c165c0ecf14489"
+    },
+    {
+      "pointer": "/assemblies/0/bodies/0/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/0/bodies/0/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/0/bodies/0/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/0/bodies/0/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/0/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/0/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/0/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/0/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/1/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/1/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/1/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/1/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/shapes/0/size/0",
+      "category": "DERIVED",
+      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "derivation": "2.5 inch * 0.0254 m/inch",
+      "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+    },
+    {
+      "pointer": "/assemblies/1/bodies/2/shapes/0/size/2",
+      "category": "DERIVED",
+      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "derivation": "4 inch * 0.0254 m/inch",
+      "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/shapes/0/size/0",
+      "category": "DERIVED",
+      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "derivation": "2.5 inch * 0.0254 m/inch",
+      "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+    },
+    {
+      "pointer": "/assemblies/1/bodies/3/shapes/0/size/2",
+      "category": "DERIVED",
+      "basis": "Separate commercial US Cargo Control pad envelope; not a dimension of Harbor Freight96811.",
+      "derivation": "4 inch * 0.0254 m/inch",
+      "source_url": "https://www.uscargocontrol.com/products/round-tube-cargo-load-bars-w-2x4-pads-4-pack.json",
+      "source_sha256": "fe11382d0fa409e6c85e7a7b7532f7af771df8a4fa991b68d8b0e77dd314a96b"
+    },
+    {
+      "pointer": "/assemblies/1/bodies/4/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/4/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/4/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/4/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/5/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/5/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/5/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/5/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/6/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/6/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/6/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/6/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/7/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/7/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/7/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/7/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/8/bounds_min",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/8/bounds_max",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/8/diagonal_inertia",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/assemblies/1/bodies/8/center_of_mass",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored primitive envelopes and authored mass. Not measured hardware.",
+      "derivation": "primitives.body: axis bounds; midpoint COM; bounding-box-equivalent mass tensor m*(b^2+c^2)/12."
+    },
+    {
+      "pointer": "/parameters/authored_pinion_pitch_radius",
+      "category": "DERIVED",
+      "basis": "Exact authored gearing/load geometry.",
+      "derivation": "R=pitch*20/(2*pi); extension=7*(2*pi/24)*R; each compression=(extension-0.020)/2, respectively."
+    },
+    {
+      "pointer": "/parameters/authored_initial_extension",
+      "category": "DERIVED",
+      "basis": "Exact authored gearing/load geometry.",
+      "derivation": "R=pitch*20/(2*pi); extension=7*(2*pi/24)*R; each compression=(extension-0.020)/2, respectively."
+    },
+    {
+      "pointer": "/parameters/authored_initial_pad_compression",
+      "category": "DERIVED",
+      "basis": "Exact authored gearing/load geometry.",
+      "derivation": "R=pitch*20/(2*pi); extension=7*(2*pi/24)*R; each compression=(extension-0.020)/2, respectively."
+    },
+    {
+      "pointer": "/initial_joint_values",
+      "category": "DERIVED",
+      "basis": "Initial contact-compatible prepared layout.",
+      "derivation": "Initial q derived in generate_scene.py from seven ratchet pitches, symmetric pad compression and -extension/R; remaining joints zero."
+    }
+  ],
+  "independently_measured_hardware": false
+}

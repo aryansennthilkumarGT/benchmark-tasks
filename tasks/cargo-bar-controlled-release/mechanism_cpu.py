@@ -98,7 +98,7 @@ def probe(folder):
  contacts.sort(key=lambda r:-abs(r['normal_force_N']))
  return dict(kind='SUPPLEMENTAL_MUJOCO_DIAGNOSTIC_CAM_ACTUATION',engine=mujoco.__version__,isaac_executed=False,robot_executed=False,
              test_rig_actuators=True,test_rig_handle_torque_cap_Nm=.25,robot_grasp_validated=False,pawl_clearance_lower_bounds_m=clearances,virtual_gear_constraint=False,checks=rows,actuator_force=data.actuator_force.tolist(),contacts=contacts[:25],
-             passed=min(clearances.values())>=.0008 and rows[-1]['joints']['handle_rotation']>2.45 and rows[-1]['contact_depth_m']<.00035 and all(j['lower']-(.0003 if j['kind']=='prismatic' else .03)<=r['joints'][j['name']]<=j['upper']+(.0003 if j['kind']=='prismatic' else .03) for a in spec['assemblies'] for j in a['joints'] for r in rows))
+             passed=min(clearances.values())>=.0008 and rows[-1]['joints']['handle_rotation']>2.45 and max(r['contact_depth_m'] for r in rows)<.00035 and all(j['lower']-(.0003 if j['kind']=='prismatic' else .03)<=r['joints'][j['name']]<=j['upper']+(.0003 if j['kind']=='prismatic' else .03) for a in spec['assemblies'] for j in a['joints'] for r in rows))
 
 if __name__=='__main__':
  d=probe(Path(__file__).resolve().parent);print(json.dumps(d,indent=2));raise SystemExit(0 if d['passed'] else 1)

@@ -1,8 +1,8 @@
 """Feedback primitives for the official YAM absolute-joint action interface.
 
 All motion is produced as 14 joint/gripper targets. This module never sets body
-poses, attaches objects, or changes scores. This controller uses robot proprioception only; object waypoints are authored
-constants. Native geometry is read solely by the independent scorer.
+poses, attaches objects, or changes scores. This low-level module reads robot proprioception. The SAC-independent cargo
+controller also reads native task state through feedback.py for physical interfaces.
 """
 from __future__ import annotations
 import math

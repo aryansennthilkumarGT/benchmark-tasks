@@ -1,35 +1,25 @@
-"""Run the real controller against ideal joint tracking and assumed jaw contact.
-
-This catches IK branch failures, timeouts and action-limit overruns. Synthetic
-contact apertures are fixtures, not evidence that a physical grasp succeeds.
-"""
+"""Actual robot controller with explicitly ideal/synthetic task feedback, not physics."""
 import json
 from pathlib import Path
-import numpy as np
-from yam_arena.constants import READY
-from feedback import Controller,ControlFailure,rotate
+from feedback import Controller,ControlFailure
+from ideal_fixture import IdealFixture
+from scoring import Scorer
 
 
 def audit(folder):
-    spec=json.loads((folder/'scene.json').read_text());plan=json.loads((folder/'controller.json').read_text())
-    controller=Controller(plan,spec);q=np.tile(np.r_[READY,1.],2)
-    record=dict(kind='OFFLINE_IDEAL_JOINT_TRACKING_WITH_SYNTHETIC_CONTACT_APERTURES',
-                physics_executed=False,grasps_validated=False,passed=False)
-    try:
-        for step in range(spec['run_limit']):
-            command=controller.step(q,{'time':step/spec['control_hz']})
-            q=command.copy()
-            for side,p in controller.targets.items():
-                if not p.get('grasp_width',0.):continue
-                width=p['grasp_width']
-                i=6 if side=='left' else 13
-                q[i]=max(q[i],width/.0939)
-            if controller.done:
-                record.update(passed=True,actions=step+1,simulated_seconds=(step+1)/spec['control_hz']);break
-        else:record['error']='Controller did not complete within action limit'
-    except ControlFailure as exc:record['error']=str(exc)
-    record.update(last_phase=controller.index,phase_count=len(plan['phases']),events=controller.events)
-    print(json.dumps(record,indent=2));return 0 if record['passed'] else 1
-
-
+ fixture=IdealFixture(folder);c=Controller(fixture.plan,fixture.spec);judge=Scorer(fixture.spec);error=None;result=None;first_failure=None;constraint_peak=None;old_residual=0.
+ for step in range(fixture.spec['run_limit']):
+  frame=fixture.frame();result=judge.update(frame);index=c.index
+  if result.failure and first_failure is None:first_failure=dict(step=step,phase=index,label=c.phases[index]['label'],reason=result.failure,frame=frame)
+  try:command=c.step(fixture.q,frame)
+  except (ControlFailure,KeyError,ValueError) as exc:error=str(exc);break
+  fixture.advance(c,command,index)
+  if fixture.residual>old_residual:constraint_peak=dict(step=step,phase=index,label=c.phases[index]['label'],residual_m=fixture.residual);old_residual=fixture.residual
+  if c.done:break
+ report=dict(kind='OFFLINE_IDEAL_TRACKING_SYNTHETIC_PHYSICAL_FEEDBACK',physics_executed=False,native_feedback_synthetic=True,
+             grasps_validated=False,released_support_assumed=True,actions=step+1,simulated_seconds=(step+1)/20,
+             phases=c.index,phase_count=len(c.phases),max_grasp_constraint_residual_m=fixture.residual,
+             synthetic_score=result.score if result else None,scorer_failure=result.failure if result else None,first_failure=first_failure,constraint_peak=constraint_peak,error=error,events=c.events,
+             passed=bool(c.done and error is None and result and result.success and fixture.residual<.001))
+ print(json.dumps(report,indent=2));return 0 if report['passed'] else 1
 if __name__=='__main__':raise SystemExit(audit(Path(__file__).resolve().parent))

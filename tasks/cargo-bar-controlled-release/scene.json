@@ -1,7 +1,7 @@
 {
   "slug": "cargo-bar-controlled-release",
   "title": "Release and shorten a clamped cargo load bar",
-  "instruction": "Control the loaded inner tube, release the latch and raise the handle fully forward, then shorten the cargo bar clear of both walls and lower it onto the cradles. Leave it unloaded, with the handle forward and both grippers clear.",
+  "instruction": "Remove the clamping load and shorten the cargo bar until both feet clear the walls. Leave it unloaded on both cradles with both grippers clear.",
   "control_hz": 20,
   "physics_dt": 0.0010416666666666667,
   "gravity": [
@@ -303,7 +303,7 @@
             -0.0,
             0.7071067811865476
           ],
-          "mass": 0.6,
+          "mass": 0.85,
           "shapes": [
             {
               "kind": "box",
@@ -5733,9 +5733,9 @@
           ],
           "anchor": false,
           "diagonal_inertia": [
-            0.01845327619310544,
-            0.0008840636931054343,
-            0.018490812500000002
+            0.02614214127356604,
+            0.0012524235652326987,
+            0.026195317708333336
           ],
           "center_of_mass": [
             0.021,
@@ -5757,7 +5757,7 @@
             -0.0,
             0.7071067811865476
           ],
-          "mass": 0.42,
+          "mass": 0.48,
           "shapes": [
             {
               "kind": "box",
@@ -9356,9 +9356,9 @@
           ],
           "anchor": false,
           "diagonal_inertia": [
-            0.013061593852799027,
-            5.9968852799025434e-05,
-            0.013045375000000003
+            0.014927535831770318,
+            6.853583177031477e-05,
+            0.014909000000000004
           ],
           "center_of_mass": [
             8.673617379884035e-19,
@@ -9506,7 +9506,7 @@
             -0.5609855267969309,
             0.43045933457687946
           ],
-          "mass": 0.07,
+          "mass": 0.16,
           "shapes": [
             {
               "kind": "cylinder",
@@ -25968,9 +25968,9 @@
           ],
           "anchor": false,
           "diagonal_inertia": [
-            1.8818960238351742e-05,
-            3.4819480119175875e-05,
-            3.4819480119175875e-05
+            4.301476625908969e-05,
+            7.958738312954485e-05,
+            7.958738312954485e-05
           ],
           "center_of_mass": [
             0.0,
@@ -28475,7 +28475,7 @@
   "limitations": [
     "Original benchmark fixture, not OEM dimensional compatibility or measured cargo rating.",
     "Steel gear/rack/pawls and spring-pad surrogates preserve contact-driven advancement/retention. Pad compliance is authored, not measured rubber data.",
-    "Bar is prepositioned on passive weight-support cradles. No vehicle, live cargo or load certification is simulated."
+    "Bar starts clamped 4mm above the weight-support cradles. No vehicle, live cargo or load certification is simulated."
   ],
   "initial_joint_values": {
     "telescope": 0.023333333333333334,

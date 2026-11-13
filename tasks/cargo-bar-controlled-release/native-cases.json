@@ -1,0 +1,347 @@
+{
+  "schema": 1,
+  "physics": [
+    {
+      "name": "preloaded_free_root_gravity_hold",
+      "steps": 40,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "telescope",
+          "min": 0.0223,
+          "max": 0.0244
+        },
+        {
+          "kind": "displacement",
+          "body": "outer_tube",
+          "min": 0.0,
+          "max": 0.003
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "still",
+          "body": "outer_tube",
+          "speed": 0.008,
+          "spin": 0.15
+        }
+      ]
+    },
+    {
+      "name": "closed_keeper_resists_handle_without_trigger",
+      "steps": 10,
+      "settle_steps": 10,
+      "forces": [
+        {
+          "assembly": "cargo_bar_asset",
+          "body": "handle",
+          "torque": [
+            0,
+            0,
+            0.04
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "handle_rotation",
+          "min": -0.03,
+          "max": 0.12
+        },
+        {
+          "kind": "joint",
+          "joint": "trigger_pull",
+          "min": -0.0003,
+          "max": 0.001
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ]
+    },
+    {
+      "name": "holding_pawl_blocks_reverse_rack",
+      "steps": 6,
+      "settle_steps": 10,
+      "forces": [
+        {
+          "assembly": "cargo_bar_asset",
+          "body": "inner_tube",
+          "force": [
+            0,
+            -3.0,
+            0
+          ]
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "body": "outer_tube",
+          "force": [
+            0,
+            3.0,
+            0
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "telescope",
+          "min": 0.0223,
+          "max": 0.0244
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ]
+    },
+    {
+      "name": "initialized_released_pawls_allow_retraction",
+      "initialize_joints": [
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "handle_rotation",
+          "value": 2.6
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "holding_pawl_rotation",
+          "value": 0.35743456752401664
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "driving_pawl_rotation",
+          "value": 0.24402356501622563
+        }
+      ],
+      "steps": 6,
+      "settle_steps": 10,
+      "forces": [
+        {
+          "assembly": "cargo_bar_asset",
+          "body": "inner_tube",
+          "force": [
+            0,
+            -3.0,
+            0
+          ]
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "body": "outer_tube",
+          "force": [
+            0,
+            3.0,
+            0
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "telescope",
+          "min": -0.0003,
+          "max": 0.02
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ]
+    },
+    {
+      "name": "initialized_cradle_release_relaxation",
+      "steps": 80,
+      "settle_steps": 0,
+      "initialize_bodies": [
+        {
+          "assembly": "cargo_bar_asset",
+          "free_articulation_root": true,
+          "pos": [
+            0.24,
+            0,
+            0.7935000000000001
+          ],
+          "quat": [
+            0,
+            -0.7071067811865476,
+            0,
+            0.7071067811865476
+          ]
+        }
+      ],
+      "initialize_joints": [
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "telescope",
+          "value": 0.003
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "pinion_rotation",
+          "value": -0.23561944901923446
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "left_compliance",
+          "value": 0.0
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "right_compliance",
+          "value": 0.0
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "handle_rotation",
+          "value": 2.6
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "trigger_pull",
+          "value": 0.0
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "holding_pawl_rotation",
+          "value": 0.35743456752401664
+        },
+        {
+          "assembly": "cargo_bar_asset",
+          "joint": "driving_pawl_rotation",
+          "value": 0.24402356501622563
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "pose",
+          "body": "outer_tube",
+          "pos": [
+            0.24,
+            0,
+            0.7935000000000001
+          ],
+          "tolerance": 0.002
+        },
+        {
+          "kind": "joint",
+          "joint": "telescope",
+          "min": -0.00025,
+          "max": 0.006
+        },
+        {
+          "kind": "joint",
+          "joint": "trigger_pull",
+          "min": -0.00025,
+          "max": 0.001
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "still",
+          "body": "outer_tube",
+          "speed": 0.008,
+          "spin": 0.15
+        },
+        {
+          "kind": "axis",
+          "body": "outer_tube",
+          "local_axis": [
+            0,
+            1,
+            0
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0.05
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "release_latch_and_open_both_pawls",
+      "through_phase": 9,
+      "through_label": "Verify both physical pawls clear",
+      "max_steps": 3500,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "handle_rotation",
+          "min": 2.45,
+          "max": 2.63
+        },
+        {
+          "kind": "joint",
+          "joint": "trigger_pull",
+          "min": 0.007,
+          "max": 0.0093
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "retract_controlled_inner_tube",
+      "through_phase": 11,
+      "through_label": "Retract controlled inner tube",
+      "max_steps": 3500,
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "telescope",
+          "min": -0.0003,
+          "max": 0.0045
+        },
+        {
+          "kind": "joint",
+          "joint": "handle_rotation",
+          "min": 2.45,
+          "max": 2.63
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        },
+        {
+          "kind": "valid"
+        }
+      ]
+    },
+    {
+      "name": "complete_release_and_park",
+      "through_phase": 20,
+      "through_label": "Released unloaded bar hold",
+      "max_steps": 3500,
+      "assertions": [
+        {
+          "kind": "score",
+          "min": 1.0,
+          "max": 1.0,
+          "success": true
+        },
+        {
+          "kind": "penetration",
+          "max": 0.00035
+        }
+      ]
+    }
+  ],
+  "notes": "Authored diagnostic inputs and acceptance bounds, not manufacturer forces. Initialized physics cases are never robot demonstrations. Every case repeats after a real native reset."
+}

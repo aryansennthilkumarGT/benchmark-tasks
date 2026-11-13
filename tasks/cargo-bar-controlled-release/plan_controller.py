@@ -23,14 +23,14 @@ def make_plan(spec,reference):
  def phase(label,side,target,tool,opening,contact=None,width=0.,dwell=.15,speed=.045,checks=None,
            reference_body=None,reference_offset=None,reference_quat=None,world_offset=None,live=False,**extra):
   p=dict(label=label,side=side,target=dict(pos=list(target),quat=list(tool)),opening=opening,contact_body=contact,
-         grasp_width=width,dwell=dwell,speed=speed,timeout=45.,position_tolerance=.00035,angle_tolerance=.025,
+         grasp_width=width,contact_bodies=([contact,'release_trigger'] if contact=='handle' and width else [contact] if contact else []),dwell=dwell,speed=speed,timeout=45.,position_tolerance=.00035,angle_tolerance=.025,
          joint_checks=checks or [],nominal_bodies=nominal(),nominal_joints=js.copy(),reference_live=live,**extra)
   if reference_body:p.update(reference_body=reference_body,reference_offset=list(reference_offset),reference_quat=list(reference_quat),world_offset=list(world_offset or [0,0,0]))
   phases.append(p)
  def point(body,local,up):
   b=nominal()[body];return (np.array(b['pos'])+rotate(b['quat'],local)+[0,0,up]).tolist()
  local_side=multiply(conjugate(base),sideways).tolist()
- def inner(label,opening,width=0.,up=.027,dwell=.15,live=False,checks=None):
+ def inner(label,opening,width=0.,up=.010,dwell=.15,live=False,checks=None):
   phase(label,'left',point('inner_tube',[0,.24,0],up),sideways,opening,'inner_tube',width,dwell=dwell,
         reference_body='inner_tube',reference_offset=[0,.24,0],reference_quat=local_side,world_offset=[0,0,up],live=live,checks=checks)
  def handle(label,phi,opening=.20,width=.0255,dwell=.10,checks=None,live=True,**extra):
@@ -52,19 +52,20 @@ def make_plan(spec,reference):
  js['trigger_pull']=.0083
  handle('Squeeze latch release',0,dwell=.4,checks=[check('trigger_pull',.007,.0093)])
  rows=sorted(reference['checks'],key=lambda r:r['joints']['handle_rotation']);angles=np.array([r['joints']['handle_rotation'] for r in rows])
- for i in range(1,27):
-  phi=2.6*i/26;js['handle_rotation']=phi
-  for name in ('holding_pawl_rotation','driving_pawl_rotation'):js[name]=float(np.interp(phi,angles,[r['joints'][name] for r in rows]))
-  handle(f'Open release handle increment {i}',phi,checks=[check('handle_rotation',max(0.,phi-.05),min(2.63,phi+.05),True)])
+ phi=2.6;js['handle_rotation']=phi
+ for name in ('holding_pawl_rotation','driving_pawl_rotation'):js[name]=float(np.interp(phi,angles,[r['joints'][name] for r in rows]))
+ handle('Open handle on its physical circular path',phi,dwell=.1,
+        arc=dict(angle=phi,pivot=[0,0,-.032],grip=[.054,.06325,0],world_offset=[0,0,.024],tool_zero=multiply(conjugate(base),down).tolist()),
+        checks=[check('handle_rotation',2.55,2.63,True),check('trigger_pull',.007,.0093)])
  handle('Verify both physical pawls clear',2.6,dwell=.3,pawls_clear=True,checks=[check('handle_rotation',2.45,2.63,True)])
  handle('Hold outer tube through released handle',2.6,dwell=.2,live=False,pawls_clear=True)
  # Left hand feeds the real inner tube while the right hand anchors the outer
  # tube through its held handle. The pinion must backdrive through real contacts.
  js['telescope']=.003;js['pinion_rotation']=-.003/spec['parameters']['authored_pinion_pitch_radius'];js['right_compliance']=0.
  local=np.array([0,.24+.003,0]);tool=sideways
- phase('Retract controlled inner tube','left',(np.array(root['pos'])+rotate(base,local)+[0,0,.027]).tolist(),tool,.18,'inner_tube',.025,
+ phase('Retract controlled inner tube','left',(np.array(root['pos'])+rotate(base,local)+[0,0,.010]).tolist(),tool,.18,'inner_tube',.025,
        speed=.005,checks=[check('telescope',0.,.0045)],reference_body='outer_tube',reference_offset=local,
-       reference_quat=local_side,world_offset=[0,0,.027],live=True)
+       reference_quat=local_side,world_offset=[0,0,.010],live=True)
  inner('Release shortened inner tube',.55)
  inner('Withdraw support fingers',.7,up=.090)
  phase('Park support arm','left',[.24,.25,.92],sideways,1.)
@@ -83,7 +84,7 @@ def make_plan(spec,reference):
  phase('Withdraw release fingers','right',(np.array(root['pos'])+rotate(base,local)+[0,0,.070]).tolist(),tool,.70)
  phase('Park release arm','right',[.23,-.16,.92],down,1.)
  phase('Released unloaded bar hold','right',[.23,-.16,.92],down,1.,dwell=2.5,require_still=True,
-       checks=[check('telescope',0.,.006),check('left_compliance',0.,.0005),check('right_compliance',-.0005,0.),check('handle_rotation',2.45,2.63,True)])
+       checks=[check('telescope',0.,.006),check('left_compliance',0.,.0005),check('right_compliance',-.0005,0.)])
  return dict(schema=1,feedback='READ_ONLY_NATIVE_PHYSICAL_STATE_AND_ROBOT_PROPRIOCEPTION',
              nominal_pose_basis='Exact-scene MuJoCo fixture pawl observations and explicit ideal grasp/placement assumptions; no Isaac or robot demonstration.',phases=phases)
 

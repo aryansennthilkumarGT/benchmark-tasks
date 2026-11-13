@@ -29,13 +29,13 @@ def audit(folder):
             # measured contact aperture, not jaws intersecting a rigid solid.
             aperture=(width+.0003)/.0939
         q[side]=np.r_[solved,aperture]
-        held[side]=p['contact_body']
+        held[side]=p.get('contact_bodies',[p.get('contact_body')])
         hulls={s:arm_hulls(s,q[s]) for s in q}
         contacts=[];table=[]
         for s in hulls:
             collisions=task_collisions(g,hulls[s],spec,p['nominal_bodies'],threshold=.0015)
             for c in collisions:
-                if c['body']==held.get(s) and c['link'] in ('tip_left','tip_right') and c['penetration_m']<=.003:
+                if c['body'] in held.get(s,[]) and c['link'] in ('tip_left','tip_right') and c['penetration_m']<=.003:
                     continue # declared compliant pad/part contact, never palm contact
                 contacts.append(dict(side=s,**c))
             table += [dict(side=s,**r) for r in table_intersections(hulls[s],spec['table_top'])]

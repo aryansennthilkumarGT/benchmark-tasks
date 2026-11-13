@@ -17,7 +17,7 @@ class Controller:
   self.index=0;self.done=False;self.failed=None;self.events=[];self.grasps={};self.thread=None
   self.motion={s:Motion(s,tracking_error_limit=.025) for s in ('left','right')}
   self.targets={};self.started=None;self.last_time=None;self.stable=None;self.best=float('inf');self.progress_time=None
-  self.actions=0;self.recovery=None;self.attempts={}
+  self.actions=0;self.recovery=None;self.attempts={};self.arc_grasps={}
  def fail(self,message):
   self.failed=message;self.events.append(dict(event='FAIL_STOP',phase=self.index,reason=message,time=self.last_time));raise ControlFailure(message)
  def resolve(self,p,frame):
@@ -26,6 +26,35 @@ class Controller:
   out['target']=dict(pos=(np.array(b['pos'])+rotate(b['quat'],p['reference_offset'])+p.get('world_offset',[0,0,0])).tolist(),
                      quat=multiply(b['quat'],p['reference_quat']).tolist())
   return out
+ def arc_pose(self,p,frame,angle):
+  # Capture the actual TCP-to-handle transform at acquisition. The nominal
+  # waypoint cannot correct a held grasp without displacing the loaded rack.
+  grip,tool=self.arc_grasps[self.index];b=frame['bodies']['outer_tube'];rotation=axis_quat([1,0,0],angle)
+  return dict(pos=(np.array(b['pos'])+rotate(b['quat'],np.array(p['arc']['pivot'])+rotate(rotation,grip))).tolist(),
+              quat=multiply(b['quat'],multiply(rotation,tool)).tolist())
+ def arc_action(self,p,frame,q):
+  side=p['side'];motion=self.motion[side];start=0 if side=='left' else 7;arm=q[start:start+6]
+  if self.index not in self.arc_grasps:
+   tcp,rotation=motion.ik.tcp_pose(arm,motion.base);body=frame['bodies']['handle']
+   self.arc_grasps[self.index]=(rotate(conjugate(body['quat']),tcp-np.array(body['pos'])),
+                                multiply(conjugate(body['quat']),motion.ik.matrix_to_quat_xyzw(rotation)))
+  current=frame['joints']['handle_rotation'];target=p['arc']['angle'];radius=max(np.linalg.norm(self.arc_grasps[self.index][0][1:]),1e-6)
+  delta=float(np.clip(target-current,-min(.5*.05,p['speed']*.05/radius),min(.5*.05,p['speed']*.05/radius)))
+  final=self.arc_pose(p,frame,target);tcp,rotation=motion.ik.tcp_pose(arm,motion.base)
+  error=float(np.linalg.norm(tcp-final['pos']));theta=qangle(motion.ik.matrix_to_quat_xyzw(rotation),final['quat'])
+  grip=q[start+6]+float(np.clip(p['opening']-q[start+6],-.1,.1))
+  if motion.reference is not None and np.max(np.abs(motion.reference-arm))>motion.tracking_error_limit:
+   # Hold the previous circle point until the physical robot catches up.
+   return np.r_[motion.reference,grip],error,theta
+  for _ in range(12):
+   pose=self.arc_pose(p,frame,current+delta)
+   solved,pe,re=motion.ik.solve(pose['pos'],pose['quat'],q_init=arm,base_pos=motion.base,iters=150,damping=.015,tol=1e-5)
+   if pe>3e-5 or re>.0001:raise ControlFailure('Circular handle IK failed')
+   if np.any(solved<motion.ik.LOWER+1e-5) or np.any(solved>motion.ik.UPPER-1e-5):raise ControlFailure('Circular handle joint limit')
+   if np.max(np.abs(solved-arm))<=.020001:
+    motion.reference=solved.copy();return np.r_[solved,grip],error,theta
+   delta*=.5
+  raise ControlFailure('Circular handle step cannot meet robot joint rate')
  def bind(self,p,frame):
   if p.get('reference_live'):return p
   out=self.resolve(p,frame);out=dict(out);out.pop('reference_body',None);return out
@@ -73,8 +102,9 @@ class Controller:
   active=self.recovery['phase'] if self.recovery else phase;output=q.copy();error=theta=0.
   try:
    for side,p in self.targets.items():
-    p=self.resolve(p,frame);start=0 if side=='left' else 7
-    action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],p['opening'],speed=p['speed'],angular_speed=.5)
+    original=p;p=self.resolve(p,frame);start=0 if side=='left' else 7
+    if 'arc' in original:action,pe,re=self.arc_action(original,frame,q)
+    else:action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],p['opening'],speed=p['speed'],angular_speed=.5)
     output[start:start+7]=action
     if side==phase['side']:error,theta=pe,re
   except (ControlFailure,KeyError,ValueError) as exc:self.fail(str(exc))

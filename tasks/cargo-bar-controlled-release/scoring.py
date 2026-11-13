@@ -1,4 +1,4 @@
-"""Current physical foot contact/preload and handle retention, independent of path.
+"""Current physical unloading, wall clearance and supported release, independent of path.
 
 No stroke counter advances the rack or creates force. Exact source/model contact
 and actual joint/body telemetry determine outcomes. CPU synthetic frames are not
@@ -67,7 +67,9 @@ class Scorer:
   for n,p in expected.items():
    if math.dist(bs[n]['pos'],p['pos'])>.0006 or qangle(bs[n]['quat'],p['quat'])>.025:return self.fail('broken_joint:'+n)
   for n,b in bs.items():
-   if b['pos'][2]<self.spec['table_top']-.020:return self.fail('lost_part:'+n)
+   definition=self.bodies[n]
+   bottom=min((rotate(b['quat'],corner)+b['pos'])[2] for corner in itertools.product(*zip(definition['bounds_min'],definition['bounds_max'])))
+   if bottom<self.spec['table_top']-.020:return self.fail('lost_part:'+n)
   # Rack and pinion coupling is a physical integrity condition, not a required
   # number of handle strokes or an expert-specific event sequence.
   if abs(js['telescope']+self.spec['parameters']['authored_pinion_pitch_radius']*js['pinion_rotation'])>.0005:return self.fail('rack_pinion_skipped')
@@ -80,7 +82,7 @@ class Scorer:
   unloaded=abs(js['left_compliance'])<=.0005 and abs(js['right_compliance'])<=.0005 and js['telescope']<=self.spec['parameters']['authored_initial_extension']-.002
   clear=unloaded and js['telescope']<=.006 and min(gaps)>=.0045 and all(faces_fit)
   target=self.spec['parameters']['authored_cradle_root']
-  resting=clear and math.dist(bs['outer_tube']['pos'],target)<=.002 and js['handle_rotation']>=2.45 and js['trigger_pull']<=.001
+  resting=clear and math.dist(bs['outer_tube']['pos'],target)<=.002 and js['trigger_pull']<=.001
   still=all(math.sqrt(sum(x*x for x in b['linear']))<=.008 and math.sqrt(sum(x*x for x in b['angular']))<=.15 for b in bs.values())
   ready=resting and still and f['robot_clearance']>=.020
   if ready:

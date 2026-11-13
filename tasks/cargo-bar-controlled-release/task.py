@@ -33,4 +33,4 @@ def score(objects):
 
 
 def demo():
-    raise RuntimeError("This task uses the robot-proprioception rc_expert policy. Run task_runner.py --output /data/task-evidence --execute; see README.md.")
+    raise RuntimeError("This task uses the read-only-state rc_expert policy. Run task_runner.py --output /data/task-evidence --execute; see README.md.")

@@ -96,16 +96,16 @@ def make_scene():
  outer_shapes+=arc_cam(.046,-3.15,-1.00,.0330,lambda a:.0345+.007*min(1.,max(0.,(-a-1.00)/1.45)),GEAR)
  outer_shapes+=transformed(ring(.008,.012,.014,count=40,color=BLUE),quat([0,1,0],math.pi/2),[.039,0,GEAR[2]])
  a=-3.15;outer_shapes.append(box([.046,.0255*math.sin(a),GEAR[2]+.0255*math.cos(a)],[.006,.002,.033],BLUE,quat([1,0,0],-a)))
- outer=member('outer_tube',[0,0,0],outer_shapes,.60)
+ outer=member('outer_tube',[0,0,0],outer_shapes,.85)
  inner_shapes=transformed(ring(.009,.0125,.600,count=40,color=STEEL),quat([1,0,0],math.pi/2),[0,.270,0])
  # Pinion is offset32mm from the tube axis. The rack pitch plane is exactly
  # one pitch radius from its centre, with50um radial design clearance.
  inner_shapes+=transformed(rack(length=.10,pitch_plane=GEAR[2]+RADIUS+.00005,phase=PITCH/2),[0,0,0,1],[0,-.040,0])
- inner=member('inner_tube',[0,0,0],inner_shapes,.42)
+ inner=member('inner_tube',[0,0,0],inner_shapes,.48)
  left=member('left_pad',[0,-.584,0],[box([0,0,0],[.0635,.012,.1016],RUBBER)],.06)
  right=member('right_pad',[0,.584,0],[box([0,0,0],[.0635,.012,.1016],RUBBER)],.06)
  gears=pinion()+transformed(ratchet_wheel(),quat([1,0,0],.029),[.016,0,0])+[cylinder([0,0,0],.0048,.066,STEEL,quat([0,1,0],math.pi/2))]
- gear=member('gear_set',GEAR,gears,.07)
+ gear=member('gear_set',GEAR,gears,.16)
  handle_shapes=[box([.054,.034,0],[.006,.072,.008],BLUE),box([.054,.070,0],[.036,.012,.010],BLUE)]
  handle_shapes+=transformed(ring(.0054,.0062,.032,count=40,color=BLUE),quat([0,1,0],math.pi/2),[.040,0,0])
  a=2.82;handle_shapes.append(box([.040,.017*math.sin(a),.017*math.cos(a)],[.006,.003,.028],BLUE,quat([1,0,0],-a)))
@@ -132,7 +132,7 @@ def make_scene():
           'left_compliance':initial_pad,'right_compliance':-initial_pad}
  for j in joints:j['initial']=initial.get(j['name'],0.)
  spec=dict(slug='cargo-bar-controlled-release',title='Release and shorten a clamped cargo load bar',
-   instruction='Control the loaded inner tube, release the latch and raise the handle fully forward, then shorten the cargo bar clear of both walls and lower it onto the cradles. Leave it unloaded, with the handle forward and both grippers clear.',
+   instruction='Remove the clamping load and shorten the cargo bar until both feet clear the walls. Leave it unloaded on both cradles with both grippers clear.',
    control_hz=20,physics_dt=1/960,gravity=[0,0,-9.81],run_limit=5000,table_top=TABLE,hold_seconds=2.,penetration_limit=.00035,
    assemblies=[dict(name='wall_frame_asset',origin=frame['pos'],fixed=True,bodies=[frame],joints=[]),
                dict(name='cargo_bar_asset',origin=initial_root['pos'],fixed=False,bodies=mechanism,joints=joints)],
@@ -143,7 +143,7 @@ def make_scene():
       authored_gear_teeth=20,authored_ratchet_teeth=24,authored_ratchet_phase=.029,authored_fixture_geometry=True),
    limitations=['Original benchmark fixture, not OEM dimensional compatibility or measured cargo rating.',
        'Steel gear/rack/pawls and spring-pad surrogates preserve contact-driven advancement/retention. Pad compliance is authored, not measured rubber data.',
-       'Bar is prepositioned on passive weight-support cradles. No vehicle, live cargo or load certification is simulated.'])
+       'Bar starts clamped 4mm above the weight-support cradles. No vehicle, live cargo or load certification is simulated.'])
 
  from kinematics import reconstruct
  poses=reconstruct(spec,initial_root,{j['name']:j['initial'] for j in joints})

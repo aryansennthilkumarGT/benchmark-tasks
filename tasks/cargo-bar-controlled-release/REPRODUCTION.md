@@ -1,0 +1,15 @@
+# Physical reproduction and measurement plan
+
+This original benchmark fixture is not an OEM spare part. SI geometry in scene.json, generator profiles and PARAMETERS.md control the drawing. The anchored frame and free articulated bar use original solids; no external CAD download is required.
+
+Fabricate the220×1320×10mm base with160×22×140mm walls centered at y±611mm; inner faces1200mm apart. Cradles at y±300mm have tops28/33.5mm above datum and guide posts from the primitive table. Bolt the frame to the table. Cradles support weight after unloading and must not anchor the bar.
+
+Machine600mm aluminium tubes to OD36/ID28 and OD25/ID18mm. Reproduce the outer90mm service window exactly. Attach the100mm steel rack. Manufacture20-tooth pinion and24-tooth ratchet from gearing.py and scene vertices, with authored phase0.029rad. These profiles do not claim a standard purchased gear designation. Install the shaft, annular bearings, separate pawls/springs, handle, cams and trigger/keeper using exact joint pivots. Both noses must physically lift; do not substitute a scripted clutch or remote release.
+
+Fit63.5×101.6×12mm elastomer-faced foot cartridges with guided4mm travel. Adjust and measure12kN/m effective stiffness and the damping target; these are design targets, not existing hardware measurements. Body masses and bounding-equivalent tensors are simulation specifications. Weigh and trim noncontact ballast where practical; report deviations instead of inventing measurements. Dry-contact and greased-cam friction require measurement. No physical matching is claimed.
+
+Prepare table datum z747.5mm, frame x240/y0mm. Rotate bar−90° aboutY; outer root(240,−11.666667,797.5)mm. Set telescope23.333333mm, pinion−1.832595715rad, feet±1.666667mm compressed and other joints zero. Initial bar is4mm above its receiving cradle and must hold by preload. Confirm no hidden support, pre-released keeper or missing pawl. Arms start stock READY, seed0, no jitter.
+
+Use calipers for guides/trigger/gaps, dial indicators for spring compression and rack motion, angle images for release, a scale and documented inertia method for measured-body claims, and a force gauge for spring calibration. A reference grid or tracking measures the outer datum within2mm and foot gaps≥4.5mm. Two seconds of stationary video with fingers≥20mm away confirms final release. Native test forces are authored diagnostics, not manufacturer requirements or human operating instructions.
+
+No hardware has been fabricated or measured. Retain original readings, calibrated instrument records, scale photos and uncertainties before adding independently measured provenance. Manufacturing tolerances are not established; report actual deviations and regenerate affected geometry when necessary. This fixture provides no vehicle cargo rating.
