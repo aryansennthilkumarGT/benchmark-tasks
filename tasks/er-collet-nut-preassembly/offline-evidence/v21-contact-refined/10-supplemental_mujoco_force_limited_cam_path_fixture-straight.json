@@ -1,0 +1,279 @@
+{
+  "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+  "engine": "3.3.7",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "exact_scene_reset": true,
+  "pose_writes_during_run": false,
+  "force_cap_N": 5.0,
+  "torque_cap_Nm": 0.1,
+  "strategy": "straight",
+  "box_contact_backend": "mesh",
+  "geometry_identical_eight_corner_hulls": true,
+  "expected_outcome": "direct_entry_does_not_seat_validly",
+  "peak_force_N": 1.83187029409024,
+  "peak_torque_Nm": 0.03871973482222925,
+  "speed_m_s": 0.003,
+  "physics_dt_s": 0.0020833333333333333,
+  "input_sha256": {
+    "scene.json": "431066fa38dd0a5b970c5c9150fb2d3420f066800e3c2306d9e7b83b6910bacb",
+    "controller.json": "1e35f854b55b9bba84b8dc887b645aab154879bef53c5e5a659d98119ab6e045",
+    "probe_cam_path_cpu.py": "2662342e64d95a3451963bab0263de7f55d388d783186ff8b4f6b9862011131c",
+    "cpu_contact_probe.py": "283255cfac0a9d91e4e1c77014f1d3fc0c6192e1bc3b16ea502c75bbc4e8339f",
+    "scoring.py": "61c8a3d8c4a2d835c06e9d7bf2da013a0aa87ce7db516fc5b89b06a8b98c84f5",
+    "convex_box_backend.py": "9a47a7666a62218dbd7bf1ecfca6dd7a37e267ec6d5ba942b52bba0ae639069e"
+  },
+  "checks": [
+    {
+      "phase": 4,
+      "label": "Lift collet from cradle",
+      "time": 1.2770833333333442,
+      "position_error_m": 1.2449657305069197e-08,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.28000000000000014,
+        -0.17000000000000007,
+        0.8700000124496573
+      ],
+      "quat": [
+        -7.451364146017447e-14,
+        -8.543894407065471e-14,
+        1.7393257419593862e-14,
+        1.0
+      ]
+    },
+    {
+      "phase": 5,
+      "label": "Transfer above supported nut",
+      "time": 4.389583333333245,
+      "position_error_m": 9.842087476353308e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23999999774577485,
+        9.58045692599765e-09,
+        0.8699999999999999
+      ],
+      "quat": [
+        -7.451027811198215e-14,
+        -8.543894407065471e-14,
+        1.7393257419593862e-14,
+        1.0
+      ]
+    },
+    {
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "time": 26.089583333340613,
+      "position_error_m": 0.002914418620239075,
+      "rotation_error_rad": 0.08583605653378132,
+      "pos": [
+        0.2402789783359832,
+        -2.8435051042716453e-08,
+        0.8084010355015476
+      ],
+      "quat": [
+        -6.635408239715969e-07,
+        0.04290485393445498,
+        -1.036298019470256e-06,
+        0.9990791627830844
+      ]
+    }
+  ],
+  "sampled_geometric_peak_overlap_m": 0.0,
+  "geometric_samples": 582,
+  "refinement_factor": 1,
+  "peak_state": null,
+  "peak_solver_contact_depth_m": 0.0,
+  "solver_contact_distance_is_not_obb_penetration": true,
+  "final_pos": [
+    0.24045438170131758,
+    1.087713908048753e-06,
+    0.8073425696495938
+  ],
+  "final_quat": [
+    5.252769309237621e-05,
+    0.07734106639261537,
+    0.00042873921580171,
+    0.9970046002264878
+  ],
+  "final_error_m": 0.0018977689077488277,
+  "final_angle_rad": 0.15483917779300746,
+  "diagnostic_scorer": {
+    "score": 0.0,
+    "success": false,
+    "failure": null,
+    "frames": 582,
+    "last_frames": [
+      {
+        "time": 28.10000000000888,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 8.72421954117869e-06,
+        "max_spin": 2.4216705403369615e-06
+      },
+      {
+        "time": 28.15000000000892,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 8.723662021969492e-06,
+        "max_spin": 2.422337786587622e-06
+      },
+      {
+        "time": 28.20000000000896,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 8.723104515594905e-06,
+        "max_spin": 2.4230051090699867e-06
+      },
+      {
+        "time": 28.250000000009,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 8.722547138854077e-06,
+        "max_spin": 2.423672027432212e-06
+      },
+      {
+        "time": 28.30000000000904,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 8.721989774119217e-06,
+        "max_spin": 2.424339425694021e-06
+      },
+      {
+        "time": 28.35000000000908,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 9.992772356234843e-06,
+        "max_spin": 0.00014469996078977056
+      },
+      {
+        "time": 28.40000000000912,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0166566873509571e-05,
+        "max_spin": 0.0001702261138874907
+      },
+      {
+        "time": 28.450000000009158,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.011226511558101e-05,
+        "max_spin": 0.00017073555715842534
+      },
+      {
+        "time": 28.500000000009198,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0052352190378359e-05,
+        "max_spin": 0.00016966381770697734
+      },
+      {
+        "time": 28.550000000009238,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0665698563157026e-05,
+        "max_spin": 7.68880101035244e-05
+      },
+      {
+        "time": 28.600000000009278,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0914225624849363e-05,
+        "max_spin": 7.482544521854025e-05
+      },
+      {
+        "time": 28.650000000009317,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.091273508515914e-05,
+        "max_spin": 7.482820613134646e-05
+      },
+      {
+        "time": 28.700000000009357,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.091145331875802e-05,
+        "max_spin": 7.481991822681104e-05
+      },
+      {
+        "time": 28.750000000009397,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0910171836041704e-05,
+        "max_spin": 7.481161687129855e-05
+      },
+      {
+        "time": 28.800000000009437,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0908890489962606e-05,
+        "max_spin": 7.480331669645996e-05
+      },
+      {
+        "time": 28.850000000009477,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0907609182205703e-05,
+        "max_spin": 7.479501815908787e-05
+      },
+      {
+        "time": 28.900000000009516,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0906328142215749e-05,
+        "max_spin": 7.478671826814301e-05
+      },
+      {
+        "time": 28.950000000009556,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0905047085213212e-05,
+        "max_spin": 7.477842036941233e-05
+      },
+      {
+        "time": 29.000000000009596,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.090376619015521e-05,
+        "max_spin": 7.477012376031043e-05
+      },
+      {
+        "time": 29.050000000009636,
+        "released": true,
+        "score": 0.0,
+        "stable_since": null,
+        "max_speed": 1.0920415889182808e-05,
+        "max_spin": 7.552548057170304e-05
+      }
+    ]
+  },
+  "fixture_contact_sentinel_not_robot_clearance": true,
+  "first_failure": null,
+  "physical_straight_entry_blocking_demonstrated": true,
+  "limitations": [
+    "No YAM robot, grasp or actuation validation.",
+    "All wrench gains/caps are authored fixture inputs.",
+    "Geometry samples at20Hz; no continuous-overlap guarantee.",
+    "Primitive box backend produced false contact distances/crossing; exact convex-box backend is separately verified."
+  ],
+  "passed": true
+}
