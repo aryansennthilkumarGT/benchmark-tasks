@@ -10,7 +10,8 @@ import argparse,gzip,hashlib,importlib,json,os,subprocess,sys,time
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import mujoco,numpy as np
-from cpu_yam_dynamics import add_robots,initialize_robot,measured,command_robot,robot_sources
+from cpu_yam_dynamics import add_robots,initialize_robot,measured,command_robot,robot_sources,indexes
+from yam_arena.constants import SHOULDER,WRIST,GRIPPER,ARM_JOINTS,FINGER_JOINTS
 
 
 def load(folder):
@@ -36,6 +37,12 @@ def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600):
  g=modules['audit_geometry'].geometry_module(folder);control=modules['feedback'].Controller(plan,spec);judge=modules['scoring'].Scorer(spec)
  ticks=round(1/spec['control_hz']/m.opt.timestep)
  if abs(ticks*m.opt.timestep-1/spec['control_hz'])>1e-10:raise ValueError('Physics/control clocks are not integral')
+ velocity_dofs=[];velocity_limits=[]
+ for ids in indexes(m).values():
+  for n,jid in zip(ARM_JOINTS+FINGER_JOINTS,ids):
+   cfg=GRIPPER if n in FINGER_JOINTS else SHOULDER if n in ARM_JOINTS[:3] else WRIST
+   velocity_dofs.append(m.jnt_dofadr[jid]);velocity_limits.append(cfg['velocity'])
+ velocity_dofs=np.asarray(velocity_dofs);velocity_limits=np.asarray(velocity_limits)
  start=time.monotonic();phase=None;error=None;actions=0;peak_task_depth=0.;peak_robot_depth=0.;max_tracking=0.;maximum_velocity_ratio=0.;completed=False;result=None;last_scored_time=None
  def frame():
   nonlocal peak_task_depth,peak_robot_depth
@@ -61,12 +68,7 @@ def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600):
     trace.write(json.dumps(dict(kind='SUPPLEMENTAL_MUJOCO_ROBOT_FRAME',phase=control.index,action=command.tolist(),robot_q=q.tolist(),frame=f))+'\n')
     for _ in range(ticks):
      mujoco.mj_step(m,d)
-     from yam_arena.constants import SHOULDER,WRIST,GRIPPER,ARM_JOINTS,FINGER_JOINTS
-     from cpu_yam_dynamics import indexes
-     for ids in indexes(m).values():
-      for n,jid in zip(ARM_JOINTS+FINGER_JOINTS,ids):
-       cfg=GRIPPER if n in FINGER_JOINTS else SHOULDER if n in ARM_JOINTS[:3] else WRIST
-       maximum_velocity_ratio=max(maximum_velocity_ratio,abs(float(d.qvel[m.jnt_dofadr[jid]]))/cfg['velocity'])
+     maximum_velocity_ratio=max(maximum_velocity_ratio,float(np.max(np.abs(d.qvel[velocity_dofs])/velocity_limits)))
     actions+=1
    f,q=frame()
    if last_scored_time is None or f['time']>last_scored_time:result=judge.update(f)
