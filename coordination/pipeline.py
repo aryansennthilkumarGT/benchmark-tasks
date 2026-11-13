@@ -328,16 +328,35 @@ def run_task(task,args,ledger,python,lock,budget,implementation_hash):
     return stage('READY_FOR_PR',ready_action)['result']
 
 
+
+def verify_paid_candidates(tasks, manifest, manifest_path):
+    """Reject known quality holds before hardware probes, setup or paid workloads."""
+    from offline_gate import verify
+    root = (Path(manifest_path).resolve().parent / manifest.get('offline_evidence_root', '.')).resolve()
+    for task in tasks:
+        require(task.get('offline_state') == 'OFFLINE READY',
+                'Candidate is not offline qualified: ' + task['slug'])
+        verify(task, root)
+
+
+def smoke_validation_command(python, trial, adapter_commit):
+    # Official apple/bowl smoke belongs to the coordinator, not a task package.
+    return [python, str(HERE/'evidence.py'), '--directory', str(trial),
+            '--mode', 'smoke', '--limit', '600', '--commit', adapter_commit]
+
+
 def main(argv=None):
     args=cli(argv);args.run_root=args.run_root.resolve()
     try:
-        tasks=selected(read(args.manifest),args.task);lock=read(HERE/'stack-lock.json')
+        manifest=read(args.manifest);tasks=selected(manifest,args.task);lock=read(HERE/'stack-lock.json')
         if args.dry_run:
             print(json.dumps(plan(tasks,args.run_root,lock),indent=2));return 0
         if args.preflight:
             result=hardware();result['stack_lock']=lock
             result['budget_receipt_present']=args.budget_file.is_file()
             print(json.dumps(result,indent=2));return 3 if result['problems'] else 0
+        if not args.offline:
+            verify_paid_candidates(tasks, manifest, args.manifest)
         implementation_hash=fingerprint({p.name:digest(p) for p in HERE.glob('*.py')})
         with exclusive(args.run_root/'pipeline.lock'):
             ledger=Ledger(args.run_root,resume=args.resume,retry_reason=args.retry_failed)
@@ -372,8 +391,8 @@ def main(argv=None):
                              '--scorer','success_at_end','--max-steps','600','--store-frames','--seed','0',
                              '--environment-revision',lock['adapter']['commit'],'--log-dir',str(trial)],
                             REPO,out/'smoke.log',1800,budget=budget)
-                    execute([python,str(folder/'validate_rollout.py') if (folder/'validate_rollout.py').is_file() else str(HERE/'evidence.py'),'--directory',str(trial),'--mode','smoke',
-                             '--limit','600','--commit',lock['adapter']['commit']],REPO,out/'smoke-validation.log',600)
+                    execute(smoke_validation_command(python, trial, lock['adapter']['commit']),
+                            REPO,out/'smoke-validation.log',600)
                     return read(trial/'validated-rollout.json')
                 gpu_identity = {key: preflight['selected_gpu'][key] for key in ('name', 'uuid', 'driver')}
                 args.gpu_identity = gpu_identity

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T17:37:29.591017+00:00",
+  "updated_at": "2026-11-13T17:42:25.002795+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -317,7 +317,7 @@
         "Quality-first candidate ranking with no stop-after-three",
         "Source-bound offline evidence gate before paid execution"
       ],
-      "cpu_integration_tests_passed": 14,
+      "cpu_integration_tests_passed": 26,
       "native_execution": false,
       "dry_run_pending": false,
       "billing_shutdown_not_automatic": true,
@@ -325,8 +325,13 @@
       "review_artifact_integrity": "Requires five actual named/hash-bound review records and checks report contents, not passed labels alone.",
       "latest_dry_run": "coordination/recovery/top-three-marathon-preview.json",
       "preview_verified_internal_bundles": 3,
-      "latest_affected_test_scope": "coordination/test_marathon.py and test_offline_gate.py",
-      "evidence_path_repair": "Explicit manifest-relative offline_evidence_root resolves repository-root bundle paths. --verify-offline enables real read-only hash/content verification in preview."
+      "latest_affected_test_scope": "25 pipeline/quality/marathon/offline-gate tests plus14 focused tests for final relocation regression",
+      "evidence_path_repair": "Explicit manifest-relative offline_evidence_root resolves repository-root bundle paths. --verify-offline enables real read-only hash/content verification in preview.",
+      "repairs_2026_11_13": [
+        "Direct non-offline pipeline checks source-bound quality bundles before hardware probes/bootstrap; novelty holds block.",
+        "Official apple/bowl smoke uses coordinator evidence validator without undefined task folder.",
+        "Relocated runtime manifest preserves absolute evidence root for the second execution gate."
+      ]
     },
     "cargo": {
       "slug": "cargo-bar-controlled-release",

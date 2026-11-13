@@ -51,7 +51,8 @@ def main(argv=None):
     verify_ready(ready,m,a.manifest)
     a.run_root.mkdir(parents=True,exist_ok=True)
     runtime_manifest=a.run_root/'ranked-source-manifest.json'
-    atomic(runtime_manifest,dict(m,tasks=ready))
+    evidence_root=(a.manifest.resolve().parent / m.get('offline_evidence_root','.')).resolve()
+    atomic(runtime_manifest,dict(m,tasks=ready,offline_evidence_root=str(evidence_root)))
     args=['--all','--manifest',str(runtime_manifest),'--run-root',str(a.run_root),
           '--budget-file',str(a.budget_file),'--launchable-root',str(a.launchable_root),
           '--deadline-unix',str(time.time()+21600)]

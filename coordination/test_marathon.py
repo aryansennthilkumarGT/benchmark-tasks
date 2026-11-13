@@ -57,3 +57,18 @@ def test_preview_verification_fails_on_changed_real_bundle_before_any_runtime(tm
  with pytest.raises(Incomplete,match='bundle changed'),patch.object(marathon.pipeline,'main',side_effect=AssertionError('Paid work executed')):
   marathon.main(['--manifest',str(path),'--run-root',str(tmp_path/'runs'),'--verify-offline'])
  assert not (tmp_path/'runs').exists()
+
+
+def test_relocated_runtime_manifest_keeps_absolute_evidence_root(tmp_path):
+ original=tmp_path/'nested'/'recovery';original.mkdir(parents=True)
+ p=original/'manifest.json';tasks=[task(i,'OFFLINE READY') for i in range(3)]
+ atomic(p,dict(schema_version=3,offline_evidence_root='../..',tasks=tasks))
+ run=tmp_path/'other'/'runs'
+ def inspect_runtime(args):
+  from engine import read
+  manifest=read(run/'ranked-source-manifest.json')
+  assert manifest['offline_evidence_root']==str(tmp_path.resolve())
+  assert len(manifest['tasks'])==3
+  return 0
+ with patch.object(marathon,'verify_ready',return_value=[]),patch.object(marathon.pipeline,'main',side_effect=inspect_runtime):
+  assert marathon.main(['--execute','--manifest',str(p),'--run-root',str(run),'--budget-file','unused','--launchable-root','unused'])==0
