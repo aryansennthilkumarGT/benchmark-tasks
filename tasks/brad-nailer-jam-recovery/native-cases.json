@@ -1,0 +1,259 @@
+{
+  "schema": 1,
+  "physics": [
+    {
+      "name": "initial_preloaded_unpowered_hold",
+      "steps": 60,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "joint",
+          "joint": "door_rotation",
+          "min": -0.005,
+          "max": 0.005
+        },
+        {
+          "kind": "score",
+          "max": 0
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ]
+    },
+    {
+      "name": "secured_crosspin_blocks_door_opening",
+      "steps": 10,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "joint",
+          "joint": "door_rotation",
+          "min": -0.005,
+          "max": 0.005
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "nose_service_asset",
+          "body": "nose_door",
+          "torque": [
+            0,
+            0,
+            -0.02
+          ]
+        }
+      ]
+    },
+    {
+      "name": "closed_nose_retains_bent_brad_normal",
+      "steps": 4,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "displacement",
+          "body": "bent_brad",
+          "min": 0,
+          "max": 0.012
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "bent_brad_asset",
+          "body": "bent_brad",
+          "force": [
+            0,
+            -0.005,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "closed_nose_retains_bent_brad_axial",
+      "steps": 4,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "displacement",
+          "body": "bent_brad",
+          "min": 0,
+          "max": 0.012
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "bent_brad_asset",
+          "body": "bent_brad",
+          "force": [
+            0.005,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "released_bail_allows_door_opening",
+      "steps": 20,
+      "settle_steps": 0,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "joint",
+          "joint": "door_rotation",
+          "min": 0.2,
+          "max": 2.05
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ],
+      "initialize_joints": [
+        {
+          "assembly": "nose_service_asset",
+          "joint": "lever_rotation",
+          "value": -2.1
+        },
+        {
+          "assembly": "nose_service_asset",
+          "joint": "bail_rotation",
+          "value": 2.558
+        },
+        {
+          "assembly": "nose_service_asset",
+          "joint": "bail_extension",
+          "value": 0
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "nose_service_asset",
+          "body": "nose_door",
+          "torque": [
+            0,
+            0,
+            -0.002
+          ]
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "robot_12",
+      "through_phase": 12,
+      "through_label": "Open nose door",
+      "max_steps": 1800,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "joint",
+          "joint": "door_rotation",
+          "min": 1.85,
+          "max": 1.95
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ]
+    },
+    {
+      "name": "robot_19",
+      "through_phase": 19,
+      "through_label": "Release brad into tray",
+      "max_steps": 3000,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "score",
+          "min": 0.5,
+          "max": 0.5
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ]
+    },
+    {
+      "name": "robot_46",
+      "through_phase": 46,
+      "through_label": "Released fixture hold",
+      "max_steps": 5000,
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "score",
+          "min": 1,
+          "max": 1,
+          "success": true
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        }
+      ]
+    }
+  ],
+  "qualification": "NOT_RUN; test inputs authored, not OEM loads"
+}

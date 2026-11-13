@@ -1,0 +1,9 @@
+# Scoped novelty comparison
+
+The occupational operation is clearing a rigid pre-bent brad from an opened nailer nose and then recapturing both ends of a draw-latch crosspin under two fixed arms before taking an independent lever past center. This is a mechanically constrained service operation, not simply opening a clasp or relocating a power tool.
+
+Public RoboCurve PR1467 (*put an unloaded rigid brad nailer in its case without pointing at a coworker*) is the closest identified equipment neighbor. Its operation is tool placement and orientation; it does not expose a trapped fastener, hinged nose, crosspin capture or draw-bail compliance. Its reviewer concerns about an incorrect firing axis and midpoint trigger checks are not evidence of service mechanics. This fixture uses firing+X and does not claim to implement that pointing/trigger-safety task.
+
+The accepted detent-latch-bottle task is a mechanical neighbor: a clasp/lid alone would be weak differentiation. Here the independently trapped fastener and the need to carry an outboard free pin during door closure and engage both capture arms are essential. Removing the brad or the two-arm recapture mechanism would undermine this claimed distinction. Generic latch activation, box opening and fastener placement are not asserted as novel on their own.
+
+Previously retrieved public LIBERO, RoboCasa, BEHAVIOR and RoboDojo catalogs did not identify this exact service procedure. RoboDojo Fasten Screws is deliberately not relabeled here; there is no screw-tightening task. This is a scoped catalog/public-PR screen, not an exhaustive proof of absence. DataCenterBench/full task-board access was restricted; a fresh complete accepted/pending-board review remains required before official submission. novelty-search.json retains the checked primary/public search facts and limitations. Do not convert a provisional comparison into official acceptance or a claim that no similar pending task exists.

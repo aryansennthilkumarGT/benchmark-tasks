@@ -1,0 +1,5 @@
+# Occupational grounding
+
+Carpenters, SOC47-2031, held889,700 US jobs in2025 according to the BLS Occupational Outlook Handbook. BLS explicitly lists nail guns among their power tools; fastening and assembling structural and finish work are core tasks. O*NET independently documents fastening with nails and screws and power-tool work. OSHA/NIOSH's *Nail Gun Safety: A Guide for Construction Contractors* states that nail guns are used every day on many construction jobs and discusses jam clearing and maintenance as safety-relevant operations. SOURCES.json records exact primary URLs and downloaded content hashes.
+
+This bounded task represents recovery from a jam in a commonly used fastening tool. It supports resuming core fastening work; it is not asserted that all carpenters use this particular model or that889,700 workers perform jam recovery at any measured frequency. No unsupported injury-reduction, market-size or time-saving estimate is made. The DeWalt DCN680 manual supplies an identifiable equipment procedure rather than a generic box-opening narrative.

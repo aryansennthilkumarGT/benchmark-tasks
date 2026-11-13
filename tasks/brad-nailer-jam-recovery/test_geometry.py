@@ -58,3 +58,9 @@ def test_normal_straight_shank_fits_but_bent_head_cannot_roll_through_muzzle():
  assert max(widths)>math.hypot(.0035,.0026)
  # This is a necessary axial-roll caging condition, not an exhaustive6D proof.
  # Contact protocols separately test real blocked pulls and opened extraction.
+
+def test_original_usd_assets_rebuild_byte_for_byte(tmp_path):
+ from build_assets import compile_assets
+ compile_assets(SPEC,tmp_path)
+ for a in SPEC['assemblies']:
+  name=a['name']+'.usda';assert (tmp_path/name).read_bytes()==(HERE/'assets'/name).read_bytes()

@@ -1,0 +1,28 @@
+"""Deliberately regenerate numeric provenance; never creates measured evidence."""
+import json,hashlib
+from pathlib import Path
+HERE=Path(__file__).resolve().parent
+
+def write(folder=HERE):
+ s=json.loads((folder/'scene.json').read_text());entries=[dict(pointer='',category='BENCHMARK_AUTHORED',basis='Original service fixture geometry, masses, materials and numerical settings. No OEM dimensional compatibility or physical measurement is claimed.')]
+ def derived(pointer,formula):entries.append(dict(pointer=pointer,category='DERIVED',basis='Computed from explicitly authored geometry.',derivation=formula))
+ for ai,a in enumerate(s['assemblies']):
+  for bi,b in enumerate(a['bodies']):
+   prefix=f'/assemblies/{ai}/bodies/{bi}'
+   for key in ['bounds_min','bounds_max']:derived(prefix+'/'+key,'Extrema of transformed enclosing primitive corners; not a mass model.')
+   for key in ['diagonal_inertia','center_of_mass','principal_axes','nominal_component_mass_kg','density_normalization']:
+    derived(prefix+'/'+key,'mass_properties.py: density-weighted box/cylinder/closed-convex moments; parallel-axis composition; normalized to independently authored total mass; principal eigenframe. Overlapping components count twice; not boolean CAD or weighing.')
+ derived('/parameters/draw_length','norm(PIN_CLOSED - (DOOR_PIVOT+LEVER_PIVOT+ECCENTRIC)); PIN_CLOSED includes explicit 5um numerical initial elastic deflection.')
+ derived('/parameters/draw_rest','draw_length - bail_preload_extension')
+ derived('/parameters/preload_force_N','bail_stiffness * bail_preload_extension')
+ derived('/initial_joint_values','Initial bail angle atan2(PIN_CLOSED-ECCENTRIC_CLOSED); extension = 0.5mm, door/lever =0.')
+ (folder/'parameter-provenance.json').write_text(json.dumps(dict(schema=1,mode='BENCHMARK_AUTHORED',scene_sha256=hashlib.sha256((folder/'scene.json').read_bytes()).hexdigest(),entries=entries,independently_measured_hardware=False),indent=2)+'\n')
+ lines=['# Fixture parameters','','SI units, XYZW quaternions. Every numeric scene field has longest-prefix provenance in parameter-provenance.json bound to the scene SHA. A=benchmark-authored approximation; D=derived. No manufacturer numerical dimension or independently measured value is used. The 18GA product class and procedure are manufacturer statements; this original pre-bent brad is not represented as a standard gauge conversion.','','| Interface | Specification | Class |','|---|---|---|','| Nose / service orientation | root(0.25,0.06,0.84)m; Rx180deg; firing+X, service−Y | A |','| Table | z0.7475m | A |','| Rear trough / muzzle | x10–85 /85–100mm; inner half widths6 /1.3mm | A |','| Closed service gap | floor y−1.5mm to door y2mm:3.5mm | A / D |','| Door | rear81×3×26mm; front15×3×18mm; rear side overhang5mm over narrowed16mm backplate | A / D |','| Door hinge | R2mm shaft /R2.2mm bore;0.2mm radial gap; axisZ | A |','| Lever pivot | door(55,5.2,0)mm; R1.6 shaft /R1.8 bore | A |','| Lever |51×2×17mm plate; stop x7–13mm; eccentric(−5,−1.15,0)mm | A |','| Draw bail | arms z±18mm; ring inner/outer1.05/1.8mm; eccentric R0.9mm | A |','| Axial draw guide | rod R1.0mm /bore R1.1mm;0.1mm radial gap | A |','| Crosspin | R1.1mm ×52mm; ends exposed for stock YAM fingers | A, not OEM projection |','| Capture arms | z±12mm; rear inner face x93.5mm; lip underside y7.4mm; mouth front x98mm | A |','| Closed pin center |(94.6,6.3,0)mm nominal;5um initial elastic contact deflection | A; numerical deflection not machining interference |','| Draw spring |20kN/m,1N·s/m,0.5mm preload=10N | A / D; effective wire compliance, not measured OEM force |','| Brad |45×1×1.2mm stem; pre-bent head5.6mm transverse span;0.5g | A |','| Tray |80×90mm outer;76×86mm inner;20mm walls; world(0.24,−0.28,0.7495)m | A / D |','| Contact | static0.65,dynamic0.50,restitution0; contact offset20um/rest0 | A |','| Integrity | maximum penetration0.20mm; native1920Hz/control20Hz | A numerical tolerances |','','All four parent-child pairs collide. There are no broad adjacency exclusions. Original workholding has a260×360×12mm plate, two supports, two bridges and threaded-clamp surrogates. Every solid position, dimension, color, role and density appears in scene.json. Densities steel7850, aluminium2700, polymer1200kg/m³ are reasonable authored material assumptions; authored target masses normalize the computed moments. Density scales are not real measured material densities.','','| Body | Mass kg(A) | Local COM m(D) | Principal inertia kg·m²(D) | Density scale(D) |','|---|---:|---|---|---:|']
+ for a in s['assemblies']:
+  for b in a['bodies']:lines.append('| '+b['name']+' | '+str(b['mass'])+' | '+', '.join(f'{v:.8g}' for v in b['center_of_mass'])+' | '+', '.join(f'{v:.8g}' for v in b['diagonal_inertia'])+' | '+f'{b["density_normalization"]:.7g}'+' |')
+ lines+=['','| Joint | Limits | Stiffness / damping / rest | Initial |','|---|---|---|---|']
+ for a in s['assemblies']:
+  for j in a['joints']:lines.append(f'| {j["name"]} | {j["lower"]} to {j["upper"]} | {j["stiffness"]} / {j["damping"]} / {j["rest"]} | {j["initial"]:.10g} |')
+ lines+=['','Slide units N/m,N·s/m,m; hinge units N·m/rad,N·m·s/rad,rad. Pivot frames and all joint limits are authored. Draw length/rest and prepared initial angle are derived. Supplemental capped diagnostic wrenches/torques are test inputs, never manufacturer forces or robot capacity estimates.']
+ (folder/'PARAMETERS.md').write_text('\n'.join(lines)+'\n')
+if __name__=='__main__':write()
