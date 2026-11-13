@@ -29,5 +29,3 @@ No independently measured data are claimed. Manufacturer collet dimensions are d
 | material.rest_offset | 0.0 | Benchmark-authored approximation; Uniform contact assumption |
 
 Derived main-cone length=40−3.6−5.5=30.9 mm; groove z=±1.8 mm, nose end −7.3 mm, body end +32.7 mm; cam minimum radial edge=18.5−2.9=15.6 mm. Radial groove clearance at that edge=15.6−14.6=1 mm. Cam axial clearance at upright groove=3.6−0.6=3 mm. Published L1 is a holder-plane reference and is not silently reused as a nut/cam dimension. Faceted and sliced profiles approximate continuous surfaces; source recipe lists all approximants. Physical reproduction needs actual tolerance/mass/friction measurement before comparison.
-
-Scoring stability parameters are benchmark-authored: position drift≤0.4mm and body-axis drift≤0.015rad over a2s sampled hold. Pairwise bounds are maintained independently of solver velocity estimates; collet yaw is irrelevant. These are observable score tolerances, not measured manufacturer motion specifications.

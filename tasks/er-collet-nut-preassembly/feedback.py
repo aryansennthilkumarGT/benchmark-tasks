@@ -55,9 +55,22 @@ class Controller:
         if pos.shape!=(3,) or quat.shape!=(4,) or not np.isfinite(pos).all() or not np.isfinite(quat).all() or abs(np.linalg.norm(quat)-1)>1e-5:
             raise ControlFailure('Invalid physical collet pose')
         off=0 if p['side']=='left' else 7;tcp,rotation=ik.tcp_pose(q[off:off+6],station.BASES[p['side']]);tq=ik.matrix_to_quat_xyzw(rotation)
-        desired=p['nominal_bodies'][name];relative=rotate(conjugate(quat),tcp-pos);rq=multiply(conjugate(quat),tq)
-        target=dict(pos=np.asarray(desired['pos'])+rotate(desired['quat'],relative),quat=multiply(desired['quat'],rq))
-        errors=(float(np.linalg.norm(pos-desired['pos'])),qangle(quat,desired['quat']))
+        desired=p['nominal_bodies'][name]
+        actual_axis=rotate(quat,[0,0,1]);desired_axis=rotate(desired['quat'],[0,0,1])
+        cosine=float(np.clip(np.dot(actual_axis,desired_axis),-1.,1.));angle=math.acos(cosine)
+        if cosine<-.95:raise ControlFailure('Inverted collet outside bounded expert recovery')
+        cross=np.cross(actual_axis,desired_axis);length=float(np.linalg.norm(cross))
+        rotation_error=cross*(angle/length) if length>1e-10 else np.zeros(3)
+        # Finite hard-pad contacts provide little torque about their opposing
+        # normal. Do not chase that free rolling direction with the wrist.
+        # The radial grip rotates the required cam-entry pitch across the jaws.
+        normal=rotation[:,0];supported=rotation_error-normal*float(np.dot(rotation_error,normal))
+        magnitude=float(np.linalg.norm(supported));correction=axis_quat(supported/magnitude,magnitude) if magnitude>1e-10 else np.array([0.,0.,0.,1.])
+        arm_offset=tcp-pos
+        target=dict(pos=np.asarray(desired['pos'])+rotate(correction,arm_offset),quat=multiply(correction,tq))
+        # Only the physical symmetry axis matters; free axial yaw is irrelevant
+        # to the actual cam interface and to the independent objective scorer.
+        errors=(float(np.linalg.norm(pos-desired['pos'])),angle)
         return target,errors
 
     def step(self,joints,frame):

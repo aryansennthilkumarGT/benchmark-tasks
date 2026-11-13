@@ -2,7 +2,7 @@
 
 All motion is produced as 14 joint/gripper targets. This module never sets body
 poses, attaches objects, or changes scores. This controller uses robot proprioception only; object waypoints are authored
-constants. Native geometry is read solely by the independent scorer.
+constants. Read-only native part poses support the scripted expert; all manipulation remains robot actions.
 """
 from __future__ import annotations
 import math
@@ -61,7 +61,15 @@ class Motion:
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
+        self.grip_reference = None
         self.tracking_error_limit = tracking_error_limit
+
+    def gripper_target(self, measured, desired, slew=.05):
+        if not all(math.isfinite(v) for v in (measured, desired, slew)) or not 0<=desired<=1 or not 0<slew<=.05:
+            raise ControlFailure('Invalid gripper command')
+        if self.grip_reference is None:self.grip_reference=float(np.clip(measured,0.,1.))
+        self.grip_reference=float(np.clip(self.grip_reference+np.clip(desired-self.grip_reference,-slew,slew),0.,1.))
+        return self.grip_reference
 
     def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.,angular_feedback_gain=0.):
         q=np.asarray(measured,dtype=float)
@@ -72,7 +80,7 @@ class Motion:
         quat = unit(quat)
         error = float(np.linalg.norm(measured_pos - pos))
         theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
-        grip = q[6] + float(np.clip(opening-q[6], -0.05, 0.05))
+        grip = self.gripper_target(q[6],opening)
         if self.reference is None:
             self.reference = arm.copy()
         if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:

@@ -71,6 +71,7 @@ def main():
     parser.add_argument('--case', action='append',
                         help='Run a named diagnostic case only. Repeat this option to select multiple cases.')
     parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
+    parser.add_argument('--fail-fast', action='store_true', help='Stop on first failing native case/repeat')
     args=parser.parse_args()
     if not args.worker:
         # Keep the caller's exit status independent of Kit's interpreter shutdown.
@@ -199,6 +200,7 @@ def main():
                             'phase': controller.phases[controller.index] if controller.index < len(controller.phases) else None,
                             'events': controller.events,
                             'robot_joint_pos': np.asarray(observation.state['joint_pos']).tolist(),
+                            'gripper_references': {side: getattr(motion,'grip_reference',None) for side,motion in controller.motion.items()},
                             'motion_references': {
                                 side: motion.reference.tolist() if motion.reference is not None else None
                                 for side, motion in controller.motion.items()
@@ -226,6 +228,8 @@ def main():
                 report['cases'].append(row)
                 report['active_case'] = None
                 save(results_path, report)
+                if args.fail_fast and row['status']=='FAIL':break
+            if args.fail_fast and report['failed']:break
     finally:
         embodiment.close()
     report['status'] = 'FAIL' if report['failed'] else 'PASS'

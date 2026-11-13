@@ -64,6 +64,35 @@ class Tests(unittest.TestCase):
   from audit_geometry import geometry_module
   g=geometry_module(HERE);f=frame()['bodies'];f['collet']['pos']=[.24,0,.8075]
   self.assertGreater(g.maximum_penetration(SPEC,f),SPEC['penetration_limit'])
+ def test_offset_upright_entry_is_rejected_across_scoring_envelope(self):
+  from audit_geometry import geometry_module
+  g=geometry_module(HERE);target=SPEC['score_spec']['target'];states=frame()['bodies']
+  # At this unavoidable section of an upright descent, check the accepted
+  # lateral disk, including the previously accepted +.599mm negative control.
+  offsets=[(.000599,0.)]+[(r*math.cos(a),r*math.sin(a)) for r in (0.,.0003,.0006) for a in np.linspace(0,2*math.pi,17)[:-1]]
+  for x,y in offsets:
+   states['collet'].update(pos=[target[0]+x,target[1]+y,.8075],quat=[0,0,0,1])
+   depth=g.maximum_penetration(SPEC,states)
+   self.assertGreater(depth,SPEC['penetration_limit'],(x,y,depth))
+  from audit_upright_entry import audit
+  self.assertTrue(audit(HERE)['passed'])
+  # Real replay boundary: even the most permissive observed former shortcut
+  # overlap must fail, without reading controller phases or insertion history.
+  judge=Scorer(SPEC);judge.update(frame());f=frame(t=1.)
+  f['bodies']['collet'].update(pos=[target[0]+.000599,target[1],.8075],quat=[0,0,0,1])
+  f['max_penetration']=g.maximum_penetration(SPEC,f['bodies'])
+  self.assertEqual(judge.update(f).failure,'penetration')
+ def test_blocked_gripper_reaches_closing_reference_with_bounded_slew(self):
+  from motion import Motion
+  m=Motion('right');previous=.3
+  for _ in range(12):
+   command=m.gripper_target(.3,.22)
+   self.assertLessEqual(abs(command-previous),.050001);previous=command
+  self.assertAlmostEqual(command,.22)
+  for _ in range(12):
+   command=m.gripper_target(.3,.65)
+   self.assertLessEqual(abs(command-previous),.050001);previous=command
+  self.assertAlmostEqual(command,.65)
  def test_intended_rock_path_has_no_nominal_intersections(self):
   from audit_geometry import geometry_module
   g=geometry_module(HERE)

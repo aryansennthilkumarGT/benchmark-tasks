@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "feedback": "robot_proprioception_only",
+  "feedback": "READ_ONLY_SYNCHRONIZED_PART_POSES_AND_ROBOT_PROPRIOCEPTION",
   "phases": [
     {
       "label": "Initialize handling arm",
@@ -289,7 +289,7 @@
       "speed": 0.06,
       "timeout": 40.0,
       "position_tolerance": 0.00025,
-      "angle_tolerance": 0.02,
+      "angle_tolerance": 0.1,
       "nominal_bodies": {
         "bench_nut": {
           "pos": [
@@ -355,7 +355,7 @@
       "speed": 0.06,
       "timeout": 40.0,
       "position_tolerance": 0.00025,
-      "angle_tolerance": 0.02,
+      "angle_tolerance": 0.1,
       "nominal_bodies": {
         "bench_nut": {
           "pos": [

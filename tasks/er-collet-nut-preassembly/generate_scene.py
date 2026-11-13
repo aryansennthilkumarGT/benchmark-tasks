@@ -71,11 +71,11 @@ def make_scene():
     assemblies=[dict(name=b['name']+'_asset',origin=b['pos'].copy(),fixed=b['anchor'],bodies=[b],joints=[]) for b in [nut,collet,cradle]]
     return dict(slug='er-collet-nut-preassembly',title='Engage an ER collet groove with an eccentric nut cam',
       instruction='Prepare the supported ER nut and collet for later toolholder installation. Pick up the collet, tilt it to engage its extraction groove at the marked eccentric-cam side, and rock it upright into the supported nut. Release and withdraw the grippers. Do not insert a cutting tool or tighten a holder.',
-      control_hz=20,physics_dt=1/480,gravity=[0,0,-9.81],run_limit=2400,table_top=TABLE,hold_seconds=2.,penetration_limit=.00035,
+      control_hz=20,physics_dt=1/480,gravity=[0,0,-9.81],run_limit=2400,table_top=TABLE,hold_seconds=2.,penetration_limit=.0001,
       assemblies=assemblies,collision_exclusions=[],
       score_spec=dict(initial_collet=PICK.copy(),target=CENTER.copy(),hook_pivot=PIVOT,hook_angle=ANGLE,anchors={b['name']:dict(pos=b['pos'],quat=b['quat']) for b in [nut,cradle]},
         lateral_tolerance=.0006,axial_tolerance=.0003,angle_tolerance=.025,hook_position_tolerance=.001,hook_angle_tolerance=.06,
-        hold_seconds=2.,control_hz=20,release_clearance=.020,position_drift_limit=.0004,axis_drift_limit=.015,penetration_limit=.00035,fixture_tolerance=.001,loss_plane=TABLE-.02),
+        hold_seconds=2.,control_hz=20,release_clearance=.020,position_drift_limit=.0004,axis_drift_limit=.015,penetration_limit=.0001,fixture_tolerance=.001,loss_plane=TABLE-.02),
       parameters=dict(grasp_offset_z=.036,collet_D1=.033,collet_D2=.032,collet_D3=.0292,collet_length=LENGTH,collet_groove_width=GROOVE,collet_nose_length=HEAD,collet_bore=.008,
         taper_angle=math.radians(8),nose_angle=math.radians(30),cam_inner_radius=.0185,cam_eccentricity=.0029,cam_thickness=.0006,
         nut_front_bore_radius=.0190,nut_upper_bore_radius=.0202,nut_outer_radius=.025,hook_angle=ANGLE,collet_mass=.15),
@@ -101,8 +101,10 @@ def make_plan(spec):
     phase('Grip collet tapered body',tcp(PICK,identity),opening=.22,width=width,dwell=.3)
     up=[*PICK[:2],.870]
     phase('Lift collet from cradle',tcp(up,identity),opening=.22,width=width,pose=(up,identity))
+    phases[-1]['angle_tolerance']=.10
     high=[CENTER[0],CENTER[1],.870]
     phase('Transfer above supported nut',tcp(high,identity),opening=.22,width=width,pose=(high,identity))
+    phases[-1]['angle_tolerance']=.10
     hook,q=hook_pose();tool=multiply(q,down).tolist()
     approach=[CENTER[0]+.0025,CENTER[1],.850]
     phase('Tilt for eccentric cam entry',tcp(approach,q),tool,.22,width,pose=(approach,q))
@@ -117,7 +119,7 @@ def make_plan(spec):
     phase('Withdraw above preassembly',[CENTER[0],CENTER[1],.91],opening=.65)
     phase('Park handling arm',[.28,-.17,.90],opening=1.)
     phase('Supported preassembly hold',[.28,-.17,.90],opening=1.,dwell=2.2)
-    return dict(schema=1,feedback='robot_proprioception_only',phases=phases)
+    return dict(schema=1,feedback='READ_ONLY_SYNCHRONIZED_PART_POSES_AND_ROBOT_PROPRIOCEPTION',phases=phases)
 
 if __name__=='__main__':
     spec=make_scene();(HERE/'scene.json').write_text(json.dumps(spec,indent=2)+'\n');(HERE/'controller.json').write_text(json.dumps(make_plan(spec),indent=2)+'\n')

@@ -11,7 +11,7 @@ def test_load_feedback_corrects_actual_recorded_static_tcp_error_and_is_bounded(
  row=d['keyframe'];q=np.array(row['robot_q'][7:]);m=Motion('right',tracking_error_limit=.08)
  m.reference=np.array(row['action'][7:13]);old=m.reference.copy()
  target=d['target']
- oldpos,_=m.ik.tcp_pose(old,m.base);actual,_=m.ik.tcp_pose(q[:6],m.base);goal=np.array(target['pos'])
+ oldpos,_=m.ik.tcp_pose(old,m.base);actual,_=m.ik.tcp_pose(q[:6],m.base);goal=np.array(target['pos']);previous_grip=q[6]
  assert np.linalg.norm(actual-goal)>.0025
  # Replaying a frozen measurement tests controller response/windup only.
  for _ in range(100):
@@ -19,9 +19,10 @@ def test_load_feedback_corrects_actual_recorded_static_tcp_error_and_is_bounded(
   pos,_=m.ik.tcp_pose(cmd[:6],m.base)
   assert np.linalg.norm(pos-actual)<.0061
   assert np.max(np.abs(cmd[:6]-old))<=.020001
+  assert abs(cmd[6]-previous_grip)<=.050001;previous_grip=cmd[6]
   old=cmd[:6].copy()
  assert np.dot(pos-oldpos,goal-actual)>1e-6
- assert abs(cmd[6]-q[6])<=.050001
+ assert abs(cmd[6]-.22)<1e-12
 
 
 def test_real_part_orientation_error_blocks_descent_despite_near_target_wrist():
@@ -65,3 +66,18 @@ def test_acquired_empty_jaw_terminates_before_chasing_a_lost_part():
   frame=copy.deepcopy(row['frame']);frame['time']=tick;c.step(q,frame)
  frame=copy.deepcopy(row['frame']);frame['time']=.3
  with pytest.raises(ControlFailure,match='grip lost'):c.step(q,frame)
+
+
+def test_part_servo_ignores_axial_yaw_without_relaxing_entry_axis_tolerance():
+ import copy
+ from feedback import Controller
+ from motion import qangle
+ row=json.loads((HERE/'test_fixtures/loaded-lift-stall.json').read_text())['keyframe']
+ plan=json.loads((HERE/'controller.json').read_text());c=Controller(plan,json.loads((HERE/'scene.json').read_text()))
+ frame=copy.deepcopy(row['frame']);frame['bodies']['collet']['quat']=[0,0,np.sin(.7),np.cos(.7)]
+ target,errors=c.target_for_part(plan['phases'][4],frame,np.array(row['robot_q']))
+ _,r=c.motion['right'].ik.tcp_pose(np.array(row['robot_q'][7:13]),c.motion['right'].base)
+ measured=c.motion['right'].ik.matrix_to_quat_xyzw(r)
+ assert errors[1]<1e-7 and qangle(target['quat'],measured)<1e-7
+ assert plan['phases'][6]['angle_tolerance']==.02
+ assert plan['phases'][7]['angle_tolerance']==.02
