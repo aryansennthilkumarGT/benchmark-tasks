@@ -114,3 +114,25 @@ def test_detection_margin_is_separate_from_rest_offset_and_reference_binds_expor
     assert reference['contact_export_sha256']==hashlib.sha256(export(spec,True,True).encode()).hexdigest()
     stale=copy.deepcopy(reference);stale['contact_export_sha256']='0'*64
     with pytest.raises(ValueError,match='physical export'):make_plan(spec,stale)
+
+
+def test_usd_drive_coefficients_convert_si_radians_to_usd_degrees():
+    """USD DriveAPI angular coefficients are per degree; native cfg stays SI."""
+    from math import pi
+    spec = scene()
+    observed = []
+    for assembly in spec['assemblies']:
+        stage = Usd.Stage.Open(str(HERE/'assets'/(assembly['name']+'.usda')))
+        for j in assembly['joints']:
+            angular = j['kind'] == 'revolute'
+            scale = 180 / pi if angular else 1.
+            prim = stage.GetPrimAtPath('/Asset/'+j['name'])
+            joint = UsdPhysics.RevoluteJoint(prim) if angular else UsdPhysics.PrismaticJoint(prim)
+            assert np.isclose(joint.GetLowerLimitAttr().Get(), j['lower'] * scale)
+            assert np.isclose(joint.GetUpperLimitAttr().Get(), j['upper'] * scale)
+            drive = UsdPhysics.DriveAPI(prim, 'angular' if angular else 'linear')
+            assert np.isclose(drive.GetTargetPositionAttr().Get(), j.get('rest', 0.) * scale)
+            assert np.isclose(drive.GetStiffnessAttr().Get(), j.get('stiffness', 0.) / scale, atol=1e-10)
+            assert np.isclose(drive.GetDampingAttr().Get(), j.get('damping', .02) / scale, atol=1e-10)
+            if angular: observed.append(j['name'])
+    assert set(observed) == {'pinion_rotation','handle_rotation','holding_pawl_rotation','driving_pawl_rotation'}

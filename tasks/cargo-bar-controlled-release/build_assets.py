@@ -123,8 +123,8 @@ def compile_assets(spec, directory):
                 drive = UsdPhysics.DriveAPI.Apply(joint.GetPrim(), drive_type)
                 drive.CreateTypeAttr('force')
                 drive.CreateTargetPositionAttr(j.get('rest', 0.0) * unit)
-                drive.CreateStiffnessAttr(j.get('stiffness', 0.0))
-                drive.CreateDampingAttr(j.get('damping', 0.02))
+                drive.CreateStiffnessAttr(j.get('stiffness', 0.0) / unit)
+                drive.CreateDampingAttr(j.get('damping', 0.02) / unit)
         # Only explicitly listed, physically adjacent cable links may overlap at
         # their common bend joint. Other cable/fixture/robot collisions stay on.
         names={b['name'] for b in assembly['bodies']}
