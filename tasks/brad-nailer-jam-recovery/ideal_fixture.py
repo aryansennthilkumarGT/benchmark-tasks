@@ -20,8 +20,8 @@ class IdealFixture:
   self.q=np.tile(np.r_[READY,1.],2);self.js=self.spec['initial_joint_values'].copy();self.time=0.;self.held={};self.residual=0.;self.previous=None
   defs={b['name']:b for a in self.spec['assemblies'] for b in a['bodies']};self.root=copy.deepcopy({k:defs['nose_body'][k] for k in ('pos','quat')})
   self.free={n:copy.deepcopy({k:defs[n][k] for k in ('pos','quat')}) for n in ('bent_brad','parts_tray')}
-  ref=json.loads((folder/'guided-cycle-reference.json').read_text());self.opening=sorted([r for r in ref['checks'] if r['time']<4.01],key=lambda r:r['joints']['lever_rotation'])
-  self.door_opening=sorted([r for r in ref['checks'] if 4.0<r['time']<8.01],key=lambda r:r['joints']['door_rotation'])
+  ref=json.loads((folder/'guided-cycle-reference.json').read_text());self.opening=sorted([r for r in ref['checks'] if r['time']<4.51],key=lambda r:r['joints']['lever_rotation'])
+  self.door_opening=sorted([r for r in ref['checks'] if 4.5<r['time']<8.01],key=lambda r:r['joints']['door_rotation'])
  def tcp(self,side):
   i=0 if side=='left' else 7;p,r=ik.tcp_pose(self.q[i:i+6],station.BASES[side]);return dict(pos=p,quat=ik.matrix_to_quat_xyzw(r))
  def states(self):return dict(**reconstruct(self.spec,self.root,self.js),**copy.deepcopy(self.free))
@@ -35,7 +35,7 @@ class IdealFixture:
     length=np.linalg.norm(dq[:3])
     if length>1e-12:w=dq[:3]/length*2*math.atan2(length,dq[3])*self.spec['control_hz']
    bodies[n]=dict(pos=list(b['pos']),quat=list(b['quat']),linear=v.tolist(),angular=w.tolist())
-  f=dict(time=self.time,joints=self.js.copy(),bodies=bodies,max_penetration=0.,robot_clearance=.03)
+  f=dict(time=self.time,joints=self.js.copy(),bodies=bodies,max_penetration=0.,robot_clearance=None)
   if geometric_metrics:
    from audit_geometry import geometry_module
    g=geometry_module(self.folder);f['max_penetration']=float(g.maximum_penetration(self.spec,states))
@@ -61,6 +61,7 @@ class IdealFixture:
   if 'latch_lever' in poses:self.js['lever_rotation']=self.angle(current['nose_door'],poses['latch_lever'])
   if p['label']=='Lift jam-clear lever':
    xp=[r['joints']['lever_rotation'] for r in self.opening]
+   if not min(xp)-.0001<=self.js['lever_rotation']<=max(xp)+.0001:raise ValueError('Physical opening reference does not cover requested lever angle')
    self.js['bail_rotation']=float(np.interp(self.js['lever_rotation'],xp,[r['joints']['bail_rotation'] for r in self.opening]));self.js['bail_extension']=float(np.interp(self.js['lever_rotation'],xp,[r['joints']['bail_extension'] for r in self.opening]))
   if p['label']=='Open nose door':
    # The contact fixture's passive draw bail changes angle during door opening.
@@ -70,10 +71,34 @@ class IdealFixture:
     self.js[name]=float(np.interp(self.js['door_rotation'],xp,[r['joints'][name] for r in self.door_opening]))
   current=self.states()
   if 'bail_crosspin' in poses:
-   pin=poses['bail_crosspin'];self.js['bail_rotation']=self.angle(current['latch_lever'],pin);current=self.states();bail=current['draw_bail'];vector=rotate(conjugate(bail['quat']),pin['pos']-np.asarray(bail['pos']))
+   pin=poses['bail_crosspin']
+   if 'latch_lever' not in poses:
+    # Explicit quasistatic passive hinge assumption. The held pin's line must
+    # intersect the authored eccentric circle; no arbitrary phase pose writes.
+    door=current['nose_door'];joints={j['name']:j for a in self.spec['assemblies'] for j in a['joints']};pivot=np.asarray(joints['lever_rotation']['pivot_parent']);ecc=np.asarray(joints['bail_rotation']['pivot_parent'])
+    P=rotate(conjugate(door['quat']),pin['pos']-np.asarray(door['pos']));direction=rotate(conjugate(door['quat']),rotate(pin['quat'],[1,0,0]))[:2];direction/=np.linalg.norm(direction)
+    # A freely following draw member minimizes spring strain. Project the
+    # requested eccentric (at spring rest) onto its actual circular orbit.
+    # Exact line/circle inversion is ill-conditioned at tangency and can
+    # amplify micrometre IK error into a spurious branch jump. The resulting
+    # TCP/body residual is measured and bounded, never called real physics.
+    requested=P[:2]-direction*self.spec['parameters']['draw_rest']-pivot[:2]
+    if np.linalg.norm(requested)<1e-9:raise ValueError('Undefined passive eccentric direction')
+    phi=(math.atan2(requested[1],requested[0])-math.atan2(ecc[1],ecc[0])+math.pi)%(2*math.pi)-math.pi
+    if not -2.151<=phi<=.001:raise ValueError('Passive eccentric projection exceeds hinge limits')
+    self.js['lever_rotation']=phi;current=self.states()
+   self.js['bail_rotation']=self.angle(current['latch_lever'],pin);current=self.states();bail=current['draw_bail'];vector=rotate(conjugate(bail['quat']),pin['pos']-np.asarray(bail['pos']))
    self.js['bail_extension']=float(vector[0]-self.spec['parameters']['draw_rest']);self.residual=max(self.residual,float(np.linalg.norm(vector[1:])))
+  elif p.get('pin_capture') and 'latch_lever' in poses:
+   # Captured pin stays at the two actual fixed abutments in this synthetic
+   # fixture. Independent force/contact probes test that physical assumption.
+   current=self.states();lever=current['latch_lever'];joint=next(j for a in self.spec['assemblies'] for j in a['joints'] if j['name']=='bail_rotation')
+   E=np.asarray(lever['pos'])+rotate(lever['quat'],joint['pivot_parent']);P=np.asarray(self.root['pos'])+rotate(self.root['quat'],self.spec['parameters']['closed_pin_local']);v=rotate(conjugate(current['nose_door']['quat']),P-E)
+   self.js['bail_rotation']=math.atan2(v[1],v[0])-self.js['lever_rotation'];self.js['bail_extension']=float(np.linalg.norm(v)-self.spec['parameters']['draw_rest'])
   if 'bent_brad' in poses:self.free['bent_brad']={k:list(v) for k,v in poses['bent_brad'].items()}
   elif p['label']=='Release brad into tray':
    # Explicitly synthetic support: not a falling/release-contact test.
-   self.free['bent_brad']['pos'][2]=self.spec['table_top']+.006
+   from scoring import Scorer
+   vertices=Scorer(self.spec).nail_vertices(self.free['bent_brad']);floor=self.free['parts_tray']['pos'][2]+.002
+   self.free['bent_brad']['pos'][2]+=floor-float(vertices[:,2].min())
   self.time+=1/self.spec['control_hz']

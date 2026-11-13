@@ -8,7 +8,7 @@ back to this design.
 import math
 MODE='BENCHMARK_AUTHORED'
 TABLE=.7475
-ROOT=[.25,.06,.84]
+ROOT=[.25,.06,.805]
 BASE_Q=[1.,0.,0.,0.]  # nose+X, service face-Y; gravity is local+Z
 DOOR_PIVOT=[0.,.0035,0.]
 LEVER_PIVOT=[.055,.0052,0.]

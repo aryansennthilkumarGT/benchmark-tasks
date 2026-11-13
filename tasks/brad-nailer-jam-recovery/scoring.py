@@ -11,9 +11,11 @@ import numpy as np
 try:
  from .motion import rotate,conjugate,qangle
  from .kinematics import reconstruct
+ from .interfaces import pin_captured
 except ImportError:
  from motion import rotate,conjugate,qangle
  from kinematics import reconstruct
+ from interfaces import pin_captured
 
 @dataclass
 class Result:
@@ -38,19 +40,7 @@ class Scorer:
    for corner in itertools.product(*[(-v/2,v/2) for v in shape['size']]):
     point=np.array(shape['pos'])+rotate(shape['quat'],corner);points.append(np.array(body['pos'])+rotate(body['quat'],point))
   return np.asarray(points)
- def captured(self,bodies):
-  root=bodies['nose_body'];pin=bodies['bail_crosspin'];center=self.local(root,pin['pos'])
-  axis=rotate(conjugate(root['quat']),rotate(pin['quat'],[0,0,1]));definition=self.defs['bail_crosspin']['shapes'][0]
-  if abs(axis[2])<.98:return False
-  for z in (-.012,.012):
-   t=(z-center[2])/axis[2]
-   if abs(t)>definition['height']/2-.001:return False
-   point=center+t*axis;radius=definition['radius']
-   # Actual rear abutment, lip underside and front retention depth. Merely
-   # placing the pin center near the tool is insufficient.
-   rear=point[0]-radius-.0935;underside=.0074-(point[1]+radius);depth=.098-(point[0]+radius)
-   if not (-.0001<=rear<=.0006 and -.0001<=underside<=.0006 and depth>=.001):return False
-  return True
+ def captured(self,bodies):return pin_captured(self.spec,bodies)
  def past_center(self,bodies,joints):
   lever=bodies['latch_lever'];pivot=np.array(lever['pos']);ecc=np.array(bodies['draw_bail']['pos']);pin=np.array(bodies['bail_crosspin']['pos'])
   direction=ecc-pin;length=np.linalg.norm(direction)

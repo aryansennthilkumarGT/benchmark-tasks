@@ -45,8 +45,10 @@ def make_scene():
  # Base and stops are a visible benchmark workholding fixture, not an alleged
  # supplied DeWalt accessory. Rotating the service frame keeps the firing axis
  # pointing away from the robots while all work stays above the normal table.
- shapes=boxes([([0,-.08,.0865],[.26,.36,.012])],BLUE,'aluminium')
- shapes+=boxes([([-.06,-.08,.06075],[.025,.12,.0395]),([.065,-.14,.04725],[.020,.030,.0665])],BLUE,'aluminium')
+ base_center=D.ROOT[2]-D.TABLE-.006; base_top=base_center-.006
+ if base_top<=.041:raise ValueError('Workholding cannot fit below the case')
+ shapes=boxes([([0,-.08,base_center],[.26,.36,.012])],BLUE,'aluminium')
+ shapes+=boxes([([-.06,-.08,(base_top+.041)/2],[.025,.12,base_top-.041]),([.065,-.14,(base_top+.014)/2],[.020,.030,base_top-.014])],BLUE,'aluminium')
  # Original unpowered tool-shell envelope with an empty battery bay. It is
  # static workholding/context; no trigger, power or driver actuation is claimed.
  shapes+=boxes([([-.050,-.085,0],[.18,.008,.070]),([-.050,-.150,0],[.18,.008,.070]),
@@ -60,7 +62,7 @@ def make_scene():
  for x in (-.100,0.):
   shapes+=boxes([([x,-.1175,-.043],[.012,.105,.004])],BLUE,'aluminium')
   for y in (-.170,-.065):
-   shapes.append(fixed_shape(cylinder([x,y,.01625],.003,.1285,STEEL)))
+   shapes.append(fixed_shape(cylinder([x,y,(base_top-.048)/2],.003,base_top+.048,STEEL)))
    shapes+=boxes([([x,y,-.0465],[.009,.009,.003])])
  shapes+=boxes([([.065,-.1555,0],[.025,.30,.028]),([.065,-.0205,0],[.025,.030,.028])],STEEL,'aluminium')
  # Open service trough and narrow U-shaped muzzle; ordinary straight brads
@@ -120,7 +122,7 @@ def make_scene():
  for x in (-.039,.039):tray_shapes+=boxes([([x,0,.010],[.002,.090,.020])],BLUE,'aluminium')
  for y in (-.044,.044):tray_shapes+=boxes([([0,y,.010],[.080,.002,.020])],BLUE,'aluminium')
  # Tray uses world-up coordinates; other mechanism solids use local service axes.
- tray=body('parts_tray',[.24,-.28,D.TABLE+.002],tray_shapes,.2,True)
+ tray=body('parts_tray',[.24,.42,D.TABLE+.002],tray_shapes,.2,True)
  spec=dict(slug='brad-nailer-jam-recovery',title='Clear a brad-nailer nose jam and secure its draw latch',
   instruction='The tool is unpowered and its driver is retracted. Open the nose, remove the bent brad into the tray, then close the nose and secure the latch pin under both arms. Leave the tool and both hands clear.',
   geometry_mode=D.MODE,control_hz=20,physics_dt=1/1920,gravity=[0,0,-9.81],run_limit=5000,table_top=D.TABLE,hold_seconds=2.,penetration_limit=.00020,

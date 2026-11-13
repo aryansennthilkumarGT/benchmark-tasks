@@ -1,0 +1,874 @@
+{
+  "kind": "IDEAL_TRACKING_WITH_SYNTHETIC_RIGID_GRASPS",
+  "physics_executed": false,
+  "isaac_executed": false,
+  "robot_hardware_executed": false,
+  "scene_sha256": "6e582837e3e937be2f0dd77906f001e626d9d3f661ba9abf0e0167a64ebe57ee",
+  "controller_sha256": "7dad53acc43d41c0f38fd59f7f387b0c7297f872abff0edde542828f9e987399",
+  "actions": 2767,
+  "seconds": 138.3499999999972,
+  "phase": 43,
+  "total_phases": 43,
+  "error": null,
+  "maximum_grasp_constraint_residual_m": 6.029907640965043e-06,
+  "events": [
+    {
+      "event": "PHASE_START",
+      "phase": 0,
+      "label": "Park left arm",
+      "time": 0.0
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 0,
+      "label": "Park left arm",
+      "time": 2.9499999999999975,
+      "position_error_m": 1.7741479155400443e-07,
+      "rotation_error_rad": 4.161667836835672e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 1,
+      "label": "Park right arm",
+      "time": 2.9999999999999973
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 1,
+      "label": "Park right arm",
+      "time": 6.249999999999986,
+      "position_error_m": 3.329832541052662e-07,
+      "rotation_error_rad": 7.220531368008723e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 2,
+      "label": "Approach latch lever",
+      "time": 6.299999999999986
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 2,
+      "label": "Approach latch lever",
+      "time": 12.200000000000038,
+      "position_error_m": 1.1942313884802868e-06,
+      "rotation_error_rad": 3.326531967537124e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 3,
+      "label": "Reach latch lever",
+      "time": 12.250000000000039
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 3,
+      "label": "Reach latch lever",
+      "time": 12.700000000000045,
+      "position_error_m": 4.91030528057705e-06,
+      "rotation_error_rad": 4.7489605634324e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 4,
+      "label": "Grip latch lever",
+      "time": 12.750000000000046
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 4,
+      "label": "Grip latch lever",
+      "time": 13.250000000000053,
+      "position_error_m": 4.91030528057705e-06,
+      "rotation_error_rad": 4.7489605634324e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 5,
+      "label": "Lift jam-clear lever",
+      "time": 13.300000000000054
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 5,
+      "label": "Lift jam-clear lever",
+      "time": 21.800000000000175,
+      "position_error_m": 1.0097419875220704e-06,
+      "rotation_error_rad": 2.839678128319967e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 6,
+      "label": "Release lifted lever",
+      "time": 21.850000000000176
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 6,
+      "label": "Release lifted lever",
+      "time": 22.15000000000018,
+      "position_error_m": 4.761719571043567e-06,
+      "rotation_error_rad": 6.870194872036052e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 7,
+      "label": "Withdraw from lifted lever",
+      "time": 22.20000000000018
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 7,
+      "label": "Withdraw from lifted lever",
+      "time": 22.550000000000185,
+      "position_error_m": 6.1618686012112205e-06,
+      "rotation_error_rad": 1.435290489841588e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 8,
+      "label": "Park right arm",
+      "time": 22.600000000000186
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 8,
+      "label": "Park right arm",
+      "time": 28.40000000000027,
+      "position_error_m": 2.9096374999415104e-06,
+      "rotation_error_rad": 1.4334731190036392e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 9,
+      "label": "Approach nose door",
+      "time": 28.45000000000027
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 9,
+      "label": "Approach nose door",
+      "time": 33.10000000000026,
+      "position_error_m": 1.3323120446872507e-05,
+      "rotation_error_rad": 2.674449186213048e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 10,
+      "label": "Reach nose door",
+      "time": 33.150000000000254
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 10,
+      "label": "Reach nose door",
+      "time": 34.75000000000016,
+      "position_error_m": 1.606988417417281e-06,
+      "rotation_error_rad": 9.684608464999245e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 11,
+      "label": "Grip nose door",
+      "time": 34.80000000000016
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 11,
+      "label": "Grip nose door",
+      "time": 35.35000000000013,
+      "position_error_m": 1.606988417417281e-06,
+      "rotation_error_rad": 9.684608464999245e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 12,
+      "label": "Open nose door",
+      "time": 35.40000000000013
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 12,
+      "label": "Open nose door",
+      "time": 43.149999999999686,
+      "position_error_m": 7.938606032310049e-08,
+      "rotation_error_rad": 2.6488883546935307e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 13,
+      "label": "Approach bent brad",
+      "time": 43.19999999999968
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 13,
+      "label": "Approach bent brad",
+      "time": 52.299999999999166,
+      "position_error_m": 5.032573576365015e-07,
+      "rotation_error_rad": 6.786297032869625e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 14,
+      "label": "Reach bent brad",
+      "time": 52.34999999999916
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 14,
+      "label": "Reach bent brad",
+      "time": 53.74999999999908,
+      "position_error_m": 8.679435468439133e-07,
+      "rotation_error_rad": 2.107342425544799e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 15,
+      "label": "Grip bent brad",
+      "time": 53.79999999999908
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 15,
+      "label": "Grip bent brad",
+      "time": 54.29999999999905,
+      "position_error_m": 8.679435468439133e-07,
+      "rotation_error_rad": 2.107342425544799e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 16,
+      "label": "Extract bent brad through open service face",
+      "time": 54.34999999999905
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 16,
+      "label": "Extract bent brad through open service face",
+      "time": 56.59999999999892,
+      "position_error_m": 1.6029707116553074e-06,
+      "rotation_error_rad": 8.083519427664362e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 17,
+      "label": "Carry brad clear above tray",
+      "time": 56.64999999999892
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 17,
+      "label": "Carry brad clear above tray",
+      "time": 65.59999999999842,
+      "position_error_m": 7.782368291890087e-06,
+      "rotation_error_rad": 2.121395794425207e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 18,
+      "label": "Lower brad inside tray",
+      "time": 65.64999999999841
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 18,
+      "label": "Lower brad inside tray",
+      "time": 73.79999999999795,
+      "position_error_m": 4.7831002505747515e-06,
+      "rotation_error_rad": 7.698407719223726e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 19,
+      "label": "Release brad into tray",
+      "time": 73.84999999999795
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 19,
+      "label": "Release brad into tray",
+      "time": 74.34999999999792,
+      "position_error_m": 4.7831002505747515e-06,
+      "rotation_error_rad": 7.698407719223726e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 20,
+      "label": "Withdraw from tray",
+      "time": 74.39999999999792
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 20,
+      "label": "Withdraw from tray",
+      "time": 77.74999999999773,
+      "position_error_m": 8.359991613435436e-06,
+      "rotation_error_rad": 9.920189963038808e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 21,
+      "label": "Park right arm",
+      "time": 77.79999999999772
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 21,
+      "label": "Park right arm",
+      "time": 79.69999999999762,
+      "position_error_m": 1.1978549749687452e-05,
+      "rotation_error_rad": 2.402130042136597e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 22,
+      "label": "Approach outboard crosspin",
+      "time": 79.74999999999761
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 22,
+      "label": "Approach outboard crosspin",
+      "time": 84.54999999999734,
+      "position_error_m": 1.031765411790845e-06,
+      "rotation_error_rad": 3.963148643942359e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 23,
+      "label": "Reach outboard crosspin",
+      "time": 84.59999999999734
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 23,
+      "label": "Reach outboard crosspin",
+      "time": 85.09999999999731,
+      "position_error_m": 5.941643210630853e-06,
+      "rotation_error_rad": 4.807512749587648e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 24,
+      "label": "Grip outboard crosspin",
+      "time": 85.1499999999973
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 24,
+      "label": "Grip outboard crosspin",
+      "time": 85.54999999999728,
+      "position_error_m": 5.941643210630853e-06,
+      "rotation_error_rad": 4.807512749587648e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 25,
+      "label": "Close door while carrying pin clear",
+      "time": 85.59999999999728
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 25,
+      "label": "Close door while carrying pin clear",
+      "time": 95.7999999999967,
+      "position_error_m": 7.739582611023057e-08,
+      "rotation_error_rad": 2.615143176136055e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 26,
+      "label": "Guide outboard pin toward hook mouth",
+      "time": 95.8499999999967
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 26,
+      "label": "Guide outboard pin toward hook mouth",
+      "time": 97.04999999999663,
+      "position_error_m": 1.4659793794823542e-06,
+      "rotation_error_rad": 1.1608186290079203e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 27,
+      "label": "Bring pin below both retaining lips",
+      "time": 97.09999999999663
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 27,
+      "label": "Bring pin below both retaining lips",
+      "time": 101.64999999999637,
+      "position_error_m": 1.6498329435369844e-06,
+      "rotation_error_rad": 3.172603846720497e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 28,
+      "label": "Seat crosspin while passive lever follows",
+      "time": 101.69999999999636
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 28,
+      "label": "Seat crosspin while passive lever follows",
+      "time": 104.29999999999622,
+      "position_error_m": 2.401779168707201e-06,
+      "rotation_error_rad": 8.782082502162245e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 29,
+      "label": "Release engaged crosspin",
+      "time": 104.34999999999621
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 29,
+      "label": "Release engaged crosspin",
+      "time": 104.5499999999962,
+      "position_error_m": 0.0,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 30,
+      "label": "Withdraw pin-guiding hand",
+      "time": 104.5999999999962
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 30,
+      "label": "Withdraw pin-guiding hand",
+      "time": 105.09999999999617,
+      "position_error_m": 1.3776310123047195e-06,
+      "rotation_error_rad": 4.890850764373791e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 31,
+      "label": "Park right arm",
+      "time": 105.14999999999617
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 31,
+      "label": "Park right arm",
+      "time": 111.94999999999578,
+      "position_error_m": 7.286372356643033e-06,
+      "rotation_error_rad": 2.6907899474776662e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 32,
+      "label": "Release reseated door",
+      "time": 111.99999999999578
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 32,
+      "label": "Release reseated door",
+      "time": 112.34999999999576,
+      "position_error_m": 1.687490772989579e-06,
+      "rotation_error_rad": 1.2738531990744395e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 33,
+      "label": "Withdraw door hand",
+      "time": 112.39999999999576
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 33,
+      "label": "Withdraw door hand",
+      "time": 114.19999999999565,
+      "position_error_m": 1.489419214253622e-05,
+      "rotation_error_rad": 3.7536731943693395e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 34,
+      "label": "Park left arm",
+      "time": 114.24999999999565
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 34,
+      "label": "Park left arm",
+      "time": 118.84999999999539,
+      "position_error_m": 4.484170155980891e-06,
+      "rotation_error_rad": 9.121360933935996e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 35,
+      "label": "Approach partially closed lever",
+      "time": 118.89999999999539
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 35,
+      "label": "Approach partially closed lever",
+      "time": 124.54999999999507,
+      "position_error_m": 4.819773870995473e-06,
+      "rotation_error_rad": 1.2278050463171085e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 36,
+      "label": "Reach partially closed lever",
+      "time": 124.59999999999506
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 36,
+      "label": "Reach partially closed lever",
+      "time": 124.99999999999504,
+      "position_error_m": 1.2122039892203467e-06,
+      "rotation_error_rad": 3.492471079013385e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 37,
+      "label": "Regrasp partially closed lever",
+      "time": 125.04999999999504
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 37,
+      "label": "Regrasp partially closed lever",
+      "time": 125.44999999999501,
+      "position_error_m": 1.2122039892203467e-06,
+      "rotation_error_rad": 3.492471079013385e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 38,
+      "label": "Push lever shut with pin already captured",
+      "time": 125.49999999999501
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 38,
+      "label": "Push lever shut with pin already captured",
+      "time": 128.99999999999508,
+      "position_error_m": 5.95286932120338e-07,
+      "rotation_error_rad": 1.717710310338736e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 39,
+      "label": "Release secured lever",
+      "time": 129.0499999999951
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 39,
+      "label": "Release secured lever",
+      "time": 129.34999999999516,
+      "position_error_m": 0.0,
+      "rotation_error_rad": 0.0
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 40,
+      "label": "Withdraw secured lever hand",
+      "time": 129.39999999999517
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 40,
+      "label": "Withdraw secured lever hand",
+      "time": 129.74999999999525,
+      "position_error_m": 5.301390557481897e-06,
+      "rotation_error_rad": 7.8784737646846e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 41,
+      "label": "Park right arm",
+      "time": 129.79999999999526
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 41,
+      "label": "Park right arm",
+      "time": 135.74999999999662,
+      "position_error_m": 8.097647372851153e-06,
+      "rotation_error_rad": 1.3760284452950034e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 42,
+      "label": "Released fixture hold",
+      "time": 135.79999999999663
+    },
+    {
+      "event": "NATIVE_FEEDBACK_PHASE_COMPLETE",
+      "phase": 42,
+      "label": "Released fixture hold",
+      "time": 138.2999999999972,
+      "position_error_m": 8.097647372851153e-06,
+      "rotation_error_rad": 1.3760284452950034e-05
+    }
+  ],
+  "final": {
+    "time": 138.3499999999972,
+    "joints": {
+      "door_rotation": 1.4779223711514078e-07,
+      "lever_rotation": -1.8412530078393274e-07,
+      "bail_rotation": -0.0280197201786182,
+      "bail_extension": 0.0005049990799724582
+    },
+    "bodies": {
+      "nose_body": {
+        "pos": [
+          0.25,
+          0.06,
+          0.805
+        ],
+        "quat": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "nose_door": {
+        "pos": [
+          0.25,
+          0.056499999999999995,
+          0.805
+        ],
+        "quat": [
+          0.9999999999999972,
+          -7.389611855757032e-08,
+          0.0,
+          0.0
+        ],
+        "linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "latch_lever": {
+        "pos": [
+          0.30499999923147975,
+          0.05129999187142701,
+          0.805
+        ],
+        "quat": [
+          0.9999999999999998,
+          1.8166531834395983e-08,
+          0.0,
+          0.0
+        ],
+        "linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "draw_bail": {
+        "pos": [
+          0.2999999991896967,
+          0.052449991689761694,
+          0.805
+        ],
+        "quat": [
+          0.9999018632608069,
+          0.014009419958252988,
+          0.0,
+          0.0
+        ],
+        "linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bail_crosspin": {
+        "pos": [
+          0.3446,
+          0.0537,
+          0.805
+        ],
+        "quat": [
+          0.9999018632608069,
+          0.014009419958252988,
+          0.0,
+          0.0
+        ],
+        "linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "bent_brad": {
+        "pos": [
+          0.24174862844910797,
+          -0.2778000770921125,
+          0.7520001680866051
+        ],
+        "quat": [
+          2.6330989572022534e-06,
+          0.7071063660062651,
+          0.7071071963565212,
+          -2.7019446152405867e-06
+        ],
+        "linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "parts_tray": {
+        "pos": [
+          0.24,
+          -0.28,
+          0.7495
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "linear": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "angular": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    "max_penetration": 0.0,
+    "robot_clearance": null
+  },
+  "runtime_inputs_sha256": {
+    "arena_runtime.py": "a46e30a021b32272ad909856ecc6d5a71125f1cb703150d77ff0b01d2d69b0dd",
+    "assets/bent_brad_asset.usda": "61d22c1b8fd1fe04fae01983b73d50c3b05648292108e5b1c3477f0aa344bc8e",
+    "assets/nose_service_asset.usda": "54086705a9d41e0f39ddc321f7fad6fbfd30cf27886acb407dc26c0d48eb3ca9",
+    "assets/parts_tray_asset.usda": "64db1f2fb95714951bc7c2e295c109f44090ebcce30526bd565dc4bea6831619",
+    "audit_controller.py": "234a5bc6b890e07a4682e63e39a390d2fb1a03660c71af9c1e990e8d37ff007c",
+    "audit_geometry.py": "d225287b89bbb9bae867510f8fe4584e437eec6f04b7b9677e1f5296dcde45e5",
+    "audit_path.py": "6fa4186dde9186a9282628fd0e3f10f190901d7daea9cde3c53029cdf128de3c",
+    "bootstrap_task.py": "a921979b0da6ac971cfa25721843187650887a8de0bf7aa13c184d6f7ef9bbcc",
+    "build_assets.py": "870d229830b72807b7f0fc3aa6b401718f55fd57c7d73ef1d27b1386b414ee7a",
+    "controller.json": "7dad53acc43d41c0f38fd59f7f387b0c7297f872abff0edde542828f9e987399",
+    "convex_primitives.py": "06880a5bc826b97143dd678df2365d948e98db718bb939aa111f0583ae16b363",
+    "cpu_contact.py": "8e7294344a22a2fbcd29a2f41b60f88e569a8e60c3c639ab7526c4f53a4833a9",
+    "cpu_native_cases.py": "11fbcc154de70fca8b3b5a5850f654b7f5cdb1c83490630fff4c1daa9d85af9e",
+    "dimensions.py": "6600b980864269ff6d1ed48908d5783e28553daddf318e0258fd46ce40e928ed",
+    "document_parameters.py": "1c7c7316f3c0581f4200fc400f61dd32ef10ca87b2344e77bbce34d2198bad65",
+    "dream_identity.py": "53726f21bcf945cf8d6a452683f371fc185d3b1f447e7ef32a3f400efe9fca72",
+    "expert.py": "996776dcddd6a5de7a4f1f19dbf420134c463b84b8d9fe45a4d1d850188381ad",
+    "feedback.py": "be8f8457d01d515bfb994398a7f81d59f132ac709948635fe9bacba625073c6f",
+    "freeze_source.py": "b7495db8ca1ab43f9e7d6696d72fe26c95853cb6d8ca8dbd53d9f9436868c960",
+    "generate_scene.py": "a36ec6c5ee208d692a387d276628cfaffb70d3a012eaf419477d3dc752d30907",
+    "geometry.py": "84ef886fa97d91aa9a2a96a81bfbc09a1060b8bc9d9dc4d4f2913319b27ce73c",
+    "guided-cycle-reference.json": "f155fcad3127ef10c25c25239c878a3cd3bed1a1021085b355938adcb60c2b5f",
+    "ideal_fixture.py": "2025f337dc77d460e908d86ef4fa7bae7caefab24e60865418891af48528f38f",
+    "install_cpu.py": "6efa3d4d764b586fbcb322c5fc89e7e88ff341148a9c0c31265f02298f9c827d",
+    "interfaces.py": "87a028f6cc57f12af77a9ba71fac51fae107bc15771d58dabe32b2206dbc3bef",
+    "kinematics.py": "acaa1c565c3638a882a2d16ef6d01402a880dbba81e47c750bce35c43eeb2301",
+    "mass_properties.py": "454b780e94cb9ff784b148dd4ed085cf6644b482fca608d75aed85da480edd5a",
+    "mechanism_cpu.py": "29077c258ad57a2a96fb0e2a35ada04ae0ab55df61875e214b936f4c364ed27f",
+    "motion.py": "b944a8f78e05742da295200b6929c7afac09134de66d7b328723b13fc3ecda4c",
+    "native_feedback.py": "4612ba4a29a75252cbad6c0943e19f3b81275adc50692a0abd45d5d74f849221",
+    "native_tests.py": "e110f51b67bfc08e41766bba515dba4e7f6adfa99ddc79a03338bdae2f80a9dc",
+    "passive_reset.py": "a6304ec881acd7015a69e870f30ba2f89064ce8d126fbc36b3c66b5f19f683d4",
+    "plan_controller.py": "d6a1fda896df4b0315134db1e13e41a328402422f633a1870ba75d6b6b39c924",
+    "prepare_submission.py": "575bb78cff8f39de791a0a20cf2128facd26495accc195618abe6e0329b236d8",
+    "primitives.py": "bcec6328e885bdbded4b8c20b76b54d5bf84220c83171f6cf3e575b8e02661c9",
+    "probe_cycle_cpu.py": "bc0122c49adcb0e89a7d402542f3c88d65d9827285a616d8f801f6c42a02dfd6",
+    "provenance.py": "326c223a2fb6c964b83db2cc51326421a4dbdafd377f22a1f8b42f3e9ba0916c",
+    "render_media.py": "0a5e7587809b252efbf45a50dd883941aa84e283b245b24f94ca6bd4b048d901",
+    "robot_clearance.py": "f62fc96cf4e867b34e46dc561c21c3be102f9ec87a4493345707c245ea309b97",
+    "robot_geometry.py": "a290915986ed75337e05d3d8570ca5230232985798cb4053999539dc0eba6ca3",
+    "run.py": "fb9a4c6b5db617e97ad4fa01e1d7b6c67a3282f231e33f9f8d695eed08f67f25",
+    "run_ledger.py": "c0793bccd7e5134af57824ddfd30f5e7b6e12c3239d9b0632f5833bffbd5f2f1",
+    "scene.json": "6e582837e3e937be2f0dd77906f001e626d9d3f661ba9abf0e0167a64ebe57ee",
+    "scoring.py": "1de37d70f7ce49e54230f99d7cba1314003869401567963c20055adcb90daf2d",
+    "setup_environment.py": "9b971bb9517a688f3b80388e10108f8baac59ec567e971b14e53be8244378553",
+    "source_identity.py": "d44bbd0acb74f7a935d79568595360af97daad4c0e55a26f91ebb85b04ebe599",
+    "stack-lock.json": "5e93b8f7e7038bba948e23b40b87f0247dd6b150536950f1bf244d38dfbaccd8",
+    "static_check.py": "56c0e02c6850fbf0cc898cf35d22569db03417728e3b74fc988420d9e519483c",
+    "task.py": "07a523449a54747f8aaf60b5c3081dafe1ed76b81eca088177415c62f34f7ce4",
+    "task_runner.py": "08f1542ef79cb6c41f1b8e8f5dd449e8a9200c7e4197d5e65836302ff2060d7e",
+    "test_controller.py": "fa49c4ef4bbf0cc7f89e1fb2a1248380fe5437c65bb6b287f27306e64a8b5e49",
+    "test_dream_identity.py": "6ee4194030118f6b7b711a4ee282f849a83d7d0541d833e80d4e0b1122537771",
+    "test_geometry.py": "c60ed0cdaedfae6c21746ddb532060aa655bb74369540327cc8f0b3d3eb9c5d4",
+    "test_native_feedback.py": "5c8d05f51ae70320411292a00c0d9622f462480c92026255209a38f89d962670",
+    "test_package.py": "8f67a111e3fbe1de2b40730916ef0fd910d07c848c49b58407f6960d7104c882",
+    "test_passive_reset.py": "df1db8f3302449b78e8e05700a4866374498d6ab40ce6297e680d5e56c4b90b4",
+    "test_robot_geometry.py": "625eae90658b050f472604dd33caf24c062eb3a3507916e5efde2d89fd8b0235",
+    "test_scoring.py": "b52b2f0985da8795cfbb337596672edc4f9dfe72a7cdede24349bc74bfbfd17e",
+    "test_workflow.py": "6bdc88c42b95aa45498558049111e8bb52f5049ec396441928baf0099791087e",
+    "validate_rollout.py": "b70e3c26f86769e725033ade91b6d8e0819d1284f6074f75a121c9beb119337e",
+    "verify_assets.py": "c710c9a01027218a38808ed267a46c65dc84e52463b7a277627f9a386484dcdd"
+  },
+  "terminal_robot_q": [
+    -0.19325005700967512,
+    1.4859153001527987,
+    1.5980873894500391,
+    -1.6829712947827329,
+    -9.650594060044504e-06,
+    -0.19324523957832218,
+    1.0,
+    0.4282836495906219,
+    1.554710775082009,
+    1.6630050920418433,
+    -1.679089934814115,
+    6.320614191172489e-06,
+    0.4283015104908434,
+    1.0
+  ],
+  "passed": true,
+  "full_trace_local_path": "/tmp/nailer-ideal-top-lower2.json",
+  "full_trace_sha256": "d29b993bb9b9ce4f834b5f47a6175c2a94cd2f9e4cce427d28af681071136eb0"
+}

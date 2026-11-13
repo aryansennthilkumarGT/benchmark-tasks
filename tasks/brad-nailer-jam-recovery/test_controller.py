@@ -32,11 +32,12 @@ def test_empty_jaw_cannot_satisfy_acquisition_and_recovery_is_bounded():
 def test_phase_sequence_uses_physical_circles_and_two_distinct_pin_grasps():
  f,c=fixture();labels=[p['label'] for p in c.phases]
  assert len(labels)==len(set(labels))+labels.count('Park left arm')+labels.count('Park right arm')-2
- for label in ['Lift jam-clear lever','Open nose door','Close door while carrying pin clear','Guide pin around front of both arms','Insert pin through open hook mouth','Draw latch past center with both pin ends captured']:
+ for label in ['Lift jam-clear lever','Open nose door','Close door while carrying pin clear','Guide outboard pin toward hook mouth','Bring pin below both retaining lips','Seat crosspin while passive lever follows','Push lever shut with pin already captured']:
   p=next(p for p in c.phases if p['label']==label);assert 'arc' in p and p['grasp_width']>0
  assert next(p for p in c.phases if p['label']=='Close door while carrying pin clear')['coupled']=='rigid'
- assert next(p for p in c.phases if p['label'].startswith('Draw latch'))['coupled']=='hook'
- assert labels.index('Regrasp crosspin top end')<labels.index('Release crosspin center')<labels.index('Regrasp open lever')
+ assert next(p for p in c.phases if p['label']=='Seat crosspin while passive lever follows')['pin_drive'] is True
+ assert 'coupled' not in next(p for p in c.phases if p['label'].startswith('Push lever'))
+ assert labels.index('Seat crosspin while passive lever follows')<labels.index('Release engaged crosspin')<labels.index('Regrasp partially closed lever')
 
 def test_every_numeric_parameter_is_classified_and_bound_to_source():
  r=validate(HERE);assert r['passed'] and r['numeric_values']>4000 and r['counts']['INDEPENDENTLY_MEASURED']==0
@@ -48,7 +49,8 @@ def test_coupled_arc_does_not_overwrite_follower_with_earlier_world_hold():
  f,c=fixture();phase=next(p for p in c.phases if p['label']=='Close door while carrying pin clear');index=c.phases.index(phase)
  js=c.phases[index-1]['nominal_joints'];bodies=c.phases[index-1]['nominal_bodies'];frame=dict(time=0.,bodies=bodies,joints=js)
  for side,name,local,tool in [('left','nose_door',[.025,0,-.022],multiply(bodies['nose_door']['quat'],multiply(conjugate(f.root['quat']),DOWN_GRIP))),('right','bail_crosspin',None,multiply(bodies['nose_door']['quat'],multiply(conjugate(f.root['quat']),axis_quat([1,0,0],-(np.pi/2+.5)))) )]:
-  b=bodies[name];position=np.array(b['pos'])+(rotate(b['quat'],local) if local is not None else rotate(tool,[0,0,-.011]))
+  b=bodies[name];position=np.array(b['pos'])+rotate(b['quat'],local) if local is not None else np.array(c.bind(c.phases[index-1],frame,f.q)['target']['pos'])
+  if side=='right':tool=c.bind(c.phases[index-1],frame,f.q)['target']['quat']
   solved,pe,re=ik.solve(position,tool,q_init=READY,base_pos=station.BASES[side],iters=500,tol=1e-5);assert pe<.00003 and re<.0001
   offset=0 if side=='left' else 7;f.q[offset:offset+6]=solved
  c.index=index;c.targets['right']=copy.deepcopy(c.phases[index-1])

@@ -4,7 +4,7 @@ SI units, XYZW quaternions. Every numeric scene field has longest-prefix provena
 
 | Interface | Specification | Class |
 |---|---|---|
-| Nose / service orientation | root(0.25,0.06,0.84)m; Rx180deg; firing+X, service−Y | A |
+| Nose / service orientation | root(0.25,0.06,0.805)m; Rx180deg; firing+X, service−Y | A |
 | Table | z0.7475m | A |
 | Rear trough / muzzle | x10–85 /85–100mm; inner half widths6 /1.3mm | A |
 | Closed service gap | floor y−1.5mm to door y2mm:3.5mm | A / D |
@@ -23,11 +23,11 @@ SI units, XYZW quaternions. Every numeric scene field has longest-prefix provena
 | Contact | static0.65,dynamic0.50,restitution0; contact offset20um/rest0 | A |
 | Integrity | maximum penetration0.20mm; native1920Hz/control20Hz | A numerical tolerances |
 
-All four parent-child pairs collide. There are no broad adjacency exclusions. Original workholding has a260×360×12mm plate, two supports, two bridges and threaded-clamp surrogates. Every solid position, dimension, color, role and density appears in scene.json. Densities steel7850, aluminium2700, polymer1200kg/m³ are reasonable authored material assumptions; authored target masses normalize the computed moments. Density scales are not real measured material densities.
+All four parent-child pairs collide. There are no broad adjacency exclusions. Original workholding has a260×360×12mm plate at unchanged world base height,4.5/31.5mm supports, two bridges and93.5mm clamp rods. These heights derive from the authored service-origin z0.805m and the actual case/magazine envelopes. Every solid position, dimension, color, role and density appears in scene.json. Densities steel7850, aluminium2700, polymer1200kg/m³ are reasonable authored material assumptions; authored target masses normalize the computed moments. Density scales are not real measured material densities.
 
 | Body | Mass kg(A) | Local COM m(D) | Principal inertia kg·m²(D) | Density scale(D) |
 |---|---:|---|---|---:|
-| nose_body | 3.5 | 0.00012184699, -0.093061598, 0.05955102 | 0.023842842, 0.036639552, 0.049675954 | 0.7257784 |
+| nose_body | 3.5 | 0.0034745679, -0.09312499, 0.035417194 | 0.021243467, 0.035526226, 0.051963894 | 0.7863163 |
 | nose_door | 0.075 | 0.046358945, 0.00036687332, 0 | 4.3096844e-06, 5.9502114e-05, 6.3436789e-05 | 1.170812 |
 | latch_lever | 0.025 | -0.024736868, 0.0016543048, 0 | 8.846974e-07, 6.7615718e-06, 7.5926364e-06 | 1.568731 |
 | draw_bail | 0.012 | 0.021210532, 0, -0 | 2.0571976e-06, 3.8999967e-06, 5.944452e-06 | 3.926616 |

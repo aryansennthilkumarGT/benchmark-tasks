@@ -188,7 +188,7 @@ def maximum_penetration(spec,bodies):
 
 def robot_clearance(robot_boxes,spec,bodies):
     candidates=[box(bodies[b['name']],s) for a in spec['assemblies'] for b in a['bodies']
-                if not b.get('anchor') for s in b['shapes'] if s.get('collision',True)]
+                for s in b['shapes'] if s.get('collision',True)]
     if not robot_boxes or not candidates:raise ValueError('Cannot measure robot release clearance')
     # Clearance is capped at 25 mm because the scorer only needs proof of 20 mm.
     # Distant pairs use a world-axis lower bound; only nearby pairs need SAT.

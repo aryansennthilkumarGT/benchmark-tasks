@@ -9,8 +9,10 @@ import copy,math
 import numpy as np
 try:
  from .motion import Motion,ControlFailure,rotate,multiply,conjugate,axis_quat,qangle
+ from .interfaces import pin_captured
 except ImportError:
  from motion import Motion,ControlFailure,rotate,multiply,conjugate,axis_quat,qangle
+ from interfaces import pin_captured
 
 
 class Controller:
@@ -34,14 +36,34 @@ class Controller:
    b=frame['bodies'][p['reference_body']];out['target']=dict(pos=(np.asarray(b['pos'])+rotate(b['quat'],p['reference_offset'])).tolist(),quat=multiply(b['quat'],p['reference_quat']).tolist())
   if 'arc' in p:
    joint=next(j for a in self.spec['assemblies'] for j in a['joints'] if j['name']==p['arc']['joint'])
-   self.context=dict(joint=joint,grasp=self.relative(frame['bodies'][joint['child']],current))
+   grasp_body='bail_crosspin' if p.get('pin_drive') else joint['child']
+   self.context=dict(joint=joint,grasp=self.relative(frame['bodies'][grasp_body],current))
    if p.get('coupled')=='rigid':self.context['pair']=self.relative(current,self.tcp(p['follower'],q))
    if p.get('coupled')=='hook':self.context['pin_grasp']=self.relative(frame['bodies']['bail_crosspin'],self.tcp(p['follower'],q))
   return out
  def arc_pose(self,p,frame,angle):
   j=self.context['joint'];parent=frame['bodies'][j['parent']];axis={'X':[1,0,0],'Y':[0,1,0],'Z':[0,0,1]}[j['axis']]
   quat=multiply(parent['quat'],axis_quat(axis,angle));pos=np.asarray(parent['pos'])+rotate(parent['quat'],j['pivot_parent'])-rotate(quat,j['pivot_child'])
-  child=dict(pos=pos,quat=quat);return self.compose(child,self.context['grasp']),child
+  child=dict(pos=pos,quat=quat)
+  if p.get('pin_drive'):
+   # Actuate the free lever through the held physical pin/bail, not a lever
+   # joint command. All task state remains read-only.
+   pin=self.hook_pose(child,frame)
+   return self.compose(pin,self.context['grasp']),child
+  return self.compose(child,self.context['grasp']),child
+ def arc_goal(self,p,frame):
+  if p.get('bail_goal'):
+   root=frame['bodies']['nose_body'];E=frame['bodies']['draw_bail']['pos'];local=rotate(conjugate(root['quat']),np.asarray(E)-root['pos'])
+   beta=.30 if p['bail_goal']=='outboard' else math.asin((self.spec['parameters']['closed_pin_local'][1]-local[1])/self.spec['parameters']['draw_rest'])
+   return beta-frame['joints']['lever_rotation']-frame['joints']['door_rotation']
+  return p['arc']['angle']
+ def hook_pose(self,lever,frame):
+  root=frame['bodies']['nose_body'];params=self.spec['parameters'];rest=params['draw_rest'];nominal=params['closed_pin_local']
+  j=next(j for a in self.spec['assemblies'] for j in a['joints'] if j['name']=='bail_rotation')
+  E=np.asarray(lever['pos'])+rotate(lever['quat'],j['pivot_parent']);local=rotate(conjugate(root['quat']),E-np.asarray(root['pos']));dy=nominal[1]-local[1]
+  if abs(dy)>=rest:raise ControlFailure('Hook mouth lies outside draw-bail reach')
+  point=np.array([max(nominal[0],local[0]+math.sqrt(rest*rest-dy*dy)),nominal[1],0.])
+  beta=math.atan2(dy,point[0]-local[0]);return dict(pos=np.asarray(root['pos'])+rotate(root['quat'],point),quat=multiply(root['quat'],axis_quat([0,0,1],beta)))
  def hook_target(self,lever,frame):
   root=frame['bodies']['nose_body'];params=self.spec['parameters'];rest=params['draw_rest'];nominal=params['closed_pin_local']
   j=next(j for a in self.spec['assemblies'] for j in a['joints'] if j['name']=='bail_rotation')
@@ -56,7 +78,7 @@ class Controller:
   valid=pe<.00003 and re<.0001 and np.all(solved>m.ik.LOWER+1e-5) and np.all(solved<m.ik.UPPER-1e-5) and np.max(np.abs(solved-q[start:start+6]))<=.020001
   return solved,bool(valid)
  def arc_action(self,p,frame,q,output):
-  side=p['side'];i=0 if side=='left' else 7;j=self.context['joint'];current=frame['joints'][j['name']];goal=p['arc']['angle']
+  side=p['side'];i=0 if side=='left' else 7;j=self.context['joint'];current=frame['joints'][j['name']];goal=self.arc_goal(p,frame)
   final,_=self.arc_pose(p,frame,goal);tcp=self.tcp(side,q);error=float(np.linalg.norm(tcp['pos']-final['pos']));theta=qangle(tcp['quat'],final['quat'])
   arms=[side]+([p['follower']] if p.get('coupled') else [])
   for arm in arms:
@@ -73,6 +95,7 @@ class Controller:
     follow=self.compose(target,self.context['pair']) if p['coupled']=='rigid' else self.hook_target(child,frame)
     follower,ok=self.solve(p['follower'],q,follow)
    if ok:
+    if abs(delta)<1e-5 and abs(goal-current)>.015:raise ControlFailure('Physical arc blocked by joint limits; no productive safe step')
     output[i:i+6]=leader;self.motion[side].reference=leader.copy()
     if follower is not None:
      off=0 if p['follower']=='left' else 7;output[off:off+6]=follower;self.motion[p['follower']].reference=follower.copy()
@@ -85,7 +108,8 @@ class Controller:
   metric=0.
   for c in checks:
    value=frame['joints'][c['name']];metric+=max(0.,c['min']-value,value-c['max'])
-  if 'arc' in p:metric+=max(0.,abs(frame['joints'][p['arc']['joint']]-p['arc']['angle'])-.015)*.02
+  if 'arc' in p:metric+=max(0.,abs(frame['joints'][p['arc']['joint']]-self.arc_goal(p,frame))-.015)*.02
+  if p.get('pin_capture') and not pin_captured(self.spec,frame['bodies']):metric+=.001
   return metric<1e-9,metric
  def start_recovery(self,p,now,q):
   if not p['label'].startswith(('Grip','Regrasp')):self.fail('Motion/physical-feedback stall: '+p['label'])

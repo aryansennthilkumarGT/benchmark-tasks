@@ -20,10 +20,10 @@ def Xform "Asset"
         prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
-        point3f physics:centerOfMass = (0.00012184699, -0.093061596, 0.05955102)
-        float3 physics:diagonalInertia = (0.023842841, 0.036639553, 0.049675953)
+        point3f physics:centerOfMass = (0.003474568, -0.09312499, 0.035417195)
+        float3 physics:diagonalInertia = (0.021243468, 0.035526227, 0.051963896)
         float physics:mass = 3.5
-        quatf physics:principalAxes = (0.7361038, 0.021252824, 0.04760091, -0.6748583)
+        quatf physics:principalAxes = (0.72761285, 0.01220406, 0.024843713, -0.68542933)
         quatf xformOp:orient = (0, 1, 0, 0)
         double3 xformOp:translate = (0, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
@@ -37,7 +37,7 @@ def Xform "Asset"
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (0.26, 0.36, 0.012)
-            double3 xformOp:translate = (0, -0.08, 0.0865)
+            double3 xformOp:translate = (0, -0.08, 0.0515)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -49,8 +49,8 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.1, 0.34, 0.61)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.025, 0.12, 0.0395)
-            double3 xformOp:translate = (-0.06, -0.08, 0.06075)
+            float3 xformOp:scale = (0.025, 0.12, 0.0045)
+            double3 xformOp:translate = (-0.06, -0.08, 0.04325)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -62,8 +62,8 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.1, 0.34, 0.61)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.02, 0.03, 0.0665)
-            double3 xformOp:translate = (0.065, -0.14, 0.04725)
+            float3 xformOp:scale = (0.02, 0.03, 0.0315)
+            double3 xformOp:translate = (0.065, -0.14, 0.02975)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -163,12 +163,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.1285
+            double height = 0.0935
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
             double radius = 0.003
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.1, -0.17, 0.01625)
+            double3 xformOp:translate = (-0.1, -0.17, -0.0012500000000000011)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -190,12 +190,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.1285
+            double height = 0.0935
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
             double radius = 0.003
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (-0.1, -0.065, 0.01625)
+            double3 xformOp:translate = (-0.1, -0.065, -0.0012500000000000011)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -230,12 +230,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.1285
+            double height = 0.0935
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
             double radius = 0.003
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0, -0.17, 0.01625)
+            double3 xformOp:translate = (0, -0.17, -0.0012500000000000011)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 
@@ -257,12 +257,12 @@ def Xform "Asset"
         )
         {
             uniform token axis = "Z"
-            double height = 0.1285
+            double height = 0.0935
             rel material:binding:physics = </Asset/Material>
             color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
             double radius = 0.003
             quatf xformOp:orient = (1, 0, 0, 0)
-            double3 xformOp:translate = (0, -0.065, 0.01625)
+            double3 xformOp:translate = (0, -0.065, -0.0012500000000000011)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
         }
 

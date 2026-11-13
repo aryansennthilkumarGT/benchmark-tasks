@@ -32,6 +32,30 @@ def stl_triangles(path):
     return np.asarray(points).reshape(-1,3,3)
 
 
+def convex_collision_mesh(triangles):
+    """Same convex point set, without internal/concave STL tessellation edges.
+
+    SAT already treats each URDF piece as a convex vertex cloud. Computing its
+    hull changes neither that set nor its support function. Qhull errors fail
+    closed; no jitter, bounding-box substitution or mesh decimation is used.
+    """
+    from scipy.spatial import ConvexHull
+    points=np.unique(np.round(np.asarray(triangles).reshape(-1,3),9),axis=0)
+    hull=ConvexHull(points);faces=points[hull.simplices]
+    edges=np.concatenate([faces[:,1]-faces[:,0],faces[:,2]-faces[:,1],faces[:,0]-faces[:,2]])
+    vertices=points[hull.vertices]
+    if np.max(points@hull.equations[:,:3].T+hull.equations[:,3])>2e-8:
+        raise ValueError('Hull does not contain original collision vertices')
+    # FCL needs outward face winding and compact vertex indices.
+    import fcl
+    remap={int(old):new for new,old in enumerate(hull.vertices)};encoded=[]
+    for simplex,plane in zip(hull.simplices,hull.equations):
+        face=list(map(int,simplex));v=points[face]
+        if np.dot(np.cross(v[1]-v[0],v[2]-v[0]),plane[:3])<0:face[1],face[2]=face[2],face[1]
+        encoded.extend([3,*[remap[i] for i in face]])
+    return dict(vertices=vertices,normals=directions(hull.equations[:,:3]),edges=directions(edges),fcl_geometry=fcl.Convex(vertices,len(hull.simplices),encoded))
+
+
 @lru_cache(maxsize=1)
 def local_hulls():
     rows=[]
@@ -46,15 +70,13 @@ def local_hulls():
             path=(YAM_URDF.parent/mesh.get('filename')).resolve()
             scale=np.array([float(v) for v in mesh.get('scale','1 1 1').split()])
             triangles=(stl_triangles(path)*scale)@rpy_matrix(rpy).T+xyz
-            edges=np.concatenate([triangles[:,1]-triangles[:,0],triangles[:,2]-triangles[:,1],triangles[:,0]-triangles[:,2]])
-            normals=np.cross(triangles[:,1]-triangles[:,0],triangles[:,2]-triangles[:,0])
-            rows.append(dict(link=link.get('name'),piece=i,vertices=np.unique(np.round(triangles.reshape(-1,3),9),axis=0),
-                             normals=directions(normals),edges=directions(edges)))
+            rows.append(dict(link=link.get('name'),piece=i,**convex_collision_mesh(triangles)))
     if not rows:raise ValueError('Pinned URDF has no collision geometry')
     return rows
 
 
 def arm_hulls(side,joints):
+    import fcl
     joints=np.asarray(joints);configuration={name:float(value) for name,value in zip(ARM_JOINTS,joints[:6])}
     configuration.update({name:float(joints[6]*FINGER_OPEN) for name in FINGER_JOINTS})
     poses=forward_kinematics(YAM_URDF,configuration);base=np.array(station.BASES[side]);rows=[]
@@ -62,7 +84,7 @@ def arm_hulls(side,joints):
         pose=poses[hull['link']];r=pose[:3,:3];p=pose[:3,3]+base
         vertices=hull['vertices']@r.T+p
         rows.append(dict(link=hull['link'],piece=hull['piece'],polyhedron=(vertices,hull['normals']@r.T,hull['edges']@r.T),
-                         lower=vertices.min(axis=0),upper=vertices.max(axis=0)))
+                         fcl_object=fcl.CollisionObject(hull['fcl_geometry'],fcl.Transform(r,p)),lower=vertices.min(axis=0),upper=vertices.max(axis=0)))
     return rows
 
 
@@ -90,6 +112,21 @@ def inter_arm_intersections(geometry,left,right,threshold=.002):
     for a in left:
         candidates=np.flatnonzero(np.all(upper>a['lower']+threshold,axis=1)&np.all(lower<a['upper']-threshold,axis=1))
         for i in candidates:
-            b=right[i];depth=max(0.,-geometry.convex_separation(a['polyhedron'],b['polyhedron'],stop_at=-threshold))
+            b=right[i];depth=fcl_depth(a['fcl_object'],b['fcl_object'],geometry,(a['polyhedron'],b['polyhedron']))
             if depth>threshold:rows.append(dict(left=a['link'],right=b['link'],depth_m=depth))
     return rows
+
+
+def fcl_depth(a,b,geometry=None,polyhedra=None):
+    """CPU libFCL convex GJK/EPA, cross-checked against complete SAT in tests."""
+    import fcl
+    # libccd EPA can return an arbitrary separating direction for exactly
+    # coincident convex transforms. Preserve complete SAT for that degeneracy.
+    if polyhedra is not None and np.linalg.norm(a.getTranslation()-b.getTranslation())<1e-6:
+        return max(0.,-geometry.convex_separation(*polyhedra,stop_at=float('inf')))
+    result=fcl.CollisionResult();fcl.collide(a,b,fcl.CollisionRequest(enable_contact=True,num_max_contacts=1),result)
+    if not result.is_collision:return 0.
+    if not result.contacts:raise ValueError('FCL collision has no penetration result')
+    depths=[float(c.penetration_depth) for c in result.contacts]
+    if not np.isfinite(depths).all() or min(depths)<-1e-7:raise ValueError('Invalid FCL penetration result')
+    return max(0.,max(depths))

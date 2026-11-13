@@ -5,7 +5,7 @@ HERE=Path(__file__).resolve().parent
 
 def integrity():
  manifest=json.loads((HERE/'source_manifest.json').read_text())
- actual={p.relative_to(HERE).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in HERE.rglob('*') if p.is_file() and p.name!='source_manifest.json' and 'offline-evidence' not in p.parts and '__pycache__' not in p.parts and '.pytest_cache' not in p.parts and p.suffix!='.pyc'}
+ actual={p.relative_to(HERE).as_posix():hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in HERE.rglob('*') if p.is_file() and p.name not in ('source_manifest.json','MUJOCO_LOG.TXT') and 'offline-evidence' not in p.parts and '__pycache__' not in p.parts and '.pytest_cache' not in p.parts and p.suffix!='.pyc'}
  if actual!=manifest['files']:raise ValueError('Source changed; review intentional edits before refreshing manifest')
 
 def main():

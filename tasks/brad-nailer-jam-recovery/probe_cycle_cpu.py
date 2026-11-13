@@ -42,22 +42,27 @@ def probe(folder=HERE):
  for step in range(round(24/spec['physics_dt'])):
   t=d.time
   if t<9:
-   d.ctrl[0]=-min(2.1,max(0.,t-1.)*.7);d.ctrl[1]=min(1.9,max(0.,t-4.)*.7)
+   d.ctrl[0]=-min(2.1,max(0.,t-1.)*.7);d.ctrl[1]=min(1.9,max(0.,t-4.5)*.7)
+   if t>=8:m.actuator_gainprm[1,:]=0.;m.actuator_biasprm[1,:]=0.
   elif t<14:
+   m.actuator_gainprm[1,:]=saved_gain[1];m.actuator_biasprm[1,:]=saved_bias[1]
    d.ctrl[1]=max(0.,1.9-(t-9.)*.5)
    if pin_offset is None:
     parent=pose(m,d,ids['nose_door']);pin=pose(m,d,ids['bail_crosspin'])
     pin_offset=rotate(conjugate(parent['quat']),pin['pos']-parent['pos']);pin_relative=multiply(conjugate(parent['quat']),pin['quat'])
     m.actuator_gainprm[0,:]=0.;m.actuator_biasprm[0,:]=0.
-  elif t<17:
-   m.actuator_gainprm[0,:]=saved_gain[0];m.actuator_biasprm[0,:]=saved_bias[0];d.ctrl[:]=[-2.1,0.]
-  elif t<23:d.ctrl[:]=[min(0.,-2.1+(t-17.)*.5),0.]
+  elif t<20:
+   d.ctrl[1]=0.
+   if t>=19:
+    m.actuator_gainprm[1,:]=0.;m.actuator_biasprm[1,:]=0.
+  elif t<23:
+   m.actuator_gainprm[0,:]=saved_gain[0];m.actuator_biasprm[0,:]=saved_bias[0];d.ctrl[:]=[min(0.,-.8+(t-20.)*.5),0.]
   elif not released:
    m.actuator_gainprm[:]=0.;m.actuator_biasprm[:]=0.;d.xfrc_applied[ids['bail_crosspin']]=0.;released=True
   if t>=8:
    # External low-force support for the removed brad, not a robot grasp.
    prev_nail=wrench(m,d,ids['bent_brad'],nail_target+[0,-min(.12,max(0.,t-8.7)*.12),0],nail0['quat'],.5,.015,.030,.0002,prev_nail,spec['physics_dt'])
-  if 9<=t<23:
+  if 9<=t<18:
    if t<14:
     parent=pose(m,d,ids['nose_door']);point=parent['pos']+rotate(parent['quat'],pin_offset);tool=multiply(parent['quat'],pin_relative)
    else:
@@ -72,15 +77,18 @@ def probe(folder=HERE):
      dy=nominal[1]-local[1]
      if abs(dy)>=rest:raise ValueError('No real draw-circle/hook-mouth intersection')
      beta=math.asin(dy/rest)
-     if t<17:
+     if t<16:
       actual=pose(m,d,ids['bail_crosspin']);vector=rotate(conjugate(root['quat']),actual['pos']-eccentric);angle=math.atan2(vector[1],vector[0])
       beta=angle+float(np.clip(beta-angle,-.6*spec['physics_dt'],.6*spec['physics_dt']))
       local_pin=local+rotate(axis_quat([0,0,1],beta),[rest,0,0])
      else:
-      local_pin=np.array([max(nominal[0],local[0]+math.sqrt(rest*rest-dy*dy)),nominal[1],0.])
+      initial_x=local[0]+math.sqrt(rest*rest-dy*dy)
+      desired_x=max(nominal[0],initial_x-(t-16.)*.004)
+      local_pin=np.array([desired_x,nominal[1],0.])
       beta=math.atan2(local_pin[1]-local[1],local_pin[0]-local[0])
     point=root['pos']+rotate(root['quat'],local_pin);tool=multiply(root['quat'],axis_quat([0,0,1],beta))
    prev_pin=wrench(m,d,ids['bail_crosspin'],point,tool,500.,1.,.50,.002,prev_pin,spec['physics_dt'])
+  if 18<=t<23:d.xfrc_applied[ids['bail_crosspin']]=0.
   if released:
    j=mujoco.mj_name2id(m,mujoco.mjtObj.mjOBJ_JOINT,'door_rotation');omega=d.qvel[m.jnt_dofadr[j]]
    d.xfrc_applied[ids['nose_door'],3:]=[0,0,-float(np.clip(.02-.01*omega,-.02,.02))]
@@ -89,8 +97,9 @@ def probe(folder=HERE):
   if depth>spec['penetration_limit'] and first_violation is None:first_violation=dict(time=float(d.time),depth_m=depth,contacts=[dict(a=mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_GEOM,c.geom1),b=mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_GEOM,c.geom2),depth=-float(c.dist)) for c in d.contact[:d.ncon] if c.dist<-.0002])
   if step%round(.25/spec['physics_dt'])==0:rows.append(observe(m,d,spec))
  final=observe(m,d,spec);capture=judge.captured(final['bodies']);past=judge.past_center(final['bodies'],final['joints'])
- result=dict(kind='SUPPLEMENTAL_MUJOCO_FULL_NOSE_SERVICE_FIXTURE_CYCLE',engine=mujoco.__version__,isaac_executed=False,robot_executed=False,grasps_validated=False,
+ result=dict(kind='SUPPLEMENTAL_MUJOCO_SEQUENTIAL_PIN_CAPTURE_THEN_LEVER_CLOSE',engine=mujoco.__version__,isaac_executed=False,robot_executed=False,grasps_validated=False,
              applied_test_rig_inputs=True,pin_force_cap_N=.50,pin_torque_cap_Nm=.002,door_torque_cap_Nm=.10,lever_torque_cap_Nm=.20,
+             pin_guidance_removed_s=18.,door_guidance_removed_s=19.,lever_guidance_restored_s=20.,probe_source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
              scene_sha256=hashlib.sha256((folder/'scene.json').read_bytes()).hexdigest(),export_sha256=hashlib.sha256(xml.encode()).hexdigest(),
              peak_contact_depth_m=peak,first_integrity_violation=first_violation,checks=rows,final=final,
              pin_under_both_arms_after_rig_release=capture,past_center_after_rig_release=past,
