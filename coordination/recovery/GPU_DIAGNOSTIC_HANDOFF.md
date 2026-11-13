@@ -28,6 +28,40 @@ timeout --signal=TERM --kill-after=30s 1200s "$GPU_PY" "$TASK/native_tests.py" \
 
 Use a new output directory. Expected allowance10–20minutes including startup and two reset repeats is a planning estimate, not measured native timing. At approximately1000actions per repeat the two prefixes cover100simulated seconds; the estimate is informed by public accepted native traces, not measured performance of this source. Each prefix permits3500actions/175simulated seconds, so a worst-case run can exceed the20minute allowance and must terminate as a timeout. Stop at first failure or wall timeout, preserving results.json, events, controller failure state, native frames, robot effort/command references and process output. Specifically distinguish startup/API errors, failed forceful loaded grasp, pawl reengagement, blocked telescope, part slip and insufficient grip force. Do not equate zero Kit exit or passing a prefix with task success. Workload timeout does not stop provider billing.
 
-After genuine passing prefixes and only within separately authorized scope, `"$GPU_PY" "$TASK/task_runner.py" --output /data/robocurve-cargo-qualification --execute` runs every native case twice and two full experts. A third clean-checkout expert is our stronger internal reproducibility check, not an official minimum. Full scorer1.0, real release/stability, camera streams and source hashes must validate before Dream. Then `--execute --resume --model` on the same task-runner output performs genuine Dream and media. Inspect actual model/demo videos and setup/contact sheets before an explicit visual attestation. `prepare_submission.py` gates genuine evidence and the official uploader; never fabricate scores/media or collect credentials in this CPU phase. The coordinator now binds handoff claims to their actual receipts/publication checkout and checks official PR history before a push. One task-folder PR only after actual native, model/media evidence and authorized submission. PR1733 and finally rejected heads remain untouched.
+For the standalone reviewer reproduction alternative, after genuine passing prefixes and only within separately authorized scope, `"$GPU_PY" "$TASK/task_runner.py" --output /data/robocurve-cargo-qualification --execute` runs every native case twice and two full experts. A third clean-checkout expert is our stronger internal reproducibility check, not an official minimum. Full scorer1.0, real release/stability, camera streams and source hashes must validate before Dream. Then `--execute --resume --model` on the same task-runner output performs genuine Dream and media. Inspect actual model/demo videos and setup/contact sheets before an explicit visual attestation. `prepare_submission.py` gates genuine evidence and the official uploader; never fabricate scores/media or collect credentials in this CPU phase. The coordinator now binds handoff claims to their actual receipts/publication checkout and checks official PR history before a push. One task-folder PR only after actual native, model/media evidence and authorized submission. PR1733 and finally rejected heads remain untouched.
 
 ER is second: current grip retention and upright-entry scoring repair require source freeze/clean tests, then a separately bounded native grip/entry diagnostic. Nailer is third and remains NO-GO for acceptance spending because routine core-job importance is unproven and real pin capture has not completed. The radial experiment has confirmed arm collisions and is explicitly excluded. These holds do not delay the first cargo diagnostic.
+
+
+Exact second/third sources and bounded commands (neither currently authorized to execute):
+
+| Priority | Branch | Exact source | Decision |
+|---|---|---|---|
+| ER second | optimization/er-actuator-tracking | e6659287a5ac2e2d968bc0d39122659ef7cd2a11 | Bounded grip/entry diagnostic only; no demonstrated robot retention |
+| Nailer third | repair/nailer-integrity-and-grip | b742696e49a506bfd4ef2362a06145b8a6cd3c65 | NO-GO acceptance spending; routine importance and real pin capture unresolved |
+
+In the exact ER source checkout, after separate authorization:
+
+```bash
+timeout --signal=TERM --kill-after=30s 900s "$GPU_PY" \
+ /data/benchmark-tasks/tasks/er-collet-nut-preassembly/native_tests.py \
+ --mode control --case eccentric-hook-prefix --fail-fast \
+ --commit e6659287a5ac2e2d968bc0d39122659ef7cd2a11 \
+ --output /data/robocurve-diagnostics/er-e665-hook
+```
+
+The ER prefix repeats after reset, maximum1200actions/60simulated seconds each;5–15minutes is an unmeasured planning estimate. Stop on grip loss, cam interference>100um, IK/SDK/integrity failure or timeout. The full supported-preassembly-prefix remains a later distinct test.
+
+Only if explicitly authorized specifically for a nailer diagnostic despite the importance hold, in its exact separate source checkout:
+
+```bash
+timeout --signal=TERM --kill-after=30s 1200s "$GPU_PY" \
+ /data/benchmark-tasks/tasks/brad-nailer-jam-recovery/native_tests.py \
+ --mode control --case robot_46 --fail-fast \
+ --commit b742696e49a506bfd4ef2362a06145b8a6cd3c65 \
+ --output /data/robocurve-diagnostics/nailer-b742-relatch
+```
+
+robot_46 is the actual configured full-controller prefix through Released fixture hold, including the phase30 pin acquisition blocker. It allows5000actions/250simulated seconds per reset repeat, so20minutes is a hard cap, not a promised completion time. Stop first failed acquisition, lost/deformed capture, interarm/task contact violation or timeout. Do not substitute the collision-failing radial experiment. This diagnostic cannot resolve occupational importance.
+
+For later complete automatic publication, use the single-task coordinator path described in [the current coordinator instructions](../README.md). The standalone task_runner path above is a separate reviewer reproduction option; do not run both complete paths sequentially and duplicate native/expert/Dream costs. Their ledger contexts differ. The coordinator creates its own actual ready handoff, and only that handoff can enter submit_ready.py. Real media review and fresh official submission authorization remain necessary.
