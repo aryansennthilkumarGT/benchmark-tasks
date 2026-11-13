@@ -19,3 +19,25 @@ def test_one_process_cannot_silently_reuse_a_different_task_module(tmp_path,monk
  finally:
   sys.path[:]=previous
   for name in names:sys.modules.pop(name,None)
+
+
+def test_terminal_controller_cannot_certify_zero_partial_or_nonfinite_score():
+ # An expert can terminate while the physical state fails the independent scorer.
+ args=dict(completed=True,controller_done=True,stop_after_phase=None,error=None,
+           warnings={},source_bound=True,maximum_velocity_ratio=.8)
+ for score in (0.,.25,.75,None,float('nan'),float('inf')):
+  result=trial.classify_result(score=score,**args)
+  assert not result['passed'] and not result['full_task_passed']
+ assert trial.classify_result(score=1.,**args)['full_task_passed']
+ args['source_bound']=False
+ assert not trial.classify_result(score=1.,**args)['passed']
+
+
+def test_requested_prefix_never_promoted_to_full_task_evidence():
+ args=dict(completed=True,controller_done=True,stop_after_phase=7,score=1.,
+           error=None,warnings={},source_bound=True,maximum_velocity_ratio=.8)
+ result=trial.classify_result(**args)
+ assert result['passed'] and not result['full_task_passed']
+ assert result['result_scope']=='REQUESTED_PREFIX_DIAGNOSTIC'
+ args['warnings']={'mjWARN_BADQVEL':1}
+ assert not trial.classify_result(**args)['passed']

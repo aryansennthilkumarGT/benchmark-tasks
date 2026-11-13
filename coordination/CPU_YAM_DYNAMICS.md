@@ -14,7 +14,7 @@ python coordination/cpu_yam_trial.py \
   --output /tmp/nailer-prefix-new --max-actions 1000 --stop-after-phase 7
 ```
 
-Use the pinned CPU environment in the recovery setup. Output directories must be new. A prefix passes only after its actual requested phase boundary, without solver warnings or scorer integrity failures. A full controller run additionally needs its actual terminal scorer result; prefix success never implies full-score success. A bounded diagnostic that runs out of actions or wall time is incomplete. No object joint actuators, virtual grasps, object pose setters, physics-state projections, phase-switched collisions or completed-object freezing are used.
+Use the pinned CPU environment in the recovery setup. Output directories must be new. A prefix passes only after its actual requested phase boundary, without solver warnings or scorer integrity failures. A full controller run additionally requires an independent terminal score of1.0; `controller_done` alone cannot pass it. Reports now expose `result_scope` and `full_task_passed`; prefix results always have `full_task_passed=false`. prefix success never implies full-score success. A bounded diagnostic that runs out of actions or wall time is incomplete. No object joint actuators, virtual grasps, object pose setters, physics-state projections, phase-switched collisions or completed-object freezing are used.
 
 Seven exporter tests compare independently computed SDK FK at multiple configurations, every original collision hull support plane, rotated full inertia tensors, actual actuator settings, collision masks, invalid-action atomicity and a genuine gravity negative control. Removing compensation causes drift; the compensated arm holds. These tests do not validate task grasps.
 

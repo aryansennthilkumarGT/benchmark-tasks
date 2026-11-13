@@ -6,7 +6,7 @@ are applied. There are no virtual grasps, task actuators or phase pose setters.
 All results retain this backend's friction/contact limitations.
 """
 from __future__ import annotations
-import argparse,gzip,hashlib,importlib,json,os,shutil,subprocess,sys,time
+import argparse,gzip,hashlib,importlib,json,math,os,shutil,subprocess,sys,time
 import cpu_physics_checkpoint as checkpoint
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -34,6 +34,22 @@ def export(spec,backend,subdivision=1):
  for geom in root.findall('.//geom'):
   if geom.get('contype','1')!='0' and geom.get('conaffinity','1')!='0':geom.set('contype','1');geom.set('conaffinity','7')
  return ET.tostring(add_robots(root,contact_timeconstant=.0022/subdivision),encoding='unicode')
+
+
+def classify_result(*, completed, controller_done, stop_after_phase, score, error,
+                    warnings, source_bound, maximum_velocity_ratio):
+ """Separate a requested prefix from full-score physical task completion.
+
+ Controller termination alone cannot certify the scorer. Prefix diagnostics may
+ pass their bounded request, but can never be promoted to a full-task pass.
+ """
+ scope='REQUESTED_PREFIX_DIAGNOSTIC' if stop_after_phase is not None else 'FULL_TASK_DIAGNOSTIC'
+ common=bool(completed and error is None and not warnings and source_bound
+             and math.isfinite(maximum_velocity_ratio) and maximum_velocity_ratio<=1.001)
+ full=bool(common and controller_done and stop_after_phase is None
+           and score is not None and math.isfinite(score) and abs(score-1.)<=1e-9)
+ return dict(result_scope=scope, full_task_passed=full,
+             passed=bool(common if stop_after_phase is not None else full))
 
 
 def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600,subdivision=1,resume=False,checkpoint_every=50):
@@ -120,7 +136,7 @@ def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600,subdiv
  source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=folder,text=True).strip()
  if source_commit!=initial_commit or subprocess.check_output(['git','status','--porcelain','--','.'],cwd=folder,text=True)!=source_status:
   same=False;error='Task source commit or working tree changed during integration'
- report=dict(kind='SUPPLEMENTAL_MUJOCO_ACTUATED_YAM_TASK_DIAGNOSTIC',engine=mujoco.__version__,declared_task_timestep=spec['physics_dt'],diagnostic_timestep=float(m.opt.timestep),physics_subdivision=subdivision,robot_contact_timeconstant=.0022/subdivision,robot_contact_solmix=1e6,isaac_executed=False,hardware_executed=False,dream_executed=False,synthetic_grasps=False,task_pose_writes_after_initialization=False,resumed_integration=bool(resumptions),resume_count=resumptions,checkpoint_restores_only_at_process_initialization=True,task_actuators=False,virtual_constraints=False,source_commit=source_commit,source_tree_dirty=bool(source_status),source_commit_is_exact=not bool(source_status),source_binding='WORKING_TREE_HASHES_ONLY' if source_status else 'CLEAN_COMMIT_AND_RUNTIME_HASHES',source_bound=same,runtime_inputs_sha256=source,robot_sources=robot_sources(),harness_sources=harness_hashes,model_sha256=hashlib.sha256(xml.encode()).hexdigest(),max_actions=max_actions,stop_after_phase=stop_after_phase,actions=actions,phase=control.index,phases=len(plan['phases']),seconds=float(d.time),elapsed_wall_seconds=elapsed_before+time.monotonic()-start,error=error,warnings=warnings,maximum_task_interference_m=peak_task_depth,maximum_raw_robot_contact_depth_m=peak_robot_depth,maximum_action_tracking_delta_rad=max_tracking,maximum_measured_velocity_to_sdk_limit_ratio=maximum_velocity_ratio,velocity_limit_violated=maximum_velocity_ratio>1.001,score=result.score if result else None,controller_done=control.done,requested_prefix_complete=completed,events=control.events,limitations=['MuJoCo, not the native Isaac/PhysX backend.','Official joint friction coefficients are not converted into Nm; authored Coulomb joint loss0.','Robot collision friction0.5 is an explicit diagnostic assumption; PhysX combination/contact behavior may differ.','Table/robot/task geometry included; camera hardware/room/lighting not modeled.','This does not establish native expert, hardware, model or reviewer success.'],passed=bool(completed and error is None and not warnings and same and maximum_velocity_ratio<=1.001))
+ report=dict(kind='SUPPLEMENTAL_MUJOCO_ACTUATED_YAM_TASK_DIAGNOSTIC',engine=mujoco.__version__,declared_task_timestep=spec['physics_dt'],diagnostic_timestep=float(m.opt.timestep),physics_subdivision=subdivision,robot_contact_timeconstant=.0022/subdivision,robot_contact_solmix=1e6,isaac_executed=False,hardware_executed=False,dream_executed=False,synthetic_grasps=False,task_pose_writes_after_initialization=False,resumed_integration=bool(resumptions),resume_count=resumptions,checkpoint_restores_only_at_process_initialization=True,task_actuators=False,virtual_constraints=False,source_commit=source_commit,source_tree_dirty=bool(source_status),source_commit_is_exact=not bool(source_status),source_binding='WORKING_TREE_HASHES_ONLY' if source_status else 'CLEAN_COMMIT_AND_RUNTIME_HASHES',source_bound=same,runtime_inputs_sha256=source,robot_sources=robot_sources(),harness_sources=harness_hashes,model_sha256=hashlib.sha256(xml.encode()).hexdigest(),max_actions=max_actions,stop_after_phase=stop_after_phase,actions=actions,phase=control.index,phases=len(plan['phases']),seconds=float(d.time),elapsed_wall_seconds=elapsed_before+time.monotonic()-start,error=error,warnings=warnings,maximum_task_interference_m=peak_task_depth,maximum_raw_robot_contact_depth_m=peak_robot_depth,maximum_action_tracking_delta_rad=max_tracking,maximum_measured_velocity_to_sdk_limit_ratio=maximum_velocity_ratio,velocity_limit_violated=maximum_velocity_ratio>1.001,score=result.score if result else None,controller_done=control.done,requested_prefix_complete=completed,events=control.events,limitations=['MuJoCo, not the native Isaac/PhysX backend.','Official joint friction coefficients are not converted into Nm; authored Coulomb joint loss0.','Robot collision friction0.5 is an explicit diagnostic assumption; PhysX combination/contact behavior may differ.','Table/robot/task geometry included; camera hardware/room/lighting not modeled.','This does not establish native expert, hardware, model or reviewer success.'],**classify_result(completed=completed,controller_done=control.done,stop_after_phase=stop_after_phase,score=result.score if result else None,error=error,warnings=warnings,source_bound=same,maximum_velocity_ratio=maximum_velocity_ratio))
  (out/'report.json').write_text(json.dumps(report,indent=2)+'\n');return report
 
 if __name__=='__main__':

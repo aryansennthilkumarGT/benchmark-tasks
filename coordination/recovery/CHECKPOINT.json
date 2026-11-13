@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T19:17:22.978516+00:00",
+  "updated_at": "2026-11-13T19:26:40.735119+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -80,8 +80,10 @@
         "slug": "brad-nailer-jam-recovery",
         "branch": "draft/brad-nailer-jam-recovery",
         "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
-        "offline_state": "OFFLINE HIGH CONFIDENCE",
-        "native_physics": "NOT_RUN"
+        "offline_state": "REVISION_REQUIRED",
+        "native_physics": "NOT_RUN",
+        "historical_offline_state": "OFFLINE HIGH CONFIDENCE",
+        "reason": "New actual actuated CPU robot diagnostics exposed failures; independent optimization successor under full clean-checkout physics test."
       }
     },
     {
@@ -400,15 +402,15 @@
     }
   },
   "next_commands": [
-    "Complete SDS exact-source clean verification and publish evidence without qualifying novelty.",
-    "Verify actual pintle-hook operating procedure/novelty and occupational scope before choosing next independent implementation.",
-    "Preserve all prior sources and PR1733; continue remaining packages without paid services."
+    "Finish actual clean-source nailer CPU robot/contact execution; inspect physical score, warnings, SDK velocity ratios and full49-phase completion independently.",
+    "Repair any actual failure, re-freeze and independently verify changed source; preserve original d8d454b and all failed/partial evidence.",
+    "Continue strongest next replacement grounding; wiper excluded by PR1335, SDS by PR1868/1636, shackle by PR1886."
   ],
   "additional_quality_replacements_required": [
     "drive-bracket-pin-release is superseded by internally qualified cargo; preserve original drive history.",
     "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept."
   ],
-  "next_implementation_command": "cd /workspace/sds-exchange; read tasks/sds-plus-chisel-exchange/ENGINEERING_PROGRESS.md; inspect /tmp/sds-cycle-sphere.json and current-failed-cycle-binding.json. Implement geometric margin fix without loosening scorer, complete ideal_controller/FK/audits, then source-freeze and clean HTTPS qualification.",
+  "next_implementation_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /workspace/.robocurve-offline/venv/bin/python /tmp/cpu-resumable-harness-clean/coordination/cpu_yam_trial.py --task-folder /tmp/nailer-capture-clean/tasks/brad-nailer-jam-recovery --output /tmp/nailer-yam-capture-clean-refined4 --max-actions 5000 --wall-seconds 3600 --physics-subdivision 4 --checkpoint-every 50 --resume",
   "nailer_progress": {
     "branch": "draft/brad-nailer-jam-recovery",
     "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
@@ -416,7 +418,7 @@
     "full_suite_tested_source_commit": "c13f2e384bf69cc7b8d21915716e0d4ded98e808",
     "source_manifest_sha256": "61953e3b2be7f5ad7afb1a6a4176278dda1186aeded5f8eabe1ee11c33898a89",
     "scene_sha256": "0de827b14d9ea80d8f490b60047f72b1c61f0106233c35b565e1173a10d4d74d",
-    "implementation": "COMPLETE_INTERNALLY_OFFLINE_HIGH_CONFIDENCE",
+    "implementation": "HISTORICAL_IMPLEMENTATION_CURRENT_READINESS_HELD",
     "unit_tests": 53,
     "metadata_tests": 9,
     "static_stages": 10,
@@ -435,7 +437,8 @@
     "dream": "NOT_RUN",
     "hardware": "NOT_RUN",
     "evidence": "tasks/brad-nailer-jam-recovery/offline-evidence/final/source-verification.json",
-    "readiness_bundle": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/bundle.json"
+    "readiness_bundle": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/bundle.json",
+    "offline_state": "REVISION_REQUIRED"
   },
   "usd_angular_drive_repair": {
     "discovered": "2026-11-13",
@@ -498,9 +501,9 @@
     "optimized_prefix": "7of49phases/520actions/26s; working-tree diagnostic only, not full success; gripper velocity mismatch unresolved",
     "harness": "coordination/cpu_yam_trial.py",
     "source_initial_harness_commit": "937f7f6",
-    "next": "Finish/freeze new nailer source, push it, clone task+harness via HTTPS, run full refined4 controller with checkpoints and --resume after interruption; repair further real failures.",
-    "repair_commit": "005078a",
-    "cpu_tests": 54,
+    "next": "Inspect actual report or last frame. Do not start duplicate process. If interrupted, resume exact clean sources/model from integration-checkpoint.npz with --resume; repair any remaining full-controller failures.",
+    "repair_commit": "43158751d479cb3b536cb6734f61cded9ccb889b",
+    "cpu_tests": 55,
     "full_actual_fk_samples": 638,
     "ideal_actions": 2793,
     "ideal_seconds": 139.65,
@@ -509,7 +512,14 @@
     "contact_calibration": "Subdivision4/8 converge to0.923/0.933mm real jaw aperture; empty controls0; no solver warnings. No geometry/mass/friction/score changes.",
     "environment_interruption": "Fresh005078a/e13c03c refined4 run stopped by environment restart at phase17/~84.7s; no report. Complete retained frames prove aperture0.923mm but0.73mm TCP deflection prevents former0.4mm grip check.",
     "capture_repair": "Only brad acquisition permits1mm TCP compliance; actual jaw check/scoring unchanged; actual recorded capture and empty-grip negative regression pass.",
-    "restart_resilience": "11 CPU harness tests plus real killed/resumed task-prefix70actions; exact integration/policy/scorer checkpointing, source and trace hashes, monotonic times. No native claim."
+    "restart_resilience": "11 CPU harness tests plus real killed/resumed task-prefix70actions; exact integration/policy/scorer checkpointing, source and trace hashes, monotonic times. No native claim.",
+    "actual_fk_passed": true,
+    "harness_clean_commit": "06b8c7f5e096dd36131fdb6bcac64ff76d7a62bd",
+    "clean_harness_tests": 11,
+    "clean_task_tests": 55,
+    "full_run_output": "/tmp/nailer-yam-capture-clean-refined4",
+    "full_run_state": "RUNNING_NO_FULL_RESULT_YET",
+    "resume_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /workspace/.robocurve-offline/venv/bin/python /tmp/cpu-resumable-harness-clean/coordination/cpu_yam_trial.py --task-folder /tmp/nailer-capture-clean/tasks/brad-nailer-jam-recovery --output /tmp/nailer-yam-capture-clean-refined4 --max-actions 5000 --wall-seconds 3600 --physics-subdivision 4 --checkpoint-every 50 --resume"
   },
   "reviewer_occupation_threshold": "Over500,000 U.S. workers collectively, with the actual procedure core/regular in the named disjoint occupations. Do not incorrectly require1million."
 }

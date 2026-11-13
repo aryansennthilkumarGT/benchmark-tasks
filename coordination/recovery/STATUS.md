@@ -91,3 +91,10 @@ Future execution repair: direct paid pipeline now verifies offline bundles befor
 SDS exact-source clean HTTPS qualification is complete: source95ec72f, evidence tip6d55b15,44 tests/all10stages,31 real-controller phases1639idealactions81.95s,391FK samples,14repeatedcontactcases and full capped-wrench mechanism cycle. No raw warning trailers. Novelty remains BLOCKED; no readiness bundle added. Original full-size pintle fixture coding now underway independently; primary procedure/drawing and nearest rejected/pending comparisons saved.
 
 Pintle prototype8cea6ab is preserved independently, not qualified. Exact steel mass is2.0526kg, not the earlier rough estimate below1kg. The vehicle-supported eye cannot honestly be replaced by a free light bench ring; no density reduction/miniaturization permitted.265sample path also exposes36 real dog/ledge collisions. Stop this weak analogue and continue a directly manipulated transport-chain grab-hook candidate after manufacturer/novelty verification. No completed-package count increased.
+
+
+## 2026-11-13 actual-contact continuation
+
+Independent repair43158751d479cb3b536cb6734f61cded9ccb889b passed55 clean-HTTPS tests and638 sampled full-controller FK checks; ideal49-phase trace remains2793actions/139.65s, explicitly synthetic. Actual complete refined4 robot/contact integration is running from clean harness06b8c7f5e096dd36131fdb6bcac64ff76d7a62bd in `/tmp/nailer-yam-capture-clean-refined4`, with exact-integration checkpoints every50actions. No full result is yet claimed; count remains2. The current task source preserves geometry, mass, friction and independent scoring. Only brad capture permits1mm TCP compliance while retaining its measured nonempty-jaw condition.
+
+CPU harness result classification now rejects terminal zero/partial/nonfinite scores as full-task success and explicitly distinguishes requested prefixes. Three focused tests pass, including independent source/warning negative cases. Historical source/evidence and all official PR heads remain untouched.
