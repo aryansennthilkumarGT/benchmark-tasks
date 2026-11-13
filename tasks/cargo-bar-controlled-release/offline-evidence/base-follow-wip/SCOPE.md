@@ -1,0 +1,1 @@
+48 tests and251 strict source-bound FK samples pass. Controller holds physical arc progress while rate-limited commands follow the released moving base. Full fresh actual integration and independent synthetic scoring still required; no new physical/native success.

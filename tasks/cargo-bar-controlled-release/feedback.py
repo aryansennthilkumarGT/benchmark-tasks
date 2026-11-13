@@ -17,7 +17,7 @@ class Controller:
   self.index=0;self.done=False;self.failed=None;self.events=[];self.carry_pair=None;self.carry_command=None
   self.motion={s:Motion(s,tracking_error_limit=.08) for s in ('left','right')}
   self.targets={};self.started=None;self.last_time=None;self.stable=None;self.best=float('inf');self.progress_time=None
-  self.actions=0;self.recovery=None;self.attempts={};self.arc_grasps={};self.arc_references={}
+  self.actions=0;self.recovery=None;self.attempts={};self.arc_grasps={};self.arc_references={};self.arc_follow_holds={}
  def fail(self,message):
   self.failed=message;self.events.append(dict(event='FAIL_STOP',phase=self.index,reason=message,time=self.last_time));raise ControlFailure(message)
  def resolve(self,p,frame):
@@ -57,9 +57,21 @@ class Controller:
    if np.any(solved<motion.ik.LOWER+1e-5) or np.any(solved>motion.ik.UPPER-1e-5):raise ControlFailure('Circular handle joint limit')
    if np.max(np.abs(solved-(motion.reference if motion.reference is not None else arm)))<=.020001:
     self.arc_references[self.index]=reference+delta
+    self.arc_follow_holds[self.index]=0
     motion.reference=solved.copy();return np.r_[solved,grip],error,theta
    delta*=.5
-  raise ControlFailure('Circular handle step cannot meet robot joint rate')
+  # The released outer tube can translate while the angle is held. Its live
+  # circle center may move farther than one allowed joint-reference step.
+  # Hold arc progress and slew toward that same-angle pose instead of either
+  # jumping the robot reference or pretending the physical bar stayed fixed.
+  self.arc_follow_holds[self.index]=self.arc_follow_holds.get(self.index,0)+1
+  if self.arc_follow_holds[self.index]>50:raise ControlFailure('Moving-base follow timeout')
+  pose=self.arc_pose(p,frame,reference);previous=motion.reference if motion.reference is not None else arm
+  solved,pe,re=motion.ik.solve(pose['pos'],pose['quat'],q_init=previous,base_pos=motion.base,iters=200,damping=.015,tol=1e-5)
+  if pe>3e-5 or re>.0001 or np.any(solved<motion.ik.LOWER+1e-5) or np.any(solved>motion.ik.UPPER-1e-5):raise ControlFailure('Moving-base follow IK/limit failure')
+  step=solved-previous;step*=min(1.,.02/max(float(np.abs(step).max()),1e-12))
+  motion.reference=previous+step
+  return np.r_[motion.reference,grip],error,theta
  def bind(self,p,frame):
   if p.get('reference_live'):return p
   out=self.resolve(p,frame);out=dict(out);out.pop('reference_body',None);return out

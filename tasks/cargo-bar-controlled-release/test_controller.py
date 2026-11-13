@@ -139,3 +139,18 @@ def test_ideal_trigger_follows_one_actual_pad_during_closure_and_release():
  f.advance(c,command,17);assert f.js['trigger_pull']>.004
  command=f.q.copy();command[13]=.050/.0939;f.advance(c,command,17)
  assert f.js['trigger_pull']==0.
+
+
+def test_released_base_motion_holds_arc_progress_and_respects_robot_reference_rate():
+ c=Controller(PLAN,SPEC);c.index=8;p=c.phases[8];root,f=fixture();q=np.tile(np.r_[READY,1.],2)
+ target=PLAN['phases'][7]['target'];arm,pe,re=ik.solve(target['pos'],target['quat'],q_init=READY,base_pos=station.BASES['right'],iters=500,tol=1e-5)
+ assert pe<2e-5 and re<1e-4;q[7:13]=arm;q[13]=.27
+ first,_,_=c.arc_action(p,f,q);q[7:]=first;reference=c.arc_references[8];previous=c.motion['right'].reference.copy()
+ # Authored controller stress: a4mm center translation, comparable to the
+ # measured63.6mm/s base release at a50ms observation interval. No physics
+ # success is inferred from this prescribed state perturbation.
+ root['pos'][1]+=.004;f['bodies'].update(reconstruct(SPEC,root,f['joints']))
+ output,_,_=c.arc_action(p,f,q)
+ assert c.arc_follow_holds[8]==1 and c.arc_references[8]==reference
+ assert np.max(np.abs(output[:6]-previous))<=.020001
+ assert np.isfinite(output).all()
