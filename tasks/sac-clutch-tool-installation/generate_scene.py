@@ -118,7 +118,7 @@ def make_scene():
         release_clearance=.020,loss_plane=TABLE-.020,anchors=anchors)
     return dict(slug='sac-clutch-tool-installation',title='Mount and retain a SAC installation-tool carrier',
         instruction='Lower the unloaded three-arm SAC carrier over the prepared studs and centering mandrel. Screw each of the three knurled retainers clockwise until its top is flush with its stud tip and the carrier rests on all three shoulders. Release the parts and withdraw both grippers. Keep the central pressure spindle retracted.',
-        geometry_mode='BENCHMARK_AUTHORED',control_hz=20,physics_dt=1/480,gravity=[0,0,-9.81],run_limit=42000,
+        geometry_mode='BENCHMARK_AUTHORED',control_hz=20,physics_dt=1/480,gravity=[0,0,-9.81],run_limit=24000,
         table_top=TABLE,hold_seconds=2.,penetration_limit=.00035,assemblies=[assembly(b,b['anchor']) for b in bodies],
         collision_exclusions=[],score_spec=score,parameters=d,
         material=dict(static_friction=.65,dynamic_friction=.5,restitution=0.,steel_density=7850.,contact_offset=.00003,rest_offset=0.),
@@ -174,9 +174,9 @@ def make_plan(spec):
                   mutate=lambda z=z,k=k:nut_at([x,y,z],quat([0,0,1],-(k+1)*math.pi/4)))
             if k==strokes-1:continue
             phase(f'Open retainer {i+1} stroke {k+1}','right',[x,y,z+zoff],rotated,wide,name)
-            phase(f'Clear retainer {i+1} stroke {k+1}','right',[x,y,z+zoff+.045],rotated,wide)
-            phase(f'Unwind retainer {i+1} stroke {k+1}','right',[x,y,z+zoff+.045],down,wide)
-            phase(f'Return retainer {i+1} stroke {k+1}','right',[x,y,z+zoff],down,wide,speed=.006)
+            phase(f'Clear retainer {i+1} stroke {k+1}','right',[x,y,z+zoff+.020],rotated,wide)
+            phase(f'Unwind retainer {i+1} stroke {k+1}','right',[x,y,z+zoff+.020],down,wide)
+            phase(f'Return retainer {i+1} stroke {k+1}','right',[x,y,z+zoff],down,wide,speed=.025)
             phase(f'Regrasp retainer {i+1} stroke {k+1}','right',[x,y,z+zoff],down,opening,name,.028,dwell=.3)
         phase(f'Release flush retainer {i+1}','right',[x,y,z+zoff],rotated,wide,name)
         phase(f'Withdraw from retainer {i+1}','right',[x,y,.89],rotated,wide)

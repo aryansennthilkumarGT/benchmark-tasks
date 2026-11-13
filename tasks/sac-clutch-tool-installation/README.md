@@ -45,3 +45,7 @@ Dream execution requires native suites plus two independently verified full-scor
 The media pipeline decodes real rendered frames, checks H.264/yuv420p, dimensions, frame count and size, and binds two demos, model video and setup image to real receipts. `prepare_submission.py` requires actual native/expert/model/media results plus a visual-review attestation. It does not create a PR; default mode does not upload. Do not supply upload credentials during this offline phase.
 
 Read [FIDELITY.md](FIDELITY.md), [SETUP.md](SETUP.md), [PARAMETER_TABLE.md](PARAMETER_TABLE.md), [SCORING.md](SCORING.md), [CONTROLLER.md](CONTROLLER.md), [CONSTRUCT_VALIDITY.md](CONSTRUCT_VALIDITY.md) and [NOVELTY.md](NOVELTY.md) before qualification.
+
+## CPU efficiency variant
+
+This branch preserves the validated original at draft/sac-clutch-tool-installation / 0fadbf0 and changes only unloaded regrasp motion. The ideal controller uses 15,315 actions / 765.75 s instead of 28,800 / 1,440 s (46.8% fewer actions). Open-jaw clearance is 20 mm and return speed 25 mm/s; actual thread strokes/turns/scoring are unchanged. The 24,000-action limit retains 56.7% headroom over that ideal count. Read audit_full_fk_path.py for explicitly sampled actual-FK geometry with assumed rigid grasps. New native qualification is required; original evidence is historical for changed source.
