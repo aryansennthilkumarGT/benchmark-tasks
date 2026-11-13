@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T07:22:56.296136+00:00",
+  "updated_at": "2026-11-13T09:13:31.539113+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -36,8 +36,8 @@
       "replacement_candidate": {
         "slug": "cargo-bar-controlled-release",
         "branch": "draft/cargo-bar-controlled-release",
-        "commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
-        "implementation": "COMPLETE_OFFLINE_VERIFIED_FINAL_ACCEPTANCE_PENDING",
+        "commit": "905f760",
+        "implementation": "ACTIVE_CONTACT_INERTIA_REPAIR_NOT_QUALIFIED",
         "cpu_tests_passed": 31,
         "ik_endpoints": 21,
         "robot_collision_endpoints": 21,
@@ -55,7 +55,12 @@
         "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
         "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
         "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
-        "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json"
+        "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json",
+        "historical_offline_evidence_commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
+        "historical_tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
+        "clean_https_current_source": false,
+        "current_blocker": "Initial free bar drifts onto receiving cradles; 12kN/m source fails strict2s/3mm hold. Longer duration and solver convergence diagnostics show higher preload alone only conceals drift temporarily. All8 joint contacts now enabled, compound COM/inertia derived;8 new analytic/export tests pass.",
+        "qualification_warning": "Historical31-test/13-stage source is preserved; those results do not qualify changed mechanics. Provenance/source manifests intentionally stale pending final review."
       }
     },
     {
@@ -338,5 +343,6 @@
   "additional_quality_replacements_required": [
     "drive-bracket-pin-release excluded by officialPR1750; cargo-bar candidate awaits clean checkout and final acceptance",
     "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept"
-  ]
+  ],
+  "next_implementation_command": "In /workspace/cargo-bar inspect /tmp/cargo-hold-backend-duration.json. Repair stable free initial hold; regenerate physical cam reference; run affected contact/FK/controller/provenance checks, update docs, then independent HTTPS verify. Continue remaining task replacements after qualification; no milestone stop."
 }
