@@ -66,7 +66,15 @@ class Motion:
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
+        self.grip_reference = None
         self.tracking_error_limit = tracking_error_limit
+
+    def gripper_target(self, measured, desired, slew=.05):
+        if not all(math.isfinite(v) for v in (measured, desired, slew)) or not 0<=desired<=1 or not 0<slew<=.05:
+            raise ControlFailure('Invalid gripper reference slew')
+        if self.grip_reference is None:self.grip_reference=float(np.clip(measured,0.,1.))
+        self.grip_reference=float(np.clip(self.grip_reference+np.clip(desired-self.grip_reference,-slew,slew),0.,1.))
+        return self.grip_reference
 
     def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.,gripper_step=.05):
         q=np.asarray(measured,dtype=float)
@@ -79,7 +87,7 @@ class Motion:
         theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
         if not math.isfinite(gripper_step) or not 0 < gripper_step <= .05:
             raise ControlFailure('Invalid gripper reference slew')
-        grip = q[6] + float(np.clip(opening-q[6], -gripper_step, gripper_step))
+        grip = self.gripper_target(q[6],opening,gripper_step)
         if self.reference is None:
             self.reference = arm.copy()
         if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:

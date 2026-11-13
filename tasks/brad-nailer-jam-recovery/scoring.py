@@ -28,7 +28,7 @@ class Result:
 class Scorer:
  def __init__(self,spec):
   self.spec=spec;self.defs={b['name']:b for a in spec['assemblies'] for b in a['bodies']};self.joints=[j for a in spec['assemblies'] for j in a['joints']];self.reset()
- def reset(self):self.started=False;self.previous_time=None;self.failed=None;self.window=deque();self.result=Result()
+ def reset(self):self.started=False;self.previous_time=None;self.previous_brad=None;self.failed=None;self.window=deque();self.result=Result()
  def fail(self,reason):
   self.failed=reason;self.window.clear();self.result=Result(failure=reason);return self.result
  def local(self,root,point):return rotate(conjugate(root['quat']),np.asarray(point)-root['pos'])
@@ -64,10 +64,12 @@ class Scorer:
  def integrity(self,frame):
   bodies=frame['bodies'];js=frame['joints']
   if set(bodies)!=set(self.defs):return 'Missing or substituted physical body'
+  if set(js)!={j['name'] for j in self.joints}:return 'Missing or substituted physical joint'
+  if not isinstance(frame.get('robot_clearance'),(int,float)) or isinstance(frame['robot_clearance'],bool) or not math.isfinite(frame['robot_clearance']):return 'Malformed robot clearance'
   for body in bodies.values():
    values=[*body['pos'],*body['quat'],*body['linear'],*body['angular']]
    if not np.isfinite(values).all() or abs(np.linalg.norm(body['quat'])-1)>.005:return 'Nonfinite or malformed physical state'
-  if not math.isfinite(frame['max_penetration']) or frame['max_penetration']>self.spec['penetration_limit']:return 'Solid interference exceeds integrity bound'
+  if not isinstance(frame['max_penetration'],(int,float)) or isinstance(frame['max_penetration'],bool) or not math.isfinite(frame['max_penetration']) or not 0<=frame['max_penetration']<=self.spec['penetration_limit']:return 'Solid interference exceeds integrity bound'
   for name in ('nose_body','parts_tray'):
    reference=self.defs[name];actual=bodies[name]
    if np.linalg.norm(np.array(actual['pos'])-reference['pos'])>.001 or qangle(actual['quat'],reference['quat'])>.01:return 'Fixed fixture moved'
@@ -90,13 +92,17 @@ class Scorer:
  def update(self,frame):
   if self.failed:return self.result
   try:
-   now=float(frame['time'])
-   if not math.isfinite(now) or (self.previous_time is not None and now<=self.previous_time):return self.fail('Nonmonotonic physical observation')
+   now=frame['time']
+   if not isinstance(now,(int,float)) or isinstance(now,bool) or not math.isfinite(now) or now<0 or (self.previous_time is not None and now<=self.previous_time):return self.fail('Nonmonotonic physical observation')
    reason=self.integrity(frame)
    if reason:return self.fail(reason)
    if not self.started:
     if not self.initial_valid(frame):return self.fail('Wrong initial state; cannot substitute a completed setup')
     self.started=True
+   brad=frame['bodies']['bent_brad']['pos']
+   if self.previous_time is not None and math.dist(brad,self.previous_brad)>2.*(now-self.previous_time)+.010:
+    return self.fail('Unobserved fastener state jump')
+   self.previous_brad=list(brad)
    if self.previous_time is not None and now-self.previous_time>1.5/self.spec['control_hz']:self.window.clear()
    self.previous_time=now;bodies=frame['bodies'];joints=frame['joints'];root=bodies['nose_body']
    vertices=self.nail_vertices(bodies['bent_brad']);local=np.array([self.local(root,p) for p in vertices])

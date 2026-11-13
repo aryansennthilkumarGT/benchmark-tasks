@@ -41,7 +41,7 @@ class Expert(PolicyBase):
             with Path(path).open('a') as stream:
                 for event in self.controller.events[self.last_event:]:stream.write(json.dumps(event)+'\n')
         self.last_event=len(self.controller.events)
-        return ActionChunk(actions=[Action(data=command,meta={'request_stop':self.controller.done})],control_hz=20)
+        return ActionChunk(actions=[Action(data=command,meta={'request_stop':False})],control_hz=20)
 
 
 def policy(**kwargs):

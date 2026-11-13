@@ -39,7 +39,7 @@ def test_real_two_arm_pin_capture_and_past_center_are_required_for_full_score():
 
 def test_clearance_and_continuous_observation_are_needed_for_hold():
  j=Scorer(SPEC);j.update(initial());f=goal();f['robot_clearance']=None
- assert complete(j,f).score==.75
+ assert complete(j,f).score==0.
  j.reset();j.update(initial());j.update(goal(1.));assert not j.update(goal(3.)).success
  assert complete(j,goal(3.05)).success
 
@@ -74,3 +74,18 @@ def test_pin_axis_must_cover_both_capture_arms_and_unobserved_fastener_is_not_re
  f['bodies']['bail_crosspin']['quat']=[2**-.5,0,0,2**-.5]
  assert not j.captured(f['bodies'])
  j.reset();assert j.update(initial()).score==0
+
+
+def test_fastener_cannot_jump_directly_from_reset_to_completed_tray_in_one_tick():
+ j=Scorer(SPEC);j.update(initial());r=j.update(goal(.05))
+ assert r.score==0. and 'state jump' in r.failure.lower()
+ assert complete(j,goal(1.)).score==0.
+
+
+@pytest.mark.parametrize('change',[
+ lambda f:f.update(time=-.05),lambda f:f.update(max_penetration=-.001),
+ lambda f:f['joints'].update(extra_joint=0.),lambda f:f.update(robot_clearance=float('nan')),
+ lambda f:f.update(robot_clearance=None),lambda f:f.update(time=True)])
+def test_malformed_telemetry_fails_before_any_credit(change):
+ f=initial();change(f);r=Scorer(SPEC).update(f)
+ assert r.score==0. and r.failure is not None

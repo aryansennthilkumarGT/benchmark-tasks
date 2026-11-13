@@ -110,7 +110,7 @@ class Controller:
     output[i:i+6]=leader;self.motion[side].reference=leader.copy()
     if follower is not None:
      off=0 if p['follower']=='left' else 7;output[off:off+6]=follower;self.motion[p['follower']].reference=follower.copy()
-    output[i+6]=q[i+6]+float(np.clip(p['opening']-q[i+6],-.05,.05))
+    output[i+6]=self.motion[side].gripper_target(q[i+6],p['opening'],p.get('gripper_step',.05))
     return output,error,theta
    delta*=.5
   raise ControlFailure('Physical arc or coupled follower cannot meet IK/rate/limit constraints')
@@ -157,7 +157,7 @@ class Controller:
     if active.get('coupled') and side==active['follower']:
      # The coupled solve owns this arm's reference for the entire phase.
      # Tracking an earlier world hold here would overwrite it every tick.
-     output[start+6]=q[start+6]+float(np.clip(target['opening']-q[start+6],-.05,.05))
+     output[start+6]=self.motion[side].gripper_target(q[start+6],target['opening'],target.get('gripper_step',.05))
      continue
     if 'arc' in target:continue
     action,pe,re=self.motion[side].target(q[start:start+7],target['target']['pos'],target['target']['quat'],target['opening'],speed=target['speed'],angular_speed=.6,gripper_step=target.get('gripper_step',.05))

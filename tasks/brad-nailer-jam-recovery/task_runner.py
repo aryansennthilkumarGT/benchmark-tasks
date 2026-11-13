@@ -70,7 +70,7 @@ def main(argv=None):
                                          'camera_coverage':records[stages[0]]['result']['camera_coverage']})
                 execute([python,str(HERE/'render_media.py'),'--inputs',str(out/'inputs.json'),'--folder',str(HERE),
                          '--output',str(out/'media')],HERE,out/'process.log',1800)
-                return read(out/'media/media-validation.json')
+                return dict(read(out/'media/media-validation.json'),path=str(out/'media'))
             stage('MEDIA_RENDERED',media)
             report.update(status='LOCAL_MEDIA_RENDERED_VISUAL_REVIEW_REQUIRED',dream_score=dream['result']['score'])
         atomic(root/'report.json',report);print(json.dumps(report,indent=2))
