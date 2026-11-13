@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
 
 HERE=Path(__file__).resolve().parent
 
@@ -24,6 +25,8 @@ def main():
     subprocess.run([sys.executable,'-m','pytest','-q','-p','no:cacheprovider',str(HERE)],check=True,env=env)
     scripts=['verify_assets.py','audit_control.py','audit_geometry.py','audit_sequence.py','audit_robot.py','audit_full_fk_path.py']
     for script in scripts:subprocess.run([sys.executable,str(HERE/script)],check=True,env=env)
+    contact=Path(tempfile.mkdtemp(prefix=HERE.name+'-cpu-contact-'))/'probe'
+    subprocess.run([sys.executable,str(HERE/'cpu_contact_probe.py'),'--folder',str(HERE),'--output',str(contact)],check=True,env=env)
     print('OFFLINE CHECKS PASSED; no native physics or full-score expert evidence.')
 
 

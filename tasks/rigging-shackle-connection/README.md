@@ -55,3 +55,7 @@ python tasks/rigging-shackle-connection/prepare_submission.py \
 ```
 
 This verifies the native/expert/model/media receipt chain, binds review to exact bytes, and prepares a disposable metadata/media copy. It prints the official repository uploader command. `--upload` explicitly runs that uploader; only its server response supplies the media ID. Credentials remain in secure environment bindings. No PR is created by this package. An eventual independent PR must contain only this task folder and actual qualified results. Do not reuse or alter the finally rejected heads or PR #1733.
+
+## Supplemental CPU contact diagnostics
+
+The offline requirements now include MuJoCo3.3.7. static_check.py runs the exact-scene contact probes twice after reset, as well as unit/geometry/kinematic checks. Read CPU_CONTACT_DIAGNOSTICS.md for solver differences, transient risks and the strict distinction from native Isaac/robot evidence. The standalone command is `python cpu_contact_probe.py --folder . --output /tmp/new-contact-probe`. No GPU or rendering is used.
