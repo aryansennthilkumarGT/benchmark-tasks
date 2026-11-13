@@ -57,7 +57,7 @@ def limit_vector(delta,maximum):
 
 class Motion:
     """Track a rate-limited IK reference while waiting for all joints to catch up."""
-    def __init__(self,side,dt=0.05,tracking_error_limit=0.025):
+    def __init__(self,side,dt=0.05,tracking_error_limit=0.08):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
@@ -72,7 +72,7 @@ class Motion:
         quat = unit(quat)
         error = float(np.linalg.norm(measured_pos - pos))
         theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
-        grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
+        grip = q[6] + float(np.clip(opening-q[6], -0.05, 0.05))
         if self.reference is None:
             self.reference = arm.copy()
         if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:

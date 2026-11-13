@@ -97,3 +97,45 @@ def test_carry_ik_failure_is_bounded_and_does_not_stretch_a_grasp(monkeypatch):
  monkeypatch.setattr(c.motion['left'].ik,'solve',failed)
  with pytest.raises(ControlFailure,match='Bimanual carry'):c.coordinate_carry(q,q.copy())
  assert len(calls)==12
+
+
+def test_actual_compliant_handle_completion_requires_unchanged_physical_guards():
+ data=json.loads((HERE/'test_fixtures/handle-open-keyframes.json').read_text())
+ assert data['not_isaac'] and data['not_success'];first,last=data['frames']
+ for corrupt in (None,'trigger','handle'):
+  c=Controller(PLAN,SPEC);c.index=8;p=c.phases[8];m=c.motion['right'];startq=np.array(first['robot_q'])
+  tcp,rotation=ik.tcp_pose(startq[7:13],station.BASES['right']);body=first['frame']['bodies']['handle']
+  c.arc_grasps[8]=(rotate(conjugate(body['quat']),tcp-np.array(body['pos'])),multiply(conjugate(body['quat']),ik.matrix_to_quat_xyzw(rotation)))
+  q=np.array(last['robot_q']);m.reference=np.array(last['action'][7:13])
+  for tick in range(4):
+   frame=copy.deepcopy(last['frame']);frame['time']+=tick*.05
+   if corrupt=='trigger':frame['joints']['trigger_pull']=0.
+   if corrupt=='handle':frame['joints']['handle_rotation']=2.
+   try:c.step(q,frame)
+   except ControlFailure:
+    assert corrupt is not None
+    break
+   if c.index==9:break
+  assert (c.index==9) is (corrupt is None)
+
+
+def test_ideal_trigger_follows_one_actual_pad_during_closure_and_release():
+ from ideal_fixture import IdealFixture
+ from robot_geometry import arm_hulls,task_collisions
+ f=IdealFixture(HERE);c=Controller(PLAN,SPEC);p=c.phases[7];target=p['target']
+ q,pe,re=ik.solve(target['pos'],target['quat'],q_init=READY,base_pos=station.BASES['right'],iters=500,tol=1e-6)
+ assert pe<1e-5 and re<1e-4
+ f.q[7:13]=q;c.targets['right']=p
+ pulls=[]
+ for gap in (.046,.042,.038,.032,.026):
+  command=f.q.copy();command[13]=gap/.0939;f.advance(c,command,7);pulls.append(f.js['trigger_pull'])
+  hits=task_collisions(f.g,arm_hulls('right',f.q[7:]),f.spec,f.states(),threshold=.00005)
+  assert not [h for h in hits if h['body']=='release_trigger']
+ assert pulls[0]==0. and pulls[-1]>.008
+ assert all(b>=a for a,b in zip(pulls,pulls[1:]))
+ # Opening beyond the physical paddle clears contact, rather than resetting
+ # the spring while the finger is still inside the return path.
+ c.targets['right']=PLAN['phases'][17];command=f.q.copy();command[13]=.032/.0939
+ f.advance(c,command,17);assert f.js['trigger_pull']>.004
+ command=f.q.copy();command[13]=.050/.0939;f.advance(c,command,17)
+ assert f.js['trigger_pull']==0.

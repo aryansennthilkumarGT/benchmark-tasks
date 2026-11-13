@@ -15,9 +15,9 @@ class Controller:
  def __init__(self,plan,spec):self.phases=plan['phases'];self.spec=spec;self.reset()
  def reset(self):
   self.index=0;self.done=False;self.failed=None;self.events=[];self.carry_pair=None;self.carry_command=None
-  self.motion={s:Motion(s,tracking_error_limit=.025) for s in ('left','right')}
+  self.motion={s:Motion(s,tracking_error_limit=.08) for s in ('left','right')}
   self.targets={};self.started=None;self.last_time=None;self.stable=None;self.best=float('inf');self.progress_time=None
-  self.actions=0;self.recovery=None;self.attempts={};self.arc_grasps={}
+  self.actions=0;self.recovery=None;self.attempts={};self.arc_grasps={};self.arc_references={}
  def fail(self,message):
   self.failed=message;self.events.append(dict(event='FAIL_STOP',phase=self.index,reason=message,time=self.last_time));raise ControlFailure(message)
  def resolve(self,p,frame):
@@ -39,19 +39,24 @@ class Controller:
    self.arc_grasps[self.index]=(rotate(conjugate(body['quat']),tcp-np.array(body['pos'])),
                                 multiply(conjugate(body['quat']),motion.ik.matrix_to_quat_xyzw(rotation)))
   current=frame['joints']['handle_rotation'];target=p['arc']['angle'];radius=max(np.linalg.norm(self.arc_grasps[self.index][0][1:]),1e-6)
-  delta=float(np.clip(target-current,-min(.5*.05,p['speed']*.05/radius),min(.5*.05,p['speed']*.05/radius)))
+  reference=self.arc_references.setdefault(self.index,float(current))
+  rate=min(.5*.05,p['speed']*.05/radius)
+  proposed=reference+float(np.clip(target-reference,-rate,rate))
+  proposed=float(np.clip(proposed,current-.12,current+.12))
+  delta=proposed-reference
   final=self.arc_pose(p,frame,target);tcp,rotation=motion.ik.tcp_pose(arm,motion.base)
   error=float(np.linalg.norm(tcp-final['pos']));theta=qangle(motion.ik.matrix_to_quat_xyzw(rotation),final['quat'])
-  grip=q[start+6]+float(np.clip(p['opening']-q[start+6],-.1,.1))
+  grip=q[start+6]+float(np.clip(p['opening']-q[start+6],-.05,.05))
   if motion.reference is not None and np.max(np.abs(motion.reference-arm))>motion.tracking_error_limit:
    # Hold the previous circle point until the physical robot catches up.
    return np.r_[motion.reference,grip],error,theta
   for _ in range(12):
-   pose=self.arc_pose(p,frame,current+delta)
-   solved,pe,re=motion.ik.solve(pose['pos'],pose['quat'],q_init=arm,base_pos=motion.base,iters=150,damping=.015,tol=1e-5)
+   pose=self.arc_pose(p,frame,reference+delta)
+   solved,pe,re=motion.ik.solve(pose['pos'],pose['quat'],q_init=motion.reference if motion.reference is not None else arm,base_pos=motion.base,iters=150,damping=.015,tol=1e-5)
    if pe>3e-5 or re>.0001:raise ControlFailure('Circular handle IK failed')
    if np.any(solved<motion.ik.LOWER+1e-5) or np.any(solved>motion.ik.UPPER-1e-5):raise ControlFailure('Circular handle joint limit')
-   if np.max(np.abs(solved-arm))<=.020001:
+   if np.max(np.abs(solved-(motion.reference if motion.reference is not None else arm)))<=.020001:
+    self.arc_references[self.index]=reference+delta
     motion.reference=solved.copy();return np.r_[solved,grip],error,theta
    delta*=.5
   raise ControlFailure('Circular handle step cannot meet robot joint rate')
@@ -71,7 +76,7 @@ class Controller:
    self.carry_pair=(rotate(conjugate(rq),lp-rp),multiply(conjugate(rq),lq))
   offset,relative=self.carry_pair
   # A delayed physical follower holds both prior references until it catches up.
-  if left.reference is not None and np.max(np.abs(left.reference-q[:6]))>left.tracking_error_limit:
+  if left.reference is not None and np.max(np.abs(left.reference-q[:6]))>min(left.tracking_error_limit,.025):
    result=output.copy()
    result[:6]=self.carry_command[:6] if self.carry_command is not None else q[:6]
    result[7:13]=self.carry_command[7:13] if self.carry_command is not None else q[7:13]

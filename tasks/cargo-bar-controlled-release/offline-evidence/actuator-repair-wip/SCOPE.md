@@ -1,0 +1,1 @@
+47 unit tests,251 strict FK samples,1169-action58.45s ideal controller pass. These are offline/synthetic; no repaired-source full physical success yet. Geometry, mass, joints, friction and scorer unchanged. Fresh clean HTTPS full robot/contact execution required.
