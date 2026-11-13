@@ -70,6 +70,13 @@ class NativeCoverageTests(unittest.TestCase):
         self.assertEqual(value['native_physics'],'PASS');self.assertEqual(value['robot_control'],'PASS')
         self.assertTrue(value['media_verified']);self.assertFalse(value['ready'])
         self.assertNotIn('/private/',json.dumps(value));self.assertEqual(old['expert_runs'],0)
+    def test_submitted_head_is_rejected_before_publication_mutation(self):
+        from types import SimpleNamespace
+        with patch.object(pipeline,'capture',return_value=json.dumps([{'number':1733,'state':'OPEN'}])), patch.object(pipeline,'execute') as mutation:
+            with self.assertRaisesRegex(Incomplete,'preserve'):
+                pipeline.publish({'branch':'draft/example'},None,None,None,SimpleNamespace(no_push=False),None,None)
+            mutation.assert_not_called()
+
     def test_missing_or_duplicate_native_case_cannot_pass(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);atomic(root/'native-cases.json',{'physics':[{'name':'a','steps':1},{'name':'b','steps':1}]})
@@ -84,7 +91,7 @@ class NativeCoverageTests(unittest.TestCase):
             for name in FILES:(root/name).write_text('format fixture; not real media')
             with self.assertRaises(Incomplete):verify_review(review,'a'*40,root)
             from engine import digest
-            atomic(review,{'commit':'a'*40,'files':{n:digest(root/n) for n in FILES},'checks':{n:True for n in CHECKS}})
+            atomic(review,{'commit':'a'*40,'files':{n:digest(root/n) for n in FILES},'checks':{n:True for n in CHECKS},'visually_reviewed':True})
             verify_review(review,'a'*40,root)
             (root/FILES[0]).write_text('changed')
             with self.assertRaises(Incomplete):verify_review(review,'a'*40,root)

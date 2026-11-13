@@ -201,8 +201,17 @@ def publication_record(previous,runtime,evidence,media_id):
     return value
 
 
+def publication_history_preflight(task):
+    """Preserve any already submitted head before changing a remote branch."""
+    head = f'aryansennthilkumarGT:{task["branch"]}'
+    existing = json.loads(capture(['gh','pr','list','--repo','robocurve/benchmark-tasks',
+                                  '--head',head,'--state','all','--json','number,url,state']))
+    require(not existing, 'Official PR history exists for this head; preserve it and review feedback before publication')
+
+
 def publish(task, folder, media, out, args, evidence, runtime):
     require(not args.no_push,'Push deliberately disabled; exact remote publication incomplete')
+    publication_history_preflight(task)
     # Publish from a NEW worktree. The evaluated checkout is never edited.
     cache=args.run_root/'source.git'; dest=out/'publication'
     execute(['git','worktree','add','--detach',str(dest),task['commit']],cache,out/'publication-checkout.log',120)
@@ -235,6 +244,8 @@ def publish(task, folder, media, out, args, evidence, runtime):
 
 def run_task(task,args,ledger,python,lock,budget,implementation_hash):
     slug=task['slug']; completed={}; runtime={'experts':[]}
+    if not args.offline:
+        publication_history_preflight(task)
     base={'commit':task['commit'],'stack':lock,'pipeline':implementation_hash}
     if not args.offline:
         base['gpu'] = args.gpu_identity
@@ -321,6 +332,7 @@ def run_task(task,args,ledger,python,lock,budget,implementation_hash):
         require(set(completed)==set(STAGES[:-1]),'Mandatory stage missing')
         result={'slug':slug,'ready':True,'status':'READY_FOR_PR','title':read(folder/'task.json')['title'],
                 'branch':task['branch'],'branch_url':task['branch_url'],'commit':remote['commit'],
+                'evaluated_commit':task['commit'],
                 'expert_scores':[1.0,1.0],'dream_score':runtime['dream']['score'],'media_id':uploaded['media_id'],
                 'evidence':{k:{'key':v['key'],'receipt':v['receipt']} for k,v in completed.items()}}
         atomic(out/'ready.json',result)

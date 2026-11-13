@@ -1,1 +1,1 @@
-Read [the current master GPU plan](../../GPU_RESUME_PLAN.md), the exact source checkpoint and marathon manifest. The first-three quality gate remains open. Do not spend, connect to Brev, upload or submit during the CPU mission.
+Read [the current master GPU plan](../../GPU_RESUME_PLAN.md) and [the single-task diagnostic handoff](GPU_DIAGNOSTIC_HANDOFF.md). No paid action is currently authorized. A separately authorized bounded cargo diagnostic is independent of the still-blocked top-three batch gate. Preserve pending/rejected heads.

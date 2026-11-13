@@ -9,7 +9,7 @@ import math
 from pathlib import Path
 import subprocess
 import tempfile
-from engine import Incomplete, atomic, read, verified_receipt, within
+from engine import Incomplete, atomic, read, verified_receipt, within, fingerprint
 from evidence import require
 from environment import capture
 
@@ -23,6 +23,59 @@ def validate_metadata(metadata):
         value = metadata.get(field)
         require(isinstance(value, str) and 0 < len(value) <= maximum,
                 f'Official {field} metadata must contain 1–{maximum} characters')
+
+
+def validated_metadata(task, handoff_path):
+    """Bind handoff claims to one receipt chain and its publication repository."""
+    root = Path(handoff_path).resolve().parent
+    stages = ('MECHANICS_COMPLETE','STATIC_TESTS_PASSED','NATIVE_PHYSICS_PASSED','ROBOT_CONTROL_PASSED',
+              'EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED','CLEAN_CHECKOUT_EXPERT_PASSED',
+              'MODEL_EVALUATED','MEDIA_RENDERED','MEDIA_VERIFIED','MEDIA_UPLOADED','EXACT_COMMIT_VERIFIED')
+    require(set(task.get('evidence', {})) == set(stages), 'Required validation receipts missing')
+    records = {}; keys = {}; evaluated = task.get('evaluated_commit')
+    require(isinstance(evaluated, str) and len(evaluated) == 40, 'Exact evaluated source missing')
+    for stage in stages:
+        ref = task['evidence'][stage]
+        receipt = within(root, root / ref['receipt'])
+        require(receipt.parent.parent.parent == root / task['slug']
+                and receipt.parent.parent.name == stage, 'Receipt belongs to a different task/stage')
+        require(verified_receipt(receipt, ref['key']), 'Changed or missing validation evidence')
+        data = read(receipt); inputs = data['inputs']
+        require(fingerprint(inputs) == ref['key'] and inputs.get('commit') == evaluated,
+                'Receipt describes a different evaluated source')
+        require(inputs.get('prerequisites') == keys, 'Validation receipt chain mismatch')
+        records[stage] = data; keys[stage] = ref['key']
+    for stage in ('EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED','CLEAN_CHECKOUT_EXPERT_PASSED'):
+        result = records[stage]['result']
+        require(result.get('commit') == evaluated and result.get('mode') == 'expert'
+                and result.get('score') == 1., 'Expert receipt disagrees with handoff')
+    require(task['expert_scores'] == [records[s]['result']['score'] for s in
+                ('EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED')], 'Expert scores disagree with receipts')
+    model = records['MODEL_EVALUATED']['result']
+    require(model.get('commit') == evaluated and model.get('mode') == 'dream'
+            and model.get('score') == task['dream_score'], 'Model receipt disagrees with handoff')
+    require(records['MEDIA_UPLOADED']['result'].get('media_id') == task['media_id'],
+            'Uploaded media disagrees with handoff')
+    publication = records['EXACT_COMMIT_VERIFIED']['result']
+    require(publication.get('verified') is True and publication.get('commit') == task.get('commit')
+            and publication.get('evaluated_commit') == evaluated and publication.get('branch') == task['branch'],
+            'Publication receipt disagrees with handoff')
+    # This worktree holds the metadata-only publication commit. It is not in
+    # the coordinator caller's object database, and no mutable ref is fetched.
+    receipt = root / task['evidence']['EXACT_COMMIT_VERIFIED']['receipt']
+    repository = within(root, receipt.parent / 'publication')
+    require(repository.is_dir(), 'Verified publication checkout unavailable')
+    require(capture(['git', 'rev-parse', 'HEAD'], repository) == task['commit'],
+            'Publication checkout changed')
+    metadata = json.loads(capture(['git', 'show',
+        f'{task["commit"]}:tasks/{task["slug"]}/task.json'], repository))
+    require(isinstance(metadata, dict), 'Invalid task metadata')
+    model_name = records['MODEL_EVALUATED']['inputs']['stack']['model']
+    require(metadata.get('media') == task['media_id'] and metadata.get('scores') ==
+            f'Dream-1 ({model_name}): {task["dream_score"]}; expert demos: 1.0, 1.0',
+            'Published scores/media disagree with validated evidence')
+    validate_metadata(metadata)
+    return metadata
 
 
 def main(argv=None):
@@ -40,18 +93,7 @@ def main(argv=None):
                 'Mandatory evidence missing')
         require(isinstance(task['dream_score'],(int,float)) and not isinstance(task['dream_score'],bool)
                 and math.isfinite(task['dream_score']) and 0<=task['dream_score']<=1,'Invalid model score')
-        required={'MECHANICS_COMPLETE','STATIC_TESTS_PASSED','NATIVE_PHYSICS_PASSED','ROBOT_CONTROL_PASSED',
-                  'EXPERT_DEMO_1_PASSED','EXPERT_DEMO_2_PASSED','CLEAN_CHECKOUT_EXPERT_PASSED','MODEL_EVALUATED','MEDIA_RENDERED','MEDIA_VERIFIED','MEDIA_UPLOADED','EXACT_COMMIT_VERIFIED'}
-        require(set(task.get('evidence',{}))==required,'Required validation receipts missing')
-        for record in task['evidence'].values():
-            receipt=within(args.handoff.resolve().parent,args.handoff.resolve().parent/record['receipt'])
-            require(verified_receipt(receipt,record['key']),'Changed or missing validation evidence')
-        require(isinstance(task.get('commit'), str) and len(task['commit']) == 40,
-                'Exact evaluated commit missing')
-        metadata = json.loads(capture(['git', 'show',
-            f'{task["commit"]}:tasks/{task["slug"]}/task.json']))
-        require(isinstance(metadata, dict), 'Invalid task metadata')
-        validate_metadata(metadata)
+        validated_metadata(task, args.handoff)
     if args.execute:
         require(args.registered_account,'--registered-account is required for execution')
         actual=capture(['gh','api','user','--jq','.login'])

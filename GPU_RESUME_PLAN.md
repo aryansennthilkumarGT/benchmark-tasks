@@ -1,8 +1,8 @@
 # Future GPU execution
 
-No paid execution is authorized in the current CPU mission. The historical balance29.60 is below the protected30 reserve. Obtain fresh explicit funding authorization and actual provider rate/balance observations before any future connection or workload. No startup, provisioning, credential collection or driver change occurs in the CPU preparation.
+No paid execution is authorized in the current CPU mission. The historical balance$29.60 is not a current balance. Obtain fresh explicit authorization and actual provider rate/balance observations before any future connection or workload. The legacy batch executor retains its $30 reserve; do not weaken its budget guard or treat it as authorization for a separate diagnostic. No startup, provisioning, credential collection or driver change occurs in the CPU preparation.
 
-Read coordination/recovery/CHECKPOINT.json and STATUS.md first. The top-three gate is not yet reached. Preserve shackle/SAC/ER originals, the drive history, pending PR1733 and finally rejected official heads. The new drive replacement decision follows official PR1750 feedback; it must not enter paid qualification.
+Read coordination/recovery/CHECKPOINT.json and STATUS.md first. The batch top-three gate is not yet reached. Preserve shackle/SAC/ER originals, the drive history, pending PR1733 and finally rejected official heads. The new drive replacement decision follows official PR1750 feedback; it must not enter paid qualification.
 
 Use the existing yam-eval-launchable-0cb74b only after authorization. Preserve L40S48GB driver565.57.01. The pinned installed runtime must pass actual hardware/package checks and a scored station smoke. No driver reinstall is planned. The runtime permits state-aware scripted experts where useful; every manipulation must remain genuine robot action. Diagnostic pose initialization and controlled-force tests are not demonstrations, and policies must never write task state or scoring state.
 
@@ -12,7 +12,7 @@ Preview without GPU/network/provisioning:
 python coordination/marathon.py --manifest coordination/recovery/marathon-manifest.json --run-root /data/robocurve-next-window
 ```
 
-The current manifest deliberately blocks paid execution: fewer than three candidates have complete source-bound offline acceptance bundles. Never edit a readiness label to bypass that gate. Finish occupation/novelty, mechanism, scoring/measurement, implementation, independent reproduction and final readiness reviews first. Bind each bundle to the published commit, tested source manifest and actual report hashes.
+The current batch manifest deliberately blocks its paid execution: fewer than three candidates have complete source-bound offline acceptance bundles. A separately authorized, bounded single-task native diagnostic does not require three READY candidates and is not full qualification. Start with the frozen cargo repair in coordination/recovery/GPU_DIAGNOSTIC_HANDOFF.md, stopping at its first failure/timeout. Do not launch Dream, upload or submit from a passing prefix alone. Never edit a readiness label to bypass that gate. Finish occupation/novelty, mechanism, scoring/measurement, implementation, independent reproduction and final readiness reviews first. Bind each bundle to the published commit, tested source manifest and actual report hashes.
 
 Once at least three genuinely pass, replace the manifest’s provisional entries with exact qualified sources and evidence references. In a separately authorized installed runtime, use:
 

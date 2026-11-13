@@ -11,7 +11,7 @@ def verify_review(path,commit,media):
     review=read(path)
     if review.get('commit')!=commit or review.get('files')!={n:digest(media/n) for n in FILES}:
         raise Incomplete('Visual review refers to different media or source')
-    if review.get('checks')!={name:True for name in CHECKS}:raise Incomplete('Visual review is incomplete')
+    if review.get('visually_reviewed') is not True or review.get('checks')!={name:True for name in CHECKS}:raise Incomplete('Visual review is incomplete')
     return review
 
 def main(argv=None):
@@ -27,6 +27,6 @@ def main(argv=None):
     print('Inspect: '+str(media));print('Checks: '+', '.join(CHECKS))
     if not args.confirm_reviewed:return 0
     atomic(root/'reviews'/(args.task+'.json'),{'commit':commit,'files':{n:digest(media/n) for n in FILES},
-                                           'checks':{n:True for n in CHECKS},'reviewed_at':utc()})
+                                           'checks':{n:True for n in CHECKS},'visually_reviewed':True,'reviewed_at':utc()})
     return 0
 if __name__=='__main__':raise SystemExit(main())
