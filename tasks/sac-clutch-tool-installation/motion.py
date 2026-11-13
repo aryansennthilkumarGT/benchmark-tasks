@@ -83,9 +83,13 @@ class Motion:
         if not math.isfinite(feedback_gain) or feedback_gain < 0:
             raise ControlFailure('Invalid measured-position feedback gain')
         position_step = feedback_gain*self.dt*(pos-measured_pos) if feedback_gain else pos-current
-        limited = current + limit_vector(position_step, speed*self.dt)
         remaining_angle = qangle(current_q, quat)
-        qtarget = interpolate(current_q, quat, min(1, angular_speed*self.dt/max(remaining_angle, 1e-9)))
+        # One common interpolation fraction preserves screw lead and coupled
+        # Cartesian/rotary paths. Independent saturation can jam a thread.
+        fraction=min(1.,speed*self.dt/max(np.linalg.norm(position_step),1e-12),
+                     angular_speed*self.dt/max(remaining_angle,1e-12))
+        limited = current + position_step*fraction
+        qtarget = interpolate(current_q, quat, fraction)
         solved,position_error,rotation_error=self.ik.solve(limited,qtarget,q_init=self.reference,base_pos=self.base,
                                                          iters=100,damping=0.015,tol=2e-5)
         if position_error>0.0015 or rotation_error>0.035:
