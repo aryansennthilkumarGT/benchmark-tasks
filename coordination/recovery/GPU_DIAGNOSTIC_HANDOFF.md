@@ -30,14 +30,14 @@ Use a new output directory. Expected allowance10–20minutes including startup a
 
 For the standalone reviewer reproduction alternative, after genuine passing prefixes and only within separately authorized scope, `"$GPU_PY" "$TASK/task_runner.py" --output /data/robocurve-cargo-qualification --execute` runs every native case twice and two full experts. A third clean-checkout expert is our stronger internal reproducibility check, not an official minimum. Full scorer1.0, real release/stability, camera streams and source hashes must validate before Dream. Then `--execute --resume --model` on the same task-runner output performs genuine Dream and media. Inspect actual model/demo videos and setup/contact sheets before an explicit visual attestation. `prepare_submission.py` gates genuine evidence and the official uploader; never fabricate scores/media or collect credentials in this CPU phase. The coordinator now binds handoff claims to their actual receipts/publication checkout and checks official PR history before a push. One task-folder PR only after actual native, model/media evidence and authorized submission. PR1733 and finally rejected heads remain untouched.
 
-ER is second: current grip retention and upright-entry scoring repair require source freeze/clean tests, then a separately bounded native grip/entry diagnostic. Nailer is third and remains NO-GO for acceptance spending because routine core-job importance is unproven and real pin capture has not completed. The radial experiment has confirmed arm collisions and is explicitly excluded. These holds do not delay the first cargo diagnostic.
+ER is second: exact e665928 clean checks pass; its new actual CPU run retains the collet through lift/transfer/tilt, then stalls at phase7 lowering into the eccentric opening (676actions/33.8s,score0,SDK ratio0.83329). Preserve that trace and use only the bounded native entry diagnostic next. Nailer is third and remains NO-GO for acceptance spending because routine core-job importance is unproven and real pin capture has not completed. The radial experiment has confirmed arm collisions and is explicitly excluded. These holds do not delay the first cargo diagnostic.
 
 
 Exact second/third sources and bounded commands (neither currently authorized to execute):
 
 | Priority | Branch | Exact source | Decision |
 |---|---|---|---|
-| ER second | optimization/er-actuator-tracking | e6659287a5ac2e2d968bc0d39122659ef7cd2a11 | Bounded grip/entry diagnostic only; no demonstrated robot retention |
+| ER second | optimization/er-actuator-tracking | e6659287a5ac2e2d968bc0d39122659ef7cd2a11 | Bounded grip/entry diagnostic only; no native success |
 | Nailer third | repair/nailer-integrity-and-grip | b742696e49a506bfd4ef2362a06145b8a6cd3c65 | NO-GO acceptance spending; routine importance and real pin capture unresolved |
 
 In the exact ER source checkout, after separate authorization:
@@ -50,7 +50,7 @@ timeout --signal=TERM --kill-after=30s 900s "$GPU_PY" \
  --output /data/robocurve-diagnostics/er-e665-hook
 ```
 
-The ER prefix repeats after reset, maximum1200actions/60simulated seconds each;5–15minutes is an unmeasured planning estimate. Stop on grip loss, cam interference>100um, IK/SDK/integrity failure or timeout. The full supported-preassembly-prefix remains a later distinct test.
+The ER terminal CPU state has123um position error but35.82mrad physical-axis error against the unchanged20mrad phase target; no task overlap or warnings. The ER prefix repeats after reset, maximum1200actions/60simulated seconds each;5–15minutes is an unmeasured planning estimate. Stop on grip loss, cam interference>100um, IK/SDK/integrity failure or timeout. The full supported-preassembly-prefix remains a later distinct test.
 
 Only if explicitly authorized specifically for a nailer diagnostic despite the importance hold, in its exact separate source checkout:
 

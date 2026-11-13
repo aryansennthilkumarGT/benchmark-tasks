@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T21:49:29.236259+00:00",
+  "updated_at": "2026-11-13T21:57:51.277839+00:00",
   "mission": "Submission-first accepted-forensics and bounded native preparation",
   "engineering_complete": false,
   "target_packages": 8,
@@ -507,7 +507,7 @@
     "harness_tests_passed": 13
   },
   "active_supplemental_cpu_trials": {
-    "state": "NONE_RUNNING",
+    "state": "NAILER_ONE_BOUNDED_FINAL_SOURCE_RUN_ONLY",
     "gpu_services": false,
     "native_isaac": false,
     "latest_cargo_report": "cpu-yam-diagnostics/cargo-retraction-stall-4740eba/report.json",
@@ -527,7 +527,23 @@
     "independent_clean_evidence": "source-verification/er-e665928/summary.json",
     "decision": "GO_SEPARATELY_AUTHORIZED_BOUNDED_GRIP_ENTRY_DIAGNOSTIC_ONLY",
     "state": "CLEAN_OFFLINE_SOURCE_NATIVE_GRIP_UNPROVEN",
-    "next": "Second separately authorized bounded native grip/entry diagnostic; do not transfer previous physics evidence to successor."
+    "next": "Second separately authorized bounded native grip/entry diagnostic; do not transfer previous physics evidence to successor.",
+    "actual_cpu": {
+      "source_commit": "e6659287a5ac2e2d968bc0d39122659ef7cd2a11",
+      "actions": 676,
+      "seconds": 33.8,
+      "score": 0.0,
+      "phase": 7,
+      "failure": "Lower tilted nose through eccentric opening stalled after actual lift/transfer/tilt",
+      "maximum_velocity_ratio": 0.8332923359659414,
+      "evidence": "cpu-yam-diagnostics/er-entry-stall-e665928",
+      "native_isaac": false,
+      "position_error_m": 0.00012273268114747029,
+      "axis_error_rad": 0.03581938730740702,
+      "phase_axis_tolerance_rad": 0.02,
+      "warnings": 0,
+      "maximum_task_interference_m": 0.0
+    }
   },
   "cargo_robot_repair": {
     "branch": "optimization/cargo-actuator-tracking",
@@ -584,7 +600,23 @@
       "ideal_actions": 831,
       "critical_cam_samples": 373,
       "independent_clean_evidence": "source-verification/er-e665928/summary.json",
-      "decision": "GO_SEPARATELY_AUTHORIZED_BOUNDED_GRIP_ENTRY_DIAGNOSTIC_ONLY"
+      "decision": "GO_SEPARATELY_AUTHORIZED_BOUNDED_GRIP_ENTRY_DIAGNOSTIC_ONLY",
+      "actual_cpu": {
+        "source_commit": "e6659287a5ac2e2d968bc0d39122659ef7cd2a11",
+        "actions": 676,
+        "seconds": 33.8,
+        "score": 0.0,
+        "phase": 7,
+        "failure": "Lower tilted nose through eccentric opening stalled after actual lift/transfer/tilt",
+        "maximum_velocity_ratio": 0.8332923359659414,
+        "evidence": "cpu-yam-diagnostics/er-entry-stall-e665928",
+        "native_isaac": false,
+        "position_error_m": 0.00012273268114747029,
+        "axis_error_rad": 0.03581938730740702,
+        "phase_axis_tolerance_rad": 0.02,
+        "warnings": 0,
+        "maximum_task_interference_m": 0.0
+      }
     },
     "nailer": {
       "branch": "repair/nailer-integrity-and-grip",
