@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-12T23:41:38.974110+00:00",
+  "updated_at": "2026-11-13T00:11:26.014377+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -55,7 +55,21 @@
       "reason": "Generic spring plate does not implement the cited LuK SAC procedure: centering/dowels, diaphragm, spindle, permanent fastening and tool removal are missing.",
       "existing_branch": "draft/eight-nut-bracket",
       "replacement_implemented": false,
-      "reviewer_acceptance_cleared": false
+      "reviewer_acceptance_cleared": false,
+      "implementation_in_progress": {
+        "slug": "sac-clutch-tool-installation",
+        "branch": "draft/sac-clutch-tool-installation",
+        "commit": "297acae264704e7caf46cd24bc8bfacde555987e",
+        "complete_task": false,
+        "cpu_core_tests": {
+          "passed": 21,
+          "failed": 0,
+          "skipped": 0
+        },
+        "scene_generated": false,
+        "native_physics": "NOT_RUN",
+        "progress": "coordination/recovery/sac-mounting-progress.json"
+      }
     },
     {
       "slug": "fault-module-repair",
@@ -100,17 +114,19 @@
     }
   ],
   "next": [
-    "Continue from recovery/cloud-cpu-engineering; read this checkpoint, then switch/create only the next independent task branch. Do not rerun unchanged baseline suites.",
-    "Next candidate: substantive eight-nut-bracket redesign around the manufacturer LuK SAC installation-tool procedure in primary-procedure-grounding-2026-11-12.json, pages 27\u201330. The actual manual PDF was fetched successfully this session.",
-    "Before authoring tasks/sac-clutch-tool-installation/generate_scene.py, establish actual tool/assembly dimensions and a bounded, meaningful operation. Preserve disc centering/dowels, three 120-degree temporary studs/nuts, central spindle/diaphragm interaction, permanent-fastener and tool-removal interfaces required by that scope. Do not rename the old generic spring plate or invent torque validation.",
-    "Then implement its complete geometry/controller/scorer/native cases and run its CPU tests task-by-task; publish only a source-independent task branch after it passes. Six rebuilds remain; the new shackle package does not complete the eight-task mission.",
-    "Preserve pending #1733 and all finally rejected heads. No GPU/native/model spending or official submission without actual future authorization and qualifications."
+    "git switch draft/sac-clutch-tool-installation",
+    "Read tasks/sac-clutch-tool-installation/README.md and dimensions.py",
+    "Obtain measured/dimensioned component data or explicit permission for disclosed benchmark-fixture geometry. Do not silently use synthetic test dimensions.",
+    "Then implement scene/USD, helical mechanical interfaces, SAC motion plan, scorer adapter, native cases and runtime workflows; run affected geometry/IK/collision/controller tests.",
+    "Complete and verify SAC package before moving to the other five rebuilds. Six rebuilds still remain; preserve shackle ef13ec77 and pending #1733. No GPU spending or official replacement PR."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
-    "63-file independent screw-pin shackle task package, including six original USD assets, 299-phase executable robot-proprioception expert, scorer, 4 native mechanism and 2 control-prefix cases, actual future runtime/media/submission tooling",
-    "26 passing unit/contract/media tests, all 299 IK endpoints, nominal geometry checks, 35 critical robot collision samples, 13191-action ideal tracking fixture; clean HTTPS reproduction passed",
-    "Independent branch draft/rigging-shackle-connection at ef13ec77d7ac6ee56aeb3c6c62069444af4efa02"
+    "Strict measured-dimension input contract with units/provenance and no silent production defaults",
+    "C3 carrier alignment and independent, continuous pitch-consistent retainer histories",
+    "Released-hand hold and physical-state invalidation core",
+    "Reusable YAM joint-observation executor; no SAC-specific phase plan",
+    "Pushed partial SAC implementation at 297acae264704e7caf46cd24bc8bfacde555987e; 21 synthetic core tests passed in a clean HTTPS checkout. This is not a completed task."
   ],
   "current_review_outcomes_verified_via_public_github_html": true,
   "offline_implemented_replacements": 1,
@@ -130,5 +146,7 @@
     "head": "a312bcac0f29098731ad40ce30df5fe3a6fcca78",
     "updated_at": "2026-11-12T12:22:25Z",
     "head_changed_by_this_mission": false
-  }
+  },
+  "current_work": "SAC mounting core committed and tested; scene authoring blocked on absent measured dimensions or explicit benchmark-fixture modeling choice.",
+  "sac_progress": "coordination/recovery/sac-mounting-progress.json"
 }

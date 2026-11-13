@@ -1,0 +1,112 @@
+{
+  "schema": 1,
+  "updated_at": "2026-11-13T00:11:26.014377+00:00",
+  "branch": "draft/sac-clutch-tool-installation",
+  "commit": "297acae264704e7caf46cd24bc8bfacde555987e",
+  "complete_task": false,
+  "selected_subset": "Unloaded three-arm spindle-carrier and three knurled-retainer mounting, after disc/cover/stud preparation and before pressure-spindle diaphragm contact; LuK section 10.6 p29.",
+  "subset_status": "Provisional pending measured flush/support datum and geometry; not a complete clutch installation.",
+  "implemented": [
+    "Strict measured-dimension input contract with units/provenance and no silent production defaults",
+    "C3 carrier alignment and independent, continuous pitch-consistent retainer histories",
+    "Released-hand hold and physical-state invalidation core",
+    "Reusable YAM joint-observation executor; no SAC-specific phase plan"
+  ],
+  "offline_tests": {
+    "kind": "SYNTHETIC_MOUNTING_CORE_UNIT_TESTS",
+    "passed": 21,
+    "skipped": 0,
+    "failed": 0,
+    "command": "python -m pytest -q -p no:cacheprovider tasks/sac-clutch-tool-installation/test_mounting_core.py",
+    "source_hashes": {
+      "dimensions.py": "e4d1fdf0d2dd4e8e9d0c300d53b40872b35297c036c9e8b23010b04c2119533e",
+      "expert.py": "7677c59355f9c3faba68585c7b6535a32a829c8b3b737b82d8f4251d43449adb",
+      "feedback.py": "019290bc5ef413f8bd4c1d7a96f5f466a9d51f00141fffd9c5b688d3cd335b13",
+      "motion.py": "ead90d6eb85e4b3e39814a56669893c744663820cd1c28dba19f39e933ae586c",
+      "mounting_score.py": "54038046205682f2bed7f998f8cd1a981bdac9514bd995ca5d8cbd5064ca45e4",
+      "test_mounting_core.py": "0b0c2883c2501208f45507330e5d5c422da05b42aae96f9943677a884497d9b9"
+    },
+    "scene_generated": false,
+    "assets_generated": false,
+    "sac_phase_plan_generated": false,
+    "physics_executed": false,
+    "complete_task": false,
+    "reason": "Manufacturer-measured geometry incomplete; modeling choice pending. Synthetic unit fixture values are rejected for production geometry."
+  },
+  "clean_checkout": {
+    "transport": "HTTPS",
+    "commit": "297acae264704e7caf46cd24bc8bfacde555987e",
+    "passed": 21,
+    "failed": 0,
+    "skipped": 0,
+    "working_tree_clean": true,
+    "command": "PYTHONDONTWRITEBYTECODE=1 /workspace/.robocurve-offline/venv/bin/python -m pytest -q -p no:cacheprovider tasks/sac-clutch-tool-installation/test_mounting_core.py",
+    "initial_invocation_error": "First pytest invocation used /tmp instead of the clone working directory; no tests collected. Corrected clone-directory invocation passed."
+  },
+  "sources": {
+    "observed_at": "2026-11-13T00:07:56.438962+00:00",
+    "sources": [
+      {
+        "url": "https://vehiclelifetimesolutions.schaeffler.com/medias/BR-0007-en.PDF?context=bWFzdGVyfGRvY3VtZW50c3wzNDMxMTY0fGFwcGxpY2F0aW9uL3BkZnxkb2N1bWVudHMvaDE5L2gyZC85MzA1NTc1NzE4OTQyLnBkZnwwYzM2NTU3MzdlZGQ2YzY0YWZiNTE0MGZlN2E5ZjMzNTE5ZmY1YzdhYWM0Y2UxMzcyNmFkNTU2NGJmOTFkYzdk",
+        "scope": "LuK tool contents pages14\u201315 and mounting sequence p29; component dimensions and load law not provided",
+        "sha256": "388f3d5f5ce8f076e7b6f299606f79fcc515925ca7cc947c9de06ef9af4345e3"
+      },
+      {
+        "url": "https://www.sealey.co.uk/content/pdfs/instructions/VS011A_V3.PDF",
+        "scope": "SAC mounting steps5.3.8\u20135.3.13 and flywheel-side thread families; not dimensional interchangeability with LuK",
+        "sha256": "4d98c3a6a3de1c46ac35462a10188d8bb86eaa59e9fc037ff8cbeaa020be5efa"
+      },
+      {
+        "url": "https://www.sealey.co.uk/alignment-plate-3-legs-so-vs011a-14/",
+        "scope": "Manufacturer spare part page; no carrier thickness/slot dimensions or mass specified",
+        "sha256": "4436770c9b688efaefef9c590c41a4f86bab4ea3e06e9b59401b5120146618dc"
+      },
+      {
+        "url": "https://www.onetonline.org/link/summary/49-3023.00",
+        "scope": "Automotive service occupation context",
+        "sha256": "caad79ad4ec204074142f71c767407972734d468bf1d815b6960af478994897f"
+      }
+    ],
+    "published_flywheel_threads_mm": {
+      "M6": [
+        6,
+        1
+      ],
+      "M7": [
+        7,
+        1
+      ],
+      "M8": [
+        8,
+        1.25
+      ]
+    },
+    "published_luk_stud_angles_degrees": 120,
+    "upper_retainer_thread": "NOT_SPECIFIED_BY_THESE_SOURCES",
+    "component_dimensions": "NOT_SPECIFIED_BY_THESE_SOURCES",
+    "opted_scope": "Unloaded carrier mounting only; before pressure spindle/diaphragm contact. No spring-force or permanent torque inference."
+  },
+  "missing": [
+    "Measured installed stud circle, heights and usable upper thread diameter/pitch",
+    "Carrier slot/bore/thickness envelope, pressure-spindle bore and centering-tool clearance",
+    "Retainer dimensions/thread engagement and component masses",
+    "Confirmed carrier support and retainer flush reference datum"
+  ],
+  "blocking_constraint": "User forbids invented dimensions. Manufacturer procedural manuals and available product data do not supply these component dimensions. Explicit permission for labeled benchmark-fixture dimensions was requested; no answer received.",
+  "not_implemented": [
+    "Scene and USD assets",
+    "SAC motion phase plan and native adapter",
+    "Native harness and GPU qualification",
+    "Dream/media workflows and full task metadata"
+  ],
+  "native_physics": "NOT_RUN",
+  "gpu_spending": false,
+  "official_submission": false,
+  "next_commands": [
+    "git switch draft/sac-clutch-tool-installation",
+    "Read tasks/sac-clutch-tool-installation/README.md and dimensions.py",
+    "Obtain measured/dimensioned component data or explicit permission for disclosed benchmark-fixture geometry. Do not silently use synthetic test dimensions.",
+    "Then implement scene/USD, helical mechanical interfaces, SAC motion plan, scorer adapter, native cases and runtime workflows; run affected geometry/IK/collision/controller tests."
+  ],
+  "remaining_rebuilds": 6
+}
