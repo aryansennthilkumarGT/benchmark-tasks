@@ -1,0 +1,85 @@
+"""Run a real task controller against supplemental MuJoCo YAM/task contacts.
+
+This CPU-only diagnostic never loads Isaac, runs Dream, uploads or provisions.
+Object state is initialized once; afterward only ordinary robot position actions
+are applied. There are no virtual grasps, task actuators or phase pose setters.
+All results retain this backend's friction/contact limitations.
+"""
+from __future__ import annotations
+import argparse,gzip,hashlib,importlib,json,os,subprocess,sys,time
+from pathlib import Path
+import xml.etree.ElementTree as ET
+import mujoco,numpy as np
+from cpu_yam_dynamics import add_robots,initialize_robot,measured,command_robot,robot_sources
+
+
+def load(folder):
+ sys.path.insert(0,str(folder))
+ return {name:importlib.import_module(name) for name in ['mechanism_cpu','feedback','scoring','audit_geometry','robot_clearance','source_identity']}
+
+
+def export(spec,backend):
+ root=ET.fromstring(backend.export(spec))
+ if root.find('actuator') is not None:raise ValueError('Task export unexpectedly contains diagnostic actuators')
+ for geom in root.findall('.//geom'):
+  if geom.get('contype','1')!='0' and geom.get('conaffinity','1')!='0':geom.set('contype','1');geom.set('conaffinity','7')
+ return ET.tostring(add_robots(root),encoding='unicode')
+
+
+def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600):
+ folder=folder.resolve();harness_paths=[Path(__file__),Path(__file__).with_name('cpu_yam_dynamics.py')];harness_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in harness_paths};out.mkdir(parents=True,exist_ok=False)
+ modules=load(folder);backend=modules['mechanism_cpu'];spec=json.loads((folder/'scene.json').read_text());plan=json.loads((folder/'controller.json').read_text());source=modules['source_identity'].runtime_hashes(folder)
+ if not 1<=max_actions<=spec['run_limit']:raise ValueError('Requested actions exceed declared task limit')
+ if stop_after_phase is not None and not 1<=stop_after_phase<=len(plan['phases']):raise ValueError('Requested prefix must include actual controller phases')
+ if not 0.<wall_seconds<=3600.:raise ValueError('Bounded CPU wall limit must be0..3600seconds')
+ xml=export(spec,backend);(out/'model.xml').write_text(xml);m=mujoco.MjModel.from_xml_string(xml);d=mujoco.MjData(m);backend.initialize(m,d,spec);initialize_robot(m,d)
+ g=modules['audit_geometry'].geometry_module(folder);control=modules['feedback'].Controller(plan,spec);judge=modules['scoring'].Scorer(spec)
+ ticks=round(1/spec['control_hz']/m.opt.timestep)
+ if abs(ticks*m.opt.timestep-1/spec['control_hz'])>1e-10:raise ValueError('Physics/control clocks are not integral')
+ start=time.monotonic();phase=None;error=None;actions=0;peak_task_depth=0.;peak_robot_depth=0.;max_tracking=0.;maximum_velocity_ratio=0.;completed=False;result=None;last_scored_time=None
+ def frame():
+  nonlocal peak_task_depth,peak_robot_depth
+  f=backend.observe(m,d,spec);f['schema']=1;q=measured(m,d)
+  # A pad's solver penetration is not substituted for task/task integrity.
+  f['max_penetration']=float(g.maximum_penetration(spec,f['bodies']));f['robot_clearance']=float(g.robot_clearance(modules['robot_clearance'].boxes(q,g),spec,f['bodies']))
+  peak_task_depth=max(peak_task_depth,f['max_penetration'])
+  for contact in d.contact[:d.ncon]:
+   names=[mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_GEOM,int(k)) or '' for k in contact.geom]
+   if any(n.startswith(('left_','right_')) for n in names):peak_robot_depth=max(peak_robot_depth,max(0.,-float(contact.dist)))
+  return f,q
+ with gzip.open(out/'frames.jsonl.gz','wt') as trace:
+  try:
+   for index in range(max_actions):
+    if time.monotonic()-start>wall_seconds:raise TimeoutError('Bounded CPU diagnostic wall deadline reached')
+    f,q=frame();result=judge.update(f);last_scored_time=f['time']
+    if result.failure:raise ValueError('Physical integrity scorer: '+result.failure)
+    if control.done:completed=True;break
+    if stop_after_phase is not None and control.index>=stop_after_phase:completed=True;break
+    if phase!=control.index:
+     phase=control.index;print(json.dumps(dict(phase=phase,label=plan['phases'][phase]['label'],actions=actions,simulation_seconds=float(d.time))),flush=True)
+    command=control.step(q,f);command_robot(m,d,command);max_tracking=max(max_tracking,float(np.abs(command[:6]-q[:6]).max()),float(np.abs(command[7:13]-q[7:13]).max()))
+    trace.write(json.dumps(dict(kind='SUPPLEMENTAL_MUJOCO_ROBOT_FRAME',phase=control.index,action=command.tolist(),robot_q=q.tolist(),frame=f))+'\n')
+    for _ in range(ticks):
+     mujoco.mj_step(m,d)
+     from yam_arena.constants import SHOULDER,WRIST,GRIPPER,ARM_JOINTS,FINGER_JOINTS
+     from cpu_yam_dynamics import indexes
+     for ids in indexes(m).values():
+      for n,jid in zip(ARM_JOINTS+FINGER_JOINTS,ids):
+       cfg=GRIPPER if n in FINGER_JOINTS else SHOULDER if n in ARM_JOINTS[:3] else WRIST
+       maximum_velocity_ratio=max(maximum_velocity_ratio,abs(float(d.qvel[m.jnt_dofadr[jid]]))/cfg['velocity'])
+    actions+=1
+   f,q=frame()
+   if last_scored_time is None or f['time']>last_scored_time:result=judge.update(f)
+   completed=bool(control.done or stop_after_phase is not None and control.index>=stop_after_phase)
+   if result.failure:raise ValueError('Terminal physical integrity scorer: '+result.failure)
+  except Exception as exc:error=type(exc).__name__+': '+str(exc)
+ warnings={mujoco.mjtWarning(i).name:int(row.number) for i,row in enumerate(d.warning) if row.number}
+ same=modules['source_identity'].runtime_hashes(folder)==source and harness_hashes=={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in harness_paths}
+ if not same:error='Task sources changed during diagnostic; evidence is stale'
+ source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=folder,text=True).strip()
+ report=dict(kind='SUPPLEMENTAL_MUJOCO_ACTUATED_YAM_TASK_DIAGNOSTIC',engine=mujoco.__version__,isaac_executed=False,hardware_executed=False,dream_executed=False,synthetic_grasps=False,task_pose_writes_after_initialization=False,task_actuators=False,virtual_constraints=False,source_commit=source_commit,source_bound=same,runtime_inputs_sha256=source,robot_sources=robot_sources(),harness_sources=harness_hashes,model_sha256=hashlib.sha256(xml.encode()).hexdigest(),max_actions=max_actions,stop_after_phase=stop_after_phase,actions=actions,phase=control.index,phases=len(plan['phases']),seconds=float(d.time),elapsed_wall_seconds=time.monotonic()-start,error=error,warnings=warnings,maximum_task_interference_m=peak_task_depth,maximum_raw_robot_contact_depth_m=peak_robot_depth,maximum_action_tracking_delta_rad=max_tracking,maximum_measured_velocity_to_sdk_limit_ratio=maximum_velocity_ratio,score=result.score if result else None,controller_done=control.done,requested_prefix_complete=completed,events=control.events,limitations=['MuJoCo, not the native Isaac/PhysX backend.','Official joint friction coefficients are not converted into Nm; authored Coulomb joint loss0.','Robot collision friction0.5 is an explicit diagnostic assumption; PhysX combination/contact behavior may differ.','Table/robot/task geometry included; camera hardware/room/lighting not modeled.','This does not establish native expert, hardware, model or reviewer success.'],passed=bool(completed and error is None and not warnings and same))
+ (out/'report.json').write_text(json.dumps(report,indent=2)+'\n');return report
+
+if __name__=='__main__':
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--task-folder',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--max-actions',type=int,default=100);p.add_argument('--stop-after-phase',type=int);p.add_argument('--wall-seconds',type=float,default=600);a=p.parse_args()
+ r=run(a.task_folder,a.output,a.max_actions,a.stop_after_phase,a.wall_seconds);print(json.dumps({k:v for k,v in r.items() if k not in ['robot_sources','runtime_inputs_sha256','events']},indent=2));raise SystemExit(0 if r['passed'] else 1)
