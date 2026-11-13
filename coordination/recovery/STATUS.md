@@ -1,3 +1,9 @@
+# Current readiness: two qualified, nailer dynamics repair active
+
+New genuine supplemental MuJoCo YAM/task-contact coverage stalls the clean unmodified nailer source at phase16 Reach bent brad (2296actions/114.8s). This is not native Isaac evidence, but an unresolved feasible offline failure. Nailer is temporarily excluded from the ready plan. Historical53 tests/FK/ideal/force-fixture evidence remains valid in its stated scope. ER and cargo remain current qualified candidates; the top-three gate is reopened.
+
+A separate controller optimization first-prefix reaches phase7 in520actions/26s versus1029/51.45s. It is a working-tree diagnostic, not a completed expert, and the model exceeds the SDK gripper velocity limit; neither issue is disguised. Diagnose actual contacts and restore physically defensible qualification before counting a third. Original source/branches and PR1733 remain unchanged.
+
 # Current qualified three; two novelty holds
 
 Primary-source semantic refresh found pending PR1886 duplicates the shackle pin/lug core operation. The original and repaired branches/evidence remain untouched, but shackle is excluded from the current ready plan. Pending PR1868 and finally rejected1636 substantially overlap the completed SDS sleeve/radial-lock task. SDS95ec72f is pushed and ten-stage local CPU checks pass; separate clean HTTPS verification is running. Do not count either as qualified.

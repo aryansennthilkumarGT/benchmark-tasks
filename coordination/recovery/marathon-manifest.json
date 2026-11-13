@@ -57,14 +57,15 @@
       "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
       "task_folder": "tasks/brad-nailer-jam-recovery",
       "priority": 3,
-      "offline_state": "OFFLINE READY",
-      "readiness_label": "OFFLINE HIGH CONFIDENCE",
+      "offline_state": "REVISION_REQUIRED",
+      "readiness_label": "CPU_ROBOT_CONTACT_DIAGNOSTIC_UNRESOLVED",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",
       "maximum_qualification_seconds": 7200,
       "offline_evidence": {
         "path": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/bundle.json",
         "sha256": "8d0629ba4937d515dc59f35007aee658f7dfe2019a46518ba9832eb865e187be"
-      }
+      },
+      "reason": "New real MuJoCo/YAM full controller stalls at phase16 Reach bent brad. Preserve validated historical source; repair or explain before restoring current confidence."
     },
     {
       "slug": "drive-bracket-pin-release",

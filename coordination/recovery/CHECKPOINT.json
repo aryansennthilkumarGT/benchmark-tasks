@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T17:57:13.034124+00:00",
+  "updated_at": "2026-11-13T18:35:30.317471+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -244,9 +244,9 @@
   "standing_directive": "Continuous autonomous CPU engineering; priority is three genuinely qualified offline tasks, then eight; milestones never imply stopping.",
   "review_v21": {
     "integrated": true,
-    "top_three_milestone_reached": true,
-    "confirmed_offline_high_confidence_count": 3,
-    "reason": "Fresh primary-source PR1886 overlaps shackle core operation; preserve branch/evidence but novelty hold. ER, cargo and nailer remain three. SDS technically complete with clean verification underway; novelty hold against1868/1636.",
+    "top_three_milestone_reached": false,
+    "confirmed_offline_high_confidence_count": 2,
+    "reason": "New supplemental actuated-robot/contact coverage exposes an unresolved nailer acquisition stall. Historical offline tests remain valid in their scope; readiness held pending repair or verified model explanation. ER/cargo preserved.",
     "repair_branches": {
       "shackle-v21": {
         "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
@@ -324,7 +324,7 @@
       "offline_gate_affected_tests_passed": 12,
       "review_artifact_integrity": "Requires five actual named/hash-bound review records and checks report contents, not passed labels alone.",
       "latest_dry_run": "coordination/recovery/top-three-marathon-preview.json",
-      "preview_verified_internal_bundles": 3,
+      "preview_verified_internal_bundles": 2,
       "latest_affected_test_scope": "25 pipeline/quality/marathon/offline-gate tests plus14 focused tests for final relocation regression",
       "evidence_path_repair": "Explicit manifest-relative offline_evidence_root resolves repository-root bundle paths. --verify-offline enables real read-only hash/content verification in preview.",
       "repairs_2026_11_13": [
@@ -395,7 +395,8 @@
       "dream": "NOT_RUN",
       "hardware": "NOT_RUN",
       "evidence": "tasks/brad-nailer-jam-recovery/offline-evidence/final/source-verification.json",
-      "readiness_bundle": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/bundle.json"
+      "readiness_bundle": "coordination/recovery/offline-bundles/brad-nailer-jam-recovery/bundle.json",
+      "offline_state": "REVISION_REQUIRED"
     }
   },
   "next_commands": [
@@ -488,16 +489,15 @@
     "evidence": "API JSON observed during current continuation; unchanged head verified, no modifications."
   },
   "active_candidate": {
-    "slug": "pintle-hook-eye-coupling",
-    "branch": "draft/pintle-hook-eye-coupling",
-    "commit": "8cea6ab",
-    "state": "CONSTRUCT_VALIDITY_HOLD",
-    "not_qualified": true,
-    "reasons": [
-      "Exact density integration gives2.0526kg eye/stem; do not scale documented minimum diameter or reduce steel density.",
-      "A free eye omits attached trailer/jack constraints; actual procedure does not establish valid manual bench analogue.",
-      "36of265 authored mechanism samples collide; preserve raw failures."
-    ],
-    "next_candidate": "Transport-chain grab hook: directly hand-operated full-size chain interface. Primary manufacturer procedures/chain dimensional sheets and semantic novelty must clear before scene implementation."
+    "operation": "Nailer real CPU robot/contact repair and action optimization",
+    "preserved_source": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+    "repair_worktree": "/workspace/nailer-tracking",
+    "repair_branch": "optimization/nailer-actuator-tracking",
+    "state": "IN_PROGRESS_NOT_QUALIFIED",
+    "actual_unmodified_failure": "phase16/2296actions/114.8s; Motion/physical-feedback stall: Reach bent brad",
+    "optimized_prefix": "7of49phases/520actions/26s; working-tree diagnostic only, not full success; gripper velocity mismatch unresolved",
+    "harness": "coordination/cpu_yam_trial.py",
+    "source_initial_harness_commit": "937f7f6",
+    "next": "Inspect actual stalled robot contacts; fix native-faithful controller/mechanism or documented model defect; rerun affected CPU/clean evidence. Continue remaining rebuilds."
   }
 }

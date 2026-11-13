@@ -52,7 +52,7 @@
       "slug": "er-collet-nut-preassembly",
       "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "branch": "repair/er-collet-v21",
-      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/er-collet-nut-preassembly/1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+      "worktree": "/tmp/robocurve-current-two-preview-unused/worktrees/er-collet-nut-preassembly/1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -132,7 +132,7 @@
       "slug": "cargo-bar-controlled-release",
       "commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "branch": "repair/cargo-bar-angular-units",
-      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/cargo-bar-controlled-release/72e33f89853577aadebb78e64a1e783bd9087e84",
+      "worktree": "/tmp/robocurve-current-two-preview-unused/worktrees/cargo-bar-controlled-release/72e33f89853577aadebb78e64a1e783bd9087e84",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -212,7 +212,7 @@
       "slug": "brad-nailer-jam-recovery",
       "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
       "branch": "draft/brad-nailer-jam-recovery",
-      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/brad-nailer-jam-recovery/d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+      "worktree": "/tmp/robocurve-current-two-preview-unused/worktrees/brad-nailer-jam-recovery/d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -292,7 +292,7 @@
       "slug": "rigging-shackle-connection",
       "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
       "branch": "repair/rigging-shackle-v21",
-      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/rigging-shackle-connection/ce43ba49685b76affdb6f84e2850387d8620edef",
+      "worktree": "/tmp/robocurve-current-two-preview-unused/worktrees/rigging-shackle-connection/ce43ba49685b76affdb6f84e2850387d8620edef",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -372,7 +372,7 @@
       "slug": "drive-bracket-pin-release",
       "commit": "391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
       "branch": "repair/drive-bracket-v21",
-      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/drive-bracket-pin-release/391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
+      "worktree": "/tmp/robocurve-current-two-preview-unused/worktrees/drive-bracket-pin-release/391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -470,7 +470,7 @@
     {
       "slug": "brad-nailer-jam-recovery",
       "priority": 3,
-      "offline_state": "OFFLINE READY",
+      "offline_state": "REVISION_REQUIRED",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
@@ -487,6 +487,7 @@
     }
   ],
   "blocked": [
+    "brad-nailer-jam-recovery",
     "rigging-shackle-connection",
     "drive-bracket-pin-release"
   ],
@@ -500,11 +501,6 @@
       "slug": "cargo-bar-controlled-release",
       "published_commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "tested_source_commit": "e62f3f7f890efeaf91955cf10257e1cacc3ee325"
-    },
-    {
-      "slug": "brad-nailer-jam-recovery",
-      "published_commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
-      "tested_source_commit": "1351d4ba80860b18085616df4cc7f08bbf29fab2"
     }
   ]
 }

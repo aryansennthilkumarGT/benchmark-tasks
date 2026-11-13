@@ -14,7 +14,14 @@ from cpu_yam_dynamics import add_robots,initialize_robot,measured,command_robot,
 from yam_arena.constants import SHOULDER,WRIST,GRIPPER,ARM_JOINTS,FINGER_JOINTS
 
 
+_BOUND_FOLDER=None
+
 def load(folder):
+ global _BOUND_FOLDER
+ if _BOUND_FOLDER is not None:raise ValueError('Run exactly one task per process; task module caches cannot cross source bindings')
+ _BOUND_FOLDER=folder.resolve()
+ for name in ['mechanism_cpu','feedback','scoring','audit_geometry','robot_clearance','source_identity']:
+  if name in sys.modules:raise ValueError('Task namespace already loaded; start a fresh process')
  sys.path.insert(0,str(folder))
  return {name:importlib.import_module(name) for name in ['mechanism_cpu','feedback','scoring','audit_geometry','robot_clearance','source_identity']}
 
@@ -29,6 +36,7 @@ def export(spec,backend):
 
 def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600):
  folder=folder.resolve();harness_paths=[Path(__file__),Path(__file__).with_name('cpu_yam_dynamics.py')];harness_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in harness_paths};out.mkdir(parents=True,exist_ok=False)
+ source_status=subprocess.check_output(['git','status','--porcelain','--','.'],cwd=folder,text=True)
  modules=load(folder);backend=modules['mechanism_cpu'];spec=json.loads((folder/'scene.json').read_text());plan=json.loads((folder/'controller.json').read_text());source=modules['source_identity'].runtime_hashes(folder)
  if not 1<=max_actions<=spec['run_limit']:raise ValueError('Requested actions exceed declared task limit')
  if stop_after_phase is not None and not 1<=stop_after_phase<=len(plan['phases']):raise ValueError('Requested prefix must include actual controller phases')
@@ -65,7 +73,13 @@ def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600):
     if phase!=control.index:
      phase=control.index;print(json.dumps(dict(phase=phase,label=plan['phases'][phase]['label'],actions=actions,simulation_seconds=float(d.time))),flush=True)
     command=control.step(q,f);command_robot(m,d,command);max_tracking=max(max_tracking,float(np.abs(command[:6]-q[:6]).max()),float(np.abs(command[7:13]-q[7:13]).max()))
-    trace.write(json.dumps(dict(kind='SUPPLEMENTAL_MUJOCO_ROBOT_FRAME',phase=control.index,action=command.tolist(),robot_q=q.tolist(),frame=f))+'\n')
+    contacts=[]
+    for ci,contact in enumerate(d.contact[:d.ncon]):
+     names=[mujoco.mj_id2name(m,mujoco.mjtObj.mjOBJ_GEOM,int(k)) or '' for k in contact.geom]
+     if any(n.startswith(('left_','right_')) for n in names):
+      force=np.zeros(6);mujoco.mj_contactForce(m,d,ci,force)
+      contacts.append(dict(geoms=names,distance_m=float(contact.dist),force_contact_frame=force.tolist(),position=contact.pos.tolist()))
+    trace.write(json.dumps(dict(kind='SUPPLEMENTAL_MUJOCO_ROBOT_FRAME',phase=control.index,action=command.tolist(),robot_q=q.tolist(),frame=f,robot_contacts=contacts))+'\n')
     for _ in range(ticks):
      mujoco.mj_step(m,d)
      maximum_velocity_ratio=max(maximum_velocity_ratio,float(np.max(np.abs(d.qvel[velocity_dofs])/velocity_limits)))
@@ -79,7 +93,7 @@ def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600):
  same=modules['source_identity'].runtime_hashes(folder)==source and harness_hashes=={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in harness_paths}
  if not same:error='Task sources changed during diagnostic; evidence is stale'
  source_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=folder,text=True).strip()
- report=dict(kind='SUPPLEMENTAL_MUJOCO_ACTUATED_YAM_TASK_DIAGNOSTIC',engine=mujoco.__version__,isaac_executed=False,hardware_executed=False,dream_executed=False,synthetic_grasps=False,task_pose_writes_after_initialization=False,task_actuators=False,virtual_constraints=False,source_commit=source_commit,source_bound=same,runtime_inputs_sha256=source,robot_sources=robot_sources(),harness_sources=harness_hashes,model_sha256=hashlib.sha256(xml.encode()).hexdigest(),max_actions=max_actions,stop_after_phase=stop_after_phase,actions=actions,phase=control.index,phases=len(plan['phases']),seconds=float(d.time),elapsed_wall_seconds=time.monotonic()-start,error=error,warnings=warnings,maximum_task_interference_m=peak_task_depth,maximum_raw_robot_contact_depth_m=peak_robot_depth,maximum_action_tracking_delta_rad=max_tracking,maximum_measured_velocity_to_sdk_limit_ratio=maximum_velocity_ratio,score=result.score if result else None,controller_done=control.done,requested_prefix_complete=completed,events=control.events,limitations=['MuJoCo, not the native Isaac/PhysX backend.','Official joint friction coefficients are not converted into Nm; authored Coulomb joint loss0.','Robot collision friction0.5 is an explicit diagnostic assumption; PhysX combination/contact behavior may differ.','Table/robot/task geometry included; camera hardware/room/lighting not modeled.','This does not establish native expert, hardware, model or reviewer success.'],passed=bool(completed and error is None and not warnings and same))
+ report=dict(kind='SUPPLEMENTAL_MUJOCO_ACTUATED_YAM_TASK_DIAGNOSTIC',engine=mujoco.__version__,isaac_executed=False,hardware_executed=False,dream_executed=False,synthetic_grasps=False,task_pose_writes_after_initialization=False,task_actuators=False,virtual_constraints=False,source_commit=source_commit,source_tree_dirty=bool(source_status),source_commit_is_exact=not bool(source_status),source_binding='WORKING_TREE_HASHES_ONLY' if source_status else 'CLEAN_COMMIT_AND_RUNTIME_HASHES',source_bound=same,runtime_inputs_sha256=source,robot_sources=robot_sources(),harness_sources=harness_hashes,model_sha256=hashlib.sha256(xml.encode()).hexdigest(),max_actions=max_actions,stop_after_phase=stop_after_phase,actions=actions,phase=control.index,phases=len(plan['phases']),seconds=float(d.time),elapsed_wall_seconds=time.monotonic()-start,error=error,warnings=warnings,maximum_task_interference_m=peak_task_depth,maximum_raw_robot_contact_depth_m=peak_robot_depth,maximum_action_tracking_delta_rad=max_tracking,maximum_measured_velocity_to_sdk_limit_ratio=maximum_velocity_ratio,velocity_limit_violated=maximum_velocity_ratio>1.001,score=result.score if result else None,controller_done=control.done,requested_prefix_complete=completed,events=control.events,limitations=['MuJoCo, not the native Isaac/PhysX backend.','Official joint friction coefficients are not converted into Nm; authored Coulomb joint loss0.','Robot collision friction0.5 is an explicit diagnostic assumption; PhysX combination/contact behavior may differ.','Table/robot/task geometry included; camera hardware/room/lighting not modeled.','This does not establish native expert, hardware, model or reviewer success.'],passed=bool(completed and error is None and not warnings and same and maximum_velocity_ratio<=1.001))
  (out/'report.json').write_text(json.dumps(report,indent=2)+'\n');return report
 
 if __name__=='__main__':
