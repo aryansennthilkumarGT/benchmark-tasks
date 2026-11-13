@@ -38,9 +38,22 @@ class Tests(unittest.TestCase):
   for change in [lambda f:f['bodies']['bench_nut']['pos'].__setitem__(0,.25),lambda f:f.update(max_penetration=.001),lambda f:f['bodies']['collet']['pos'].__setitem__(2,.1)]:
    f=frame();change(f);s=Scorer(SPEC);self.assertIsNotNone(s.update(f).failure);_,r=completed(s);self.assertEqual(r.score,0.)
  def test_release_stillness_and_gaps_are_required(self):
-  for change in [lambda f:f.update(robot_clearance=0.),lambda f:f['bodies']['collet'].update(linear=[.1,0,0]),lambda f:f['bodies']['collet'].update(angular=[1,0,0])]:
+  for change in [lambda f:f.update(robot_clearance=0.),lambda f:f['bodies']['collet']['pos'].__setitem__(0,.2405),lambda f:f['bodies']['collet'].update(quat=[math.sin(.01),0,0,math.cos(.01)])]:
    s=Scorer(SPEC);f,_=completed(s);f['time']+=.05;change(f);self.assertFalse(s.update(f).success)
   s=Scorer(SPEC);f,_=completed(s);f['time']+=1.;self.assertFalse(s.update(f).success)
+ def test_micron_contact_chatter_does_not_defeat_observable_stability(self):
+  s=Scorer(SPEC);f,_=completed(s)
+  for i in range(50):
+   f['time']+=.05;f['bodies']['collet']['pos'][2]=.8055+(i%2)*.00003
+   f['bodies']['collet']['linear']=[0,0,.019 if i%2 else -.019]
+   r=s.update(copy.deepcopy(f))
+  self.assertTrue(r.success)
+ def test_subtolerance_motion_over_the_hold_window_prevents_success(self):
+  s=Scorer(SPEC);f,_=completed(s)
+  for i in range(60):
+   f['time']+=.05;f['bodies']['collet']['pos'][0]=.24+(.00025 if i%2 else -.00025)
+   r=s.update(copy.deepcopy(f))
+   if i>=1:self.assertFalse(r.success)
  def test_displacement_removes_supported_credit(self):
   s=Scorer(SPEC);f,_=completed(s);f['time']+=.05;f['bodies']['collet']['pos'][0]+=.002;self.assertNotIn('supported_preassembly',s.update(f).completed)
  def test_collet_yaw_is_irrelevant_to_axisymmetric_groove(self):

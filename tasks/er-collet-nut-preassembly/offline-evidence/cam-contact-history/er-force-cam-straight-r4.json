@@ -1,0 +1,90 @@
+{
+  "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+  "engine": "3.3.7",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "initialization_is_not_demonstration": true,
+  "pose_writes_during_run": false,
+  "force_cap_N": 5.0,
+  "torque_cap_Nm": 0.1,
+  "strategy": "straight",
+  "expected_outcome": "blocked_before_seating",
+  "peak_force_N": 5.000000000000001,
+  "peak_torque_Nm": 0.10000000000000002,
+  "speed_m_s": 0.003,
+  "physics_dt_s": 0.0005208333333333333,
+  "input_sha256": {
+    "scene.json": "49012d8f4d3a7aca31dd5e75a3c4301afcd77df921ee4625262f94bf0e1a198c",
+    "controller.json": "1e35f854b55b9bba84b8dc887b645aab154879bef53c5e5a659d98119ab6e045",
+    "probe_cam_path_cpu.py": "8826352612460f6ee033776adad68379f44ff5f259b37c4fe74bbef68728fe5c",
+    "cpu_contact_probe.py": "a77aed738b7e029f9936104492dc512652e2a2f1ef47390fb5db9c5d7839d46e"
+  },
+  "checks": [
+    {
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "time": 15.033333333329931,
+      "position_error_m": 3.0336659735568888e-05,
+      "rotation_error_rad": 1.8327652907123707e-05,
+      "pos": [
+        0.2399997525951913,
+        -2.7463289557056537e-08,
+        0.8055303356384561
+      ],
+      "quat": [
+        1.113141961466744e-06,
+        -9.092566561304999e-06,
+        2.487195537609115e-07,
+        0.9999999999580119
+      ]
+    }
+  ],
+  "refinement_factor": 4,
+  "peak_state": {
+    "time": 13.505729166664654,
+    "pos": [
+      0.240031602248896,
+      -2.4561867547831158e-20,
+      0.80965176345505
+    ],
+    "quat_wxyz": [
+      0.9999990934064369,
+      -6.939011096523096e-19,
+      0.0013465460641732174,
+      -1.5455768137738445e-19
+    ],
+    "velocity": [
+      0.03097267366280558,
+      -0.010710138566824155,
+      0.34933994643121347,
+      2.706859016847817,
+      7.672330723650767,
+      0.012048098969815495
+    ],
+    "force": [
+      -0.04093271962101083,
+      1.0606073805272941e-17,
+      1.3375300116847402
+    ],
+    "torque": [
+      8.055331860700974e-19,
+      -0.0012823598455174645,
+      2.308449458413621e-19
+    ]
+  },
+  "peak_contact_depth_m": 0.014999005860325465,
+  "final_pos": [
+    0.2399998645123531,
+    -1.7583459830932595e-08,
+    0.8055266096640931
+  ],
+  "final_quat": [
+    1.0425872718884329e-07,
+    6.272914846701825e-07,
+    2.046105657135993e-07,
+    0.9999999999997768
+  ],
+  "final_error_m": 2.6610014829505202e-05,
+  "final_angle_rad": 1.335795809687101e-06,
+  "passed": false
+}

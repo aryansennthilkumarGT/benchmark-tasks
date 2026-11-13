@@ -30,3 +30,9 @@ Read FIDELITY.md, SETUP.md, PARAMETERS.md, SCORING.md, CONTROLLER.md, CONSTRUCT_
 ## Supplemental CPU contact diagnostics
 
 The offline requirements now include MuJoCo3.3.7. static_check.py runs the exact-scene contact probes twice after reset, as well as unit/geometry/kinematic checks. Read CPU_CONTACT_DIAGNOSTICS.md for solver differences, transient risks and the strict distinction from native Isaac/robot evidence. The standalone command is `python cpu_contact_probe.py --folder . --output /tmp/new-contact-probe`. No GPU or rendering is used.
+
+## Supplemental force-limited cam-path fixture
+
+Run probe_cam_path_cpu.py for the complete correct path, or add --strategy straight for the direct-entry comparison. This starts from the actual scene reset and applies bounded diagnostic wrenches; no object poses are written during the run. It is not a YAM expert. --box-backend primitive reproduces the historical second-engine contact anomaly; default mesh uses identical eight-corner convex hulls and preserves all geometry. --refinement 2, --refinement 4 or --refinement 8 changes only the optional CPU integrator timestep, not native configuration. Reports separate solver distances from20Hz geometric overlap and record the real scorer output with a fixture-contact sentinel until wrench release. Native/robot/Dream claims remain NOT RUN.
+
+Final stability now uses an observable2s position/axis window (0.4mm/0.015rad), not instantaneous velocity spikes. Collet yaw remains irrelevant.37 unit tests currently cover geometry, full exported corner equivalence, scoring, controls, SDK/workflow contracts and media tools. Retain exact-source clean-checkout FK/ideal evidence for this scorer revision; physical geometry and robot paths are unchanged. No earlier native evidence qualifies a new scorer revision.

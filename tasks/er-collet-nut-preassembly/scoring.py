@@ -19,7 +19,7 @@ class Result:
 class Scorer:
  def __init__(self,scene):self.spec=scene['score_spec'];self.reset()
  def reset(self):
-  self.failed=None;self.previous=None;self.time=None;self.hooked=False;self.stable=None;self.result=Result(0.,False,None,())
+  self.failed=None;self.previous=None;self.time=None;self.hooked=False;self.stable=None;self.pose_history=[];self.result=Result(0.,False,None,())
  def fail(self,why):
   self.failed=self.failed or why;self.result=Result(0.,False,self.failed,());return self.result
  def update(self,f):
@@ -40,7 +40,7 @@ class Scorer:
   if self.time is not None and t<=self.time:
    if t==self.time and f==self.previous:return self.result
    return self.fail('time_order')
-  if self.time is not None and t-self.time>1.5/s['control_hz']:self.stable=None
+  if self.time is not None and t-self.time>1.5/s['control_hz']:self.stable=None;self.pose_history=[]
   if self.time is None:
    if math.dist(bodies['collet']['pos'],s['initial_collet'])>.003:return self.fail('initial_layout')
   else:
@@ -59,11 +59,20 @@ class Scorer:
   hook=math.dist(point,[target[0]+pivot[0],target[1],target[2]])<=.0012 and .05<=math.acos(max(-1.,min(1.,axis[2])))<=.45
   self.hooked=bool(hook)
   seated=math.dist(p[:2],target[:2])<=s['lateral_tolerance'] and abs(p[2]-target[2])<=s['axial_tolerance'] and axis[2]>=math.cos(s['angle_tolerance'])
-  still=all(math.sqrt(sum(x*x for x in b['linear']))<=s['speed_limit'] and math.sqrt(sum(x*x for x in b['angular']))<=s['spin_limit'] for b in bodies.values())
-  ready=seated and still and f['robot_clearance']>=s['release_clearance']
+  # Hardware-observable stability, independent of solver velocity chatter.
+  # Each pair of sampled positions must remain within0.4mm and each body's
+  # axis within0.015rad for2s. Axisymmetric collet yaw remains irrelevant.
+  ready=seated and f['robot_clearance']>=s['release_clearance']
+  sample={n:(list(b['pos']),rotate(b['quat'],[0,0,1]).tolist()) for n,b in bodies.items()}
   if ready:
-   if self.stable is None:self.stable=t
-  else:self.stable=None
+   changed=any(math.dist(sample[n][0],old[n][0])>s['position_drift_limit'] or
+               sum(x*y for x,y in zip(sample[n][1],old[n][1]))<math.cos(s['axis_drift_limit'])
+               for _,old in self.pose_history for n in sample)
+   if changed or not self.pose_history:self.pose_history=[(t,sample)]
+   else:self.pose_history.append((t,sample))
+   while len(self.pose_history)>1 and t-self.pose_history[1][0]>=s['hold_seconds']-1e-9:self.pose_history.pop(0)
+   self.stable=self.pose_history[0][0]
+  else:self.stable=None;self.pose_history=[]
   success=self.stable is not None and t-self.stable+1e-9>=s['hold_seconds']
   goals=tuple(n for n,ok in [('groove_hooked',hook or seated),('supported_preassembly',seated)] if ok)
   score=.75 if seated else (.25 if hook else 0.)

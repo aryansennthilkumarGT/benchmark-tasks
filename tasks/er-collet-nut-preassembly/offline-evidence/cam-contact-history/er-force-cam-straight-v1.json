@@ -1,0 +1,57 @@
+{
+  "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+  "engine": "3.3.7",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "initialization_is_not_demonstration": true,
+  "pose_writes_during_run": false,
+  "force_cap_N": 5.0,
+  "torque_cap_Nm": 0.1,
+  "strategy": "straight",
+  "expected_outcome": "blocked_before_seating",
+  "peak_force_N": 5.000000000000001,
+  "peak_torque_Nm": 0.10000000000000003,
+  "speed_m_s": 0.003,
+  "physics_dt_s": 0.0020833333333333333,
+  "input_sha256": {
+    "scene.json": "49012d8f4d3a7aca31dd5e75a3c4301afcd77df921ee4625262f94bf0e1a198c",
+    "controller.json": "1e35f854b55b9bba84b8dc887b645aab154879bef53c5e5a659d98119ab6e045",
+    "probe_cam_path_cpu.py": "f7dacc111cc21101d5bb89d6fb06d4626e34f6b1cd75f597964025dc3ee795b2",
+    "cpu_contact_probe.py": "a77aed738b7e029f9936104492dc512652e2a2f1ef47390fb5db9c5d7839d46e"
+  },
+  "checks": [
+    {
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "time": 15.03333333333264,
+      "position_error_m": 3.44737529741603e-05,
+      "rotation_error_rad": 5.960464477539063e-08,
+      "pos": [
+        0.2400000031259831,
+        5.206437838892865e-10,
+        0.8055344737528285
+      ],
+      "quat": [
+        -5.291739059700828e-09,
+        3.177237926089392e-08,
+        2.99702328869027e-12,
+        0.9999999999999993
+      ]
+    }
+  ],
+  "peak_contact_depth_m": 0.01500081456306766,
+  "final_pos": [
+    0.24000001495301576,
+    -1.286909606602998e-09,
+    0.8055303299057026
+  ],
+  "final_quat": [
+    6.176105634409242e-08,
+    4.325910184077655e-07,
+    -5.990671683832135e-09,
+    0.999999999999905
+  ],
+  "final_error_m": 3.032990941593158e-05,
+  "final_angle_rad": 8.739756523737488e-07,
+  "passed": false
+}

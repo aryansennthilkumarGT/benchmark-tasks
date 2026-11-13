@@ -1,7 +1,13 @@
 {
   "novelty_review": {
-    "decision": "UNRESOLVED_INVENTORY_COVERAGE",
-    "reason": "Official collet PR search identified only push-fit pipes; full board coverage unavailable."
+    "decision": "CLEARED",
+    "reason": "All collet matches are axial push-fit pipe fittings. Accepted camera lip/panel release and external fastening/attachment tasks do not perform eccentric ER groove preassembly.",
+    "scope": "Internal actual-source semantic review plus fresh indexed official PR search; no universal coverage or external acceptance claim.",
+    "evidence": [
+      "NOVELTY.md",
+      "novelty-live-screen.json",
+      "novelty-accepted-shortlist.json"
+    ]
   },
   "mechanics_review": {
     "scope": "Supported unloaded ER nut/collet preassembly",
@@ -13,7 +19,7 @@
   "reviewer_acceptance": "NOT_CLAIMED",
   "importance": "Three disjoint machining occupations total515000 workers in the primary2025 BLS table; actual core duties and scope limits in occupation-evidence.json.",
   "construct_validity": "Supported unloaded eccentric-groove preassembly; no unsupported cam-retention or clamping claim; rigid surrogate and authored cam disclosed.",
-  "scoring": "Current seating/hook geometry with initial-layout/state-jump guards; no expert-angle history requirement.",
+  "scoring": "Observable2s bounded position/axis stability window; axisymmetric yaw irrelevant. Integrity guards reject actual overlap and substitution; exact expert path not required.",
   "clarity": "Full primitive parameter/provenance tables, deterministic reset and reproduction instructions.",
-  "feasibility": "CPU IK/FK/ideal-controller evidence and supplemental MuJoCo contacts; actual robot/Isaac qualification remains unrun."
+  "feasibility": "Complete executable expert/native harness;37 CPU tests and exact-hull second-engine diagnostic fixture. No actual YAM/Isaac or paid model result."
 }

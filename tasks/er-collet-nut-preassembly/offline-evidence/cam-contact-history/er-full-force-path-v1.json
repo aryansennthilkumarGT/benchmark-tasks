@@ -1,0 +1,528 @@
+{
+  "kind": "SUPPLEMENTAL_MUJOCO_FORCE_LIMITED_CAM_PATH_FIXTURE",
+  "engine": "3.3.7",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "exact_scene_reset": true,
+  "pose_writes_during_run": false,
+  "force_cap_N": 5.0,
+  "torque_cap_Nm": 0.1,
+  "strategy": "tilted",
+  "expected_outcome": "valid_fixture_preassembly",
+  "peak_force_N": 1.8318698823106054,
+  "peak_torque_Nm": 0.00024852013301453267,
+  "speed_m_s": 0.003,
+  "physics_dt_s": 0.0020833333333333333,
+  "input_sha256": {
+    "scene.json": "49012d8f4d3a7aca31dd5e75a3c4301afcd77df921ee4625262f94bf0e1a198c",
+    "controller.json": "1e35f854b55b9bba84b8dc887b645aab154879bef53c5e5a659d98119ab6e045",
+    "probe_cam_path_cpu.py": "7b1a4b5a86fb9907d32db1d364266cade9df5ef32c94f1692dd781101f2073af",
+    "cpu_contact_probe.py": "a77aed738b7e029f9936104492dc512652e2a2f1ef47390fb5db9c5d7839d46e",
+    "scoring.py": "43cda56302ded87c18796bff56f5dc55795570c2077f399569a263e752f9c0bc"
+  },
+  "checks": [
+    {
+      "phase": 4,
+      "label": "Lift collet from cradle",
+      "time": 1.2770833333333442,
+      "position_error_m": 1.2449657305069195e-08,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.28,
+        -0.17,
+        0.8700000124496573
+      ],
+      "quat": [
+        -3.5906257306521225e-18,
+        -3.684315755054834e-18,
+        -7.94247136240611e-23,
+        1.0
+      ]
+    },
+    {
+      "phase": 5,
+      "label": "Transfer above supported nut",
+      "time": 4.389583333333245,
+      "position_error_m": 9.842087476353353e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23999999774577485,
+        9.580456925997697e-09,
+        0.8699999999999999
+      ],
+      "quat": [
+        1.5093182716838873e-19,
+        -3.684315755054834e-18,
+        -7.942471362404924e-23,
+        1.0
+      ]
+    },
+    {
+      "phase": 6,
+      "label": "Tilt for eccentric cam entry",
+      "time": 7.089583333333091,
+      "position_error_m": 3.186463256117062e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.24250000277700903,
+        4.72091026943145e-59,
+        0.850000001562616
+      ],
+      "quat": [
+        -5.545050634147028e-74,
+        -0.1246747337712236,
+        -6.967677776406146e-75,
+        0.9921976671808268
+      ]
+    },
+    {
+      "phase": 7,
+      "label": "Lower tilted nose through eccentric opening",
+      "time": 20.8375000000031,
+      "position_error_m": 1.7552859166159775e-10,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.24249999999999994,
+        9.903468029911065e-36,
+        0.809359501588842
+      ],
+      "quat": [
+        3.125138724854756e-16,
+        -0.1246747333844279,
+        3.926897332852957e-17,
+        0.9921976672294298
+      ]
+    },
+    {
+      "phase": 8,
+      "label": "Engage groove at eccentric hook",
+      "time": 22.033333333337385,
+      "position_error_m": 6.849673606126779e-11,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.2395150337101893,
+        2.9071058969512902e-36,
+        0.8093595017643703
+      ],
+      "quat": [
+        3.379032490987294e-16,
+        -0.1246747333844279,
+        4.245927891440453e-17,
+        0.9921976672294298
+      ]
+    },
+    {
+      "phase": 9,
+      "label": "Rock groove onto cam increment 1",
+      "time": 22.358333333337644,
+      "position_error_m": 3.004575291171238e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.2395620924912649,
+        9.226575870675064e-24,
+        0.8091702667073708
+      ],
+      "quat": [
+        -9.185205340181114e-27,
+        -0.11847110290594046,
+        -1.1012911503687195e-27,
+        0.9929575004884396
+      ]
+    },
+    {
+      "phase": 10,
+      "label": "Rock groove onto cam increment 2",
+      "time": 22.683333333337902,
+      "position_error_m": 3.0045750852559064e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23960678510731592,
+        -7.596911812815777e-30,
+        0.808980458750916
+      ],
+      "quat": [
+        -1.3948538708548975e-35,
+        -0.11226284505015646,
+        -1.575097937508424e-36,
+        0.9936785464229582
+      ]
+    },
+    {
+      "phase": 11,
+      "label": "Rock groove onto cam increment 3",
+      "time": 23.00833333333816,
+      "position_error_m": 3.0045750520519006e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23964910169413195,
+        5.8157582798745465e-36,
+        0.808790106979862
+      ],
+      "quat": [
+        4.845709148042334e-45,
+        -0.10605020194126272,
+        5.168296974333836e-46,
+        0.9943607769156111
+      ]
+    },
+    {
+      "phase": 12,
+      "label": "Rock groove onto cam increment 4",
+      "time": 23.33333333333842,
+      "position_error_m": 3.004575098547357e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23968903563983246,
+        -4.214744171697872e-42,
+        0.8085992411362858
+      ],
+      "quat": [
+        -8.297220940201919e-55,
+        -0.09983341625984048,
+        -8.329643382055655e-56,
+        0.9950041653168535
+      ]
+    },
+    {
+      "phase": 13,
+      "label": "Rock groove onto cam increment 5",
+      "time": 23.65833333333868,
+      "position_error_m": 3.004575063241572e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23972658070481975,
+        2.91663714490123e-48,
+        0.8084078910425876
+      ],
+      "quat": [
+        -1.4446946739305278e-63,
+        -0.09361273084829012,
+        -1.3582171049386813e-64,
+        0.9956086864944103
+      ]
+    },
+    {
+      "phase": 14,
+      "label": "Rock groove onto cam increment 6",
+      "time": 23.983333333338937,
+      "position_error_m": 3.00457506891222e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23976173102275372,
+        -1.9338245315617938e-54,
+        0.80821608659683
+      ],
+      "quat": [
+        1.5986549518088995e-69,
+        -0.08738838870134442,
+        1.4024039345286385e-70,
+        0.9961743168342486
+      ]
+    },
+    {
+      "phase": 15,
+      "label": "Rock groove onto cam increment 7",
+      "time": 24.308333333339196,
+      "position_error_m": 3.0045750276672394e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23979448110146878,
+        1.2279214181821503e-60,
+        0.8080238577680677
+      ],
+      "quat": [
+        1.639545723542807e-75,
+        -0.08116063295657708,
+        1.335068103217209e-76,
+        0.9967010342415051
+      ]
+    },
+    {
+      "phase": 16,
+      "label": "Rock groove onto cam increment 8",
+      "time": 24.633333333339454,
+      "position_error_m": 3.0045750939248994e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23982482582383166,
+        -7.433254315229103e-67,
+        0.8078312345916636
+      ],
+      "quat": [
+        -2.472009674879382e-82,
+        -0.074929706884905,
+        -1.857572162148115e-83,
+        0.9971888181413496
+      ]
+    },
+    {
+      "phase": 17,
+      "label": "Rock groove onto cam increment 9",
+      "time": 24.958333333339713,
+      "position_error_m": 3.0045750564264407e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23985276044854137,
+        4.2452350653787055e-73,
+        0.8076382471645976
+      ],
+      "quat": [
+        -5.826522583512542e-88,
+        -0.06869585388108551,
+        -4.01209420248893e-89,
+        0.9976376494797833
+      ]
+    },
+    {
+      "phase": 18,
+      "label": "Rock groove onto cam increment 10",
+      "time": 25.28333333333997,
+      "position_error_m": 3.0045750321330626e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23987828061086955,
+        -2.2376972458614645e-79,
+        0.8074449256407623
+      ],
+      "quat": [
+        -1.0556917797577742e-96,
+        -0.06245931745420893,
+        -6.610161184486986e-98,
+        0.9980475107243915
+      ]
+    },
+    {
+      "phase": 19,
+      "label": "Rock groove onto cam increment 11",
+      "time": 25.60833333334023,
+      "position_error_m": 3.0045750936392694e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23990138232334265,
+        1.0341577135373629e-85,
+        0.8072513002262528
+      ],
+      "quat": [
+        1.1540225368619896e-100,
+        -0.05622034121818636,
+        6.498473700268232e-102,
+        0.9984183858650191
+      ]
+    },
+    {
+      "phase": 20,
+      "label": "Rock groove onto cam increment 12",
+      "time": 25.93333333334049,
+      "position_error_m": 3.0045750243820622e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23992206197636537,
+        -3.5540882405358216e-92,
+        0.8070574011746459
+      ],
+      "quat": [
+        1.217819078241155e-106,
+        -0.049979168882233714,
+        6.094302897017095e-108,
+        0.9987502604144045
+      ]
+    },
+    {
+      "phase": 21,
+      "label": "Rock groove onto cam increment 13",
+      "time": 26.258333333340747,
+      "position_error_m": 3.004575029722145e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23994031633878374,
+        4.3332674091170517e-100,
+        0.8068632587822737
+      ],
+      "quat": [
+        -9.82933170272657e-113,
+        -0.04373604424135182,
+        -4.303059247374934e-114,
+        0.99904312140874
+      ]
+    },
+    {
+      "phase": 22,
+      "label": "Rock groove onto cam increment 14",
+      "time": 26.583333333341006,
+      "position_error_m": 3.0045751058755715e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.2399561425583908,
+        1.522705056138884e-104,
+        0.8066689033834907
+      ],
+      "quat": [
+        -6.590171822822268e-119,
+        -0.03749121116680303,
+        -2.4723220764648377e-120,
+        0.9992969574081795
+      ]
+    },
+    {
+      "phase": 23,
+      "label": "Rock groove onto cam increment 15",
+      "time": 26.908333333341265,
+      "position_error_m": 3.0045750409531e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23996953816237213,
+        -2.006612873684784e-110,
+        0.8064743653459319
+      ],
+      "quat": [
+        -1.0672165635631838e-124,
+        -0.031244913596585305,
+        -3.336081348777784e-126,
+        0.999511758497288
+      ]
+    },
+    {
+      "phase": 24,
+      "label": "Rock groove onto cam increment 16",
+      "time": 27.233333333341523,
+      "position_error_m": 3.0045750817487057e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23998050105769161,
+        1.9423154377504865e-116,
+        0.8062796750657703
+      ],
+      "quat": [
+        -7.964771062623877e-132,
+        -0.024997395525903212,
+        -1.9917745284375623e-133,
+        0.999687516285425
+      ]
+    },
+    {
+      "phase": 25,
+      "label": "Rock groove onto cam increment 17",
+      "time": 27.558333333341782,
+      "position_error_m": 3.004575052572558e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23998902953141937,
+        -1.6433730086865268e-122,
+        0.8060848629629658
+      ],
+      "quat": [
+        1.7816173465657544e-137,
+        -0.018748900997636975,
+        3.341063877155784e-139,
+        0.9998242239070735
+      ]
+    },
+    {
+      "phase": 26,
+      "label": "Rock groove onto cam increment 18",
+      "time": 27.88333333334204,
+      "position_error_m": 3.0045750310902133e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.23999512225099864,
+        1.2817789941960256e-128,
+        0.8058899594765132
+      ],
+      "quat": [
+        5.928368525040401e-144,
+        -0.01249967409280953,
+        7.4119972282410455e-146,
+        0.9999218760221095
+      ]
+    },
+    {
+      "phase": 27,
+      "label": "Rock groove onto cam increment 19",
+      "time": 28.2083333333423,
+      "position_error_m": 3.0045750812597253e-09,
+      "rotation_error_rad": 0.0,
+      "pos": [
+        0.2399987782644543,
+        -9.42679890940823e-135,
+        0.8056949950596858
+      ],
+      "quat": [
+        -2.613513888718328e-150,
+        -0.006249958921052257,
+        -1.6337687930970724e-152,
+        0.9999804688160089
+      ]
+    },
+    {
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "time": 28.533333333342558,
+      "position_error_m": 3.0585239788461635e-05,
+      "rotation_error_rad": 4.2146848510894035e-08,
+      "pos": [
+        0.23999998275515166,
+        1.0474078680388237e-09,
+        0.805530585234909
+      ],
+      "quat": [
+        3.921502057285017e-09,
+        2.396111802074885e-08,
+        2.4924056784752676e-11,
+        0.9999999999999997
+      ]
+    }
+  ],
+  "sampled_geometric_peak_overlap_m": 5.674234661127986e-06,
+  "geometric_samples": 631,
+  "refinement_factor": 1,
+  "peak_state": {
+    "time": 0.0020833333333333333,
+    "pos": [
+      0.28,
+      -0.17,
+      0.8055
+    ],
+    "quat_wxyz": [
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "contact_pair": [
+      "collet_1216",
+      "collet_cradle_63"
+    ],
+    "geometric_overlap_m": 0.0
+  },
+  "peak_solver_contact_depth_m": 1.996846110100696e-17,
+  "solver_contact_distance_is_not_obb_penetration": true,
+  "final_pos": [
+    0.2399999974778119,
+    -8.300409500640336e-10,
+    0.8055293864336563
+  ],
+  "final_quat": [
+    6.065230352228822e-08,
+    4.26516852847122e-07,
+    -5.977182440297998e-09,
+    0.999999999999908
+  ],
+  "final_error_m": 2.9386433776313313e-05,
+  "final_angle_rad": 8.611788318634034e-07,
+  "diagnostic_scorer": {
+    "score": 0.75,
+    "success": false,
+    "failure": null,
+    "frames": 631
+  },
+  "fixture_contact_sentinel_not_robot_clearance": true,
+  "first_failure": null,
+  "physical_straight_entry_blocking_demonstrated": null,
+  "limitations": [
+    "No YAM robot, grasp or actuation validation.",
+    "All wrench gains/caps are authored fixture inputs.",
+    "Geometry samples at20Hz; no continuous-overlap guarantee.",
+    "Wrong-path fixture can cross geometry; the integrity scorer must reject it."
+  ],
+  "passed": false
+}

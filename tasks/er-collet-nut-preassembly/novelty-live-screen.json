@@ -1,0 +1,58 @@
+{
+  "time_utc": "2026-11-13T07:04:56.474924+00:00",
+  "queries": [
+    {
+      "query": "repo:robocurve/benchmark-tasks is:pr collet",
+      "url": "https://api.github.com/search/issues?q=repo%3Arobocurve%2Fbenchmark-tasks+is%3Apr+collet&per_page=100",
+      "sha256": "354ba917de9f5704cd4419da92f272bdaec93f126e1f18b8ae113993a847a4e4",
+      "total_count": 3,
+      "incomplete_results": false,
+      "results": [
+        {
+          "number": 1784,
+          "title": "Disconnect a pneumatic line from a push-to-connect manifold port and blank the port",
+          "state": "open",
+          "updated_at": "2026-11-12T19:28:38Z"
+        },
+        {
+          "number": 662,
+          "title": "Release a push-fit fitting and pull the pipe out",
+          "state": "closed",
+          "updated_at": "2026-11-12T10:30:34Z"
+        },
+        {
+          "number": 1654,
+          "title": "Push-fit an elbow onto a copper and a plastic pipe, with an insert in the plastic one",
+          "state": "closed",
+          "updated_at": "2026-11-12T11:45:25Z"
+        }
+      ]
+    },
+    {
+      "query": "repo:robocurve/benchmark-tasks is:pr \"toolholder\"",
+      "url": "https://api.github.com/search/issues?q=repo%3Arobocurve%2Fbenchmark-tasks+is%3Apr+%22toolholder%22&per_page=100",
+      "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    },
+    {
+      "query": "repo:robocurve/benchmark-tasks is:pr \"eccentric ring\"",
+      "url": "https://api.github.com/search/issues?q=repo%3Arobocurve%2Fbenchmark-tasks+is%3Apr+%22eccentric+ring%22&per_page=100",
+      "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    },
+    {
+      "query": "repo:robocurve/benchmark-tasks is:pr \"extraction groove\"",
+      "url": "https://api.github.com/search/issues?q=repo%3Arobocurve%2Fbenchmark-tasks+is%3Apr+%22extraction+groove%22&per_page=100",
+      "sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    }
+  ],
+  "scope": "Public indexed PR queries plus actual accepted-source and named-suite semantic comparison in NOVELTY.md; full authenticated board unavailable.",
+  "decision": "CLEARED_WITHIN_ACCESSED_SCOPE_NOT_EXTERNAL_ACCEPTANCE"
+}

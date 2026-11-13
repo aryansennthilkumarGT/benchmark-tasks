@@ -27,6 +27,8 @@ def main():
     for script in scripts:subprocess.run([sys.executable,str(HERE/script)],check=True,env=env)
     contact=Path(tempfile.mkdtemp(prefix=HERE.name+'-cpu-contact-'))/'probe'
     subprocess.run([sys.executable,str(HERE/'cpu_contact_probe.py'),'--folder',str(HERE),'--output',str(contact)],check=True,env=env)
+    for strategy in ('tilted','straight'):
+        subprocess.run([sys.executable,str(HERE/'probe_cam_path_cpu.py'),'--strategy',strategy],check=True,env=env)
     print('OFFLINE CHECKS PASSED; no native physics or full-score expert evidence.')
 
 

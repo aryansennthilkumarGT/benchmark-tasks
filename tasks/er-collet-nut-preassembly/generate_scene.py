@@ -75,7 +75,7 @@ def make_scene():
       assemblies=assemblies,collision_exclusions=[],
       score_spec=dict(initial_collet=PICK.copy(),target=CENTER.copy(),hook_pivot=PIVOT,hook_angle=ANGLE,anchors={b['name']:dict(pos=b['pos'],quat=b['quat']) for b in [nut,cradle]},
         lateral_tolerance=.0006,axial_tolerance=.0003,angle_tolerance=.025,hook_position_tolerance=.001,hook_angle_tolerance=.06,
-        hold_seconds=2.,control_hz=20,release_clearance=.020,speed_limit=.008,spin_limit=.15,penetration_limit=.00035,fixture_tolerance=.001,loss_plane=TABLE-.02),
+        hold_seconds=2.,control_hz=20,release_clearance=.020,position_drift_limit=.0004,axis_drift_limit=.015,penetration_limit=.00035,fixture_tolerance=.001,loss_plane=TABLE-.02),
       parameters=dict(grasp_offset_z=.036,collet_D1=.033,collet_D2=.032,collet_D3=.0292,collet_length=LENGTH,collet_groove_width=GROOVE,collet_nose_length=HEAD,collet_bore=.008,
         taper_angle=math.radians(8),nose_angle=math.radians(30),cam_inner_radius=.0185,cam_eccentricity=.0029,cam_thickness=.0006,
         nut_front_bore_radius=.0190,nut_upper_bore_radius=.0202,nut_outer_radius=.025,hook_angle=ANGLE,collet_mass=.15),

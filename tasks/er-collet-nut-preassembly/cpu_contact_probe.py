@@ -49,7 +49,7 @@ def scorer(folder,spec):
  return importlib.import_module(name+'.scoring').Scorer(spec)
 
 
-def run(folder,output):
+def run(folder,output,box_backend='mesh'):
  import mujoco
  started=time.monotonic();folder=folder.resolve();spec=json.loads((folder/'scene.json').read_text());cases=json.loads((folder/'native-cases.json').read_text())['physics']
  material=spec.get('material')
@@ -62,13 +62,17 @@ def run(folder,output):
    coefficients.add((float(mat.GetStaticFrictionAttr().Get()),float(mat.GetDynamicFrictionAttr().Get())))
   if len(coefficients)!=1:raise ValueError('Mixed materials require an explicit per-collider exporter')
   static,dynamic=coefficients.pop();material=dict(static_friction=static,dynamic_friction=dynamic)
- output.mkdir(parents=True,exist_ok=False);xml=model_xml(spec,material);(output/'export.xml').write_text(xml)
+ from convex_box_backend import mesh_boxes,geometric_overlap
+ if any(shape['kind']!='box' for a in spec['assemblies'] for b in a['bodies'] for shape in b['shapes'] if shape.get('collision',True)):raise ValueError('This task-specific overlap exporter requires original box primitives')
+ output.mkdir(parents=True,exist_ok=False);xml=model_xml(spec,material)
+ if box_backend=='mesh':xml=ET.tostring(mesh_boxes(ET.fromstring(xml)),encoding='unicode')
+ (output/'export.xml').write_text(xml)
  model=mujoco.MjModel.from_xml_string(xml);data=mujoco.MjData(model)
  names=[b['name'] for a in spec['assemblies'] for b in a['bodies']];ids={n:mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_BODY,n) for n in names}
  assemblies={a['name']:a for a in spec['assemblies']}
  report=dict(kind='SUPPLEMENTAL_MUJOCO_CPU_CONTACT_DIAGNOSTIC',engine=mujoco.__version__,isaac_executed=False,robot_executed=False,
              source_scene_sha256=hashlib.sha256((folder/'scene.json').read_bytes()).hexdigest(),input_sha256={n:hashlib.sha256((folder/n).read_bytes()).hexdigest() for n in ('scene.json','native-cases.json','scoring.py','source_manifest.json')},exporter_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),cases=[],passed=False,
-             material_mapping=material,penetration_assertion='Final frame, matching the declared native assertion; peak transient is separately recorded, never hidden.',limitations=['Different contact solver and friction model from PhysX.','No robot grasp or controller is simulated.','No Isaac, expert or model evidence can be inferred.'])
+             material_mapping=material,box_contact_backend=box_backend,box_backend_sha256=hashlib.sha256((folder/'convex_box_backend.py').read_bytes()).hexdigest(),penetration_assertion='Final actual OBB overlap; peak sampled geometry and raw solver manifold distances are reported separately.',limitations=['Different contact solver and friction model from PhysX.','No robot grasp or controller is simulated.','No Isaac, expert or model evidence can be inferred.'])
  substeps=round(1/spec['control_hz']/spec['physics_dt']);assert abs(substeps*spec['physics_dt']-1/spec['control_hz'])<1e-10
  for case in cases:
   for repeat in (0,1):
@@ -78,13 +82,15 @@ def run(folder,output):
     if len(a['bodies'])!=1:raise ValueError('Initialization of multi-body assembly requires explicit exporter support')
     n=a['bodies'][0]['name'];j=mujoco.mj_name2id(model,mujoco.mjtObj.mjOBJ_JOINT,n+'_free');q=model.jnt_qposadr[j]
     data.qpos[q:q+3]=init['pos'];data.qpos[q+3:q+7]=wxyz(init['quat'])
-   mujoco.mj_forward(model,data);initial={n:data.xpos[i].copy() for n,i in ids.items()};judge=scorer(folder,spec);worst=0.;result=None
+   mujoco.mj_forward(model,data);initial={n:data.xpos[i].copy() for n,i in ids.items()};judge=scorer(folder,spec);worst=0.;worst_solver=0.;result=None
    def observe(t):
+    nonlocal worst_solver
     bodies={}
     for n,i in ids.items():
      vel=np.empty(6);mujoco.mj_objectVelocity(model,data,mujoco.mjtObj.mjOBJ_BODY,i,vel,0)
      q=data.xquat[i];bodies[n]=dict(pos=data.xpos[i].tolist(),quat=[*q[1:],q[0]],linear=vel[3:].tolist(),angular=vel[:3].tolist())
-    depth=max([0.]+[-float(c.dist) for c in data.contact[:data.ncon]])
+    solver_depth=max([0.]+[-float(c.dist) for c in data.contact[:data.ncon]]);worst_solver=max(worst_solver,solver_depth)
+    depth=max([0.]+[geometric_overlap(model,data,ids[b['name']]) for a in spec['assemblies'] for b in a['bodies'] if not b.get('anchor')])
     return dict(schema=1,time=t,bodies=bodies,joints={},max_penetration=depth,robot_clearance=1.),depth
    frame,depth=observe(0.);worst=depth;result=judge.update(frame)
    # Native probes apply the force first, then remove it during settling.
@@ -112,12 +118,12 @@ def run(folder,output):
     elif k=='goal':value=a['name'] in result.completed;ok=value==a['completed']
     else:raise ValueError('Unsupported assertion kind: '+k)
     outcomes.append(dict(assertion=a,value=value,passed=bool(ok)))
-   report['cases'].append(dict(name=case['name'],repeat=repeat,assertions=outcomes,final_frame=frame,scorer_failure=result.failure,peak_contact_penetration_m=worst,peak_exceeds_scene_tolerance=worst>spec['penetration_limit'],passed=all(x['passed'] for x in outcomes)))
+   report['cases'].append(dict(name=case['name'],repeat=repeat,assertions=outcomes,final_frame=frame,scorer_failure=result.failure,peak_contact_penetration_m=worst,peak_solver_manifold_depth_m=worst_solver,peak_exceeds_scene_tolerance=worst>spec['penetration_limit'],passed=all(x['passed'] for x in outcomes)))
    (output/'results.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
  report['duration_seconds']=time.monotonic()-started;report['passed']=all(x['passed'] for x in report['cases']);(output/'results.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n');return report
 
 
 def main():
- p=argparse.ArgumentParser(description=__doc__);p.add_argument('--folder',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
- d=run(a.folder,a.output);print(json.dumps(dict(kind=d['kind'],passed=d['passed'],cases=len(d['cases']),output=str(a.output)),indent=2));return 0 if d['passed'] else 1
+ p=argparse.ArgumentParser(description=__doc__);p.add_argument('--folder',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--box-backend',choices=['mesh','primitive'],default='mesh');a=p.parse_args()
+ d=run(a.folder,a.output,a.box_backend);print(json.dumps(dict(kind=d['kind'],passed=d['passed'],cases=len(d['cases']),output=str(a.output)),indent=2));return 0 if d['passed'] else 1
 if __name__=='__main__':raise SystemExit(main())
