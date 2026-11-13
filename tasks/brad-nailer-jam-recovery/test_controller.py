@@ -105,3 +105,16 @@ def test_brad_acquisition_clears_the_real_case_bumper_with_stock_finger_meshes()
  old=np.asarray(target['pos'])-np.array([.002,0.,0.]);bad=hits(old)
  assert any(h['body']=='nose_body' and h['penetration_m']>.0003 for h in bad)
  assert hits(target['pos'])==[]
+
+
+def test_actual_closed_jaw_capture_allows_contact_deflection_but_not_empty_grip():
+ # Recorded real MuJoCo frames, not a mocked physics-success experiment.
+ data=json.loads((HERE/'test_fixtures/grip-contact-keyframes.json').read_text())
+ rows=data['frames'];assert data['not_complete_expert'] and data['not_isaac']
+ for empty in [False,True]:
+  f,c=fixture();c.index=17
+  for row in rows[1:]:
+   q=np.array(row['robot_q']);frame=copy.deepcopy(row['frame'])
+   if empty:q[6]=0.
+   c.step(q,frame)
+  assert (c.index==18) is (not empty)

@@ -58,6 +58,10 @@ def make_plan(spec):
  grip('Approach bent brad','left','bent_brad',[.025,0,-.011],down,.15,away=.030)
  grip('Reach bent brad','left','bent_brad',[.025,0,-.011],down,.08)
  grip('Grip bent brad','left','bent_brad',[.025,0,-.011],down,0.,.0010,dwell=.35)
+ # Closed-jaw pressure produces a measured0.73mm TCP deflection in the
+ # real supplemental run. Require actual jaw closure, while allowing1mm
+ # acquisition compliance; task scoring and all insertion bounds are unchanged.
+ phases[-1]['position_tolerance']=.001
  free['bent_brad']['pos'][1]-=.040
  grip('Extract bent brad through open service face','left','bent_brad',[.025,0,-.011],down,0.,.0010)
  for key in ('reference_body','reference_offset','reference_quat'):phases[-1].pop(key,None)
