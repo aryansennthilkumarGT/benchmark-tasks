@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "updated_at": "2026-11-13T01:17:34.725404+00:00",
+  "tested_source_commit": "896c0708d0cd2631a9aa591e61c6065bc80ffe25",
+  "source_manifest_sha256": "357d461d7fe2912c9034a6d97d7d9f32b3410d10ef6fa8a6eec3227b3b51d061",
+  "implementation_complete_offline": true,
+  "clean_https_checkout": true,
+  "checkout_clean_after_tests": true,
+  "cpu_tests": {
+    "passed": 28,
+    "failed": 0,
+    "skipped": 0
+  },
+  "usd_assets": 3,
+  "usd_bodies": 4,
+  "ik_endpoints": 30,
+  "geometry_states": 30,
+  "collision_endpoints": 30,
+  "actual_fk_release_path_samples": 164,
+  "ideal_tracking": {
+    "actions": 1572,
+    "simulated_seconds": 78.6,
+    "synthetic_contact_apertures": true,
+    "grasps_validated": false
+  },
+  "physics_executed": false,
+  "native_physics": "NOT_RUN",
+  "actual_expert": "NOT_RUN",
+  "dream_1": "NOT_RUN",
+  "hardware_validation": "NOT_RUN",
+  "submission_ready": false,
+  "novelty_inventory": "UNRESOLVED_BOARD_COVERAGE",
+  "historical_failures_repaired": [
+    "Initial end-mounted rail handle caused arm crossings and case/holding-gripper overlap; original side extension separates hands",
+    "Independent translation/rotation limiter repaired before final source",
+    "Wide-case acquisition recovery must open beyond drive width and clear grasp-width feedback; full recovery regression added",
+    "Recovery unit fixture initially used timeout shorter than required dwell; fixture repaired before clean qualification"
+  ]
+}

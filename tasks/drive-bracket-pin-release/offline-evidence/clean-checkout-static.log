@@ -1,0 +1,2483 @@
+............................                                             [100%]
+28 passed in 0.82s
+{
+  "kind": "OFFLINE_COMPOSED_USD",
+  "checks": [
+    {
+      "body": "bracket",
+      "colliders": 6,
+      "mass_kg": 0.3
+    },
+    {
+      "body": "release_rail",
+      "colliders": 5,
+      "mass_kg": 0.016
+    },
+    {
+      "body": "drive",
+      "colliders": 263,
+      "mass_kg": 0.045
+    },
+    {
+      "body": "staging_tray",
+      "colliders": 5,
+      "mass_kg": 0.12
+    }
+  ],
+  "passed": true,
+  "physics_executed": false
+}
+{
+  "kind": "OFFLINE_IK_WAYPOINTS_ONLY",
+  "physics_executed": false,
+  "checks": [
+    {
+      "phase": 0,
+      "label": "Initialize rail arm",
+      "side": "left",
+      "position_error_m": 6.698784980696381e-07,
+      "rotation_error_rad": 1.3905976462701074e-06,
+      "passed": true,
+      "joints": [
+        -0.4155050642001478,
+        1.2564846140817334,
+        1.2119406075019603,
+        -1.5262543549249143,
+        -1.6119827984308379e-06,
+        1.1553013107726666
+      ]
+    },
+    {
+      "phase": 1,
+      "label": "Approach compliant rail tab",
+      "side": "left",
+      "position_error_m": 6.934048200476144e-07,
+      "rotation_error_rad": 1.795690325090034e-06,
+      "passed": true,
+      "joints": [
+        -0.6300452764009933,
+        1.6670916561209714,
+        1.4956395136407088,
+        -1.3993453566294272,
+        -2.414625716198689e-07,
+        0.9407610262732966
+      ]
+    },
+    {
+      "phase": 2,
+      "label": "Reach compliant rail tab",
+      "side": "left",
+      "position_error_m": 2.0372181007575687e-06,
+      "rotation_error_rad": 5.8417705964417634e-06,
+      "passed": true,
+      "joints": [
+        -0.6300451487016259,
+        1.6867849219822384,
+        1.2323617715342288,
+        -1.1163703025284648,
+        -1.8232641025974482e-07,
+        0.9407611602619242
+      ]
+    },
+    {
+      "phase": 3,
+      "label": "Grip compliant rail tab",
+      "side": "left",
+      "position_error_m": 2.0372181007575687e-06,
+      "rotation_error_rad": 5.8417705964417634e-06,
+      "passed": true,
+      "joints": [
+        -0.6300451487016259,
+        1.6867849219822384,
+        1.2323617715342288,
+        -1.1163703025284648,
+        -1.8232641025974482e-07,
+        0.9407611602619242
+      ]
+    },
+    {
+      "phase": 4,
+      "label": "Pull rail to release two pins",
+      "side": "left",
+      "position_error_m": 4.894823427574733e-07,
+      "rotation_error_rad": 1.3634924014243288e-06,
+      "passed": true,
+      "joints": [
+        -0.6135304926202872,
+        1.6737877437149467,
+        1.2178491611310618,
+        -1.1148606928864728,
+        -1.3295492754358923e-06,
+        0.9572749687601546
+      ]
+    },
+    {
+      "phase": 5,
+      "label": "Initialize extraction arm",
+      "side": "right",
+      "position_error_m": 6.6890508153545596e-06,
+      "rotation_error_rad": 1.593679526139261e-05,
+      "passed": true,
+      "joints": [
+        0.4492529215258672,
+        1.7203178074233836,
+        1.55573790661139,
+        -1.4062289057220443,
+        9.161349269590398e-06,
+        0.44926219481422575
+      ]
+    },
+    {
+      "phase": 6,
+      "label": "Approach drive leading edge",
+      "side": "right",
+      "position_error_m": 3.1924597891625694e-06,
+      "rotation_error_rad": 8.721156287992815e-06,
+      "passed": true,
+      "joints": [
+        1.0066033273980033,
+        1.9139882659345466,
+        1.640076149157714,
+        -1.2968774530574363,
+        -4.878802774380777e-06,
+        1.0066131598109576
+      ]
+    },
+    {
+      "phase": 7,
+      "label": "Reach drive leading edge",
+      "side": "right",
+      "position_error_m": 6.636361755166539e-07,
+      "rotation_error_rad": 2.0284284907894425e-06,
+      "passed": true,
+      "joints": [
+        1.0066039176489041,
+        1.9327366772780923,
+        1.4974720564821826,
+        -1.135531641743413,
+        -4.81792536707103e-06,
+        1.0066137457305169
+      ]
+    },
+    {
+      "phase": 8,
+      "label": "Grip drive case across its width",
+      "side": "right",
+      "position_error_m": 6.636361755166539e-07,
+      "rotation_error_rad": 2.0284284907894425e-06,
+      "passed": true,
+      "joints": [
+        1.0066039176489041,
+        1.9327366772780923,
+        1.4974720564821826,
+        -1.135531641743413,
+        -4.81792536707103e-06,
+        1.0066137457305169
+      ]
+    },
+    {
+      "phase": 9,
+      "label": "Tilt pin-release increment 1",
+      "side": "right",
+      "position_error_m": 1.0659844126930638e-06,
+      "rotation_error_rad": 3.4114519512780895e-06,
+      "passed": true,
+      "joints": [
+        0.9997147363652844,
+        1.9117138445418655,
+        1.4719606989755056,
+        -1.1100141838824267,
+        -0.013516577176899386,
+        0.9998667338884366
+      ]
+    },
+    {
+      "phase": 10,
+      "label": "Tilt pin-release increment 2",
+      "side": "right",
+      "position_error_m": 1.0197153229517496e-06,
+      "rotation_error_rad": 3.3020520723164514e-06,
+      "passed": true,
+      "joints": [
+        0.9926447343257687,
+        1.8909342069835147,
+        1.4466144990961247,
+        -1.0845974598672325,
+        -0.02731968469083921,
+        0.9932268449381795
+      ]
+    },
+    {
+      "phase": 11,
+      "label": "Tilt pin-release increment 3",
+      "side": "right",
+      "position_error_m": 9.765095739806217e-07,
+      "rotation_error_rad": 3.2000120280284725e-06,
+      "passed": true,
+      "joints": [
+        0.9853927278788558,
+        1.8704122358200792,
+        1.4214458626613042,
+        -1.059287227717569,
+        -0.041416823259500524,
+        0.9866984836703224
+      ]
+    },
+    {
+      "phase": 12,
+      "label": "Tilt pin-release increment 4",
+      "side": "right",
+      "position_error_m": 9.365356273429968e-07,
+      "rotation_error_rad": 3.1062429045048183e-06,
+      "passed": true,
+      "joints": [
+        0.9779572117372964,
+        1.8501531522794652,
+        1.3964500413221292,
+        -1.0340756654514436,
+        -0.05581113309945247,
+        0.9802858432455697
+      ]
+    },
+    {
+      "phase": 13,
+      "label": "Tilt pin-release increment 5",
+      "side": "right",
+      "position_error_m": 8.995738239642981e-07,
+      "rotation_error_rad": 3.0203320493132906e-06,
+      "passed": true,
+      "joints": [
+        0.9703368835942746,
+        1.8301627211186449,
+        1.3716226674607273,
+        -1.0089545849543886,
+        -0.07050557164125117,
+        0.9739934116631509
+      ]
+    },
+    {
+      "phase": 14,
+      "label": "Tilt pin-release increment 6",
+      "side": "right",
+      "position_error_m": 8.654414259151569e-07,
+      "rotation_error_rad": 2.9419435482312855e-06,
+      "passed": true,
+      "joints": [
+        0.9625306688316154,
+        1.8104472494334058,
+        1.3469597154569883,
+        -0.9839153648961182,
+        -0.08550288567231128,
+        0.9678259945777151
+      ]
+    },
+    {
+      "phase": 15,
+      "label": "Tilt pin-release increment 7",
+      "side": "right",
+      "position_error_m": 8.339896173601033e-07,
+      "rotation_error_rad": 2.8708116787527217e-06,
+      "passed": true,
+      "joints": [
+        0.9545377463749326,
+        1.7910135858400291,
+        1.3224574625960093,
+        -0.958948878302036,
+        -0.10080558189237004,
+        0.9617887399073483
+      ]
+    },
+    {
+      "phase": 16,
+      "label": "Tilt pin-release increment 8",
+      "side": "right",
+      "position_error_m": 8.051026095038227e-07,
+      "rotation_error_rad": 2.806738023021235e-06,
+      "passed": true,
+      "joints": [
+        0.9463575758671503,
+        1.7718691222153358,
+        1.2981124532913748,
+        -0.9340454173830682,
+        -0.11641589564642249,
+        0.9558871646353716
+      ]
+    },
+    {
+      "phase": 17,
+      "label": "Tilt pin-release increment 9",
+      "side": "right",
+      "position_error_m": 7.786964690671238e-07,
+      "rotation_error_rad": 2.749588675147915e-06,
+      "passed": true,
+      "joints": [
+        0.9379899261102724,
+        1.753021797835865,
+        1.2739214660885712,
+        -0.9091946149436242,
+        -0.13233575782863224,
+        0.950127184040895
+      ]
+    },
+    {
+      "phase": 18,
+      "label": "Tilt released edge off its pins",
+      "side": "right",
+      "position_error_m": 7.547186573217908e-07,
+      "rotation_error_rad": 2.6992941307347734e-06,
+      "passed": true,
+      "joints": [
+        0.929434904693588,
+        1.7344801058183463,
+        1.249881483009799,
+        -0.8843853617067277,
+        -0.14856675996500945,
+        0.944515143605784
+      ]
+    },
+    {
+      "phase": 19,
+      "label": "Slide away from opposite locating pins",
+      "side": "right",
+      "position_error_m": 6.960675479709684e-07,
+      "rotation_error_rad": 2.3151222923414725e-06,
+      "passed": true,
+      "joints": [
+        0.9376879648977171,
+        1.7475006509701605,
+        1.2652019917380166,
+        -0.8854772181372328,
+        -0.1469082467028357,
+        0.9526896858536154
+      ]
+    },
+    {
+      "phase": 20,
+      "label": "Lift drive clear of bracket",
+      "side": "right",
+      "position_error_m": 1.822001706774611e-07,
+      "rotation_error_rad": 5.458283303479992e-07,
+      "passed": true,
+      "joints": [
+        0.937686254322884,
+        1.7244007449666745,
+        1.5874029277560602,
+        -1.2307800911520914,
+        -0.14690869764357553,
+        0.9526876716347853
+      ]
+    },
+    {
+      "phase": 21,
+      "label": "Level extracted drive",
+      "side": "right",
+      "position_error_m": 3.578463771890615e-06,
+      "rotation_error_rad": 9.007356046324914e-06,
+      "passed": true,
+      "joints": [
+        1.0116207709828842,
+        1.9439454202330138,
+        1.8962982879663144,
+        -1.5231421364049764,
+        -4.699837936895885e-06,
+        1.0116306308086287
+      ]
+    },
+    {
+      "phase": 22,
+      "label": "Release compliant rail",
+      "side": "left",
+      "position_error_m": 4.894823427574733e-07,
+      "rotation_error_rad": 1.3634924014243288e-06,
+      "passed": true,
+      "joints": [
+        -0.6135304926202872,
+        1.6737877437149467,
+        1.2178491611310618,
+        -1.1148606928864728,
+        -1.3295492754358923e-06,
+        0.9572749687601546
+      ]
+    },
+    {
+      "phase": 23,
+      "label": "Withdraw rail gripper",
+      "side": "left",
+      "position_error_m": 1.6869854154928334e-07,
+      "rotation_error_rad": 4.233487105205372e-07,
+      "passed": true,
+      "joints": [
+        -0.6135283276817628,
+        1.6620236709340084,
+        1.5698519479942077,
+        -1.47862718379732,
+        -2.969852167310307e-07,
+        0.9572779880744298
+      ]
+    },
+    {
+      "phase": 24,
+      "label": "Park rail arm",
+      "side": "left",
+      "position_error_m": 1.5011665841587584e-07,
+      "rotation_error_rad": 3.252361999490115e-07,
+      "passed": true,
+      "joints": [
+        -0.41550663788115344,
+        1.256486633498275,
+        1.2119437787106622,
+        -1.5262565144138387,
+        -2.0514760635472043e-06,
+        1.1552995293620856
+      ]
+    },
+    {
+      "phase": 25,
+      "label": "Carry drive above staging supports",
+      "side": "right",
+      "position_error_m": 3.497076094415025e-06,
+      "rotation_error_rad": 7.63415631993736e-06,
+      "passed": true,
+      "joints": [
+        0.5154171401781108,
+        1.430923828089213,
+        1.3206515181144518,
+        -1.4605206366315662,
+        -1.6743121845091985e-06,
+        0.5154293615085984
+      ]
+    },
+    {
+      "phase": 26,
+      "label": "Lower drive onto staging supports",
+      "side": "right",
+      "position_error_m": 1.3933761510663404e-07,
+      "rotation_error_rad": 4.196316611434144e-07,
+      "passed": true,
+      "joints": [
+        0.5154105216752798,
+        1.4908052409375259,
+        0.8723509581646308,
+        -0.9523448203989429,
+        -4.676128782335011e-06,
+        0.5154205131812561
+      ]
+    },
+    {
+      "phase": 27,
+      "label": "Release staged drive",
+      "side": "right",
+      "position_error_m": 1.3933761510663404e-07,
+      "rotation_error_rad": 4.196316611434144e-07,
+      "passed": true,
+      "joints": [
+        0.5154105216752798,
+        1.4908052409375259,
+        0.8723509581646308,
+        -0.9523448203989429,
+        -4.676128782335011e-06,
+        0.5154205131812561
+      ]
+    },
+    {
+      "phase": 28,
+      "label": "Withdraw extraction gripper",
+      "side": "right",
+      "position_error_m": 1.9172217174497626e-07,
+      "rotation_error_rad": 4.6911394761276483e-07,
+      "passed": true,
+      "joints": [
+        0.5154081807457094,
+        1.425511541696238,
+        1.2602551027002704,
+        -1.405542614697685,
+        -4.848257868204519e-06,
+        0.5154181527790463
+      ]
+    },
+    {
+      "phase": 29,
+      "label": "Released staged-drive hold",
+      "side": "right",
+      "position_error_m": 5.48885837050031e-06,
+      "rotation_error_rad": 1.3139585789722326e-05,
+      "passed": true,
+      "joints": [
+        0.44924541852248717,
+        1.7202889898023344,
+        1.5556661347409366,
+        -1.4061636474224273,
+        -4.153829646197295e-06,
+        0.44925510252603057
+      ]
+    }
+  ],
+  "camera_coverage": {
+    "bracket": {
+      "pixels_min": [
+        295.7117909016137,
+        191.73326733030038
+      ],
+      "pixels_max": [
+        333.5078643608521,
+        240.16512175181657
+      ],
+      "visible": true
+    },
+    "release_rail": {
+      "pixels_min": [
+        255.66286976948143,
+        194.97844818505013
+      ],
+      "pixels_max": [
+        302.3134667195644,
+        228.28520875287984
+      ],
+      "visible": true
+    },
+    "drive": {
+      "pixels_min": [
+        300.14475077352006,
+        196.35420886776947
+      ],
+      "pixels_max": [
+        329.1576407336711,
+        234.32526250774322
+      ],
+      "visible": true
+    },
+    "staging_tray": {
+      "pixels_min": [
+        368.89692512128875,
+        195.6741913625555
+      ],
+      "pixels_max": [
+        409.35404706396696,
+        242.14568977233316
+      ],
+      "visible": true
+    }
+  },
+  "passed": true
+}
+{
+  "kind": "OFFLINE_NOMINAL_GEOMETRY",
+  "physics_executed": false,
+  "checks": [
+    {
+      "phase": 0,
+      "label": "Initialize rail arm",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 1,
+      "label": "Approach compliant rail tab",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 2,
+      "label": "Reach compliant rail tab",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 3,
+      "label": "Grip compliant rail tab",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 4,
+      "label": "Pull rail to release two pins",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 5,
+      "label": "Initialize extraction arm",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 6,
+      "label": "Approach drive leading edge",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 7,
+      "label": "Reach drive leading edge",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 8,
+      "label": "Grip drive case across its width",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 9,
+      "label": "Tilt pin-release increment 1",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 10,
+      "label": "Tilt pin-release increment 2",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 11,
+      "label": "Tilt pin-release increment 3",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 12,
+      "label": "Tilt pin-release increment 4",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 13,
+      "label": "Tilt pin-release increment 5",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 14,
+      "label": "Tilt pin-release increment 6",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 15,
+      "label": "Tilt pin-release increment 7",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 16,
+      "label": "Tilt pin-release increment 8",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 17,
+      "label": "Tilt pin-release increment 9",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 18,
+      "label": "Tilt released edge off its pins",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 19,
+      "label": "Slide away from opposite locating pins",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 20,
+      "label": "Lift drive clear of bracket",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 21,
+      "label": "Level extracted drive",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 22,
+      "label": "Release compliant rail",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 23,
+      "label": "Withdraw rail gripper",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 24,
+      "label": "Park rail arm",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 25,
+      "label": "Carry drive above staging supports",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 26,
+      "label": "Lower drive onto staging supports",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 27,
+      "label": "Release staged drive",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 28,
+      "label": "Withdraw extraction gripper",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 29,
+      "label": "Released staged-drive hold",
+      "max_penetration_m": 0.0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
+{
+  "kind": "OFFLINE_IDEAL_JOINT_TRACKING_WITH_SYNTHETIC_CONTACT_APERTURES",
+  "physics_executed": false,
+  "grasps_validated": false,
+  "passed": true,
+  "actions": 1572,
+  "simulated_seconds": 78.6,
+  "last_phase": 30,
+  "phase_count": 30,
+  "events": [
+    {
+      "event": "PHASE_START",
+      "phase": 0,
+      "label": "Initialize rail arm",
+      "time": 0.0
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 0,
+      "label": "Initialize rail arm",
+      "time": 5.0,
+      "position_error_m": 5.564001691133132e-07,
+      "rotation_error_rad": 1.734177652117802e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 1,
+      "label": "Approach compliant rail tab",
+      "time": 5.05
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 1,
+      "label": "Approach compliant rail tab",
+      "time": 8.4,
+      "position_error_m": 1.348880269549323e-06,
+      "rotation_error_rad": 3.0856559528222245e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 2,
+      "label": "Reach compliant rail tab",
+      "time": 8.45
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 2,
+      "label": "Reach compliant rail tab",
+      "time": 10.5,
+      "position_error_m": 1.3254342358584162e-05,
+      "rotation_error_rad": 3.466117718677055e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 3,
+      "label": "Grip compliant rail tab",
+      "time": 10.55
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 3,
+      "label": "Grip compliant rail tab",
+      "time": 11.2,
+      "position_error_m": 1.3254342358584162e-05,
+      "rotation_error_rad": 3.466117718677055e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 4,
+      "label": "Pull rail to release two pins",
+      "time": 11.25
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 4,
+      "label": "Pull rail to release two pins",
+      "time": 12.9,
+      "position_error_m": 2.1651750733929778e-07,
+      "rotation_error_rad": 5.701519986900406e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 5,
+      "label": "Initialize extraction arm",
+      "time": 12.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 5,
+      "label": "Initialize extraction arm",
+      "time": 17.6,
+      "position_error_m": 3.1895117087822707e-06,
+      "rotation_error_rad": 8.717421279718145e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 6,
+      "label": "Approach drive leading edge",
+      "time": 17.65
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 6,
+      "label": "Approach drive leading edge",
+      "time": 22.8,
+      "position_error_m": 1.2732537549619915e-05,
+      "rotation_error_rad": 2.5930743650138082e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 7,
+      "label": "Reach drive leading edge",
+      "time": 22.85
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 7,
+      "label": "Reach drive leading edge",
+      "time": 24.1,
+      "position_error_m": 2.410703069470655e-06,
+      "rotation_error_rad": 7.695003501275421e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 8,
+      "label": "Grip drive case across its width",
+      "time": 24.15
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 8,
+      "label": "Grip drive case across its width",
+      "time": 24.8,
+      "position_error_m": 2.410703069470655e-06,
+      "rotation_error_rad": 7.695003501275421e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 9,
+      "label": "Tilt pin-release increment 1",
+      "time": 24.85
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 9,
+      "label": "Tilt pin-release increment 1",
+      "time": 25.25,
+      "position_error_m": 9.453601848760764e-06,
+      "rotation_error_rad": 3.0958158464989e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 10,
+      "label": "Tilt pin-release increment 2",
+      "time": 25.3
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 10,
+      "label": "Tilt pin-release increment 2",
+      "time": 25.7,
+      "position_error_m": 9.273826261009784e-06,
+      "rotation_error_rad": 3.0694554676995295e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 11,
+      "label": "Tilt pin-release increment 3",
+      "time": 25.75
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 11,
+      "label": "Tilt pin-release increment 3",
+      "time": 26.1,
+      "position_error_m": 9.111894594950069e-06,
+      "rotation_error_rad": 3.048020046899446e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 12,
+      "label": "Tilt pin-release increment 4",
+      "time": 26.15
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 12,
+      "label": "Tilt pin-release increment 4",
+      "time": 26.55,
+      "position_error_m": 8.955750306616132e-06,
+      "rotation_error_rad": 3.0280347509159847e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 13,
+      "label": "Tilt pin-release increment 5",
+      "time": 26.6
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 13,
+      "label": "Tilt pin-release increment 5",
+      "time": 27.0,
+      "position_error_m": 8.80525409771021e-06,
+      "rotation_error_rad": 3.009575688472816e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 14,
+      "label": "Tilt pin-release increment 6",
+      "time": 27.05
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 14,
+      "label": "Tilt pin-release increment 6",
+      "time": 27.45,
+      "position_error_m": 8.660070564829584e-06,
+      "rotation_error_rad": 2.9926399390017055e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 15,
+      "label": "Tilt pin-release increment 7",
+      "time": 27.5
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 15,
+      "label": "Tilt pin-release increment 7",
+      "time": 27.85,
+      "position_error_m": 8.519908590705937e-06,
+      "rotation_error_rad": 2.9772341072117203e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 16,
+      "label": "Tilt pin-release increment 8",
+      "time": 27.9
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 16,
+      "label": "Tilt pin-release increment 8",
+      "time": 28.3,
+      "position_error_m": 8.384516080639024e-06,
+      "rotation_error_rad": 2.963376059736553e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 17,
+      "label": "Tilt pin-release increment 9",
+      "time": 28.35
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 17,
+      "label": "Tilt pin-release increment 9",
+      "time": 28.75,
+      "position_error_m": 8.25368282139154e-06,
+      "rotation_error_rad": 2.9510891062652148e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 18,
+      "label": "Tilt released edge off its pins",
+      "time": 28.8
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 18,
+      "label": "Tilt released edge off its pins",
+      "time": 29.2,
+      "position_error_m": 8.127234803108204e-06,
+      "rotation_error_rad": 2.9404035142691903e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 19,
+      "label": "Slide away from opposite locating pins",
+      "time": 29.25
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 19,
+      "label": "Slide away from opposite locating pins",
+      "time": 30.55,
+      "position_error_m": 8.179217707220638e-07,
+      "rotation_error_rad": 2.257513626147107e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 20,
+      "label": "Lift drive clear of bracket",
+      "time": 30.6
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 20,
+      "label": "Lift drive clear of bracket",
+      "time": 33.0,
+      "position_error_m": 3.742730469528965e-07,
+      "rotation_error_rad": 1.1139054054636358e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 21,
+      "label": "Level extracted drive",
+      "time": 33.05
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 21,
+      "label": "Level extracted drive",
+      "time": 33.95,
+      "position_error_m": 1.0312034191200413e-06,
+      "rotation_error_rad": 2.6579260994797873e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 22,
+      "label": "Release compliant rail",
+      "time": 34.0
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 22,
+      "label": "Release compliant rail",
+      "time": 34.35,
+      "position_error_m": 2.1651750733929778e-07,
+      "rotation_error_rad": 5.701519986900406e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 23,
+      "label": "Withdraw rail gripper",
+      "time": 34.4
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 23,
+      "label": "Withdraw rail gripper",
+      "time": 36.95,
+      "position_error_m": 3.5345524553940413e-07,
+      "rotation_error_rad": 8.815645848363138e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 24,
+      "label": "Park rail arm",
+      "time": 37.0
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 24,
+      "label": "Park rail arm",
+      "time": 40.2,
+      "position_error_m": 3.0386455274124273e-07,
+      "rotation_error_rad": 7.052516678690489e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 25,
+      "label": "Carry drive above staging supports",
+      "time": 40.25
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 25,
+      "label": "Carry drive above staging supports",
+      "time": 45.35,
+      "position_error_m": 2.249878474278977e-06,
+      "rotation_error_rad": 4.92153570378742e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 26,
+      "label": "Lower drive onto staging supports",
+      "time": 45.4
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 26,
+      "label": "Lower drive onto staging supports",
+      "time": 70.55,
+      "position_error_m": 1.4487580128176794e-06,
+      "rotation_error_rad": 2.721492208675323e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 27,
+      "label": "Release staged drive",
+      "time": 70.6
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 27,
+      "label": "Release staged drive",
+      "time": 70.95,
+      "position_error_m": 1.4487580128176794e-06,
+      "rotation_error_rad": 2.721492208675323e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 28,
+      "label": "Withdraw extraction gripper",
+      "time": 71.0
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 28,
+      "label": "Withdraw extraction gripper",
+      "time": 74.0,
+      "position_error_m": 4.625973455725046e-06,
+      "rotation_error_rad": 9.460770594695077e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 29,
+      "label": "Released staged-drive hold",
+      "time": 74.05
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 29,
+      "label": "Released staged-drive hold",
+      "time": 78.55,
+      "position_error_m": 3.5965695280643745e-07,
+      "rotation_error_rad": 9.443151663395766e-07
+    }
+  ]
+}
+{
+  "kind": "OFFLINE_CRITICAL_POSE_COLLISION_SAMPLES",
+  "physics_executed": false,
+  "swept_volume_validated": false,
+  "checks": [
+    {
+      "phase": 0,
+      "label": "Initialize rail arm",
+      "position_error_m": 6.698784980696381e-07,
+      "rotation_error_rad": 1.3905976462701074e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 1,
+      "label": "Approach compliant rail tab",
+      "position_error_m": 6.934048200476144e-07,
+      "rotation_error_rad": 1.795690325090034e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 2,
+      "label": "Reach compliant rail tab",
+      "position_error_m": 2.0372181007575687e-06,
+      "rotation_error_rad": 5.8417705964417634e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 3,
+      "label": "Grip compliant rail tab",
+      "position_error_m": 2.0372181007575687e-06,
+      "rotation_error_rad": 5.8417705964417634e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 4,
+      "label": "Pull rail to release two pins",
+      "position_error_m": 4.894823427574733e-07,
+      "rotation_error_rad": 1.3634924014243288e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 5,
+      "label": "Initialize extraction arm",
+      "position_error_m": 6.6890508153545596e-06,
+      "rotation_error_rad": 1.593679526139261e-05,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 6,
+      "label": "Approach drive leading edge",
+      "position_error_m": 3.1924597891625694e-06,
+      "rotation_error_rad": 8.721156287992815e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 7,
+      "label": "Reach drive leading edge",
+      "position_error_m": 6.636361755166539e-07,
+      "rotation_error_rad": 2.0284284907894425e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 8,
+      "label": "Grip drive case across its width",
+      "position_error_m": 6.636361755166539e-07,
+      "rotation_error_rad": 2.0284284907894425e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 9,
+      "label": "Tilt pin-release increment 1",
+      "position_error_m": 1.0659844126930638e-06,
+      "rotation_error_rad": 3.4114519512780895e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 10,
+      "label": "Tilt pin-release increment 2",
+      "position_error_m": 1.0197153229517496e-06,
+      "rotation_error_rad": 3.3020520723164514e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 11,
+      "label": "Tilt pin-release increment 3",
+      "position_error_m": 9.765095739806217e-07,
+      "rotation_error_rad": 3.2000120280284725e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 12,
+      "label": "Tilt pin-release increment 4",
+      "position_error_m": 9.365356273429968e-07,
+      "rotation_error_rad": 3.1062429045048183e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 13,
+      "label": "Tilt pin-release increment 5",
+      "position_error_m": 8.995738239642981e-07,
+      "rotation_error_rad": 3.0203320493132906e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 14,
+      "label": "Tilt pin-release increment 6",
+      "position_error_m": 8.654414259151569e-07,
+      "rotation_error_rad": 2.9419435482312855e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 15,
+      "label": "Tilt pin-release increment 7",
+      "position_error_m": 8.339896173601033e-07,
+      "rotation_error_rad": 2.8708116787527217e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 16,
+      "label": "Tilt pin-release increment 8",
+      "position_error_m": 8.051026095038227e-07,
+      "rotation_error_rad": 2.806738023021235e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 17,
+      "label": "Tilt pin-release increment 9",
+      "position_error_m": 7.786964690671238e-07,
+      "rotation_error_rad": 2.749588675147915e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 18,
+      "label": "Tilt released edge off its pins",
+      "position_error_m": 7.547186573217908e-07,
+      "rotation_error_rad": 2.6992941307347734e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 19,
+      "label": "Slide away from opposite locating pins",
+      "position_error_m": 6.960675479709684e-07,
+      "rotation_error_rad": 2.3151222923414725e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 20,
+      "label": "Lift drive clear of bracket",
+      "position_error_m": 1.822001706774611e-07,
+      "rotation_error_rad": 5.458283303479992e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 21,
+      "label": "Level extracted drive",
+      "position_error_m": 3.578463771890615e-06,
+      "rotation_error_rad": 9.007356046324914e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 22,
+      "label": "Release compliant rail",
+      "position_error_m": 4.894823427574733e-07,
+      "rotation_error_rad": 1.3634924014243288e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 23,
+      "label": "Withdraw rail gripper",
+      "position_error_m": 1.6869854154928334e-07,
+      "rotation_error_rad": 4.233487105205372e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 24,
+      "label": "Park rail arm",
+      "position_error_m": 1.5011665841587584e-07,
+      "rotation_error_rad": 3.252361999490115e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 25,
+      "label": "Carry drive above staging supports",
+      "position_error_m": 3.497076094415025e-06,
+      "rotation_error_rad": 7.63415631993736e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 26,
+      "label": "Lower drive onto staging supports",
+      "position_error_m": 1.3933761510663404e-07,
+      "rotation_error_rad": 4.196316611434144e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 27,
+      "label": "Release staged drive",
+      "position_error_m": 1.3933761510663404e-07,
+      "rotation_error_rad": 4.196316611434144e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 28,
+      "label": "Withdraw extraction gripper",
+      "position_error_m": 1.9172217174497626e-07,
+      "rotation_error_rad": 4.6911394761276483e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 29,
+      "label": "Released staged-drive hold",
+      "position_error_m": 5.48885837050031e-06,
+      "rotation_error_rad": 1.3139585789722326e-05,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}
+{
+  "kind": "OFFLINE_ACTUAL_FK_RELEASE_PATH_SYNTHETIC_CONTACT",
+  "physics_executed": false,
+  "grasps_validated": false,
+  "checks": [
+    {
+      "step": 497,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 498,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 499,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 500,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 501,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 502,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 503,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 504,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 505,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 506,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 507,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 508,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 509,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 510,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 511,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 512,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 513,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 514,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 515,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 516,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 517,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 518,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 519,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 520,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 521,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 522,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 523,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 524,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 525,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 526,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 527,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 528,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 529,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 530,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 531,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 532,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 533,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 534,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 535,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 536,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 537,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 538,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 539,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 540,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 541,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 542,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 543,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 544,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 545,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 546,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 547,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 548,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 549,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 550,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 551,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 552,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 553,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 554,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 555,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 556,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 557,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 558,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 559,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 560,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 561,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 562,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 563,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 564,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 565,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 566,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 567,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 568,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 569,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 570,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 571,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 572,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 573,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 574,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 575,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 576,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 577,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 578,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 579,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 580,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 581,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 582,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 583,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 584,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 585,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 586,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 587,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 588,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 589,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 590,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 591,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 592,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 593,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 594,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 595,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 596,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 597,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 598,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 599,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 600,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 601,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 602,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 603,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 604,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 605,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 606,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 607,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 608,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 609,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 610,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 611,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 612,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 613,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 614,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 615,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 616,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 617,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 618,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 619,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 620,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 621,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 622,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 623,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 624,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 625,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 626,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 627,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 628,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 629,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 630,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 631,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 632,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 633,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 634,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 635,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 636,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 637,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 638,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 639,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 640,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 641,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 642,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 643,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 644,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 645,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 646,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 647,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 648,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 649,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 650,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 651,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 652,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 653,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 654,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 655,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 656,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 657,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 658,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 659,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 660,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    }
+  ],
+  "controller_error": null,
+  "passed": true
+}
+OFFLINE CHECKS PASSED; no native physics or full-score expert evidence.
