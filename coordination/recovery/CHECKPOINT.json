@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T17:48:36.882712+00:00",
+  "updated_at": "2026-11-13T17:57:13.034124+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -490,9 +490,14 @@
   "active_candidate": {
     "slug": "pintle-hook-eye-coupling",
     "branch": "draft/pintle-hook-eye-coupling",
-    "worktree": "/workspace/pintle-coupling",
-    "state": "IMPLEMENTING_ORIGINAL_FULL_SIZE_SCENE",
-    "manufacturer": "XL-PH351 RevF p1 operating steps2-4;p2 drawing",
-    "not_qualified": true
+    "commit": "8cea6ab",
+    "state": "CONSTRUCT_VALIDITY_HOLD",
+    "not_qualified": true,
+    "reasons": [
+      "Exact density integration gives2.0526kg eye/stem; do not scale documented minimum diameter or reduce steel density.",
+      "A free eye omits attached trailer/jack constraints; actual procedure does not establish valid manual bench analogue.",
+      "36of265 authored mechanism samples collide; preserve raw failures."
+    ],
+    "next_candidate": "Transport-chain grab hook: directly hand-operated full-size chain interface. Primary manufacturer procedures/chain dimensional sheets and semantic novelty must clear before scene implementation."
   }
 }
