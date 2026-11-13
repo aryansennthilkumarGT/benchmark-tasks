@@ -1,0 +1,104 @@
+{
+  "kind": "SUPPLEMENTAL_MUJOCO_LONG_FREE_HOLD_AND_TIMESTEP_CHECK",
+  "engine": "3.3.7",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "applied_test_rig_forces": false,
+  "scene_sha256": "c76249e6631a2892554dbb3e6d1317ae0906a69a61caa7d3f05001d7d7b4de1d",
+  "contact_model": {
+    "cone": "elliptic",
+    "friction_impedance_ratio": 100,
+    "detection_margin_m": 3e-05,
+    "active_rest_offset_m": 0.0,
+    "noslip_solver": false,
+    "native_equivalence_claimed": false,
+    "documentation": "https://mujoco.readthedocs.io/en/3.3.7/modeling.html#preventing-slip"
+  },
+  "tests": [
+    {
+      "resolution_factor": 1,
+      "timestep_s": 0.0010416666666666667,
+      "duration_s": 29.999999999993257,
+      "contact_export_sha256": "150f0400da3f3064f7405f3f0dc61205e7342c90318d56eaf12dd616b2c5d10f",
+      "samples": [
+        {
+          "time": 4.999999999999797,
+          "root_displacement_m": 7.227163364184474e-05
+        },
+        {
+          "time": 10.000000000001217,
+          "root_displacement_m": 7.659766546027892e-05
+        },
+        {
+          "time": 15.000000000005196,
+          "root_displacement_m": 8.183199849904923e-05
+        },
+        {
+          "time": 20.000000000002352,
+          "root_displacement_m": 8.78181099999884e-05
+        },
+        {
+          "time": 24.999999999997804,
+          "root_displacement_m": 9.45743792320009e-05
+        },
+        {
+          "time": 29.999999999993257,
+          "root_displacement_m": 0.00010195173080726772
+        }
+      ],
+      "max_root_displacement_m": 0.00010505768942804923,
+      "final_root_position_m": [
+        0.24000000219289197,
+        -0.011600382607583873,
+        0.7974225365962452
+      ],
+      "peak_contact_depth_m": 0.00016523061753490504,
+      "receiving_frame_support_force_peak_N": 0.0,
+      "passed": true
+    },
+    {
+      "resolution_factor": 2,
+      "timestep_s": 0.0005208333333333333,
+      "duration_s": 29.999999999982986,
+      "contact_export_sha256": "f4cfce540301939b5f1f31b1859ca1c483765c4a137f205e7094111f1f44ed67",
+      "samples": [
+        {
+          "time": 5.000000000000608,
+          "root_displacement_m": 6.802465477356596e-05
+        },
+        {
+          "time": 10.000000000001176,
+          "root_displacement_m": 7.080455634729306e-05
+        },
+        {
+          "time": 14.999999999996628,
+          "root_displacement_m": 7.472817927319349e-05
+        },
+        {
+          "time": 19.99999999999208,
+          "root_displacement_m": 7.962526487088317e-05
+        },
+        {
+          "time": 24.999999999987534,
+          "root_displacement_m": 8.53271224502493e-05
+        },
+        {
+          "time": 29.999999999982986,
+          "root_displacement_m": 9.169839212136395e-05
+        }
+      ],
+      "max_root_displacement_m": 9.91582687061032e-05,
+      "final_root_position_m": [
+        0.23999999657340057,
+        -0.011600370324970041,
+        0.7974366486765447
+      ],
+      "peak_contact_depth_m": 7.832513301114613e-05,
+      "receiving_frame_support_force_peak_N": 0.0,
+      "passed": true
+    }
+  ],
+  "resolution_endpoint_difference_m": 1.4112086763564926e-05,
+  "resolution_difference_limit_m": 5e-05,
+  "passed": true
+}
