@@ -1,0 +1,2941 @@
+............................                                             [100%]
+28 passed in 1.68s
+{
+  "kind": "OFFLINE_COMPOSED_USD",
+  "checks": [
+    {
+      "body": "bench_nut",
+      "colliders": 209,
+      "mass_kg": 0.3
+    },
+    {
+      "body": "collet",
+      "colliders": 1600,
+      "mass_kg": 0.15
+    },
+    {
+      "body": "collet_cradle",
+      "colliders": 65,
+      "mass_kg": 0.1
+    }
+  ],
+  "passed": true,
+  "physics_executed": false
+}
+{
+  "kind": "OFFLINE_IK_WAYPOINTS_ONLY",
+  "physics_executed": false,
+  "checks": [
+    {
+      "phase": 0,
+      "label": "Initialize handling arm",
+      "side": "right",
+      "position_error_m": 6.6890508153545596e-06,
+      "rotation_error_rad": 1.593679526139261e-05,
+      "passed": true,
+      "joints": [
+        0.4492529215258672,
+        1.7203178074233836,
+        1.55573790661139,
+        -1.4062289057220443,
+        9.161349269590398e-06,
+        0.44926219481422575
+      ]
+    },
+    {
+      "phase": 1,
+      "label": "Approach ER collet",
+      "side": "right",
+      "position_error_m": 6.6890508153545596e-06,
+      "rotation_error_rad": 1.593679526139261e-05,
+      "passed": true,
+      "joints": [
+        0.4492529215258672,
+        1.7203178074233836,
+        1.55573790661139,
+        -1.4062289057220443,
+        9.161349269590398e-06,
+        0.44926219481422575
+      ]
+    },
+    {
+      "phase": 2,
+      "label": "Reach collet tapered body",
+      "side": "right",
+      "position_error_m": 1.4692248346940263e-06,
+      "rotation_error_rad": 4.251262563895389e-06,
+      "passed": true,
+      "joints": [
+        0.44924669365406883,
+        1.7310624894708824,
+        1.3235208880394573,
+        -1.1632537828198555,
+        -3.825372090935901e-06,
+        0.4492566596537314
+      ]
+    },
+    {
+      "phase": 3,
+      "label": "Grip collet tapered body",
+      "side": "right",
+      "position_error_m": 1.4692248346940263e-06,
+      "rotation_error_rad": 4.251262563895389e-06,
+      "passed": true,
+      "joints": [
+        0.44924669365406883,
+        1.7310624894708824,
+        1.3235208880394573,
+        -1.1632537828198555,
+        -3.825372090935901e-06,
+        0.4492566596537314
+      ]
+    },
+    {
+      "phase": 4,
+      "label": "Lift collet from cradle",
+      "side": "right",
+      "position_error_m": 2.9817422479462775e-06,
+      "rotation_error_rad": 7.5367757671754005e-06,
+      "passed": true,
+      "joints": [
+        0.4492458788269649,
+        1.7212546257841281,
+        1.5687221100796913,
+        -1.4182595830348903,
+        -3.851093024973329e-06,
+        0.44925584886642383
+      ]
+    },
+    {
+      "phase": 5,
+      "label": "Transfer above supported nut",
+      "side": "right",
+      "position_error_m": 3.323390367844533e-07,
+      "rotation_error_rad": 8.711175003878828e-07,
+      "passed": true,
+      "joints": [
+        0.9040899565650283,
+        2.044849479214771,
+        1.9969885395619242,
+        -1.5229367875269457,
+        -4.328356013110288e-06,
+        0.9040996644730266
+      ]
+    },
+    {
+      "phase": 6,
+      "label": "Tilt for eccentric cam entry",
+      "side": "right",
+      "position_error_m": 3.4438489149777913e-06,
+      "rotation_error_rad": 1.0230852101132853e-05,
+      "passed": true,
+      "joints": [
+        1.0080646978535612,
+        1.8723201544102124,
+        1.648125649749963,
+        -1.2112043902222864,
+        0.21080911211898248,
+        0.9937271575349594
+      ]
+    },
+    {
+      "phase": 7,
+      "label": "Lower tilted nose through eccentric opening",
+      "side": "right",
+      "position_error_m": 6.225914297374833e-07,
+      "rotation_error_rad": 1.9981190132987687e-06,
+      "passed": true,
+      "joints": [
+        1.0080657830168913,
+        1.8823582255154627,
+        1.499741725931343,
+        -1.052791038571744,
+        0.210809104340389,
+        0.9937301784561363
+      ]
+    },
+    {
+      "phase": 8,
+      "label": "Engage groove at eccentric hook",
+      "side": "right",
+      "position_error_m": 1.4590517587193178e-07,
+      "rotation_error_rad": 4.611436767023889e-07,
+      "passed": true,
+      "joints": [
+        1.0150979205742732,
+        1.876751782910474,
+        1.4923953190545425,
+        -1.0525481221418374,
+        0.21175281363818155,
+        1.0008575175406629
+      ]
+    },
+    {
+      "phase": 9,
+      "label": "Rock groove onto cam increment 1",
+      "side": "right",
+      "position_error_m": 6.836976940746452e-07,
+      "rotation_error_rad": 2.2004161347814807e-06,
+      "passed": true,
+      "joints": [
+        1.0091932936085337,
+        1.8831232784622836,
+        1.5027244451726907,
+        -1.062194286489728,
+        0.20047278452787687,
+        0.996291835882296
+      ]
+    },
+    {
+      "phase": 10,
+      "label": "Rock groove onto cam increment 2",
+      "side": "right",
+      "position_error_m": 6.995774382943573e-07,
+      "rotation_error_rad": 2.242534113761714e-06,
+      "passed": true,
+      "joints": [
+        1.0033200357844725,
+        1.889628058882434,
+        1.5131407158574475,
+        -1.0719039180756005,
+        0.1892610774062109,
+        0.9916975707247483
+      ]
+    },
+    {
+      "phase": 11,
+      "label": "Rock groove onto cam increment 3",
+      "side": "right",
+      "position_error_m": 7.155473275718003e-07,
+      "rotation_error_rad": 2.2845790956047775e-06,
+      "passed": true,
+      "joints": [
+        0.9974795810905412,
+        1.8962608577150675,
+        1.5236367601775354,
+        -1.0816722751189842,
+        0.17811891687212428,
+        0.987074838911929
+      ]
+    },
+    {
+      "phase": 12,
+      "label": "Rock groove onto cam increment 4",
+      "side": "right",
+      "position_error_m": 7.321334030973463e-07,
+      "rotation_error_rad": 2.3281941119056484e-06,
+      "passed": true,
+      "joints": [
+        0.9916729828855143,
+        1.9030208834362927,
+        1.534213304680638,
+        -1.091500703572896,
+        0.16704710024009858,
+        0.9824236392692782
+      ]
+    },
+    {
+      "phase": 13,
+      "label": "Rock groove onto cam increment 5",
+      "side": "right",
+      "position_error_m": 7.49368366572107e-07,
+      "rotation_error_rad": 2.3734541561229705e-06,
+      "passed": true,
+      "joints": [
+        0.9859012578868006,
+        1.90990736896501,
+        1.5448711255418393,
+        -1.1013905500257406,
+        0.15604639354885314,
+        0.9777439618898528
+      ]
+    },
+    {
+      "phase": 14,
+      "label": "Rock groove onto cam increment 6",
+      "side": "right",
+      "position_error_m": 7.67287043310492e-07,
+      "rotation_error_rad": 2.420438059132964e-06,
+      "passed": true,
+      "joints": [
+        0.9801653860287544,
+        1.9169195706376603,
+        1.5556110456298562,
+        -1.1113431592770082,
+        0.1451175315136054,
+        0.9730357879904469
+      ]
+    },
+    {
+      "phase": 15,
+      "label": "Rock groove onto cam increment 7",
+      "side": "right",
+      "position_error_m": 7.859264051055064e-07,
+      "rotation_error_rad": 2.4692304487518967e-06,
+      "passed": true,
+      "joints": [
+        0.9744663105691371,
+        1.9240567700542024,
+        1.5664339368034572,
+        -1.1213598758994892,
+        0.1342612176159971,
+        0.9682990903038057
+      ]
+    },
+    {
+      "phase": 16,
+      "label": "Rock groove onto cam increment 8",
+      "side": "right",
+      "position_error_m": 8.05326356757235e-07,
+      "rotation_error_rad": 2.5199224260911217e-06,
+      "passed": true,
+      "joints": [
+        0.9688049382455459,
+        1.9313182759777623,
+        1.5773407223614935,
+        -1.1314420458784387,
+        0.12347812424490003,
+        0.9635338334525557
+      ]
+    },
+    {
+      "phase": 17,
+      "label": "Rock groove onto cam increment 9",
+      "side": "right",
+      "position_error_m": 8.255296120943325e-07,
+      "rotation_error_rad": 2.572611641858161e-06,
+      "passed": true,
+      "joints": [
+        0.9631821394821812,
+        1.9387034262943215,
+        1.5883323796699704,
+        -1.1415910183442801,
+        0.11276889288654378,
+        0.9587399743084781
+      ]
+    },
+    {
+      "phase": 18,
+      "label": "Rock groove onto cam increment 10",
+      "side": "right",
+      "position_error_m": 8.465822751618774e-07,
+      "rotation_error_rad": 2.6274024037821214e-06,
+      "passed": true,
+      "joints": [
+        0.9575987486433863,
+        1.9462115900378056,
+        1.5994099429707878,
+        -1.1518081473970019,
+        0.10213413436144052,
+        0.9539174623361292
+      ]
+    },
+    {
+      "phase": 19,
+      "label": "Rock groove onto cam increment 11",
+      "side": "right",
+      "position_error_m": 8.685337136336567e-07,
+      "rotation_error_rad": 2.6844077152848307e-06,
+      "passed": true,
+      "joints": [
+        0.9520555643324644,
+        1.953842169486489,
+        1.6105745063950727,
+        -1.1620947940372623,
+        0.09157442910606865,
+        0.9490662399229537
+      ]
+    },
+    {
+      "phase": 20,
+      "label": "Rock groove onto cam increment 12",
+      "side": "right",
+      "position_error_m": 8.914371398731877e-07,
+      "rotation_error_rad": 2.743748558098147e-06,
+      "passed": true,
+      "joints": [
+        0.946553349733294,
+        1.9615946023470487,
+        1.621827227197646,
+        -1.1724523282088744,
+        0.08109032749738652,
+        0.9441862426967209
+      ]
+    },
+    {
+      "phase": 21,
+      "label": "Rock groove onto cam increment 13",
+      "side": "right",
+      "position_error_m": 9.153500276281271e-07,
+      "rotation_error_rad": 2.8055552928857935e-06,
+      "passed": true,
+      "joints": [
+        0.9410928329916125,
+        1.9694683640270907,
+        1.6331693292313716,
+        -1.1828821309653825,
+        0.0706823502173744,
+        0.9392773998299239
+      ]
+    },
+    {
+      "phase": 22,
+      "label": "Rock groove onto cam increment 14",
+      "side": "right",
+      "position_error_m": 9.403343109632135e-07,
+      "rotation_error_rad": 2.869968312837455e-06,
+      "passed": true,
+      "joints": [
+        0.9356747076359985,
+        1.977462970013988,
+        1.6446021066888217,
+        -1.1933855967732472,
+        0.06035098865606999,
+        0.934339634335021
+      ]
+    },
+    {
+      "phase": 23,
+      "label": "Rock groove onto cam increment 15",
+      "side": "right",
+      "position_error_m": 9.664567052243519e-07,
+      "rotation_error_rad": 2.937139184539985e-06,
+      "passed": true,
+      "joints": [
+        0.9302996330340361,
+        1.9855779783696246,
+        1.6561269281322142,
+        -1.2039641359612565,
+        0.05009670534996602,
+        0.9293728633478913
+      ]
+    },
+    {
+      "phase": 24,
+      "label": "Rock groove onto cam increment 16",
+      "side": "right",
+      "position_error_m": 9.937897132593504e-07,
+      "rotation_error_rad": 3.0072314282449974e-06,
+      "passed": true,
+      "joints": [
+        0.9249682348813723,
+        1.9938129923540766,
+        1.6677452408369393,
+        -1.2146191773292898,
+        0.03991993445447546,
+        0.9243769984022575
+      ]
+    },
+    {
+      "phase": 25,
+      "label": "Rock groove onto cam increment 17",
+      "side": "right",
+      "position_error_m": 1.0224116177782647e-06,
+      "rotation_error_rad": 3.0804220383762007e-06,
+      "passed": true,
+      "joints": [
+        0.9196811057230682,
+        2.0021676631959844,
+        1.6794585754891902,
+        -1.2253521709378883,
+        0.029821082247040304,
+        0.9193519456956473
+      ]
+    },
+    {
+      "phase": 26,
+      "label": "Rock groove onto cam increment 18",
+      "side": "right",
+      "position_error_m": 1.0524074921419315e-06,
+      "rotation_error_rad": 3.156902269517829e-06,
+      "passed": true,
+      "joints": [
+        0.9144388055036214,
+        2.0106416930241906,
+        1.6912685512608785,
+        -1.2361645910885326,
+        0.019800527659542853,
+        0.9142976063468987
+      ]
+    },
+    {
+      "phase": 27,
+      "label": "Rock groove onto cam increment 19",
+      "side": "right",
+      "position_error_m": 1.0838693438447752e-06,
+      "rotation_error_rad": 3.2368797246795373e-06,
+      "passed": true,
+      "joints": [
+        0.909241862143695,
+        2.019234837980844,
+        1.7031768813098644,
+        -1.247057939520325,
+        0.009858622837226647,
+        0.9092138766469354
+      ]
+    },
+    {
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "side": "right",
+      "position_error_m": 1.1168976294928358e-06,
+      "rotation_error_rad": 3.320579390991507e-06,
+      "passed": true,
+      "joints": [
+        0.9040907721410042,
+        2.0279469115367728,
+        1.7151853787368996,
+        -1.2580337488358604,
+        -4.30627804312213e-06,
+        0.9041006483017486
+      ]
+    },
+    {
+      "phase": 29,
+      "label": "Release supported preassembly",
+      "side": "right",
+      "position_error_m": 1.1168976294928358e-06,
+      "rotation_error_rad": 3.320579390991507e-06,
+      "passed": true,
+      "joints": [
+        0.9040907721410042,
+        2.0279469115367728,
+        1.7151853787368996,
+        -1.2580337488358604,
+        -4.30627804312213e-06,
+        0.9041006483017486
+      ]
+    },
+    {
+      "phase": 30,
+      "label": "Withdraw above preassembly",
+      "side": "right",
+      "position_error_m": 7.882072678858893e-07,
+      "rotation_error_rad": 2.0276126339387487e-06,
+      "passed": true,
+      "joints": [
+        0.9040898952240068,
+        2.0519293256133353,
+        2.035913874269483,
+        -1.5547811193407266,
+        -4.312196840806045e-06,
+        0.9040995939672143
+      ]
+    },
+    {
+      "phase": 31,
+      "label": "Park handling arm",
+      "side": "right",
+      "position_error_m": 2.896961989180616e-06,
+      "rotation_error_rad": 7.252141083224413e-06,
+      "passed": true,
+      "joints": [
+        0.4492465599299592,
+        1.7203028112345742,
+        1.5556886727509502,
+        -1.4061782539753702,
+        -3.5917227403310533e-06,
+        0.4492567816218455
+      ]
+    },
+    {
+      "phase": 32,
+      "label": "Supported preassembly hold",
+      "side": "right",
+      "position_error_m": 2.896961989180616e-06,
+      "rotation_error_rad": 7.252141083224413e-06,
+      "passed": true,
+      "joints": [
+        0.4492465599299592,
+        1.7203028112345742,
+        1.5556886727509502,
+        -1.4061782539753702,
+        -3.5917227403310533e-06,
+        0.4492567816218455
+      ]
+    }
+  ],
+  "camera_coverage": {
+    "bench_nut": {
+      "pixels_min": [
+        299.4888784503029,
+        197.64608421527757
+      ],
+      "pixels_max": [
+        325.10963285340085,
+        236.96224185463993
+      ],
+      "visible": true
+    },
+    "collet": {
+      "pixels_min": [
+        374.75755150450686,
+        188.30324035500766
+      ],
+      "pixels_max": [
+        391.3413562604264,
+        207.35501295117325
+      ],
+      "visible": true
+    },
+    "collet_cradle": {
+      "pixels_min": [
+        368.89692512128875,
+        189.75395513774853
+      ],
+      "pixels_max": [
+        392.6882800574429,
+        216.237014667624
+      ],
+      "visible": true
+    }
+  },
+  "passed": true
+}
+{
+  "kind": "OFFLINE_NOMINAL_GEOMETRY",
+  "physics_executed": false,
+  "checks": [
+    {
+      "phase": 0,
+      "label": "Initialize handling arm",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 1,
+      "label": "Approach ER collet",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 2,
+      "label": "Reach collet tapered body",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 3,
+      "label": "Grip collet tapered body",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 4,
+      "label": "Lift collet from cradle",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 5,
+      "label": "Transfer above supported nut",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 6,
+      "label": "Tilt for eccentric cam entry",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 7,
+      "label": "Lower tilted nose through eccentric opening",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 8,
+      "label": "Engage groove at eccentric hook",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 9,
+      "label": "Rock groove onto cam increment 1",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 10,
+      "label": "Rock groove onto cam increment 2",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 11,
+      "label": "Rock groove onto cam increment 3",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 12,
+      "label": "Rock groove onto cam increment 4",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 13,
+      "label": "Rock groove onto cam increment 5",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 14,
+      "label": "Rock groove onto cam increment 6",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 15,
+      "label": "Rock groove onto cam increment 7",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 16,
+      "label": "Rock groove onto cam increment 8",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 17,
+      "label": "Rock groove onto cam increment 9",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 18,
+      "label": "Rock groove onto cam increment 10",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 19,
+      "label": "Rock groove onto cam increment 11",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 20,
+      "label": "Rock groove onto cam increment 12",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 21,
+      "label": "Rock groove onto cam increment 13",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 22,
+      "label": "Rock groove onto cam increment 14",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 23,
+      "label": "Rock groove onto cam increment 15",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 24,
+      "label": "Rock groove onto cam increment 16",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 25,
+      "label": "Rock groove onto cam increment 17",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 26,
+      "label": "Rock groove onto cam increment 18",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 27,
+      "label": "Rock groove onto cam increment 19",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 29,
+      "label": "Release supported preassembly",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 30,
+      "label": "Withdraw above preassembly",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 31,
+      "label": "Park handling arm",
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "phase": 32,
+      "label": "Supported preassembly hold",
+      "max_penetration_m": 0.0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
+{
+  "kind": "OFFLINE_IDEAL_JOINT_TRACKING_WITH_SYNTHETIC_CONTACT_APERTURES",
+  "physics_executed": false,
+  "grasps_validated": false,
+  "passed": true,
+  "actions": 586,
+  "simulated_seconds": 29.3,
+  "last_phase": 33,
+  "phase_count": 33,
+  "events": [
+    {
+      "event": "PHASE_START",
+      "phase": 0,
+      "label": "Initialize handling arm",
+      "time": 0.0
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 0,
+      "label": "Initialize handling arm",
+      "time": 3.15,
+      "position_error_m": 1.5004952393085226e-05,
+      "rotation_error_rad": 3.605620398196677e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 1,
+      "label": "Approach ER collet",
+      "time": 3.2
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 1,
+      "label": "Approach ER collet",
+      "time": 3.35,
+      "position_error_m": 1.5004952393085226e-05,
+      "rotation_error_rad": 3.605620398196677e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 2,
+      "label": "Reach collet tapered body",
+      "time": 3.4
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 2,
+      "label": "Reach collet tapered body",
+      "time": 4.6,
+      "position_error_m": 9.4472471090158e-06,
+      "rotation_error_rad": 2.7491216861868644e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 3,
+      "label": "Grip collet tapered body",
+      "time": 4.65
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 3,
+      "label": "Grip collet tapered body",
+      "time": 5.35,
+      "position_error_m": 9.4472471090158e-06,
+      "rotation_error_rad": 2.7491216861868644e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 4,
+      "label": "Lift collet from cradle",
+      "time": 5.4
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 4,
+      "label": "Lift collet from cradle",
+      "time": 6.65,
+      "position_error_m": 3.289526514741628e-07,
+      "rotation_error_rad": 8.596304119739573e-07
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 5,
+      "label": "Transfer above supported nut",
+      "time": 6.7
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 5,
+      "label": "Transfer above supported nut",
+      "time": 9.8,
+      "position_error_m": 9.192752169733968e-06,
+      "rotation_error_rad": 2.135943069890163e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 6,
+      "label": "Tilt for eccentric cam entry",
+      "time": 9.85
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 6,
+      "label": "Tilt for eccentric cam entry",
+      "time": 10.9,
+      "position_error_m": 5.000253421361548e-07,
+      "rotation_error_rad": 1.5480004445577714e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 7,
+      "label": "Lower tilted nose through eccentric opening",
+      "time": 10.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 7,
+      "label": "Lower tilted nose through eccentric opening",
+      "time": 16.2,
+      "position_error_m": 8.392700725032693e-07,
+      "rotation_error_rad": 2.7808936513880274e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 8,
+      "label": "Engage groove at eccentric hook",
+      "time": 16.25
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 8,
+      "label": "Engage groove at eccentric hook",
+      "time": 16.9,
+      "position_error_m": 1.6243924145148733e-06,
+      "rotation_error_rad": 4.298875245771575e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 9,
+      "label": "Rock groove onto cam increment 1",
+      "time": 16.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 9,
+      "label": "Rock groove onto cam increment 1",
+      "time": 17.15,
+      "position_error_m": 3.001154909853617e-06,
+      "rotation_error_rad": 1.1544928875098759e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 10,
+      "label": "Rock groove onto cam increment 2",
+      "time": 17.2
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 10,
+      "label": "Rock groove onto cam increment 2",
+      "time": 17.4,
+      "position_error_m": 3.1907983712459323e-06,
+      "rotation_error_rad": 1.2217861801455453e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 11,
+      "label": "Rock groove onto cam increment 3",
+      "time": 17.45
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 11,
+      "label": "Rock groove onto cam increment 3",
+      "time": 17.65,
+      "position_error_m": 3.2431898456238483e-06,
+      "rotation_error_rad": 1.2337333598462523e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 12,
+      "label": "Rock groove onto cam increment 4",
+      "time": 17.7
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 12,
+      "label": "Rock groove onto cam increment 4",
+      "time": 17.9,
+      "position_error_m": 3.2930167519616847e-06,
+      "rotation_error_rad": 1.2444851770064184e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 13,
+      "label": "Rock groove onto cam increment 5",
+      "time": 17.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 13,
+      "label": "Rock groove onto cam increment 5",
+      "time": 18.15,
+      "position_error_m": 3.343906202831314e-06,
+      "rotation_error_rad": 1.2554774375090925e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 14,
+      "label": "Rock groove onto cam increment 6",
+      "time": 18.2
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 14,
+      "label": "Rock groove onto cam increment 6",
+      "time": 18.4,
+      "position_error_m": 3.3960011807424733e-06,
+      "rotation_error_rad": 1.2667424457010954e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 15,
+      "label": "Rock groove onto cam increment 7",
+      "time": 18.45
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 15,
+      "label": "Rock groove onto cam increment 7",
+      "time": 18.65,
+      "position_error_m": 3.4493552277148906e-06,
+      "rotation_error_rad": 1.2783007834627416e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 16,
+      "label": "Rock groove onto cam increment 8",
+      "time": 18.7
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 16,
+      "label": "Rock groove onto cam increment 8",
+      "time": 18.9,
+      "position_error_m": 3.504023049262129e-06,
+      "rotation_error_rad": 1.2901583356368262e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 17,
+      "label": "Rock groove onto cam increment 9",
+      "time": 18.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 17,
+      "label": "Rock groove onto cam increment 9",
+      "time": 19.15,
+      "position_error_m": 3.5600618333240604e-06,
+      "rotation_error_rad": 1.30233079909267e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 18,
+      "label": "Rock groove onto cam increment 10",
+      "time": 19.2
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 18,
+      "label": "Rock groove onto cam increment 10",
+      "time": 19.4,
+      "position_error_m": 3.617533139965355e-06,
+      "rotation_error_rad": 1.3148330704874054e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 19,
+      "label": "Rock groove onto cam increment 11",
+      "time": 19.45
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 19,
+      "label": "Rock groove onto cam increment 11",
+      "time": 19.65,
+      "position_error_m": 3.6765022845110405e-06,
+      "rotation_error_rad": 1.3276658673445423e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 20,
+      "label": "Rock groove onto cam increment 12",
+      "time": 19.7
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 20,
+      "label": "Rock groove onto cam increment 12",
+      "time": 19.9,
+      "position_error_m": 3.7370377533516136e-06,
+      "rotation_error_rad": 1.3408461957779206e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 21,
+      "label": "Rock groove onto cam increment 13",
+      "time": 19.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 21,
+      "label": "Rock groove onto cam increment 13",
+      "time": 20.15,
+      "position_error_m": 3.799213496091173e-06,
+      "rotation_error_rad": 1.3543966986634554e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 22,
+      "label": "Rock groove onto cam increment 14",
+      "time": 20.2
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 22,
+      "label": "Rock groove onto cam increment 14",
+      "time": 20.4,
+      "position_error_m": 3.863107539060231e-06,
+      "rotation_error_rad": 1.3683161149819745e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 23,
+      "label": "Rock groove onto cam increment 15",
+      "time": 20.45
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 23,
+      "label": "Rock groove onto cam increment 15",
+      "time": 20.65,
+      "position_error_m": 3.928803455637838e-06,
+      "rotation_error_rad": 1.3826446936165367e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 24,
+      "label": "Rock groove onto cam increment 16",
+      "time": 20.7
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 24,
+      "label": "Rock groove onto cam increment 16",
+      "time": 20.9,
+      "position_error_m": 3.996390737485518e-06,
+      "rotation_error_rad": 1.3973762040762926e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 25,
+      "label": "Rock groove onto cam increment 17",
+      "time": 20.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 25,
+      "label": "Rock groove onto cam increment 17",
+      "time": 21.15,
+      "position_error_m": 4.065964705943204e-06,
+      "rotation_error_rad": 1.4125357668844486e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 26,
+      "label": "Rock groove onto cam increment 18",
+      "time": 21.2
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 26,
+      "label": "Rock groove onto cam increment 18",
+      "time": 21.4,
+      "position_error_m": 4.137627001576611e-06,
+      "rotation_error_rad": 1.4281595038232338e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 27,
+      "label": "Rock groove onto cam increment 19",
+      "time": 21.45
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 27,
+      "label": "Rock groove onto cam increment 19",
+      "time": 21.65,
+      "position_error_m": 4.211487648260677e-06,
+      "rotation_error_rad": 1.4442385004511648e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "time": 21.7
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "time": 21.9,
+      "position_error_m": 4.287663471385503e-06,
+      "rotation_error_rad": 1.4608185246245306e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 29,
+      "label": "Release supported preassembly",
+      "time": 21.95
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 29,
+      "label": "Release supported preassembly",
+      "time": 22.4,
+      "position_error_m": 4.287663471385503e-06,
+      "rotation_error_rad": 1.4608185246245306e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 30,
+      "label": "Withdraw above preassembly",
+      "time": 22.45
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 30,
+      "label": "Withdraw above preassembly",
+      "time": 23.8,
+      "position_error_m": 2.2956063193613377e-06,
+      "rotation_error_rad": 5.837909070956604e-06
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 31,
+      "label": "Park handling arm",
+      "time": 23.85
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 31,
+      "label": "Park handling arm",
+      "time": 26.95,
+      "position_error_m": 5.058920080488961e-06,
+      "rotation_error_rad": 1.2349350262743946e-05
+    },
+    {
+      "event": "PHASE_START",
+      "phase": 32,
+      "label": "Supported preassembly hold",
+      "time": 27.0
+    },
+    {
+      "event": "PROPRIOCEPTIVE_PHASE_COMPLETE",
+      "phase": 32,
+      "label": "Supported preassembly hold",
+      "time": 29.25,
+      "position_error_m": 5.058920080488961e-06,
+      "rotation_error_rad": 1.2349350262743946e-05
+    }
+  ]
+}
+{
+  "kind": "OFFLINE_CRITICAL_POSE_COLLISION_SAMPLES",
+  "physics_executed": false,
+  "swept_volume_validated": false,
+  "checks": [
+    {
+      "phase": 0,
+      "label": "Initialize handling arm",
+      "position_error_m": 6.6890508153545596e-06,
+      "rotation_error_rad": 1.593679526139261e-05,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 1,
+      "label": "Approach ER collet",
+      "position_error_m": 6.6890508153545596e-06,
+      "rotation_error_rad": 1.593679526139261e-05,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 2,
+      "label": "Reach collet tapered body",
+      "position_error_m": 1.4692248346940263e-06,
+      "rotation_error_rad": 4.251262563895389e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 3,
+      "label": "Grip collet tapered body",
+      "position_error_m": 1.4692248346940263e-06,
+      "rotation_error_rad": 4.251262563895389e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 4,
+      "label": "Lift collet from cradle",
+      "position_error_m": 2.9817422479462775e-06,
+      "rotation_error_rad": 7.5367757671754005e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 5,
+      "label": "Transfer above supported nut",
+      "position_error_m": 3.323390367844533e-07,
+      "rotation_error_rad": 8.711175003878828e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 6,
+      "label": "Tilt for eccentric cam entry",
+      "position_error_m": 3.4438489149777913e-06,
+      "rotation_error_rad": 1.0230852101132853e-05,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 7,
+      "label": "Lower tilted nose through eccentric opening",
+      "position_error_m": 6.225914297374833e-07,
+      "rotation_error_rad": 1.9981190132987687e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 8,
+      "label": "Engage groove at eccentric hook",
+      "position_error_m": 1.4590517587193178e-07,
+      "rotation_error_rad": 4.611436767023889e-07,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 9,
+      "label": "Rock groove onto cam increment 1",
+      "position_error_m": 6.836976940746452e-07,
+      "rotation_error_rad": 2.2004161347814807e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 10,
+      "label": "Rock groove onto cam increment 2",
+      "position_error_m": 6.995774382943573e-07,
+      "rotation_error_rad": 2.242534113761714e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 11,
+      "label": "Rock groove onto cam increment 3",
+      "position_error_m": 7.155473275718003e-07,
+      "rotation_error_rad": 2.2845790956047775e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 12,
+      "label": "Rock groove onto cam increment 4",
+      "position_error_m": 7.321334030973463e-07,
+      "rotation_error_rad": 2.3281941119056484e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 13,
+      "label": "Rock groove onto cam increment 5",
+      "position_error_m": 7.49368366572107e-07,
+      "rotation_error_rad": 2.3734541561229705e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 14,
+      "label": "Rock groove onto cam increment 6",
+      "position_error_m": 7.67287043310492e-07,
+      "rotation_error_rad": 2.420438059132964e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 15,
+      "label": "Rock groove onto cam increment 7",
+      "position_error_m": 7.859264051055064e-07,
+      "rotation_error_rad": 2.4692304487518967e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 16,
+      "label": "Rock groove onto cam increment 8",
+      "position_error_m": 8.05326356757235e-07,
+      "rotation_error_rad": 2.5199224260911217e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 17,
+      "label": "Rock groove onto cam increment 9",
+      "position_error_m": 8.255296120943325e-07,
+      "rotation_error_rad": 2.572611641858161e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 18,
+      "label": "Rock groove onto cam increment 10",
+      "position_error_m": 8.465822751618774e-07,
+      "rotation_error_rad": 2.6274024037821214e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 19,
+      "label": "Rock groove onto cam increment 11",
+      "position_error_m": 8.685337136336567e-07,
+      "rotation_error_rad": 2.6844077152848307e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 20,
+      "label": "Rock groove onto cam increment 12",
+      "position_error_m": 8.914371398731877e-07,
+      "rotation_error_rad": 2.743748558098147e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 21,
+      "label": "Rock groove onto cam increment 13",
+      "position_error_m": 9.153500276281271e-07,
+      "rotation_error_rad": 2.8055552928857935e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 22,
+      "label": "Rock groove onto cam increment 14",
+      "position_error_m": 9.403343109632135e-07,
+      "rotation_error_rad": 2.869968312837455e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 23,
+      "label": "Rock groove onto cam increment 15",
+      "position_error_m": 9.664567052243519e-07,
+      "rotation_error_rad": 2.937139184539985e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 24,
+      "label": "Rock groove onto cam increment 16",
+      "position_error_m": 9.937897132593504e-07,
+      "rotation_error_rad": 3.0072314282449974e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 25,
+      "label": "Rock groove onto cam increment 17",
+      "position_error_m": 1.0224116177782647e-06,
+      "rotation_error_rad": 3.0804220383762007e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 26,
+      "label": "Rock groove onto cam increment 18",
+      "position_error_m": 1.0524074921419315e-06,
+      "rotation_error_rad": 3.156902269517829e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 27,
+      "label": "Rock groove onto cam increment 19",
+      "position_error_m": 1.0838693438447752e-06,
+      "rotation_error_rad": 3.2368797246795373e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 28,
+      "label": "Rock groove onto cam increment 20",
+      "position_error_m": 1.1168976294928358e-06,
+      "rotation_error_rad": 3.320579390991507e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 29,
+      "label": "Release supported preassembly",
+      "position_error_m": 1.1168976294928358e-06,
+      "rotation_error_rad": 3.320579390991507e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 30,
+      "label": "Withdraw above preassembly",
+      "position_error_m": 7.882072678858893e-07,
+      "rotation_error_rad": 2.0276126339387487e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 31,
+      "label": "Park handling arm",
+      "position_error_m": 2.896961989180616e-06,
+      "rotation_error_rad": 7.252141083224413e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    },
+    {
+      "phase": 32,
+      "label": "Supported preassembly hold",
+      "position_error_m": 2.896961989180616e-06,
+      "rotation_error_rad": 7.252141083224413e-06,
+      "contacts": [],
+      "table": [],
+      "inter_arm": [],
+      "passed": true
+    }
+  ],
+  "passed": true
+}
+{
+  "kind": "OFFLINE_ACTUAL_FK_CAM_PATH_SYNTHETIC_CONTACT",
+  "physics_executed": false,
+  "grasps_validated": false,
+  "checks": [
+    {
+      "step": 219,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 220,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 221,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 222,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 223,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 224,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 225,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 226,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 227,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 228,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 229,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 230,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 231,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 232,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 233,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 234,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 235,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 236,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 237,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 238,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 239,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 240,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 241,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 242,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 243,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 244,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 245,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 246,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 247,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 248,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 249,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 250,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 251,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 252,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 253,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 254,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 255,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 256,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 257,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 258,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 259,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 260,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 261,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 262,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 263,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 264,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 265,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 266,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 267,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 268,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 269,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 270,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 271,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 272,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 273,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 274,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 275,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 276,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 277,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 278,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 279,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 280,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 281,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 282,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 283,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 284,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 285,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 286,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 287,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 288,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 289,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 290,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 291,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 292,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 293,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 294,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 295,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 296,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 297,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 298,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 299,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 300,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 301,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 302,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 303,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 304,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 305,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 306,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 307,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 308,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 309,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 310,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 311,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 312,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 313,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 314,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 315,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 316,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 317,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 318,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 319,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 320,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 321,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 322,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 323,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 324,
+      "phase": 7,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 325,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 326,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 327,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 328,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 329,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 330,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 331,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 332,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 333,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 334,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 335,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 336,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 337,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 338,
+      "phase": 8,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 339,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 340,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 341,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 342,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 343,
+      "phase": 9,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 344,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 345,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 346,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 347,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 348,
+      "phase": 10,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 349,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 350,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 351,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 352,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 353,
+      "phase": 11,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 354,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 355,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 356,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 357,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 358,
+      "phase": 12,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 359,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 360,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 361,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 362,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 363,
+      "phase": 13,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 364,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 365,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 366,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 367,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 368,
+      "phase": 14,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 369,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 370,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 371,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 372,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 373,
+      "phase": 15,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 374,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 375,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 376,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 377,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 378,
+      "phase": 16,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 379,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 380,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 381,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 382,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 383,
+      "phase": 17,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 384,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 385,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 386,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 387,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 388,
+      "phase": 18,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 389,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 390,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 391,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 392,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 393,
+      "phase": 19,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 394,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 395,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 396,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 397,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 398,
+      "phase": 20,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 399,
+      "phase": 21,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 400,
+      "phase": 21,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 401,
+      "phase": 21,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 402,
+      "phase": 21,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 403,
+      "phase": 21,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 404,
+      "phase": 22,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 405,
+      "phase": 22,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 406,
+      "phase": 22,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 407,
+      "phase": 22,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 408,
+      "phase": 22,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 409,
+      "phase": 23,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 410,
+      "phase": 23,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 411,
+      "phase": 23,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 412,
+      "phase": 23,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 413,
+      "phase": 23,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 414,
+      "phase": 24,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 415,
+      "phase": 24,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 416,
+      "phase": 24,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 417,
+      "phase": 24,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 418,
+      "phase": 24,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 419,
+      "phase": 25,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 420,
+      "phase": 25,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 421,
+      "phase": 25,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 422,
+      "phase": 25,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 423,
+      "phase": 25,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 424,
+      "phase": 26,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 425,
+      "phase": 26,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 426,
+      "phase": 26,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 427,
+      "phase": 26,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 428,
+      "phase": 26,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 429,
+      "phase": 27,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 430,
+      "phase": 27,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 431,
+      "phase": 27,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 432,
+      "phase": 27,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 433,
+      "phase": 27,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 434,
+      "phase": 28,
+      "max_penetration_m": 0.0,
+      "passed": true
+    },
+    {
+      "step": 435,
+      "phase": 28,
+      "max_penetration_m": 2.3550705626622674e-06,
+      "passed": true
+    },
+    {
+      "step": 436,
+      "phase": 28,
+      "max_penetration_m": 2.3550705626622674e-06,
+      "passed": true
+    },
+    {
+      "step": 437,
+      "phase": 28,
+      "max_penetration_m": 2.3550705626622674e-06,
+      "passed": true
+    },
+    {
+      "step": 438,
+      "phase": 28,
+      "max_penetration_m": 2.3550705626622674e-06,
+      "passed": true
+    }
+  ],
+  "error": null,
+  "passed": true
+}
+OFFLINE CHECKS PASSED; no native physics or full-score expert evidence.

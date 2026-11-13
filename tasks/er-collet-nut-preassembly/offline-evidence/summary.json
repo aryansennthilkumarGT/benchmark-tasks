@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "updated_at": "2026-11-13T02:48:54.933650+00:00",
+  "tested_source_commit": "ca3dd902328496ea4ae956e7ca53d28f4c695b50",
+  "source_manifest_sha256": "9b5663ec8569e2959bc5519c677633b2499308d1e563a971c90af503ed499a4a",
+  "implementation_complete_offline": true,
+  "clean_https_checkout": true,
+  "checkout_clean_after_tests": true,
+  "cpu_tests": {
+    "passed": 28,
+    "failed": 0,
+    "skipped": 0
+  },
+  "usd_assets": 3,
+  "ik_endpoints": 33,
+  "nominal_geometry_states": 33,
+  "collision_endpoints": 33,
+  "actual_fk_cam_path_samples": 220,
+  "maximum_fk_interpart_penetration_m": 2.3550705626622674e-06,
+  "ideal_tracking": {
+    "actions": 586,
+    "simulated_seconds": 29.3,
+    "synthetic_contact_apertures": true,
+    "grasps_validated": false
+  },
+  "action_limit": 2400,
+  "physics_executed": false,
+  "native_physics": "NOT_RUN",
+  "actual_expert": "NOT_RUN",
+  "dream_1": "NOT_RUN",
+  "hardware_validation": "NOT_RUN",
+  "submission_ready": false,
+  "novelty_inventory": "UNRESOLVED_BOARD_COVERAGE",
+  "manufacturer_limit": "Eccentric cam not guaranteed to hold unsupported collet; supported setup only.",
+  "historical_failures_repaired": [
+    "Initial cam profile/pivot entered material; engineered a thinner crescent and an offset-entry/side-hook path with zero nominal overlap",
+    "Copied static-audit filename corrected before clean verification",
+    "Removed expert-angle history gate; alternative valid entry angle now accepted and tested",
+    "CSV exporter normalized to LF to pass diff whitespace check"
+  ]
+}
