@@ -122,8 +122,8 @@ def Xform "Asset"
         prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
     )
     {
-        point3f physics:centerOfMass = (0.006, 0.0865, 0.0135)
-        float3 physics:diagonalInertia = (0.000016813334, 0.000009084, 0.000023953333)
+        point3f physics:centerOfMass = (0.0205, 0.0365, 0.008)
+        float3 physics:diagonalInertia = (4.4933333e-7, 0.000015606667, 0.000015373333)
         float physics:mass = 0.016
         quatf xformOp:orient = (1, 0, 0, 0)
         double3 xformOp:translate = (0, 0, 0)
@@ -150,8 +150,8 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.1, 0.35, 0.65)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.016, 0.084, 0.01)
-            double3 xformOp:translate = (0, 0.08, 0.016)
+            float3 xformOp:scale = (0.02, 0.004, 0.016)
+            double3 xformOp:translate = (0.05, 0.039, 0.008)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -163,8 +163,8 @@ def Xform "Asset"
             color3f[] primvars:displayColor = [(0.1, 0.35, 0.65)]
             double size = 1
             quatf xformOp:orient = (1, 0, 0, 0)
-            float3 xformOp:scale = (0.02, 0.022, 0.012)
-            double3 xformOp:translate = (0, 0.13, 0.021)
+            float3 xformOp:scale = (0.02, 0.004, 0.016)
+            double3 xformOp:translate = (0.064, 0.039, 0.008)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 

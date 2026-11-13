@@ -15,7 +15,7 @@ def frame(states=None,t=0.):
  return dict(schema=1,time=t,bodies=bodies,joints={'rail_flexure':q},max_penetration=0.,robot_clearance=.025)
 
 def completed(s):
- for i,p in enumerate(PLAN['phases']):f=frame(p['nominal_bodies'],i*.05);r=s.update(f)
+ for i,p in enumerate(PLAN['phases']):f=frame(p['nominal_bodies'],i*.2);r=s.update(f)
  for _ in range(41):f['time']+=.05;r=s.update(copy.deepcopy(f))
  return f,r
 
@@ -28,18 +28,20 @@ class Tests(unittest.TestCase):
  def test_teleport_to_tray_without_release_has_zero(self):
   f=frame(PLAN['phases'][-1]['nominal_bodies']);self.assertEqual(Scorer(SPEC).update(f).score,0.)
  def test_release_only_does_not_earn_removal(self):
-  p=next(x for x in PLAN['phases'] if x['label']=='Pull rail to release two pins');r=Scorer(SPEC).update(frame(p['nominal_bodies']));self.assertEqual(r.score,.25);self.assertFalse(r.success)
- def test_no_tilt_or_no_opposite_withdrawal_gets_no_extraction(self):
-  for skip in ('Tilt released edge off its pins','Slide away from opposite locating pins'):
-   s=Scorer(SPEC)
-   for i,p in enumerate(PLAN['phases']):
-    if p['label']==skip:continue
-    # No tilt means all later body orientations are kept level; no withdrawal
-    # means do not observe its dedicated small-displacement event.
-    f=frame(p['nominal_bodies'],i*.05)
-    if skip.startswith('Tilt'):f['bodies']['drive']['quat']=[0,0,0,1]
-    r=s.update(f)
-   self.assertFalse(r.success);self.assertNotIn('drive_extracted',r.completed)
+  p=next(x for x in PLAN['phases'] if x['label']=='Pull rail to release two pins');s=Scorer(SPEC);s.update(frame());r=s.update(frame(p['nominal_bodies'],.05));self.assertEqual(r.score,.25);self.assertFalse(r.success)
+ def test_alternate_continuous_physical_path_is_not_expert_event_gated(self):
+  # The separate geometry tests establish why closed pins obstruct lift. Here
+  # the scorer must accept a valid path even when sampled phase boundaries omit
+  # the expert's particular 12 mm tilt and 2.5 mm translation events.
+  s=Scorer(SPEC);s.update(frame());states=copy.deepcopy(PLAN['phases'][-1]['nominal_bodies'])
+  start=np.array(SPEC['score_spec']['initial_drive']);end=np.array(states['drive']['pos'])
+  for i in range(1,101):
+   f=frame(states,i*.05);f['bodies']['drive']['pos']=(start+(end-start)*i/100).tolist();s.update(f)
+  for i in range(42):f['time']+=.05;r=s.update(copy.deepcopy(f))
+  self.assertTrue(r.success)
+ def test_unobserved_position_replacement_is_rejected(self):
+  s=Scorer(SPEC);s.update(frame());f=frame(PLAN['phases'][-1]['nominal_bodies'],.05)
+  self.assertEqual(s.update(f).failure,'unobserved_state_jump')
  def test_held_rail_and_robot_contact_prevent_full(self):
   s=Scorer(SPEC);f,r=completed(s);f['time']+=.05;f['joints']['rail_flexure']=.006;f['bodies']['release_rail']['pos'][1]=.006
   self.assertLess(s.update(copy.deepcopy(f)).score,1.)

@@ -31,8 +31,8 @@ def make_scene():
     for x in (-.04,.04):fixed.append(box([x,0,.0015],[.012,.05,.003],BLUE))
     bracket=body('bracket',BASE.copy(),fixed,.30,True)
     rail_shapes=[box([.006,.039,.008],[.078,.004,.016],BLUE),
-                 box([0,.080,.016],[.016,.084,.010],BLUE),
-                 box([0,.130,.021],[.020,.022,.012],BLUE)]
+                 box([.050,.039,.008],[.020,.004,.016],BLUE),
+                 box([.064,.039,.008],[.020,.004,.016],BLUE)]
     for x in (-.030,.030):rail_shapes.append(cylinder([x,.035,.0064],.0015,.006,GREY,quat([1,0,0],math.pi/2)))
     rail=body('release_rail',BASE.copy(),rail_shapes,.016)
     joint=dict(name='rail_flexure',kind='prismatic',parent='bracket',child='release_rail',
@@ -63,7 +63,7 @@ def make_scene():
     anchors={b['name']:dict(pos=b['pos'],quat=b['quat']) for b in [bracket,tray]}
     target=[tray_pos[0],tray_pos[1],TABLE+.025+H/2]
     return dict(slug='drive-bracket-pin-release',title='Release a 2.5-inch drive from its pinned service bracket',
-        instruction='Pull the blue compliant side rail outward, tilt the marked drive edge clear of its released pins, slide away from the opposite pins, and lift the drive onto the staging supports. Let the rail return and withdraw both grippers. The assembly is already removed from the computer and disconnected.',
+        instruction='Remove the disconnected drive from the pinned bracket and place it on the staging supports. Release the compliant rail and withdraw both grippers. The assembly is already removed from the computer.',
         control_hz=20,physics_dt=1/480,gravity=[0,0,-9.81],run_limit=6500,table_top=TABLE,hold_seconds=2.,penetration_limit=.00035,
         assemblies=assemblies,collision_exclusions=[],
         score_spec=dict(anchors=anchors,initial_drive=DRIVE.copy(),target_drive=target,rail_origin=BASE.copy(),rail_joint='rail_flexure',
@@ -83,7 +83,7 @@ def make_scene():
 
 def make_plan(spec):
     from yam_arena.demo import DOWN_GRIP
-    down=DOWN_GRIP.tolist();left_q=multiply(axis_quat([0,0,1],-math.pi/2),down).tolist()
+    down=DOWN_GRIP.tolist();left_q=down
     phases=[];states={b['name']:dict(pos=b['pos'].copy(),quat=b['quat'].copy()) for a in spec['assemblies'] for b in a['bodies']}
     def phase(label,side,pos,q,opening,contact=None,width=0.,dwell=.2,speed=.04,mutate=None):
         if mutate:mutate()
@@ -91,17 +91,18 @@ def make_plan(spec):
             grasp_width=width,dwell=dwell,speed=speed,timeout=45.,position_tolerance=.00035,angle_tolerance=.025,
             nominal_bodies=copy.deepcopy(states)))
     phase('Initialize rail arm','left',[.17,.23,.92],left_q,1.)
-    tab=[BASE[0],.130,BASE[2]+.031]
+    tab=[BASE[0]+.064,.039,BASE[2]+.017]
     phase('Approach compliant rail tab','left',[tab[0],tab[1],.90],left_q,1.)
     phase('Reach compliant rail tab','left',tab,left_q,.5)
-    phase('Grip compliant rail tab','left',tab,left_q,.15,'release_rail',.020,dwell=.5)
+    phase('Grip compliant rail tab','left',tab,left_q,.015,'release_rail',.004,dwell=.5)
     def rail_at(q):states['release_rail']['pos']=[BASE[0],q,BASE[2]]
-    phase('Pull rail to release two pins','left',[tab[0],tab[1]+RAIL_TRAVEL,tab[2]],left_q,.15,'release_rail',.020,speed=.004,mutate=lambda:rail_at(RAIL_TRAVEL))
+    phase('Pull rail to release two pins','left',[tab[0],tab[1]+RAIL_TRAVEL,tab[2]],left_q,.015,'release_rail',.004,speed=.004,mutate=lambda:rail_at(RAIL_TRAVEL))
     phase('Initialize extraction arm','right',[.28,-.17,.90],down,1.)
     offset=[-.047,0,.014]
     def tcp(pos,q):return (rotate(q,offset)+pos).tolist()
     def drive_at(pos,q):states['drive']=dict(pos=list(pos),quat=list(q))
-    phase('Approach drive leading edge','right',[DRIVE[0]+offset[0],0,.86],down,1.)
+    phase('Descend in extraction approach corridor','right',[DRIVE[0]+offset[0],-.10,.835],down,1.)
+    phase('Approach drive leading edge','right',[DRIVE[0]+offset[0],0,.835],down,1.)
     phase('Reach drive leading edge','right',tcp(DRIVE,[0,0,0,1]),down,1.)
     phase('Grip drive case across its width','right',tcp(DRIVE,[0,0,0,1]),down,.66,'drive',SIZE[1],dwell=.5)
     pivot=[DRIVE[0],-SIZE[1]/2,DRIVE[2]];tilt=axis_quat([1,0,0],.25).tolist()
@@ -113,12 +114,13 @@ def make_plan(spec):
             'right',tcp(arc,q),qt,.66,'drive',SIZE[1],speed=.004,mutate=lambda arc=arc,q=q:drive_at(arc,q))
     unpinned=[tilted[0],tilted[1]+.0045,tilted[2]]
     phase('Slide away from opposite locating pins','right',tcp(unpinned,tilt),tool,.66,'drive',SIZE[1],speed=.004,mutate=lambda:drive_at(unpinned,tilt))
+    phase('Release compliant rail','left',[tab[0],tab[1]+RAIL_TRAVEL,tab[2]],left_q,.5,'release_rail',mutate=lambda:rail_at(0.))
+    phase('Lift released rail fingers clear','left',[tab[0],tab[1]+RAIL_TRAVEL,tab[2]+.020],left_q,.5)
+    phase('Withdraw rail gripper','left',[tab[0],.16,tab[2]+.020],left_q,1.)
+    phase('Park rail arm','left',[.17,.23,.92],left_q,1.)
     lifted=[unpinned[0],unpinned[1],.90]
     phase('Lift drive clear of bracket','right',tcp(lifted,tilt),tool,.66,'drive',SIZE[1],mutate=lambda:drive_at(lifted,tilt))
     phase('Level extracted drive','right',tcp(lifted,[0,0,0,1]),down,.66,'drive',SIZE[1],mutate=lambda:drive_at(lifted,[0,0,0,1]))
-    phase('Release compliant rail','left',[tab[0],tab[1]+RAIL_TRAVEL,tab[2]],left_q,.5,'release_rail',mutate=lambda:rail_at(0.))
-    phase('Withdraw rail gripper','left',[tab[0],tab[1]+RAIL_TRAVEL,.92],left_q,1.)
-    phase('Park rail arm','left',[.17,.23,.92],left_q,1.)
     dest=spec['score_spec']['target_drive']
     above=[dest[0],dest[1],.90]
     phase('Carry drive above staging supports','right',tcp(above,[0,0,0,1]),down,.66,'drive',SIZE[1],mutate=lambda:drive_at(above,[0,0,0,1]))

@@ -1,4 +1,4 @@
-"""Observed physical rail/pin-release sequence and unsupported final placement."""
+"""Observed extraction and unsupported final placement, independent of expert path."""
 from dataclasses import dataclass
 import copy,math
 try:
@@ -46,6 +46,13 @@ class Scorer:
             if t==self.time and f==self.previous:return self.result
             return self.fail('time_order')
         if self.time is not None and t-self.time>1.5/s['control_hz']:self.stable=None
+        if self.time is None:
+            if math.dist(bodies['drive']['pos'],s['initial_drive'])>.003:return self.fail('initial_layout')
+        else:
+            # Broad plausibility bound rejects state replacement without prescribing
+            # a tilt direction, rail-hand choice or exact extraction trajectory.
+            distance=math.dist(bodies['drive']['pos'],self.previous['bodies']['drive']['pos'])
+            if distance>2.*(t-self.time)+.010:return self.fail('unobserved_state_jump')
         self.time=t;self.previous=copy.deepcopy(f)
         if self.failed:return self.fail(self.failed)
         for name,a in s['anchors'].items():
@@ -58,13 +65,10 @@ class Scorer:
         drive=bodies['drive'];p=drive['pos'];initial=s['initial_drive']
         if p[2]<s['loss_plane']:return self.fail('drive_lost')
         if q>=s['rail_release'] and math.dist(p,initial)<.003:self.released=True
-        left_edge=rotate(drive['quat'],[0,.06985/2,0])+p
-        right_edge=rotate(drive['quat'],[0,-.06985/2,0])+p
-        tilted=left_edge[2]>=initial[2]+.012 and abs(right_edge[2]-initial[2])<=.002 and abs(p[0]-initial[0])<.002
-        if self.released and q>=s['rail_release'] and tilted:self.tilted=True
-        if self.tilted and q>=s['rail_release'] and p[1]-initial[1]>=.0025 and p[2]<initial[2]+.025:
-            self.withdrawn=True
-        clear=self.withdrawn and (p[2]>initial[2]+.055 or math.dist(p[:2],initial[:2])>.125)
+        # Contacts enforce opposed-pin disengagement. Current physical extraction
+        # counts regardless of how the controller achieved it; no expert event gate.
+        clear=p[2]>initial[2]+.055 or math.dist(p[:2],initial[:2])>.125
+        self.withdrawn=bool(clear)
         staged=clear and math.dist(p[:2],s['target_drive'][:2])<=s['position_tolerance'] and abs(p[2]-s['target_drive'][2])<=s['axial_tolerance'] and qangle(drive['quat'],[0,0,0,1])<=s['tilt_tolerance']
         returned=abs(q)<=s['rail_return']
         still=all(math.sqrt(sum(v*v for v in b['linear']))<=s['speed_limit'] and math.sqrt(sum(v*v for v in b['angular']))<=s['spin_limit'] for b in bodies.values())

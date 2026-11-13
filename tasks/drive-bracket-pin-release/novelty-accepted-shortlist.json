@@ -1,0 +1,143 @@
+{
+  "kind": "LEXICAL_RETRIEVAL_REQUIRES_SEMANTIC_REVIEW",
+  "source_inventory_count": 93,
+  "source_inventory_sha256": "26e6b867418cf485c23b602d46f1c9c40e4473d31f61e1b3f46d5406ec129c2a",
+  "coverage": "Public upstream main task metadata only; pending task board inaccessible. A lexical shortlist is not an exhaustive semantic audit.",
+  "candidates": [
+    {
+      "path": "tasks/hold-an-m2-drive-flat-and-latch-it/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/hold-an-m2-drive-flat-and-latch-it/task.json",
+      "sha256": "6f19e3dcd3b0b2703f4d4cdef06998d594787f0c236c6e2e12cd0033ddf43316",
+      "title": "Hold a sprung-up M.2 drive flat in its socket with one hand while the other turns the latch over its end",
+      "instruction": "Hold the M.2 drive down flat in its socket with one hand while the other turns the latch's knob a quarter turn counterclockwise so its arm holds the drive's end down, then let go with both hands.",
+      "scoring": "Judged at the end of the trial. Flat: the drive within 2.5 degrees of flat in its socket. Latched: flat, with the latch turned at least 70 degrees counterclockwise (seen from above) from its start, its arm over the drive's end. Let go: both grippers' fingertip centres (TCPs) at least 3 cm from the drive and from the latch's knob. 1.0: latched and both let go; 0.5: latched; 0.25: the drive held flat for 1 s at some point; else 0.0. The trial ends at the run limit, or once the full score has held with the drive and latch still for 1 s.",
+      "retrieval_score": 0.1492424310272093
+    },
+    {
+      "path": "tasks/rail-carriage-click/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/rail-carriage-click/task.json",
+      "sha256": "54aee640bd1e91a4af04987397d274b2a0dbde2a77f4ba6bd7099c61fea0485e",
+      "title": "Slide a linear-guide carriage onto its rail past a spring plunger",
+      "instruction": "Pick up the blue carriage by its post, fit it onto the open end of the grey rail, and push it along the rail past the orange plunger until it touches the end stop. Then let go and keep both fingers at least 3 cm from the post.",
+      "scoring": "Computed from the final state only, nothing is remembered. 1.0 if at the end the carriage is on the rail (guide lips under the rail head, level within 3 degrees, lateral offset 3 mm or less), wholly past the plunger with the plunger back up behind it, its front face within 3 mm of the end stop, and released (both fingers at least 90% open and at least 3 cm from the post) and still (moving less than 1 mm) for the last 1 s. 0.5 if it is on the rail at the end but not all of that holds (short of the plunger, held, or moving). 0 if it is not on the rail at the end, whatever happened earlier.",
+      "retrieval_score": 0.14156479371650538
+    },
+    {
+      "path": "tasks/camera-plate-release/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/camera-plate-release/task.json",
+      "sha256": "33445d3cce7bee658564563f31e33ddd30a261ed31d8cc05b3f87bf5728fa7c8",
+      "title": "Release a camera from a cam-clamped quick-release mount",
+      "instruction": "Remove the camera and its attached plate from the bench mount and set the assembly upright on the green pad. Keep the camera attached to the plate, do not drop it, and leave the assembly released.",
+      "scoring": "Highest applicable endpoint tier, overridden by any permanent invalidation; otherwise 0.0. Scored mount surfaces are the enclosing boxes of the foot, post, adapter, rear rail/lip, side guides and cam lever/bridge/toe/pivot; fixed screw heads do not define clearance. 0.25: cam >=0.8 rad, payload-to-scored-mount clearance <10 mm, native contact present. 0.5: clearance >=10 mm and native contact present, if the pad tier does not apply. 0.75: plate centre <=20 mm horizontally from pad centre, full payload collision envelope over the pad, plate underside within 5 mm of pad top, tilt <=10 degrees, native contact present. 1.0: the 0.75 conditions hold, every robot collision envelope is >=30 mm clear, and every pose over a full 1 s window stays within 2 mm and 2 degrees of the window's first pose. Permanently score zero for fixture translation >5 mm or rotation >5 degrees, cam anchor error >2 mm, cam angle outside [-0.01,0.96] rad, non-finite/non-unit state, any payload collision corner outside x=[-0.19,0.91], y=[-0.65,0.65], z=[0.7425,1.2475] m, or downward travel >10 mm during an uninterrupted absence of contact. Native contact presence uses >0.02 N at 240 Hz; no real force sensor is required: use visible support/release, a ruler, protractor and video. Cam/fixture angles use their declared zero poses; payload tilt uses world vertical; stability uses the window's first pose. Endpoint pose conditions and the 1 s stability window are sampled at 20 Hz. All parts must remain intact and attached as declared. README.md defines conservative bounding-envelope approximations and real-world interpretation.",
+      "retrieval_score": 0.13928388370490238
+    },
+    {
+      "path": "tasks/split-cable-guide-retrofit/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/split-cable-guide-retrofit/task.json",
+      "sha256": "c17c20b6fbecc7698bc0e4d9e797b207998aa350e87adaf16714f73b50a1db17",
+      "title": "Fit a split cable guide and verify drawer travel",
+      "instruction": "Fit a split guide around the cable at the panel opening and lock it with the orange keeper. Keep both plugs seated throughout. Withdraw both hands, then press the yellow release and let the drawer open to the marked line on its own.",
+      "scoring": "0.5 for guide seated and keeper closed with hands clear. 1.0 if locked before release, drawer travels at least 48 mm in 3 s, sleeve clears the guide, and both conditions hold for 2 s. Permanent 0 if a plug backs out more than 2 mm, a guide falls or comes loose during proof, or a gripper enters the protected area during proof. All other outcomes score 0.",
+      "retrieval_score": 0.12414999585252481
+    },
+    {
+      "path": "tasks/rail-carriage/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/rail-carriage/task.json",
+      "sha256": "5b3361e8c62a6b48b938699b299cc8489ccbcd2822b435b9a6d41498a8169813",
+      "title": "Slide a carriage onto a linear rail until it clicks",
+      "instruction": "Slide the blue carriage onto the open end of the grey rail and push it along the rail until it clicks past the plunger and stops against the orange end stop.",
+      "scoring": "Measured at the end with a ruler. 0 if the rail was at any point moved more than 3 cm or turned more than 15 degrees. Otherwise, by where the carriage is at the end: 1.0 if it is on the rail (within 2 mm of its centreline and 1.5 mm of its seated height, square to it within 5 degrees) between the plunger and the end stop (its front within 0.5 mm of the stop, its rear past the plunger, which has sprung back out) and still (moving less than 1 mm over 1 s); 0.75 if it is on the rail with its centre at least 6 cm from the rail's open end; 0.5 if it is on the rail with at least 1 cm of it over the rail; 0.25 if it was lifted 3 cm at some point; else 0.",
+      "retrieval_score": 0.11882325050041756
+    },
+    {
+      "path": "tasks/safe-glass-bottle-sorting/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/safe-glass-bottle-sorting/task.json",
+      "sha256": "551c822eac88f21c862379855cc18c870c02f0a1b0c20d9c58878b3a95247754",
+      "title": "Sort bottles safely in a crowded vertical rack",
+      "instruction": "Sort all six bottles between the stacked shelves: red below, blue above. The gray staging pedestal is available. Keep every bottle upright and prevent falls, including neighboring bottles. Finish with both grippers open and withdrawn, with every bottle stable for two seconds.",
+      "scoring": "Any bottle tilt>20deg, downward speed>0.35m/s, bottom z<0.7915m, top z>1.1775m, center x outside [0.07,0.44] or y outside [-0.15,0.27] m, or invalid pose: permanent 0. Sorted: whole bounding box on matching shelf, edge margin>=3mm, bottom within 4mm, tilt<=5deg. Credit needs 2s with all tilts<=5deg, center drift<=3mm from window start, jaws>=75% open, both TCPs>=85mm from every center. Score=max(0,sorted-4)/2: 0,0.5,1; initial 0. See PHYSICAL_SCORING.md.",
+      "retrieval_score": 0.11825433813318242
+    },
+    {
+      "path": "tasks/hang-a-blind-headrail-in-gated-brackets/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/hang-a-blind-headrail-in-gated-brackets/task.json",
+      "sha256": "a85ba41a64233d57958bba81c5f0ec84b5a0e3b3bd3592ce81b321b47b1b4d7d",
+      "title": "Hang a blind headrail in two gated brackets",
+      "instruction": "Hang the white blind headrail in the two window brackets.",
+      "scoring": "Rail home: underside on both bracket floors (within 0.4 cm), back face within 0.5 cm of the wall at both ends, tilt 2 degrees or less, each end 3 cm or more inside its bracket. Gates shut: both within 0.1 rad (gate in line with the bracket front, top photo). 1.0: rail home and both gates shut. 0.5: rail home, a gate open. 0.25: both gates were swung open 1.2 rad or more at once at some time, rail not home. Else 0. A rail more than 1 cm above the floors (held, perched on a lip, on the blocks) is not home. Doing nothing scores 0. Possible scores: 0, 0.25, 0.5, 1.0.",
+      "retrieval_score": 0.11410820566910942
+    },
+    {
+      "path": "tasks/pin-fit/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/pin-fit/task.json",
+      "sha256": "6a7518da72cfb3e6771cc1964e58424666b9cd8c6186b2891c9e6b455898b7a6",
+      "title": "Pick the pin that fits the hole and seat it",
+      "instruction": "Find the pin that fits the hole in the fixture block and push it all the way down into the hole.",
+      "scoring": "Only the 20 mm pin counts. 1.0 if it stands in the hole with its bottom within 3 mm of the floor (at least 22 mm of its length inside the block) and tilts at most 7 degrees (either end up), and stays still for 1 s. 0.5 if it has entered the hole (the centre of its lower end over the hole, its bottom at least 2 mm below the block's top face, tilted at most 30 degrees) but is not fully down. 0.25 if it stands upright (tilted at most 10 degrees) on the table or on the block's top face (its bottom within 3 mm of that surface), with its centre within 5 cm of the hole's centre. Otherwise 0. Any pin that ends up off the table: 0.",
+      "retrieval_score": 0.11241230277605642
+    },
+    {
+      "path": "tasks/lock-before-loading/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/lock-before-loading/task.json",
+      "sha256": "2dbcb896e3e657f38dfb0bae4720e97232bf8373de781689a60ff9c297296b33",
+      "title": "Lock a fallen see-saw platform before loading it",
+      "instruction": "Put the blue block on the white mark at the right end of the platform and the orange block on the white mark at its left end. When you finish, both arms must be clear of the platform and the blocks.",
+      "scoring": "0 if at any time: the platform, the pin, a block or any part of the robot touches the hand; a block touches the platform while the pin does not lock it, held or not; a block slides or falls off the platform without being picked up; or a block falls off the table. The pin locks the hinge when its shaft passes through both walls' holes and the lug's hole and reaches at least the middle of the far wall, from either side. With a tape measure, the handle's inner face is at most 3.6 cm from the wall the pin went in through (2.6 cm when pushed fully in). Otherwise, at the end: 0.4 if the pin locks the hinge, plus 0.25 for each block resting on its mark (centre within 2 cm of the mark's centre) and let go (no gripper closed on it), so 0, 0.4, 0.65 or 0.9. Success (1.0, held for 3 s): both blocks on their marks and let go, the pin locking the hinge, the platform within 3 degrees of level (its two ends within 2.1 cm of the same height), every part of both arms at least 5 cm from the platform and the blocks, and no violation. Doing nothing, or refusing, scores 0.",
+      "retrieval_score": 0.10959939116434558
+    },
+    {
+      "path": "tasks/dual-latch-lid/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/dual-latch-lid/task.json",
+      "sha256": "dcdf9da299dfebe1697e9d4e2590a5d30aa1d56ed19a22b3adcde27b84245a08",
+      "title": "Release a two-latch lid and lift it out with both hands",
+      "instruction": "Grip the two orange tabs on the blue lid, slide both toward the middle of the lid at the same time to release the latches, lift the lid out of the grey case, and set it down flat on the table to the right of the case.",
+      "scoring": "Measured at the end with a ruler and a top photo. 0 if the case was at any point moved more than 3 cm. Otherwise: 1.0 if, after being lifted out, the lid lies flat on the table (underside within 5 mm of it, tilted under 10 degrees) with its centre at least 8 cm to the side of the case's centreline, still (moving less than 1 mm over 1 s), for 1 s; 0.75 if the lid was lifted with its underside 1 cm above the case's rim; 0.5 if both latches were released at once (each tab slid at least 4 mm in); 0.25 if one latch was released; else 0.",
+      "retrieval_score": 0.10016322733366585
+    },
+    {
+      "path": "tasks/din-rail-mount/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/din-rail-mount/task.json",
+      "sha256": "20ede2b9b06bfd11eae74c13e1a5bb28a9ee13615f049114e0d1bc4901e9d593",
+      "title": "Snap a module onto a DIN rail",
+      "instruction": "Pick up the blue module, hook the top of its back over the upper edge of the metal rail on the panel, swing its bottom in against the rail and push it until its latch clicks onto the rail.",
+      "scoring": "Measured at the end with a ruler and a photo. 1.0 if the module is mounted: hooked over the rail's upper lip, its back within 1.5 mm of the upper lip and 1 mm of the lower lip, square to the rail within 3 degrees, latch sprung back behind the lower lip, between the end clamps, and still (moving less than 1 mm over 1 s), for 1 s; 0.75 if, after hanging on its hook, its bottom was pushed to within 2 mm of the lower lip; 0.5 if, after being lifted, it hung on the rail by its hook (hook tooth behind the upper lip); 0.25 if it was lifted 3 cm; else 0.",
+      "retrieval_score": 0.09272644891759066
+    },
+    {
+      "path": "tasks/feed-shaft/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/feed-shaft/task.json",
+      "sha256": "37a7f704f807e13ec5c20883f2c75d8753781644f3092ef0cc8146d71f8abb8f",
+      "title": "Feed a hex shaft through two bearings",
+      "instruction": "Slide the hex shaft through both bearings so that each end sticks out at least 1 cm past the outside of its bearing, room for a collar on each end.",
+      "scoring": "The shaft runs through a bearing when its centre line crosses the middle of that bearing's plate inside the bore. Through both bearings with each end at least 1 cm past the outside of its bearing (room for its collar), and still (moving under 1 cm/s and turning under 0.5 rad/s), held for 1 s: 1.0. If time runs out before that has held for 1 s, it scores 0.9. Through both, but an end has less than 1 cm or the shaft is still moving: 0.5. Through one bearing, from either side: 0.25. Otherwise 0.",
+      "retrieval_score": 0.09122786561842866
+    },
+    {
+      "path": "tasks/detent-latch-bottle/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/detent-latch-bottle/task.json",
+      "sha256": "2165597e12d1021742784ceedd045959eaa2ba7649b7159e5f23a00d94978ac9",
+      "title": "Open a bottle with a detented safety loop and rocker latch",
+      "instruction": "Open the bottle and keep it upright on the table.",
+      "scoring": "Evaluate at 20 Hz. The current score at termination counts. Each condition requires 8 consecutive control ticks (0.4 s): 1.0 if lid angle >60 degrees from closed; otherwise 0.5 if lid >15 degrees; otherwise 0.25 if safety-loop angle >=150 degrees from raised; otherwise 0. A sampled bottle-axis dot world-up <=0.90 (tilt >=25.842 degrees), bottle-base origin Z<0.7375 m (10 mm below tabletop), or geometric table support lost (the 36 mm-radius bottom disc's lowest edge must stay within 10 mm of tabletop Z=0.7475 m, with base centre X in [-0.154,0.874] m and Y in [-0.614,0.614] m), nonfinite robot/bottle state, unavailable/nonfinite wrist measurement, or wrist joint reaction force norm >100 N for 4 consecutive ticks permanently invalidates the trial and overrides credit with zero. Use the larger of the two gripper incoming-joint force norms, including gravity. Full score or invalidation ends the episode; timeout receives the current partial score. Only robot contact may manipulate the bottle; direct bottle-joint actuation, pose edits, destruction or geometry edits are outside the allowed action interface.",
+      "retrieval_score": 0.08490708801535826
+    },
+    {
+      "path": "tasks/blender-service-lift/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/blender-service-lift/task.json",
+      "sha256": "cdec035e5f9c888e2066db854b3b4995deb989c39e6d41d565d121bfd98e130a",
+      "title": "Send a corded blender up a service lift without trapping its cord",
+      "instruction": "Put the blender in the lift and press the green button to send it up.",
+      "scoring": "Each subtask is scored and reported. The line is 1 cm behind the car floor's front edge. S1 (blender in the lift): every part of the blender behind the line, resting on the car floor and not held. S2 (cord in the lift): every part of the cord and the plug, pins included, behind the line. S3 (button pressed): the button pushed in 4 mm or more. D (danger at the press): when the button is pressed, any part of the blender, cord or plug crosses the line (part behind it and part in front), or an arm is in the door's path. Total: if the button is pressed, 0.0 with D or if the lift breaks (door not closed 4 s after the press, or car 8 cm behind its target); 1.0 with S1 and S2 at the press; otherwise 0.0 (an empty or unready lift sent). If the button is never pressed: 0.5 for S1 and S2 at the end of the run, 0.25 for S1 alone, otherwise 0.0. S1, S2 and D are judged at the moment of the press (a tape line 1 cm behind the car floor's edge and a top-view photo).",
+      "retrieval_score": 0.08428005662551324
+    },
+    {
+      "path": "tasks/u-joint-cross/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/u-joint-cross/task.json",
+      "sha256": "31f1bfbc8ba2a777bd3cee22f6e44fee7586432d4f954613d0729ec163b37897",
+      "title": "Fit a U-joint cross longer than its yoke's ear gap: push one journal through, swing it level, slide it back to centre",
+      "instruction": "Install the orange cross in the blue yoke: push one of its two flat journals through one ear's hole, swing the cross level so the other flat journal lines up with the other ear's hole, then slide it back until both journals are in their holes by the same depth.",
+      "scoring": "Either pair of journals can be the one that goes in; the pair nearer the holes' axis is scored. A journal is in its hole when the cross's centre is between the ears' inner faces, the journal's tip is at least 1 mm past its ear's inner face, and the tip's centre is within 8 mm of the holes' axis (inside a hole it can be 6 mm off at most). Installed: both journals of the pair in their holes, each tip at least 3.5 mm past its ear's inner face (6.6 mm when centred, so within 3.1 mm of centred), and the pair within 5 degrees of the holes' axis. 1.0 when installed and still (under 1 cm/s and 0.5 rad/s) for 1 s, which ends the trial. Otherwise the last step scores 0.75 if installed, 0.5 if both journals are in their holes (off centre or turned), 0.25 if one is, else 0. A cross pushed deep into one ear with its other journal out scores 0.25; one on the ears' tops, outside the yoke or in the holder scores 0. The scorer does not see the grippers, so a cross held in place counts the same as one let go.",
+      "retrieval_score": 0.08309405834639162
+    }
+  ]
+}
