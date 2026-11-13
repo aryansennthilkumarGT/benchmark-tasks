@@ -27,3 +27,23 @@ Clean source4315875 with clean CPU harness06b8c7f completes brad acquisition, ex
 ## Actual free-pin capture failure and live slow closure
 
 Clean0d27a3b completes the formerly failing door reach/regrasp, then exhausts two bounded retries on phase30 crosspin grip.2614actions/130.7s, score0.5, no solver warnings, SDK velocity ratio0.7328. The initial finger contact rotates the unrestrained bail/lever and the frozen world target closes on empty space. The successor follows measured pin pose only during acquisition and closes at0.005normalized per tick (0.47mm jaw aperture per50ms). Actual nonempty-jaw, TCP, timeout and two-retry checks remain. All task mechanics/scoring are unchanged. Recorded early failed frames exercise live reference updating and the slower command bound, without claiming fresh physics success.
+
+
+## Actual live acquisition reaches a joint limit; radial closing repair
+
+Clean9307894 still fails phase30: following the displaced pin eventually reaches a robot joint limit at2065actions/103.25s, physical score0.5, no warnings. Slow live tracking alone did not repair the tangential first-pad impulse. The new grasp aligns the actual stock gripper closing axis with the bail/pin frame+X radius, with toolZ parallel to the vertical pin. A first normal force then acts toward the bail pivot instead of sweeping the pin around it. Slow closure, live measured reference, empty-jaw guard, retries and all scorer/geometry parameters remain. An actual-recorded fixture endpoint passes full stock-mesh50um clearance and has0.505rad joint margin; a180degree alternative had only0.106rad margin and was not selected. Full current-source dynamics is required; this static/replay result is not a success demonstration.
+
+
+The first radial orientation (zero in-plane flip) clears initial acquisition but fails the ideal phase33 circle at a wrist/rate constraint. It is excluded. The radial180degree flip preserves the same closing-force line and starts with0.106rad static joint margin; it is being tested across the entire controller before selection. Neither endpoint margin alone establishes a viable full path.
+
+
+The full ideal orientation screen excludes both zero-roll radial flips and eleven of twelve tested roll/flip combinations. Selected closing normal is radial with0.8rad roll about that normal and zero in-plane flip; it completes49ideal phases in2782actions. This retains a radial first-pad force while canting the approach to fit the robot wrists. The coupled-reference regression now uses the actual recorded released-pin state; the old force-rig nominal free-link orientation is different and is not a demonstrated native reset pose. Runtime pose feedback and future native qualification remain mandatory. A fresh exact-source full ideal/FK and actual robot run must validate this selected plan.
+
+
+## Full-path arm interference repair
+
+Selected radial0.8rad-roll plan completes2782ideal actions, but its first635-sample FK audit fails: link4 interference235um during pin approach and gripper interference255um near acquisition. The unchanged50um unintentional-contact gate correctly rejects it. The second door grasp moves7mm along the same original plate toward its hinge (localX25→18mm); initial door opening retains the proven25mm grasp. This separates the held left hand from the right pin hand without altering geometry or scoring. Door release opens at measured TCP, then withdraws along its actual tool axis. Full fresh ideal/FK and actual robot validation are required.
+
+## Preserved experiment — not qualified
+
+This radial-grasp/door-offset experiment passes ideal phase completion and unit checks but FAILS full FK collision QA: independently confirmed 207um interarm gripper overlap exceeds the unchanged50um bound. It must not be selected for GPU qualification or submission. Preserved to retain source/evidence rather than overwrite the published9307894 baseline. A static -0.03rad door-grasp cant screen is not a full-path repair and is not implemented here.

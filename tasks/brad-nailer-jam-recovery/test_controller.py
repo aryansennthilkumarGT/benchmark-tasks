@@ -47,8 +47,12 @@ def test_coupled_arc_does_not_overwrite_follower_with_earlier_world_hold():
  from yam_arena.demo import DOWN_GRIP
  from motion import rotate,multiply,conjugate,axis_quat
  f,c=fixture();phase=next(p for p in c.phases if p['label']=='Close door while carrying pin clear');index=c.phases.index(phase)
- js=c.phases[index-1]['nominal_joints'];bodies=c.phases[index-1]['nominal_bodies'];frame=dict(time=0.,bodies=bodies,joints=js)
- for side,name,local,tool in [('left','nose_door',[.025,0,-.022],multiply(bodies['nose_door']['quat'],multiply(conjugate(f.root['quat']),DOWN_GRIP))),('right','bail_crosspin',None,multiply(bodies['nose_door']['quat'],multiply(conjugate(f.root['quat']),axis_quat([1,0,0],-(np.pi/2+.5)))) )]:
+ # Use the actual recorded released-pin state. The historical force-rig
+ # nominal bail angle is a different unsupported free-link orientation;
+ # this unit tests coupled-reference ownership, not that nominal endpoint.
+ recorded=json.loads((HERE/'test_fixtures/pin-capture-keyframes.json').read_text())['frames'][0]
+ frame=copy.deepcopy(recorded['frame']);frame['time']=0.;bodies=frame['bodies'];js=frame['joints']
+ for side,name,local,tool in [('left','nose_door',c.phases[27]['reference_offset'],multiply(bodies['nose_door']['quat'],multiply(conjugate(f.root['quat']),DOWN_GRIP))),('right','bail_crosspin',None,multiply(bodies['nose_door']['quat'],multiply(conjugate(f.root['quat']),axis_quat([1,0,0],-(np.pi/2+.5)))) )]:
   b=bodies[name];position=np.array(b['pos'])+rotate(b['quat'],local) if local is not None else np.array(c.bind(c.phases[index-1],frame,f.q)['target']['pos'])
   if side=='right':tool=c.bind(c.phases[index-1],frame,f.q)['target']['quat']
   solved,pe,re=ik.solve(position,tool,q_init=READY,base_pos=station.BASES[side],iters=500,tol=1e-5);assert pe<.00003 and re<.0001
@@ -151,3 +155,21 @@ def test_pin_capture_tracks_actual_free_pin_motion_and_preserves_empty_jaw_guard
   previous=bound
   assert abs(action[13]-q[13])<=.005001
  assert displacement>p['position_tolerance'] and not c.done and c.index==30
+
+
+def test_crosspin_grasp_closes_radially_and_clears_actual_recorded_fixture():
+ from audit_geometry import geometry_module
+ from robot_geometry import arm_hulls,task_collisions
+ from yam_arena import ik,station
+ from motion import rotate,multiply
+ data=json.loads((HERE/'test_fixtures/pin-capture-keyframes.json').read_text());row=data['frames'][0]
+ f,c=fixture();p=next(p for p in c.phases if p['label']=='Grip outboard crosspin')
+ # Both pin and bail frames have+X along their common radial arm. A normal
+ # along this radius does not create the old tangential hinge torque.
+ assert abs(float(np.dot(rotate(p['reference_quat'],[1,0,0]),[1,0,0])))>.999999
+ approach=next(p for p in c.phases if p['label']=='Reach outboard crosspin')
+ target=c.bind(approach,row['frame'],np.array(row['robot_q']))['target']
+ q,pe,re=ik.solve(target['pos'],target['quat'],q_init=np.array(row['robot_q'][7:13]),base_pos=station.BASES['right'],iters=700,tol=1e-5)
+ assert pe<1e-5 and re<1e-4 and min(np.min(q-ik.LOWER),np.min(ik.UPPER-q))>.1
+ g=geometry_module(HERE)
+ assert task_collisions(g,arm_hulls('right',np.r_[q,approach['opening']]),f.spec,row['frame']['bodies'],threshold=.00005)==[]

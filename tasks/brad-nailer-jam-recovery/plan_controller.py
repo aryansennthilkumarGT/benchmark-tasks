@@ -11,6 +11,9 @@ import dimensions as D
 from motion import rotate,multiply,conjugate,axis_quat
 from kinematics import reconstruct
 HERE=Path(__file__).resolve().parent
+PIN_GRASP_FLIP=0.
+PIN_GRASP_ROLL=.8
+REGRASP_DOOR_LOCAL=[.018,0,-.022]
 
 
 def make_plan(spec):
@@ -21,7 +24,6 @@ def make_plan(spec):
  if not ref.get('passed') or ref.get('probe_source_sha256')!=hashlib.sha256((HERE/'probe_cycle_cpu.py').read_bytes()).hexdigest():raise ValueError('Failed or stale force-fixture reference source')
  opened=min(ref['checks'],key=lambda r:abs(r['time']-9))['joints']
  phases=[];down=np.array(DOWN_GRIP);side=np.array([-.5,-.5,-.5,.5]);base=np.array(root['quat'])
- right_pin=axis_quat([1,0,0],-(math.pi/2+.75))
  def states():return dict(**reconstruct(spec,root,js),**copy.deepcopy(free))
  def add(label,arm,target,opening=1.,body=None,width=0.,dwell=.15,speed=.05,**extra):
   phases.append(dict(label=label,side=arm,target=target,opening=opening,contact_body=body,grasp_width=width,
@@ -83,12 +85,14 @@ def make_plan(spec):
  # Use the same32.9mm entry aperture as the first successful door reach.
  # A5.6mm gap lets stock finger sidewalls push the freely hinged door before
  # capture. This is a manipulation repair, not reduced final grasp/scoring.
- grip('Approach open door again','left','nose_door',D.DOOR_GRIP,opened_tool,.35,away=.030)
- grip('Reach open door again','left','nose_door',D.DOOR_GRIP,opened_tool,.35)
- grip('Regrasp open nose door','left','nose_door',D.DOOR_GRIP,opened_tool,0.,.003,dwell=.35)
+ grip('Approach open door again','left','nose_door',REGRASP_DOOR_LOCAL,opened_tool,.35,away=.030)
+ grip('Reach open door again','left','nose_door',REGRASP_DOOR_LOCAL,opened_tool,.35)
+ grip('Regrasp open nose door','left','nose_door',REGRASP_DOOR_LOCAL,opened_tool,0.,.003,dwell=.35)
  # Crosspin orientation follows the door during the two-TCP carry. Its center
  # is accessible while it is outboard of the fixed capture arms.
- tool=multiply(states()['nose_door']['quat'],multiply(conjugate(base),right_pin))
+ # Close radially toward the bail pivot, so the first jaw does not sweep
+ # the freely hinged crosspin tangentially away from the opposing pad.
+ tool=multiply(states()['bail_crosspin']['quat'],multiply(axis_quat([0,0,1],PIN_GRASP_FLIP),axis_quat([1,0,0],PIN_GRASP_ROLL)))
  local=np.array([0,0,-.025])+rotate(multiply(conjugate(states()['bail_crosspin']['quat']),tool),[0,0,-.011])
  grip('Approach outboard crosspin','right','bail_crosspin',local,tool,.05,away=.015)
  grip('Reach outboard crosspin','right','bail_crosspin',local,tool,.05)
@@ -115,8 +119,8 @@ def make_plan(spec):
  add('Release engaged crosspin','right',dict(pos=[0,0,0],quat=down.tolist()),.05,release_current=True)
  add('Withdraw pin-guiding hand','right',dict(pos=[0,0,0],quat=down.tolist()),.05,withdraw_current=.015)
  park('right')
- grip('Release reseated door','left','nose_door',D.DOOR_GRIP,down,.35)
- grip('Withdraw door hand','left','nose_door',D.DOOR_GRIP,down,.35,away=.080)
+ add('Release reseated door','left',dict(pos=[0,0,0],quat=down.tolist()),.35,release_current=True)
+ add('Withdraw door hand','left',dict(pos=[0,0,0],quat=down.tolist()),.35,withdraw_current=.080)
  park('left')
  lever_tool=multiply(states()['latch_lever']['quat'],multiply(conjugate(base),down))
  grip('Approach partially closed lever','right','latch_lever',D.LEVER_GRIP,lever_tool,.05,away=.010)
