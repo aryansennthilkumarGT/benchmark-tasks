@@ -1,0 +1,57 @@
+{
+  "kind": "ACTUAL_CLEAN_HTTPS_CPU_REPRODUCTION",
+  "tested_source_commit": "2bf6f32aa623449a1c7c0ccc6352bb3dd3b6bb31",
+  "completed_utc": "2026-11-13T04:09:55.992676+00:00",
+  "source_manifest_sha256": "1a51fbfed500984d87d11b9fd99aa1fa8167dbcaf0cd159363f915c7d5f3d83b",
+  "tests": {
+    "passed": 27,
+    "failed": 0,
+    "skipped": 0
+  },
+  "independent_https_clone": true,
+  "clean_git_status": true,
+  "physics_executed": false,
+  "grasps_validated": false,
+  "model_evaluations": 0,
+  "media_uploads": 0,
+  "log_sha256": "0279c7d1f17537e7bc16f3e62f7dc6caaf4f0e53e24a4488ce54dc41da245c77",
+  "audit_reports": [
+    {
+      "kind": "OFFLINE_COMPOSED_USD",
+      "path": "01-offline_composed_usd.json",
+      "sha256": "a31825eda3366ece32c053b0c7606de5642801af198346a107bc2ba6701bc930",
+      "checks": 6
+    },
+    {
+      "kind": "OFFLINE_IK_WAYPOINTS_ONLY",
+      "path": "02-offline_ik_waypoints_only.json",
+      "sha256": "027a625f9508e485c481451ba3458f7dc20f4aca6d9fa2b6e83708082d432115",
+      "checks": 299
+    },
+    {
+      "kind": "OFFLINE_NOMINAL_GEOMETRY",
+      "path": "03-offline_nominal_geometry.json",
+      "sha256": "b1d682f54a47cb52ebf53ba3729a0fa41a6879aa8074c8cc541897742293aeb1",
+      "checks": 3
+    },
+    {
+      "kind": "OFFLINE_IDEAL_JOINT_TRACKING_WITH_SYNTHETIC_CONTACT_APERTURES",
+      "path": "04-offline_ideal_joint_tracking_with_synthetic_contact_apertures.json",
+      "sha256": "ed8e4c7a29e0e53343b9168ab1c07ad7e5fb53cc9402c22a72870ccd35389ae9",
+      "checks": 0
+    },
+    {
+      "kind": "OFFLINE_ALL_ENDPOINT_COLLISION_SAMPLES",
+      "path": "05-offline_all_endpoint_collision_samples.json",
+      "sha256": "3b85cfcad09dca0a376a52eafe799e38917fdb8279ca3b1f995f1056a123e755",
+      "checks": 299
+    },
+    {
+      "kind": "OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS",
+      "path": "06-offline_actual_controller_fk_path_ideal_grasps.json",
+      "sha256": "31ccd253368aebb29cd747f732f646dbec037e37548d111505f1e2ccc5ff446f",
+      "checks": 639
+    }
+  ],
+  "ready_for_submission": false
+}
