@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "status": "GROUNDED_ACTIVE_IMPLEMENTATION_NOT_QUALIFIED",
+  "occupation": {
+    "soc": "47-2031",
+    "name": "Carpenters",
+    "employment": 889700,
+    "year": 2025,
+    "quote": "Carpenters held about 889,700 jobs in 2025.",
+    "core_tool_quote": "They use handtools, including squares, levels, and chisels, as well as many power tools, such as sanders, circular saws, nail guns, and welding machines.",
+    "not_claimed": "No estimate of workers using this exact model or jam-clearing frequency."
+  },
+  "manufacturer": {
+    "url": "https://assets.dewalt.com/GLOBALBOM/QU/DCN680B/1/Instruction_Manual/EN/N496636_DCN680.pdf",
+    "sha256": "359abf5c95fc5f1d9ca5e9af53f288da7017467baba5fba6684d60240570c786",
+    "printed_page": 12,
+    "pdf_page": 14,
+    "figure": "J",
+    "steps": {
+      "3": "Lift the jam clear latch then pull up to open the nosepiece door.",
+      "4": "Remove bent nail, using pliers if necessary.",
+      "5": "If driver blade is in the down position, cycle the stall release lever.",
+      "6": "Close the nosepiece door and engage the latch pin under the two arms on the nosepiece. Push latch until it locks in place."
+    }
+  },
+  "occupational_sources": [
+    {
+      "name": "onet",
+      "url": "https://www.onetonline.org/link/summary/47-2031.00",
+      "status": 200,
+      "sha256": "519df245530d7d5ced34dce288aa2fbe21db72531b33df2d6025dfe448a33b75",
+      "bytes": 219983
+    },
+    {
+      "name": "bls",
+      "url": "https://www.bls.gov/ooh/construction-and-extraction/carpenters.htm",
+      "status": 200,
+      "sha256": "5c0598a63b9f656e56e303a7f7388e6f3869264c298a72e150690a6549a847ca",
+      "bytes": 114726
+    },
+    {
+      "name": "niosh",
+      "url": "https://www.cdc.gov/niosh/docs/2011-202/pdfs/2011-202.pdf",
+      "status": 200,
+      "sha256": "80ef89c9326b0971b2eeeef33efc2927d8554444e0e385d39ba5e24fe5c45f83",
+      "bytes": 1660671
+    }
+  ],
+  "bounded_scope": "Battery removed, trigger locked, magazine unloaded, driver already retracted. Lift latch/open door, extract a physically trapped pre-bent brad, close door and capture the bail pin under both arms, lock lever. No firing, driver reset, battery service or magazine refill.",
+  "geometry_provenance": "Original benchmark-authored fixture geometry, joints/compliance/material/mass. Manufacturer does not document working dimensions or forces here. External door/lever/bail-pin/two-arm topology follows FigJ; effective elastic draw link is an explicit authored compliance surrogate, not a claim about hidden OEM internals.",
+  "orientation": "Tool on its side; firing/nail axis+X away from robots, service normal-Y. Proper service-frame rotation is180deg aboutX; hinges open sideways in world coordinates.",
+  "novelty": {
+    "nearest_pr": 1467,
+    "comparison": "Existing nailer task puts an unloaded rigid nailer in a case while avoiding pointing/trigger hazards; it has no jam clearing, nose door, articulated bail or fastener extraction.",
+    "accepted_comparator": "detent-latch-bottle: related clasp/lid mechanics, different release goal. A generic clasp-only fixture is insufficient: implement real trapped bent-brad geometry and two-arm pin capture as essential physical constraints.",
+    "inventory": "Scoped accessible public queries/catalog only; final review still required."
+  },
+  "native_physics": "NOT_RUN",
+  "robot_expert": "NOT_RUN",
+  "dream": "NOT_RUN"
+}
