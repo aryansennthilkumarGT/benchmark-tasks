@@ -29,7 +29,7 @@ def robot_sources():
  return {str(p.relative_to(YAM_URDF.parents[2])) if p.is_relative_to(YAM_URDF.parents[2]) else p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(paths))}
 
 
-def add_robots(root,*,contact_friction=.5):
+def add_robots(root,*,contact_friction=.5,contact_timeconstant=.0022):
  """Add two independently actuated official chains to an existing MJCF tree."""
  urdf=ET.parse(YAM_URDF).getroot();links={n.get('name'):n for n in urdf.findall('link')};children={}
  for j in urdf.findall('joint'):children.setdefault(j.find('parent').get('link'),[]).append(j)
@@ -63,7 +63,7 @@ def add_robots(root,*,contact_friction=.5):
    path=(YAM_URDF.parent/m.get('filename')).resolve();scale=m.get('scale','1 1 1');key=(path,scale)
    if key not in meshes:
     meshname='official_yam_'+str(len(meshes));ET.SubElement(asset,'mesh',name=meshname,file=str(path),scale=scale,maxhullvert='-1');meshes[key]=meshname
-   o=c.find('origin');ET.SubElement(node,'geom',name=side+'_'+name+'_'+str(index),type='mesh',mesh=meshes[key],pos=fmt(xyz(o,'xyz')),quat=fmt(wxyz(rpy_matrix(xyz(o,'rpy')))),contype='2' if side=='left' else '4',conaffinity='5' if side=='left' else '3',friction=fmt([contact_friction,0,0]),density='0',margin='.00002',gap='.00002')
+   o=c.find('origin');ET.SubElement(node,'geom',name=side+'_'+name+'_'+str(index),type='mesh',mesh=meshes[key],pos=fmt(xyz(o,'xyz')),quat=fmt(wxyz(rpy_matrix(xyz(o,'rpy')))),contype='2' if side=='left' else '4',conaffinity='5' if side=='left' else '3',friction=fmt([contact_friction,0,0]),density='0',margin='.00002',gap='.00002',solref=fmt([contact_timeconstant,1.]),solmix='1000000')
   for j in children.get(name,[]):descend(node,j.find('child').get('link'),side,j)
  for side in ('left','right'):descend(world,'base',side)
  return root
