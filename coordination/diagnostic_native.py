@@ -21,9 +21,25 @@ def diagnostic_controller_state(controller):
     value = dict(
         phase_index=index,
         phase_label=(controller.phases[index]['label'] if index < len(controller.phases) else 'complete'),
-        thread_state=controller.thread,
+        thread_state=getattr(controller,'thread',None),
+        context=getattr(controller,'context',None),
     )
     return json.loads(json.dumps(value, default=lambda value: np.asarray(value).tolist(), allow_nan=False))
+
+
+def sdk_sample(names, velocities, efforts, settings):
+    """SI actuator samples, preserving SDK finger force/linear-speed units."""
+    if len(names)!=len(set(names)) or set(names)!=set(settings):
+        raise ValueError('Native robot joints differ from the pinned SDK')
+    velocities=np.asarray(velocities,dtype=float);efforts=np.asarray(efforts,dtype=float)
+    if velocities.shape!=(len(names),) or efforts.shape!=velocities.shape or not np.isfinite(velocities).all() or not np.isfinite(efforts).all():
+        raise ValueError('Nonfinite or malformed native actuator telemetry')
+    limits=np.array([[settings[n]['velocity'],settings[n]['effort']] for n in names],dtype=float)
+    if not np.isfinite(limits).all() or np.any(limits<=0):raise ValueError('Invalid SDK limits')
+    velocity_ratio=float(np.max(np.abs(velocities)/limits[:,0]));effort_ratio=float(np.max(np.abs(efforts)/limits[:,1]))
+    return dict(joint_names=list(names),joint_vel_SI=velocities.tolist(),applied_effort_SI=efforts.tolist(),
+                sdk_limits_SI=limits.tolist(),maximum_velocity_ratio=velocity_ratio,maximum_effort_ratio=effort_ratio,
+                passed=velocity_ratio<=1.001 and effort_ratio<=1.001)
 
 
 def completed_report(path, mode, commit):
@@ -63,9 +79,11 @@ def main():
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--case', action='append', default=[])
     parser.add_argument('--render-every', type=int, choices=(1, 4), default=4)
-    parser.add_argument('--expected-physics-hz', type=int, choices=(240, 480), default=240)
+    parser.add_argument('--expected-physics-hz', type=int, choices=(240, 480, 960, 1920), default=240)
     parser.add_argument('--contact-pairs', action='store_true',
                         help='Record actual robot and task-body native contact forces every five controls')
+    parser.add_argument('--fail-fast', action='store_true', help='Forward first-failure stop to the frozen native runner')
+    parser.add_argument('--sdk-limits', action='store_true', help='Record SI velocity/effort and stop observed SDK violations at20Hz; not substep certification')
     parser.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
     parser.add_argument('--device', choices=('cuda:0', 'cpu'), default='cuda:0',
                         help='Explicit supported native PhysX device; RTX rendering remains enabled')
@@ -103,6 +121,9 @@ def main():
         'render_every_control_steps': args.render_every,
         'wrapper_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         'native_script_sha256': hashlib.sha256(script.read_bytes()).hexdigest(),
+        'sdk_sampling_hz':20 if args.sdk_limits else None,
+        'sdk_continuous_substep_monitor':False,
+        'sdk_maximum_velocity_ratio':0.,'sdk_maximum_effort_ratio':0.,
         'resets': [],
     }
     atomic(receipt, metadata)
@@ -180,6 +201,25 @@ def main():
         submitted_action = np.asarray(submitted.data).tolist()
         result = original_step(embodiment, *step_args, **step_kwargs)
         control_steps += 1
+        if args.sdk_limits:
+            from yam_arena.constants import ARM_JOINTS,FINGER_JOINTS,SHOULDER,WRIST,GRIPPER
+            settings={n:(SHOULDER if i<3 else WRIST) for i,n in enumerate(ARM_JOINTS)}
+            settings.update({n:GRIPPER for n in FINGER_JOINTS})
+            runtime=importlib.import_module(embodiment.task.module._name+'.arena_runtime')
+            base=embodiment._env.unwrapped
+            records={}
+            for side in ('left','right'):
+                asset=base.scene[side+'_robot']
+                records[side]=sdk_sample(list(asset.joint_names),runtime.array(asset.data.joint_vel)[0],
+                                         runtime.array(asset.data.applied_torque)[0],settings)
+            row={'reset_index':len(metadata['resets'])-1,'control_step':control_steps,
+                 'time':float(result.observation.state_time),'robot_sdk_samples':records}
+            with (args.output/'native-sdk-samples.jsonl').open('a') as stream:stream.write(json.dumps(row,allow_nan=False)+'\n')
+            metadata['sdk_maximum_velocity_ratio']=max(metadata['sdk_maximum_velocity_ratio'],*(v['maximum_velocity_ratio'] for v in records.values()))
+            metadata['sdk_maximum_effort_ratio']=max(metadata['sdk_maximum_effort_ratio'],*(v['maximum_effort_ratio'] for v in records.values()))
+            if not all(v['passed'] for v in records.values()):
+                metadata['sdk_violation']=row;atomic(receipt,metadata)
+                raise ValueError('Observed native actuator velocity/effort exceeds SDK limit; see native-sdk-samples.jsonl')
         metadata['resets'][-1]['control_steps_completed'] = control_steps
         if control_steps < 20:
             metadata['resets'][-1]['camera_frame_end'] = camera_frames(embodiment._env.unwrapped)
@@ -224,6 +264,7 @@ def main():
                 '--output', str(args.output), '--worker']
     for name in args.case:
         sys.argv.extend(['--case', name])
+    if args.fail_fast:sys.argv.append('--fail-fast')
     try:
         runpy.run_path(str(script), run_name='__main__')
     finally:

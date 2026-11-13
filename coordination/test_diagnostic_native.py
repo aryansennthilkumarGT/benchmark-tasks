@@ -3,7 +3,8 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from diagnostic_native import completed_report, observed_cadence
+from diagnostic_native import completed_report, observed_cadence, sdk_sample, diagnostic_controller_state
+from types import SimpleNamespace
 
 
 class DiagnosticReportTests(unittest.TestCase):
@@ -48,3 +49,20 @@ class CameraCadenceTests(unittest.TestCase):
             record = dict(control_steps_completed=2, camera_samples=[],
                           camera_frame_start=dict(front=4), camera_frame_end=dict(front=final))
             self.assertFalse(observed_cadence(dict(resets=[record], render_every_control_steps=4)))
+
+
+class NativeSDKTelemetryTests(unittest.TestCase):
+    def test_named_limits_keep_linear_finger_units_and_joint_order(self):
+        settings={'wrist':{'velocity':20.,'effort':7.},'finger':{'velocity':.146,'effort':50.}}
+        sample=sdk_sample(['finger','wrist'],[.1,10.],[30.,5.],settings)
+        self.assertTrue(sample['passed']);self.assertAlmostEqual(sample['maximum_velocity_ratio'],.1/.146)
+        self.assertAlmostEqual(sample['maximum_effort_ratio'],5./7.)
+    def test_violation_nonfinite_and_unknown_joints_are_not_hidden(self):
+        settings={'joint':{'velocity':2.,'effort':7.}}
+        for speed,effort in [(2.1,1.),(1.,7.1)]:self.assertFalse(sdk_sample(['joint'],[speed],[effort],settings)['passed'])
+        for names,vel,effort in [(['wrong'],[0.],[0.]),(['joint'],[float('nan')],[0.]),(['joint'],[0.],[])]:
+            with self.assertRaises(ValueError):sdk_sample(names,vel,effort,settings)
+    def test_cargo_and_nailer_do_not_require_er_thread_state(self):
+        c=SimpleNamespace(index=1,phases=[{'label':'a'},{'label':'b'}],context={'arc_reference':.3})
+        result=diagnostic_controller_state(c);self.assertIsNone(result['thread_state'])
+        self.assertEqual(result['context']['arc_reference'],.3);self.assertEqual(result['phase_label'],'b')
