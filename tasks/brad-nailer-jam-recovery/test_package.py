@@ -28,3 +28,16 @@ def test_runtime_identity_rejects_changed_controller_code_and_assets(tmp_path):
 def test_gpu_and_model_evidence_is_honestly_unexecuted():
  v=json.loads((HERE/'validation.json').read_text());assert v['ready'] is False and v['native_physics']=='NOT_RUN' and v['robot_control']=='NOT_RUN'
  assert not v['expert_scores'] and v['dream_score'] is None and v['media_uploads']==0
+
+def test_native_camera_helper_exists_and_initial_layout_is_inside_calibrated_frustum():
+ from audit_control import camera_coverage
+ coverage=camera_coverage(json.loads((HERE/'scene.json').read_text()))
+ assert coverage and all(c['visible'] for c in coverage.values())
+
+def test_native_final_prefix_stops_on_physical_success_before_conservative_dwell_ends():
+ from types import SimpleNamespace
+ from native_tests import control_complete
+ case=dict(through_phase=48,stop_on_success=True);controller=SimpleNamespace(index=48)
+ assert control_complete(case,controller,SimpleNamespace(success=True))
+ assert not control_complete(case,controller,SimpleNamespace(success=False))
+ assert not control_complete(dict(through_phase=48),controller,SimpleNamespace(success=True))

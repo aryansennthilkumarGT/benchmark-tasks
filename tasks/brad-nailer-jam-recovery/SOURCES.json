@@ -21,7 +21,15 @@
       "4": "Remove bent nail, using pliers if necessary.",
       "5": "If driver blade is in the down position, cycle the stall release lever.",
       "6": "Close the nosepiece door and engage the latch pin under the two arms on the nosepiece. Push latch until it locks in place."
-    }
+    },
+    "reference_fastener_lengths_mm": [
+      16,
+      54
+    ],
+    "reference_length_quote": "Straight Nail Lengths 5/8\" - 2 1/8\" (16 mm - 54 mm)",
+    "fixture_brad_length": "50mm authored stem (51.5mm bent-fastener longitudinal envelope), selected within supported range; not an OEM measured part",
+    "reference_lengths_pdf_page": 11,
+    "reference_lengths_printed_page": 9
   },
   "occupational_sources": [
     {
@@ -57,5 +65,10 @@
   },
   "native_physics": "NOT_RUN",
   "robot_expert": "NOT_RUN",
-  "dream": "NOT_RUN"
+  "dream": "NOT_RUN",
+  "software_units_reference": {
+    "url": "https://openusd.org/release/api/class_usd_physics_drive_a_p_i.html",
+    "sha256": "604d9f2d6dbdb3a7c93c2f81b6ae88bba241ce5374b711f13d1d562642c8965e",
+    "basis": "Angular stiffness and damping are per degree; scene.json and Isaac actuator configuration use per radian. USD coefficients=SI/(180/pi). This is software unit documentation, not manufacturer hardware evidence."
+  }
 }

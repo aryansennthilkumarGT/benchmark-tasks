@@ -5,7 +5,7 @@ brad settling into its tray are ideal assumptions. Passive opening bail angles
 are interpolated from the separately labelled CPU test rig. None of these
 operations are available to the native expert or scorer.
 """
-import copy,json,math
+import copy,json,math,hashlib
 from pathlib import Path
 import numpy as np
 from yam_arena import ik,station
@@ -17,6 +17,7 @@ from kinematics import reconstruct
 class IdealFixture:
  def __init__(self,folder):
   self.folder=folder;self.spec=json.loads((folder/'scene.json').read_text());self.plan=json.loads((folder/'controller.json').read_text())
+  if self.plan.get('reference_sha256')!=hashlib.sha256((folder/'guided-cycle-reference.json').read_bytes()).hexdigest():raise ValueError('Controller/reference source mismatch; regenerate the plan')
   self.q=np.tile(np.r_[READY,1.],2);self.js=self.spec['initial_joint_values'].copy();self.time=0.;self.held={};self.residual=0.;self.previous=None
   defs={b['name']:b for a in self.spec['assemblies'] for b in a['bodies']};self.root=copy.deepcopy({k:defs['nose_body'][k] for k in ('pos','quat')})
   self.free={n:copy.deepcopy({k:defs[n][k] for k in ('pos','quat')}) for n in ('bent_brad','parts_tray')}

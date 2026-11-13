@@ -64,3 +64,33 @@ def test_original_usd_assets_rebuild_byte_for_byte(tmp_path):
  compile_assets(SPEC,tmp_path)
  for a in SPEC['assemblies']:
   name=a['name']+'.usda';assert (tmp_path/name).read_bytes()==(HERE/'assets'/name).read_bytes()
+
+def test_scoring_hook_planes_match_actual_capture_solids():
+ arms=SPEC['parameters']['hook_arms'];root=SPEC['assemblies'][0]['bodies'][0]
+ for z in arms['z_planes']:
+  shapes=[s for s in root['shapes'] if s['kind']=='box' and s['pos'][2]==z and s['size'][2]==.003]
+  lip=next(s for s in shapes if s['size'][0]==.0065);rear=next(s for s in shapes if s['size'][0]==.002)
+  assert np.isclose(lip['pos'][1]-lip['size'][1]/2,arms['lip_under_y'])
+  assert np.isclose(lip['pos'][0]+lip['size'][0]/2,arms['front_edge_x'])
+  assert np.isclose(rear['pos'][0]+rear['size'][0]/2,arms['rear_inner_x'])
+ assert np.isclose(arms['lip_under_y']-.0011-.005-.0011,.001)
+
+def test_usd_joint_frames_limits_and_drive_units_match_declared_si_parameters():
+ from motion import conjugate,multiply,axis_quat,qangle
+ defs={b['name']:b for a in SPEC['assemblies'] for b in a['bodies']}
+ for a in SPEC['assemblies']:
+  stage=Usd.Stage.Open(str(HERE/'assets'/(a['name']+'.usda')))
+  for j in a['joints']:
+   prim=stage.GetPrimAtPath('/Asset/'+j['name']);joint=UsdPhysics.Joint(prim);parent=defs[j['parent']];child=defs[j['child']]
+   assert np.allclose(joint.GetLocalPos0Attr().Get(),j['pivot_parent'],atol=1e-8)
+   assert np.allclose(joint.GetLocalPos1Attr().Get(),j['pivot_child'],atol=1e-8)
+   first=np.asarray(parent['pos'])+rotate(parent['quat'],joint.GetLocalPos0Attr().Get());second=np.asarray(child['pos'])+rotate(child['quat'],joint.GetLocalPos1Attr().Get());axis={'X':[1,0,0],'Y':[0,1,0],'Z':[0,0,1]}[j['axis']]
+   expected=rotate(parent['quat'],np.asarray(axis)*j['initial']) if j['kind']=='prismatic' else np.zeros(3)
+   assert np.allclose(second-first,expected,atol=2e-8)
+   unit=180/math.pi if j['kind']=='revolute' else 1.;kind='angular' if j['kind']=='revolute' else 'linear';drive=UsdPhysics.DriveAPI(prim,kind)
+   assert np.isclose(drive.GetStiffnessAttr().Get()*unit,j['stiffness'],rtol=1e-6,atol=1e-10)
+   assert np.isclose(drive.GetDampingAttr().Get()*unit,j['damping'],rtol=1e-6,atol=1e-10)
+   assert np.isclose(drive.GetTargetPositionAttr().Get()/unit,j['rest'],atol=1e-9)
+   limit=UsdPhysics.RevoluteJoint(prim) if j['kind']=='revolute' else UsdPhysics.PrismaticJoint(prim)
+   assert np.isclose(limit.GetLowerLimitAttr().Get()/unit,j['lower'],atol=2e-7)
+   assert np.isclose(limit.GetUpperLimitAttr().Get()/unit,j['upper'],atol=2e-7)

@@ -15,7 +15,7 @@ def main():
  env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1')
  env.pop('ROBOCURVE_IDEAL_PROGRESS',None)
  commands=[('pytest',[sys.executable,'-m','pytest','-q',str(HERE)])]
- for name in ('provenance.py','verify_assets.py','audit_geometry.py','mechanism_cpu.py','cpu_native_cases.py','probe_cycle_cpu.py','audit_controller.py'):commands.append((name,[sys.executable,str(HERE/name)]))
+ for name in ('provenance.py','verify_assets.py','audit_control.py','audit_geometry.py','mechanism_cpu.py','cpu_native_cases.py','probe_cycle_cpu.py','audit_controller.py'):commands.append((name,[sys.executable,str(HERE/name)]))
  commands.append(('audit_path.py',[sys.executable,str(HERE/'audit_path.py'),str(out/'audit_controller.py.log')]))
  rows=[]
  for name,cmd in commands:

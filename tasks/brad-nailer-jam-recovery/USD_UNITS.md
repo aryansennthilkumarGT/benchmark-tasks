@@ -1,0 +1,3 @@
+# Angular drive units
+
+Primary API reference: https://openusd.org/release/api/class_usd_physics_drive_a_p_i.html (recorded in SOURCES.json). Angular USD stiffness and damping use degrees in their denominator; scene.json and Isaac implicit-actuator parameters use radians. The exporter divides angular stiffness and damping by180/pi. Angular targets and limits multiply by180/pi. Linear quantities are unchanged. The actual USD-attribute test checks all joints, local frames, limits and drive coefficients; native SI actuator configuration retains the unconverted scene values. No native result is inferred from this contract test.

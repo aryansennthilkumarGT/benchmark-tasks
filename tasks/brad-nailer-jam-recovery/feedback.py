@@ -1,11 +1,11 @@
-"""SAC-independent original nailer expert, native feedback, 14 robot actions.
+"""Original nailer expert, native feedback, 14 robot actions.
 
 No pose setters, attachments, task-joint commands, score access or virtual latch.
 Circular motions retain the acquired TCP/body transform. Coupled motions solve
 both FK targets before emitting a command and halve the physical arc increment
 when either arm cannot meet its limit/rate. No Cartesian hinge chord shortcuts.
 """
-import copy,math
+import copy,math,hashlib,json
 import numpy as np
 try:
  from .motion import Motion,ControlFailure,rotate,multiply,conjugate,axis_quat,qangle
@@ -16,7 +16,10 @@ except ImportError:
 
 
 class Controller:
- def __init__(self,plan,spec):self.phases=plan['phases'];self.spec=spec;self.reset()
+ def __init__(self,plan,spec):
+  identity=hashlib.sha256(json.dumps(spec,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+  if plan.get('scene_content_sha256')!=identity:raise ControlFailure('Controller plan belongs to a different scene; regenerate it after physical edits')
+  self.phases=plan['phases'];self.spec=spec;self.reset()
  def reset(self):
   self.index=0;self.done=False;self.failed=None;self.events=[];self.last_time=None;self.actions=0
   self.motion={s:Motion(s) for s in ('left','right')};self.targets={};self.context={}
@@ -113,10 +116,12 @@ class Controller:
   return metric<1e-9,metric
  def start_recovery(self,p,now,q):
   if not p['label'].startswith(('Grip','Regrasp')):self.fail('Motion/physical-feedback stall: '+p['label'])
+  off=0 if p['side']=='left' else 7;width=p.get('grasp_width',0.)
+  if q[off+6]>width/.0939+.04:self.fail('Unexpected wide obstruction; stop before reacquiring')
   attempt=self.attempts.get(self.index,0)+1
   if attempt>2:self.fail('Grip recovery attempts exhausted')
   self.attempts[self.index]=attempt
-  retry=copy.deepcopy(self.targets[p['side']]);retry.pop('arc',None);retry['opening']=.55;retry['grasp_width']=0.;retry['dwell']=.2
+  retry=copy.deepcopy(self.targets[p['side']]);retry.pop('arc',None);retry['opening']=(width+.002)/.0939;retry['grasp_width']=0.;retry['dwell']=.2
   retry['target']['pos']=(np.asarray(retry['target']['pos'])+rotate(retry['target']['quat'],[0,0,-.006])).tolist()
   self.recovery=dict(target=retry,started=now,stable=None);self.events.append(dict(event='OPEN_BACKOFF_REACQUIRE',phase=self.index,attempt=attempt,time=now))
  def step(self,joints,frame):

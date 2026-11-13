@@ -19,6 +19,12 @@ import numpy as np
 HERE=Path(__file__).resolve().parent
 
 
+def control_complete(case,controller,result):
+    # The environment terminates on physical full score, which can precede a
+    # conservative final dwell in the controller. Never step a finished trial.
+    return controller.index>case['through_phase'] or (case.get('stop_on_success',False) and result.success)
+
+
 def save(path,value):
     temporary = path.with_suffix('.tmp')
     temporary.write_text(json.dumps(value, indent=2, allow_nan=False) + '\n')
@@ -188,7 +194,12 @@ def main():
                             action=controller.step(observation.state['joint_pos'],runtime.LATEST)
                             result=embodiment.step(Action(data=action));observation=result.observation
                             checks(case.get('continuous_assertions',[]),frame,runtime.LATEST,module.EVALUATOR.result)
-                            if controller.index>prefix:break
+                            if module.EVALUATOR.result.failure is not None:raise AssertionError('Native physical invalidation: '+module.EVALUATOR.result.failure)
+                            if control_complete(case,controller,module.EVALUATOR.result):
+                                row['control_stop_reason']='physical_success' if module.EVALUATOR.result.success else 'prefix_completed'
+                                row['controller_phase_at_stop']=controller.index
+                                break
+                            if result.terminated:raise AssertionError('Native environment terminated before the requested control goal')
                         else:raise AssertionError('Robot control prefix exceeded test action limit')
                         save(args.output/f'{case["name"]}-{repeat}-events.json',controller.events)
                     final=copy.deepcopy(runtime.LATEST)

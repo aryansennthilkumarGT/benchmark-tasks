@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "mode": "BENCHMARK_AUTHORED",
-  "scene_sha256": "6e582837e3e937be2f0dd77906f001e626d9d3f661ba9abf0e0167a64ebe57ee",
+  "scene_sha256": "0de827b14d9ea80d8f490b60047f72b1c61f0106233c35b565e1173a10d4d74d",
   "entries": [
     {
       "pointer": "",
@@ -301,6 +301,18 @@
       "category": "DERIVED",
       "basis": "Computed from explicitly authored geometry.",
       "derivation": "mass_properties.py: density-weighted box/cylinder/closed-convex moments; parallel-axis composition; normalized to independently authored total mass; principal eigenframe. Overlapping components count twice; not boolean CAD or weighing."
+    },
+    {
+      "pointer": "/parameters/loaded_pin_local",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored geometry.",
+      "derivation": "X=authored rear abutment+pin radius; Y=hook lip underside-pin radius; Z=0"
+    },
+    {
+      "pointer": "/parameters/hook_arms",
+      "category": "DERIVED",
+      "basis": "Computed from explicitly authored geometry.",
+      "derivation": "Actual capture-arm primitive face coordinates and z center planes from generate_scene.py"
     },
     {
       "pointer": "/parameters/draw_length",

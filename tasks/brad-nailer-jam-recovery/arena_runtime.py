@@ -219,10 +219,12 @@ def install(spec, scorer, here):
             # This scorer uses per-link articulation state collected after the real action.
             record(collect(self))
             result = scorer.result
+            from .native_feedback import termination_for
+            terminated,reason=termination_for(result)
             return module.StepResult(
                 observation=self._observation(),
-                terminated=result.success,
-                termination_reason='success' if result.success else None,
+                terminated=terminated,
+                termination_reason=reason,
                 info={'success': result.success, 'score': result.score},
             )
         cls.reset, cls._task_step = reset, task_step

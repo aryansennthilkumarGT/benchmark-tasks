@@ -23,8 +23,8 @@ def test_missing_native_body_fails_without_advancing_phase():
  assert c.index==i and not c.done
 
 def test_empty_jaw_cannot_satisfy_acquisition_and_recovery_is_bounded():
- f,c=fixture();p=next(p for p in c.phases if p['label']=='Grip latch lever');c.index=c.phases.index(p);c.targets['right']=copy.deepcopy(p)
- c.start_recovery(p,0.,f.q);assert c.recovery['target']['opening']==.55
+ f,c=fixture();p=next(p for p in c.phases if p['label']=='Grip latch lever');c.index=c.phases.index(p);c.targets['right']=copy.deepcopy(p);f.q[13]=0.
+ c.start_recovery(p,0.,f.q);assert np.isclose(c.recovery['target']['opening'],(.002+.002)/.0939)
  c.recovery=None;c.start_recovery(p,1.,f.q);c.recovery=None
  with pytest.raises(ControlFailure,match='exhausted'):c.start_recovery(p,2.,f.q)
  assert c.attempts[c.index]==2
@@ -63,3 +63,28 @@ def test_passive_opening_model_uses_the_complete_source_bound_door_trace():
  f,c=fixture();assert f.door_opening[0]['joints']['door_rotation']<.01
  assert f.door_opening[-1]['joints']['door_rotation']>1.85
  assert f.door_opening[-1]['joints']['bail_rotation']-f.door_opening[0]['joints']['bail_rotation']>.3
+
+def test_wide_obstruction_stops_before_an_unsafe_reacquire():
+ f,c=fixture();p=next(p for p in c.phases if p['label']=='Grip latch lever');c.index=c.phases.index(p);c.targets['right']=copy.deepcopy(p)
+ with pytest.raises(ControlFailure,match='wide obstruction'):c.start_recovery(p,0.,f.q)
+ assert c.recovery is None
+
+def test_opening_reference_covers_full_requested_lever_stroke():
+ f,c=fixture();requested=next(p for p in c.phases if p['label']=='Lift jam-clear lever')['arc']['angle'];angles=[r['joints']['lever_rotation'] for r in f.opening]
+ assert min(angles)-.0001<=requested<=max(angles)+.0001
+
+def test_stale_plan_cannot_control_changed_geometry():
+ f=IdealFixture(HERE);modified=copy.deepcopy(f.spec);modified['parameters']['draw_rest']+=.001
+ with pytest.raises(ControlFailure,match='different scene'):Controller(f.plan,modified)
+
+def test_changed_physical_reference_cannot_be_reused_with_an_old_plan(tmp_path):
+ for name in ['scene.json','controller.json','guided-cycle-reference.json']:(tmp_path/name).write_bytes((HERE/name).read_bytes())
+ p=tmp_path/'guided-cycle-reference.json';data=json.loads(p.read_text());data['checks'][0]['joints']['lever_rotation']+=.5;p.write_text(json.dumps(data))
+ with pytest.raises(ValueError,match='reference source mismatch'):IdealFixture(tmp_path)
+
+def test_plan_generation_preserves_the_physical_reset_specification():
+ from plan_controller import make_plan
+ import hashlib
+ spec=json.loads((HERE/'scene.json').read_text());before=copy.deepcopy(spec);plan=make_plan(spec)
+ assert spec==before
+ assert plan['scene_content_sha256']==hashlib.sha256(json.dumps(before,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()

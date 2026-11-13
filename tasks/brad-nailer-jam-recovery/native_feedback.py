@@ -6,6 +6,13 @@ robot joint/gripper actions. Missing/stale telemetry fails instead of substituti
 nominal part poses. No simulator state is written.
 """
 import json
+
+
+def termination_for(result):
+    """Permanent invalidation ends futile simulation/model spending at zero."""
+    if result.success:return True,'success'
+    if result.failure is not None:return True,'invalid_physical_state'
+    return False,None
 from pathlib import Path
 
 class NativeFrameReader:

@@ -19,12 +19,18 @@
         {
           "kind": "score",
           "max": 0
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
       ]
     },
@@ -42,12 +48,18 @@
           "joint": "door_rotation",
           "min": -0.005,
           "max": 0.005
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
       ],
       "forces": [
@@ -76,12 +88,18 @@
           "body": "bent_brad",
           "min": 0,
           "max": 0.012
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
       ],
       "forces": [
@@ -110,12 +128,18 @@
           "body": "bent_brad",
           "min": 0,
           "max": 0.012
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
       ],
       "forces": [
@@ -144,12 +168,18 @@
           "joint": "door_rotation",
           "min": 0.2,
           "max": 2.05
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
       ],
       "initialize_joints": [
@@ -180,6 +210,57 @@
           ]
         }
       ]
+    },
+    {
+      "name": "unactuated_open_door_hold",
+      "steps": 60,
+      "settle_steps": 0,
+      "initialize_joints": [
+        {
+          "assembly": "nose_service_asset",
+          "joint": "door_rotation",
+          "value": 1.9
+        },
+        {
+          "assembly": "nose_service_asset",
+          "joint": "lever_rotation",
+          "value": -2.1
+        },
+        {
+          "assembly": "nose_service_asset",
+          "joint": "bail_rotation",
+          "value": 2.558
+        },
+        {
+          "assembly": "nose_service_asset",
+          "joint": "bail_extension",
+          "value": 0.0
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "joint",
+          "joint": "door_rotation",
+          "min": 1.85,
+          "max": 1.95
+        },
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ]
     }
   ],
   "control": [
@@ -198,18 +279,24 @@
           "joint": "door_rotation",
           "min": 1.85,
           "max": 1.95
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
       ]
     },
     {
       "name": "robot_19",
-      "through_phase": 19,
+      "through_phase": 22,
       "through_label": "Release brad into tray",
       "max_steps": 3000,
       "assertions": [
@@ -221,18 +308,24 @@
           "kind": "score",
           "min": 0.5,
           "max": 0.5
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
       ]
     },
     {
       "name": "robot_46",
-      "through_phase": 42,
+      "through_phase": 48,
       "through_label": "Released fixture hold",
       "max_steps": 5000,
       "assertions": [
@@ -245,14 +338,21 @@
           "min": 1,
           "max": 1,
           "success": true
+        },
+        {
+          "kind": "valid"
         }
       ],
       "continuous_assertions": [
         {
           "kind": "penetration",
           "max": 0.0002
+        },
+        {
+          "kind": "valid"
         }
-      ]
+      ],
+      "stop_on_success": true
     }
   ],
   "qualification": "NOT_RUN; test inputs authored, not OEM loads"

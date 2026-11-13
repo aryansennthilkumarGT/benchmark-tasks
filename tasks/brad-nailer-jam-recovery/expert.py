@@ -1,5 +1,6 @@
 """Official Inspect policy. Uses read-only native state for the scripted expert; all manipulation is robot action."""
 import json
+import hashlib
 import os
 from pathlib import Path
 import numpy as np
@@ -20,7 +21,9 @@ class Expert(PolicyBase):
     def bind(self, info):
         task=task_file.lookup(info.environment_id)
         if task is None:raise ControlFailure('Explicit task binding required')
-        self.controller=Controller(json.loads((task.module.HERE/'controller.json').read_text()),task.module.SPEC)
+        plan=json.loads((task.module.HERE/'controller.json').read_text())
+        if plan.get('reference_sha256')!=hashlib.sha256((task.module.HERE/'guided-cycle-reference.json').read_bytes()).hexdigest():raise ControlFailure('Controller/reference source mismatch; regenerate the plan')
+        self.controller=Controller(plan,task.module.SPEC)
 
     def reset(self, scene):
         if self.controller is None:raise ControlFailure('Expert not bound')
