@@ -1,0 +1,5 @@
+# Occupational importance
+
+Machinists (51-4041), tool and die makers (51-4111), and CNC tool operators (51-9161) are disjoint SOC occupations with tool setting and machine setup in their core duties. The same BLS 2025 table gives 288,300 + 56,700 + 170,000 = 515,000 workers. Table counts are rounded to hundreds. This narrowly clears 500,000 without double counting the combined machinist/toolmaker OOH total. O*NET core-task excerpts are recorded separately for each occupation. The claim concerns routine tool-setting work, not that every worker uses ER32 equipment. Manufacturer instructions establish the eccentric-groove preassembly as an actual tooling operation. Final tightening, tool clamping, runout and cutting are excluded, not replaced by fictional retention requirements.
+
+Primary URLs, retrieved content hashes, quoted duties, disjoint SOC codes and counts are in occupation-evidence.json. Counts are source observations, not independently measured hardware evidence. Manufacturer procedures and dimensional provenance remain in SOURCES.json and the fidelity/setup documents.

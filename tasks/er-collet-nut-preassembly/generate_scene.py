@@ -76,7 +76,7 @@ def make_scene():
       score_spec=dict(initial_collet=PICK.copy(),target=CENTER.copy(),hook_pivot=PIVOT,hook_angle=ANGLE,anchors={b['name']:dict(pos=b['pos'],quat=b['quat']) for b in [nut,cradle]},
         lateral_tolerance=.0006,axial_tolerance=.0003,angle_tolerance=.025,hook_position_tolerance=.001,hook_angle_tolerance=.06,
         hold_seconds=2.,control_hz=20,release_clearance=.020,speed_limit=.008,spin_limit=.15,penetration_limit=.00035,fixture_tolerance=.001,loss_plane=TABLE-.02),
-      parameters=dict(collet_D1=.033,collet_D2=.032,collet_D3=.0292,collet_length=LENGTH,collet_groove_width=GROOVE,collet_nose_length=HEAD,collet_bore=.008,
+      parameters=dict(grasp_offset_z=.036,collet_D1=.033,collet_D2=.032,collet_D3=.0292,collet_length=LENGTH,collet_groove_width=GROOVE,collet_nose_length=HEAD,collet_bore=.008,
         taper_angle=math.radians(8),nose_angle=math.radians(30),cam_inner_radius=.0185,cam_eccentricity=.0029,cam_thickness=.0006,
         nut_front_bore_radius=.0190,nut_upper_bore_radius=.0202,nut_outer_radius=.025,hook_angle=ANGLE,collet_mass=.15),
       material=dict(static_friction=.65,dynamic_friction=.5,restitution=0.,contact_offset=.00003,rest_offset=0.),
@@ -93,7 +93,7 @@ def make_plan(spec):
         if pose:states['collet']=dict(pos=list(pose[0]),quat=list(pose[1]))
         phases.append(dict(label=label,side='right',target=dict(pos=list(pos),quat=q),opening=opening,grasp_width=width,contact_body='collet' if width else None,
             dwell=dwell,speed=speed,timeout=40.,position_tolerance=.00025,angle_tolerance=.02,nominal_bodies=copy.deepcopy(states)))
-    def tcp(pos,q):return (pos+rotate(q,[0,0,.033])).tolist()
+    def tcp(pos,q):return (pos+rotate(q,[0,0,spec['parameters']['grasp_offset_z']])).tolist()
     identity=[0,0,0,1];width=.027
     phase('Initialize handling arm',[.28,-.17,.90])
     phase('Approach ER collet',[PICK[0],PICK[1],.90])

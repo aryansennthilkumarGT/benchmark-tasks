@@ -4,6 +4,7 @@ No independently measured data are claimed. Manufacturer collet dimensions are d
 
 | Parameter | Value (SI) | Classification / source |
 |---|---|---|
+| grasp_offset_z | 0.036 | Benchmark-authored approximation; Original benchmark design, not measured nut hardware |
 | collet_D1 | 0.033 | Manufacturer-documented; REGO-FIX Drawing4, selected 8 mm bore |
 | collet_D2 | 0.032 | Manufacturer-documented; REGO-FIX Drawing4, selected 8 mm bore |
 | collet_D3 | 0.0292 | Manufacturer-documented; REGO-FIX Drawing4, selected 8 mm bore |

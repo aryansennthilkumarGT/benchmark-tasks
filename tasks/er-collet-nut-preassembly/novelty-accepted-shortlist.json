@@ -1,0 +1,143 @@
+{
+  "kind": "LEXICAL_RETRIEVAL_REQUIRES_SEMANTIC_REVIEW",
+  "source_inventory_count": 93,
+  "source_inventory_sha256": "26e6b867418cf485c23b602d46f1c9c40e4473d31f61e1b3f46d5406ec129c2a",
+  "coverage": "Public upstream main task metadata only; pending task board inaccessible. A lexical shortlist is not an exhaustive semantic audit.",
+  "candidates": [
+    {
+      "path": "tasks/camera-plate-release/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/camera-plate-release/task.json",
+      "sha256": "33445d3cce7bee658564563f31e33ddd30a261ed31d8cc05b3f87bf5728fa7c8",
+      "title": "Release a camera from a cam-clamped quick-release mount",
+      "instruction": "Remove the camera and its attached plate from the bench mount and set the assembly upright on the green pad. Keep the camera attached to the plate, do not drop it, and leave the assembly released.",
+      "scoring": "Highest applicable endpoint tier, overridden by any permanent invalidation; otherwise 0.0. Scored mount surfaces are the enclosing boxes of the foot, post, adapter, rear rail/lip, side guides and cam lever/bridge/toe/pivot; fixed screw heads do not define clearance. 0.25: cam >=0.8 rad, payload-to-scored-mount clearance <10 mm, native contact present. 0.5: clearance >=10 mm and native contact present, if the pad tier does not apply. 0.75: plate centre <=20 mm horizontally from pad centre, full payload collision envelope over the pad, plate underside within 5 mm of pad top, tilt <=10 degrees, native contact present. 1.0: the 0.75 conditions hold, every robot collision envelope is >=30 mm clear, and every pose over a full 1 s window stays within 2 mm and 2 degrees of the window's first pose. Permanently score zero for fixture translation >5 mm or rotation >5 degrees, cam anchor error >2 mm, cam angle outside [-0.01,0.96] rad, non-finite/non-unit state, any payload collision corner outside x=[-0.19,0.91], y=[-0.65,0.65], z=[0.7425,1.2475] m, or downward travel >10 mm during an uninterrupted absence of contact. Native contact presence uses >0.02 N at 240 Hz; no real force sensor is required: use visible support/release, a ruler, protractor and video. Cam/fixture angles use their declared zero poses; payload tilt uses world vertical; stability uses the window's first pose. Endpoint pose conditions and the 1 s stability window are sampled at 20 Hz. All parts must remain intact and attached as declared. README.md defines conservative bounding-envelope approximations and real-world interpretation.",
+      "retrieval_score": 0.199400862087862
+    },
+    {
+      "path": "tasks/push-fit-release/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/push-fit-release/task.json",
+      "sha256": "96f9ade79d3213def90e39fc8a84aaa3de7c2c43ae76e8d33216cb6cc8f6e3b3",
+      "title": "Release a push-fit fitting and pull the pipe out",
+      "instruction": "Press the orange release collet on the brass fitting in and hold it there while you pull the copper pipe out of the fitting, then lay the pipe down flat on the table.",
+      "scoring": "Measured with a ruler. 0 if the fitting was at any point moved more than 5 mm. 1.0 if the pipe, after being pulled out, lies flat on the table (axis level within 10 degrees, resting on the table) with every point at least 4 cm from the coupling's mouth, and is still for 1 s; 0.75 if, after the collet was pressed, the pipe's end came at least 5 mm out of the mouth (pulled 3 cm); 0.5 if, after the collet was pressed, the pipe was pulled 5 mm; 0.25 if the collet was pressed 2.5 mm; else 0.",
+      "retrieval_score": 0.13406538985840746
+    },
+    {
+      "path": "tasks/detent-latch-bottle/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/detent-latch-bottle/task.json",
+      "sha256": "2165597e12d1021742784ceedd045959eaa2ba7649b7159e5f23a00d94978ac9",
+      "title": "Open a bottle with a detented safety loop and rocker latch",
+      "instruction": "Open the bottle and keep it upright on the table.",
+      "scoring": "Evaluate at 20 Hz. The current score at termination counts. Each condition requires 8 consecutive control ticks (0.4 s): 1.0 if lid angle >60 degrees from closed; otherwise 0.5 if lid >15 degrees; otherwise 0.25 if safety-loop angle >=150 degrees from raised; otherwise 0. A sampled bottle-axis dot world-up <=0.90 (tilt >=25.842 degrees), bottle-base origin Z<0.7375 m (10 mm below tabletop), or geometric table support lost (the 36 mm-radius bottom disc's lowest edge must stay within 10 mm of tabletop Z=0.7475 m, with base centre X in [-0.154,0.874] m and Y in [-0.614,0.614] m), nonfinite robot/bottle state, unavailable/nonfinite wrist measurement, or wrist joint reaction force norm >100 N for 4 consecutive ticks permanently invalidates the trial and overrides credit with zero. Use the larger of the two gripper incoming-joint force norms, including gravity. Full score or invalidation ends the episode; timeout receives the current partial score. Only robot contact may manipulate the bottle; direct bottle-joint actuation, pose edits, destruction or geometry edits are outside the allowed action interface.",
+      "retrieval_score": 0.10857321287273802
+    },
+    {
+      "path": "tasks/snap-board-out-of-panel/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/snap-board-out-of-panel/task.json",
+      "sha256": "a2982880887e5cbe465ced58d5b13fbe0c4c7096f371246bb890c8bd33591cea",
+      "title": "Snap a circuit board out of its panel over the break edge",
+      "instruction": "Separate the circuit board from its panel and tray it.",
+      "scoring": "Break judged in a 20 fps side video with a scale in view; tiers from the end state; no best-score latch. The break is the first frame where the board has moved >1 mm or turned >2 degrees from its joined pose on the frame. Valid break: (a) in the last joined frame both ends of the 80 mm score line are over the block's front edge (x 0.140-0.270 m), within 2 mm of it in y and of score height (z 0.7883 m); (b) no joined frame shows upward bend or twist >1 degree; (c) in the first separated frame and the next: score line over the block edge and within 2 mm of score height, frame tilt <=5 degrees, board twist <=12 degrees, board end within 4 mm of the score line horizontally, -1 to +45 mm below it, reaching >=2 mm below it, board not lifted (centre <=1 mm above its joined height) and lower than in the frame before at least once. Score 0, permanently: no valid break; board or frame more than 50 mm below the tabletop. 0 while the board is back within 1 mm and 2 degrees of its joined pose. Otherwise 0.5. 0.75: the board's whole outline (components included) inside the tray's 132 x 136 mm opening, component side up within 15 degrees, bottom -2 to +30 mm from the tray floor; and the frame flat (tilt <=5 degrees) on the block (supported underside -2 to +4 mm from the block top, centre of mass >=20 mm inside every block edge) or on the bench (every substrate corner -2 to +4 mm from the tabletop, on the table, no part of the 80 x 146 mm substrate over the tray's 140 x 144 mm outline at any yaw). 1.0: the 0.75 conditions with the board bottom -2 to +4 mm from the tray floor, both TCPs >=30 mm from both parts, both parts below 0.010 m/s and 0.15 rad/s for 1 s. A board or frame still held but inside the 0.75 limits earns 0.75; a flipped, on-rim or stacked board, or a frame outside the bands, earns 0.5.",
+      "retrieval_score": 0.08547725060524487
+    },
+    {
+      "path": "tasks/weld-fitup/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/weld-fitup/task.json",
+      "sha256": "4e7b56d29b1547ef40bfbc573e44502e06b5bc9ba5ddb4553c25bc9cb64f041a",
+      "title": "Fit up two bevelled coupons for a V-groove weld, bevels facing and a 1/16-1/8 in root opening",
+      "instruction": "Fit up the two steel coupons for a single-V groove butt weld: turn each one so its bevelled edge (the bright one) faces the other coupon, and set them flat side by side with a root opening of 1/16 to 1/8 inch (1.6 to 3.2 mm) along the whole joint and their ends in line.",
+      "scoring": "A coupon is flat when tilted at most 5 degrees with its centre within 3 mm of its height lying on the table, and still when moving under 1 cm/s and turning under 0.5 rad/s. A coupon's bevel faces the other when the other's centre lies ahead of its bevelled edge and within that edge's length. The root opening is measured at both ends of the joint, from each coupon's root edge (the bottom of its bevelled side) to the other coupon's bevelled side. 1.0 when both coupons are flat and still, both bevels face each other, the root opening is 1.6 to 3.2 mm at both ends and the ends are in line within 5 mm, held for 1 s; if time runs out before that has held for 1 s, it scores 0.9. 0.5 when both are flat and still with both bevels facing each other, parallel within 10 degrees, opening 0 to 10 mm at both ends and ends within 2 cm, but the opening or the ends are outside those limits. 0.25 when both are flat and still, side by side as for 0.5, with only one bevel facing the joint (a square edge in the joint). Otherwise 0, including a coupon off the table, on edge or on top of the other. The joint can be anywhere on the table, run any way, with either coupon on either side.",
+      "retrieval_score": 0.08056830929429895
+    },
+    {
+      "path": "tasks/safe-glass-bottle-sorting/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/safe-glass-bottle-sorting/task.json",
+      "sha256": "551c822eac88f21c862379855cc18c870c02f0a1b0c20d9c58878b3a95247754",
+      "title": "Sort bottles safely in a crowded vertical rack",
+      "instruction": "Sort all six bottles between the stacked shelves: red below, blue above. The gray staging pedestal is available. Keep every bottle upright and prevent falls, including neighboring bottles. Finish with both grippers open and withdrawn, with every bottle stable for two seconds.",
+      "scoring": "Any bottle tilt>20deg, downward speed>0.35m/s, bottom z<0.7915m, top z>1.1775m, center x outside [0.07,0.44] or y outside [-0.15,0.27] m, or invalid pose: permanent 0. Sorted: whole bounding box on matching shelf, edge margin>=3mm, bottom within 4mm, tilt<=5deg. Credit needs 2s with all tilts<=5deg, center drift<=3mm from window start, jaws>=75% open, both TCPs>=85mm from every center. Score=max(0,sorted-4)/2: 0,0.5,1; initial 0. See PHYSICAL_SCORING.md.",
+      "retrieval_score": 0.07580222293163907
+    },
+    {
+      "path": "tasks/hang-cable-between-hooks/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/hang-cable-between-hooks/task.json",
+      "sha256": "cd30005f93c5ea38b3f4b538c523ace7b4c7c30c191598a7a36c76c9c5343656",
+      "title": "Hang a cable between two hooks with a set sag",
+      "instruction": "Hang the black cable across the two hooks: lay it in both cradles with each end hanging down on the outer side of its hook, so that the middle sags between the hooks with its lowest point between the two orange bands on the posts (4 to 6 cm below the hooks). Then let go of the cable.",
+      "scoring": "Measured at the end of the episode with a ruler (or a side photo against the bands). Score 0 if a gripper still touches or holds the cable or a plug (the grippers must be open and at least 3 cm away), or if a post or cradle was moved or bent. A hook counts as hung when the cable lies in its cradle (between the walls, on the floor) and one cable end hangs on the hook's outer side with its plug centre at least 5 cm below the hook line. One hook hung = 0.2; both hooks hung = 0.4 plus a sag bonus, where sag = distance from the hook line down to the lowest point of the underside of the cable between the two cradles: sag 4-6 cm = +0.6 (1.0, success); 3-4 cm or 6-8 cm = +0.3 (0.7); more than 8 cm (including the middle resting on the table) = +0 (0.4). Both hooks hung but sag less than 3 cm (cable pulled taut or laid straight across the hooks) = 0. Nothing hung = 0. Success (1.0) when the full condition holds for 1 s with the cable at rest.",
+      "retrieval_score": 0.07389001445410111
+    },
+    {
+      "path": "tasks/cutters-off-pegboard/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/cutters-off-pegboard/task.json",
+      "sha256": "e66da6622ccf851259ee74403f941f128b7a7cf103c89c3ab00a5210ad141d9f",
+      "title": "Take the diagonal cutters off a crowded pegboard",
+      "instruction": "Take the diagonal cutters off the pegboard and lay them on the mat.",
+      "scoring": "Positions are tool centres. A tool has fallen when its centre is more than 5 cm below where it hangs. 0 if any tool has fallen off the table. Success (1.0, held 1 s): the cutters' centre is over the mat and less than 3 cm above the table, the cutters are still, and no other tool has fallen. 0.5: the same, with exactly one other tool fallen. 0.25: the cutters are off their peg (centre at least 2 cm nearer the robot than the peg tips, held or set down off the mat) and no other tool has fallen. Else 0.",
+      "retrieval_score": 0.07163648151517768
+    },
+    {
+      "path": "tasks/din-rail-mount/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/din-rail-mount/task.json",
+      "sha256": "20ede2b9b06bfd11eae74c13e1a5bb28a9ee13615f049114e0d1bc4901e9d593",
+      "title": "Snap a module onto a DIN rail",
+      "instruction": "Pick up the blue module, hook the top of its back over the upper edge of the metal rail on the panel, swing its bottom in against the rail and push it until its latch clicks onto the rail.",
+      "scoring": "Measured at the end with a ruler and a photo. 1.0 if the module is mounted: hooked over the rail's upper lip, its back within 1.5 mm of the upper lip and 1 mm of the lower lip, square to the rail within 3 degrees, latch sprung back behind the lower lip, between the end clamps, and still (moving less than 1 mm over 1 s), for 1 s; 0.75 if, after hanging on its hook, its bottom was pushed to within 2 mm of the lower lip; 0.5 if, after being lifted, it hung on the rail by its hook (hook tooth behind the upper lip); 0.25 if it was lifted 3 cm; else 0.",
+      "retrieval_score": 0.0648087295640788
+    },
+    {
+      "path": "tasks/trace-cable-to-matching-end/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/trace-cable-to-matching-end/task.json",
+      "sha256": "14ec9b24614bfa356653b5eb9dcab04d4f884c6526d3a501a542e4b5d6824da0",
+      "title": "Put the right plugs of two devices in their holders when the cables run hidden under a cover",
+      "instruction": "Put the plug of the red box's cable in the red holder and the plug of the blue box's cable in the blue holder. Leave the other plugs where they are.",
+      "scoring": "Score 0 if at any moment the yellow, green or orange box's plug is more than 5 cm (3D) from where it lay at the start, whether picked up, pushed or slid by a tug on its cable (tape marks; judged from the top-camera video), or the red box's plug lies in the blue holder or the blue box's plug in the red holder; also 0 if a cable is pulled out of its box (its end at the box moves more than 1 cm). Boxes, cover, posts and holders are fixed to the table. A plug lies in a holder when it is between the holder's side walls, lying on the table, inside the slot or sticking out of its open far end by at most 1 cm. Otherwise, at the end: 1.0 if the red box's plug lies in the red holder and the blue box's plug in the blue holder, each released (no gripper within 3 cm of its centre); 0.5 if exactly one of the two lies released in its own holder; 0 otherwise, including doing nothing. Success (1.0) once the full condition has held for 1 s with both plugs at rest.",
+      "retrieval_score": 0.0643966943206793
+    },
+    {
+      "path": "tasks/meter-test-switch/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/meter-test-switch/task.json",
+      "sha256": "ff66345f7cdcbe3e2ef1c47d1a86a7e268036c4d9490f393aab9d7e0755dd4dd",
+      "title": "Short a CT at a meter test switch and insert the test plug",
+      "instruction": "At the meter test switch: open the three switches with black handles and the one with the white handle at the right end, then the orange switch at the left end, then the red switch next to it, and push the red test plug into the red switch's jack. Do not open the red switch while the orange one is closed. Leave the other switches closed.",
+      "scoring": "A switch counts as open when its blade has swung 60 degrees or more from closed. Score 0 if, at any time before the after-release check: a test-jack blade (red, green or blue) is 8 degrees or more out of its jaw while that phase's short-circuiting blade (orange, yellow or brown) is within 3 degrees of closed and no plug is seated in that jack (the CT secondary would be open-circuited); or any phase-B or phase-C current switch (yellow, green, brown or blue) moves 5 degrees or more. Otherwise the score is the highest level reached: 0.25 if all four voltage switches (the three black and the white) are open, in any order; 0.5 if the orange and red switches are also open; 0.75 if the test plug is also seated in the red switch's jack (the probe pinched between both leaves, its tip within 20 mm of the base's face, and its flat within 15 degrees of the jack's plane); 1.0 if the after-release check also passes. If the probe is pushed into a test jack whose blade is still closed, the score stays at the level already reached. Dropping the plug is not penalised by itself. After-release check, once both grippers have been at least 6 cm from the plug's handle for 1 s: push the red handle back toward closed with a spring scale at 6 N (about 0.3 N m about the hinge) for 1.5 s. It passes if the plug stops the blade 30 degrees or more from closed, the probe is still in the jack and the voltage switches are still open; if not, the score is 0.75. Angles are read from a side photo with a protractor template.",
+      "retrieval_score": 0.06207378060081355
+    },
+    {
+      "path": "tasks/battery-pack-assembly/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/battery-pack-assembly/task.json",
+      "sha256": "0083b8d8a6700e2a2415dc4a0e97d49f6a5de098a5cd91a8a753256ea81f229c",
+      "title": "Assemble a 2x2 18650 battery pack in a jig",
+      "instruction": "With your left gripper, put the black battery holder half that lies cups up into the orange jig. With your right gripper, take the four yellow batteries from the grey tray one at a time and push each into a cup of that holder, positive end up. Then, with your left gripper, pick up the other holder half, which lies cups down, lower it onto the tops of the four batteries, and move both arms back to where they started.",
+      "scoring": "Four steps, 0.25 each, judged at the end from the video. (1) Bottom holder in the jig: a holder half lies cups up in the jig's pocket. (2) Two cells seated: at least two cells stand in its cups, bottom on the cup's floor, positive end up. (3) Four cells seated: all four do. (4) Top holder on: the other half lies cups down on the four cells, centred over the bottom half within 2 mm and resting on all four. Full score 1.0, ending the run, when all four steps hold, both arms are back where they started (within 3 cm) holding nothing, and the holders and cells have been still (nothing sliding, tipping or falling) for 1 s. 0 overall if at the end a holder half, a cell or the tray has fallen off the table.",
+      "retrieval_score": 0.060096999113697654
+    },
+    {
+      "path": "tasks/pin-fit/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/pin-fit/task.json",
+      "sha256": "6a7518da72cfb3e6771cc1964e58424666b9cd8c6186b2891c9e6b455898b7a6",
+      "title": "Pick the pin that fits the hole and seat it",
+      "instruction": "Find the pin that fits the hole in the fixture block and push it all the way down into the hole.",
+      "scoring": "Only the 20 mm pin counts. 1.0 if it stands in the hole with its bottom within 3 mm of the floor (at least 22 mm of its length inside the block) and tilts at most 7 degrees (either end up), and stays still for 1 s. 0.5 if it has entered the hole (the centre of its lower end over the hole, its bottom at least 2 mm below the block's top face, tilted at most 30 degrees) but is not fully down. 0.25 if it stands upright (tilted at most 10 degrees) on the table or on the block's top face (its bottom within 3 mm of that surface), with its centre within 5 cm of the hole's centre. Otherwise 0. Any pin that ends up off the table: 0.",
+      "retrieval_score": 0.05938225220068548
+    },
+    {
+      "path": "tasks/blink-code-module-swap/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/blink-code-module-swap/task.json",
+      "sha256": "f0bb8087a39941ab9cafde4e4e6dbf3112cabc42bf8f589cf7615f1cf647cf62",
+      "title": "Read the status lamp's blink code, then swap the module it names",
+      "instruction": "While you hold the white DIAG button the status lamp blinks the number of the failed socket (count the dots beside each socket); replace that module with the teal spare, then hold DIAG again until the lamp stays green.",
+      "scoring": "Partial credit ladder: 0.25 if DIAG button is held >= 3 s once (held >= 60 control steps) or any module is touched / displaced > 5 mm or DIAG button depressed >= 2.0 mm; 0.50 if failed module (module 3) is out of socket 3 (depth < 16 mm, lateral offset > 1.5 mm, or angle error > 10.0 deg) with every healthy module (1, 2, 4) still seated; 0.75 if teal spare is seated in socket 3 (depth >= 16 mm, lateral error <= 1.5 mm, angle error <= 10.0 deg), failed module is not in any socket, and all healthy modules are seated; 1.00 if additionally DIAG is held >= 3 s showing steady green lamp, all four sockets seated, both grippers open, and all objects still (linear speed <= 5 mm/s, angular <= 0.2 rad/s) held continuously for 1.0 s (20 control steps). Zero-gate: any healthy module removed from socket for > 1 s (20 control steps) and not re-seated by end, fixture displacement > 5.0 mm, fixture tilt > 5.0 deg, or any module dropped off table (> 20 cm below table plane) permanently scores 0.0.",
+      "retrieval_score": 0.058651519330502104
+    },
+    {
+      "path": "tasks/split-cable-guide-retrofit/task.json",
+      "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/split-cable-guide-retrofit/task.json",
+      "sha256": "c17c20b6fbecc7698bc0e4d9e797b207998aa350e87adaf16714f73b50a1db17",
+      "title": "Fit a split cable guide and verify drawer travel",
+      "instruction": "Fit a split guide around the cable at the panel opening and lock it with the orange keeper. Keep both plugs seated throughout. Withdraw both hands, then press the yellow release and let the drawer open to the marked line on its own.",
+      "scoring": "0.5 for guide seated and keeper closed with hands clear. 1.0 if locked before release, drawer travels at least 48 mm in 3 s, sleeve clears the guide, and both conditions hold for 2 s. Permanent 0 if a plug backs out more than 2 mm, a guide falls or comes loose during proof, or a gripper enters the protected area during proof. All other outcomes score 0.",
+      "retrieval_score": 0.0584882097203632
+    }
+  ]
+}

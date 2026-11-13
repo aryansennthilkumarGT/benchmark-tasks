@@ -22,7 +22,7 @@ def audit(folder):
   p=c.phases[index]
   if p['label'].startswith(('Lower tilted','Engage groove','Rock groove')):
    tcp,r=ik.tcp_pose(q[7:13],station.BASES['right']);tool=ik.matrix_to_quat_xyzw(r);bq=multiply(tool,conjugate(DOWN_GRIP))
-   pos=tcp-rotate(bq,[0,0,.033]);states=copy.deepcopy(p['nominal_bodies']);states['collet']=dict(pos=pos.tolist(),quat=bq.tolist())
+   pos=tcp-rotate(bq,[0,0,spec['parameters']['grasp_offset_z']]);states=copy.deepcopy(p['nominal_bodies']);states['collet']=dict(pos=pos.tolist(),quat=bq.tolist())
    depth=float(g.maximum_penetration(s,states));checks.append(dict(step=step,phase=index,max_penetration_m=depth,passed=depth<=s['penetration_limit']))
   if c.done:break
  result=dict(kind='OFFLINE_ACTUAL_FK_CAM_PATH_SYNTHETIC_CONTACT',physics_executed=False,grasps_validated=False,checks=checks,error=error,
