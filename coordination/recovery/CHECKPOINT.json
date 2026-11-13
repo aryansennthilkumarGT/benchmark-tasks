@@ -238,9 +238,9 @@
   "standing_directive": "Continuous autonomous CPU engineering; priority is three genuinely qualified offline tasks, then eight; milestones never imply stopping.",
   "review_v21": {
     "integrated": true,
-    "top_three_milestone_reached": true,
-    "confirmed_offline_high_confidence_count": 3,
-    "reason": "Shackle, ER and cargo each pass the source-bound internal gate with five distinct internal engineering review records and complete offline/clean-source evidence. No independent agent, official acceptance or native feasibility is implied. Continue all remaining engineering.",
+    "top_three_milestone_reached": false,
+    "confirmed_offline_high_confidence_count": 2,
+    "reason": "Confirmed USD angular coefficient export defect opens cargo gate; shackle and ER have no revolute joints and remain qualified. Cargo successor repair underway, nailer final frozen checks active.",
     "repair_branches": {
       "shackle-v21": {
         "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
@@ -323,7 +323,7 @@
       "slug": "cargo-bar-controlled-release",
       "branch": "draft/cargo-bar-controlled-release",
       "commit": "2f8212379c039c70abfe569c4917ed6cb4fadd46",
-      "implementation": "COMPLETE_INTERNALLY_OFFLINE_READY",
+      "implementation": "COMPLETE_CPU_MECHANISM_WITH_CONFIRMED_USD_EXPORT_REPAIR_PENDING",
       "cpu_tests_passed": 44,
       "ik_endpoints": 21,
       "robot_collision_endpoints": 21,
@@ -347,7 +347,7 @@
       "clean_https_current_source": true,
       "source_manifest_sha256": "1ee21cdb40010b146f7b0deebd058b2b1ba8295c101af7e57f6a501d2ada63d2",
       "static_stages_passed": 16,
-      "offline_state": "OFFLINE READY",
+      "offline_state": "REPAIR REQUIRED",
       "readiness_bundle": "coordination/recovery/offline-bundles/cargo-bar-controlled-release/bundle.json",
       "max_grasp_constraint_residual_m": 7.134141751239107e-05,
       "joint_interface_checks": 576,
@@ -365,7 +365,7 @@
     "drive-bracket-pin-release is superseded by internally qualified cargo; preserve original drive history.",
     "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept."
   ],
-  "next_implementation_command": "Continue /workspace/nailer-jam. Inspect /tmp/nailer-path-9-hull.json and running session22082; repair actual contact/interarm collisions, finish source-bound controller/FK/scoring audit, clean HTTPS test, push completed package.",
+  "next_implementation_command": "Finish frozen nailer checks (/tmp/nailer-frozen-local), commit/push source, verify full static suite from fresh HTTPS clone. Cargo successor /workspace/cargo-units repair/cargo-bar-angular-units has corrected USD coefficients and new regression; complete source-equivalence, clean HTTPS verification.",
   "nailer_progress": {
     "branch": "draft/brad-nailer-jam-recovery",
     "commit": "69cb3fb8767ea9b5f67541e83890411b794ed950",
@@ -388,7 +388,8 @@
       "physical_grasps_assumed": true,
       "native_isaac_executed": false
     },
-    "next": "Inspect /tmp/nailer-ideal-standoff.json and run source-bound audit_path.py. Stand-off7.2mm and bonded stop repairs address final jaw contacts; current full mechanism cycle passed at97um penetration."
+    "next": "Inspect /tmp/nailer-ideal-standoff.json and run source-bound audit_path.py. Stand-off7.2mm and bonded stop repairs address final jaw contacts; current full mechanism cycle passed at97um penetration.",
+    "current_local_source": "Uncommitted final implementation:53 tests,49 phases/2780 synthetic actions,637 FK samples synthetic score1,12 repeated contact cases; frozen full qualification running. No native Isaac/YAM."
   },
   "usd_angular_drive_repair": {
     "discovered": "2026-11-13",
