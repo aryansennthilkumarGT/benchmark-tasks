@@ -121,6 +121,7 @@ class Tests(unittest.TestCase):
   c.step(q,{'time':0.});c.step(q,{'time':.2});q[13]=c.recovery['phase']['opening']
   for i in range(8):c.step(q,{'time':.25+i*.05})
   self.assertIsNone(c.recovery)
+  p['timeout']=2. # restore an acquisition timeout longer than its dwell
   q[13]=p['grasp_width']/.0939
   for i in range(15):
    c.step(q,{'time':.65+i*.05})
