@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T04:15:33.975939+00:00",
+  "updated_at": "2026-11-13T06:38:52.590875+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -32,6 +32,30 @@
         "clean_https_reproduction": true,
         "native_physics": "NOT_RUN",
         "reviewer_acceptance_cleared": false
+      },
+      "replacement_candidate": {
+        "slug": "cargo-bar-controlled-release",
+        "branch": "draft/cargo-bar-controlled-release",
+        "commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
+        "implementation": "COMPLETE_OFFLINE_VERIFIED_FINAL_ACCEPTANCE_PENDING",
+        "cpu_tests_passed": 31,
+        "ik_endpoints": 21,
+        "robot_collision_endpoints": 21,
+        "full_fk_samples": 250,
+        "ideal_actions": 1161,
+        "ideal_seconds": 58.05,
+        "synthetic_score": 1.0,
+        "native_physics": "NOT_RUN",
+        "robot_expert": "NOT_RUN",
+        "physical_hardware": "NOT_RUN",
+        "dream": "NOT_RUN",
+        "reviewer_acceptance_cleared": false,
+        "clean_https": true,
+        "novelty": "Scoped differences supported; loaded pawl release PR538, strapPR1285 and telescopingPR1855 remain final semantic review comparators.",
+        "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
+        "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
+        "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
+        "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json"
       }
     },
     {
@@ -150,12 +174,11 @@
     }
   ],
   "next": [
-    "Remaining: remote-battery-service REPLACE, node-service-closeout REPLACE, switch-map-rework REDESIGN. Do not count ER/SAC efficiency twice. Start a new independent task branch from7df8bd8 after selecting a documented real procedure.",
-    "Do not revive WAGO single-wire termination (officialPR766). Cam-and-groove hose coupling also has a direct official task match PR1084; candidate dropped before implementation.",
-    "Possible next operation: installed spring channel nut inserted through slot, compressed and quarter-turned, with channel ends inaccessible. OfficialPR939/181 feed a nut through the open channel end instead; verify meaningful novelty and exact manufacturer spring/serration/installation constraints before accepting this candidate.",
-    "Primary procedure and exact dimensions for that next operation are NOT verified yet. See next-candidate-grounding.json for public source locations and the critical YAM access issue; do not invent a manufacturer handle or spring force.",
-    "After selecting, implement one complete scene/controller/scorer/reset/native/workflow package, audit all feasible geometry and actual FK paths and action counts, clean-HTTPS test, then commit/push before moving on.",
-    "SAC efficiency is CPU-only and must be natively qualified independently on source7c05369 or a later protected equivalent. Original SAC0fadbf0, drive92b5c95 and shackleef13ec77 are preserved; pending1733/rejected heads untouched. No paid work authorized."
+    "Finish cargo clean HTTPS static check, preserve exact reports/source and push evidence; no native claim.",
+    "Complete distinct source-bound acceptance/readiness passes for shackle, ER and cargo; repair actionable findings, do not falsely count three ready.",
+    "Continue original remote-battery-service, node-service-closeout and switch-map-rework rebuilds, replacing any weaker concepts; preserve all original histories.",
+    "Do not revive WAGO766, cam/groove1084, DIN37/324 or knockout971 equivalents.",
+    "SAC optimized source remains separately preserved; novelty and authentic mechanics still need an honest decision."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
@@ -182,9 +205,9 @@
     "updated_at": "2026-11-12T12:22:25Z",
     "head_changed_by_this_mission": false
   },
-  "current_work": "ER package complete offline; SAC efficiency candidate published without changing protected original. Three remaining rebuilds are unimplemented.",
+  "current_work": "Cargo-bar package complete and independently clean-HTTPS CPU verified; evidence published. Continue high-risk ER force-controlled contact-path probe and distinct source-bound acceptance passes, then remaining rebuilds.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
-  "protected_shackle_control_review_note": "Shackle ef13ec77 remains untouched as requested. Its independent translation/rotation limiter predates the new screw-lead fix; review that contact-path risk before future native validation. Do not transfer SAC correction evidence or alter protected historical evidence.",
+  "protected_shackle_control_review_note": "Original ef13ec77 remains untouched. Independent repair/rigging-shackle-v21 fixes shared interpolation, full path, retry and native negative-force calibration; new evidence binds source65b6ed7, not the historical original.",
   "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json",
   "sac_efficiency_variant": {
     "branch": "optimization/sac-controller-efficiency",
@@ -208,11 +231,11 @@
     "reason": "Two strengthened candidates have clean CPU evidence; final distinct acceptance/readiness passes remain. Drive importance claim is contradicted by official PR1750 final rejection. Do not relabel three ready.",
     "repair_branches": {
       "shackle-v21": {
-        "commit": "d931b8f1fd37b9f66b57ce7ebc6af6adc7034c6a",
+        "commit": "70a0c7b2f7c4d339466e35e1a7b732e0b5889c19",
         "branch": "repair/rigging-shackle-v21"
       },
       "er-v21": {
-        "commit": "11a7b90abd1425ab4236e20958f1597c2308cfd9",
+        "commit": "191fe8f6a0a6f683d96c6200e518dc336df495eb",
         "branch": "repair/er-collet-v21"
       },
       "drive-v21": {
@@ -221,16 +244,18 @@
       }
     },
     "shackle": {
-      "tests": 27,
+      "tests": 31,
       "ik": 299,
       "collision_endpoints": 299,
       "full_fk_samples": 639,
       "ideal_actions": 7217,
       "ideal_seconds": 360.85,
-      "clean_https": true
+      "clean_https": true,
+      "cpu_contact_cases": 8,
+      "tested_source_commit": "65b6ed7b762e0157977290b2dc2df398202cc65e"
     },
     "er": {
-      "tests": 28,
+      "tests": 32,
       "ik": 33,
       "collision_endpoints": 33,
       "full_fk_samples": 63,
@@ -238,7 +263,10 @@
       "ideal_actions": 583,
       "ideal_seconds": 29.15,
       "clean_https": true,
-      "audit_lookup_failure_repaired": true
+      "audit_lookup_failure_repaired": true,
+      "cpu_contact_cases": 6,
+      "tested_source_commit": "2b89fb4e8907fb4bedbf5f59101ebdd225ee821a",
+      "transient_contact_risk": "Forced initialized entry has about1.26mm peak MuJoCo overlap despite passing final assertions; unresolved native contact risk."
     },
     "drive": {
       "decision": "FUNDAMENTAL_REPLACEMENT_REQUIRED",
@@ -261,15 +289,41 @@
       ],
       "cpu_integration_tests_passed": 29,
       "native_execution": false,
-      "dry_run_pending": true,
+      "dry_run_pending": false,
       "billing_shutdown_not_automatic": true
+    },
+    "cargo": {
+      "slug": "cargo-bar-controlled-release",
+      "branch": "draft/cargo-bar-controlled-release",
+      "commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
+      "implementation": "COMPLETE_OFFLINE_VERIFIED_FINAL_ACCEPTANCE_PENDING",
+      "cpu_tests_passed": 31,
+      "ik_endpoints": 21,
+      "robot_collision_endpoints": 21,
+      "full_fk_samples": 250,
+      "ideal_actions": 1161,
+      "ideal_seconds": 58.05,
+      "synthetic_score": 1.0,
+      "native_physics": "NOT_RUN",
+      "robot_expert": "NOT_RUN",
+      "physical_hardware": "NOT_RUN",
+      "dream": "NOT_RUN",
+      "reviewer_acceptance_cleared": false,
+      "clean_https": true,
+      "novelty": "Scoped differences supported; loaded pawl release PR538, strapPR1285 and telescopingPR1855 remain final semantic review comparators.",
+      "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
+      "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
+      "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
+      "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json"
     }
   },
   "next_commands": [
-    "Read review-v21-progress.json and GPU_RESUME_PLAN.md. Preserve original drafts and PR1733.",
-    "Finish final scoped acceptance/evidence passes for shackle and ER repair sources; do not invent third readiness.",
-    "Use supplemental CPU contact probes to expose physics risks; these are not Isaac evidence.",
-    "Select and implement a stronger third operation. Current gladhand candidate has primary NJ CDL procedure, explicit truck-driver core duty and Grote hardware evidence, but accepted bayonet-mate is a significant novelty comparator. No package exists yet.",
-    "Complete three remaining original rebuild slots plus replace drive; SAC duplication risk versus RoboDojo also requires a decision."
+    "Review ER force-limited cam-path diagnostic /tmp/er-force-cam-path-v1.json; repair actual failures, label test-rig evidence honestly.",
+    "Complete source-bound technical/occupation-novelty/scoring/reproduction/final-readiness passes on shackle, ER and cargo. Do not falsely claim three ready.",
+    "Continue three untouched original rebuild slots; replace drive/SAC if conceptual quality remains weak. No Brev, paid services, uploads or official PRs."
+  ],
+  "additional_quality_replacements_required": [
+    "drive-bracket-pin-release excluded by officialPR1750; cargo-bar candidate awaits clean checkout and final acceptance",
+    "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept"
   ]
 }

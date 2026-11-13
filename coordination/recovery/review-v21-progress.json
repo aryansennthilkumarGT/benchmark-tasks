@@ -5,11 +5,11 @@
   "reason": "Two strengthened candidates have clean CPU evidence; final distinct acceptance/readiness passes remain. Drive importance claim is contradicted by official PR1750 final rejection. Do not relabel three ready.",
   "repair_branches": {
     "shackle-v21": {
-      "commit": "d931b8f1fd37b9f66b57ce7ebc6af6adc7034c6a",
+      "commit": "70a0c7b2f7c4d339466e35e1a7b732e0b5889c19",
       "branch": "repair/rigging-shackle-v21"
     },
     "er-v21": {
-      "commit": "11a7b90abd1425ab4236e20958f1597c2308cfd9",
+      "commit": "191fe8f6a0a6f683d96c6200e518dc336df495eb",
       "branch": "repair/er-collet-v21"
     },
     "drive-v21": {
@@ -18,16 +18,18 @@
     }
   },
   "shackle": {
-    "tests": 27,
+    "tests": 31,
     "ik": 299,
     "collision_endpoints": 299,
     "full_fk_samples": 639,
     "ideal_actions": 7217,
     "ideal_seconds": 360.85,
-    "clean_https": true
+    "clean_https": true,
+    "cpu_contact_cases": 8,
+    "tested_source_commit": "65b6ed7b762e0157977290b2dc2df398202cc65e"
   },
   "er": {
-    "tests": 28,
+    "tests": 32,
     "ik": 33,
     "collision_endpoints": 33,
     "full_fk_samples": 63,
@@ -35,7 +37,10 @@
     "ideal_actions": 583,
     "ideal_seconds": 29.15,
     "clean_https": true,
-    "audit_lookup_failure_repaired": true
+    "audit_lookup_failure_repaired": true,
+    "cpu_contact_cases": 6,
+    "tested_source_commit": "2b89fb4e8907fb4bedbf5f59101ebdd225ee821a",
+    "transient_contact_risk": "Forced initialized entry has about1.26mm peak MuJoCo overlap despite passing final assertions; unresolved native contact risk."
   },
   "drive": {
     "decision": "FUNDAMENTAL_REPLACEMENT_REQUIRED",
@@ -58,7 +63,31 @@
     ],
     "cpu_integration_tests_passed": 29,
     "native_execution": false,
-    "dry_run_pending": true,
+    "dry_run_pending": false,
     "billing_shutdown_not_automatic": true
+  },
+  "cargo": {
+    "slug": "cargo-bar-controlled-release",
+    "branch": "draft/cargo-bar-controlled-release",
+    "commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
+    "implementation": "COMPLETE_OFFLINE_VERIFIED_FINAL_ACCEPTANCE_PENDING",
+    "cpu_tests_passed": 31,
+    "ik_endpoints": 21,
+    "robot_collision_endpoints": 21,
+    "full_fk_samples": 250,
+    "ideal_actions": 1161,
+    "ideal_seconds": 58.05,
+    "synthetic_score": 1.0,
+    "native_physics": "NOT_RUN",
+    "robot_expert": "NOT_RUN",
+    "physical_hardware": "NOT_RUN",
+    "dream": "NOT_RUN",
+    "reviewer_acceptance_cleared": false,
+    "clean_https": true,
+    "novelty": "Scoped differences supported; loaded pawl release PR538, strapPR1285 and telescopingPR1855 remain final semantic review comparators.",
+    "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
+    "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
+    "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
+    "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json"
   }
 }

@@ -1,11 +1,44 @@
 {
- "kind":"SUPPLEMENTAL_CPU_ENGINEERING",
- "isaac_executed":false,
- "robot_executed":false,
- "engine":"MuJoCo3.3.7",
- "exporter_unit_tests":4,
- "dependencies":"39 installed packages checked compatible in Python3.12.14",
- "shackle":{"clean_https_tests":31,"native_case_force_repair":"8N -> 2N on unretained0.18kg pin; original0.015-0.8m bound unchanged;12N seated test unchanged","cpu_probe_cases":8,"cpu_probe_passed":true},
- "er":{"clean_https_tests":32,"cpu_probe_cases":6,"cpu_probe_passed":true,"remaining_transient_contact_risk":"Forced initialized entry has about1.26mm peak overlap in MuJoCo; final-contact assertions pass. Not Isaac or robot evidence."},
- "next_candidate":{"slug":"cargo-bar-ratchet-lock","branch":"draft/cargo-bar-ratchet-lock","state":"IMPLEMENTATION_IN_PROGRESS_NOT_READY","source_root":"/workspace/cargo-bar","manufacturer_manual":"Harbor Freight96811 pp2-3","mechanical_core":"Original convex involute rack/pinion now transmits torque through actual CPU contacts without a gear equality. Sliced-box prototype jammed and was replaced.","implemented_core_checks":"41 mesh flank samples passed; contact-only CPU drive moves about19.6mm at0.5 friction in0.25s, lead error below0.1mm.","remaining":"Full scene, pawls/release/latch, controller, scorer, native harness cases, IK/FK/contact audits, docs and clean checkout. No completed task claimed.","novelty_risk":"Pending PR1285 also ratchets a load restraint and latches the handle. Free telescope release/extension, opposing wall-foot compression and real rack/pawls must supply substantive distinction; internal implementation differences alone do not."}
+  "kind": "SUPPLEMENTAL_CPU_ENGINEERING",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "engine": "MuJoCo3.3.7",
+  "exporter_unit_tests": 4,
+  "dependencies": "39 installed packages checked compatible in Python3.12.14",
+  "shackle": {
+    "clean_https_tests": 31,
+    "native_case_force_repair": "8N -> 2N on unretained0.18kg pin; original0.015-0.8m bound unchanged;12N seated test unchanged",
+    "cpu_probe_cases": 8,
+    "cpu_probe_passed": true
+  },
+  "er": {
+    "clean_https_tests": 32,
+    "cpu_probe_cases": 6,
+    "cpu_probe_passed": true,
+    "remaining_transient_contact_risk": "Forced initialized entry has about1.26mm peak overlap in MuJoCo; final-contact assertions pass. Not Isaac or robot evidence."
+  },
+  "next_candidate": {
+    "slug": "cargo-bar-controlled-release",
+    "branch": "draft/cargo-bar-controlled-release",
+    "commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
+    "implementation": "COMPLETE_OFFLINE_VERIFIED_FINAL_ACCEPTANCE_PENDING",
+    "cpu_tests_passed": 31,
+    "ik_endpoints": 21,
+    "robot_collision_endpoints": 21,
+    "full_fk_samples": 250,
+    "ideal_actions": 1161,
+    "ideal_seconds": 58.05,
+    "synthetic_score": 1.0,
+    "native_physics": "NOT_RUN",
+    "robot_expert": "NOT_RUN",
+    "physical_hardware": "NOT_RUN",
+    "dream": "NOT_RUN",
+    "reviewer_acceptance_cleared": false,
+    "clean_https": true,
+    "novelty": "Scoped differences supported; loaded pawl release PR538, strapPR1285 and telescopingPR1855 remain final semantic review comparators.",
+    "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
+    "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
+    "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
+    "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json"
+  }
 }
