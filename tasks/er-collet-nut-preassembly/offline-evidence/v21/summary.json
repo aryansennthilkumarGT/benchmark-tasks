@@ -1,0 +1,63 @@
+{
+  "kind": "ACTUAL_CLEAN_HTTPS_CPU_REPRODUCTION",
+  "tested_source_commit": "51c448c81afc2f6adcafe721f049be830dafbdaf",
+  "completed_utc": "2026-11-13T04:09:56.001513+00:00",
+  "source_manifest_sha256": "7960f7f53b01f90a3638667c19e75d7eca13e6001a0178ecce2038be1b971edb",
+  "tests": {
+    "passed": 28,
+    "failed": 0,
+    "skipped": 0
+  },
+  "independent_https_clone": true,
+  "clean_git_status": true,
+  "physics_executed": false,
+  "grasps_validated": false,
+  "model_evaluations": 0,
+  "media_uploads": 0,
+  "log_sha256": "da010c7801bb9d9976203fd2c03b33bd32060d85963a1874cc129772f3aceeb6",
+  "audit_reports": [
+    {
+      "kind": "OFFLINE_COMPOSED_USD",
+      "path": "01-offline_composed_usd.json",
+      "sha256": "e2ac4dd726766bb53201294f6fec293dc1aa8a19617b54a94d5d087d1cd08f87",
+      "checks": 3
+    },
+    {
+      "kind": "OFFLINE_IK_WAYPOINTS_ONLY",
+      "path": "02-offline_ik_waypoints_only.json",
+      "sha256": "440d34d346b02ecc2808fa973261ceba2a7169f19e61a0b767cb5ffd70531338",
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_NOMINAL_GEOMETRY",
+      "path": "03-offline_nominal_geometry.json",
+      "sha256": "bde4acf393bc7c9ce3d2ab7e351392e9c94538d57d3e10029cf885ebd1586a2e",
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_IDEAL_JOINT_TRACKING_WITH_SYNTHETIC_CONTACT_APERTURES",
+      "path": "04-offline_ideal_joint_tracking_with_synthetic_contact_apertures.json",
+      "sha256": "1088e3d2f0890b599786d0054cfb4dfd3dd285c8c21c50d09b36be23cb767f2d",
+      "checks": 0
+    },
+    {
+      "kind": "OFFLINE_CRITICAL_POSE_COLLISION_SAMPLES",
+      "path": "05-offline_critical_pose_collision_samples.json",
+      "sha256": "b60ee4c7e64e0241c17ced807e5c1bc5232fea6b5b1778e1d96b3623c923ef2e",
+      "checks": 33
+    },
+    {
+      "kind": "OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS",
+      "path": "06-offline_actual_controller_fk_path_ideal_grasps.json",
+      "sha256": "4b1cdb25924ef0f9a02790548f09758fc59f7a166ad0886d6d9d0236967d5caa",
+      "checks": 63
+    },
+    {
+      "kind": "OFFLINE_ACTUAL_FK_CAM_PATH_SYNTHETIC_CONTACT",
+      "path": "07-offline_actual_fk_cam_path_synthetic_contact.json",
+      "sha256": "5fcd1654e7e7c5f968baeedf5c98de2e699d775bc80f6ef553978159cc1ffc32",
+      "checks": 220
+    }
+  ],
+  "ready_for_submission": false
+}
