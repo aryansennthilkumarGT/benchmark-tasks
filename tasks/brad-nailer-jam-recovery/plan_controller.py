@@ -55,16 +55,16 @@ def make_plan(spec):
  opened_tool=multiply(states()['nose_door']['quat'],multiply(conjugate(base),down))
  grip('Release open nose door','left','nose_door',D.DOOR_GRIP,opened_tool,.35)
  grip('Withdraw from open nose door','left','nose_door',D.DOOR_GRIP,opened_tool,.35,away=.030)
- grip('Approach bent brad','left','bent_brad',[.023,0,-.011],down,.15,away=.030)
- grip('Reach bent brad','left','bent_brad',[.023,0,-.011],down,.08)
- grip('Grip bent brad','left','bent_brad',[.023,0,-.011],down,0.,.0010,dwell=.35)
+ grip('Approach bent brad','left','bent_brad',[.025,0,-.011],down,.15,away=.030)
+ grip('Reach bent brad','left','bent_brad',[.025,0,-.011],down,.08)
+ grip('Grip bent brad','left','bent_brad',[.025,0,-.011],down,0.,.0010,dwell=.35)
  free['bent_brad']['pos'][1]-=.040
- grip('Extract bent brad through open service face','left','bent_brad',[.023,0,-.011],down,0.,.0010)
+ grip('Extract bent brad through open service face','left','bent_brad',[.025,0,-.011],down,0.,.0010)
  for key in ('reference_body','reference_offset','reference_quat'):phases[-1].pop(key,None)
  add('Lift extracted brad clear of nose','left',dict(pos=[D.ROOT[0]+.118,D.ROOT[1]-.040,D.ROOT[2]+.050],quat=down.tolist()),0.,'bent_brad',.0010,speed=.03)
  # Center the carried shape envelope, not its eccentric TCP. This exact
  # transformed-box calculation is original geometry, never a measured offset.
- rel_body=multiply(conjugate(down),base);body_offset=rotate(down,-rotate(rel_body,[.023,0,-.011]));carried_q=multiply(down,rel_body);vertices=[]
+ rel_body=multiply(conjugate(down),base);body_offset=rotate(down,-rotate(rel_body,[.025,0,-.011]));carried_q=multiply(down,rel_body);vertices=[]
  brad=next(b for a in spec['assemblies'] for b in a['bodies'] if b['name']=='bent_brad')
  for shape in brad['shapes']:
   for corner in itertools.product(*[(-v/2,v/2) for v in shape['size']]):vertices.append(body_offset+rotate(carried_q,np.asarray(shape['pos'])+rotate(shape['quat'],corner)))

@@ -27,11 +27,11 @@ def audit(trace,folder=HERE,diagnostic_stale=False):
   q=sample['q'];states=sample['frame']['bodies'];hulls={s:arm_hulls(s,q[(0 if s=='left' else 7):(7 if s=='left' else 14)]) for s in ('left','right')};bad=[];table=[]
   for side in hulls:
    allowed=targets.get(side,{}).get('contact_body')
-   for hit in task_collisions(g,hulls[side],spec,states,threshold=.0005):
+   for hit in task_collisions(g,hulls[side],spec,states,threshold=.00005):
     if hit['body']==allowed and hit['link'] in ('tip_left','tip_right') and hit['penetration_m']<=.0008:continue
     bad.append(dict(side=side,**hit))
-   table.extend(dict(side=side,**v) for v in table_intersections(hulls[side],spec['table_top'],threshold=.0005))
-  crossing=inter_arm_intersections(g,hulls['left'],hulls['right'],threshold=.0005)
+   table.extend(dict(side=side,**v) for v in table_intersections(hulls[side],spec['table_top'],threshold=.00005))
+  crossing=inter_arm_intersections(g,hulls['left'],hulls['right'],threshold=.00005)
   frame=copy.deepcopy(sample['frame']);frame['max_penetration']=float(g.maximum_penetration(spec,states));frame['robot_clearance']=float(g.robot_clearance(boxes(q,g),spec,states));scored=judge.update(frame)
   if scored.failure and scorer_failure is None:scorer_failure=dict(index=index,time=frame['time'],reason=scored.failure)
   rows.append(dict(index=index,time=frame['time'],contacts=bad,table=table,inter_arm=crossing,task_penetration_m=frame['max_penetration'],release_clearance_m=frame['robot_clearance'],synthetic_score=scored.score,passed=not bad and not table and not crossing and not scored.failure))

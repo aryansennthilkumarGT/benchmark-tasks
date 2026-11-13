@@ -40,7 +40,7 @@ class Controller:
   if 'arc' in p:
    joint=next(j for a in self.spec['assemblies'] for j in a['joints'] if j['name']==p['arc']['joint'])
    grasp_body='bail_crosspin' if p.get('pin_drive') else joint['child']
-   self.context=dict(joint=joint,grasp=self.relative(frame['bodies'][grasp_body],current))
+   self.context=dict(joint=joint,grasp=self.relative(frame['bodies'][grasp_body],current),arc_reference=float(frame['joints'][joint['name']]))
    if p.get('coupled')=='rigid':self.context['pair']=self.relative(current,self.tcp(p['follower'],q))
    if p.get('coupled')=='hook':self.context['pin_grasp']=self.relative(frame['bodies']['bail_crosspin'],self.tcp(p['follower'],q))
   return out
@@ -78,7 +78,7 @@ class Controller:
  def solve(self,side,q,target):
   start=0 if side=='left' else 7;m=self.motion[side]
   solved,pe,re=m.ik.solve(target['pos'],target['quat'],q_init=q[start:start+6],base_pos=m.base,iters=200,damping=.015,tol=1e-5)
-  valid=pe<.00003 and re<.0001 and np.all(solved>m.ik.LOWER+1e-5) and np.all(solved<m.ik.UPPER-1e-5) and np.max(np.abs(solved-q[start:start+6]))<=.020001
+  valid=pe<.00003 and re<.0001 and np.all(solved>m.ik.LOWER+1e-5) and np.all(solved<m.ik.UPPER-1e-5) and np.max(np.abs(solved-(m.reference if m.reference is not None else q[start:start+6])))<=.020001
   return solved,bool(valid)
  def arc_action(self,p,frame,q,output):
   side=p['side'];i=0 if side=='left' else 7;j=self.context['joint'];current=frame['joints'][j['name']];goal=self.arc_goal(p,frame)
@@ -91,18 +91,26 @@ class Controller:
      off=0 if hold=='left' else 7;ref=self.motion[hold].reference
      if ref is not None:output[off:off+6]=ref
     return output,error,theta
-  delta=float(np.clip(goal-current,-.025,.025))
+  # Advance the commanded circular reference at0.5rad/s, rather than
+  # perpetually commanding25mrad ahead of the measured loaded joint. The
+  # latter becomes an artificially slow proportional velocity controller.
+  reference=float(self.context.get('arc_reference',current))
+  proposed=reference+float(np.clip(goal-reference,-.025,.025))
+  proposed=float(np.clip(proposed,current-.12,current+.12))
+  delta=proposed-reference
   for _ in range(14):
-   target,child=self.arc_pose(p,frame,current+delta);leader,ok=self.solve(side,q,target);follower=None
+   target,child=self.arc_pose(p,frame,reference+delta);leader,ok=self.solve(side,q,target);follower=None
    if ok and p.get('coupled'):
     follow=self.compose(target,self.context['pair']) if p['coupled']=='rigid' else self.hook_target(child,frame)
     follower,ok=self.solve(p['follower'],q,follow)
    if ok:
-    if abs(delta)<1e-5 and abs(goal-current)>.015:raise ControlFailure('Physical arc blocked by joint limits; no productive safe step')
+    # Holding a valid reference while an actual actuator catches up is
+    # allowed; the existing physical-progress/timeout guards detect stalls.
+    self.context['arc_reference']=reference+delta
     output[i:i+6]=leader;self.motion[side].reference=leader.copy()
     if follower is not None:
      off=0 if p['follower']=='left' else 7;output[off:off+6]=follower;self.motion[p['follower']].reference=follower.copy()
-    output[i+6]=q[i+6]+float(np.clip(p['opening']-q[i+6],-.1,.1))
+    output[i+6]=q[i+6]+float(np.clip(p['opening']-q[i+6],-.05,.05))
     return output,error,theta
    delta*=.5
   raise ControlFailure('Physical arc or coupled follower cannot meet IK/rate/limit constraints')
@@ -145,7 +153,7 @@ class Controller:
     if active.get('coupled') and side==active['follower']:
      # The coupled solve owns this arm's reference for the entire phase.
      # Tracking an earlier world hold here would overwrite it every tick.
-     output[start+6]=q[start+6]+float(np.clip(target['opening']-q[start+6],-.1,.1))
+     output[start+6]=q[start+6]+float(np.clip(target['opening']-q[start+6],-.05,.05))
      continue
     if 'arc' in target:continue
     action,pe,re=self.motion[side].target(q[start:start+7],target['target']['pos'],target['target']['quat'],target['opening'],speed=target['speed'],angular_speed=.6)

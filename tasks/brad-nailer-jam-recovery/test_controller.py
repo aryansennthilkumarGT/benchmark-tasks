@@ -88,3 +88,20 @@ def test_plan_generation_preserves_the_physical_reset_specification():
  spec=json.loads((HERE/'scene.json').read_text());before=copy.deepcopy(spec);plan=make_plan(spec)
  assert spec==before
  assert plan['scene_content_sha256']==hashlib.sha256(json.dumps(before,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
+
+
+def test_brad_acquisition_clears_the_real_case_bumper_with_stock_finger_meshes():
+ from audit_geometry import geometry_module
+ from robot_geometry import arm_hulls,task_collisions
+ from yam_arena import ik,station
+ f,c=fixture();phase=next(p for p in c.phases if p['label']=='Reach bent brad');g=geometry_module(HERE)
+ target=phase['target'];q0=np.array([-.61,2.19,1.88,-1.26,0.,-.61])
+ def hits(pos):
+  q,pe,re=ik.solve(pos,target['quat'],q_init=q0,base_pos=station.BASES['left'],iters=300,tol=1e-6)
+  assert pe<1e-5 and re<1e-4
+  return [h for h in task_collisions(g,arm_hulls('left',np.r_[q,phase['opening']]),f.spec,phase['nominal_bodies'],threshold=.00005) if h['body']!='bent_brad']
+ # The former goal permits409um of case penetration, which looked clean to
+ # the old500um screen but physically blocks the fingers before acquisition.
+ old=np.asarray(target['pos'])-np.array([.002,0.,0.]);bad=hits(old)
+ assert any(h['body']=='nose_body' and h['penetration_m']>.0003 for h in bad)
+ assert hits(target['pos'])==[]
