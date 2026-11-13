@@ -155,7 +155,7 @@ def bootstrap(root, lock, evidence, budget):
             'adapter_commit': lock['adapter']['commit'], 'asset_root_patch': 'official production bucket'}
 
 
-def launchable_runtime(root, lock):
+def launchable_runtime(root, lock, require_dream=True):
     """Verify the active Launchable venv without changing the installed stack."""
     root = Path(root).resolve()
     arena = root/'IsaacLab-Arena'
@@ -187,7 +187,7 @@ def launchable_runtime(root, lock):
         counterpart = installed/path.relative_to(source)
         if not counterpart.is_file() or digest(counterpart) != digest(path):
             raise Incomplete('Installed Inspect Robots Python source differs: ' + str(path.relative_to(source)))
-    if origins['dream_commit'] != lock['dream']['commit']:
+    if require_dream and origins['dream_commit'] != lock['dream']['commit']:
         raise Incomplete('Installed Dream plugin revision differs from lock')
     versions = json.loads(capture([python, __file__, '--versions']))
     expected_versions = {'isaacsim': lock['isaacsim'], 'numpy': lock['numpy'],
@@ -221,7 +221,8 @@ if __name__ == '__main__':
     if '--origins' in sys.argv:
         origins = {name: find_spec(name).origin for name in
                    ('isaaclab', 'isaaclab_arena', 'yam_arena', 'inspect_robots')}
-        direct_url = metadata.distribution('inspect-robots-dream').read_text('direct_url.json')
+        try:direct_url = metadata.distribution('inspect-robots-dream').read_text('direct_url.json')
+        except metadata.PackageNotFoundError:direct_url=None
         origins['dream_commit'] = json.loads(direct_url or '{}').get('vcs_info', {}).get('commit_id')
         print(json.dumps(origins))
     else:

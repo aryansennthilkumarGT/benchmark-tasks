@@ -37,14 +37,14 @@ def main(argv=None):
             'timeout_seconds':a.timeout_seconds,'required_authorization':'Actual user start approval and explicit cap'},indent=2));return 0
     if not a.budget_file or not a.registered_account:raise Incomplete('Actual provider receipt and registered account required')
     root=a.run_root.resolve();state=open_sprint(root,a.budget_file,resume=a.resume)
-    budget=session(a.budget_file,deadline=state['deadline_unix'])
+    budget=session(a.budget_file,deadline=state['deadline_unix'],resume_state=state)
     observed=hardware()
     if observed['problems']:raise Incomplete('; '.join(observed['problems']))
     if observed['selected_gpu']['uuid']!=budget.receipt['gpu_uuid']:raise Incomplete('Provider receipt names a different GPU')
-    if not all(observed['credentials_present'].get(k) for k in ('dream','robocurve','github_cli')):
-        raise Incomplete('Configure existing session credentials securely before paid work; no token values are recorded')
+    if not all(observed['credentials_present'].get(k) for k in ('github_cli',)):
+        raise Incomplete('Configure the registered GitHub account; native-only diagnostics do not require Dream/upload credentials')
     if capture(['gh','api','user','--jq','.login'])!=a.registered_account:raise Incomplete('Wrong registered GitHub account')
-    installed=launchable_runtime(a.launchable_root,read(HERE/'stack-lock.json'))
+    installed=launchable_runtime(a.launchable_root,read(HERE/'stack-lock.json'),require_dream=False)
     if capture(['git','rev-parse','HEAD'],folder)!=a.commit or capture(['git','status','--porcelain'],folder):
         raise Incomplete('Native diagnostic requires the exact clean task source')
     ledger=Ledger(root,resume=a.resume)

@@ -1,3 +1,5 @@
+> Current Cloud-to-Brev entry point: [START_HERE](brev_transfer/START_HERE.md). Use only the new independent ops/Cargo checkouts and durable sprint directory. The user approved a forthcoming scoped$15 maximum/$13.50 trigger; Cloud must not access/start hardware. Old example paths and historical reserve instructions below are superseded by that transfer guide.
+
 > Current workflow: [single continuous sprint](../GPU_RESUME_PLAN.md). After explicit start/spend approval, qualify and submit each candidate immediately; continue toward at least three new PRs and beyond within resources. Prior separate-per-stage approval and three-ready batch-start instructions below are superseded. Per-task evidence and actual visual review remain mandatory. No paid start is authorized yet.
 
 # Current RoboCurve execution instructions

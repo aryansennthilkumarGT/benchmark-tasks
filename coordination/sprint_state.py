@@ -26,6 +26,8 @@ def open_sprint(root,budget_file,resume=False,clock=time.time):
     if isinstance(cap,bool) or not isinstance(cap,(int,float)) or not math.isfinite(cap) or cap<=0 or not receipt.get('authorization_reference'):
         raise Incomplete('Continuous sprint requires actual start/spend authorization and an explicit cap')
     identity={k:receipt[k] for k in ('instance_id','gpu_uuid','instance_started_unix','hourly_usd','spent_before_start_usd','authorization_reference','authorized_session_spend_usd')}
+    for key in ('spending_policy_id','instance_name','authorization_session_id','estimated_shutdown_trigger_usd','provider_stop_command'):
+        if key in receipt:identity[key]=receipt[key]
     with exclusive(root/'sprint-state.lock'):
         if path.exists():
             if not resume:raise Incomplete('Sprint already exists; resume its original deadline and records')
@@ -37,7 +39,9 @@ def open_sprint(root,budget_file,resume=False,clock=time.time):
             deadline=receipt['instance_started_unix']+21600
             state={'schema':1,'identity':identity,'deadline_unix':deadline,'target_new_prs':3,
                    'stop_after_target':False,'submissions':{},'repairs':{},'billing_stopped':False}
-        budget=session(budget_file,deadline=deadline,clock=clock)
+        budget=session(budget_file,deadline=deadline,clock=clock,resume_state=state)
+        state.setdefault('initial_provider_verified_at',clock())
+        state.setdefault('initial_balance_observed_unix',receipt['balance_observed_unix'])
         state['last_cost_check']=budget.check()
         observation={k:receipt[k] for k in ('balance_usd','balance_observed_unix','hourly_usd','provider_evidence')}
         history=state.setdefault('provider_observations',[])

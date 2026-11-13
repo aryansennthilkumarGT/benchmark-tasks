@@ -23,14 +23,24 @@ class Window:
         return Window(self,min(self.deadline,self.clock()+seconds),self.clock)
 
 
-def session(receipt,deadline=None,clock=time.time):
+def session(receipt,deadline=None,clock=time.time,resume_state=None):
     budget=Budget(receipt,clock=clock)
     if budget.authorized_cap is None:
         raise Incomplete('Paid session needs an explicit approved cap and authorization reference')
     age=clock()-budget.balance_observed_at
-    if not 0<=age<=300:raise Incomplete('Observe the provider balance/rate again: the initial receipt is older than five minutes')
-    now=clock();end=now+21600 if deadline is None else deadline
-    if not now<end<=now+21600:raise Incomplete('GPU session must fit within six hours')
+    anchored=False
+    if resume_state is not None and budget.policy['new_session_only']:
+        identity=resume_state.get('identity',{})
+        anchored=bool(identity and all(budget.receipt.get(k)==v for k,v in identity.items())
+                      and 0<=resume_state.get('initial_provider_verified_at',-1)-resume_state.get('initial_balance_observed_unix',0)<=300
+                      and resume_state.get('initial_provider_verified_at',-1)>=budget.receipt['instance_started_unix']
+                      and resume_state.get('deadline_unix')==budget.receipt['instance_started_unix']+21600)
+    if not 0<=age<=300 and not (age>300 and anchored):
+        raise Incomplete('Observe the provider balance/rate again: the initial receipt is older than five minutes')
+    now=clock();outer=budget.receipt['instance_started_unix']+21600
+    end=outer if deadline is None else deadline
+    if not now<end<=min(now+21600,outer):raise Incomplete('GPU session must fit within six hours')
+    if anchored and end!=resume_state['deadline_unix']:raise Incomplete('Resume cannot reset the outer deadline')
     budget.check()
     # Leave one minute to stop and verify the actual provider instance.
     # Workload termination itself cannot stop billing.

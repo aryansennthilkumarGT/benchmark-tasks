@@ -407,7 +407,8 @@ def main(argv=None):
                     require(capture(['gh','api','user','--jq','.login'])==args.registered_account,
                             'GitHub account differs from registered submitting account')
                 from session_budget import session
-                budget=session(args.budget_file,args.deadline_unix)
+                prior_session=read(args.run_root/'sprint-session.json') if (args.run_root/'sprint-session.json').is_file() else None
+                budget=session(args.budget_file,args.deadline_unix,resume_state=prior_session)
                 require(preflight['selected_gpu']['uuid']==budget.receipt['gpu_uuid'],'Budget receipt names a different GPU')
                 os.environ['CUDA_VISIBLE_DEVICES']=preflight['selected_gpu']['uuid']
                 if args.launchable_root:

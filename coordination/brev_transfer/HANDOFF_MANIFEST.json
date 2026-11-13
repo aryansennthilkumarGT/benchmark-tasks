@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "repository": "aryansennthilkumarGT/benchmark-tasks",
+  "repository_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks.git",
+  "coordinator": {
+    "branch": "recovery/cloud-cpu-engineering",
+    "pin": "Exact published --ops-ref SHA from final handoff; bootstrap verifies Git HEAD and records it in external handoff-state.json. A commit cannot embed its own SHA. No moving branch HEAD is accepted as the execution pin.",
+    "manifest_self_hash": "Excluded to avoid recursive self-hashing; exact Git commit and external saved manifest SHA bind this file."
+  },
+  "registered_github_account": "aryansennthilkumarGT",
+  "existing_instance": "yam-eval-launchable-0cb74b",
+  "paths": {
+    "ops": "/data/robocurve-ops",
+    "cargo": "/data/robocurve-task-cargo",
+    "sprint": "/data/robocurve-sprint"
+  },
+  "spending_policy": {
+    "id": "robocurve-brev-transfer-15usd-2026-11-13",
+    "hard_new_spend_usd": 15.0,
+    "estimated_shutdown_trigger_usd": 13.5,
+    "maximum_session_seconds": 21600,
+    "legacy_reserve_override_usd": 0.0,
+    "scope": "Only matching instance, exact user authorization reference and dedicated transfer-session identity; all other receipts retain legacy guards",
+    "provider_facts": "Must be genuinely observed after startup; not prefilled",
+    "provider_auto_shutdown_verified": false
+  },
+  "stop_command": "brev stop yam-eval-launchable-0cb74b",
+  "cloud_gpu_access_authorized": false,
+  "candidates": {
+    "cargo": {
+      "slug": "cargo-bar-controlled-release",
+      "branch": "optimization/cargo-actuator-tracking",
+      "commit": "4740eba2b60a17041798e690d307b37a120ebfc1",
+      "task_folder": "tasks/cargo-bar-controlled-release",
+      "case": "retract_controlled_inner_tube",
+      "published_branch_verified": true,
+      "native_success": false,
+      "submission_ready": false
+    },
+    "er": {
+      "slug": "er-collet-nut-preassembly",
+      "branch": "optimization/er-actuator-tracking",
+      "commit": "e6659287a5ac2e2d968bc0d39122659ef7cd2a11",
+      "task_folder": "tasks/er-collet-nut-preassembly",
+      "case": "eccentric-hook-prefix",
+      "published_branch_verified": true,
+      "native_success": false,
+      "submission_ready": false
+    },
+    "nailer": {
+      "slug": "brad-nailer-jam-recovery",
+      "branch": "repair/nailer-integrity-and-grip",
+      "commit": "b742696e49a506bfd4ef2362a06145b8a6cd3c65",
+      "task_folder": "tasks/brad-nailer-jam-recovery",
+      "case": "robot_46",
+      "published_branch_verified": true,
+      "native_success": false,
+      "submission_ready": false
+    }
+  },
+  "source_files_sha256": {
+    "GPU_RESUME_PLAN.md": "98519a6fb245da17af30641e1419f872e8253025ddad2547a872e98c57dd96ad",
+    "coordination/brev_policy.py": "30ab8e14fab362504e327aa97bf5aa93009d74df1603f3f7184eef84d7120631",
+    "coordination/brev_transfer/START_HERE.md": "868b0ed2414688800ff5f40196923c34ba7756fdc0e80bdc4cab94b3ee3c0ee8",
+    "coordination/brev_transfer/bootstrap.sh": "ed011bb6b58e01aab445c36f644dd5304acb41861f1fc7f8f590d02f4ab33921",
+    "coordination/brev_transfer/codex_session.sh": "a0aaaab2033fa7f56e4c629a8323da4c9b6c6bc4b3944e478e7792b140ad5ded",
+    "coordination/brev_transfer/preflight.sh": "5cbd682de96a703140501140f4469d68a0b9556001bc19ff1bcd15b64a010124",
+    "coordination/brev_transfer/run_first_diagnostic.sh": "ed0139c97270447aa02027aac70a7f843c9bae04c3e6b5e62901ed47c182fbb0",
+    "coordination/brev_transfer/runtime_probe.py": "9bb1dfccc0dac36e39c8a5180b30d99ebfe48905b20c768338a478a20fa3c190",
+    "coordination/brev_transfer/transfer.py": "a91cacee8d3c8879a4d14922ab51a67a8660ec02aff67556ecc5761e4ac19114",
+    "coordination/diagnostic_native.py": "2a40ee1e4494e385511680afd78058793dedbe14f2a65f54289044646f634502",
+    "coordination/engine.py": "7f8bc514825272b22c241e19a6c575b81462d94be7f4bb64a562884cef768cfa",
+    "coordination/environment.py": "74661cd993c2332f9ace24a356180101589770f3cb90ff755e5775385596766b",
+    "coordination/marathon.py": "a90e75e88fc4550cc7a9730008f865a6c339df46cc6737a68f0d2b74b4808f11",
+    "coordination/pipeline.py": "e1532c8fc2fc42c138d51a5cf5fd38c106fe34273c11f9b65f6822ce8af401b7",
+    "coordination/session_budget.py": "f4f92f9438164685f8294fb654b4f387491aa5933152879c2013e2422fa8efe8",
+    "coordination/sprint_diagnostic.py": "7047eca13075fd55d6b1c70c22954d21b8a305858a334e2ea87887750940bf47",
+    "coordination/sprint_state.py": "49e84f66fcac292ae72c58f0dd574d2aa584b7298fde90db45ae4e68ea64655a",
+    "coordination/stack-lock.json": "d78235334cf77437c0e104465d355ebb0000aecffb782f7750461ba3ea46043d"
+  }
+}

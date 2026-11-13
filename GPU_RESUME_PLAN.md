@@ -1,6 +1,6 @@
 # Single continuous GPU engineering and submission sprint
 
-Current authorization: **not started, no paid execution authorized yet**. The user will explicitly authorize starting the existing Launchable and approve the spend cap. This supersedes prior diagnostic-only stopping instructions and the old requirement to have three offline-ready candidates before beginning. Preserve pending1733 and finally rejected1647/1703/1772 heads.
+Current authorization: **Cloud must not access/start Brev or incur charges**. The user approved a maximum$15 NEW spending for the forthcoming session and a conservative$13.50 estimated-spend shutdown trigger, with six hours maximum; actual startup/provider facts remain unverified. Use [the tested Cloud-to-Brev transfer package](coordination/brev_transfer/START_HERE.md) on the existing machine after the user starts it. This supersedes prior diagnostic-only stopping instructions and the old requirement to have three offline-ready candidates before beginning. Preserve pending1733 and finally rejected1647/1703/1772 heads.
 
 Objective: at least three genuinely qualified NEW official PRs, then continue if qualified work and approved resources remain. Three diagnostics, tests or evaluations do not count. Three is not a promise that currently unproven candidates will work or meet the rubric; no weakened importance/novelty/scoring gate is permitted to reach a quota.
 
@@ -10,9 +10,9 @@ The active assistant carries out one continuous session. A command returning an 
 
 Before startup, verify actual Brev credits, quoted GPU rate, approved spending limit and a working provider control path for stopping the existing instance. Do not provision replacements. If available, configure provider-native auto-stop at the approved deadline and verify it; a guest shutdown or killed Python process is not proof of stopped billing. After startup immediately verify actual GPU UUID/driver, pinned installed runtime, secure credential availability/authentication and registered GitHub account. Never print/store token values. A credential-presence flag alone is not proof that a service will authenticate; use an actual supported nonpaid identity/health check where available.
 
-The cost receipt must contain observed provider evidence, actual instance billing start, current balance/rate, GPU UUID, `authorized_session_spend_usd` and `authorization_reference` to the real user approval. No value is assumed from the historical$29.60. `record_budget.py` records facts, never launches compute. Its format checks do not authenticate a provider. `engine.Budget` enforces the explicit cap in addition to retained legacy guards($170 total and$30 reserve). A later explicit user instruction may revise those guards; do not silently relax them. Resolve an incompatibility with actual approved funding before starting, rather than spinning a paid instance while blocked.
+The cost receipt must contain observed provider evidence, actual instance billing start, current balance/rate, GPU UUID, `authorized_session_spend_usd` and `authorization_reference` to the real user approval. No value is assumed from the historical$29.60. `record_budget.py` records facts, never launches compute. Its format checks do not authenticate a provider. For this exact approval, `brev_policy.py` binds the$15 hard cap/$13.50 trigger to the named instance, uploaded authorization hash, dedicated transfer session UUID and receipt directory. Its reserve is0 for this approved NEW-session scope; other receipts keep the historical$170/$30 guards. Fresh balance/rate/start facts are never filled from guesses. Old observations and session history remain intact.
 
-`open_sprint` creates sprint-session.json before the first diagnostic and fixes the six-hour outer deadline to the actual instance start. Resumes preserve deadline, instance/rate/spending identity, provider observations, repairs and submissions. Fresh provider receipts on resume cannot reset elapsed charges or increase the cap. The meter uses actual observed rate/balance plus conservative elapsed-instance charges, including idle/startup/review time; it is not a live billing API. Workload checks retain one minute of rate-based shutdown headroom and stop one minute before the outer session deadline. This margin is not a claim that provider shutdown is automatic or always completes within that time. Refresh provider observations between candidates and after costly failures. The active assistant must stop paid work AND stop the actual Brev instance before the approved cap/deadline, then verify provider state. If shutdown cannot be confirmed, report that precise fact; do not claim billing stopped.
+`open_sprint` creates sprint-session.json before the first diagnostic and fixes the six-hour outer deadline to the actual instance start. Resumes preserve deadline, instance/rate/spending identity, provider observations, repairs and submissions. Fresh provider receipts on resume cannot reset elapsed charges or increase the cap. A verified continuation of the same scoped session can retain the original timestamped observation while estimating elapsed charges, without falsely claiming a fresh provider query. The meter uses actual observed rate/balance plus conservative elapsed-instance charges, including idle/startup/review time; it is not a live billing API. Workload checks retain one minute of rate-based shutdown headroom and stop one minute before the outer session deadline. This margin is not a claim that provider shutdown is automatic or always completes within that time. Refresh provider observations between candidates and after costly failures. The active assistant must stop paid work AND stop the actual Brev instance before the approved cap/deadline, then verify provider state. If shutdown cannot be confirmed, report that precise fact; do not claim billing stopped.
 
 ## Continuous execution
 
@@ -31,15 +31,13 @@ Pure preview (no GPU, provider, credential probe or PR):
 python coordination/marathon.py --manifest coordination/recovery/diagnostic-sources.json --run-root /data/robocurve-sprint
 ```
 
-First diagnostic, ONLY in the authorized existing installed runtime, after factual cost receipt and source verification:
+First diagnostic, ONLY on the existing machine after user startup and factual preflight. Sources are independent `/data/robocurve-ops` and `/data/robocurve-task-cargo`; `/data/benchmark-tasks` is never modified:
 
 ```bash
-/data/IsaacLab-Arena/.venv/bin/python coordination/sprint_diagnostic.py \
- --task-folder /data/benchmark-tasks/tasks/cargo-bar-controlled-release \
- --commit 4740eba2b60a17041798e690d307b37a120ebfc1 \
- --case retract_controlled_inner_tube --run-root /data/robocurve-sprint \
- --budget-file /data/provider-facts-fresh.json --launchable-root /data \
- --registered-account aryansennthilkumarGT --timeout-seconds 1200 --execute
+bash /data/robocurve-ops/coordination/brev_transfer/preflight.sh --free
+bash /data/robocurve-ops/coordination/brev_transfer/preflight.sh --record-provider-facts
+bash /data/robocurve-ops/coordination/brev_transfer/preflight.sh --gpu
+bash /data/robocurve-ops/coordination/brev_transfer/run_first_diagnostic.sh --execute
 ```
 
 This uses ordinary native robot controls and20Hz SDK telemetry at the original960Hz physics. It is fail-fast, budget/deadline bounded and receipt/checkpoint protected. Isaac instrumentation itself remains unrun. Do not run both this and the older equivalent direct diagnostic unnecessarily. A passing diagnostic does not itself qualify a full task. Failed output remains immutable.
@@ -47,12 +45,16 @@ This uses ordinary native robot controls and20Hz SDK telemetry at the original96
 As actual quality/source evidence becomes available, maintain an exact manifest naming reviewed bundles and qualified candidates. Start qualification with ONE qualified candidate; no three-candidate startup gate remains:
 
 ```bash
-python coordination/marathon.py --manifest /data/source-bound-qualified-manifest.json \
- --run-root /data/robocurve-sprint --budget-file /data/provider-facts-fresh.json \
- --launchable-root /data --registered-account aryansennthilkumarGT \
- --execute --resume --submit
+SESSION_ROOT=$(python3 /data/robocurve-ops/coordination/brev_transfer/transfer.py session-path)
+BUDGET_FILE=$(python3 -c 'import json; print(json.load(open("/data/robocurve-sprint/active-provider-receipt.json"))["receipt"])')
+/data/IsaacLab-Arena/.venv/bin/python /data/robocurve-ops/coordination/marathon.py \
+ --manifest "$SESSION_ROOT/qualified-manifest.json" --run-root "$SESSION_ROOT" \
+ --budget-file "$BUDGET_FILE" --launchable-root /data \
+ --registered-account aryansennthilkumarGT --execute --resume --submit
 ```
 
 The current diagnostic-sources.json is not a qualification manifest and must not be relabeled to bypass known failures. Each per-task gate remains. `--submit` now submits inside the task loop, before the next candidate. Do not first run a separate complete task_runner and then run this entire coordinator: that repeats expensive evaluations because receipt contexts differ.
 
 Durable records: sprint-session.json (cap/deadline/provider observations/repair attempts/new PR count), ledger.json (immutable source-bound stage outcomes), submissions/<slug>.json (per-task creation/read-back), report.json and ready-handoff.json. After a source repair, update only the relevant task manifest entry and resume in the same session. The assistant owns the outer engineering loop; no Python script can invent a correct controller repair or genuine visual inspection.
+
+Provider billing stop, from the separate LOCAL laptop/WSL terminal: `brev stop yam-eval-launchable-0cb74b`. Verify actual stopped state afterwards. No verified automatic provider shutdown is claimed. A$15 application-side cap cannot guarantee a$15 invoice if the instance stays running.
