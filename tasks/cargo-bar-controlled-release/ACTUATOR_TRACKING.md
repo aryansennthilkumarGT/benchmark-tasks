@@ -15,3 +15,10 @@ The recorded physical terminal state is retained for response/constraint regress
 ## Actual moving-base reference failure
 
 Clean c23fb66 reaches phase8 with SDK velocity ratio0.7301, then fails at746actions/37.3s, score0.25, no warnings. Releasing the loaded mechanism translates the real outer tube at63.6mm/s. Its live circle center moves about3.2mm per observation, so even halving arc advancement to zero cannot fit a20mrad reference increment. The successor holds arc-angle progress and slews the robot toward the same-angle pose at the unchanged20mrad/tick bound.50consecutive catch-up ticks terminate after2.5s. This bounded joint-space catch-up is disclosed; it is not an exact Cartesian circle while the base is moving. Physical task state is never frozen/set. Joint, trigger, scoring and SDK effort checks remain. A prescribed4mm base-motion stress verifies no reference jump or false arc progress; a fresh actual integration remains mandatory.
+
+
+## Submission-first correction: persistent gripper command
+
+The f75fb54 actual CPU run clears handle opening and both pawl checks, then stalls at phase11/1037actions/51.85s, physical score0.25; no warnings and SDK speed ratio0.7301. The gripper limiter advanced from measured aperture every tick. Once a part blocked closure it stayed measured−0.05, artificially limiting spring error/closing force instead of reaching the requested aperture. The fix retains a persistent aperture reference, slewed by at most0.05normalized per20Hz command, including circular-motion holds. Desired apertures, SDK force/velocity limits, mechanics, collision bounds and scorer are unchanged. A blocked-jaw regression proves eventual requested command and bounded command-to-command slew. Actual native force/velocity and retraction remain to be measured.
+
+Further MuJoCo perfection is not a precondition for a separately authorized bounded Isaac diagnostic. Cargo is the first-priority candidate. Run the native retraction prefix to distinguish actual PhysX friction/actuation from this supplemental model before another redesign. No official submission or paid evaluation is authorized by this source change.

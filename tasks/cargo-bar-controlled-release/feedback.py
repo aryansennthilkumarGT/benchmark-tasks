@@ -46,7 +46,7 @@ class Controller:
   delta=proposed-reference
   final=self.arc_pose(p,frame,target);tcp,rotation=motion.ik.tcp_pose(arm,motion.base)
   error=float(np.linalg.norm(tcp-final['pos']));theta=qangle(motion.ik.matrix_to_quat_xyzw(rotation),final['quat'])
-  grip=q[start+6]+float(np.clip(p['opening']-q[start+6],-.05,.05))
+  grip=motion.gripper_target(q[start+6],p['opening'])
   if motion.reference is not None and np.max(np.abs(motion.reference-arm))>motion.tracking_error_limit:
    # Hold the previous circle point until the physical robot catches up.
    return np.r_[motion.reference,grip],error,theta

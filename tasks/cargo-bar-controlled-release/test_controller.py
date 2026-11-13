@@ -154,3 +154,21 @@ def test_released_base_motion_holds_arc_progress_and_respects_robot_reference_ra
  assert c.arc_follow_holds[8]==1 and c.arc_references[8]==reference
  assert np.max(np.abs(output[:6]-previous))<=.020001
  assert np.isfinite(output).all()
+
+
+def test_blocked_gripper_command_reaches_requested_aperture_without_a_reference_jump():
+ from motion import Motion
+ m=Motion('left');measured=.2656;previous=measured;commands=[]
+ for _ in range(8):
+  command=m.gripper_target(measured,.18)
+  assert abs(command-previous)<=.050001
+  commands.append(command);previous=command
+ # A blocked jaw must not pin the command at measured-.05 forever. This
+ # command test does not claim actual grip force or native velocity success.
+ assert abs(commands[-1]-.18)<1e-12 and commands[-1]<measured-.05
+ for _ in range(8):
+  command=m.gripper_target(measured,.55)
+  assert abs(command-previous)<=.050001;previous=command
+ assert abs(command-.55)<1e-12
+ c=Controller(PLAN,SPEC);c.motion['left'].gripper_target(.3,0.);c.reset()
+ assert c.motion['left'].grip_reference is None
