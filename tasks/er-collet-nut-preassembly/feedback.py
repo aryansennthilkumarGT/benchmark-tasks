@@ -17,7 +17,7 @@ class Controller:
 
     def reset(self):
         self.index=0;self.done=False;self.failed=None;self.events=[];self.thread=None;self.grasps={}
-        self.motion={s:Motion(s,tracking_error_limit=.025) for s in ('left','right')}
+        self.motion={s:Motion(s,tracking_error_limit=.08) for s in ('left','right')}
         self.targets={};self.started=None;self.last_time=None;self.stable=None
         self.best=float('inf');self.progress_time=None;self.actions=0
         self.recovery=None;self.attempts={}
@@ -59,7 +59,8 @@ class Controller:
             for side,p in self.targets.items():
                 start=0 if side=='left' else 7
                 action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],
-                    p['opening'],speed=p['speed'],angular_speed=.5)
+                    p['opening'],speed=p['speed'],angular_speed=.5,
+                    feedback_gain=3. if p.get('grasp_width',0.) else 0.)
                 output[start:start+7]=action
                 if side==phase['side']:error,theta=pe,re
         except ControlFailure as exc:self.fail(str(exc))

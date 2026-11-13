@@ -57,7 +57,7 @@ def limit_vector(delta,maximum):
 
 class Motion:
     """Track a rate-limited IK reference while waiting for all joints to catch up."""
-    def __init__(self,side,dt=0.05,tracking_error_limit=0.025):
+    def __init__(self,side,dt=0.05,tracking_error_limit=0.08):
         from yam_arena import ik,station
         self.ik=ik;self.base=station.BASES[side];self.dt=dt
         self.reference = None
@@ -72,7 +72,7 @@ class Motion:
         quat = unit(quat)
         error = float(np.linalg.norm(measured_pos - pos))
         theta = qangle(self.ik.matrix_to_quat_xyzw(measured_rotation), quat)
-        grip = q[6] + float(np.clip(opening-q[6], -0.10, 0.10))
+        grip = q[6] + float(np.clip(opening-q[6], -0.05, 0.05))
         if self.reference is None:
             self.reference = arm.copy()
         if np.max(np.abs(self.reference - arm)) > self.tracking_error_limit:
@@ -89,6 +89,11 @@ class Motion:
         fraction=min(1.,speed*self.dt/max(np.linalg.norm(position_step),1e-12),
                      angular_speed*self.dt/max(remaining_angle,1e-12))
         limited = current + position_step*fraction
+        if feedback_gain:
+            # Bound the integral reference lead under a held load/contact.
+            # This authored6mm controller bound is not an OEM tolerance and
+            # cannot increase the SDK effort/velocity limits or scorer bounds.
+            limited = measured_pos + limit_vector(limited-measured_pos, .006)
         qtarget = interpolate(current_q, quat, fraction)
         solved,position_error,rotation_error=self.ik.solve(limited,qtarget,q_init=self.reference,base_pos=self.base,
                                                          iters=100,damping=0.015,tol=2e-5)

@@ -4,7 +4,7 @@ No physics: grasp acquisition/retention and released-part support are assumed.
 This verifies sampled robot/fixture/inter-arm geometry between waypoints, not
 native contacts, continuous swept volumes or demonstrated physical success.
 """
-import copy,json
+import copy,json,hashlib
 from pathlib import Path
 import numpy as np
 from yam_arena import ik,station
@@ -17,6 +17,9 @@ from robot_geometry import arm_hulls,task_collisions,table_intersections,inter_a
 
 def audit(folder):
  s=json.loads((folder/'scene.json').read_text());plan=json.loads((folder/'controller.json').read_text())
+ runtime_files=list(folder.glob('*.py'))+[folder/n for n in ('scene.json','controller.json','stack-lock.json')]+list((folder/'assets').glob('*.usda'))+list((folder/'test_fixtures').glob('*.json'))
+ identity=lambda:{p.relative_to(folder).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(runtime_files)}
+ sources=identity()
  c=Controller(plan,s);q=np.tile(np.r_[READY,1.],2);g=geometry_module(folder);held={};rows=[];error=None
  states={b['name']:dict(pos=b['pos'],quat=b['quat']) for a in s['assemblies'] for b in a['bodies']}
  def pose(side,q):
@@ -33,18 +36,18 @@ def audit(folder):
    if target.get('grasp_width',0.):q[(0 if arm=='left' else 7)+6]=max(q[(0 if arm=='left' else 7)+6],(target['grasp_width']+.0003)/.0939)
   for arm,h in held.items():
    tcp,tq=pose(arm,q);states[h['body']]=dict(pos=(tcp+rotate(tq,h['offset'])).tolist(),quat=multiply(tq,h['quat']).tolist())
-  if step%20==0 or c.index!=index or c.done:
+  if step%5==0 or c.index!=index or c.done:
    hulls={a:arm_hulls(a,q[(0 if a=='left' else 7):(7 if a=='left' else 14)]) for a in ('left','right')};contacts=[];table=[]
    for arm in hulls:
-    for hit in task_collisions(g,hulls[arm],s,states,threshold=.0015):
-     if held.get(arm,{}).get('body')==hit['body'] and hit['link'] in ('tip_left','tip_right') and hit['penetration_m']<=.003:continue
+    for hit in task_collisions(g,hulls[arm],s,states,threshold=.00005):
+     if held.get(arm,{}).get('body')==hit['body'] and hit['link'] in ('tip_left','tip_right') and hit['penetration_m']<=.0008:continue
      contacts.append(dict(side=arm,**hit))
-    table += [dict(side=arm,**x) for x in table_intersections(hulls[arm],s['table_top'])]
-   cross=inter_arm_intersections(g,hulls['left'],hulls['right'])
+    table += [dict(side=arm,**x) for x in table_intersections(hulls[arm],s['table_top'],threshold=.00005)]
+   cross=inter_arm_intersections(g,hulls['left'],hulls['right'],threshold=.00005)
    rows.append(dict(step=step,phase=index,contacts=contacts,table=table,inter_arm=cross,passed=not contacts and not table and not cross))
   if c.done:break
  result=dict(kind='OFFLINE_ACTUAL_CONTROLLER_FK_PATH_IDEAL_GRASPS',physics_executed=False,grasps_validated=False,
-   swept_volume_validated=False,sampling='20 Hz control, every twentieth action plus every phase boundary',checks=rows,error=error,
-   actions=step+1,passed=bool(rows) and error is None and c.done and all(x['passed'] for x in rows))
+   swept_volume_validated=False,sampling='20 Hz control, every fifth action plus every phase boundary',unintentional_contact_bound_m=.00005,intended_finger_contact_bound_m=.0008,runtime_inputs_sha256=sources,source_bound=identity()==sources,checks=rows,error=error,
+   actions=step+1,passed=identity()==sources and bool(rows) and error is None and c.done and all(x['passed'] for x in rows))
  print(json.dumps(result,indent=2));return 0 if result['passed'] else 1
 if __name__=='__main__':raise SystemExit(audit(Path(__file__).resolve().parent))

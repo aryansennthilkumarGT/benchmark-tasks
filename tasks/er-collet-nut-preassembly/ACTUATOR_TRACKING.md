@@ -1,0 +1,5 @@
+# Actuated CPU repair, not native qualification
+
+Original1263eb9658f67ddc0e632ee8b22d8621cbd625f5 is preserved. A fresh clean-HTTPS actual YAM/MuJoCo trial349actions/17.45s fails Lift collet from cradle, score0, no solver warnings. The collet is genuinely grasped/lifted, but robot-only gravity compensation leaves a loaded TCP error2.780mm at a0.25mm controller target. Original stock SDK gripper speed is exceeded by1.5357times. The full failed report/model/trace is retained on the recovery branch.
+
+This successor retains all geometry, task masses, joints, contacts and scoring. Loaded phases use Cartesian measured-position integral feedback at3/s, capped to6mm reference lead. SDK force limits remain unchanged. Joint tracking allowance0.08rad is compatible with the SDK wrist D/K0.15s and0.4rad/s reference motion; it does not enlarge task success tolerances. Gripper reference slew is0.05normalized per50ms instead of0.10. A recorded-state regression exercises loaded correction and bounded windup, explicitly without claiming plant/task success. Full actual CPU and native tests are still required; readiness remains held.
