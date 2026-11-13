@@ -52,7 +52,7 @@
       "slug": "er-collet-nut-preassembly",
       "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "branch": "repair/er-collet-v21",
-      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/er-collet-nut-preassembly/1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/er-collet-nut-preassembly/1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -129,90 +129,10 @@
       ]
     },
     {
-      "slug": "rigging-shackle-connection",
-      "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
-      "branch": "repair/rigging-shackle-v21",
-      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/rigging-shackle-connection/ce43ba49685b76affdb6f84e2850387d8620edef",
-      "stages": [
-        "MECHANICS_COMPLETE",
-        "STATIC_TESTS_PASSED",
-        "NATIVE_PHYSICS_PASSED",
-        "ROBOT_CONTROL_PASSED",
-        "EXPERT_DEMO_1_PASSED",
-        "EXPERT_DEMO_2_PASSED",
-        "CLEAN_CHECKOUT_EXPERT_PASSED",
-        "MODEL_EVALUATED",
-        "MEDIA_RENDERED",
-        "MEDIA_VERIFIED",
-        "MEDIA_UPLOADED",
-        "EXACT_COMMIT_VERIFIED",
-        "READY_FOR_PR"
-      ],
-      "commands": [
-        [
-          "git",
-          "fetch",
-          "origin",
-          "ce43ba49685b76affdb6f84e2850387d8620edef"
-        ],
-        [
-          "python",
-          "tasks/rigging-shackle-connection/native_tests.py",
-          "--mode",
-          "physics"
-        ],
-        [
-          "python",
-          "tasks/rigging-shackle-connection/native_tests.py",
-          "--mode",
-          "control"
-        ],
-        [
-          "python",
-          "tasks/rigging-shackle-connection/run.py",
-          "--mode",
-          "expert",
-          "--execute"
-        ],
-        [
-          "python",
-          "tasks/rigging-shackle-connection/run.py",
-          "--mode",
-          "expert",
-          "--execute"
-        ],
-        [
-          "python",
-          "tasks/rigging-shackle-connection/run.py",
-          "--mode",
-          "dream",
-          "--execute"
-        ],
-        [
-          "inspect-robots",
-          "video",
-          "<validated-log>",
-          "--out",
-          "<media-directory>"
-        ],
-        [
-          "python",
-          "tools/upload_media.py",
-          "tasks/rigging-shackle-connection",
-          "--video",
-          "<model.mp4>",
-          "--demo",
-          "<demo.mp4>",
-          "--screenshot",
-          "<setup.png>"
-        ]
-      ]
-    },
-    {
       "slug": "cargo-bar-controlled-release",
       "commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "branch": "repair/cargo-bar-angular-units",
-      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/cargo-bar-controlled-release/72e33f89853577aadebb78e64a1e783bd9087e84",
+      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/cargo-bar-controlled-release/72e33f89853577aadebb78e64a1e783bd9087e84",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -292,7 +212,7 @@
       "slug": "brad-nailer-jam-recovery",
       "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
       "branch": "draft/brad-nailer-jam-recovery",
-      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/brad-nailer-jam-recovery/d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
+      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/brad-nailer-jam-recovery/d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -369,10 +289,90 @@
       ]
     },
     {
+      "slug": "rigging-shackle-connection",
+      "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
+      "branch": "repair/rigging-shackle-v21",
+      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/rigging-shackle-connection/ce43ba49685b76affdb6f84e2850387d8620edef",
+      "stages": [
+        "MECHANICS_COMPLETE",
+        "STATIC_TESTS_PASSED",
+        "NATIVE_PHYSICS_PASSED",
+        "ROBOT_CONTROL_PASSED",
+        "EXPERT_DEMO_1_PASSED",
+        "EXPERT_DEMO_2_PASSED",
+        "CLEAN_CHECKOUT_EXPERT_PASSED",
+        "MODEL_EVALUATED",
+        "MEDIA_RENDERED",
+        "MEDIA_VERIFIED",
+        "MEDIA_UPLOADED",
+        "EXACT_COMMIT_VERIFIED",
+        "READY_FOR_PR"
+      ],
+      "commands": [
+        [
+          "git",
+          "fetch",
+          "origin",
+          "ce43ba49685b76affdb6f84e2850387d8620edef"
+        ],
+        [
+          "python",
+          "tasks/rigging-shackle-connection/native_tests.py",
+          "--mode",
+          "physics"
+        ],
+        [
+          "python",
+          "tasks/rigging-shackle-connection/native_tests.py",
+          "--mode",
+          "control"
+        ],
+        [
+          "python",
+          "tasks/rigging-shackle-connection/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/rigging-shackle-connection/run.py",
+          "--mode",
+          "expert",
+          "--execute"
+        ],
+        [
+          "python",
+          "tasks/rigging-shackle-connection/run.py",
+          "--mode",
+          "dream",
+          "--execute"
+        ],
+        [
+          "inspect-robots",
+          "video",
+          "<validated-log>",
+          "--out",
+          "<media-directory>"
+        ],
+        [
+          "python",
+          "tools/upload_media.py",
+          "tasks/rigging-shackle-connection",
+          "--video",
+          "<model.mp4>",
+          "--demo",
+          "<demo.mp4>",
+          "--screenshot",
+          "<setup.png>"
+        ]
+      ]
+    },
+    {
       "slug": "drive-bracket-pin-release",
       "commit": "391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
       "branch": "repair/drive-bracket-v21",
-      "worktree": "/tmp/robocurve-four-preview-unused/worktrees/drive-bracket-pin-release/391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
+      "worktree": "/tmp/robocurve-three-current-preview-unused/worktrees/drive-bracket-pin-release/391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
       "stages": [
         "MECHANICS_COMPLETE",
         "STATIC_TESTS_PASSED",
@@ -462,21 +462,21 @@
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
-      "slug": "rigging-shackle-connection",
+      "slug": "cargo-bar-controlled-release",
       "priority": 2,
       "offline_state": "OFFLINE READY",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
-      "slug": "cargo-bar-controlled-release",
+      "slug": "brad-nailer-jam-recovery",
       "priority": 3,
       "offline_state": "OFFLINE READY",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
-      "slug": "brad-nailer-jam-recovery",
-      "priority": 4,
-      "offline_state": "OFFLINE READY",
+      "slug": "rigging-shackle-connection",
+      "priority": 90,
+      "offline_state": "NOVELTY_HOLD",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY"
     },
     {
@@ -487,6 +487,7 @@
     }
   ],
   "blocked": [
+    "rigging-shackle-connection",
     "drive-bracket-pin-release"
   ],
   "verified_offline_bundles": [
@@ -494,11 +495,6 @@
       "slug": "er-collet-nut-preassembly",
       "published_commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
       "tested_source_commit": "9b6f6f645cbcb8d969d404a194019f439091aca2"
-    },
-    {
-      "slug": "rigging-shackle-connection",
-      "published_commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
-      "tested_source_commit": "65b6ed7b762e0157977290b2dc2df398202cc65e"
     },
     {
       "slug": "cargo-bar-controlled-release",

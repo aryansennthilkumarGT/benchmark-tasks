@@ -23,14 +23,16 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/repair/rigging-shackle-v21",
       "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
       "task_folder": "tasks/rigging-shackle-connection",
-      "priority": 2,
-      "offline_state": "OFFLINE READY",
+      "priority": 90,
+      "offline_state": "NOVELTY_HOLD",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",
       "maximum_qualification_seconds": 7200,
       "offline_evidence": {
         "path": "coordination/recovery/offline-bundles/rigging-shackle-connection/bundle.json",
         "sha256": "d7565aecc73b8e74cf46c6784b1d1ff10baa709ebb776ed4ea146d8f3a33df6b"
-      }
+      },
+      "readiness_label": "TECHNICALLY_VERIFIED_NOVELTY_HOLD",
+      "hold_evidence": "coordination/recovery/novelty-refresh-2026-11-13/decision.json"
     },
     {
       "slug": "cargo-bar-controlled-release",
@@ -38,7 +40,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/repair/cargo-bar-angular-units",
       "commit": "72e33f89853577aadebb78e64a1e783bd9087e84",
       "task_folder": "tasks/cargo-bar-controlled-release",
-      "priority": 3,
+      "priority": 2,
       "offline_state": "OFFLINE READY",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",
       "maximum_qualification_seconds": 7200,
@@ -54,7 +56,7 @@
       "branch_url": "https://github.com/aryansennthilkumarGT/benchmark-tasks/tree/draft/brad-nailer-jam-recovery",
       "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
       "task_folder": "tasks/brad-nailer-jam-recovery",
-      "priority": 4,
+      "priority": 3,
       "offline_state": "OFFLINE READY",
       "readiness_label": "OFFLINE HIGH CONFIDENCE",
       "timing_basis": "OFFLINE_IDEAL_TIMING_ONLY",

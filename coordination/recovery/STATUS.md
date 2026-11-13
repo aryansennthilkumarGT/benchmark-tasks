@@ -1,3 +1,11 @@
+# Current qualified three; two novelty holds
+
+Primary-source semantic refresh found pending PR1886 duplicates the shackle pin/lug core operation. The original and repaired branches/evidence remain untouched, but shackle is excluded from the current ready plan. Pending PR1868 and finally rejected1636 substantially overlap the completed SDS sleeve/radial-lock task. SDS95ec72f is pushed and ten-stage local CPU checks pass; separate clean HTTPS verification is running. Do not count either as qualified.
+
+The current internally qualified three are ER1263eb9, cargo72e33f8, nailerd8d454b. Fresh PR1733 read remains open at a312bcac with no new comments since10Z; no PR head modified. Four quality slots now need substantive replacements beyond the three qualified tasks and pending twelve-cell. Continue manufacturer/novelty verification for pintle-hook coupling, then complete one independent implementation. No GPU or paid evaluation authorized.
+
+Prior entries below are chronological historical evidence; the current holds supersede earlier readiness counts.
+
 # Active fifth-package engineering checkpoint
 
 SDS-plus chisel exchange is independently pushed at e39f322 as explicitly unfinished implementation: original7-body/6USD scene,31-phase read-only physical-feedback YAM controller, real ball/drive/closed-groove contacts, scorer/reset/native/Dream/media tooling and34 passing unit/schema/geometry/provenance/workflow checks. Full ideal/FK/clean-source qualification remains unfinished.
