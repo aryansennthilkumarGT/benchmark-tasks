@@ -1,6 +1,6 @@
 # Cargo first: bounded native diagnostic
 
-Decision: **source verification in progress; no native feasibility or acceptance claimed**. This task is first because the actual CPU controller already opens the handle, confirms both pawls clear and reaches controlled retraction. Its next known code defect—measured-aperture-based grip slew—is repaired by a persistent command. Native contact/force/velocity and full score remain unproven. MuJoCo is supplemental, not the target simulator.
+Decision: **GO FOR A SEPARATELY AUTHORIZED BOUNDED GPU DIAGNOSTIC; NO-GO for Dream or submission**. This task is first because the actual CPU controller already opens the handle, confirms both pawls clear and reaches controlled retraction. The measured-aperture grip force cap is repaired by a persistent command; the later redundant nominal-TCP verification stall is repaired by holding the achieved command and checking unchanged physical pawl guards. Native contact/force/velocity and full score remain unproven. MuJoCo is supplemental, not the target simulator.
 
 Do not provision/connect/start compute or execute paid work until separately authorized with fresh provider balance/price observations. The historical$29.60 is not a current balance or spending authorization. Use the existing pinned environment, without driver or full-stack reinstallation. Workload timeout does not stop provider billing.
 

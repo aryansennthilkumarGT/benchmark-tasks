@@ -150,7 +150,10 @@ class Controller:
   try:
    for side,p in self.targets.items():
     original=p;p=self.resolve(p,frame);start=0 if side=='left' else 7
-    if 'arc' in original:action,pe,re=self.arc_action(original,frame,q)
+    if original.get('hold_reference'):
+     motion=self.motion[side];held=motion.reference if motion.reference is not None else q[start:start+6]
+     action=np.r_[held,motion.gripper_target(q[start+6],p['opening'])];pe=re=0.
+    elif 'arc' in original:action,pe,re=self.arc_action(original,frame,q)
     else:action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],p['opening'],speed=p['speed'],angular_speed=.5)
     output[start:start+7]=action
     if side==phase['side']:error,theta=pe,re

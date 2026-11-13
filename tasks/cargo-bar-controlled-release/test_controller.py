@@ -172,3 +172,20 @@ def test_blocked_gripper_command_reaches_requested_aperture_without_a_reference_
  assert abs(command-.55)<1e-12
  c=Controller(PLAN,SPEC);c.motion['left'].gripper_target(.3,0.);c.reset()
  assert c.motion['left'].grip_reference is None
+
+
+def test_pawl_verification_holds_real_command_and_still_requires_physical_clearance():
+ data=json.loads((HERE/'test_fixtures/pawl-verification-state.json').read_text());assert data['not_native'] and data['not_success']
+ row=data['keyframe']
+ for locked in (False,True):
+  c=Controller(PLAN,SPEC);c.index=9;q=np.array(row['robot_q']);reference=np.array(row['action'][7:13])
+  c.motion['right'].reference=reference.copy();c.motion['right'].grip_reference=float(row['action'][13])
+  for tick in range(8):
+   frame=copy.deepcopy(row['frame']);frame['time']+=tick*.05
+   if locked:
+    frame['joints']['holding_pawl_rotation']=0.
+    for name,pose in reconstruct(SPEC,frame['bodies']['outer_tube'],frame['joints']).items():
+     frame['bodies'][name].update(pose)
+   output=c.step(q,frame);assert np.array_equal(output[7:13],reference)
+   if c.index>9:break
+  assert (c.index>9) is (not locked)

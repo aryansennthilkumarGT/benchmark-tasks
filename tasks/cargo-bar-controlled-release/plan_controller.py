@@ -63,7 +63,9 @@ def make_plan(spec,reference):
  # Keep independent joint/trigger guards;400um is a controller bound only.
  phases[-1]['position_tolerance']=.0004
  handle('Verify both physical pawls clear',2.6,dwell=.3,pawls_clear=True,checks=[check('handle_rotation',2.45,2.63,True)])
+ phases[-1]['hold_reference']=True
  handle('Hold outer tube through released handle',2.6,dwell=.2,live=False,pawls_clear=True)
+ phases[-1]['hold_reference']=True
  # Left hand feeds the real inner tube while the right hand anchors the outer
  # tube through its held handle. The pinion must backdrive through real contacts.
  js['telescope']=.003;js['pinion_rotation']=-.003/spec['parameters']['authored_pinion_pitch_radius'];js['right_compliance']=0.
