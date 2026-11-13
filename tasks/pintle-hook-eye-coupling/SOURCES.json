@@ -1,0 +1,47 @@
+{
+  "retrieved": "2026-11-13",
+  "primary_sources": [
+    {
+      "url": "https://knowledge-hub-api.safholland.com/api/v1/download/public/XL-PH351_en-US.pdf",
+      "document": "XL-PH351 RevF",
+      "reviewed": "Both pages including actual images; operation1-4, dimensions and full-sized latch illustration",
+      "local_hash": {
+        "file": "saf-PH351.pdf",
+        "sha256": "f156f02c823f8ca4357ce2128602929adc6c344e96672a953136b21fbf2fbf12",
+        "bytes": 345542
+      }
+    },
+    {
+      "url": "https://safholland.com/us/en/products/holland-ph-30rp41",
+      "hash": {
+        "file": "saf-PH30RP41.html",
+        "sha256": "2523ba93a405342e5842917857eb2be42251f0d2dfc100e6f7141550fc07a7d5",
+        "bytes": 55564
+      }
+    },
+    {
+      "url": "https://www.bls.gov/ooh/transportation-and-material-moving/heavy-and-tractor-trailer-truck-drivers.htm",
+      "finding": "about2.2million jobs2025; do not attribute exact model usage to that whole population",
+      "hash": {
+        "file": "bls-drivers.html",
+        "sha256": "b215aec4956e5293b3e0a452fee884373d2b5d172a411304fea5c5a6635a61b0",
+        "bytes": 112497
+      }
+    },
+    {
+      "url": "https://www.onetonline.org/link/summary/53-3032.00",
+      "finding": "Explicit coupling/uncoupling core work; model/equipment subset not quantified",
+      "hash": {
+        "file": "onet-drivers.html",
+        "sha256": "27341bc742dff226eadb20d3a366e19a57b68b55ce34c05d39dfcfe388eefcdb",
+        "bytes": 201775
+      }
+    }
+  ],
+  "failure_disclosure": [
+    "Initially guessed CURT and SAF links404; no content cited from them.",
+    "CURT JS/API, Buyers and Lippert blog returned403; not treated as verified sources. SAF official actual catalog/download-center links work.",
+    "Search engines produced challenge/first-term irrelevant results; not used as source evidence."
+  ],
+  "manufacturer_geometry_boundary": "OEM document gives overall dimensions/compatibility and visible operation; hidden latch/dog contours, spring, contact coefficients and CAD are authored."
+}

@@ -1,0 +1,2192 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    def Material "Material" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.5
+        float physics:restitution = 0
+        float physics:staticFriction = 0.65
+    }
+
+    def Xform "hook_body" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        point3f physics:centerOfMass = (0.016609162, 0, -0.003934386)
+        float3 physics:diagonalInertia = (0.018388731, 0.022610156, 0.024352161)
+        float physics:mass = 4
+        quatf physics:principalAxes = (0.30852485, 0.30852485, -0.6362487, 0.6362487)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.22, 0.21, 0.01)
+            double3 xformOp:translate = (0.025, 0, -0.0525)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.018, 0.1143, 0.1775)
+            double3 xformOp:translate = (-0.016, 0, 0.04125000000000001)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.105, 0.038, 0.025)
+            double3 xformOp:translate = (0.0525, 0, -0.0025)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_3" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.015, 0.034, 0.102)
+            double3 xformOp:translate = (0.1125, 0, 0.041)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_4" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.04, 0.089)
+            double3 xformOp:translate = (0.004, 0, 0.0545)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_5" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.022, 0.01, 0.022)
+            double3 xformOp:translate = (0.015, -0.027, 0.11)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_6" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.022, 0.01, 0.022)
+            double3 xformOp:translate = (0.015, 0.027, 0.11)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cylinder "shape_7" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.062
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.45, 0.48, 0.51)]
+            double radius = 0.003
+            quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
+            double3 xformOp:translate = (0.015, 0, 0.11)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cube "shape_8" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.014, 0.019, 0.004)
+            double3 xformOp:translate = (0.018, 0, 0.1181)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cylinder "shape_9" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.006
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.45, 0.48, 0.51)]
+            double radius = 0.01016
+            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+            double3 xformOp:translate = (-0.004, -0.042926, 0.02)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_10" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.006
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.45, 0.48, 0.51)]
+            double radius = 0.01016
+            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+            double3 xformOp:translate = (-0.004, -0.042926, 0.06445)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_11" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.006
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.45, 0.48, 0.51)]
+            double radius = 0.01016
+            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+            double3 xformOp:translate = (-0.004, 0.042926, 0.02)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cylinder "shape_12" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.006
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.45, 0.48, 0.51)]
+            double radius = 0.01016
+            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+            double3 xformOp:translate = (-0.004, 0.042926, 0.06445)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def PhysicsFixedJoint "fix_hook_body" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
+    {
+        rel physics:body0 = </Asset>
+        rel physics:body1 = </Asset/hook_body>
+        point3f physics:localPos0 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+    }
+
+    def Xform "upper_latch" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        point3f physics:centerOfMass = (0.060419343, 0, -0.0011558635)
+        float3 physics:diagonalInertia = (0.00009601181, 0.00049640704, 0.0005640563)
+        float physics:mass = 0.49330458
+        quatf physics:principalAxes = (0, 0.9996504, 0, -0.026439477)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.015000000000000013, 0, 0.10999999999999999)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.074, 0.042, 0.014)
+            double3 xformOp:translate = (0.069, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.02, 0.034, 0.01)
+            double3 xformOp:translate = (0.094, 0, -0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Mesh "shape_2" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, -0.00025059676), (-0.002861366, -0.004, -0.00087790645), (0.0027502181, -0.004, 0.00087790645), (0.0029231505, -0.004, -0.00087790645), (-0.0029231505, 0.004, -0.00025059676), (-0.002861366, 0.004, -0.00087790645), (0.0027502181, 0.004, 0.00087790645), (0.0029231505, 0.004, -0.00087790645)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0060768494094999995, -0.017, 0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_3" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6, 3, 2, 1, 2, 0, 1, 6, 7, 5, 4, 6, 5, 0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, -0.00080521806), (-0.0027451946, -0.004, -0.0014084206), (0.0024160224, -0.004, 0.0014084206), (0.002928174, -0.004, -0.0002799174), (-0.002928174, 0.004, -0.00080521806), (-0.0027451946, 0.004, -0.0014084206), (0.0024160224, 0.004, 0.0014084206), (0.002928174, 0.004, -0.0002799174)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.005898893427, -0.017, 0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_4" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, -0.0013288953), (-0.002523527, -0.004, -0.0018848099), (0.0019889802, -0.004, 0.0018848099), (0.0028206694, -0.004, 0.00032882873), (-0.0028206694, 0.004, -0.0013288953), (-0.002523527, 0.004, -0.0018848099), (0.0019889802, 0.004, 0.0018848099), (0.0028206694, 0.004, 0.00032882873)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0054942462775, -0.017, 0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_5" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, -0.0018015038), (-0.0022048815, -0.004, -0.0022887671), (0.0014855027, -0.004, 0.0022887671), (0.0026047681, -0.004, 0.0009249381), (-0.0026047681, 0.004, -0.0018015038), (-0.0022048815, 0.004, -0.0022887671), (0.0014855027, 0.004, 0.0022887671), (0.0026047681, 0.004, 0.0009249381)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004878458325, -0.017, 0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_6" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, -0.0022048815), (-0.0018015038, -0.004, -0.0026047681), (0.0009249381, -0.004, 0.0026047681), (0.0022887671, -0.004, 0.0014855027), (-0.0022887671, 0.004, -0.0022048815), (-0.0018015038, 0.004, -0.0026047681), (0.0009249381, 0.004, 0.0026047681), (0.0022887671, 0.004, 0.0014855027)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004075193955, -0.017, 0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_7" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, -0.002523527), (-0.0013288953, -0.004, -0.0028206694), (0.00032882873, -0.004, 0.0028206694), (0.0018848099, -0.004, 0.0019889802), (-0.0018848099, 0.004, -0.002523527), (-0.0013288953, 0.004, -0.0028206694), (0.00032882873, 0.004, 0.0028206694), (0.0018848099, 0.004, 0.0019889802)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0031153221664999998, -0.017, 0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_8" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6, 3, 2, 1, 2, 0, 1, 6, 7, 5, 4, 6, 5, 0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, -0.0027451946), (-0.00080521806, -0.004, -0.002928174), (-0.0002799174, -0.004, 0.002928174), (0.0014084206, -0.004, 0.0024160224), (-0.0014084206, 0.004, -0.0027451946), (-0.00080521806, 0.004, -0.002928174), (-0.0002799174, 0.004, 0.002928174), (0.0014084206, 0.004, 0.0024160224)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0020357302945, -0.017, 0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_9" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, -0.002861366), (-0.00087790645, -0.004, 0.0029231505), (-0.00025059676, -0.004, -0.0029231505), (0.00087790645, -0.004, 0.0027502181), (-0.00087790645, 0.004, -0.002861366), (-0.00087790645, 0.004, 0.0029231505), (-0.00025059676, 0.004, -0.0029231505), (0.00087790645, 0.004, 0.0027502181)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000877906449, -0.017, 0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_10" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 7, 0, 3, 7, 2, 6, 7, 3, 2, 7, 2, 3, 1, 3, 0, 1, 7, 6, 5, 4, 7, 5, 0, 4, 5, 1, 0, 5, 6, 2, 5, 2, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, 0.0027502181), (0.00025059676, -0.004, -0.0029231505), (0.00087790645, -0.004, -0.002861366), (0.00087790645, -0.004, 0.0029231505), (-0.00087790645, 0.004, 0.0027502181), (0.00025059676, 0.004, -0.0029231505), (0.00087790645, 0.004, -0.002861366), (0.00087790645, 0.004, 0.0029231505)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000877906449, -0.017, 0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_11" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5, 3, 1, 2, 1, 0, 2, 5, 7, 6, 4, 5, 6, 0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, 0.0024160224), (0.0002799174, -0.004, 0.002928174), (0.00080521806, -0.004, -0.002928174), (0.0014084206, -0.004, -0.0027451946), (-0.0014084206, 0.004, 0.0024160224), (0.0002799174, 0.004, 0.002928174), (0.00080521806, 0.004, -0.002928174), (0.0014084206, 0.004, -0.0027451946)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0020357302945, -0.017, 0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_12" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5, 3, 1, 2, 1, 0, 2, 5, 7, 6, 4, 5, 6, 0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, 0.0019889802), (-0.00032882873, -0.004, 0.0028206694), (0.0013288953, -0.004, -0.0028206694), (0.0018848099, -0.004, -0.002523527), (-0.0018848099, 0.004, 0.0019889802), (-0.00032882873, 0.004, 0.0028206694), (0.0013288953, 0.004, -0.0028206694), (0.0018848099, 0.004, -0.002523527)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0031153221664999998, -0.017, 0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_13" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, 0.0014855027), (-0.0009249381, -0.004, 0.0026047681), (0.0018015038, -0.004, -0.0026047681), (0.0022887671, -0.004, -0.0022048815), (-0.0022887671, 0.004, 0.0014855027), (-0.0009249381, 0.004, 0.0026047681), (0.0018015038, 0.004, -0.0026047681), (0.0022887671, 0.004, -0.0022048815)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004075193955, -0.017, 0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_14" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5, 3, 1, 2, 1, 0, 2, 5, 7, 6, 4, 5, 6, 0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, 0.0009249381), (-0.0014855027, -0.004, 0.0022887671), (0.0022048815, -0.004, -0.0022887671), (0.0026047681, -0.004, -0.0018015038), (-0.0026047681, 0.004, 0.0009249381), (-0.0014855027, 0.004, 0.0022887671), (0.0022048815, 0.004, -0.0022887671), (0.0026047681, 0.004, -0.0018015038)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004878458325, -0.017, 0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_15" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, 0.00032882873), (-0.0019889802, -0.004, 0.0018848099), (0.002523527, -0.004, -0.0018848099), (0.0028206694, -0.004, -0.0013288953), (-0.0028206694, 0.004, 0.00032882873), (-0.0019889802, 0.004, 0.0018848099), (0.002523527, 0.004, -0.0018848099), (0.0028206694, 0.004, -0.0013288953)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0054942462775, -0.017, 0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_16" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, -0.0002799174), (-0.0024160224, -0.004, 0.0014084206), (0.0027451946, -0.004, -0.0014084206), (0.002928174, -0.004, -0.00080521806), (-0.002928174, 0.004, -0.0002799174), (-0.0024160224, 0.004, 0.0014084206), (0.0027451946, 0.004, -0.0014084206), (0.002928174, 0.004, -0.00080521806)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.005898893427, -0.017, 0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_17" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, -0.00087790645), (-0.0027502181, -0.004, 0.00087790645), (0.002861366, -0.004, -0.00087790645), (0.0029231505, -0.004, -0.00025059676), (-0.0029231505, 0.004, -0.00087790645), (-0.0027502181, 0.004, 0.00087790645), (0.002861366, 0.004, -0.00087790645), (0.0029231505, 0.004, -0.00025059676)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0060768494094999995, -0.017, 0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_18" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, 0.00087790645), (-0.0027502181, -0.004, -0.00087790645), (0.002861366, -0.004, 0.00087790645), (0.0029231505, -0.004, 0.00025059676), (-0.0029231505, 0.004, 0.00087790645), (-0.0027502181, 0.004, -0.00087790645), (0.002861366, 0.004, 0.00087790645), (0.0029231505, 0.004, 0.00025059676)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0060768494094999995, -0.017, -0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_19" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, 0.0002799174), (-0.0024160224, -0.004, -0.0014084206), (0.0027451946, -0.004, 0.0014084206), (0.002928174, -0.004, 0.00080521806), (-0.002928174, 0.004, 0.0002799174), (-0.0024160224, 0.004, -0.0014084206), (0.0027451946, 0.004, 0.0014084206), (0.002928174, 0.004, 0.00080521806)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.005898893427, -0.017, -0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_20" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, -0.00032882873), (-0.0019889802, -0.004, -0.0018848099), (0.002523527, -0.004, 0.0018848099), (0.0028206694, -0.004, 0.0013288953), (-0.0028206694, 0.004, -0.00032882873), (-0.0019889802, 0.004, -0.0018848099), (0.002523527, 0.004, 0.0018848099), (0.0028206694, 0.004, 0.0013288953)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0054942462775, -0.017, -0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_21" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5, 1, 3, 2, 0, 1, 2, 7, 5, 6, 5, 4, 6, 4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, -0.0009249381), (-0.0014855027, -0.004, -0.0022887671), (0.0022048815, -0.004, 0.0022887671), (0.0026047681, -0.004, 0.0018015038), (-0.0026047681, 0.004, -0.0009249381), (-0.0014855027, 0.004, -0.0022887671), (0.0022048815, 0.004, 0.0022887671), (0.0026047681, 0.004, 0.0018015038)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004878458325, -0.017, -0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_22" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, -0.0014855027), (-0.0009249381, -0.004, -0.0026047681), (0.0018015038, -0.004, 0.0026047681), (0.0022887671, -0.004, 0.0022048815), (-0.0022887671, 0.004, -0.0014855027), (-0.0009249381, 0.004, -0.0026047681), (0.0018015038, 0.004, 0.0026047681), (0.0022887671, 0.004, 0.0022048815)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004075193955, -0.017, -0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_23" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5, 1, 3, 2, 0, 1, 2, 7, 5, 6, 5, 4, 6, 4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, -0.0019889802), (-0.00032882873, -0.004, -0.0028206694), (0.0013288953, -0.004, 0.0028206694), (0.0018848099, -0.004, 0.002523527), (-0.0018848099, 0.004, -0.0019889802), (-0.00032882873, 0.004, -0.0028206694), (0.0013288953, 0.004, 0.0028206694), (0.0018848099, 0.004, 0.002523527)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0031153221664999998, -0.017, -0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_24" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5, 1, 3, 2, 0, 1, 2, 7, 5, 6, 5, 4, 6, 4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, -0.0024160224), (0.0002799174, -0.004, -0.002928174), (0.00080521806, -0.004, 0.002928174), (0.0014084206, -0.004, 0.0027451946), (-0.0014084206, 0.004, -0.0024160224), (0.0002799174, 0.004, -0.002928174), (0.00080521806, 0.004, 0.002928174), (0.0014084206, 0.004, 0.0027451946)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0020357302945, -0.017, -0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_25" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 0, 2, 3, 1, 0, 3, 2, 6, 3, 6, 7, 3, 5, 1, 3, 7, 5, 3]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, -0.0027502181), (0.00025059676, -0.004, 0.0029231505), (0.00087790645, -0.004, -0.0029231505), (0.00087790645, -0.004, 0.002861366), (-0.00087790645, 0.004, -0.0027502181), (0.00025059676, 0.004, 0.0029231505), (0.00087790645, 0.004, -0.0029231505), (0.00087790645, 0.004, 0.002861366)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000877906449, -0.017, -0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_26" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 7, 3, 0, 7, 6, 2, 7, 2, 3, 7, 3, 2, 1, 0, 3, 1, 6, 7, 5, 7, 4, 5, 4, 0, 5, 0, 1, 5, 2, 6, 5, 1, 2, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, -0.0029231505), (-0.00087790645, -0.004, 0.002861366), (-0.00025059676, -0.004, 0.0029231505), (0.00087790645, -0.004, -0.0027502181), (-0.00087790645, 0.004, -0.0029231505), (-0.00087790645, 0.004, 0.002861366), (-0.00025059676, 0.004, 0.0029231505), (0.00087790645, 0.004, -0.0027502181)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000877906449, -0.017, -0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_27" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6, 2, 3, 1, 0, 2, 1, 7, 6, 5, 6, 4, 5, 4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, 0.0027451946), (-0.00080521806, -0.004, 0.002928174), (-0.0002799174, -0.004, -0.002928174), (0.0014084206, -0.004, -0.0024160224), (-0.0014084206, 0.004, 0.0027451946), (-0.00080521806, 0.004, 0.002928174), (-0.0002799174, 0.004, -0.002928174), (0.0014084206, 0.004, -0.0024160224)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0020357302945, -0.017, -0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_28" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, 0.002523527), (-0.0013288953, -0.004, 0.0028206694), (0.00032882873, -0.004, -0.0028206694), (0.0018848099, -0.004, -0.0019889802), (-0.0018848099, 0.004, 0.002523527), (-0.0013288953, 0.004, 0.0028206694), (0.00032882873, 0.004, -0.0028206694), (0.0018848099, 0.004, -0.0019889802)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0031153221664999998, -0.017, -0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_29" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, 0.0022048815), (-0.0018015038, -0.004, 0.0026047681), (0.0009249381, -0.004, -0.0026047681), (0.0022887671, -0.004, -0.0014855027), (-0.0022887671, 0.004, 0.0022048815), (-0.0018015038, 0.004, 0.0026047681), (0.0009249381, 0.004, -0.0026047681), (0.0022887671, 0.004, -0.0014855027)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004075193955, -0.017, -0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_30" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, 0.0018015038), (-0.0022048815, -0.004, 0.0022887671), (0.0014855027, -0.004, -0.0022887671), (0.0026047681, -0.004, -0.0009249381), (-0.0026047681, 0.004, 0.0018015038), (-0.0022048815, 0.004, 0.0022887671), (0.0014855027, 0.004, -0.0022887671), (0.0026047681, 0.004, -0.0009249381)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004878458325, -0.017, -0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_31" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, 0.0013288953), (-0.002523527, -0.004, 0.0018848099), (0.0019889802, -0.004, -0.0018848099), (0.0028206694, -0.004, -0.00032882873), (-0.0028206694, 0.004, 0.0013288953), (-0.002523527, 0.004, 0.0018848099), (0.0019889802, 0.004, -0.0018848099), (0.0028206694, 0.004, -0.00032882873)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0054942462775, -0.017, -0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_32" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6, 2, 3, 1, 0, 2, 1, 7, 6, 5, 6, 4, 5, 4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, 0.00080521806), (-0.0027451946, -0.004, 0.0014084206), (0.0024160224, -0.004, -0.0014084206), (0.002928174, -0.004, 0.0002799174), (-0.002928174, 0.004, 0.00080521806), (-0.0027451946, 0.004, 0.0014084206), (0.0024160224, 0.004, -0.0014084206), (0.002928174, 0.004, 0.0002799174)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.005898893427, -0.017, -0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_33" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, 0.00025059676), (-0.002861366, -0.004, 0.00087790645), (0.0027502181, -0.004, -0.00087790645), (0.0029231505, -0.004, 0.00087790645), (-0.0029231505, 0.004, 0.00025059676), (-0.002861366, 0.004, 0.00087790645), (0.0027502181, 0.004, -0.00087790645), (0.0029231505, 0.004, 0.00087790645)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0060768494094999995, -0.017, -0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_34" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, -0.00025059676), (-0.002861366, -0.004, -0.00087790645), (0.0027502181, -0.004, 0.00087790645), (0.0029231505, -0.004, -0.00087790645), (-0.0029231505, 0.004, -0.00025059676), (-0.002861366, 0.004, -0.00087790645), (0.0027502181, 0.004, 0.00087790645), (0.0029231505, 0.004, -0.00087790645)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0060768494094999995, 0.017, 0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_35" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6, 3, 2, 1, 2, 0, 1, 6, 7, 5, 4, 6, 5, 0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, -0.00080521806), (-0.0027451946, -0.004, -0.0014084206), (0.0024160224, -0.004, 0.0014084206), (0.002928174, -0.004, -0.0002799174), (-0.002928174, 0.004, -0.00080521806), (-0.0027451946, 0.004, -0.0014084206), (0.0024160224, 0.004, 0.0014084206), (0.002928174, 0.004, -0.0002799174)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.005898893427, 0.017, 0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_36" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, -0.0013288953), (-0.002523527, -0.004, -0.0018848099), (0.0019889802, -0.004, 0.0018848099), (0.0028206694, -0.004, 0.00032882873), (-0.0028206694, 0.004, -0.0013288953), (-0.002523527, 0.004, -0.0018848099), (0.0019889802, 0.004, 0.0018848099), (0.0028206694, 0.004, 0.00032882873)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0054942462775, 0.017, 0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_37" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, -0.0018015038), (-0.0022048815, -0.004, -0.0022887671), (0.0014855027, -0.004, 0.0022887671), (0.0026047681, -0.004, 0.0009249381), (-0.0026047681, 0.004, -0.0018015038), (-0.0022048815, 0.004, -0.0022887671), (0.0014855027, 0.004, 0.0022887671), (0.0026047681, 0.004, 0.0009249381)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004878458325, 0.017, 0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_38" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, -0.0022048815), (-0.0018015038, -0.004, -0.0026047681), (0.0009249381, -0.004, 0.0026047681), (0.0022887671, -0.004, 0.0014855027), (-0.0022887671, 0.004, -0.0022048815), (-0.0018015038, 0.004, -0.0026047681), (0.0009249381, 0.004, 0.0026047681), (0.0022887671, 0.004, 0.0014855027)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004075193955, 0.017, 0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_39" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, -0.002523527), (-0.0013288953, -0.004, -0.0028206694), (0.00032882873, -0.004, 0.0028206694), (0.0018848099, -0.004, 0.0019889802), (-0.0018848099, 0.004, -0.002523527), (-0.0013288953, 0.004, -0.0028206694), (0.00032882873, 0.004, 0.0028206694), (0.0018848099, 0.004, 0.0019889802)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0031153221664999998, 0.017, 0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_40" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6, 3, 2, 1, 2, 0, 1, 6, 7, 5, 4, 6, 5, 0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, -0.0027451946), (-0.00080521806, -0.004, -0.002928174), (-0.0002799174, -0.004, 0.002928174), (0.0014084206, -0.004, 0.0024160224), (-0.0014084206, 0.004, -0.0027451946), (-0.00080521806, 0.004, -0.002928174), (-0.0002799174, 0.004, 0.002928174), (0.0014084206, 0.004, 0.0024160224)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0020357302945, 0.017, 0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_41" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, -0.002861366), (-0.00087790645, -0.004, 0.0029231505), (-0.00025059676, -0.004, -0.0029231505), (0.00087790645, -0.004, 0.0027502181), (-0.00087790645, 0.004, -0.002861366), (-0.00087790645, 0.004, 0.0029231505), (-0.00025059676, 0.004, -0.0029231505), (0.00087790645, 0.004, 0.0027502181)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000877906449, 0.017, 0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_42" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 7, 0, 3, 7, 2, 6, 7, 3, 2, 7, 2, 3, 1, 3, 0, 1, 7, 6, 5, 4, 7, 5, 0, 4, 5, 1, 0, 5, 6, 2, 5, 2, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, 0.0027502181), (0.00025059676, -0.004, -0.0029231505), (0.00087790645, -0.004, -0.002861366), (0.00087790645, -0.004, 0.0029231505), (-0.00087790645, 0.004, 0.0027502181), (0.00025059676, 0.004, -0.0029231505), (0.00087790645, 0.004, -0.002861366), (0.00087790645, 0.004, 0.0029231505)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000877906449, 0.017, 0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_43" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, 0.0024160224), (0.0002799174, -0.004, 0.002928174), (0.00080521806, -0.004, -0.002928174), (0.0014084206, -0.004, -0.0027451946), (-0.0014084206, 0.004, 0.0024160224), (0.0002799174, 0.004, 0.002928174), (0.00080521806, 0.004, -0.002928174), (0.0014084206, 0.004, -0.0027451946)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0020357302945, 0.017, 0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_44" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5, 3, 1, 2, 1, 0, 2, 5, 7, 6, 4, 5, 6, 0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, 0.0019889802), (-0.00032882873, -0.004, 0.0028206694), (0.0013288953, -0.004, -0.0028206694), (0.0018848099, -0.004, -0.002523527), (-0.0018848099, 0.004, 0.0019889802), (-0.00032882873, 0.004, 0.0028206694), (0.0013288953, 0.004, -0.0028206694), (0.0018848099, 0.004, -0.002523527)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0031153221664999998, 0.017, 0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_45" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, 0.0014855027), (-0.0009249381, -0.004, 0.0026047681), (0.0018015038, -0.004, -0.0026047681), (0.0022887671, -0.004, -0.0022048815), (-0.0022887671, 0.004, 0.0014855027), (-0.0009249381, 0.004, 0.0026047681), (0.0018015038, 0.004, -0.0026047681), (0.0022887671, 0.004, -0.0022048815)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004075193955, 0.017, 0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_46" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5, 3, 1, 2, 1, 0, 2, 5, 7, 6, 4, 5, 6, 0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, 0.0009249381), (-0.0014855027, -0.004, 0.0022887671), (0.0022048815, -0.004, -0.0022887671), (0.0026047681, -0.004, -0.0018015038), (-0.0026047681, 0.004, 0.0009249381), (-0.0014855027, 0.004, 0.0022887671), (0.0022048815, 0.004, -0.0022887671), (0.0026047681, 0.004, -0.0018015038)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004878458325, 0.017, 0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_47" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, 0.00032882873), (-0.0019889802, -0.004, 0.0018848099), (0.002523527, -0.004, -0.0018848099), (0.0028206694, -0.004, -0.0013288953), (-0.0028206694, 0.004, 0.00032882873), (-0.0019889802, 0.004, 0.0018848099), (0.002523527, 0.004, -0.0018848099), (0.0028206694, 0.004, -0.0013288953)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0054942462775, 0.017, 0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_48" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, -0.0002799174), (-0.0024160224, -0.004, 0.0014084206), (0.0027451946, -0.004, -0.0014084206), (0.002928174, -0.004, -0.00080521806), (-0.002928174, 0.004, -0.0002799174), (-0.0024160224, 0.004, 0.0014084206), (0.0027451946, 0.004, -0.0014084206), (0.002928174, 0.004, -0.00080521806)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.005898893427, 0.017, 0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_49" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, -0.00087790645), (-0.0027502181, -0.004, 0.00087790645), (0.002861366, -0.004, -0.00087790645), (0.0029231505, -0.004, -0.00025059676), (-0.0029231505, 0.004, -0.00087790645), (-0.0027502181, 0.004, 0.00087790645), (0.002861366, 0.004, -0.00087790645), (0.0029231505, 0.004, -0.00025059676)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0060768494094999995, 0.017, 0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_50" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, 0.00087790645), (-0.0027502181, -0.004, -0.00087790645), (0.002861366, -0.004, 0.00087790645), (0.0029231505, -0.004, 0.00025059676), (-0.0029231505, 0.004, 0.00087790645), (-0.0027502181, 0.004, -0.00087790645), (0.002861366, 0.004, 0.00087790645), (0.0029231505, 0.004, 0.00025059676)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0060768494094999995, 0.017, -0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_51" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, 0.0002799174), (-0.0024160224, -0.004, -0.0014084206), (0.0027451946, -0.004, 0.0014084206), (0.002928174, -0.004, 0.00080521806), (-0.002928174, 0.004, 0.0002799174), (-0.0024160224, 0.004, -0.0014084206), (0.0027451946, 0.004, 0.0014084206), (0.002928174, 0.004, 0.00080521806)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.005898893427, 0.017, -0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_52" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, -0.00032882873), (-0.0019889802, -0.004, -0.0018848099), (0.002523527, -0.004, 0.0018848099), (0.0028206694, -0.004, 0.0013288953), (-0.0028206694, 0.004, -0.00032882873), (-0.0019889802, 0.004, -0.0018848099), (0.002523527, 0.004, 0.0018848099), (0.0028206694, 0.004, 0.0013288953)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0054942462775, 0.017, -0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_53" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5, 1, 3, 2, 0, 1, 2, 7, 5, 6, 5, 4, 6, 4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, -0.0009249381), (-0.0014855027, -0.004, -0.0022887671), (0.0022048815, -0.004, 0.0022887671), (0.0026047681, -0.004, 0.0018015038), (-0.0026047681, 0.004, -0.0009249381), (-0.0014855027, 0.004, -0.0022887671), (0.0022048815, 0.004, 0.0022887671), (0.0026047681, 0.004, 0.0018015038)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004878458325, 0.017, -0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_54" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, -0.0014855027), (-0.0009249381, -0.004, -0.0026047681), (0.0018015038, -0.004, 0.0026047681), (0.0022887671, -0.004, 0.0022048815), (-0.0022887671, 0.004, -0.0014855027), (-0.0009249381, 0.004, -0.0026047681), (0.0018015038, 0.004, 0.0026047681), (0.0022887671, 0.004, 0.0022048815)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.004075193955, 0.017, -0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_55" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5, 1, 3, 2, 0, 1, 2, 7, 5, 6, 5, 4, 6, 4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, -0.0019889802), (-0.00032882873, -0.004, -0.0028206694), (0.0013288953, -0.004, 0.0028206694), (0.0018848099, -0.004, 0.002523527), (-0.0018848099, 0.004, -0.0019889802), (-0.00032882873, 0.004, -0.0028206694), (0.0013288953, 0.004, 0.0028206694), (0.0018848099, 0.004, 0.002523527)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0031153221664999998, 0.017, -0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_56" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, -0.0024160224), (0.0002799174, -0.004, -0.002928174), (0.00080521806, -0.004, 0.002928174), (0.0014084206, -0.004, 0.0027451946), (-0.0014084206, 0.004, -0.0024160224), (0.0002799174, 0.004, -0.002928174), (0.00080521806, 0.004, 0.002928174), (0.0014084206, 0.004, 0.0027451946)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0020357302945, 0.017, -0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_57" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 0, 2, 3, 1, 0, 3, 2, 6, 3, 6, 7, 3, 5, 1, 3, 7, 5, 3]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, -0.0027502181), (0.00025059676, -0.004, 0.0029231505), (0.00087790645, -0.004, -0.0029231505), (0.00087790645, -0.004, 0.002861366), (-0.00087790645, 0.004, -0.0027502181), (0.00025059676, 0.004, 0.0029231505), (0.00087790645, 0.004, -0.0029231505), (0.00087790645, 0.004, 0.002861366)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000877906449, 0.017, -0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_58" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 7, 3, 0, 7, 6, 2, 7, 2, 3, 7, 3, 2, 1, 0, 3, 1, 6, 7, 5, 7, 4, 5, 4, 0, 5, 0, 1, 5, 2, 6, 5, 1, 2, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00087790645, -0.004, -0.0029231505), (-0.00087790645, -0.004, 0.002861366), (-0.00025059676, -0.004, 0.0029231505), (0.00087790645, -0.004, -0.0027502181), (-0.00087790645, 0.004, -0.0029231505), (-0.00087790645, 0.004, 0.002861366), (-0.00025059676, 0.004, 0.0029231505), (0.00087790645, 0.004, -0.0027502181)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000877906449, 0.017, -0.0060768494094999995)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_59" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6, 2, 3, 1, 0, 2, 1, 7, 6, 5, 6, 4, 5, 4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0014084206, -0.004, 0.0027451946), (-0.00080521806, -0.004, 0.002928174), (-0.0002799174, -0.004, -0.002928174), (0.0014084206, -0.004, -0.0024160224), (-0.0014084206, 0.004, 0.0027451946), (-0.00080521806, 0.004, 0.002928174), (-0.0002799174, 0.004, -0.002928174), (0.0014084206, 0.004, -0.0024160224)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0020357302945, 0.017, -0.005898893427)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_60" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0018848099, -0.004, 0.002523527), (-0.0013288953, -0.004, 0.0028206694), (0.00032882873, -0.004, -0.0028206694), (0.0018848099, -0.004, -0.0019889802), (-0.0018848099, 0.004, 0.002523527), (-0.0013288953, 0.004, 0.0028206694), (0.00032882873, 0.004, -0.0028206694), (0.0018848099, 0.004, -0.0019889802)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0031153221664999998, 0.017, -0.0054942462775)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_61" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0022887671, -0.004, 0.0022048815), (-0.0018015038, -0.004, 0.0026047681), (0.0009249381, -0.004, -0.0026047681), (0.0022887671, -0.004, -0.0014855027), (-0.0022887671, 0.004, 0.0022048815), (-0.0018015038, 0.004, 0.0026047681), (0.0009249381, 0.004, -0.0026047681), (0.0022887671, 0.004, -0.0014855027)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004075193955, 0.017, -0.004878458325)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_62" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0026047681, -0.004, 0.0018015038), (-0.0022048815, -0.004, 0.0022887671), (0.0014855027, -0.004, -0.0022887671), (0.0026047681, -0.004, -0.0009249381), (-0.0026047681, 0.004, 0.0018015038), (-0.0022048815, 0.004, 0.0022887671), (0.0014855027, 0.004, -0.0022887671), (0.0026047681, 0.004, -0.0009249381)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.004878458325, 0.017, -0.004075193955)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_63" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0028206694, -0.004, 0.0013288953), (-0.002523527, -0.004, 0.0018848099), (0.0019889802, -0.004, -0.0018848099), (0.0028206694, -0.004, -0.00032882873), (-0.0028206694, 0.004, 0.0013288953), (-0.002523527, 0.004, 0.0018848099), (0.0019889802, 0.004, -0.0018848099), (0.0028206694, 0.004, -0.00032882873)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0054942462775, 0.017, -0.0031153221664999998)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_64" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6, 2, 3, 1, 0, 2, 1, 7, 6, 5, 6, 4, 5, 4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.002928174, -0.004, 0.00080521806), (-0.0027451946, -0.004, 0.0014084206), (0.0024160224, -0.004, -0.0014084206), (0.002928174, -0.004, 0.0002799174), (-0.002928174, 0.004, 0.00080521806), (-0.0027451946, 0.004, 0.0014084206), (0.0024160224, 0.004, -0.0014084206), (0.002928174, 0.004, 0.0002799174)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.005898893427, 0.017, -0.0020357302945)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_65" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0029231505, -0.004, 0.00025059676), (-0.002861366, -0.004, 0.00087790645), (0.0027502181, -0.004, -0.00087790645), (0.0029231505, -0.004, 0.00087790645), (-0.0029231505, 0.004, 0.00025059676), (-0.002861366, 0.004, 0.00087790645), (0.0027502181, 0.004, -0.00087790645), (0.0029231505, 0.004, 0.00087790645)]
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0060768494094999995, 0.017, -0.000877906449)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cube "shape_66" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.029, 0.01, 0.014)
+            double3 xformOp:translate = (0.0175, -0.016, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_67" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.029, 0.01, 0.014)
+            double3 xformOp:translate = (0.0175, 0.016, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cylinder "shape_68" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            uniform token axis = "Z"
+            double height = 0.034
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.45, 0.48, 0.51)]
+            double radius = 0.0015
+            quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
+            double3 xformOp:translate = (0.015, 0, 0.012)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Cube "shape_69" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.004, 0.01)
+            double3 xformOp:translate = (0.015, -0.016, 0.0095)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_70" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.15, 0.34, 0.58)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.008, 0.004, 0.01)
+            double3 xformOp:translate = (0.015, 0.016, 0.0095)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def Xform "lock_handle" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        point3f physics:centerOfMass = (0.013860429, 0, -0.003902723)
+        float3 physics:diagonalInertia = (0.000002668614, 0.000014304267, 0.000014677393)
+        float physics:mass = 0.04032487
+        quatf physics:principalAxes = (0.15414385, -0.15414385, 0.6901012, 0.6901012)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0.030000000000000027, 0, 0.122)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.043, 0.02, 0.004)
+            double3 xformOp:translate = (0.023, 0, 0.002)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.006, 0.012, 0.022)
+            double3 xformOp:translate = (-0.005, 0, -0.017)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Mesh "shape_2" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, 0.000055560486), (-0.0006134524, -0.0015, -0.00038822857), (0.00056965585, -0.0015, 0.00038822857), (0.00067187834, -0.0015, -0.00038822857), (-0.00067187834, 0.0015, 0.000055560486), (-0.0006134524, 0.0015, -0.00038822857), (0.00056965585, 0.0015, 0.00038822857), (0.00067187834, 0.0015, -0.00038822857)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002328121648, -0.010499999999999999, 0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_3" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6, 3, 2, 1, 2, 0, 1, 6, 7, 5, 4, 6, 5, 0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, -0.00011455991), (-0.000535119, -0.0015, -0.0005281055), (0.00040671392, -0.0015, 0.0005281055), (0.00070641516, -0.0015, -0.00019543739), (-0.00070641516, 0.0015, -0.00011455991), (-0.000535119, 0.0015, -0.0005281055), (0.00040671392, 0.0015, 0.0005281055), (0.00070641516, 0.0015, -0.00019543739)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002191362297, -0.010499999999999999, 0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_4" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, -0.00027687324), (-0.0004203181, -0.0015, -0.0006319929), (0.00021605512, -0.0015, 0.0006319929), (0.000692811, -0.0015, 0.00001067252), (-0.000692811, 0.0015, -0.00027687324), (-0.0004203181, 0.0015, -0.0006319929), (0.00021605512, 0.0015, 0.0006319929), (0.000692811, 0.0015, 0.00001067252)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0019052652265, -0.010499999999999999, 0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_5" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, -0.0004203181), (-0.00027687324, -0.0015, -0.000692811), (0.00001067252, -0.0015, 0.000692811), (0.0006319929, -0.0015, 0.00021605512), (-0.0006319929, 0.0015, -0.0004203181), (-0.00027687324, 0.0015, -0.000692811), (0.00001067252, 0.0015, 0.000692811), (0.0006319929, 0.0015, 0.00021605512)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.00148932748, -0.010499999999999999, 0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_6" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, -0.000535119), (-0.00019543739, -0.0015, 0.00070641516), (-0.00011455991, -0.0015, -0.00070641516), (0.0005281055, -0.0015, 0.00040671392), (-0.0005281055, 0.0015, -0.000535119), (-0.00019543739, 0.0015, 0.00070641516), (-0.00011455991, 0.0015, -0.00070641516), (0.0005281055, 0.0015, 0.00040671392)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000971894527, -0.010499999999999999, 0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_7" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, -0.0006134524), (-0.00038822857, -0.0015, 0.00067187834), (0.000055560486, -0.0015, -0.00067187834), (0.00038822857, -0.0015, 0.00056965585), (-0.00038822857, 0.0015, -0.0006134524), (-0.00038822857, 0.0015, 0.00067187834), (0.000055560486, 0.0015, -0.00067187834), (0.00038822857, 0.0015, 0.00056965585)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0003882285675, -0.010499999999999999, 0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_8" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 7, 0, 3, 7, 2, 6, 7, 3, 2, 7, 2, 3, 1, 3, 0, 1, 7, 6, 5, 4, 7, 5, 0, 4, 5, 1, 0, 5, 6, 2, 5, 2, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, 0.00056965585), (-0.000055560486, -0.0015, -0.00067187834), (0.00038822857, -0.0015, -0.0006134524), (0.00038822857, -0.0015, 0.00067187834), (-0.00038822857, 0.0015, 0.00056965585), (-0.000055560486, 0.0015, -0.00067187834), (0.00038822857, 0.0015, -0.0006134524), (0.00038822857, 0.0015, 0.00067187834)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0003882285675, -0.010499999999999999, 0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_9" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 0, 4, 5, 1, 0, 5, 6, 2, 7, 2, 3, 7, 3, 1, 7, 1, 5, 7, 4, 6, 7, 5, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, 0.00040671392), (0.00011455991, -0.0015, -0.00070641516), (0.00019543739, -0.0015, 0.00070641516), (0.0005281055, -0.0015, -0.000535119), (-0.0005281055, 0.0015, 0.00040671392), (0.00011455991, 0.0015, -0.00070641516), (0.00019543739, 0.0015, 0.00070641516), (0.0005281055, 0.0015, -0.000535119)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000971894527, -0.010499999999999999, 0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_10" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, 0.00021605512), (-0.00001067252, -0.0015, 0.000692811), (0.00027687324, -0.0015, -0.000692811), (0.0006319929, -0.0015, -0.0004203181), (-0.0006319929, 0.0015, 0.00021605512), (-0.00001067252, 0.0015, 0.000692811), (0.00027687324, 0.0015, -0.000692811), (0.0006319929, 0.0015, -0.0004203181)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.00148932748, -0.010499999999999999, 0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_11" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, 0.00001067252), (-0.00021605512, -0.0015, 0.0006319929), (0.0004203181, -0.0015, -0.0006319929), (0.000692811, -0.0015, -0.00027687324), (-0.000692811, 0.0015, 0.00001067252), (-0.00021605512, 0.0015, 0.0006319929), (0.0004203181, 0.0015, -0.0006319929), (0.000692811, 0.0015, -0.00027687324)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0019052652265, -0.010499999999999999, 0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_12" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, -0.00019543739), (-0.00040671392, -0.0015, 0.0005281055), (0.000535119, -0.0015, -0.0005281055), (0.00070641516, -0.0015, -0.00011455991), (-0.00070641516, 0.0015, -0.00019543739), (-0.00040671392, 0.0015, 0.0005281055), (0.000535119, 0.0015, -0.0005281055), (0.00070641516, 0.0015, -0.00011455991)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002191362297, -0.010499999999999999, 0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_13" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, -0.00038822857), (-0.00056965585, -0.0015, 0.00038822857), (0.0006134524, -0.0015, -0.00038822857), (0.00067187834, -0.0015, 0.000055560486), (-0.00067187834, 0.0015, -0.00038822857), (-0.00056965585, 0.0015, 0.00038822857), (0.0006134524, 0.0015, -0.00038822857), (0.00067187834, 0.0015, 0.000055560486)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002328121648, -0.010499999999999999, 0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_14" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, 0.00038822857), (-0.00056965585, -0.0015, -0.00038822857), (0.0006134524, -0.0015, 0.00038822857), (0.00067187834, -0.0015, -0.000055560486), (-0.00067187834, 0.0015, 0.00038822857), (-0.00056965585, 0.0015, -0.00038822857), (0.0006134524, 0.0015, 0.00038822857), (0.00067187834, 0.0015, -0.000055560486)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002328121648, -0.010499999999999999, -0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_15" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, 0.00019543739), (-0.00040671392, -0.0015, -0.0005281055), (0.000535119, -0.0015, 0.0005281055), (0.00070641516, -0.0015, 0.00011455991), (-0.00070641516, 0.0015, 0.00019543739), (-0.00040671392, 0.0015, -0.0005281055), (0.000535119, 0.0015, 0.0005281055), (0.00070641516, 0.0015, 0.00011455991)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002191362297, -0.010499999999999999, -0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_16" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, -0.00001067252), (-0.00021605512, -0.0015, -0.0006319929), (0.0004203181, -0.0015, 0.0006319929), (0.000692811, -0.0015, 0.00027687324), (-0.000692811, 0.0015, -0.00001067252), (-0.00021605512, 0.0015, -0.0006319929), (0.0004203181, 0.0015, 0.0006319929), (0.000692811, 0.0015, 0.00027687324)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0019052652265, -0.010499999999999999, -0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_17" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, -0.00021605512), (-0.00001067252, -0.0015, -0.000692811), (0.00027687324, -0.0015, 0.000692811), (0.0006319929, -0.0015, 0.0004203181), (-0.0006319929, 0.0015, -0.00021605512), (-0.00001067252, 0.0015, -0.000692811), (0.00027687324, 0.0015, 0.000692811), (0.0006319929, 0.0015, 0.0004203181)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.00148932748, -0.010499999999999999, -0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_18" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 4, 0, 5, 0, 1, 5, 2, 6, 7, 3, 2, 7, 1, 3, 7, 5, 1, 7, 6, 4, 7, 4, 5, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, -0.00040671392), (0.00011455991, -0.0015, 0.00070641516), (0.00019543739, -0.0015, -0.00070641516), (0.0005281055, -0.0015, 0.000535119), (-0.0005281055, 0.0015, -0.00040671392), (0.00011455991, 0.0015, 0.00070641516), (0.00019543739, 0.0015, -0.00070641516), (0.0005281055, 0.0015, 0.000535119)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000971894527, -0.010499999999999999, -0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_19" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 0, 2, 3, 1, 0, 3, 2, 6, 3, 6, 7, 3, 5, 1, 3, 7, 5, 3]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, -0.00056965585), (-0.000055560486, -0.0015, 0.00067187834), (0.00038822857, -0.0015, -0.00067187834), (0.00038822857, -0.0015, 0.0006134524), (-0.00038822857, 0.0015, -0.00056965585), (-0.000055560486, 0.0015, 0.00067187834), (0.00038822857, 0.0015, -0.00067187834), (0.00038822857, 0.0015, 0.0006134524)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0003882285675, -0.010499999999999999, -0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_20" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [3, 0, 7, 0, 4, 7, 0, 3, 1, 3, 2, 1, 4, 0, 5, 0, 1, 5, 3, 7, 6, 2, 3, 6, 1, 2, 6, 5, 1, 6, 7, 4, 6, 4, 5, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, -0.00067187834), (-0.00038822857, -0.0015, 0.0006134524), (0.000055560486, -0.0015, 0.00067187834), (0.00038822857, -0.0015, -0.00056965585), (-0.00038822857, 0.0015, -0.00067187834), (-0.00038822857, 0.0015, 0.0006134524), (0.000055560486, 0.0015, 0.00067187834), (0.00038822857, 0.0015, -0.00056965585)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0003882285675, -0.010499999999999999, -0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_21" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, 0.000535119), (-0.00019543739, -0.0015, -0.00070641516), (-0.00011455991, -0.0015, 0.00070641516), (0.0005281055, -0.0015, -0.00040671392), (-0.0005281055, 0.0015, 0.000535119), (-0.00019543739, 0.0015, -0.00070641516), (-0.00011455991, 0.0015, 0.00070641516), (0.0005281055, 0.0015, -0.00040671392)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000971894527, -0.010499999999999999, -0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_22" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, 0.0004203181), (-0.00027687324, -0.0015, 0.000692811), (0.00001067252, -0.0015, -0.000692811), (0.0006319929, -0.0015, -0.00021605512), (-0.0006319929, 0.0015, 0.0004203181), (-0.00027687324, 0.0015, 0.000692811), (0.00001067252, 0.0015, -0.000692811), (0.0006319929, 0.0015, -0.00021605512)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.00148932748, -0.010499999999999999, -0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_23" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, 0.00027687324), (-0.0004203181, -0.0015, 0.0006319929), (0.00021605512, -0.0015, -0.0006319929), (0.000692811, -0.0015, -0.00001067252), (-0.000692811, 0.0015, 0.00027687324), (-0.0004203181, 0.0015, 0.0006319929), (0.00021605512, 0.0015, -0.0006319929), (0.000692811, 0.0015, -0.00001067252)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0019052652265, -0.010499999999999999, -0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_24" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6, 2, 3, 1, 0, 2, 1, 7, 6, 5, 6, 4, 5, 4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, 0.00011455991), (-0.000535119, -0.0015, 0.0005281055), (0.00040671392, -0.0015, -0.0005281055), (0.00070641516, -0.0015, 0.00019543739), (-0.00070641516, 0.0015, 0.00011455991), (-0.000535119, 0.0015, 0.0005281055), (0.00040671392, 0.0015, -0.0005281055), (0.00070641516, 0.0015, 0.00019543739)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002191362297, -0.010499999999999999, -0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_25" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, -0.000055560486), (-0.0006134524, -0.0015, 0.00038822857), (0.00056965585, -0.0015, -0.00038822857), (0.00067187834, -0.0015, 0.00038822857), (-0.00067187834, 0.0015, -0.000055560486), (-0.0006134524, 0.0015, 0.00038822857), (0.00056965585, 0.0015, -0.00038822857), (0.00067187834, 0.0015, 0.00038822857)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002328121648, -0.010499999999999999, -0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_26" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, 0.000055560486), (-0.0006134524, -0.0015, -0.00038822857), (0.00056965585, -0.0015, 0.00038822857), (0.00067187834, -0.0015, -0.00038822857), (-0.00067187834, 0.0015, 0.000055560486), (-0.0006134524, 0.0015, -0.00038822857), (0.00056965585, 0.0015, 0.00038822857), (0.00067187834, 0.0015, -0.00038822857)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002328121648, 0.010499999999999999, 0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_27" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 6, 0, 2, 6, 3, 7, 6, 2, 3, 6, 3, 2, 1, 2, 0, 1, 6, 7, 5, 4, 6, 5, 0, 4, 5, 1, 0, 5, 7, 3, 5, 3, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, -0.00011455991), (-0.000535119, -0.0015, -0.0005281055), (0.00040671392, -0.0015, 0.0005281055), (0.00070641516, -0.0015, -0.00019543739), (-0.00070641516, 0.0015, -0.00011455991), (-0.000535119, 0.0015, -0.0005281055), (0.00040671392, 0.0015, 0.0005281055), (0.00070641516, 0.0015, -0.00019543739)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002191362297, 0.010499999999999999, 0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_28" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, -0.00027687324), (-0.0004203181, -0.0015, -0.0006319929), (0.00021605512, -0.0015, 0.0006319929), (0.000692811, -0.0015, 0.00001067252), (-0.000692811, 0.0015, -0.00027687324), (-0.0004203181, 0.0015, -0.0006319929), (0.00021605512, 0.0015, 0.0006319929), (0.000692811, 0.0015, 0.00001067252)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0019052652265, 0.010499999999999999, 0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_29" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 6, 2, 7, 2, 3, 7, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, -0.0004203181), (-0.00027687324, -0.0015, -0.000692811), (0.00001067252, -0.0015, 0.000692811), (0.0006319929, -0.0015, 0.00021605512), (-0.0006319929, 0.0015, -0.0004203181), (-0.00027687324, 0.0015, -0.000692811), (0.00001067252, 0.0015, 0.000692811), (0.0006319929, 0.0015, 0.00021605512)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.00148932748, 0.010499999999999999, 0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_30" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, -0.000535119), (-0.00019543739, -0.0015, 0.00070641516), (-0.00011455991, -0.0015, -0.00070641516), (0.0005281055, -0.0015, 0.00040671392), (-0.0005281055, 0.0015, -0.000535119), (-0.00019543739, 0.0015, 0.00070641516), (-0.00011455991, 0.0015, -0.00070641516), (0.0005281055, 0.0015, 0.00040671392)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000971894527, 0.010499999999999999, 0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_31" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, -0.0006134524), (-0.00038822857, -0.0015, 0.00067187834), (0.000055560486, -0.0015, -0.00067187834), (0.00038822857, -0.0015, 0.00056965585), (-0.00038822857, 0.0015, -0.0006134524), (-0.00038822857, 0.0015, 0.00067187834), (0.000055560486, 0.0015, -0.00067187834), (0.00038822857, 0.0015, 0.00056965585)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0003882285675, 0.010499999999999999, 0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_32" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [4, 0, 7, 0, 3, 7, 2, 6, 7, 3, 2, 7, 2, 3, 1, 3, 0, 1, 7, 6, 5, 4, 7, 5, 0, 4, 5, 1, 0, 5, 6, 2, 5, 2, 1, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, 0.00056965585), (-0.000055560486, -0.0015, -0.00067187834), (0.00038822857, -0.0015, -0.0006134524), (0.00038822857, -0.0015, 0.00067187834), (-0.00038822857, 0.0015, 0.00056965585), (-0.000055560486, 0.0015, -0.00067187834), (0.00038822857, 0.0015, -0.0006134524), (0.00038822857, 0.0015, 0.00067187834)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0003882285675, 0.010499999999999999, 0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_33" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 2, 6, 4, 0, 6, 2, 0, 1, 3, 2, 1, 0, 4, 5, 1, 0, 5, 6, 2, 7, 2, 3, 7, 3, 1, 7, 1, 5, 7, 4, 6, 7, 5, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, 0.00040671392), (0.00011455991, -0.0015, -0.00070641516), (0.00019543739, -0.0015, 0.00070641516), (0.0005281055, -0.0015, -0.000535119), (-0.0005281055, 0.0015, 0.00040671392), (0.00011455991, 0.0015, -0.00070641516), (0.00019543739, 0.0015, 0.00070641516), (0.0005281055, 0.0015, -0.000535119)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000971894527, 0.010499999999999999, 0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_34" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, 0.00021605512), (-0.00001067252, -0.0015, 0.000692811), (0.00027687324, -0.0015, -0.000692811), (0.0006319929, -0.0015, -0.0004203181), (-0.0006319929, 0.0015, 0.00021605512), (-0.00001067252, 0.0015, 0.000692811), (0.00027687324, 0.0015, -0.000692811), (0.0006319929, 0.0015, -0.0004203181)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.00148932748, 0.010499999999999999, 0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_35" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, 0.00001067252), (-0.00021605512, -0.0015, 0.0006319929), (0.0004203181, -0.0015, -0.0006319929), (0.000692811, -0.0015, -0.00027687324), (-0.000692811, 0.0015, 0.00001067252), (-0.00021605512, 0.0015, 0.0006319929), (0.0004203181, 0.0015, -0.0006319929), (0.000692811, 0.0015, -0.00027687324)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0019052652265, 0.010499999999999999, 0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_36" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 5, 1, 7, 1, 3, 7, 0, 4, 6, 2, 0, 6, 4, 5, 6, 5, 7, 6, 3, 2, 6, 7, 3, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, -0.00019543739), (-0.00040671392, -0.0015, 0.0005281055), (0.000535119, -0.0015, -0.0005281055), (0.00070641516, -0.0015, -0.00011455991), (-0.00070641516, 0.0015, -0.00019543739), (-0.00040671392, 0.0015, 0.0005281055), (0.000535119, 0.0015, -0.0005281055), (0.00070641516, 0.0015, -0.00011455991)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002191362297, 0.010499999999999999, 0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_37" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 1, 5, 4, 0, 5, 1, 0, 2, 3, 1, 2, 0, 4, 6, 2, 0, 6, 5, 1, 7, 1, 3, 7, 3, 2, 7, 2, 6, 7, 4, 5, 7, 6, 4, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, -0.00038822857), (-0.00056965585, -0.0015, 0.00038822857), (0.0006134524, -0.0015, -0.00038822857), (0.00067187834, -0.0015, 0.000055560486), (-0.00067187834, 0.0015, -0.00038822857), (-0.00056965585, 0.0015, 0.00038822857), (0.0006134524, 0.0015, -0.00038822857), (0.00067187834, 0.0015, 0.000055560486)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002328121648, 0.010499999999999999, 0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_38" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, 0.00038822857), (-0.00056965585, -0.0015, -0.00038822857), (0.0006134524, -0.0015, 0.00038822857), (0.00067187834, -0.0015, -0.000055560486), (-0.00067187834, 0.0015, 0.00038822857), (-0.00056965585, 0.0015, -0.00038822857), (0.0006134524, 0.0015, 0.00038822857), (0.00067187834, 0.0015, -0.000055560486)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002328121648, 0.010499999999999999, -0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_39" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, 0.00019543739), (-0.00040671392, -0.0015, -0.0005281055), (0.000535119, -0.0015, 0.0005281055), (0.00070641516, -0.0015, 0.00011455991), (-0.00070641516, 0.0015, 0.00019543739), (-0.00040671392, 0.0015, -0.0005281055), (0.000535119, 0.0015, 0.0005281055), (0.00070641516, 0.0015, 0.00011455991)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.002191362297, 0.010499999999999999, -0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_40" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, -0.00001067252), (-0.00021605512, -0.0015, -0.0006319929), (0.0004203181, -0.0015, 0.0006319929), (0.000692811, -0.0015, 0.00027687324), (-0.000692811, 0.0015, -0.00001067252), (-0.00021605512, 0.0015, -0.0006319929), (0.0004203181, 0.0015, 0.0006319929), (0.000692811, 0.0015, 0.00027687324)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0019052652265, 0.010499999999999999, -0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_41" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 4, 0, 6, 0, 2, 6, 1, 5, 7, 3, 1, 7, 2, 3, 7, 6, 2, 7, 5, 4, 7, 4, 6, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, -0.00021605512), (-0.00001067252, -0.0015, -0.000692811), (0.00027687324, -0.0015, 0.000692811), (0.0006319929, -0.0015, 0.0004203181), (-0.0006319929, 0.0015, -0.00021605512), (-0.00001067252, 0.0015, -0.000692811), (0.00027687324, 0.0015, 0.000692811), (0.0006319929, 0.0015, 0.0004203181)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.00148932748, 0.010499999999999999, -0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_42" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 4, 0, 5, 0, 1, 5, 2, 6, 7, 3, 2, 7, 1, 3, 7, 5, 1, 7, 6, 4, 7, 4, 5, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, -0.00040671392), (0.00011455991, -0.0015, 0.00070641516), (0.00019543739, -0.0015, -0.00070641516), (0.0005281055, -0.0015, 0.000535119), (-0.0005281055, 0.0015, -0.00040671392), (0.00011455991, 0.0015, 0.00070641516), (0.00019543739, 0.0015, -0.00070641516), (0.0005281055, 0.0015, 0.000535119)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.000971894527, 0.010499999999999999, -0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_43" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 0, 2, 3, 1, 0, 3, 2, 6, 3, 6, 7, 3, 5, 1, 3, 7, 5, 3]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, -0.00056965585), (-0.000055560486, -0.0015, 0.00067187834), (0.00038822857, -0.0015, -0.00067187834), (0.00038822857, -0.0015, 0.0006134524), (-0.00038822857, 0.0015, -0.00056965585), (-0.000055560486, 0.0015, 0.00067187834), (0.00038822857, 0.0015, -0.00067187834), (0.00038822857, 0.0015, 0.0006134524)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.0003882285675, 0.010499999999999999, -0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_44" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [3, 0, 7, 0, 4, 7, 0, 3, 1, 3, 2, 1, 4, 0, 5, 0, 1, 5, 3, 7, 6, 2, 3, 6, 1, 2, 6, 5, 1, 6, 7, 4, 6, 4, 5, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00038822857, -0.0015, -0.00067187834), (-0.00038822857, -0.0015, 0.0006134524), (0.000055560486, -0.0015, 0.00067187834), (0.00038822857, -0.0015, -0.00056965585), (-0.00038822857, 0.0015, -0.00067187834), (-0.00038822857, 0.0015, 0.0006134524), (0.000055560486, 0.0015, 0.00067187834), (0.00038822857, 0.0015, -0.00056965585)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0003882285675, 0.010499999999999999, -0.002328121648)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_45" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [1, 0, 5, 0, 4, 5, 0, 1, 2, 1, 3, 2, 1, 5, 7, 3, 1, 7, 4, 0, 6, 0, 2, 6, 5, 4, 6, 7, 5, 6, 2, 3, 6, 3, 7, 6]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0005281055, -0.0015, 0.000535119), (-0.00019543739, -0.0015, -0.00070641516), (-0.00011455991, -0.0015, 0.00070641516), (0.0005281055, -0.0015, -0.00040671392), (-0.0005281055, 0.0015, 0.000535119), (-0.00019543739, 0.0015, -0.00070641516), (-0.00011455991, 0.0015, 0.00070641516), (0.0005281055, 0.0015, -0.00040671392)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.000971894527, 0.010499999999999999, -0.002191362297)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_46" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.0006319929, -0.0015, 0.0004203181), (-0.00027687324, -0.0015, 0.000692811), (0.00001067252, -0.0015, -0.000692811), (0.0006319929, -0.0015, -0.00021605512), (-0.0006319929, 0.0015, 0.0004203181), (-0.00027687324, 0.0015, 0.000692811), (0.00001067252, 0.0015, -0.000692811), (0.0006319929, 0.0015, -0.00021605512)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.00148932748, 0.010499999999999999, -0.0019052652265)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_47" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.000692811, -0.0015, 0.00027687324), (-0.0004203181, -0.0015, 0.0006319929), (0.00021605512, -0.0015, -0.0006319929), (0.000692811, -0.0015, -0.00001067252), (-0.000692811, 0.0015, 0.00027687324), (-0.0004203181, 0.0015, 0.0006319929), (0.00021605512, 0.0015, -0.0006319929), (0.000692811, 0.0015, -0.00001067252)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.0019052652265, 0.010499999999999999, -0.00148932748)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_48" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [0, 4, 6, 2, 0, 6, 7, 3, 6, 3, 2, 6, 2, 3, 1, 0, 2, 1, 7, 6, 5, 6, 4, 5, 4, 0, 5, 0, 1, 5, 3, 7, 5, 1, 3, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00070641516, -0.0015, 0.00011455991), (-0.000535119, -0.0015, 0.0005281055), (0.00040671392, -0.0015, -0.0005281055), (0.00070641516, -0.0015, 0.00019543739), (-0.00070641516, 0.0015, 0.00011455991), (-0.000535119, 0.0015, 0.0005281055), (0.00040671392, 0.0015, -0.0005281055), (0.00070641516, 0.0015, 0.00019543739)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002191362297, 0.010499999999999999, -0.000971894527)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_49" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [2, 0, 6, 0, 4, 6, 0, 2, 1, 2, 3, 1, 2, 6, 7, 3, 2, 7, 4, 0, 5, 0, 1, 5, 6, 4, 5, 7, 6, 5, 1, 3, 5, 3, 7, 5]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.00067187834, -0.0015, -0.000055560486), (-0.0006134524, -0.0015, 0.00038822857), (0.00056965585, -0.0015, -0.00038822857), (0.00067187834, -0.0015, 0.00038822857), (-0.00067187834, 0.0015, -0.000055560486), (-0.0006134524, 0.0015, 0.00038822857), (0.00056965585, 0.0015, -0.00038822857), (0.00067187834, 0.0015, 0.00038822857)]
+            color3f[] primvars:displayColor = [(0.86, 0.43, 0.12)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.002328121648, 0.010499999999999999, -0.0003882285675)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def PhysicsRevoluteJoint "latch_rotation" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.00013962634
+        float drive:angular:physics:stiffness = 0
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/hook_body>
+        rel physics:body1 = </Asset/upper_latch>
+        bool physics:collisionEnabled = 1
+        point3f physics:localPos0 = (0.015, 0, 0.11)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -97.402824
+        float physics:upperLimit = 0
+    }
+
+    def PhysicsRevoluteJoint "lock_rotation" (
+        prepend apiSchemas = ["PhysicsDriveAPI:angular"]
+    )
+    {
+        float drive:angular:physics:damping = 0.000034906585
+        float drive:angular:physics:stiffness = 0.002443461
+        float drive:angular:physics:targetPosition = 0
+        uniform token drive:angular:physics:type = "force"
+        uniform token physics:axis = "Y"
+        rel physics:body0 = </Asset/upper_latch>
+        rel physics:body1 = </Asset/lock_handle>
+        bool physics:collisionEnabled = 1
+        point3f physics:localPos0 = (0.015, 0, 0.012)
+        point3f physics:localPos1 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+        quatf physics:localRot1 = (1, 0, 0, 0)
+        float physics:lowerLimit = -42.971836
+        float physics:upperLimit = 0
+    }
+}
+

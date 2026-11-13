@@ -1,0 +1,48 @@
+{
+  "decision": "CONSTRUCT_VALIDITY_HOLD_DO_NOT_QUALIFY",
+  "manufacturer": "SAF-HOLLAND PH-30RP41",
+  "source": "https://knowledge-hub-api.safholland.com/api/v1/download/public/XL-PH351_en-US.pdf",
+  "document": "XL-PH351 RevF p1 operating1-4 and p2 dimension/repair drawings",
+  "bounded_operation": "An unloaded supported original full-size eye fixture is coupled into a fixed unpowered original pintle interface: lift lock handle/open upper latch, lower compatible eye over horn, close latch, verify flush positive lock and released retention. This is not moving a vehicle or a roadworthiness check.",
+  "manufacturer_dimensions": {
+    "compatible_eye_id_in": [
+      2.375,
+      3.0
+    ],
+    "compatible_eye_bar_diameter_in": [
+      1.25,
+      1.625
+    ],
+    "mount_plate_width_in": 4.5,
+    "mount_hole_diameter_in": 0.53,
+    "mount_hole_horizontal_spacing_in": 3.38,
+    "mount_hole_vertical_spacing_in": 1.75,
+    "overall_reference_length_in": 5.39,
+    "overall_reference_closed_height_in": 5.69,
+    "published_product_mass_lb": 8.38
+  },
+  "undocumented": "Every internal lock dog, spring, force, clearance, hinge coordinate and replica contour must be labeled BENCHMARK_AUTHORED. The external flush-handle/positive-latch topology is documented, hidden OEM cam dimensions are not.",
+  "occupation": {
+    "onet": "53-3032.00",
+    "core_duty": "Couple or uncouple trailers by changing trailer jack positions, connecting or disconnecting air or electrical lines, or manipulating fifth-wheel locks.",
+    "bls_2025_employment": "about2.2million",
+    "scope_limit": "Pintle-equipped subset; no claim every truck driver uses this model or a measured per-worker frequency."
+  },
+  "novelty": {
+    "primary_queries": "/tmp/pintle-search-*.json, /tmp/pintle-more-*.json, /tmp/pintle-final-*.json",
+    "comparators": {
+      "1886": "Threaded shackle pin through lug, not hinged horn closure/flush secondary dog. This rules out another shackle candidate.",
+      "1090": "Final rejection for small sliding fake railway knuckle, not full-size hook+eye. Do not repeat miniaturization or invented sliding mechanism.",
+      "1676": "Final trailer lift/rolling rover+ball cup; no modeled latch. This candidate must preserve full-size interface and secondary lock."
+    },
+    "state": "PUBLIC_SCOPED_REVIEW_CONTINUES_NO_EXHAUSTIVE_ABSENCE_CLAIM"
+  },
+  "native_physics": "NOT_RUN",
+  "hardware": "NOT_RUN",
+  "findings": [
+    "Exact density integration gives a2.0526kg free eye plus stem, above a comfortable capability margin. Do not silently reduce density or scale the documented minimum31.75mm wire diameter.",
+    "Manual free-eye movement omits the attached trailer tongue/jack constraints. The manufacturer says position/lower the drawbar eye; it does not establish that a free2kg bench eye replicates vehicle coupling.",
+    "Initial all-pair geometry passes after real clearances;265sample mechanism path has36 failures at the authored hidden dog/ledge. These are unresolved failures, not native success.",
+    "Do not continue polishing a generic latch substitute without solving occupational/force fidelity. Preserve prototype only; investigate full-size directly hand-operated transport-chain grab-hook capture next."
+  ]
+}
