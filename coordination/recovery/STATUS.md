@@ -1,3 +1,9 @@
+# Active fifth-package engineering checkpoint
+
+SDS-plus chisel exchange is independently pushed at e39f322 as explicitly unfinished implementation: original7-body/6USD scene,31-phase read-only physical-feedback YAM controller, real ball/drive/closed-groove contacts, scorer/reset/native/Dream/media tooling and34 passing unit/schema/geometry/provenance/workflow checks. Full ideal/FK/clean-source qualification remains unfinished.
+
+The exact-sphere force cycle now inserts42mm and reaches a true withdrawal stop, but fails the authored minimum ball-intrusion condition under load by about17um. The raw failures and exact current scene/probe/export binding are preserved. Strengthen the actual geometric margin and correct material/mass reproducibility; do not relax the scorer to claim success. No native/GPU or official submission occurred. Four earlier qualified packages remain preserved. Continue coding immediately.
+
 # Latest verified source checkpoint — 2026-11-13
 
 Four independent packages now pass the internal offline gate: ER1263eb9, shacklece43ba4, repaired cargo72e33f8 and nailerd8d454b. Nailer clean runtime sourcec13f2e3 passes53 tests/all10 stages,49 actual live-bound phase endpoints,637 sampled actual-FK configurations and2780 ideal actions/139s with synthetic score1. Metadata-only source1351d4b passes9 affected tests and exact runtime equivalence. Twelve repeated contact cases and the full feedback-gated supplemental cycle pass at40.53um peak depth, with seven nonfatal MuJoCo line-search warnings preserved. No native Isaac/YAM, physical grasp, Dream, hardware or external review success is claimed.
