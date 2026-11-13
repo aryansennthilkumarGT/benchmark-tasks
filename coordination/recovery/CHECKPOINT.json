@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T17:42:25.002795+00:00",
+  "updated_at": "2026-11-13T17:48:36.882712+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -465,15 +465,20 @@
   },
   "sds_checkpoint": {
     "branch": "draft/sds-plus-chisel-exchange",
-    "commit": "95ec72f",
+    "commit": "6d55b15",
     "state": "CPU_IMPLEMENTED_NOVELTY_HOLD",
     "local_tests": 44,
     "local_static_stages": 10,
     "ideal_actions": 1639,
     "ideal_seconds": 81.95,
     "actual_fk_samples": 391,
-    "clean_https": "IN_PROGRESS",
-    "native_physics": "NOT_RUN"
+    "clean_https": true,
+    "native_physics": "NOT_RUN",
+    "tested_source_commit": "95ec72f0f597f998761d85d88af1d01217bb48fd",
+    "source_manifest_sha256": "6f4fe6acfce8433f0d437a14f00639d8b0d714cdc734f92048596272cac5f957",
+    "static_stages": 10,
+    "evidence": "tasks/sds-plus-chisel-exchange/offline-evidence/final/source-verification.json",
+    "novelty": "BLOCKED"
   },
   "latest_official_pr_observation": {
     "number": 1733,
@@ -481,5 +486,13 @@
     "head": "a312bcac0f29098731ad40ce30df5fe3a6fcca78",
     "new_comments_since_2026_11_13_10Z": 0,
     "evidence": "API JSON observed during current continuation; unchanged head verified, no modifications."
+  },
+  "active_candidate": {
+    "slug": "pintle-hook-eye-coupling",
+    "branch": "draft/pintle-hook-eye-coupling",
+    "worktree": "/workspace/pintle-coupling",
+    "state": "IMPLEMENTING_ORIGINAL_FULL_SIZE_SCENE",
+    "manufacturer": "XL-PH351 RevF p1 operating steps2-4;p2 drawing",
+    "not_qualified": true
   }
 }
