@@ -1,0 +1,23 @@
+{
+  "kind": "EXACT_SOURCE_CLEAN_HTTPS_CHECKOUT",
+  "tested_source_commit": "95ec72f0f597f998761d85d88af1d01217bb48fd",
+  "source_manifest_sha256": "6f4fe6acfce8433f0d437a14f00639d8b0d714cdc734f92048596272cac5f957",
+  "independent_checkout": true,
+  "clean_checkout": true,
+  "transport": "HTTPS",
+  "runtime_source_differences": [],
+  "unit_tests_passed": 44,
+  "static_stages_passed": 10,
+  "failed": 0,
+  "passed": true,
+  "git_status_after": "",
+  "native_isaac_executed": false,
+  "hardware_executed": false,
+  "synthetic_grasps": true,
+  "uncompressed_controller_trace_sha256": "fc16374c9858edb655764fb50d6b5cc43c13cffcfbbcfcfdf9bec9e8b4944398",
+  "notes": [
+    "The first launch used /tmp instead of the new checkout and failed before tests; corrected cwd, then full suite passed.",
+    "Compressed controller log reproduces the original exact bytes; FK report binds the uncompressed hash.",
+    "Novelty BLOCKED by primary PR1868/1636. Passing engineering checks do not clear the hold."
+  ]
+}

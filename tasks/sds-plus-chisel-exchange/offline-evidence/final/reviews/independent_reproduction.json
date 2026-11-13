@@ -1,0 +1,14 @@
+{
+  "kind": "INTERNAL_ENGINEERING_REVIEW_PASS",
+  "review_pass": "independent_reproduction",
+  "passed": true,
+  "scope": "Separate HTTPS checkout, pinned CPU tooling and exact source equality",
+  "findings": [
+    "95ec72f full source cloned separately via HTTPS; all source_manifest files byte equal;44 tests and all ten stages pass. No worktree/runtime evidence borrowed from a different revision. Runtime hashes include tests and replay inputs; full raw logs retained."
+  ],
+  "decision": "INTERNAL_TECHNICAL_PASS",
+  "external_review": false,
+  "independent_agent": false,
+  "tested_source_commit": "95ec72f0f597f998761d85d88af1d01217bb48fd",
+  "source_manifest_sha256": "6f4fe6acfce8433f0d437a14f00639d8b0d714cdc734f92048596272cac5f957"
+}
