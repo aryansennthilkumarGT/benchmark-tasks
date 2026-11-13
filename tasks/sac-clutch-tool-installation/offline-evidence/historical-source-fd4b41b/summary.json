@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "updated_at": "2026-11-13T01:15:45.871591+00:00",
+  "tested_source_commit": "fd4b41b4c406c822fe9eb3a321956622ce78fe55",
+  "source_manifest_sha256": "47a913ea6dec6d9c0250aba8106efa6434954292bd9494eb1ee27ccd9994bb24",
+  "implementation_complete_offline": true,
+  "clean_https_checkout": true,
+  "checkout_clean_after_tests": true,
+  "cpu_tests": {
+    "passed": 49,
+    "failed": 0,
+    "skipped": 0
+  },
+  "ik_endpoints": 597,
+  "collision_endpoints": 597,
+  "nominal_geometry_states": 9,
+  "usd_assets": 7,
+  "ideal_tracking": {
+    "actions": 28800,
+    "simulated_seconds": 1440.0,
+    "synthetic_contact_apertures": true,
+    "grasps_validated": false
+  },
+  "physics_executed": false,
+  "native_physics": "NOT_RUN",
+  "actual_expert": "NOT_RUN",
+  "dream_1": "NOT_RUN",
+  "hardware_validation": "NOT_RUN",
+  "submission_ready": false,
+  "novelty_inventory": "UNRESOLVED_CLOUDFLARE_BOARD_ACCESS",
+  "dependency_check": "uv pip check: all 33 packages compatible",
+  "historical_failures_repaired": [
+    "Initial left wrist yaw unreachable; use equivalent -60 degree jaw orientation",
+    "Initial high transfer/park poses unreachable; lowered and added reachable right-arm entry bridge",
+    "Opened knuckle clipped a carrier tab; increased nut TCP offset and reduced open width",
+    "Mixed NumPy bool in JSON output; normalized to Python bool",
+    "Free-spin then drop and wrong absolute helical phase could otherwise reuse credit; histories reset and phase checked"
+  ],
+  "evidence_only_commits_do_not_change_protected_source": true,
+  "coupled_motion_regression": {
+    "old_controller_error_m": 0.0003351885336633675,
+    "new_error_bound_m": 8e-05,
+    "official_fk_ik_test_passed": true
+  },
+  "historical_evidence_directory": "historical-source-9da125f"
+}

@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T01:15:45.871591+00:00",
-  "tested_source_commit": "fd4b41b4c406c822fe9eb3a321956622ce78fe55",
-  "source_manifest_sha256": "47a913ea6dec6d9c0250aba8106efa6434954292bd9494eb1ee27ccd9994bb24",
+  "updated_at": "2026-11-13T02:53:56.854405+00:00",
+  "tested_source_commit": "7c0536926caa345040b81f15c0af32b86dd6b4f2",
+  "source_manifest_sha256": "f9f2d7af927b3d920f227fa08c1ddea0574af369632b271ffbbde574d2049005",
   "implementation_complete_offline": true,
   "clean_https_checkout": true,
   "checkout_clean_after_tests": true,
@@ -16,8 +16,8 @@
   "nominal_geometry_states": 9,
   "usd_assets": 7,
   "ideal_tracking": {
-    "actions": 28800,
-    "simulated_seconds": 1440.0,
+    "actions": 15315,
+    "simulated_seconds": 765.75,
     "synthetic_contact_apertures": true,
     "grasps_validated": false
   },
@@ -42,5 +42,14 @@
     "new_error_bound_m": 8e-05,
     "official_fk_ik_test_passed": true
   },
-  "historical_evidence_directory": "historical-source-9da125f"
+  "historical_evidence_directory": "historical-source-9da125f",
+  "actual_fk_path_samples": 1345,
+  "actual_fk_path_sampling": "20 Hz control, every twentieth action plus every phase boundary",
+  "baseline_actions": 28800,
+  "action_reduction_fraction": 0.4682291666666667,
+  "action_limit": 24000,
+  "original_branch_preserved": "draft/sac-clutch-tool-installation at 0fadbf00594f453eee1c0788119fd4d255c29295",
+  "scope_change": false,
+  "scene_mechanics_or_scoring_changed": false,
+  "native_requalification_required": true
 }
