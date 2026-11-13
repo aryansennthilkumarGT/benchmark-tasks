@@ -1,0 +1,699 @@
+{
+  "kind": "SUPPLEMENTAL_MUJOCO_CPU_CONTACT_DIAGNOSTIC",
+  "engine": "3.3.7",
+  "isaac_executed": false,
+  "robot_executed": false,
+  "source_scene_sha256": "49012d8f4d3a7aca31dd5e75a3c4301afcd77df921ee4625262f94bf0e1a198c",
+  "cases": [
+    {
+      "name": "prepared-cradle-gravity",
+      "repeat": 0,
+      "assertions": [
+        {
+          "assertion": {
+            "kind": "displacement",
+            "body": "collet",
+            "min": 0,
+            "max": 0.001
+          },
+          "value": 2.9999731126162388e-05,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "penetration",
+            "max": 0.00035
+          },
+          "value": 0.0,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "score",
+            "max": 0,
+            "success": false
+          },
+          "value": 0.0,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "valid"
+          },
+          "value": null,
+          "passed": true
+        }
+      ],
+      "final_frame": {
+        "schema": 1,
+        "time": 4.0,
+        "bodies": {
+          "bench_nut": {
+            "pos": [
+              0.24,
+              0.0,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "collet": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055299997311262
+            ],
+            "quat": [
+              7.207584812933938e-17,
+              8.410395317098845e-18,
+              1.648953460076472e-23,
+              1.0
+            ],
+            "linear": [
+              8.722234329696349e-19,
+              1.5830954897197545e-17,
+              2.4341087913660083e-14
+            ],
+            "angular": [
+              -7.909513579393089e-16,
+              4.357837677602106e-17,
+              3.505460105376933e-23
+            ]
+          },
+          "collet_cradle": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "joints": {},
+        "max_penetration": 0.0,
+        "robot_clearance": 1.0
+      },
+      "scorer_failure": null,
+      "passed": true
+    },
+    {
+      "name": "prepared-cradle-gravity",
+      "repeat": 1,
+      "assertions": [
+        {
+          "assertion": {
+            "kind": "displacement",
+            "body": "collet",
+            "min": 0,
+            "max": 0.001
+          },
+          "value": 2.9999731126162388e-05,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "penetration",
+            "max": 0.00035
+          },
+          "value": 0.0,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "score",
+            "max": 0,
+            "success": false
+          },
+          "value": 0.0,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "valid"
+          },
+          "value": null,
+          "passed": true
+        }
+      ],
+      "final_frame": {
+        "schema": 1,
+        "time": 4.0,
+        "bodies": {
+          "bench_nut": {
+            "pos": [
+              0.24,
+              0.0,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "collet": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055299997311262
+            ],
+            "quat": [
+              7.207584812933938e-17,
+              8.410395317098845e-18,
+              1.648953460076472e-23,
+              1.0
+            ],
+            "linear": [
+              8.722234329696349e-19,
+              1.5830954897197545e-17,
+              2.4341087913660083e-14
+            ],
+            "angular": [
+              -7.909513579393089e-16,
+              4.357837677602106e-17,
+              3.505460105376933e-23
+            ]
+          },
+          "collet_cradle": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "joints": {},
+        "max_penetration": 0.0,
+        "robot_clearance": 1.0
+      },
+      "scorer_failure": null,
+      "passed": true
+    },
+    {
+      "name": "supported-preassembly-is-not-history",
+      "repeat": 0,
+      "assertions": [
+        {
+          "assertion": {
+            "kind": "pose",
+            "body": "collet",
+            "pos": [
+              0.24,
+              0,
+              0.8055
+            ],
+            "tolerance": 0.0006
+          },
+          "value": 3.315057558328456e-05,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "penetration",
+            "max": 0.00035
+          },
+          "value": 0.0,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "score",
+            "max": 0,
+            "success": false
+          },
+          "value": 0.0,
+          "passed": true
+        }
+      ],
+      "final_frame": {
+        "schema": 1,
+        "time": 4.0,
+        "bodies": {
+          "bench_nut": {
+            "pos": [
+              0.24,
+              0.0,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "collet": {
+            "pos": [
+              0.2400000144298649,
+              2.0547693836900304e-09,
+              0.8055331505723791
+            ],
+            "quat": [
+              -6.48154298069574e-08,
+              4.439987848860386e-07,
+              7.991520556309203e-09,
+              0.9999999999998993
+            ],
+            "linear": [
+              3.3738578286304905e-07,
+              8.022281111106891e-08,
+              0.0018067865964455517
+            ],
+            "angular": [
+              -3.996981393102562e-06,
+              1.677875115891691e-05,
+              -1.1722154370681516e-10
+            ]
+          },
+          "collet_cradle": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "joints": {},
+        "max_penetration": 0.0,
+        "robot_clearance": 1.0
+      },
+      "scorer_failure": "initial_layout",
+      "passed": true
+    },
+    {
+      "name": "supported-preassembly-is-not-history",
+      "repeat": 1,
+      "assertions": [
+        {
+          "assertion": {
+            "kind": "pose",
+            "body": "collet",
+            "pos": [
+              0.24,
+              0,
+              0.8055
+            ],
+            "tolerance": 0.0006
+          },
+          "value": 3.315057558328456e-05,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "penetration",
+            "max": 0.00035
+          },
+          "value": 0.0,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "score",
+            "max": 0,
+            "success": false
+          },
+          "value": 0.0,
+          "passed": true
+        }
+      ],
+      "final_frame": {
+        "schema": 1,
+        "time": 4.0,
+        "bodies": {
+          "bench_nut": {
+            "pos": [
+              0.24,
+              0.0,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "collet": {
+            "pos": [
+              0.2400000144298649,
+              2.0547693836900304e-09,
+              0.8055331505723791
+            ],
+            "quat": [
+              -6.48154298069574e-08,
+              4.439987848860386e-07,
+              7.991520556309203e-09,
+              0.9999999999998993
+            ],
+            "linear": [
+              3.3738578286304905e-07,
+              8.022281111106891e-08,
+              0.0018067865964455517
+            ],
+            "angular": [
+              -3.996981393102562e-06,
+              1.677875115891691e-05,
+              -1.1722154370681516e-10
+            ]
+          },
+          "collet_cradle": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "joints": {},
+        "max_penetration": 0.0,
+        "robot_clearance": 1.0
+      },
+      "scorer_failure": "initial_layout",
+      "passed": true
+    },
+    {
+      "name": "cam-contact-descent-probe",
+      "repeat": 0,
+      "assertions": [
+        {
+          "assertion": {
+            "kind": "coordinate",
+            "body": "collet",
+            "axis": 2,
+            "min": 0.8045,
+            "max": 0.8195
+          },
+          "value": 0.8090343645648144,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "penetration",
+            "max": 0.00035
+          },
+          "value": 0.0019242636528927306,
+          "passed": false
+        }
+      ],
+      "final_frame": {
+        "schema": 1,
+        "time": 2.0,
+        "bodies": {
+          "bench_nut": {
+            "pos": [
+              0.24,
+              0.0,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "collet": {
+            "pos": [
+              0.24334339842470043,
+              -0.0017566941931318717,
+              0.8090343645648144
+            ],
+            "quat": [
+              0.09711858697216293,
+              -0.1937674473366214,
+              -0.8090784056721897,
+              0.5462730909463948
+            ],
+            "linear": [
+              -4.260308828752217e-06,
+              -6.523283488638376e-07,
+              -2.992982672847496e-06
+            ],
+            "angular": [
+              0.00043275780073725605,
+              0.0006468723198076811,
+              -0.00017001647704296648
+            ]
+          },
+          "collet_cradle": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "joints": {},
+        "max_penetration": 0.0,
+        "robot_clearance": 1.0
+      },
+      "scorer_failure": "initial_layout",
+      "passed": false
+    },
+    {
+      "name": "cam-contact-descent-probe",
+      "repeat": 1,
+      "assertions": [
+        {
+          "assertion": {
+            "kind": "coordinate",
+            "body": "collet",
+            "axis": 2,
+            "min": 0.8045,
+            "max": 0.8195
+          },
+          "value": 0.8090343645648144,
+          "passed": true
+        },
+        {
+          "assertion": {
+            "kind": "penetration",
+            "max": 0.00035
+          },
+          "value": 0.0019242636528927306,
+          "passed": false
+        }
+      ],
+      "final_frame": {
+        "schema": 1,
+        "time": 2.0,
+        "bodies": {
+          "bench_nut": {
+            "pos": [
+              0.24,
+              0.0,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "collet": {
+            "pos": [
+              0.24334339842470043,
+              -0.0017566941931318717,
+              0.8090343645648144
+            ],
+            "quat": [
+              0.09711858697216293,
+              -0.1937674473366214,
+              -0.8090784056721897,
+              0.5462730909463948
+            ],
+            "linear": [
+              -4.260308828752217e-06,
+              -6.523283488638376e-07,
+              -2.992982672847496e-06
+            ],
+            "angular": [
+              0.00043275780073725605,
+              0.0006468723198076811,
+              -0.00017001647704296648
+            ]
+          },
+          "collet_cradle": {
+            "pos": [
+              0.28,
+              -0.17,
+              0.8055
+            ],
+            "quat": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "linear": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "angular": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "joints": {},
+        "max_penetration": 0.0,
+        "robot_clearance": 1.0
+      },
+      "scorer_failure": "initial_layout",
+      "passed": false
+    }
+  ],
+  "passed": false,
+  "limitations": [
+    "Different contact solver and friction model from PhysX.",
+    "No robot grasp or controller is simulated.",
+    "No Isaac, expert or model evidence can be inferred."
+  ]
+}
