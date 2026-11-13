@@ -8,6 +8,7 @@ All results retain this backend's friction/contact limitations.
 from __future__ import annotations
 import argparse,gzip,hashlib,importlib,json,math,os,shutil,subprocess,sys,time
 import cpu_physics_checkpoint as checkpoint
+import cpu_task_adapters as task_adapters
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import mujoco,numpy as np
@@ -24,6 +25,9 @@ def load(folder):
  for name in ['mechanism_cpu','feedback','scoring','audit_geometry','robot_clearance','source_identity']:
   if name in sys.modules:raise ValueError('Task namespace already loaded; start a fresh process')
  sys.path.insert(0,str(folder))
+ scene=folder/'scene.json'
+ slug=json.loads(scene.read_text()).get('slug') if scene.exists() else None
+ if slug in ('er-collet-nut-preassembly','cargo-bar-controlled-release'):return task_adapters.load(folder,slug)
  return {name:importlib.import_module(name) for name in ['mechanism_cpu','feedback','scoring','audit_geometry','robot_clearance','source_identity']}
 
 
@@ -53,7 +57,7 @@ def classify_result(*, completed, controller_done, stop_after_phase, score, erro
 
 
 def run(folder,out,max_actions=100,stop_after_phase=None,wall_seconds=600,subdivision=1,resume=False,checkpoint_every=50):
- folder=folder.resolve();harness_paths=[Path(__file__),Path(__file__).with_name('cpu_yam_dynamics.py'),Path(checkpoint.__file__)];harness_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in harness_paths};out.mkdir(parents=True,exist_ok=resume)
+ folder=folder.resolve();harness_paths=[Path(__file__),Path(__file__).with_name('cpu_yam_dynamics.py'),Path(checkpoint.__file__),Path(task_adapters.__file__)];harness_hashes={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in harness_paths};out.mkdir(parents=True,exist_ok=resume)
  if resume and (out/'report.json').exists():raise ValueError('Diagnostic already finalized; do not relabel a finished run as resumed')
  source_status=subprocess.check_output(['git','status','--porcelain','--','.'],cwd=folder,text=True)
  initial_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=folder,text=True).strip()

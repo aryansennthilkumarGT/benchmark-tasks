@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T19:26:40.735119+00:00",
+  "updated_at": "2026-11-13T19:35:28.565601+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -410,7 +410,7 @@
     "drive-bracket-pin-release is superseded by internally qualified cargo; preserve original drive history.",
     "SAC novelty versus RoboDojo fasten-screws remains unresolved; do not protect a weak concept."
   ],
-  "next_implementation_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /workspace/.robocurve-offline/venv/bin/python /tmp/cpu-resumable-harness-clean/coordination/cpu_yam_trial.py --task-folder /tmp/nailer-capture-clean/tasks/brad-nailer-jam-recovery --output /tmp/nailer-yam-capture-clean-refined4 --max-actions 5000 --wall-seconds 3600 --physics-subdivision 4 --checkpoint-every 50 --resume",
+  "next_implementation_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /workspace/.robocurve-offline/venv/bin/python /tmp/cpu-score-gate-harness-clean/coordination/cpu_yam_trial.py --task-folder /tmp/nailer-door-wide-clean/tasks/brad-nailer-jam-recovery --output /tmp/nailer-yam-door-wide-clean-refined4 --max-actions 5000 --wall-seconds 3600 --physics-subdivision 4 --checkpoint-every 50 --resume",
   "nailer_progress": {
     "branch": "draft/brad-nailer-jam-recovery",
     "commit": "d8d454bf5f8fc3a16925df1beacfe6124d50ee9a",
@@ -502,11 +502,11 @@
     "harness": "coordination/cpu_yam_trial.py",
     "source_initial_harness_commit": "937f7f6",
     "next": "Inspect actual report or last frame. Do not start duplicate process. If interrupted, resume exact clean sources/model from integration-checkpoint.npz with --resume; repair any remaining full-controller failures.",
-    "repair_commit": "43158751d479cb3b536cb6734f61cded9ccb889b",
-    "cpu_tests": 55,
-    "full_actual_fk_samples": 638,
-    "ideal_actions": 2793,
-    "ideal_seconds": 139.65,
+    "repair_commit": "0d27a3bd4663dc2fae63f522a73c1230d4f9b78c",
+    "cpu_tests": 56,
+    "full_actual_fk_samples": 637,
+    "ideal_actions": 2799,
+    "ideal_seconds": 139.95,
     "geometry_failure_fixed": "409um stock-finger bumper intrusion fixed by2mm forward grasp;50um unintentional-contact screen passes full path",
     "new_real_physics_result": "Reach fixed; acquisition fails after2bounded retries in old compliant robot-contact model. SDK velocity ratio now0.723, not1.44.",
     "contact_calibration": "Subdivision4/8 converge to0.923/0.933mm real jaw aperture; empty controls0; no solver warnings. No geometry/mass/friction/score changes.",
@@ -514,12 +514,28 @@
     "capture_repair": "Only brad acquisition permits1mm TCP compliance; actual jaw check/scoring unchanged; actual recorded capture and empty-grip negative regression pass.",
     "restart_resilience": "11 CPU harness tests plus real killed/resumed task-prefix70actions; exact integration/policy/scorer checkpointing, source and trace hashes, monotonic times. No native claim.",
     "actual_fk_passed": true,
-    "harness_clean_commit": "06b8c7f5e096dd36131fdb6bcac64ff76d7a62bd",
+    "harness_clean_commit": "ff99f26",
     "clean_harness_tests": 11,
     "clean_task_tests": 55,
-    "full_run_output": "/tmp/nailer-yam-capture-clean-refined4",
+    "full_run_output": "/tmp/nailer-yam-door-wide-clean-refined4",
     "full_run_state": "RUNNING_NO_FULL_RESULT_YET",
-    "resume_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /workspace/.robocurve-offline/venv/bin/python /tmp/cpu-resumable-harness-clean/coordination/cpu_yam_trial.py --task-folder /tmp/nailer-capture-clean/tasks/brad-nailer-jam-recovery --output /tmp/nailer-yam-capture-clean-refined4 --max-actions 5000 --wall-seconds 3600 --physics-subdivision 4 --checkpoint-every 50 --resume"
+    "resume_command": "PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 /workspace/.robocurve-offline/venv/bin/python /tmp/cpu-score-gate-harness-clean/coordination/cpu_yam_trial.py --task-folder /tmp/nailer-door-wide-clean/tasks/brad-nailer-jam-recovery --output /tmp/nailer-yam-door-wide-clean-refined4 --max-actions 5000 --wall-seconds 3600 --physics-subdivision 4 --checkpoint-every 50 --resume",
+    "prior_complete_failure": "4315875 actual fresh run1993actions/99.65s: brad extracted and deposited, physical score0.5; stalls phase26 door reacquisition. No warnings, velocity ratio0.7322; evidence retained in cpu-yam-diagnostics/nailer-clean-capture-failure-4315875.",
+    "door_approach_repair": "Open approach/reach32.9mm, unchanged closed grasp; actual recorded displaced door geometry regression rejects former3.758mm finger intrusion and passes wider aperture."
   },
-  "reviewer_occupation_threshold": "Over500,000 U.S. workers collectively, with the actual procedure core/regular in the named disjoint occupations. Do not incorrectly require1million."
+  "reviewer_occupation_threshold": "Over500,000 U.S. workers collectively, with the actual procedure core/regular in the named disjoint occupations. Do not incorrectly require1million.",
+  "supplemental_robot_adapter_audits": {
+    "cargo": {
+      "checks": 7678,
+      "passed": true,
+      "source": "72e33f89853577aadebb78e64a1e783bd9087e84"
+    },
+    "er": {
+      "checks": 20658,
+      "passed": true,
+      "source": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5"
+    },
+    "scope": "Preservation/initialization audit, not full controller or native success",
+    "harness_tests_passed": 13
+  }
 }
