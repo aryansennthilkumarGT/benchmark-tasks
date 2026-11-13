@@ -1,0 +1,19 @@
+{
+  "title": "Release and shorten a clamped cargo load bar",
+  "category": "Impact on jobs",
+  "keywords": [
+    "cargo securement",
+    "telescoping load bar",
+    "loaded pawl release",
+    "rack and pinion"
+  ],
+  "instruction": "Control the loaded inner tube, release the latch and raise the handle fully forward, then shorten the cargo bar clear of both walls and lower it onto the cradles. Leave it unloaded, with the handle forward and both grippers clear.",
+  "context": "Truck drivers routinely secure and remove cargo restraints. Harbor Freight96811 instructions specify pulling the latch lock and raising the handle fully forward to release a cargo bar. This benchmark isolates controlled unloading and shortening of a prepositioned bar, rather than winding a tie-down strap.",
+  "setup": "Standard YAM station; table z0.7475m. Original wall frame at(0.24,0,0.7475)m, with opposing inner faces y=\u00b10.600m, wall height140mm and two diameter-matched cradles. The full-scale bar starts clamped between them: outer-tube origin(0.24,-0.011667,0.7975)m, rotated-90deg aboutY so its handle sweeps horizontally. Hollow outer/inner tubes are600mm long,36/25mm outside diameter; rack travel0\u201350mm. The bar has actual convex rack/pinion teeth, a coaxial24-tooth ratchet, two independent passive pawls, physical release cams and a trigger/keeper latch. Pinion pitch radius12.7324mm. Two63.5\u00d7101.6\u00d712mm compliant foot surrogates start1.667mm compressed, on12kN/m passive springs. Initial rack23.333mm, pinion-1.83260rad; handle and trigger closed. Gear/cam dimensions, mass/COM/inertia, compliance and friction are authored. Full primitive tables, joint frames and reset values are in scene.json and PARAMETERS.md. No vehicle, cargo or operating load rating is implied.",
+  "scoring": "0.25 when both pad springs are unloaded within0.5mm and the rack has retracted at least2mm;0.5 when rack extension\u22646mm and both foot-to-wall gaps\u22654.5mm;0.75 when the bar rests within2mm of its cradle target, handle\u22652.45rad forward and trigger\u22641mm. Full score requires2s below8mm/s and0.15rad/s with robot clearance\u226520mm. Credit is current-state. Joint/body inconsistency, rack/pinion skip over0.5mm, penetration>0.35mm, fixture movement, invalid state or loss latch zero. No handle-stroke counter or expert path is required.",
+  "run_limit": "5,000 control actions at20Hz (250 simulated seconds)",
+  "reset_notes": "Seed0, no jitter. Restore every root and joint from scene.json initial values, zero velocities, and independently restore passive drive rest targets to zero. Initial pad compression is not the spring equilibrium. Clear controller/scorer/trace-reader state; repeat native cases after independent resets.",
+  "fidelity": "HF96811 grounds release/telescope procedure and40\u201370in range. Original full-scale geometry retains contact-driven gears, two pawls, cams, trigger/latch and compliant feet. Component dimensions, hollow/lightweight masses, springs and friction are authored; greased cams are approximated separately. Commercial pad envelope comes from a separate US Cargo Control reference. Wall frame/cradles replace a vehicle. No OEM fit, load rating, hardware or Isaac/expert/Dream success is claimed.",
+  "scores": "Native robot expert: not run; Dream-1: not run. Supplemental MuJoCo mechanism probes are not Isaac or robot demonstrations.",
+  "media": ""
+}
