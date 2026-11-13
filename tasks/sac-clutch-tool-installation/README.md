@@ -1,38 +1,47 @@
-# SAC spindle-carrier mounting core — incomplete task
+# Mount and retain a SAC installation-tool carrier
 
-This branch is work in progress. It does **not** contain a completed scene, generated assets, a SAC robot phase plan, native qualification or submission-ready metadata. It must not be counted as a rebuilt task or sent for evaluation. No replacement hardware dimensions are asserted.
+This is an original **BENCHMARK_AUTHORED** fixture for the unloaded mounting step in the LuK SAC installation-tool procedure. Its component dimensions are not measurements of LuK or Sealey hardware. The disc, pressure cover, dowels and lower stud installation are prepared initial conditions. Mount the three-arm carrier over the mandrel and three studs, independently screw all three knurled retainers flush, release, and stop before pressure-spindle compression.
 
-## Bounded procedure
+Native physics, actual expert demonstrations, Dream-1 and physical hardware validation have **not** run. Offline ideal tracking assumes contact apertures and cannot establish grasp/retention feasibility. No official submission is permitted with the current evidence.
 
-The selected subset is the unloaded mounting step: with the clutch disc already centered, cover already located on its dowels and three correct temporary studs installed, lower the three-arm carrier over those studs and the centering tool, then fit all three knurled retainers as specified by the LuK instructions. Stop before turning the central pressure spindle against the diaphragm. The pressure spindle remains retracted; diaphragm force, permanent bolt torque and later tool removal are outside this subset. This is section 10.6, page 29's carrier/retainer setup, not a renamed generic spring-loaded plate or a claim to install an entire clutch.
+## CPU reproduction
 
-The exact instruction interpretation and final flush/support datum must be checked against the measured tool before freezing the scene. The counterpart Sealey manual describes mounting the three-slot plate with stud retainers before hand-contact and subsequent pressure-screw compression. It corroborates the bounded step, not dimensional interchangeability of the two brands.
-
-## Implemented and tested
-
-- `mounting_score.py`: executable three-site/C3-symmetric carrier placement, independent pitch-consistent retainer histories, one-to-one site credit, released-hand stability, invalid-state/fixture/lost-part guards and recomputed partial credit.
-- `dimensions.py`: explicit measurement units, provenance and uncertainty; source-backed flywheel thread-family lookup; bore/slot/thread compatibility checks; rejection of missing or synthetic hardware dimensions in production use.
-- `feedback.py`, `motion.py`, `expert.py`: retained reusable joint-observation executor from the completed shackle package. They are not a generated SAC-specific phase plan and are not claimed to complete this task.
-- `test_mounting_core.py`: synthetic numerical and adversarial tests. Its geometry is explicitly fictional test input, rejected as production measurements. No test frame or ideal result is physics evidence.
+Python 3.12 was used. The exact compatible CPU package versions are in `requirements-cpu.txt` and `stack-lock.json`. Use an existing prepared offline environment or run the isolated installer:
 
 ```bash
-python -m pytest -q -p no:cacheprovider tasks/sac-clutch-tool-installation/test_mounting_core.py
+python3.12 tasks/sac-clutch-tool-installation/install_cpu.py --venv /tmp/sac-cpu-venv
+/tmp/sac-cpu-venv/bin/python tasks/sac-clutch-tool-installation/static_check.py
 ```
 
-## Required inputs before scene authoring
+The installer selects CPU PyTorch and does not install Isaac Sim. No credentials are needed. `static_check.py` verifies protected hashes, runs tests and all geometry/IK/controller/collision audits. The model/evaluation scripts are not called by it.
 
-The LuK manual specifies the procedure, 120-degree stud arrangement, M6/M7/M8 stud families and centering-adapter ranges. It does not dimension the carrier, retainer or stud lengths. The Sealey VS011A.V3 manufacturer product/manual confirms flywheel-side M6×1, M7×1 and M8×1.25. Those values **do not establish the separate upper stud/knurled-retainer thread**. Neither source supplies a carrier mass, component dimensions or a diaphragm load curve.
+Intentional geometry edits require explicit regeneration and a new source freeze, invalidating old runtime evidence:
 
-The required measured hardware fields are enumerated in `dimensions.REQUIRED`. In particular: installed stud circle and tip height, usable upper thread and its actual diameter/pitch, carrier thickness/slot limits/central clearance, retracted spindle/centering-tool clearance, and retainer dimensions/masses. A published dimensioned drawing or actual measurement reference is required for each; case/shipping dimensions and perspective photographs are not accepted as component measurements.
+```bash
+python tasks/sac-clutch-tool-installation/generate_scene.py
+python tasks/sac-clutch-tool-installation/write_native_cases.py
+python tasks/sac-clutch-tool-installation/write_parameter_table.py
+python tasks/sac-clutch-tool-installation/freeze_source.py
+python tasks/sac-clutch-tool-installation/static_check.py
+```
 
-The overall kit weight is not a carrier mass. The LuK 22 Nm + 90-degree permanent-fastener instruction on page 30 is not a load law for the diaphragm or pressure spindle and is not used by this core.
+`source_manifest.json` binds exact code/assets/metadata. Reports below `offline-evidence/` identify the source hash manifest and clearly distinguish numerical fixtures from physics. Do not copy evidence from the shackle or older spring-plate task.
 
-If the user explicitly permits a dimensioned benchmark fixture, its authored geometry must be clearly distinguished from manufacturer hardware and this input policy revised accordingly. Until that modeling choice or measurements are supplied, filling the missing values would contradict the instruction not to invent dimensions. No placeholder assets or silent geometric defaults are generated.
+## Future native qualification (requires separate GPU authorization)
 
-## Primary references
+Use the pinned official stack described by `bootstrap_task.py` / `stack-lock.json`. These previews do not install or launch anything:
 
-- Schaeffler/LuK, *LuK Repair Solution for Clutch Modules*, September 2012, single-plate Audi 0B1/0B2/0B3 module; tool 400 0237 10, pages 14–15 and section 10.6 pages 27–30. Exact URL and retrieved hash are in SOURCES.json.
-- Sealey, [SAC Clutch Alignment Tool VS011A](https://www.sealey.co.uk/sac-clutch-alignment-tool-vs011a/) and [manufacturer instructions](https://www.sealey.co.uk/content/pdfs/instructions/VS011A_V3.PDF), specification and fitting steps 5.3.8–5.3.13.
-- O*NET [Automotive Service Technicians and Mechanics, 49-3023.00](https://www.onetonline.org/link/summary/49-3023.00).
+```bash
+python tasks/sac-clutch-tool-installation/bootstrap_task.py --help
+python tasks/sac-clutch-tool-installation/task_runner.py --output /data/sac-new-evidence
+python tasks/sac-clutch-tool-installation/run.py --mode expert --output /data/sac-expert-preview
+python tasks/sac-clutch-tool-installation/run.py --mode dream --output /data/sac-dream-preview
+```
 
-No GPU work, model evaluation, upload or official PR has been performed. The completed shackle branch and pending/finally rejected PR heads remain unchanged.
+After GPU access is separately authorized, `task_runner.py --execute` runs four native contact probes and two robot prefixes (each repeated after reset), then two independent expert episodes. The probes deliberately initialize isolated states and are **not** demonstrations. Any failure stops qualification. Runtime adapter reads actual rigid-body poses/velocities and collision geometry and never attaches dynamic parts. Native controls issue the same 14 robot joint/gripper commands as the expert.
+
+Dream execution requires native suites plus two independently verified full-score expert records of the exact current commit. Complete the outstanding novelty inventory review before using `--model`; the task runner currently blocks it on that unresolved review. `run.py --mode dream --execute --evidence ...` independently verifies receipt hashes; no model request is made by default. No GPU provisioning or credit purchase script is included.
+
+The media pipeline decodes real rendered frames, checks H.264/yuv420p, dimensions, frame count and size, and binds two demos, model video and setup image to real receipts. `prepare_submission.py` requires actual native/expert/model/media results plus a visual-review attestation. It does not create a PR; default mode does not upload. Do not supply upload credentials during this offline phase.
+
+Read [FIDELITY.md](FIDELITY.md), [SETUP.md](SETUP.md), [PARAMETER_TABLE.md](PARAMETER_TABLE.md), [SCORING.md](SCORING.md), [CONTROLLER.md](CONTROLLER.md), [CONSTRUCT_VALIDITY.md](CONSTRUCT_VALIDITY.md) and [NOVELTY.md](NOVELTY.md) before qualification.

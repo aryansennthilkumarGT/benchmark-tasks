@@ -21,6 +21,11 @@ class MissingMeasurements(ValueError):
 
 
 def validated(data, *, synthetic_test=False):
+    mode=data.get('geometry_mode','MEASURED_HARDWARE')
+    if mode not in ('MEASURED_HARDWARE','BENCHMARK_AUTHORED'):
+        raise ValueError('Unknown geometry mode')
+    if mode=='BENCHMARK_AUTHORED' and data.get('authorship_disclosure')!='Original benchmark fixture; not manufacturer measurements':
+        raise ValueError('Benchmark authorship disclosure required')
     missing=[name for name in REQUIRED if name not in data.get('measurements',{})]
     if missing:raise MissingMeasurements('Missing measured inputs: '+', '.join(missing))
     family=data.get('thread_family')
@@ -38,11 +43,16 @@ def validated(data, *, synthetic_test=False):
                 or not math.isfinite(uncertainty) or uncertainty<0 or uncertainty>=value):
             raise ValueError('Invalid uncertainty: '+name)
         allowed={'manufacturer_dimensioned_document','physical_measurement'}
+        if mode=='BENCHMARK_AUTHORED':allowed.update({'benchmark_authored_approximation','derived_geometry'})
         if synthetic_test:allowed.add('synthetic_unit_fixture')
         if row.get('kind') not in allowed or not row.get('reference'):
             raise ValueError('Unsupported dimensional provenance: '+name)
         units={'kg':1.,'g':.001} if name.endswith('_mass') else {'m':1.,'mm':.001}
         if row.get('unit') not in units:raise ValueError('Invalid measurement unit: '+name)
+        if row.get('kind')=='physical_measurement' and not row.get('evidence_sha256'):
+            raise ValueError('Genuine measurement evidence hash required: '+name)
+        if row.get('kind')=='derived_geometry' and not row.get('derivation'):
+            raise ValueError('Derived geometry requires a derivation: '+name)
         result[name]=float(value)*units[row['unit']]
     major,pitch=THREAD_FAMILIES[family]
     if result['carrier_slot_width']<=result['retainer_thread_major']:raise ValueError('Stud cannot pass through carrier slot')

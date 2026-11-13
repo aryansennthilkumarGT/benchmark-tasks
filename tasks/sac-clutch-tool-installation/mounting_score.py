@@ -110,6 +110,11 @@ class Scorer:
             yaw=2*math.atan2(b['quat'][2],b['quat'][3]);prev=self.history.get(name)
             if site is None:
                 self.history.pop(name,None);continue
+            stud=self.spec['studs'][site]
+            if 'entry_z' in stud:
+                phase=(yaw-stud['entry_yaw']-2*math.pi*(b['pos'][2]-stud['entry_z'])/self.spec['pitch']+math.pi)%(2*math.pi)-math.pi
+                if abs(phase)>self.spec['thread_phase_tolerance']:
+                    self.history.pop(name,None);continue
             if prev is None or prev['site']!=site:
                 prev=dict(site=site,yaw=yaw,origin_z=b['pos'][2],angle=0.)
             else:
