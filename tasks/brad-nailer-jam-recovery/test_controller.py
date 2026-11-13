@@ -118,3 +118,22 @@ def test_actual_closed_jaw_capture_allows_contact_deflection_but_not_empty_grip(
    if empty:q[6]=0.
    c.step(q,frame)
   assert (c.index==18) is (not empty)
+
+
+def test_released_door_entry_clears_recorded_motion_before_jaw_closure():
+ from audit_geometry import geometry_module
+ from robot_geometry import arm_hulls,task_collisions
+ from yam_arena import ik,station
+ # True start/stall observations from the previous failed physical run. Test
+ # static geometry at its measured door excursion, not an ideal success claim.
+ data=json.loads((HERE/'test_fixtures/door-approach-keyframes.json').read_text())
+ assert data['not_isaac'] and data['not_complete_expert']
+ a,b=data['frames'];f,c=fixture();p=next(p for p in c.phases if p['label']=='Reach open door again')
+ target=c.bind(p,a['frame'],np.array(a['robot_q']))['target']
+ q,pe,re=ik.solve(target['pos'],target['quat'],q_init=np.array(a['robot_q'][:6]),base_pos=station.BASES['left'],iters=500,tol=1e-6)
+ assert pe<1e-5 and re<1e-4
+ g=geometry_module(HERE)
+ def hits(opening):return task_collisions(g,arm_hulls('left',np.r_[q,opening]),f.spec,b['frame']['bodies'],threshold=.00005)
+ assert any(h['body']=='nose_door' and h['penetration_m']>.002 for h in hits(.06))
+ assert hits(p['opening'])==[]
+ assert next(p for p in c.phases if p['label']=='Regrasp open nose door')['opening']==0.

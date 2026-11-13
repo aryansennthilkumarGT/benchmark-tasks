@@ -80,8 +80,11 @@ def make_plan(spec):
  placed=np.array([*xy,D.TABLE+.035])+body_offset;placed[2]+=free['parts_tray']['pos'][2]+.002-(D.TABLE+.035+vertices[:,2].min())
  free['bent_brad']=dict(pos=placed.tolist(),quat=carried_q.tolist())
  park('left')
- grip('Approach open door again','left','nose_door',D.DOOR_GRIP,opened_tool,.06,away=.030)
- grip('Reach open door again','left','nose_door',D.DOOR_GRIP,opened_tool,.06)
+ # Use the same32.9mm entry aperture as the first successful door reach.
+ # A5.6mm gap lets stock finger sidewalls push the freely hinged door before
+ # capture. This is a manipulation repair, not reduced final grasp/scoring.
+ grip('Approach open door again','left','nose_door',D.DOOR_GRIP,opened_tool,.35,away=.030)
+ grip('Reach open door again','left','nose_door',D.DOOR_GRIP,opened_tool,.35)
  grip('Regrasp open nose door','left','nose_door',D.DOOR_GRIP,opened_tool,0.,.003,dwell=.35)
  # Crosspin orientation follows the door during the two-TCP carry. Its center
  # is accessible while it is outboard of the fixed capture arms.

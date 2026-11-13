@@ -17,3 +17,8 @@ The source-bound clean subdivision4 experiment was interrupted by a real cloud e
 Independent contact refinement converges to0.923/0.933mm aperture at4/8subdivisions, with178/7.87µm peak robot-contact depths and no warnings. Removing the bar closes the same jaws to zero at every resolution. This calibrates the supplemental rigid-contact approximation; it does not establish native physics or completed-expert success.
 
 The optional root CPU diagnostic now preserves actual MuJoCo integration state, complete controller/scorer history and a hashed trace prefix. A killed process can resume that exact computational episode without simulated grasps or pose projections. Restarts are explicitly labeled; this is not a substitute for independent fresh-reset native demonstrations. Full clean-checkout qualification remains pending.
+
+
+## Actual door reacquisition failure and entry repair
+
+Clean source4315875 with clean CPU harness06b8c7f completes brad acquisition, extraction and deposition, but stops at phase26/1993actions/99.65s with physical score0.5. No solver warnings; SDK velocity ratio0.7322. It is a failed supplemental run, not native qualification. The5.6mm entry gap contacts the freely hinged3mm door and pushes its angle from1.9159rad to1.7613rad; the phase retains its bound world target. The new32.9mm approach/reach opening matches the successful initial door entry; final acquisition still closes onto the unchanged3mm plate. A regression uses the actual start/stall observations and original stock finger meshes: the former target overlaps the displaced door by3.758mm; the wider entry has no task collision at that same target/door state. A fresh full physical run is required; static clearance does not prove the capture or relatching succeeds.
