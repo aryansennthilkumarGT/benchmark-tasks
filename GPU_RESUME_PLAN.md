@@ -76,3 +76,8 @@ python tasks/rigging-shackle-connection/bootstrap_task.py --output /data/shackle
 ```
 
 This preview does not create a runtime. The README gives the future authorized execution flags and actual native commands. Six other rebuilds remain; there is no eight-task GPU-ready manifest yet. Continue their task-by-task implementation before treating the overall engineering phase as complete.
+
+
+## CPU control-path correction discovered during SAC/drive rebuild
+
+SAC source fd4b41b uses one interpolation fraction for translation and rotation; the old independent limiter failed a real FK lead regression by 0.335 mm. SAC evidence at 0fadbf0 and drive-bracket evidence at 92b5c95 remain CPU-only. Before spending GPU time on protected shackle ef13ec77, review whether its older limiter requires an authorized independent source revision. Preserve its historical branch/evidence; do not claim the newer tests validate that older controller.

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T00:50:48.721875+00:00",
+  "updated_at": "2026-11-13T01:18:31.894814+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -14,8 +14,25 @@
       "classification": "REDESIGN",
       "reason": "Ground the drive carrier, lid retainer and installation in actual equipment documentation; repair the documented retaining-bar translation stall.",
       "existing_branch": "draft/hinged-chassis-drive",
-      "replacement_implemented": false,
-      "reviewer_acceptance_cleared": false
+      "replacement_implemented": true,
+      "reviewer_acceptance_cleared": false,
+      "replacement": {
+        "slug": "drive-bracket-pin-release",
+        "branch": "draft/drive-bracket-pin-release",
+        "commit": "92b5c95a47b3eb41ab19fc60a6bcea72d329acca",
+        "tested_source_commit": "896c0708d0cd2631a9aa591e61c6065bc80ffe25",
+        "cpu_tests": {
+          "passed": 28,
+          "failed": 0,
+          "skipped": 0
+        },
+        "ik_endpoints": 30,
+        "collision_endpoints": 30,
+        "actual_fk_path_samples": 164,
+        "clean_https_reproduction": true,
+        "native_physics": "NOT_RUN",
+        "reviewer_acceptance_cleared": false
+      }
     },
     {
       "slug": "remote-battery-service",
@@ -59,10 +76,10 @@
       "replacement": {
         "slug": "sac-clutch-tool-installation",
         "branch": "draft/sac-clutch-tool-installation",
-        "commit": "b4ba66ee4190f883d27123e889d853e9346815c8",
-        "tested_source_commit": "9da125fd0f52d320782db459ab9f2e13e34ea11b",
+        "commit": "0fadbf00594f453eee1c0788119fd4d255c29295",
+        "tested_source_commit": "fd4b41b4c406c822fe9eb3a321956622ce78fe55",
         "cpu_tests": {
-          "passed": 48,
+          "passed": 49,
           "failed": 0,
           "skipped": 0
         },
@@ -116,22 +133,19 @@
     }
   ],
   "next": [
-    "Next candidate: inspect latest draft/hinged-chassis-drive and select a documented real equipment service procedure before implementing a new independent package. Existing generic hinged lid/retainer and its historical stall are not a completed redesign.",
-    "Check occupational importance and meaningful novelty against official nearby PRs (including drive-lever PR #146); do not assume a generic drive tray is novel. If weak, choose a better documented replacement.",
-    "Implement scene/assets, native interfaces, robot phases and feedback, objective scoring/reset, native probes, metadata and future workflows, then affected CPU tests and clean-checkout verification; push that package before moving on.",
-    "Remaining five: hinged-chassis-drive and switch-map-rework and hardware-order-kit redesigns; remote-battery-service and node-service-closeout replacements.",
-    "Preserve shackle ef13ec77 and SAC b4ba66e, pending PR #1733, and finally rejected heads. No GPU spending, paid model calls or official unvalidated replacement PRs."
+    "Choose the next task from remaining four: remote-battery-service and node-service-closeout replacements, switch-map-rework and hardware-order-kit redesigns. Preserve rejected PR heads; create a new independent one-folder branch from 7df8bd8.",
+    "Do not use WAGO single-wire lever termination: official PR #766 directly matches open lever / insert bare wire / close lever. Primary WAGO sources were retrieved but that candidate was dropped before implementation.",
+    "For hardware-order-kit, research a genuine equipment procedure with non-generic retention interfaces (e.g. ER collet into eccentric extraction ring), verify official near-neighbor PRs before coding, then implement one full package at a time.",
+    "Do not rerun unchanged baseline/shackle suites. Native physics, actual experts, Dream, media and hardware remain unrun for new packages; no GPU spending or official unvalidated PRs."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
   "implemented_this_session": [
-    "Complete independent SAC BENCHMARK_AUTHORED scene with seven original USD assets and physical square-profile contact threads",
-    "597-phase executable YAM expert, bounded recovery, scorer/anti-shortcut tests, native/Dream/media/metadata/manufacturing workflows",
-    "48 tests, all 597 IK endpoints, all 597 robot collision endpoints, nine contact-geometry states; actual controller completed 28855 actions in ideal tracking fixture",
-    "Clean HTTPS static_check.py passed exact source 9da125fd0f52d320782db459ab9f2e13e34ea11b; evidence-only final branch tip b4ba66ee4190f883d27123e889d853e9346815c8"
+    "Completed SAC independent package; synchronized Cartesian/rotary motion after a genuine FK regression exposed 0.335 mm screw-lead error. 49 tests, 597 IK/collision endpoints, clean HTTPS source fd4b41b; final 0fadbf0.",
+    "Completed Dell-procedure drive bracket pin-release package: three original USDs, real side bores/opposed pins and passive rail, 30-phase expert, scorer, native/model/media workflows. 28 tests, 30 IK/collision endpoints, 164 actual-FK contact-geometry samples; clean HTTPS source 896c070; final 92b5c95."
   ],
   "current_review_outcomes_verified_via_public_github_html": true,
-  "offline_implemented_replacements": 2,
-  "remaining_rebuilds": 5,
+  "offline_implemented_replacements": 3,
+  "remaining_rebuilds": 4,
   "research_access": {
     "tasks.robocurve.org": "HTTP 403, Cloudflare 1010, website-side",
     "api.github.com": "HTTP 200",
@@ -148,6 +162,7 @@
     "updated_at": "2026-11-12T12:22:25Z",
     "head_changed_by_this_mission": false
   },
-  "current_work": "SAC offline package implemented and clean-checkout verified; continue next substantive equipment-grounded rebuild.",
-  "sac_progress": "coordination/recovery/sac-rebuild-result.json"
+  "current_work": "SAC and documented drive-bracket task complete offline; next choose a stronger replacement for remote-battery-service or a documented hardware-order-kit redesign.",
+  "sac_progress": "coordination/recovery/sac-rebuild-result.json",
+  "protected_shackle_control_review_note": "Shackle ef13ec77 remains untouched as requested. Its independent translation/rotation limiter predates the new screw-lead fix; review that contact-path risk before future native validation. Do not transfer SAC correction evidence or alter protected historical evidence."
 }
