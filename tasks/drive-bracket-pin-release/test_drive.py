@@ -111,6 +111,21 @@ class Tests(unittest.TestCase):
    def target(self,q,pos,quat,opening,**kw):return q,0.,0.
   c.motion={s:Ideal() for s in ('left','right')};q=np.zeros(14);q[13]=p['opening'];c.step(q,{'time':0.});c.step(q,{'time':.2});self.assertIsNotNone(c.recovery);self.assertGreater(c.recovery['phase']['opening'],SPEC['parameters']['drive_width']/.0939)
   with self.assertRaises(ControlFailure):c.step(q,{'time':13.})
+ def test_wide_grasp_recovery_opens_then_can_reacquire(self):
+  p=copy.deepcopy(next(x for x in PLAN['phases'] if x['label']=='Grip drive case across its width'));p['timeout']=.1
+  c=Controller(dict(phases=[p]),SPEC)
+  class Ideal:
+   reference=None
+   def target(self,q,pos,quat,opening,**kw):return q,0.,0.
+  c.motion={s:Ideal() for s in ('left','right')};q=np.zeros(14);q[13]=p['opening']
+  c.step(q,{'time':0.});c.step(q,{'time':.2});q[13]=c.recovery['phase']['opening']
+  for i in range(8):c.step(q,{'time':.25+i*.05})
+  self.assertIsNone(c.recovery)
+  q[13]=p['grasp_width']/.0939
+  for i in range(15):
+   c.step(q,{'time':.65+i*.05})
+   if c.done:break
+  self.assertTrue(c.done)
  def test_media_fixture_codec_and_frame_count(self):
   import shutil,subprocess
   from render_media import video_check

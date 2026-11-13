@@ -33,7 +33,7 @@ class Controller:
         from copy import deepcopy
         retry=deepcopy(phase)
         if phase['label'].startswith(('Grip','Regrasp')):
-            retry['opening']=min(1.,max(.62,phase.get('grasp_width',0.)/.0939+.12));retry['dwell']=.3;kind='REOPEN_AND_REACQUIRE'
+            retry['opening']=min(1.,max(.62,phase.get('grasp_width',0.)/.0939+.12));retry['grasp_width']=0.;retry['dwell']=.3;kind='REOPEN_AND_REACQUIRE'
         else:self.fail('Unrecoverable motion stall: '+phase['label'])
         self.attempts[self.index]=attempts+1
         self.recovery=dict(phase=retry,started=now,stable=None,kind=kind)
