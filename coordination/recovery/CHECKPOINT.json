@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T21:57:51.277839+00:00",
+  "updated_at": "2026-11-13T22:03:02.002908+00:00",
   "mission": "Submission-first accepted-forensics and bounded native preparation",
   "engineering_complete": false,
   "target_packages": 8,
@@ -507,7 +507,7 @@
     "harness_tests_passed": 13
   },
   "active_supplemental_cpu_trials": {
-    "state": "NAILER_ONE_BOUNDED_FINAL_SOURCE_RUN_ONLY",
+    "state": "NONE_RUNNING",
     "gpu_services": false,
     "native_isaac": false,
     "latest_cargo_report": "cpu-yam-diagnostics/cargo-retraction-stall-4740eba/report.json",
@@ -629,7 +629,18 @@
       "clean_https": true,
       "full_fk_samples": 639,
       "ideal_actions": 2802,
-      "independent_clean_evidence": "source-verification/nailer-b742696/clean-verification.json"
+      "independent_clean_evidence": "source-verification/nailer-b742696/clean-verification.json",
+      "actual_cpu": {
+        "source_commit": "b742696e49a506bfd4ef2362a06145b8a6cd3c65",
+        "actions": 2065,
+        "seconds": 103.25,
+        "score": 0.5,
+        "phase": 30,
+        "failure": "IK reached a joint limit while acquiring actual free crosspin",
+        "maximum_velocity_ratio": 0.7933237529486993,
+        "evidence": "cpu-yam-diagnostics/nailer-pin-limit-b742696",
+        "native_isaac": false
+      }
     },
     "unqualified_experiment": {
       "branch": "experiments/nailer-radial-clearance",
@@ -748,7 +759,32 @@
     "ideal_actions": 2802,
     "independent_clean_evidence": "source-verification/nailer-b742696/clean-verification.json",
     "state": "CLEAN_OFFLINE_SOURCE_IMPORTANCE_AND_NATIVE_HOLD",
-    "next": "Resolve routine-core-work importance before acceptance spending; radial experiment excluded."
+    "next": "Resolve routine-core-work importance before acceptance spending; radial experiment excluded.",
+    "actual_cpu": {
+      "source_commit": "b742696e49a506bfd4ef2362a06145b8a6cd3c65",
+      "actions": 2065,
+      "seconds": 103.25,
+      "score": 0.5,
+      "phase": 30,
+      "failure": "IK reached a joint limit while acquiring actual free crosspin",
+      "maximum_velocity_ratio": 0.7933237529486993,
+      "evidence": "cpu-yam-diagnostics/nailer-pin-limit-b742696",
+      "native_isaac": false
+    }
   },
-  "mission_scope": "Submission-first three candidates; remaining portfolio rebuilds paused by urgent strategy correction."
+  "mission_scope": "Submission-first three candidates; remaining portfolio rebuilds paused by urgent strategy correction.",
+  "native_diagnostic_instrumentation": {
+    "commit": "dcac58e442a0d2da083ecdd13bd76f3c189c3576",
+    "sdk_sampled_hz": 20,
+    "per_physics_substep_certification": false,
+    "tests_passed": 10,
+    "native_run": "NOT_RUN",
+    "flags": [
+      "--expected-physics-hz960",
+      "--render-every1",
+      "--sdk-limits",
+      "--fail-fast"
+    ],
+    "repairs": "Cargo/nailer do not have ER thread state; allow actual960/1920Hz task physics; record SDK SI velocity and applied effort by joint name."
+  }
 }

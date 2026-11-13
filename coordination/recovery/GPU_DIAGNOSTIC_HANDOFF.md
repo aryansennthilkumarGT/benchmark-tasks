@@ -30,7 +30,7 @@ Use a new output directory. Expected allowance10–20minutes including startup a
 
 For the standalone reviewer reproduction alternative, after genuine passing prefixes and only within separately authorized scope, `"$GPU_PY" "$TASK/task_runner.py" --output /data/robocurve-cargo-qualification --execute` runs every native case twice and two full experts. A third clean-checkout expert is our stronger internal reproducibility check, not an official minimum. Full scorer1.0, real release/stability, camera streams and source hashes must validate before Dream. Then `--execute --resume --model` on the same task-runner output performs genuine Dream and media. Inspect actual model/demo videos and setup/contact sheets before an explicit visual attestation. `prepare_submission.py` gates genuine evidence and the official uploader; never fabricate scores/media or collect credentials in this CPU phase. The coordinator now binds handoff claims to their actual receipts/publication checkout and checks official PR history before a push. One task-folder PR only after actual native, model/media evidence and authorized submission. PR1733 and finally rejected heads remain untouched.
 
-ER is second: exact e665928 clean checks pass; its new actual CPU run retains the collet through lift/transfer/tilt, then stalls at phase7 lowering into the eccentric opening (676actions/33.8s,score0,SDK ratio0.83329). Preserve that trace and use only the bounded native entry diagnostic next. Nailer is third and remains NO-GO for acceptance spending because routine core-job importance is unproven and real pin capture has not completed. The radial experiment has confirmed arm collisions and is explicitly excluded. These holds do not delay the first cargo diagnostic.
+ER is second: exact e665928 clean checks pass; its new actual CPU run retains the collet through lift/transfer/tilt, then stalls at phase7 lowering into the eccentric opening (676actions/33.8s,score0,SDK ratio0.83329). Preserve that trace and use only the bounded native entry diagnostic next. Nailer is third: the new b742696 actual CPU run extracts/deposits the brad but still reaches an IK limit at phase30 pin acquisition (2065actions/103.25s,score0.5,SDK ratio0.79332). It remains NO-GO for acceptance spending because routine core-job importance is unproven and real pin capture has not completed. The radial experiment has confirmed arm collisions and is explicitly excluded. These holds do not delay the first cargo diagnostic.
 
 
 Exact second/third sources and bounded commands (neither currently authorized to execute):
@@ -65,3 +65,22 @@ timeout --signal=TERM --kill-after=30s 1200s "$GPU_PY" \
 robot_46 is the actual configured full-controller prefix through Released fixture hold, including the phase30 pin acquisition blocker. It allows5000actions/250simulated seconds per reset repeat, so20minutes is a hard cap, not a promised completion time. Stop first failed acquisition, lost/deformed capture, interarm/task contact violation or timeout. Do not substitute the collision-failing radial experiment. This diagnostic cannot resolve occupational importance.
 
 For later complete automatic publication, use the single-task coordinator path described in [the current coordinator instructions](../README.md). The standalone task_runner path above is a separate reviewer reproduction option; do not run both complete paths sequentially and duplicate native/expert/Dream costs. Their ledger contexts differ. The coordinator creates its own actual ready handoff, and only that handoff can enter submit_ready.py. Real media review and fresh official submission authorization remain necessary.
+
+
+For SDK measurements on the first authorized cargo diagnostic, prefer the instrumented equivalent below INSTEAD OF running both commands. The wrapper executes the exact same frozen native test, keeps20Hz rendering and960Hz task physics, and adds20Hz measured velocity/applied-effort recording and first observed SDK violation stop. It does not certify unobserved physics-substep peaks. The helper itself is CPU-tested but not yet native-tested; an API/startup failure is a diagnostic failure, never grounds for an automatic expensive retry.
+
+Keep coordinator and task sources in separate checkouts:
+
+```bash
+git clone --no-checkout https://github.com/aryansennthilkumarGT/benchmark-tasks.git /data/robocurve-coordinator
+git -C /data/robocurve-coordinator checkout --detach dcac58e442a0d2da083ecdd13bd76f3c189c3576
+# TASK checkout stays at4740eba2b60a17041798e690d307b37a120ebfc1.
+timeout --signal=TERM --kill-after=30s 1200s "$GPU_PY" \
+ /data/robocurve-coordinator/coordination/diagnostic_native.py \
+ --folder "$TASK" --mode control --case retract_controlled_inner_tube \
+ --commit 4740eba2b60a17041798e690d307b37a120ebfc1 \
+ --output /data/robocurve-diagnostics/cargo-4740-sdk \
+ --expected-physics-hz 960 --render-every 1 --sdk-limits --fail-fast
+```
+
+If the coordinator checkout already exists, verify its clean exact dcac58e source instead of cloning over it. Native telemetry appears in native-sdk-samples.jsonl and the adjacent render-diagnostic.json receipt, including original native script/wrapper hashes, actual configured device/timing and SDK SI caps. The ordinary native failure artifact retains controller/gripper references and actual applied efforts. No source controller/scorer, gain, task geometry or state is changed by this diagnostic. For an explicitly authorized ER/nailer diagnostic the same helper accepts their actual480/1920Hz physics; keep the exact task source/case/timeouts above. No authorization to execute is implied by any command here.
