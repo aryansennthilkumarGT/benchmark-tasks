@@ -1,0 +1,1 @@
+44 tests and191 source-bound strict FK samples pass,830 ideal actions41.5s. No current-source full physical/native success; acquired-jaw loss guard and bounded angular feedback require fresh clean-source actual integration.

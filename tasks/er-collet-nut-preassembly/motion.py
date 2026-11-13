@@ -63,7 +63,7 @@ class Motion:
         self.reference = None
         self.tracking_error_limit = tracking_error_limit
 
-    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.):
+    def target(self,measured,pos,quat,opening,speed=0.06,angular_speed=0.5,feedback_gain=0.,angular_feedback_gain=0.):
         q=np.asarray(measured,dtype=float)
         if q.shape!=(7,) or not np.isfinite(q).all():raise ControlFailure('Invalid proprioception')
         arm = q[:6]
@@ -83,6 +83,15 @@ class Motion:
         if not math.isfinite(feedback_gain) or feedback_gain < 0:
             raise ControlFailure('Invalid measured-position feedback gain')
         position_step = feedback_gain*self.dt*(pos-measured_pos) if feedback_gain else pos-current
+        if not math.isfinite(angular_feedback_gain) or angular_feedback_gain<0:
+            raise ControlFailure('Invalid angular feedback gain')
+        if angular_feedback_gain:
+            measured_q=self.ik.matrix_to_quat_xyzw(measured_rotation)
+            correction=multiply(quat,conjugate(measured_q))
+            increment=interpolate([0,0,0,1],correction,min(1.,angular_feedback_gain*self.dt))
+            quat=multiply(increment,current_q)
+            lead=qangle(measured_q,quat)
+            if lead>.08:quat=interpolate(measured_q,quat,.08/lead)
         remaining_angle = qangle(current_q, quat)
         # One common interpolation fraction preserves screw lead and coupled
         # Cartesian/rotary paths. Independent saturation can jam a thread.

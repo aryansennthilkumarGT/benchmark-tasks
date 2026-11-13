@@ -21,7 +21,7 @@ class Controller:
         self.motion={s:Motion(s,tracking_error_limit=.08) for s in ('left','right')}
         self.targets={};self.started=None;self.last_time=None;self.stable=None
         self.best=float('inf');self.progress_time=None;self.actions=0
-        self.recovery=None;self.attempts={}
+        self.recovery=None;self.attempts={};self.acquired={};self.lost_since={}
 
     def fail(self,message):
         self.failed=message
@@ -84,7 +84,8 @@ class Controller:
                 target,part_error=self.target_for_part(p,frame,q)
                 action,pe,re=self.motion[side].target(q[start:start+7],target['pos'],target['quat'],
                     p['opening'],speed=p['speed'],angular_speed=.5,
-                    feedback_gain=3. if p.get('grasp_width',0.) else 0.)
+                    feedback_gain=3. if p.get('grasp_width',0.) else 0.,
+                    angular_feedback_gain=1.5 if p.get('grasp_width',0.) else 0.)
                 output[start:start+7]=action
                 if side==phase['side']:error,theta=part_error if part_error is not None else (pe,re)
         except ControlFailure as exc:self.fail(str(exc))
@@ -94,6 +95,11 @@ class Controller:
         # a grasp-acquisition check, not proof of no slip during carrying.
         width=active.get('grasp_width',0.)/.0939
         gripped=(max(active['opening']+.01,width-.035)<q[offset+6]<width+.04) if closed else abs(q[offset+6]-active['opening'])<.03
+        if closed and self.acquired.get(phase['side']) and not self.recovery:
+            if not gripped:
+                since=self.lost_since.setdefault(phase['side'],now)
+                if now-since>=.25:self.fail('Physical grip lost; stop before chasing the dropped collet')
+            else:self.lost_since.pop(phase['side'],None)
         reached=error<active['position_tolerance'] and theta<active['angle_tolerance'] and gripped
         if self.recovery:
             r=self.recovery
@@ -115,6 +121,8 @@ class Controller:
             if now-self.stable>=phase['dwell']:
                 self.events.append(dict(event='PHYSICAL_PART_PHASE_COMPLETE' if phase.get('grasp_width') else 'PROPRIOCEPTIVE_PHASE_COMPLETE',phase=self.index,label=phase['label'],time=now,
                     position_error_m=error,rotation_error_rad=theta))
+                if phase['label'].startswith(('Grip','Regrasp')):self.acquired[phase['side']]=True
+                elif not phase.get('grasp_width'):self.acquired.pop(phase['side'],None)
                 self.index+=1;self.started=None;self.done=self.index==len(self.phases)
         else:self.stable=None
         return output
