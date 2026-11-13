@@ -1,0 +1,95 @@
+{
+  "retrieved_utc": "2026-11-13T15:59:59.413239+00:00",
+  "queries": [
+    {
+      "query": "repo:robocurve/benchmark-tasks is:pr SDS",
+      "response_sha256": "c9938edecb99d754b2d039ac9eec320a94c769b6a6417921e2dcbef9e2fe01a0",
+      "total_count": 0,
+      "incomplete_results": false,
+      "results": []
+    },
+    {
+      "query": "repo:robocurve/benchmark-tasks is:pr drill bit",
+      "response_sha256": "58ae679dd419d66ccda728b7f9fd3b563386d2859d5fa8a6671716beae2f58ca",
+      "total_count": 1,
+      "incomplete_results": false,
+      "results": [
+        {
+          "number": 776,
+          "title": "Add clamp-a-small-part-before-drilling-it task",
+          "state": "open",
+          "updated_at": "2026-11-13T09:10:36Z"
+        }
+      ]
+    },
+    {
+      "query": "repo:robocurve/benchmark-tasks is:pr chuck",
+      "response_sha256": "529b4cd696c3b41c4acd48597680332a76da5e91e4826bc261ec2f84d3bb6bea",
+      "total_count": 8,
+      "incomplete_results": false,
+      "results": [
+        {
+          "number": 400,
+          "title": "Chuck a bar in a lathe and put the key away",
+          "state": "open",
+          "updated_at": "2026-11-12T20:54:10Z"
+        },
+        {
+          "number": 1098,
+          "title": "Mount the n-type (100) wafer on a dicing-tape mounter, told apart from look-alikes only by its flats",
+          "state": "open",
+          "updated_at": "2026-11-12T23:32:28Z"
+        },
+        {
+          "number": 1455,
+          "title": "Add centre-a-block-in-a-four-jaw-chuck task",
+          "state": "closed",
+          "updated_at": "2026-11-12T10:40:25Z"
+        },
+        {
+          "number": 938,
+          "title": "Wafer coat",
+          "state": "closed",
+          "updated_at": "2026-11-12T11:55:10Z"
+        },
+        {
+          "number": 1040,
+          "title": "Set a small part on a surface grinder's magnetic chuck and block it in",
+          "state": "closed",
+          "updated_at": "2026-11-12T09:53:28Z"
+        },
+        {
+          "number": 853,
+          "title": "Set a boring bar in the lathe tool block: tip to the chuck, 45-64 mm out",
+          "state": "closed",
+          "updated_at": "2026-11-12T06:58:29Z"
+        },
+        {
+          "number": 1492,
+          "title": "Add Take the chuck key out and stow it before starting the lathe task",
+          "state": "closed",
+          "updated_at": "2026-11-12T11:09:35Z"
+        },
+        {
+          "number": 1528,
+          "title": "Add task: Pass a drill by its body in both hands, handle into a coworker's palm",
+          "state": "closed",
+          "updated_at": "2026-11-12T11:05:32Z"
+        }
+      ]
+    }
+  ],
+  "accepted_bayonet": {
+    "url": "https://raw.githubusercontent.com/robocurve/benchmark-tasks/main/tasks/bayonet-mate/task.json",
+    "sha256": "a0bf195bc36adc0cedb382158ed94a282d9afcd7513576a1f7577861bc5b37b5",
+    "read": true
+  },
+  "pending_lathe": {
+    "PR": 400,
+    "head": "50c4c790cbb65653161a041b129eb10fd493d1cd",
+    "source": "https://api.github.com/repos/robocurve/benchmark-tasks/pulls/400/files",
+    "sha256": "d012c1cf89676ab37ab1b3c320c587c5306ba8d82b6b52d97bc03ce30ee1916d",
+    "read": "Actual task.json patch read, not accepted/main metadata"
+  },
+  "coverage": "Accessible public sources only; authenticated full board unavailable"
+}

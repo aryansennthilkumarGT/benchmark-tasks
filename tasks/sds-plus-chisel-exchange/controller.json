@@ -1,0 +1,705 @@
+{
+  "schema": 1,
+  "scene_content_sha256": "7b52d0b6697bee0fd31308c59b53fb159b1306eeb157a163a5b33c08aeec1eeb",
+  "feedback": "READ_ONLY_NATIVE_BODY_JOINT_AND_ROBOT_STATE",
+  "phases": [
+    {
+      "label": "Park left arm",
+      "side": "left",
+      "mode": "world",
+      "opening": 0.45,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "target": {
+        "pos": [
+          0.23,
+          0.26,
+          0.97
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "Park right arm",
+      "side": "right",
+      "mode": "world",
+      "opening": 0.45,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "target": {
+        "pos": [
+          0.23,
+          -0.26,
+          0.97
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "Approach used chisel",
+      "side": "right",
+      "mode": "grasp",
+      "opening": 0.2,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "used_point_chisel",
+      "offset": [
+        -0.14,
+        0.0,
+        0.002
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.05
+    },
+    {
+      "label": "Reach used chisel",
+      "side": "right",
+      "mode": "grasp",
+      "opening": 0.18,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "used_point_chisel",
+      "offset": [
+        -0.14,
+        0.0,
+        0.002
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.0
+    },
+    {
+      "label": "Grip used chisel",
+      "side": "right",
+      "mode": "grasp",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.3,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "used_point_chisel",
+      "offset": [
+        -0.14,
+        0.0,
+        0.002
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.0
+    },
+    {
+      "label": "Approach release sleeve",
+      "side": "left",
+      "mode": "grasp",
+      "opening": 0.5,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "locking_sleeve",
+      "offset": [
+        0.02,
+        0.0,
+        0.005
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.05
+    },
+    {
+      "label": "Reach release sleeve",
+      "side": "left",
+      "mode": "grasp",
+      "opening": 0.45,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "locking_sleeve",
+      "offset": [
+        0.02,
+        0.0,
+        0.005
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.0
+    },
+    {
+      "label": "Grip release sleeve",
+      "side": "left",
+      "mode": "grasp",
+      "opening": 0.0,
+      "grasp_width": 0.0356,
+      "dwell": 0.3,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "locking_sleeve",
+      "offset": [
+        0.02,
+        0.0,
+        0.005
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.0
+    },
+    {
+      "label": "Retract actual spring sleeve",
+      "side": "left",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0356,
+      "dwell": 0.15,
+      "speed": 0.01,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "locking_sleeve",
+      "body_goal": {
+        "pos": [
+          0.378,
+          0.0,
+          0.86
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "joint_checks": [
+        {
+          "name": "sleeve_retraction",
+          "min": 0.0075,
+          "max": 0.0081
+        }
+      ]
+    },
+    {
+      "label": "Withdraw used shank while sleeve stays back",
+      "side": "right",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.15,
+      "speed": 0.02,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "used_point_chisel",
+      "body_goal": {
+        "pos": [
+          0.362,
+          0.0,
+          0.86
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "label": "Release sleeve after chisel clears",
+      "side": "left",
+      "mode": "release",
+      "opening": 0.48,
+      "grasp_width": 0.0,
+      "dwell": 0.25,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0
+    },
+    {
+      "label": "Withdraw sleeve hand",
+      "side": "left",
+      "mode": "withdraw",
+      "opening": 0.48,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "distance": 0.07
+    },
+    {
+      "label": "Park left arm",
+      "side": "left",
+      "mode": "world",
+      "opening": 0.45,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "target": {
+        "pos": [
+          0.23,
+          0.26,
+          0.97
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "Lift used chisel clear of holder",
+      "side": "right",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.15,
+      "speed": 0.04,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "used_point_chisel",
+      "body_goal": {
+        "pos": [
+          0.362,
+          0.0,
+          0.95
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "label": "Carry used chisel above tray",
+      "side": "right",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.15,
+      "speed": 0.04,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "used_point_chisel",
+      "body_goal": {
+        "pos": [
+          0.37,
+          -0.3,
+          0.95
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "label": "Lower used chisel into tray",
+      "side": "right",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.15,
+      "speed": 0.025,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "used_point_chisel",
+      "body_goal": {
+        "pos": [
+          0.37,
+          -0.3,
+          0.7735000000000001
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "label": "Release used chisel into tray",
+      "side": "right",
+      "mode": "release",
+      "opening": 0.2,
+      "grasp_width": 0.0,
+      "dwell": 0.25,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0
+    },
+    {
+      "label": "Withdraw tray hand",
+      "side": "right",
+      "mode": "withdraw",
+      "opening": 0.2,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "distance": 0.1
+    },
+    {
+      "label": "Park right arm",
+      "side": "right",
+      "mode": "world",
+      "opening": 0.45,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "target": {
+        "pos": [
+          0.23,
+          -0.26,
+          0.97
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "Approach replacement chisel",
+      "side": "left",
+      "mode": "grasp",
+      "opening": 0.2,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "replacement_flat_chisel",
+      "offset": [
+        -0.13,
+        0.0,
+        0.002
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.07
+    },
+    {
+      "label": "Reach replacement chisel",
+      "side": "left",
+      "mode": "grasp",
+      "opening": 0.18,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "replacement_flat_chisel",
+      "offset": [
+        -0.13,
+        0.0,
+        0.002
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.0
+    },
+    {
+      "label": "Grip replacement chisel",
+      "side": "left",
+      "mode": "grasp",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.3,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "replacement_flat_chisel",
+      "offset": [
+        -0.13,
+        0.0,
+        0.002
+      ],
+      "tool_quat": [
+        -0.7071067811865477,
+        0.7071067811865476,
+        0.0,
+        0.0
+      ],
+      "away": 0.0
+    },
+    {
+      "label": "Lift replacement from cradle",
+      "side": "left",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.15,
+      "speed": 0.04,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "replacement_flat_chisel",
+      "body_goal": {
+        "pos": [
+          0.37,
+          0.3,
+          0.95
+        ],
+        "quat": null
+      }
+    },
+    {
+      "label": "Bring replacement to open holder mouth",
+      "side": "left",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.15,
+      "speed": 0.04,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "replacement_flat_chisel",
+      "body_goal": {
+        "pos": [
+          0.355,
+          0.0,
+          0.86
+        ],
+        "quat": null
+      }
+    },
+    {
+      "label": "Turn open drive grooves into alignment",
+      "side": "left",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.15,
+      "speed": 0.025,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "replacement_flat_chisel",
+      "body_goal": {
+        "pos": [
+          0.355,
+          0.0,
+          0.86
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "label": "Insert shank until radial ball captures closed slot",
+      "side": "left",
+      "mode": "body_goal",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.4,
+      "speed": 0.015,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "body": "replacement_flat_chisel",
+      "body_goal": {
+        "pos": [
+          0.412,
+          0.0,
+          0.86
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      "require_retained": true
+    },
+    {
+      "label": "Pull check against actual retention stop",
+      "side": "left",
+      "mode": "tug",
+      "opening": 0.0,
+      "grasp_width": 0.0113,
+      "dwell": 0.35,
+      "speed": 0.006,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 6.0,
+      "body": "replacement_flat_chisel",
+      "maximum_withdrawal": 0.004,
+      "feedback_overtravel": 0.0003
+    },
+    {
+      "label": "Release retained replacement",
+      "side": "left",
+      "mode": "release",
+      "opening": 0.24,
+      "grasp_width": 0.0,
+      "dwell": 0.25,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0
+    },
+    {
+      "label": "Withdraw replacement hand",
+      "side": "left",
+      "mode": "withdraw",
+      "opening": 0.24,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "distance": 0.1
+    },
+    {
+      "label": "Park left arm",
+      "side": "left",
+      "mode": "world",
+      "opening": 0.45,
+      "grasp_width": 0.0,
+      "dwell": 0.15,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "target": {
+        "pos": [
+          0.23,
+          0.26,
+          0.97
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "label": "Released secured-tool hold",
+      "side": "left",
+      "mode": "world",
+      "opening": 0.45,
+      "grasp_width": 0.0,
+      "dwell": 2.5,
+      "speed": 0.055,
+      "position_tolerance": 0.0004,
+      "angle_tolerance": 0.02,
+      "timeout": 25.0,
+      "target": {
+        "pos": [
+          0.23,
+          0.26,
+          0.97
+        ],
+        "quat": [
+          -0.7071067811865477,
+          0.7071067811865476,
+          0.0,
+          0.0
+        ]
+      },
+      "require_retained": true
+    }
+  ]
+}

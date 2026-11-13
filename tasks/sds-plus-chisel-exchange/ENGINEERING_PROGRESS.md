@@ -1,0 +1,9 @@
+# Active implementation — NOT OFFLINE READY
+
+Original7-body/6USD scene, free7mm sphere, explicit open/closed shank grooves, positive locking land/front-rear reliefs, gravity-biased ball race, spring sleeve, two trays/workholding and mass/collision definitions are implemented. A32-phase native-state14D controller including bounded feedback tug, physical scorer, reset/native harness and guarded Dream/media tools are in source. Ideal-grasp/full FK path implementation and final clean/source qualification are still unfinished.
+
+The current source passes34 unit/schema/geometry/provenance/workflow tests and an unfiltered initial solid audit at29.03um. The previous narrower-race source passed all14 repeated diagnostic cases; changed geometry needs fresh mechanism tests. Historical failed insertions and solver/input mistakes remain in offline-evidence/engineering-history and are not qualification.
+
+The exact-sphere full fixture now inserts42mm and reaches a physical retention stop with35.82um peak contact depth, but FAILS the final capture predicate: the loaded relative ball intrusion is about17um below its authored0.25mm condition. No pass or release success is claimed. Strengthen the actual land margin, then rerun. The current failed probe has exact scene/probe/export binding recorded. No native Isaac/YAM, real robot grasp, Dream, GPU, hardware or official PR has run.
+
+Next: reduce authored land bore radius11.65→11.60mm, regenerate assets/plan/provenance, rerun affected tests and force cycle. Optimize duplicate per-step diagnostic forwards only with a valid state-cache contract. Then complete source-bound ideal/controller/FK checks, repair actual collisions, freeze source, independently verify clean HTTPS and publish a completed package. Continue the portfolio; this WIP is not a milestone completion.

@@ -1,0 +1,11 @@
+# Observable numeric measurements
+
+No physical fixture has been built or measured. All tolerances below are authored benchmark choices. Use the original inert mock-up only, never a powered or loaded drill. Coordinate origin is the holder mouth and insertion is+X.
+
+Every used-chisel collider must clear the interface box x[-2,55], y/z[-12,12]mm by5mm along at least one axis. The tray requires every vertex inside x±115.5/y±35.5mm and heights1.7–21mm relative to its datum. Calipers and calibrated orthogonal imagery can establish these conditions; the scorer uses a conservative32-sided cylinder envelope rather than center-only inclusion.
+
+Measure replacement leading-end depth31–44mm and radial centering within0.35mm, with its axis within0.02rad. The independent sleeve must be within0.35mm of its forward mechanical stop. From a sectioned reproduction/inspection window or the parameter drawings, confirm the7mm ball remains in the physical cage and intrudes at least0.25mm beneath the5mm shank radius, with its center between the closed-slot end planes plus0.2mm margin and forward in the locking race x19.4–21.0mm. The ball may travel farther rearward during insertion; the rear relief is not a locked final state. Drive/groove alignment permits0.12rad rotational clearance and both180deg symmetric orientations. This is retention with axial play, not a rigid seated-length condition.
+
+Full score requires both hands/all robot links20mm clear and2s of continuous20Hz calibrated video/dial-indicator observations: all pairs of witness samples differ by at most0.5mm. Witnesses are both chisel tips/leading ends/flat edges, ball center and sleeve datum. A single photograph cannot establish the temporal condition. Use instrument resolution substantially finer than the stated bounds, and report actual measurement uncertainty.
+
+The virtual200um overlap and500um articulation-consistency checks are numerical integrity guards, not measured damage thresholds. On hardware inspect intact guides, stops, fixtures, ball and tools; stop at damage, deformation or loss. The actual removal/retention tests should use bounded monitored forces; no OEM force or certified safety value is provided. The future native harness's force magnitudes are declared diagnostic inputs, not manufacturer specifications or measured robot capacity.

@@ -1,0 +1,454 @@
+{
+  "schema": 1,
+  "physics": [
+    {
+      "name": "free_prepared_reset_hold",
+      "steps": 60,
+      "settle_steps": 0,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "joint",
+          "joint": "sleeve_retraction",
+          "min": -5e-05,
+          "max": 0.00035
+        },
+        {
+          "kind": "score",
+          "max": 0
+        }
+      ]
+    },
+    {
+      "name": "closed_ball_lock_resists_axial_withdrawal",
+      "steps": 30,
+      "settle_steps": 0,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "displacement",
+          "body": "used_point_chisel",
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "min": -0.005,
+          "max": 0.001
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "used_point_chisel_asset",
+          "body": "used_point_chisel",
+          "force": [
+            -2,
+            0,
+            1.2753
+          ],
+          "torque": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "open_drive_grooves_transmit_torque",
+      "steps": 12,
+      "settle_steps": 0,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "axis",
+          "body": "used_point_chisel",
+          "local_axis": [
+            0,
+            1,
+            0
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0.1
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "used_point_chisel_asset",
+          "body": "used_point_chisel",
+          "force": [
+            0,
+            0,
+            1.2753
+          ],
+          "torque": [
+            0.02,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "captured_shank_keeps_free_axial_play",
+      "steps": 8,
+      "settle_steps": 0,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "displacement",
+          "body": "used_point_chisel",
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "min": 0.0005,
+          "max": 0.006
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "used_point_chisel_asset",
+          "body": "used_point_chisel",
+          "force": [
+            0.1,
+            0,
+            1.2753
+          ],
+          "torque": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "released_sleeve_spring_returns",
+      "steps": 20,
+      "settle_steps": 0,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "joint",
+          "joint": "sleeve_retraction",
+          "min": -5e-05,
+          "max": 0.00035
+        }
+      ],
+      "initialize_joints": [
+        {
+          "assembly": "sds_holder_asset",
+          "joint": "sleeve_retraction",
+          "value": 0.008
+        }
+      ]
+    },
+    {
+      "name": "retracted_sleeve_permits_real_shank_withdrawal",
+      "steps": 3,
+      "settle_steps": 0,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "displacement",
+          "body": "used_point_chisel",
+          "axis": [
+            1,
+            0,
+            0
+          ],
+          "min": -0.25,
+          "max": -0.04
+        }
+      ],
+      "initialize_joints": [
+        {
+          "assembly": "sds_holder_asset",
+          "joint": "sleeve_retraction",
+          "value": 0.008
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "sds_holder_asset",
+          "body": "locking_sleeve",
+          "force": [
+            18,
+            0,
+            0
+          ],
+          "torque": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "assembly": "used_point_chisel_asset",
+          "body": "used_point_chisel",
+          "force": [
+            -2,
+            0,
+            1.2753
+          ],
+          "torque": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "empty_open_holder_retains_free_ball_in_guide",
+      "steps": 30,
+      "settle_steps": 0,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "coordinate",
+          "body": "locking_ball",
+          "axis": 0,
+          "min": 0.38939999999999997,
+          "max": 0.3906
+        },
+        {
+          "kind": "coordinate",
+          "body": "locking_ball",
+          "axis": 1,
+          "min": -0.0006,
+          "max": 0.0006
+        }
+      ],
+      "initialize_joints": [
+        {
+          "assembly": "sds_holder_asset",
+          "joint": "sleeve_retraction",
+          "value": 0.008
+        }
+      ],
+      "initialize_bodies": [
+        {
+          "assembly": "used_point_chisel_asset",
+          "body": "used_point_chisel",
+          "pos": [
+            0.37,
+            -0.3,
+            0.7577
+          ]
+        }
+      ],
+      "forces": [
+        {
+          "assembly": "sds_holder_asset",
+          "body": "locking_sleeve",
+          "force": [
+            18,
+            0,
+            0
+          ],
+          "torque": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "control": [
+    {
+      "name": "robot_through_9",
+      "through_phase": 9,
+      "through_label": "Withdraw used shank while sleeve stays back",
+      "max_steps": 1100,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "stop_on_success": false
+    },
+    {
+      "name": "robot_through_16",
+      "through_phase": 16,
+      "through_label": "Release used chisel into tray",
+      "max_steps": 1800,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "stop_on_success": false
+    },
+    {
+      "name": "robot_through_30",
+      "through_phase": 30,
+      "through_label": "Released secured-tool hold",
+      "max_steps": 3200,
+      "continuous_assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "penetration",
+          "max": 0.0002
+        },
+        {
+          "kind": "valid"
+        },
+        {
+          "kind": "score",
+          "min": 1,
+          "max": 1,
+          "success": true
+        }
+      ],
+      "stop_on_success": true
+    }
+  ],
+  "qualification": "NOT_RUN; original diagnostic loads, not OEM ratings"
+}

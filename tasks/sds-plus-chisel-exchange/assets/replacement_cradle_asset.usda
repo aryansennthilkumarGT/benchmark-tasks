@@ -1,0 +1,180 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Asset"
+{
+    def Material "Material" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.5
+        float physics:restitution = 0
+        float physics:staticFriction = 0.65
+    }
+
+    def Material "Material_lubricated" (
+        prepend apiSchemas = ["PhysicsMaterialAPI"]
+    )
+    {
+        float physics:dynamicFriction = 0.12
+        float physics:restitution = 0
+        float physics:staticFriction = 0.18
+    }
+
+    def Xform "replacement_cradle" (
+        prepend apiSchemas = ["PhysicsRigidBodyAPI", "PhysicsMassAPI"]
+    )
+    {
+        point3f physics:centerOfMass = (-0.0035241488, 0, 0.0053487136)
+        float3 physics:diagonalInertia = (0.00033888416, 0.0023186046, 0.0026099447)
+        float physics:mass = 0.45
+        quatf physics:principalAxes = (0.9999965, 0, 0.0026495503, 0)
+        quatf xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+
+        def Cube "shape_0" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.3, 0.38, 0.43)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.24, 0.08, 0.004)
+            double3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_1" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.3, 0.38, 0.43)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.24, 0.004, 0.02)
+            double3 xformOp:translate = (0, -0.038, 0.01)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_2" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.3, 0.38, 0.43)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.24, 0.004, 0.02)
+            double3 xformOp:translate = (0, 0.038, 0.01)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_3" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.3, 0.38, 0.43)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.004, 0.072, 0.02)
+            double3 xformOp:translate = (-0.118, 0, 0.01)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Cube "shape_4" (
+            prepend apiSchemas = ["PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            rel material:binding:physics = </Asset/Material>
+            color3f[] primvars:displayColor = [(0.3, 0.38, 0.43)]
+            double size = 1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (0.004, 0.072, 0.02)
+            double3 xformOp:translate = (0.118, 0, 0.01)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def Mesh "shape_5" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [6, 0, 2, 6, 4, 0, 5, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 3, 2, 0, 3, 0, 1, 3, 6, 2, 3, 7, 6, 3, 1, 5, 3, 5, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.006, -0.01, -0.017257359), (-0.006, -0.01, 0.017257359), (-0.006, 0.01, -0.017257359), (-0.006, 0.01, -0.0027426407), (0.006, -0.01, -0.017257359), (0.006, -0.01, 0.017257359), (0.006, 0.01, -0.017257359), (0.006, 0.01, -0.0027426407)]
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.065, -0.01, 0.017257359313)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_6" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [6, 0, 2, 6, 4, 0, 1, 2, 0, 1, 3, 2, 7, 6, 2, 7, 2, 3, 5, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.006, -0.01, -0.017257359), (-0.006, -0.01, -0.0027426407), (-0.006, 0.01, -0.017257359), (-0.006, 0.01, 0.017257359), (0.006, -0.01, -0.017257359), (0.006, -0.01, -0.0027426407), (0.006, 0.01, -0.017257359), (0.006, 0.01, 0.017257359)]
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (-0.065, 0.01, 0.017257359313)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_7" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [6, 0, 2, 6, 4, 0, 5, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 3, 2, 0, 3, 0, 1, 3, 6, 2, 3, 7, 6, 3, 1, 5, 3, 5, 7]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.006, -0.01, -0.017257359), (-0.006, -0.01, 0.017257359), (-0.006, 0.01, -0.017257359), (-0.006, 0.01, -0.0027426407), (0.006, -0.01, -0.017257359), (0.006, -0.01, 0.017257359), (0.006, 0.01, -0.017257359), (0.006, 0.01, -0.0027426407)]
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.02, -0.01, 0.017257359313)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+
+        def Mesh "shape_8" (
+            prepend apiSchemas = ["PhysicsMeshCollisionAPI", "PhysicsCollisionAPI", "MaterialBindingAPI"]
+        )
+        {
+            int[] faceVertexCounts = [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+            int[] faceVertexIndices = [6, 0, 2, 6, 4, 0, 1, 2, 0, 1, 3, 2, 7, 6, 2, 7, 2, 3, 5, 0, 4, 5, 1, 0, 5, 4, 6, 5, 6, 7, 5, 3, 1, 5, 7, 3]
+            rel material:binding:physics = </Asset/Material>
+            uniform token physics:approximation = "convexHull"
+            point3f[] points = [(-0.006, -0.01, -0.017257359), (-0.006, -0.01, -0.0027426407), (-0.006, 0.01, -0.017257359), (-0.006, 0.01, 0.017257359), (0.006, -0.01, -0.017257359), (0.006, -0.01, -0.0027426407), (0.006, 0.01, -0.017257359), (0.006, 0.01, 0.017257359)]
+            color3f[] primvars:displayColor = [(0.48, 0.5, 0.52)]
+            uniform token subdivisionScheme = "none"
+            quatf xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:translate = (0.02, 0.01, 0.017257359313)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient"]
+        }
+    }
+
+    def PhysicsFixedJoint "fix_replacement_cradle" (
+        prepend apiSchemas = ["PhysicsArticulationRootAPI"]
+    )
+    {
+        rel physics:body0 = </Asset>
+        rel physics:body1 = </Asset/replacement_cradle>
+        point3f physics:localPos0 = (0, 0, 0)
+        quatf physics:localRot0 = (1, 0, 0, 0)
+    }
+}
+

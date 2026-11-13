@@ -1,0 +1,5 @@
+# Importance evidence
+
+Construction laborers SOC47-2061 have1,489,300 US jobs in2025 in both the retrieved BLS detailed occupation table and O*NET. The combined laborers/helpers total is1,674,400; it is not substituted for the chosen occupation. O*NET explicitly lists operating jackhammers/drills to break concrete or pavement. BLS describes drill/jackhammer use and equipment operation/maintenance as core work. Preparing and changing application tools supports that routine core operation.
+
+The Bosch manufacturer manual supplies the identifiable tool-change procedure and the actual fixed-chuck parts record supports the retaining-ball/sleeve topology. No claim is made that every laborer uses this model, that all workers change chisels at a measured frequency, or that the bench fixture reproduces OEM force. SOURCES.json records genuine primary URLs, exact hashes and limitations. This is a construction tool preparation operation, not an invented generic maintenance story or category change to evade the500000-worker criterion.
