@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "updated_at": "2026-11-13T01:26:16.241580+00:00",
+  "candidate": "Potential ER collet/eccentric extraction-ring preassembly for hardware-order-kit replacement",
+  "status": "CANDIDATE_ONLY_NO_SCENE_IMPLEMENTED",
+  "sources": [
+    {
+      "url": "https://www.rego-fix.com/system/files/docs/2017-09/RFAG_TD_ER_Spannzangen-Masse_EN_0.pdf",
+      "scope": "Actual ER collet dimension sheet read and drawing inspected; ER32 D1=33/D2=32/D3=29.2/L=40/L2=3.6/L3=5.5 mm, 8-degree cone. Interpret labels from drawing, not just table.",
+      "sha256": "adc1a3b64c6b71c96a54d1efa1a227090c64836412aa939f7ed2a9ebd29ef70d"
+    },
+    {
+      "url": "https://www.rego-fix.com/system/files/docs/2017-09/RFAG_TD_ER_Spannzangenaufnahme_EN_0.pdf",
+      "scope": "Actual matching cavity/nut dimensional sheet; ER32 standard nut M40x1.5 row. This does not dimension an eccentric extraction ring.",
+      "sha256": "2216c39403f1493c945f3dbddbaf73c5b1588b9d0de93eb1c66d7222e21a1a6a"
+    },
+    {
+      "url": "https://regousa.com/video/techchat-the-perfect-er-collet-assembly/",
+      "scope": "Manufacturer procedure video located, embedded YouTube jOo_R55uMN0; video not yet watched/transcribed. Do not claim verified steps from title.",
+      "sha256": "78c1ba9f1dbcb0af301f2e8af1b88239f5b95861e2de449148ec1a2301d88999"
+    },
+    {
+      "url": "https://www.maritool.com/Collets-And-Sleeves-ER-Collets-ER32-Collets/c21_56_59/p205/ER32-COLLET-8mm/product_info.html",
+      "scope": "Manufacturer product page read; 8 mm ER32 collet, spring steel and collapse range. Not an eccentric-ring assembly instruction.",
+      "sha256": "24629681acfb4860e689b0551142729aee7481c20597ca6295467e5a1fff2c8e"
+    }
+  ],
+  "near_neighbor_search": {
+    "source": "https://api.github.com/search/issues?q=repo%3Arobocurve%2Fbenchmark-tasks+collet+is%3Apr",
+    "observed_matches": [
+      1784,
+      662,
+      1654
+    ],
+    "scope": "These visible matches concern push-fit pipe fittings; limited search, not exhaustive novelty clearance."
+  },
+  "next_step": "Verify actual manufacturer assembly procedure (video or accessible textual manual). Then choose exact bounded operation, model eccentric extraction-ring/groove capture and collision-check a feasible path before writing a full expert. Do not replace the old generic collar with an unsupported ring by renaming.",
+  "known_source_limits": [
+    "RFTC_ER_Catalog121616_Linked.pdf returned website HTTP403 with otherwise working primary site; it was not read.",
+    "The 2022 main catalogue link returned a one-page cover PDF, not the full manual.",
+    "No eccentric-ring dimensions, material forces or assembly-step evidence were fabricated."
+  ],
+  "discarded_candidate": {
+    "name": "Single-wire WAGO lever termination",
+    "reason": "Direct operation match in official PR766",
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/766"
+  },
+  "completed_packages_this_session": [
+    "SAC at 0fadbf0",
+    "Drive bracket at 92b5c95"
+  ],
+  "remaining_rebuilds": 4
+}

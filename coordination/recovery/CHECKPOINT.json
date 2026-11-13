@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "updated_at": "2026-11-13T01:18:31.894814+00:00",
+  "updated_at": "2026-11-13T01:26:16.241580+00:00",
   "mission": "Eight-task CPU rebuild",
   "engineering_complete": false,
   "target_packages": 8,
@@ -135,7 +135,7 @@
   "next": [
     "Choose the next task from remaining four: remote-battery-service and node-service-closeout replacements, switch-map-rework and hardware-order-kit redesigns. Preserve rejected PR heads; create a new independent one-folder branch from 7df8bd8.",
     "Do not use WAGO single-wire lever termination: official PR #766 directly matches open lever / insert bare wire / close lever. Primary WAGO sources were retrieved but that candidate was dropped before implementation.",
-    "For hardware-order-kit, research a genuine equipment procedure with non-generic retention interfaces (e.g. ER collet into eccentric extraction ring), verify official near-neighbor PRs before coding, then implement one full package at a time.",
+    "Next candidate groundwork: read coordination/recovery/next-candidate-grounding.json. Actual REGO-FIX ER dimension sheets are retrieved and inspected; manufacturer assembly video located but not yet verified. First verify the eccentric-ring procedure, then model the actual ring/groove capture and feasible insertion path. No ER task package is implemented or counted.",
     "Do not rerun unchanged baseline/shackle suites. Native physics, actual experts, Dream, media and hardware remain unrun for new packages; no GPU spending or official unvalidated PRs."
   ],
   "offline_results": "coordination/recovery/offline-results.json",
@@ -164,5 +164,6 @@
   },
   "current_work": "SAC and documented drive-bracket task complete offline; next choose a stronger replacement for remote-battery-service or a documented hardware-order-kit redesign.",
   "sac_progress": "coordination/recovery/sac-rebuild-result.json",
-  "protected_shackle_control_review_note": "Shackle ef13ec77 remains untouched as requested. Its independent translation/rotation limiter predates the new screw-lead fix; review that contact-path risk before future native validation. Do not transfer SAC correction evidence or alter protected historical evidence."
+  "protected_shackle_control_review_note": "Shackle ef13ec77 remains untouched as requested. Its independent translation/rotation limiter predates the new screw-lead fix; review that contact-path risk before future native validation. Do not transfer SAC correction evidence or alter protected historical evidence.",
+  "next_candidate_grounding": "coordination/recovery/next-candidate-grounding.json"
 }

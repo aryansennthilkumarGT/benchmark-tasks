@@ -61,3 +61,5 @@ Read `CHECKPOINT.json`. Four rebuilds remain: remote-battery-service and node-se
 Next select a documented, mechanically distinctive occupational procedure (hardware-order-kit may be replaced by a genuine equipment retention operation), verify primary procedure/near neighbors first, then code/test/push one independent package from base 7df8bd8 before moving on. Do not add more generic fixtures or research-only completion claims.
 
 Pending #1733, rejected PR heads and shackle source are preserved. Hardware metadata repair stays separate at 2f29738. The 648/32 baseline was not rerun. No GPU provisioning/spending, paid evaluation, credentials, uploads or official replacement PRs occurred. Native physics/expert/Dream/hardware qualification remains unrun for new packages. Original /data trajectories/media remain unavailable historical evidence. See GPU_RESUME_PLAN.md for future qualification.
+
+Next-candidate primary sources and exact unresolved step are preserved in `next-candidate-grounding.json`. REGO-FIX ER dimensional sheets were actually read, while its assembly video remains unverified. No additional package is counted from that research.
