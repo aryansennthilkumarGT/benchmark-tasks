@@ -1,0 +1,847 @@
+{
+  "group": "mechanics_a",
+  "screened_utc": "2026-11-14T23:34:23.819879+00:00",
+  "decisions_summary": {
+    "PASS FOR DEEP DIVE": [
+      "N044",
+      "N047"
+    ],
+    "HOLD": [
+      "N035",
+      "N039"
+    ],
+    "REJECT": []
+  },
+  "rows": [
+    {
+      "id": "N035",
+      "status": "HOLD",
+      "operation_equipment": "Route a true multi-pulley serpentine accessory belt while physically unloading its actual spring tensioner; exact Gates/vehicle/tensioner product remains unbound.",
+      "procedure_source": "No matching spring-tensioner installation procedure independently read. Elantra CHARM p263/p265 mention drive-belt removal/reinstallation without a usable exact belt/tensioner method; do not invent a spring tensioner for that vehicle.",
+      "procedure_verified": false,
+      "occupational_evidence": {
+        "occupation": "Automotive Service Technicians and Mechanics",
+        "soc": "49-3023.00",
+        "employment": 704640,
+        "employment_vintage": "Mirrored May2025 BLS OEWS national cross-industry all-ownership row, not live BLS-authenticated",
+        "core_source": "MIT-WAL US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/_cache/onet_task_statements_30_2.parquet; original O*NET30.2 not re-fetched",
+        "qualifier": "Use exact Core rows, not every maintenance worker or assembler; no occupation aggregation. Task23547 rebuilding crankshafts/cylinder blocks is Supplemental, not Core.",
+        "core_task_ids": [
+          23533,
+          23534
+        ],
+        "linkage": "Routine maintenance/checklists expressly include belts. Good duty family; exact selected spring-tensioner procedure still required."
+      },
+      "closest_three_official_comparators": [
+        {
+          "pr": 973,
+          "state": "CLOSED final",
+          "operation": "Change belt by sliding motor to slacken/tension; actual public rejection for rigid rectangular loop replacing genuine belt/tension.",
+          "comparison": "A real serpentine multi-pulley flexible routing plus spring tensioner can differ materially from motor-position adjustment; rejected model is not proof authentic belt task is impossible."
+        },
+        {
+          "pr": 700,
+          "state": "CLOSED final",
+          "operation": "Tension timing belt and lock idler; actual review says it tested loaded lever locking and allowed no-tension score.",
+          "comparison": "Actual belt routing must remain causal, not another locked hinged lever."
+        },
+        {
+          "pr": 856,
+          "state": "CLOSED final",
+          "operation": "Align blower and motor pulleys with straightedge; actual final review flags nonrepresentative scale.",
+          "comparison": "Alignment is not fitting full belt into all pulley grooves."
+        }
+      ],
+      "new_manipulation": "Managing an actual flexible endless loop on multiple grooved pulleys while controlling tensioner reaction; equivalent actuation sequences allowed.",
+      "physical_success": "Each prescribed rib/groove engaged, belt on all actual pulleys, no edge riding, tensioner in source-specified operating range and safe unpowered hand rotation/retention check if OEM supports it. None implemented/measured.",
+      "implementation_complexity": "High: belt bending/contact/torsion, pulley groove contact and authentic tensioner force/reach; not rigid-body count.",
+      "YAM_obstacle": "Full engine-front reach and wrench sweep, tensioner torque transfer, simultaneous belt presentation; unknown actual force and clearance.",
+      "strongest_reviewer_objection": "Another belt-themed lever surrogate or miniature routing puzzle; no exact real product/procedure or actual tension scoring.",
+      "missing_evidence": [
+        "Exact vehicle/belt/tensioner route and original-compatible instruction",
+        "Actual tensioner force curve, service-side access and permitted tool",
+        "Complete comparison with current accepted/active belt tasks beyond scoped text hits"
+      ],
+      "cheap_disqualification_test": "First source-bind one spring-tensioner application; then 1:1 full engine-front tool/finger overlay and tensioner-handle load measurement. Stop if a rigid fake belt or weakened spring/removing genuine surrounding parts is necessary.",
+      "gpu_ready": false
+    },
+    {
+      "id": "N039",
+      "status": "HOLD",
+      "park_reason": "PARK from near-term queue: active close #1561; internal rather than external ring is not yet a clearly independent core skill.",
+      "operation_equipment": "Install the real internal snap ring retaining the front wheel hub/bearing in a 2013 Elantra L4-1.8L knuckle, using appropriately sized internal-circlip pliers. Exact KNIPEX model not verified.",
+      "procedure_source": {
+        "repository": "https://github.com/Kmberry1989/Elantra",
+        "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+        "path": "2013 Hyundai Elantra L4-1.8L/pages/149.html",
+        "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/149.html",
+        "sha256": "5ef82c938a4c2698eb0876477f83e4d4addf3dcb1b214d4a49391ca51f90251d",
+        "role": "Read procedure",
+        "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+      },
+      "procedure_verified": "Exact reproduced OEM-style procedure p149 and diagram read: reassembly step4 installs snap ring after real hub/bearing/knuckle assembly; diagram shows compression pliers at internal bore. Original OEM authentication and exact ring/tool SKU remain open.",
+      "occupational_evidence": {
+        "occupation": "Automotive Service Technicians and Mechanics",
+        "soc": "49-3023.00",
+        "employment": 704640,
+        "employment_vintage": "Mirrored May2025 BLS OEWS national cross-industry all-ownership row, not live BLS-authenticated",
+        "core_source": "MIT-WAL US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/_cache/onet_task_statements_30_2.parquet; original O*NET30.2 not re-fetched",
+        "qualifier": "Use exact Core rows, not every maintenance worker or assembler; no occupation aggregation. Task23547 rebuilding crankshafts/cylinder blocks is Supplemental, not Core.",
+        "core_task_ids": [
+          23544,
+          23532
+        ],
+        "linkage": "Core repair/replacement of bearings and faulty steering/power assemblies; actual wheel-bearing retention step supplies equipment-level link."
+      },
+      "closest_three_official_comparators": [
+        {
+          "pr": 1561,
+          "state": "OPEN; latest public receipt is pending revision",
+          "operation": "External shaft circlip, plier spread, seat groove, turn/check retention; latest revision has real loose shaft/reaction.",
+          "comparison": "Same metal-ring/plier/groove-retention family. Compression into bore rather than expansion over shaft could affect access/force, but is not clearly independent enough to consume queue slot under an active claim."
+        },
+        {
+          "pr": 1576,
+          "state": "ACCEPTED official main",
+          "operation": "Stretch an elastomer O-ring over plug thread into groove without twist/overstretch.",
+          "comparison": "Elastic ring deformation and groove seating overlap; actual tool-driven spring-metal compression and positive bearing retention differ from elastomer sealing."
+        },
+        {
+          "pr": 1113,
+          "state": "ACCEPTED official main",
+          "operation": "Feed a hex shaft through two bearings.",
+          "comparison": "Bearing alignment/insertion rather than installing separate elastic internal retainer; same bearing context alone not duplication."
+        }
+      ],
+      "new_manipulation": "Control internal-circlip contraction and complete bore-groove seating without plier slip or ring ejection, rather than stretch elastomer or feed shaft.",
+      "physical_success": "Ring fully occupies intended annular groove, seated ends and entire circumference after tool release, genuine retained-bearing axial proof/inspection. Correct matched groove/ring must determine tolerances; no arbitrary pose latch.",
+      "implementation_complexity": "Medium/high bounded metal-ring compliance and plier-tip engagement; feasible family but small access and stored energy matter.",
+      "YAM_obstacle": "Pliers handles vs stock94mm aperture, tiny tip-hole alignment, full knuckle/rotor interference and protected release.",
+      "strongest_reviewer_objection": "An internal-ring component variant of earlier active #1561, or a generic ring attached by proximity without real spring retention.",
+      "missing_evidence": [
+        "Current #1561 origin/hold/scope and independent skill determination",
+        "Exact ring and matching plier size/force/handle span",
+        "Whole-groove inspection and safe benign proof condition"
+      ],
+      "cheap_disqualification_test": "Resolve active #1561 semantic claim first. Only then use exact 1:1 plier/tip/knuckle overlay and genuine ring insertion/release on an available sample.",
+      "gpu_ready": false
+    },
+    {
+      "id": "N044",
+      "status": "PASS FOR DEEP DIVE",
+      "operation_equipment": "Install a new rear crankshaft radial oil seal on the 2013 Elantra L4-1.8L cylinder block/installed crankshaft with SST09231-H1100 +09214-2E000 and hammer, to block-rear-face flush. This replaces an unbound generic SKF choice with a documented exact application.",
+      "procedure_source": {
+        "repository": "https://github.com/Kmberry1989/Elantra",
+        "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+        "path": "2013 Hyundai Elantra L4-1.8L/pages/265.html",
+        "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/265.html",
+        "sha256": "37520c22535e4664b8d7c97228f376592846c64cf23802690625e3728ace1715",
+        "role": "Read procedure",
+        "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+      },
+      "procedure_verified": "Read p265 reassembly step14 and viewed matching SST/seal/crankshaft diagram680868746: oil new seal lip, use named driver tools and hammer, tap until seal rear face aligns with cylinder-block rear face. Third-party CHARM reproduction, not authenticated original Hyundai publication.",
+      "occupational_evidence": {
+        "occupation": "Automotive Service Technicians and Mechanics",
+        "soc": "49-3023.00",
+        "employment": 704640,
+        "employment_vintage": "Mirrored May2025 BLS OEWS national cross-industry all-ownership row, not live BLS-authenticated",
+        "core_source": "MIT-WAL US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/_cache/onet_task_statements_30_2.parquet; original O*NET30.2 not re-fetched",
+        "qualifier": "Use exact Core rows, not every maintenance worker or assembler; no occupation aggregation. Task23547 rebuilding crankshafts/cylinder blocks is Supplemental, not Core.",
+        "core_task_ids": [
+          23532,
+          23544
+        ],
+        "linkage": "Core teardown/repair/rebuild of faulty power assemblies and engine-part repair. Actual new oil-seal step is documented inside engine assembly procedure. This is a stronger service bridge than generic seal placement, though source is an overhaul section and standalone frequency should be checked in deep dive; do not call Supplemental23547 Core."
+      },
+      "closest_three_official_comparators": [
+        {
+          "pr": 1199,
+          "state": "CLOSED final",
+          "operation": "Drive started bushing with fitting driver to depth collar; review says same press-fitting skill as earlier bearing task.",
+          "comparison": "Serious component-variant objection. A depth stop/different ring alone is not novelty; real unstarted square seating, shaft/lip interaction and proper seal integrity must be central."
+        },
+        {
+          "pr": 995,
+          "state": "CLOSED final",
+          "operation": "Drive bearing on shaft via inner ring; actual final review rejects prealigned sleeve placement where tool-path choice was nonrobotic difficulty.",
+          "comparison": "Do not copy prealigned press-only work. Starting a real seal square around a real crankshaft with a real driver may preserve a distinct physical installation, but must demonstrate that difference. This is not an accepted or active ownership precedent."
+        },
+        {
+          "pr": 1576,
+          "state": "ACCEPTED official main",
+          "operation": "Stretch real O-ring over hydraulic plug thread and seat in groove.",
+          "comparison": "Seal-installation importance/meaningful deformation precedent. Radial lip seal has rigid outer-case interference and an internal lip around shaft; no generic O-ring substitution."
+        }
+      ],
+      "new_manipulation": "Acquire and square a real lip-seal case around crankshaft, engage correct annular driver load path, seat incrementally without cocking or rolling sealing lip; completion depends on real interface, not only selecting a tool.",
+      "physical_success": "Seal rear case flush with actual block datum around circumference, correct orientation, no rolled/damaged lip or missing spring after release. Ruler/straightedge/depth/inspection as appropriate; any leak claim needs a real benign validated check, not inherited catalogue rating. Numeric allowable offset/runout/retention limits still need exact manual/measurement.",
+      "implementation_complexity": "Medium/high: mostly rigid tool/case/housing plus bounded lip compliance and calibrated interference/friction; hammer contact is harder than low part count. No exact force or simulator feasibility demonstrated.",
+      "YAM_obstacle": "Driver diameter around crankshaft flange, full case/counterface clearance, one hand on driver and other on ordinary hammer if actual method; impact forces and grasp stability unknown. Driver dimension and stroke cannot be inferred from image scale.",
+      "strongest_reviewer_objection": "Another ordinary bearing/bushing press-fit with a different annular component; lip is decorative and score counts only face depth. Avoid prealignment or artificial snap-to-seat.",
+      "missing_evidence": [
+        "VIN-compatible seal/driver physical dimensions and real stock-gripper approach",
+        "Actual OEM service/seal criteria and force/energy to seat",
+        "Demonstrated material distinction from #1199/#995 and external press-fit tasks",
+        "Whether lip integrity can be scored simply and causally without a full fluid model"
+      ],
+      "cheap_disqualification_test": "Exact driver/seal/crankshaft drawings +1:1 stock-finger/hammer overlay first. Then genuine partly cocked/reversed/rolled-lip versus correctly seated specimen inspection and seating-force/impact trace if available. If all physical difficulty reduces to prealigned sleeve pressing or lip integrity cannot affect observable score, retire this representation before native work.",
+      "proposed_configuration": {
+        "real_equipment": "Full actual 2013 Elantra1.8L rear block face and installed crankshaft in normal engine-repair support; genuine matched new seal; OEM SST09231-H1100/09214-2E000; ordinary permitted hammer. No miniature block coupon erasing shaft/flange interference.",
+        "start": "Seal and named tools loose; actual housing/shaft/lip lead-in retained. Prior engine-disassembly operations explicitly outside bounded install scope. Do not start seal already correctly pressed into bore.",
+        "approach": "Research design: rigid real tool/case/housing contact with a calibrated bounded compliant lip/interference model if needed; no teleport/success latch. Plan legal sim-state expert control only via robot actions. No task code created."
+      },
+      "gpu_ready": false
+    },
+    {
+      "id": "N047",
+      "status": "PASS FOR DEEP DIVE",
+      "operation_equipment": "Assemble one real valve spring/retainer with its two matching retainer-lock halves in a full 2013 Elantra L4-1.8L cylinder head using Hyundai SST09222-3K000 +09222-3K100. Do not use an invented generic preload fixture or assume OTC tool interchangeability.",
+      "procedure_source": {
+        "repository": "https://github.com/Kmberry1989/Elantra",
+        "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+        "path": "2013 Hyundai Elantra L4-1.8L/pages/231.html",
+        "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/231.html",
+        "sha256": "4143df7099fe71d2c5c98ebb96f0b00d7df0eddea35abbe0b3f4a9a787714d46",
+        "role": "Read procedure",
+        "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+      },
+      "procedure_verified": "Read p231 reassembly: spring enamel end toward retainer; actual named SST compresses spring, installs locks, checked by pushing/releasing compressor handle2\u20133 times before release; retainer depression must not exceed12mm. Viewed image676307272 with head-mounted support and actual lever tool. P230 removal gives same matched SST. Third-party CHARM reproduction, not independent original OEM authentication.",
+      "occupational_evidence": {
+        "occupation": "Automotive Service Technicians and Mechanics",
+        "soc": "49-3023.00",
+        "employment": 704640,
+        "employment_vintage": "Mirrored May2025 BLS OEWS national cross-industry all-ownership row, not live BLS-authenticated",
+        "core_source": "MIT-WAL US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/_cache/onet_task_statements_30_2.parquet; original O*NET30.2 not re-fetched",
+        "qualifier": "Use exact Core rows, not every maintenance worker or assembler; no occupation aggregation. Task23547 rebuilding crankshafts/cylinder blocks is Supplemental, not Core.",
+        "core_task_ids": [
+          23544,
+          23532
+        ],
+        "linkage": "Core23544 explicitly includes repairing/replacing valves; Core23532 faulty power assemblies. Exact OEM-style valve assembly step supplies real procedure. Not every mechanic uses this make, but the operation is a documented standard valve-service mechanism rather than invented factory work."
+      },
+      "closest_three_official_comparators": [
+        {
+          "pr": 692,
+          "state": "ACCEPTED official main",
+          "operation": "Hold sprung M.2 card down and close a single retainer latch.",
+          "comparison": "Shared hold-against-spring primitive only; loose tapered paired keepers captured by spring-loaded real valve retainer/head are different objects/manipulation/goal."
+        },
+        {
+          "pr": 891,
+          "state": "ACCEPTED official main",
+          "operation": "Key CPU into socket and close shield/lever spring catch.",
+          "comparison": "Shared keyed retained assembly does not make genuine two-half keeper placement and released spring-load transfer a CPU variant."
+        },
+        {
+          "pr": 1882,
+          "state": "OPEN; review requests commercial chain link, proper spring clip/cotters",
+          "operation": "Assemble chain joint/keeper; actual review rejects oversized bores and friction-only custom fork.",
+          "comparison": "Relevant positive-retention authenticity warning, not same valve-spring operation. Preserve real keeper taper/groove and load capture; no invented friction fork."
+        }
+      ],
+      "new_manipulation": "Place two actual tapered lock halves around valve stem groove while genuine spring retainer is compressed; gradually transfer spring load to both halves so retention survives release/check cycling.",
+      "physical_success": "Both keeper halves correctly engage actual stem groove/retainer taper, retainer remains captured after tool load is fully removed, actual OEM2\u20133 push/release check does not unseat either half, no overtravel/damaged part. Observe exposed keeper seating and retained spring/valve position with photos/ordinary gauges; no reward from a hidden installed flag.",
+      "implementation_complexity": "High but bounded: genuine lever tool and axial spring stroke plus rigid tapered keepers/retainer/stem contacts. Tiny parts/access and force may dominate; no full flexible-line/cloth model needed. Qualified only for deep dive, not lower-cost build certainty.",
+      "YAM_obstacle": "Real full-head mounted compressor lever sweep, load/moment, accessible keeper opening, stock finger size versus tiny lock halves. Need actual allowed small pickup tool/forceps documented or shown legitimate; no enlarged keepers/weak spring. Tool must carry spring reaction as real SST does, not robot magically holding preload.",
+      "strongest_reviewer_objection": "A miniature engine-labelled preload puzzle with invented keeper contacts or hidden retention, or an occasional specialist overhaul improperly credited to all mechanics. Authentic head/valve/tool and O*NET explicit valve duty materially reduce that risk, but forces/access remain open.",
+      "missing_evidence": [
+        "Actual selected valve/head/keeper parts and spring rate/free/installed lengths",
+        "Exact SST dimensions and lever effort/torque throughout <=12mmretainer travel",
+        "Stock-finger or genuine supported pickup-tool approach to both tiny halves",
+        "Simple released capture/failure observation robust to one half tilted, absent or in wrong groove",
+        "Current semantic/external benchmark check beyond successful valve-spring/collet/keeper text queries"
+      ],
+      "cheap_disqualification_test": "First 1:1 real head/SST/keeper-opening/stock-finger tool map; then measure handle force and available keeper gap with actual spring. Test missing/misplaced one-half negative, proper gradual release and OEM2\u20133 check cycles on a genuine available sample. Reject before any native work if only larger parts, weak spring or a latch disconnected from taper capture permits completion.",
+      "proposed_configuration": {
+        "real_equipment": "Full compatible cylinder head with real valve/stem groove and existing stem seal; genuine matched spring, retainer and pair of lock halves; SST09222-3K000/3K100 mounted through the head bolt hole as source illustrates. Full spring and lever geometry retained.",
+        "start": "One valve service location accessible on properly supported head; spring/retainer and two keepers not already captured. Exact bounded start may include earlier disassembly/stem-seal installation, disclosed; no generic 3D-printed head stand-in removing support/access.",
+        "approach": "Research design: real geometric taper/groove capture; axial spring with actual rate/preload plus rigid real compressor lever/contact mechanics. A proportionate disclosed bounded material model is acceptable if it preserves preload, load transfer and two-half failure modes. Sim-state expert planning permitted through robot actions. No scene/code was implemented."
+      },
+      "gpu_ready": false
+    }
+  ],
+  "source_manifest": [
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/149.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/149.html",
+      "sha256": "5ef82c938a4c2698eb0876477f83e4d4addf3dcb1b214d4a49391ca51f90251d",
+      "role": "Read procedure",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    },
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/230.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/230.html",
+      "sha256": "de24519b7d64e910749a68a29c56fe1620e88b588bb5ab96ccb668e697f712e7",
+      "role": "Read procedure",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    },
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/231.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/231.html",
+      "sha256": "4143df7099fe71d2c5c98ebb96f0b00d7df0eddea35abbe0b3f4a9a787714d46",
+      "role": "Read procedure",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    },
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/263.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/263.html",
+      "sha256": "7ccbd94b9a19d2b08c86549fe39c4ceb20fafc80e6a1f3f0232e1675807d1512",
+      "role": "Read procedure",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    },
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/265.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/265.html",
+      "sha256": "37520c22535e4664b8d7c97228f376592846c64cf23802690625e3728ace1715",
+      "role": "Read procedure",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    },
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/images/IMP07Q313/asian244/676307272.jpeg",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/images/IMP07Q313/asian244/676307272.jpeg",
+      "sha256": "1196897dfcfdbf73e46432c6ad3a424bb73f60c6d8183bde0fa313be4b3a70f9",
+      "role": "Viewed actual diagram",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    },
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/images/IMP07Q313/asian244/656788622.jpeg",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/images/IMP07Q313/asian244/656788622.jpeg",
+      "sha256": "6d632c24f563e23453800a505c40d11d4fb605a2acede65acd244e25151c8b89",
+      "role": "Viewed actual diagram",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    },
+    {
+      "repository": "https://github.com/Kmberry1989/Elantra",
+      "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+      "path": "2013 Hyundai Elantra L4-1.8L/images/IMP07Q313/asian244/680868746.jpeg",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/images/IMP07Q313/asian244/680868746.jpeg",
+      "sha256": "c3d4533d2033fda5cf941ad2679611ae861dbe5f3adeeb1810693946bbe7374e",
+      "role": "Viewed actual diagram",
+      "provenance": "Third-party GitHub-preserved Operation CHARM reproduction; inspected actual procedure/diagram, not independently authenticated Hyundai original."
+    }
+  ],
+  "occupation_rows": [
+    {
+      "O*NET-SOC Code": "49-3023.00",
+      "Task ID": 23532,
+      "Task": "Tear down, repair, and rebuild faulty assemblies, such as power systems, steering systems, and linkages.",
+      "Task Type": "Core",
+      "Incumbents Responding": 82.0,
+      "Date": "08/2022",
+      "Domain Source": "Incumbent"
+    },
+    {
+      "O*NET-SOC Code": "49-3023.00",
+      "Task ID": 23533,
+      "Task": "Perform routine and scheduled maintenance services, such as oil changes, lubrications, and tune-ups.",
+      "Task Type": "Core",
+      "Incumbents Responding": 84.0,
+      "Date": "08/2022",
+      "Domain Source": "Incumbent"
+    },
+    {
+      "O*NET-SOC Code": "49-3023.00",
+      "Task ID": 23534,
+      "Task": "Follow checklists to ensure all important parts are examined, including belts, hoses, steering systems, spark plugs, brake and fuel systems, wheel bearings, and other potentially troublesome areas.",
+      "Task Type": "Core",
+      "Incumbents Responding": 84.0,
+      "Date": "08/2022",
+      "Domain Source": "Incumbent"
+    },
+    {
+      "O*NET-SOC Code": "49-3023.00",
+      "Task ID": 23544,
+      "Task": "Repair or replace parts such as pistons, rods, gears, valves, and bearings.",
+      "Task Type": "Core",
+      "Incumbents Responding": 82.0,
+      "Date": "08/2022",
+      "Domain Source": "Incumbent"
+    },
+    {
+      "O*NET-SOC Code": "49-3023.00",
+      "Task ID": 23547,
+      "Task": "Rebuild parts, such as crankshafts and cylinder blocks.",
+      "Task Type": "Supplemental",
+      "Incumbents Responding": 82.0,
+      "Date": "08/2022",
+      "Domain Source": "Incumbent"
+    }
+  ],
+  "novelty_queries": [
+    {
+      "id": "belt",
+      "query": "is:pr belt",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+belt",
+      "attempted_utc": "2026-11-14T23:27:53.195956+00:00",
+      "status": 200,
+      "sha256": "1032acc21d88fee1ffab325e39866997feb2f474261742aca00196a207aa3376",
+      "hits": [
+        {
+          "title": "Fit a keyed pulley on a shaft",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2037"
+        },
+        {
+          "title": "Test that a seat belt retractor locks: pull the webbing out steadily, then jerk it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1866"
+        },
+        {
+          "title": "Track a drifting conveyor belt back to center at the tail take-ups: at most a quarter turn per two belt revolutions",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1691"
+        },
+        {
+          "title": "Add hold-a-self-closing-gate-open-and-push-a-parcel-onto-a-conveyor task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1277"
+        },
+        {
+          "title": "Add merge-into-belt-gap task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1229"
+        },
+        {
+          "title": "Add upright-fallen-bottle-on-belt task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1227"
+        },
+        {
+          "title": "Add lid-cups-on-moving-belt task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1226"
+        },
+        {
+          "title": "Add space-touching-parcels task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1214"
+        },
+        {
+          "title": "Add sort-surging-belt task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1196"
+        },
+        {
+          "title": "Keep a moving head's camera on a moving figure, and stop at the lamp",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/999"
+        },
+        {
+          "title": "Add Change a drive belt by sliding the motor in to slacken it, then tension the new belt task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/973"
+        },
+        {
+          "title": "Build the model in a photo from parts riding past on a conveyor, picking out look-alikes and parking early arrivals",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/910"
+        },
+        {
+          "title": "Line up a motor's belt pulley with a blower's pulley using a straightedge",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/856"
+        },
+        {
+          "title": "Add tension-a-timing-belt-and-lock-the-idler task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/700"
+        },
+        {
+          "title": "Induct the parcels onto the sorter lane single file, with a gap between them",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/421"
+        },
+        {
+          "title": "Pack six biscuit packs off a moving belt into two cases before the red line, letting the two cracked packs pass",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/313"
+        },
+        {
+          "title": "Add conveyor block sorting task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/83"
+        }
+      ],
+      "next": []
+    },
+    {
+      "id": "tensioner",
+      "query": "is:pr tensioner",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+tensioner",
+      "attempted_utc": "2026-11-14T23:27:53.196419+00:00",
+      "status": 200,
+      "sha256": "159adebf5efa8d37c0506bd59a1e86ba4b79ec76e886cae0a7e8dc62b8933190",
+      "hits": [
+        {
+          "title": "Add tension-a-timing-belt-and-lock-the-idler task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/700"
+        }
+      ],
+      "next": []
+    },
+    {
+      "id": "circlip",
+      "query": "is:pr circlip",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+circlip",
+      "attempted_utc": "2026-11-14T23:27:53.884934+00:00",
+      "status": 200,
+      "sha256": "86ead3af216b06ab667f025966755cdc3dc5fd4178140fa72cf9f05297d822ab",
+      "hits": [
+        {
+          "title": "Fit a circlip into its shaft groove with circlip pliers: spread it just enough, seat it square, turn it to check",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1561"
+        }
+      ],
+      "next": []
+    },
+    {
+      "id": "snapring",
+      "query": "is:pr \"snap ring\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22snap+ring%22",
+      "attempted_utc": "2026-11-14T23:27:53.973871+00:00",
+      "status": 200,
+      "sha256": "5b9243840f135188fab03a978836dce8fd88a57452137e5c1a8f61d239a24905",
+      "hits": [],
+      "next": []
+    },
+    {
+      "id": "lipseal",
+      "query": "is:pr \"lip seal\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22lip+seal%22",
+      "attempted_utc": "2026-11-14T23:27:54.348998+00:00",
+      "status": 200,
+      "sha256": "45fd0ee5933d7784de95d04538af14303bc1a61ae427eec2631c6c0e64e3cd6e",
+      "hits": [],
+      "next": []
+    },
+    {
+      "id": "oilseal",
+      "query": "is:pr \"oil seal\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22oil+seal%22",
+      "attempted_utc": "2026-11-14T23:27:54.404559+00:00",
+      "status": 200,
+      "sha256": "6063b7c20b9a98273ebaabe0082706b54b9dace99af7461da06e5966a5848560",
+      "hits": [],
+      "next": []
+    },
+    {
+      "id": "valvespring",
+      "query": "is:pr \"valve spring\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22valve+spring%22",
+      "attempted_utc": "2026-11-14T23:27:54.756577+00:00",
+      "status": 200,
+      "sha256": "5f4d862479a81666c671a78416be25ec2f75a91af89661cd60c15b0d6e02c0ea",
+      "hits": [],
+      "next": []
+    },
+    {
+      "id": "keeper",
+      "query": "is:pr keeper",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+keeper",
+      "attempted_utc": "2026-11-14T23:27:54.782332+00:00",
+      "status": 200,
+      "sha256": "1392e4d0af74dd9f104cb1837333273073a594172557f9d9b8e41f3f1997ce31",
+      "hits": [
+        {
+          "title": "Seal a loaded container door: thread an ISO 17712 bolt seal through the cam keeper hasp and close its barrel",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1881"
+        },
+        {
+          "title": "Fasten an instrument case: hook each draw latch on its keeper, pull the lever flat, close its safety catch",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1734"
+        },
+        {
+          "title": "Fasten an instrument case with separate spring hooks and safety catches",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1612"
+        },
+        {
+          "title": "Store two bar magnets as a pair: unlike poles side by side, a keeper across each end",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1052"
+        },
+        {
+          "title": "Unlock the exit door",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1029"
+        }
+      ],
+      "next": []
+    },
+    {
+      "id": "bearing",
+      "query": "is:pr bearing",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+bearing",
+      "attempted_utc": "2026-11-14T23:29:58.041349+00:00",
+      "status": 200,
+      "sha256": "f872e4283dd133fc189cfc279f1ccd5df16f66094e3daf2efdec0bc1a6840a70",
+      "hits": [
+        {
+          "title": "Attach a removable saucepan handle and use it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2042"
+        },
+        {
+          "title": "Fit a keyed pulley on a shaft",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2037"
+        },
+        {
+          "title": "Add IV bag spiking and drip-chamber priming task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2031"
+        },
+        {
+          "title": "Turn a humanoid's hung upper body round on its gantry hook so that its back faces you",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2015"
+        },
+        {
+          "title": "Shim a door's hinge jamb: drive two opposed tapered shims in from both wall faces until snug, not bowing it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1969"
+        },
+        {
+          "title": "Couple a scaffold transom to a ledger: lay it at its chalk mark, close the cap, swing the bolt in and run the nut down",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1935"
+        },
+        {
+          "title": "Add task: Set a telescoping gauge to a bearing housing's bore diameter and leave it on its stand",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1880"
+        },
+        {
+          "title": "Restock a twin jumbo-roll tissue dispenser: stub to the reserve spindle, new roll on the primary, cover locked",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1852"
+        },
+        {
+          "title": "Support a bound volume for digitization",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1793"
+        },
+        {
+          "title": "Add cue-record-track-three: Cue a record at the start of its third track",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1725"
+        },
+        {
+          "title": "Remove a loaded drawer from ball-bearing slides by pressing both disconnect levers at once",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1708"
+        },
+        {
+          "title": "Set a sink drain's fall inside the code window on three stands: a quarter inch per foot to one diameter, all bearing",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1677"
+        },
+        {
+          "title": "Rout a curved edge on a router table: brace the board on the starting pin and pivot it onto the bearing before feeding",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1572"
+        },
+        {
+          "title": "Loosen a nylon nut with an adjustable wrench, rolling the jaw snug on the flats first",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1570"
+        },
+        {
+          "title": "Fit a circlip into its shaft groove with circlip pliers: spread it just enough, seat it square, turn it to check",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1561"
+        },
+        {
+          "title": "Unpack a supported optical instrument without dropping it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1344"
+        },
+        {
+          "title": "Fit the Matching Bit and Power-Tighten a Loose Drawer Knob",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1288"
+        },
+        {
+          "title": "Transfer an electrode roll using a movable through-core spindle",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1157"
+        },
+        {
+          "title": "Feed a hex shaft through two bearings",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1113"
+        },
+        {
+          "title": "Pack two uneven bearings up to the datum, then seat the beam level across them",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1038"
+        },
+        {
+          "title": "Add Drive a bearing onto its shaft through the inner ring, never through the balls task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/995"
+        },
+        {
+          "title": "Hang a holder on its keyhole studs",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/694"
+        },
+        {
+          "title": "Land decking bundles across three joists, within a foot of the bearing end",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/593"
+        },
+        {
+          "title": "Turn a camera turntable without wrapping its cable",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/581"
+        },
+        {
+          "title": "Line up two bearings with a motor's shaft",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/259"
+        }
+      ],
+      "next": [
+        "/robocurve/benchmark-tasks/pulls?q=is%3Apr+bearing&page=2"
+      ]
+    },
+    {
+      "id": "pressfit",
+      "query": "is:pr \"press fit\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22press+fit%22",
+      "attempted_utc": "2026-11-14T23:29:58.042448+00:00",
+      "status": 200,
+      "sha256": "9f05527e6fd495d5fe951cf4cf4c68354f00b443aaf52286b9b4bfdb42d9ff9d",
+      "hits": [
+        {
+          "title": "Add oil-feed sleeve assembly with radial port registration",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1800"
+        },
+        {
+          "title": "Add task: Lever a paint tin's lid off with a screwdriver",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/922"
+        }
+      ],
+      "next": []
+    },
+    {
+      "id": "collet",
+      "query": "is:pr collet",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+collet",
+      "attempted_utc": "2026-11-14T23:29:58.639609+00:00",
+      "status": 200,
+      "sha256": "9c3b0eccf63e5c71444f2bf7874b3230d488969e8ece8ae676e123aeb9795baa",
+      "hits": [
+        {
+          "title": "Disconnect a pneumatic line from a push-to-connect manifold port and blank the port",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1784"
+        },
+        {
+          "title": "Push-fit an elbow onto a copper and a plastic pipe, with an insert in the plastic one",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1654"
+        },
+        {
+          "title": "Release a push-fit fitting and pull the pipe out",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/662"
+        }
+      ],
+      "next": []
+    },
+    {
+      "id": "crankshaft",
+      "query": "is:pr crankshaft",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+crankshaft",
+      "attempted_utc": "2026-11-14T23:29:58.732249+00:00",
+      "status": 200,
+      "sha256": "af84dc6733d8e3341c9c276bf95ac5da6124d8b2836a2b1fe840879eef23bf83",
+      "hits": [],
+      "next": []
+    },
+    {
+      "id": "tensionerb",
+      "query": "is:pr \"drive belt\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22drive+belt%22",
+      "attempted_utc": "2026-11-14T23:29:59.213083+00:00",
+      "status": 200,
+      "sha256": "53d04f25166b838be45a9d6007853b8d4171bcbb513d219e55f04a326795c29f",
+      "hits": [
+        {
+          "title": "Add Change a drive belt by sliding the motor in to slacken it, then tension the new belt task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/973"
+        }
+      ],
+      "next": []
+    }
+  ],
+  "current_PR_discussions": [
+    {
+      "number": 1561,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1561",
+      "attempted_utc": "2026-11-14T23:28:58.319360+00:00",
+      "sha256": "b906ef94b2992d06c9b01107abe30853521eec66fe07d56e188e089bbb6bfaac",
+      "title": "Fit a circlip into its shaft groove with circlip pliers: spread it just enough, seat it square, turn it to check by Andresg324 \u00b7 Pull Request #1561 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "comments": [
+        "Received as TK-E7G2CT , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-E7G2CT). The assembly should not be clamped down to better represent parts involving ring clamps at this scale To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-DKQNQY (a revision of TK-E7G2CT), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      ],
+      "state": "OPEN",
+      "full_comment_source_sha256": "b906ef94b2992d06c9b01107abe30853521eec66fe07d56e188e089bbb6bfaac"
+    },
+    {
+      "number": 973,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/973",
+      "attempted_utc": "2026-11-14T23:28:58.319887+00:00",
+      "sha256": "89400765c296f7dbfbdaf4a323f3f8ef0e0ac77594dffaa1e99d36660148e77f",
+      "title": "Add Change a drive belt by sliding the motor in to slacken it, then tension the new belt task by kamya390 \u00b7 Pull Request #973 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "comments": [
+        "Received as TK-R9DKMK , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted: final (TK-R9DKMK). Flags: Egregious simplification Construct validity (not met): Rigid rectangular loops on octagonal hubs cannot reproduce flexible V-belt fitting or actual belt tension, and the specified rig is not a working belt drive. Scoring (not met): The full-score condition treats the motor\u2019s start position as tensioned despite the specified rigid belt having play and no measured tension. The task replaces the working belt with a rigid rectangular loop on a deck and calls the motor\u2019s original position tensioned, so it does not test fitting and tensioning an actual drive belt. A valid belt-replacement task would need a representative flexible belt and drive, including an observable measure of correct tension. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      ],
+      "state": "CLOSED",
+      "full_comment_source_sha256": "89400765c296f7dbfbdaf4a323f3f8ef0e0ac77594dffaa1e99d36660148e77f"
+    },
+    {
+      "number": 700,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/700",
+      "attempted_utc": "2026-11-14T23:28:59.177719+00:00",
+      "sha256": "d2459cd3659936f8ed3cecaa373b021747927a7dd417ade777bc7f216cb27dd2",
+      "title": "Add tension-a-timing-belt-and-lock-the-idler task by Huangruopeng \u00b7 Pull Request #700 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "comments": [
+        "Received as TK-B5F4YZ , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted: final (TK-B5F4YZ). Flags: Duplicate of TK-D67BZ2 , an earlier task by another team \u00b7 Instruction gives away the required bimanual procedure Importance (not met): An earlier inspection-arm task already tests holding a loaded hinged arm at a target angle while turning its pivot lock and releasing it. Construct validity (not met): The 4.5\u20138.5 degree full-score range includes angles below the stated 6.3 degrees needed for the idler to reach the belt, allowing full credit without belt tension. The submission tests positioning and locking a sprung lever rather than a distinct belt-tensioning skill. The full-score range also includes angles at which the idler has not yet reached the belt. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      ],
+      "state": "CLOSED",
+      "full_comment_source_sha256": "d2459cd3659936f8ed3cecaa373b021747927a7dd417ade777bc7f216cb27dd2"
+    },
+    {
+      "number": 1199,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1199",
+      "attempted_utc": "2026-11-14T23:28:59.177990+00:00",
+      "sha256": "2deb2f805b0017c6022f58b911c38ee9744ebd6bed6b83af9b17ed36b1d3b289",
+      "title": "Add task: Drive a bushing to its depth below the housing face, choosing the stepped driver over the plain drift by WiltonSF \u00b7 Pull Request #1199 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "comments": [
+        "Received as TK-RP86Y7 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted: final (TK-RP86Y7). Flags: Possible duplicate of another team\u2019s task Importance (not met): Driving a bushing to depth with a fitting driver measures essentially the same press-fitting skill as the earlier bearing-on-shaft task; the component and stop differ. The task's main physical ability is driving a started press-fit component to its seat with an appropriate fitting tool. Changing the component and using a depth-setting collar does not establish a sufficiently distinct manipulation skill for this benchmark. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      ],
+      "state": "CLOSED",
+      "full_comment_source_sha256": "2deb2f805b0017c6022f58b911c38ee9744ebd6bed6b83af9b17ed36b1d3b289"
+    },
+    {
+      "number": 995,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/995",
+      "attempted_utc": "2026-11-14T23:31:01.666189+00:00",
+      "sha256": "c0641c0f817fa5924179ae2d73af9a3bb6e5480fb5edcf507d7060b782641a35",
+      "title": "Add Drive a bearing onto its shaft through the inner ring, never through the balls task by kamya390 \u00b7 Pull Request #995 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "comments": [
+        "Received as TK-2H9ERX , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted: final (TK-2H9ERX). Flags: Difficulty isn't robotic Importance (not met): Choosing the inner-ring load path can be tested from the setup and a rule, while placing and pressing the sleeve is ordinary manipulation. The task's main difficulty is choosing which bearing ring should receive the force, a decision that can be tested without a robot. Once that choice is made, the pre-aligned bearing requires ordinary sleeve placement and pressing, so this does not meet the benchmark's importance bar. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      ],
+      "state": "CLOSED",
+      "full_comment_source_sha256": "c0641c0f817fa5924179ae2d73af9a3bb6e5480fb5edcf507d7060b782641a35"
+    },
+    {
+      "number": 856,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/856",
+      "attempted_utc": "2026-11-14T23:31:01.666857+00:00",
+      "sha256": "21f5cfa6432501e2ea06b5dfece51f4117987308a70506b5602f0d327b09d93e",
+      "title": "Line up a motor's belt pulley with a blower's pulley using a straightedge by VihanAggarwal \u00b7 Pull Request #856 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "comments": [
+        "Received as TK-2XG49A , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-2XG49A). Flags: The demo description explicitly reports a 12 mm motor lift despite the instruction to keep it on the plate. Construct validity (not met): A robot can lift the motor off its plate and still receive full credit despite the instruction requiring it to stay on the plate. Scoring (not met): The plate and centre-distance gates check only the end state, so they do not enforce the stated continuous constraints. Feasibility (not met): The scripted demo explicitly lifts the motor 12 mm off the plate, so it does not demonstrate completion as instructed. What to change: Track the motor's plate contact and centre-distance limits throughout the trial, not only at the end, and prevent runs that violate those limits from receiving credit. Provide a full-score demo that slides and turns the motor while keeping it on the plate and within the specified centre-distance tolerance. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-3UP5GJ (a revision of TK-2XG49A), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted: final (TK-3UP5GJ). Object scale does not reflect the challenges of the real-life task This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      ],
+      "state": "CLOSED",
+      "full_comment_source_sha256": "21f5cfa6432501e2ea06b5dfece51f4117987308a70506b5602f0d327b09d93e"
+    },
+    {
+      "number": 1882,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1882",
+      "attempted_utc": "2026-11-14T23:31:02.374508+00:00",
+      "sha256": "d3bee449b1a4ac2aa93f35cc066ad5bad6a7519d3ab5ecec3ba53db70a7350e7",
+      "title": "Add drive chain joint assembly task by alesspalma \u00b7 Pull Request #1882 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "comments": [
+        "Received as TK-KEKMGP , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-KEKMGP). Construct validity (not met): The 8 mm stems in 32 mm end bores and custom friction-only keeper omit the fit and positive retention of a commercial chain service joint. What to change: Use a representative drive-chain connecting link with realistic pin-to-bore clearance and the proper retaining plate and spring clip or cotters, rather than the oversized loose-fit joint and friction-only fork. Update the fixture, fidelity note and scoring to reflect the hardware, and provide a full-score demonstration and matching Dream-1 run for the revised setup. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      ],
+      "state": "OPEN",
+      "full_comment_source_sha256": "d3bee449b1a4ac2aa93f35cc066ad5bad6a7519d3ab5ecec3ba53db70a7350e7"
+    }
+  ],
+  "notes": [
+    "Rapid screen only. No physical test, native/GPU run, paid evaluation or task implementation.",
+    "Public source titles/hits do not clear private board ownership/external-suite novelty.",
+    "Source-backed legitimate candidates are not rejected merely because hand forces are not yet measured; that is a deep-dive gate."
+  ]
+}

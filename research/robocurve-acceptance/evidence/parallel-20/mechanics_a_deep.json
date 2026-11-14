@@ -1,0 +1,253 @@
+{
+  "created_utc": "2026-11-14T23:40:05.639008+00:00",
+  "provenance": "All exact application/part values from pinned GitHub CHARM archive reproduction. Actual text/diagrams read, but original Hyundai OEM revision/authenticity and present VIN-compatible part supersession not independently authenticated. Historical prices are intentionally omitted.",
+  "ranking_within_pair": [
+    "N044",
+    "N047"
+  ],
+  "plans": [
+    {
+      "id": "N044",
+      "decision": "PASS FOR DEEP DIVE; candidate2 for IMPLEMENTATION PLANNING if source/scope gates survive; not implementation/native GO",
+      "exact_proposed_components": [
+        {
+          "item": "Application",
+          "value": "2013 Hyundai Elantra L4-1.8L engine block with installed crankshaft in normal engine-repair support; retain actual rear-face/shaft/flange geometry.",
+          "evidence": "CHARM p265 engine reassembly sequence and SST diagram"
+        },
+        {
+          "item": "New rear main oil seal",
+          "value": "HYD OEM214432E000 (commonly hyphenated21443-2E000)",
+          "evidence": "Read parts table p4278, not a guessed SKF interchange. Exact VIN/current supersession/material/dimensions still need confirmation."
+        },
+        {
+          "item": "Driver/support SST",
+          "value": "09231-H1100 and09214-2E000; ordinary hammer per source.",
+          "evidence": "p265 reassembly14 + viewed image680868746.jpeg"
+        },
+        {
+          "item": "Consumable",
+          "value": "Fresh engine oil on new seal lip; correct genuine seal; no reused old seal.",
+          "evidence": "p265 step14 and general replace-new oil seals instruction"
+        }
+      ],
+      "authentic_start": "Normal engine-reassembly stage: crankshaft/lower crankcase already assembled and rear seal not installed; genuine new seal and actual SST/hammer loose at reachable work surface. Earlier teardown and later head/oil-pan/engine mounting outside bounded scope, explicitly disclosed. Preserve full relevant block, shaft and flange; do not replace with a generic open ring trainer or start seal correctly pre-aligned/partly pressed.",
+      "authentic_endpoint": "Seal case seated square to real block rear-face datum with lip around actual crankshaft; no visible folded lip/ejected garter spring/case distortion. Claim mechanical installation only, not certified oil tightness or completed engine service.",
+      "known_source_numeric": {
+        "seal_face_axial_offset": "Nominal flush =0mm relative to block rear face, source qualitative aligned/flush. No source allowable \u00b1band supplied.",
+        "SST_identifiers": [
+          "09231-H1100",
+          "09214-2E000"
+        ]
+      },
+      "numeric_TBD": [
+        "Seal OD/ID/width and interference",
+        "Driver handle/rim/shaft/flange envelope and mass",
+        "Tap impulse/energy/force versus insertion depth and cock angle",
+        "Allowed flush/tilt band and gauge repeatability for simple physical score",
+        "Permitted lip stretch/shaft contact friction and lip/spring material parameters"
+      ],
+      "physical_score_design": {
+        "observations": [
+          "Measure case recess/projection relative to block rear face at several circumferential points with simple depth/straightedge method; source endpoint is flush, not a count of taps.",
+          "Observe orientation and lip/garter spring condition by available assembly-side views or ordinary inspection mirror if accessible in this genuine rebuild state; validate visibility rather than cutting a viewing slot into the block.",
+          "Real negative controls: partly cocked seal, reversed seal, folded/rolled lip or displaced spring, correct-looking outer face with wrong actual interface.",
+          "Hands and tools released from completed seal; retain correct installed position. Failure/damage cannot earn full credit."
+        ],
+        "limits": "No implemented scorer or numerical tolerance is claimed. Need a short real-specimen measurement rehearsal. A simple inspection failure is a scoring-design question, not automatic rejection; accepted #1562/#1576 show mechanical assembly need not simulate full fluid certification. Do not claim leak proof from pose."
+      },
+      "permitted_research_model": "Mostly rigid driver, hammer, real case and block/shaft contacts; bounded compliant sealing lip and calibrated axial interference/friction are proportionate candidates. Must retain unstarted alignment, real driver engagement, cocking/jam/damage counterexamples and actual released seat. Do not script final seal pose, weld on depth threshold or infer successful lip seating from hammer action count. No simulation implementation was made.",
+      "YAM_access_force_obstacles": [
+        "93.9mm nominal aperture is not an OD guarantee; actual seal OD unknown. Determine whether ordinary rim/edge grasp remains accessible without enlargement.",
+        "Driver around real crankshaft/flange must leave stock finger/palm clearance at all positions; fingertips/TCP alone insufficient.",
+        "One hand holding real driver and the other controlling hammer introduces contact/impact/reaction beyond a static press. Source permits tapping, not an invented push-button press.",
+        "7Nm wrist configuration/50N gripper setting do not certify impact energy, grasp slip or reachable loaded posture."
+      ],
+      "cheap_kill_gates": [
+        {
+          "order": 1,
+          "test": "Read actual seal214432E000 and SST drawings/available sample dimensions; confirm VIN compatibility, real normal start and rear-side inspection access.",
+          "no_go": "Only a substitute generic ring/block or an incompatible driver is available; exact application cannot be bound."
+        },
+        {
+          "order": 2,
+          "test": "1:1 real block/shaft/flange/driver/hammer and transformed full stock fingers/palm/wrist overlay; include held driver and hammer sweep.",
+          "no_go": "Engagement/regrasp requires enlarged grip features, missing shaft/flange interference or unrealistic support."
+        },
+        {
+          "order": 3,
+          "test": "On available genuine sample, record seal start, seating force/tap energy versus depth and compare correct/cocked/reversed or lip-displaced cases; no purchase/run initiated.",
+          "no_go": "Feasible action needs tool force/energy unavailable at a legitimate robot pose, or the real endpoint cannot distinguish bad assemblies with a simple reproducible protocol."
+        },
+        {
+          "order": 4,
+          "test": "Before implementation authorization, resolve whether physical square seating/lip interaction is materially more than prealigned press-fitting in #995/#1199; preserve accepted #1576 counterexample to overbroad rejection.",
+          "no_go": "Only new item is a different annular component or stop, with no consequential real interface/manipulation change."
+        }
+      ],
+      "relative_cost": "Likely cheaper thanN047 within this pair: one larger seal +real driver/tapping and bounded lip contact, instead of two tiny loose tapered keeper halves and a sustained spring-loaded tool. Still medium/high rather than low, because impact alignment and lip/shaft interactions are not rigid part-count proxies."
+    },
+    {
+      "id": "N047",
+      "decision": "PASS FOR DEEP DIVE; backup1 for implementation planning; high force/access uncertainty not a rapid-screen REJECT",
+      "exact_proposed_components": [
+        {
+          "item": "Application",
+          "value": "One valve station in a full 2013 Elantra L4-1.8L cylinder head, genuine valve/stem groove and installed stem seal.",
+          "evidence": "p230/231 and exploded view p229 image673971832.jpeg; do not substitute generic preload fixture."
+        },
+        {
+          "item": "Valve spring",
+          "value": "HYD222212E000 (22221-2E000)",
+          "evidence": "Actual p4300 parts table; current VIN/supersession remains to confirm."
+        },
+        {
+          "item": "Retainer locks/keepers",
+          "value": "HYD2222302500 (22223-02500), two actual mating halves for one valve.",
+          "evidence": "Actual p4302 part table; p229 exploded drawing viewed shows paired lock pieces. No assumed generic pins."
+        },
+        {
+          "item": "Spring retainer",
+          "value": "HYD222222E000 (22222-2E000)",
+          "evidence": "Actual p4303 parts table."
+        },
+        {
+          "item": "Spring compressor SST",
+          "value": "09222-3K000 +09222-3K100",
+          "evidence": "p230/231 specify this matched tool. Image676307272.jpeg viewed: real full-head mounted support/lever, front support inserted directly into head bolt hole as text states. Do not assume OTC interchangeability or invent a preload actuator."
+        }
+      ],
+      "authentic_start": "Full actual head normally supported for valve reassembly, with a genuine valve/stem already inserted and stem seal installed as the preceding documented operation. Spring, retainer and two locks are not already captured; include spring/retainer placement or disclose a legitimate staged start that retains the actual compression/keeper engagement. Source requires spring enamel-marked side toward retainer. Actual head support and SST mounting need to be specified; no enlarged opening or printed generic head.",
+      "authentic_endpoint": "Both actual keeper halves seated in valve-stem groove/retainer taper, spring load transferred from genuine compressor to the real captured assembly, retained after the source-supported push/release check and final tool disengagement. Not a hidden installed flag or friction-only custom fork.",
+      "known_source_numeric": {
+        "maximum_retainer_depression_mm": 12,
+        "check_cycles_source": "Push/release compressor handle2\u20133times before final release; a proposed3-cycle check lies within that source range. It is a legitimate equipment verification, not an invented repeated event.",
+        "valve_spring_free_height_mm": 45.93,
+        "valve_spring_out_of_square_deg": "Less than1.5",
+        "intake_valve_stem_OD_mm": "5.465\u20135.480",
+        "exhaust_valve_stem_OD_mm": "5.458\u20135.470",
+        "intake_valve_length_mm": 102.22,
+        "exhaust_valve_length_mm": 104.04
+      },
+      "numeric_TBD": [
+        "Correct reference datum for12mm retainer travel at chosen legitimate start",
+        "Actual spring rate, installed length, preload and force curve",
+        "Tool pivot/retainer-contact/handle lever arms, handle span, mass and friction",
+        "Actual keeper OD/height/taper/groove dimensions and available insertion gap",
+        "Real normal support stability/reaction, stock gripper/tool access and torque/slip",
+        "Meaningful measurement tolerance for keeper seating and retained valve/retainer motion"
+      ],
+      "force_analysis": "Free height45.93mm and a12mm travel limit do NOT determine spring force or stored energy. For a simple lever, F_handle\u2248F_spring*r_contact/r_handle plus friction; r values and spring force must be measured on this actual SST/application. The head/tool support carries reaction as the real assembly does; no task actuator may secretly hold or compress the spring. 7Nm wrist and50N jaw-effort constants are different quantities and cannot be compared directly to spring force. If a correctly mounted lever reduces effort, that is authentic mechanism advantage, not a shortcut.",
+      "physical_score_design": {
+        "observations": [
+          "Two distinct keeper halves engage actual stem groove and retainer taper; correct visual split/height after tool release.",
+          "Retainer stays captured under genuine spring load after actual2\u20133handle check cycles. No missing/tilted half, incorrect groove, folded contact or overtravel.",
+          "Observe real retainer travel with ruler/marker/video or other simple gauge in the genuine fixture; calibrate source travel datum rather than arbitrary simulator zero.",
+          "One-half/tilted-half/incorrect-taper negative controls must fail final released capture; full credit cannot come from a held compressed spring."
+        ],
+        "partial_credit": "Pre-release genuinely placed parts can support partial progress; do not reward a damaged unsafe released assembly. Final outcome is load-bearing capture rather than arbitrary process order.",
+        "limits": "No completed physical scoring rehearsal or numeric keeper-seat tolerance. No injury/safety category inferred merely from stored energy. No claim to have built or certified an engine."
+      },
+      "permitted_research_model": "Rigid real head, valve/stem, tapered keepers, retainer and articulated real SST lever with calibrated axial spring law. Bounded compliance/friction or a disclosed contact approximation can be proportionate if actual load transfer, slip/ejection and one-half failure remain. No distance-triggered latch/weld, prescribed keeper motion, spring weaker than actual selected part, or generic key-slot puzzle. Reading simulator state for future expert planning is allowed; robot actions must cause movement.",
+      "YAM_access_force_obstacles": [
+        "Full genuine head/SST handle sweep and real tool mounting through head hole; no miniature head.",
+        "Stem is about5.47mm across, so stock fingers may obstruct keeper access even when the local aperture admits the part; tiny locks and deep spring cup need genuine actual dimensions.",
+        "While one arm controls lever, the other must place both halves without the first being held by a scripted magnet or adhesive. If an ordinary genuine pickup tool/forceps is needed, source/real use must be bound; the current procedure does not specify such a tool.",
+        "Need actual legitimate stability of one half while retrieving/placing the other; unsupported extra hand or invented fixture is an early kill.",
+        "Part numbers/source instructions do not establish attainable robot force or repeatable grip."
+      ],
+      "cheap_kill_gates": [
+        {
+          "order": 1,
+          "test": "Bind genuine parts222212E000/2222302500/222222E000 and SST to selected full head; map keeper-opening dimensions and lever support from actual drawings/sample.",
+          "no_go": "Only enlarged keepers, generic loaded cage, invented seating shoulders or weakened spring make access possible."
+        },
+        {
+          "order": 2,
+          "test": "Stock-gripper/palm and actual permitted pickup-tool1:1 overlay through source-supported compression range; confirm both halves can be sequentially placed and remain legitimate before release.",
+          "no_go": "Necessary grip blocks spring cup/stem, first half only stays with hidden attachment, or a third robot hand is required without a real normal assembly aid."
+        },
+        {
+          "order": 3,
+          "test": "Measure actual SST handle force versus retainer displacement and support stability using the selected spring; respect12mm limit.",
+          "no_go": "Force/torque/sweep cannot fit a legitimate YAM pose and reaction path; do not infer feasibility from lever picture or travel alone."
+        },
+        {
+          "order": 4,
+          "test": "Available real sample: compare full pair, absent half and tilted half through gradual load release and source2\u20133check cycles. Record photos/displacement and failures.",
+          "no_go": "Real retained condition cannot be scored simply, or a model would need disconnected capture flags to pass the counterexamples."
+        }
+      ],
+      "relative_cost": "Higher thanN044: actual SST assembly is useful bounded mechanics, but tiny two-half manipulation, first-half stability, spring force/reaction and released positive capture couple tightly. Keep visible as credible source-backed backup, not a default expensive build."
+    }
+  ],
+  "source_manifest": [
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/230.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/230.html",
+      "sha256": "de24519b7d64e910749a68a29c56fe1620e88b588bb5ab96ccb668e697f712e7",
+      "bytes": 26347
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/231.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/231.html",
+      "sha256": "4143df7099fe71d2c5c98ebb96f0b00d7df0eddea35abbe0b3f4a9a787714d46",
+      "bytes": 32586
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/265.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/265.html",
+      "sha256": "37520c22535e4664b8d7c97228f376592846c64cf23802690625e3728ace1715",
+      "bytes": 46949
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/4278.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/4278.html",
+      "sha256": "c6d5036b331140014c9093b891c959426fed32ee21ca82d4ea46300cd648b4d8",
+      "bytes": 2562
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/4300.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/4300.html",
+      "sha256": "e20a82de69a3d5a61106364962b7bb1a6194bcec11af4a488107ef0163bf7685",
+      "bytes": 2539
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/4302.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/4302.html",
+      "sha256": "813a61fabc51d720f4de9f342dbba82d59bf334e920ae1cf2a44fa72595d0862",
+      "bytes": 2543
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/4303.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/4303.html",
+      "sha256": "d43120e4b615aa8832cfb12589ea6760e80bc7f35a1c87d5a8542a3031fef33e",
+      "bytes": 2557
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/pages/229.html",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/229.html",
+      "sha256": "ef48c1519b6b6df82de578e7a9ee2765507f367da894d07d5131e820d7e6caa8",
+      "bytes": 2883
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/images/IMP07Q313/asian244/673971832.jpeg",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/images/IMP07Q313/asian244/673971832.jpeg",
+      "sha256": "58415acf08e97a66a8014159ab8094c948ea1da2f3979a27f2b0641468e9e6e5",
+      "bytes": 91031
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/images/IMP07Q313/asian244/676307272.jpeg",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/images/IMP07Q313/asian244/676307272.jpeg",
+      "sha256": "1196897dfcfdbf73e46432c6ad3a424bb73f60c6d8183bde0fa313be4b3a70f9",
+      "bytes": 13621
+    },
+    {
+      "path": "2013 Hyundai Elantra L4-1.8L/images/IMP07Q313/asian244/680868746.jpeg",
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/images/IMP07Q313/asian244/680868746.jpeg",
+      "sha256": "c3d4533d2033fda5cf941ad2679611ae861dbe5f3adeeb1810693946bbe7374e",
+      "bytes": 14161
+    }
+  ],
+  "execution": "Source/geometry/analytical research only; no hardware, task implementation, GPU/native, paid work or official submission."
+}

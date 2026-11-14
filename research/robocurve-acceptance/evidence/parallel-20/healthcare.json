@@ -1,0 +1,229 @@
+[
+  {
+    "id": "N061",
+    "operation": "Fit and tension a patient transfer belt",
+    "equipment": "Posey-style gait belt, actual buckle and full-size training torso; exact SKU remains UNSELECTED",
+    "procedure_source": "No exact Posey IFU/preserved copy located in bounded searches. GitHub repository searches for gait belt + Posey and nursing-skills leads were attempted; none yielded a read applicable manual. Manufacturer homepage is not a procedure citation.",
+    "occupation": "Nursing assistants 31-1131.00",
+    "employment": 1448910,
+    "core_duties": [
+      {
+        "id": 19331,
+        "type": "Core",
+        "text": "Provide physical support to assist patients to perform daily living activities, such as getting out of bed, bathing, dressing, using the toilet, standing, walking, or exercising.",
+        "date": "08/2020"
+      },
+      {
+        "id": 19346,
+        "type": "Core",
+        "text": "Lift or assist others to lift patients to move them on or off beds, examination tables, surgical tables, or stretchers.",
+        "date": "08/2020"
+      }
+    ],
+    "duty_link": "Direct assisted-transfer/walking context supported; fitting this exact belt/buckle as a routine prerequisite still requires an applicable procedure/care source. Do not equate general assistance with verified OEM buckle threading.",
+    "comparators": [
+      {
+        "pr": 1285,
+        "title": "Ratchet a tie-down strap taut round a crate and latch its handle",
+        "overlap": "Flexible strap tension and retention; cargo ratchet mechanism differs from body-fit transfer belt."
+      },
+      {
+        "pr": 1026,
+        "title": "Tighten a tourniquet windlass to the green and lock it",
+        "overlap": "Body-conformal band, retention and pressure; starts already strapped and tests windlass, not belt threading."
+      },
+      {
+        "pr": 1681,
+        "title": "Blood-pressure cuff fitting surrogate",
+        "overlap": "Patient-surrounding fit; prior rigid-arch surrogate is not proof of real belt/cuff equivalence."
+      }
+    ],
+    "actual_new_manipulation": "Potential genuine body-conformal web routing through the actual load-retaining buckle, maintaining fit while pulling slack and preserving retained tension. Not established merely by naming a clinical belt.",
+    "physical_success": "Proposed: actual OEM fit criterion and correct buckle path after release; a justified benign bench proof load with no slip on an actual-size manikin. No patient lifting or clinical-safety certification. Exact fit/load/tolerance unknown until IFU read.",
+    "complexity": "High: long flexible web, body occlusion, strap folding, frictional/toothed buckle capture and maintained tension; low rigid part count is misleading.",
+    "yam_obstacle": "Stock fingers must present the actual web through a small buckle while other arm maintains fit around the full torso; palm/back-side access and web pinch slip unmeasured.",
+    "strongest_objection": "Broad nursing-assistant employment is being borrowed for an unverified belt-preparation task, or generic flexible strap threading is substituted for the actual buckle and safe fit. Source and physical interface are not yet bound.",
+    "status": "HOLD",
+    "missing_evidence": [
+      "Exact readable compatible IFU/SKU and buckle routing",
+      "Clinical source linking belt fit to routine assisted-transfer duty",
+      "Current semantic comparison of patient belts/cuffs/straps",
+      "Full-size grasp/torso access and retained-fit measurement"
+    ],
+    "next_gate": "Read actual IFU/care procedure first. PASS FOR DEEP DIVE only when buckle/fit rule is source-bound and routine transfer linkage is explicit; no hardware test prerequisite at that point.",
+    "oews_provenance": "MIT-WAL/US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/OEWS/all_data_M_2025.csv, national AREA99/NAICS000000/OWN_CODE1235; attributed mirror, not live BLS authentication",
+    "onet_provenance": "Same pinned repository data/_cache/onet_task_statements_30_2.parquet; actual Core/Supplemental fields read, dated snapshot not newest release claim",
+    "procedure_status": "No applicable exact manufacturer procedure independently read; no GPU-ready claim",
+    "physical_experiments_performed": false,
+    "implementation_started": false
+  },
+  {
+    "id": "N065",
+    "operation": "Set a folding walker to matching leg heights",
+    "equipment": "Drive Medical-style full-size folding walker with real telescoping button legs; exact SKU UNSELECTED",
+    "procedure_source": "No actual Drive Medical height-adjustment IFU/pinned copy found in bounded GitHub search. Generic walker references are not an equipment procedure.",
+    "occupation": "Proposed nursing assistants or therapy staff; qualifying shared core fitting duty NOT established",
+    "employment": null,
+    "core_duties": [
+      {
+        "id": 19331,
+        "type": "Core",
+        "occupation": "31-1131.00",
+        "text": "Provide physical support...standing, walking, or exercising.",
+        "limitation": "Walking assistance does not establish regular initial walker height fitting."
+      },
+      {
+        "id": 512,
+        "type": "Core",
+        "occupation": "29-2061.00",
+        "text": "Help patients...standing and walking.",
+        "limitation": "Again assistance, not evidence of equipment prescription/fitting."
+      }
+    ],
+    "duty_link": "Physical therapists267330 and physical therapist aides48150 in mirrored May2025 data total315480, below >500k. Nursing assistants1448910 and LPN648410 cannot be appended without proving shared regular height-fitting work. No alternative valid importance category established.",
+    "comparators": [
+      {
+        "pr": 1761,
+        "title": "Lock a luggage handle",
+        "overlap": "Spring detent/telescoping capture; not a walker stance fit."
+      },
+      {
+        "pr": 1855,
+        "title": "Counter-twist a twist-lock pole to marked length and lock it",
+        "overlap": "Tube extension and retained length, but friction cam not button holes."
+      },
+      {
+        "pr": 1847,
+        "title": "Change a toilet roll on a spring spindle held by one end",
+        "overlap": "Compressed telescoping spring member, but no indexed four-leg stance."
+      }
+    ],
+    "actual_new_manipulation": "Actual four-leg detent engagement and stable support stance could be useful; merely repeating the same index adjustment four times does not create importance or novelty.",
+    "physical_success": "Proposed real buttons fully emerge in proper holes, prescribed handle height and all feet contact level ground, no telescoping under an OEM-supported benign proof. Do not invent target indices or arbitrary load.",
+    "complexity": "Medium: mostly rigid telescoping/button mechanisms, but full walker size, multi-leg posture and button force dominate.",
+    "yam_obstacle": "Full frame may obstruct access to rear legs; thumb-sized detents may be hard to depress with pads while controlling a tube. Ordinary adjustment posture/source unknown.",
+    "strongest_objection": "Initial mobility-aid fitting is specialist/occasional work rather than the qualifying occupations regular task; a miniature four-slider height puzzle would delete actual support/reach demands.",
+    "status": "REJECT",
+    "decision_scope": "Current unsupported jobs case, not a universal ban on walker mechanisms",
+    "missing_evidence": [
+      "Direct shared core fitting duty for qualifying workforce or a valid independently defended category",
+      "Actual device IFU/model and ordinary adjustment posture"
+    ],
+    "next_gate": "Do not spend on hardware/simulation. Reopen only on convincing duty/category evidence, not a new count or a manual alone.",
+    "oews_provenance": "MIT-WAL/US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/OEWS/all_data_M_2025.csv, national AREA99/NAICS000000/OWN_CODE1235; attributed mirror, not live BLS authentication",
+    "onet_provenance": "Same pinned repository data/_cache/onet_task_statements_30_2.parquet; actual Core/Supplemental fields read, dated snapshot not newest release claim",
+    "procedure_status": "No applicable exact manufacturer procedure independently read; no GPU-ready claim",
+    "physical_experiments_performed": false,
+    "implementation_started": false
+  },
+  {
+    "id": "N066",
+    "operation": "Lock a fresh sharps-container lid onto its base",
+    "equipment": "BD-style empty sharps container and its actual separately supplied lid; exact model/SKU and final-versus-use closure remain UNSELECTED",
+    "procedure_source": "No applicable BD manufacturer assembly IFU was located/read. Public official #1233 metadata/discussion independently read as comparison, not used as manufacturer instructions.",
+    "occupation": "Medical assistants31-9092.00",
+    "employment": 817870,
+    "core_duties": [
+      {
+        "id": 2033,
+        "type": "Core",
+        "text": "Clean and sterilize instruments and dispose of contaminated supplies.",
+        "date": "08/2021"
+      },
+      {
+        "id": 2032,
+        "type": "Core",
+        "text": "Prepare treatment rooms for patient examinations, keeping the rooms neat and clean.",
+        "date": "08/2021"
+      }
+    ],
+    "duty_link": "Routine contaminated-supply handling is direct; frequency/applicability of fresh-container base-lid assembly versus disposal closure is not verified. Do not infer manufacturer start state or borrow all nursing employment.",
+    "comparators": [
+      {
+        "pr": 1233,
+        "title": "Snap a full sharps container final lid shut before carrying it to pickup",
+        "overlap": "Closest real container closure. Public final rejection identifies0.6-scale gravity-latch surrogate, not actual full-size BD interface. Fresh lid assembly might differ, but not proved."
+      },
+      {
+        "pr": 32,
+        "title": "Close a snap-fit case lid",
+        "overlap": "Actual snap-fit lid seating/retention family; empty healthcare branding alone cannot distinguish."
+      },
+      {
+        "pr": 2049,
+        "title": "Lock a used safety needle hinged sheath one-handed, then put syringe in sharps tray",
+        "overlap": "Clinical safety closure/disposal context, but actual hinged sheath and containment goal differ from container assembly."
+      }
+    ],
+    "actual_new_manipulation": "Potential full-rim multi-point snap engagement on the actual fresh-container interface, distinct only if real assembly differs materially from final-disposal cap closure/generic case lid.",
+    "physical_success": "Proposed: real rim fully seated at every actual latch, closure resists an OEM-supported benign release test, intended in-use aperture functions. New empty container only; no contaminated sharps. Pose alone or a gravity latch cannot establish retention.",
+    "complexity": "Low/medium only after exact model selection: rigid lid/base plus compliant snap features; sequential latch engagement, lid warp and full container size matter.",
+    "yam_obstacle": "Palm may obstruct perimeter latch pressing; simultaneous case reaction and firm normal closure load may exceed a loose lightweight setup. Actual forces/size not read.",
+    "strongest_objection": "Ordinary case-lid closure is relabeled as healthcare, or the same final sharps-lid operation as #1233 is replayed; fresh versus final closure and actual manufacturer mechanism remain undefined.",
+    "status": "HOLD",
+    "missing_evidence": [
+      "Exact BD model/IFU and supplied lid/base start state",
+      "Material distinction from #1233/#32 and current board status",
+      "Direct regular fresh-container assembly connection to core duties",
+      "Real perimeter access/closure force and release test"
+    ],
+    "next_gate": "Read exact IFU and inspect actual fresh/final closure interfaces; PASS FOR DEEP DIVE only if function/core-duty and substantive distinct operation are supported, without requiring a finished simulator.",
+    "oews_provenance": "MIT-WAL/US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/OEWS/all_data_M_2025.csv, national AREA99/NAICS000000/OWN_CODE1235; attributed mirror, not live BLS authentication",
+    "onet_provenance": "Same pinned repository data/_cache/onet_task_statements_30_2.parquet; actual Core/Supplemental fields read, dated snapshot not newest release claim",
+    "procedure_status": "No applicable exact manufacturer procedure independently read; no GPU-ready claim",
+    "physical_experiments_performed": false,
+    "implementation_started": false
+  },
+  {
+    "id": "N068",
+    "operation": "Install a suction-canister liner and sealed lid",
+    "equipment": "Medela-style disposable suction liner/canister, actual lid and designated vacuum/patient ports; exact SKU UNSELECTED",
+    "procedure_source": "No exact Medela suction-liner IFU/preserved copy located. A readable educational medical-suction app was inspected but explicitly uses generic multi-brand rewritten content and states clinical material lacks nurse/physician review; it is not OEM procedure verification.",
+    "occupation": "Licensed practical/vocational nurses29-2061.00 (provisional exact-duty linkage)",
+    "employment": 648410,
+    "core_duties": [
+      {
+        "id": 517,
+        "type": "Core",
+        "text": "Assemble and use equipment, such as catheters, tracheotomy tubes, or oxygen suppliers.",
+        "date": "08/2021"
+      }
+    ],
+    "duty_link": "Core airway-equipment assembly gives a plausible regular clinical link; exact canister/liner procedure and who routinely prepares it still need evidence. General RN equipment preparation is Supplemental1851 in this30.2 snapshot and is not silently relabeled Core.",
+    "comparators": [
+      {
+        "pr": 1966,
+        "title": "Load an IV set into an Alaris pump module",
+        "overlap": "Authentic soft-line/keyed fitment seating, but no suction liner/rim seal/air path."
+      },
+      {
+        "pr": 32,
+        "title": "Close a snap-fit case lid",
+        "overlap": "Lid capture; actual pneumatic seal and liner expansion must distinguish operation from generic lid placement."
+      },
+      {
+        "pr": 372,
+        "title": "Open suction valve before starting pump",
+        "overlap": "Suction-system context and real fluid path; operation is valve state/control, not canister assembly. Title-level surfaced comparator, current details not independently re-read."
+      }
+    ],
+    "actual_new_manipulation": "Potential real nested liner deployment and airtight rim/port capture that remains causally necessary for suction. A labeled rigid cup swap or generic module insertion would not test this.",
+    "physical_success": "Proposed OEM-specified dry setup/occlusion or vacuum-hold check with real seated rim/ports and no unintended collapse/leak; observable gauge/time and correct tubing endpoints, not a hidden ready flag. Values and procedure unverified; no clinical use claim.",
+    "complexity": "High/very high: thin liner folding/expansion, sealing contact, port friction and pneumatic behavior. A full fluid model might be avoidable for honestly bounded dry assembly, but actual validation required.",
+    "yam_obstacle": "Lid width may fit aperture but full liner placement, seal land access, hose push-on force and holding reaction unknown; stock-gripper access cannot be inferred from part count.",
+    "strongest_objection": "Specialist equipment setup is credited to all nurses without evidence, and a generic cup/lid or boolean vacuum state replaces the actual liner/seal/port mechanism.",
+    "status": "HOLD",
+    "missing_evidence": [
+      "Exact applicable readable liner/canister IFU with port diagram",
+      "Routine procedure-to-LPN core-duty connection",
+      "Current comparison scope/ownership",
+      "Source-defined functional test and actual liner/rim/port parameters"
+    ],
+    "next_gate": "Bind exact IFU and clinical routine first. PASS FOR DEEP DIVE is possible without finished mechanics tests if those sources establish an authentic distinct manageable operation; otherwise keep outside build queue.",
+    "oews_provenance": "MIT-WAL/US_AI_MAP@e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3 data/OEWS/all_data_M_2025.csv, national AREA99/NAICS000000/OWN_CODE1235; attributed mirror, not live BLS authentication",
+    "onet_provenance": "Same pinned repository data/_cache/onet_task_statements_30_2.parquet; actual Core/Supplemental fields read, dated snapshot not newest release claim",
+    "procedure_status": "No applicable exact manufacturer procedure independently read; no GPU-ready claim",
+    "physical_experiments_performed": false,
+    "implementation_started": false
+  }
+]

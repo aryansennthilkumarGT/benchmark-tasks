@@ -1,0 +1,160 @@
+# ROBOCURVE — ESCAPE THE TWO-CANDIDATE DEAD END
+
+Good work identifying why cable-gland assembly and Euro-cylinder installation should not proceed.
+
+The current report at commit 1ca52c4b9decb94c17c6d5fee40be9c5c4021475 is accepted as our latest research checkpoint.
+
+But we have a process problem: we keep investing deeply in TWO candidates, eventually rejecting them, then restarting the same cycle.
+
+I want a broader, faster, source-driven selection process that actually gets us toward building defensible submissions.
+
+## NEW PRIORITY: FIND A REALISTIC IMPLEMENTATION QUEUE
+
+Do NOT spend the next entire research sprint on wiper replacement and brake-pad retainers.
+
+Perform a quick bounded check on both:
+
+- N041 wiper: official PR #1335 already tried the same physical operation. Determine whether the final rejection and closed status leave a genuine opportunity, and whether full-size YAM access is realistic.
+- N037 brake retainers: official PR #1967 is open. Determine whether the retainer-specific physical skill is truly independent of the earlier team's brake-pad operation. If not clearly independent, PARK it.
+
+Do not repeatedly reinterpret the same PRs without new evidence.
+
+## NEXT: EXPAND THE ACTIVE SEARCH TO 20 CANDIDATES
+
+Use the existing NEW_IDEAS_100.md as your starting pool.
+
+Select twenty candidates for a rapid parallel evidence screen.
+
+Favor ideas with:
+
+1. A genuinely recognizable, documented routine job procedure or another valid importance category.
+2. A manufacturer instruction that can be read from an accessible authoritative source or accurately attributed preserved copy.
+3. Direct occupational evidence, ideally using the O*NET 30.2 and BLS datasets you've already located.
+4. No direct accepted-task duplication and no serious unresolved active PR ownership conflict.
+5. Real physical interfaces that can be simulated without inventing custom equipment.
+6. Objectively measurable physical completion.
+7. Manageable YAM grasping, access and contact mechanics.
+
+Favor tasks with practical rigid-body or bounded compliant mechanisms when all else is equal.
+
+Do not select concepts simply because they have low part counts.
+
+## CRITICAL SEARCH STRATEGY
+
+SEARCH FROM REAL JOB PROCEDURES AND EQUIPMENT MANUALS, NOT JUST FROM INTERESTING ROBOT MOTIONS.
+
+Use the O*NET Core-task records you already have to identify genuinely routine physical operations.
+
+For each relevant core duty, find several concrete equipment procedures.
+
+Match exact manufacturer equipment to real components, actual interfaces and objective completion tests.
+
+Prioritize sources Codex can actually inspect, including properly attributed pinned copies, instead of spending the whole sprint repeatedly requesting blocked websites.
+
+Never disguise a mirror as an independently authenticated OEM source.
+
+## QUICK SCREEN FIRST, DEEP DIVE SECOND
+
+Create a 20-row decision table.
+
+For each candidate record:
+
+- Exact operation and equipment
+- Specific procedure source
+- Occupational core-duty evidence and employment
+- Closest three official benchmark comparators
+- Actual new manipulation capability
+- Physical success measurement
+- Approximate implementation complexity
+- Potential YAM access or force obstacle
+- Strongest likely reviewer objection
+- PASS FOR DEEP DIVE / HOLD / REJECT
+
+This is a rapid screening stage. Do not require finished simulation tests or physical hardware measurements to label an idea worth deeper investigation.
+
+But do not confuse PASS FOR DEEP DIVE with GPU-ready.
+
+Immediately eliminate known duplicates, clearly invented tasks, and unsupported occupational cases.
+
+## THEN SELECT FIVE, NOT TWO
+
+Choose the five most defensible candidates for detailed verification.
+
+Rank them by:
+
+1. Strongest importance evidence.
+2. Strongest semantic novelty.
+3. Authentic equipment representation.
+4. Straightforward physically meaningful scoring.
+5. Robot feasibility.
+6. Lower implementation risk and cost.
+
+Keep all five visible as a reserve pipeline.
+
+For the best three, create exact proposed equipment configurations, implementation approaches and cheap disqualification tests.
+
+Recommend TWO for implementation planning, with at least THREE credible backups.
+
+If no candidate survives, expand the discovery pool again rather than returning to already rejected ideas.
+
+## STRICT ANTI-REJECTION RULES
+
+Remember all four official rejections:
+
+#1647 — No authentic routine occupational task.
+#1703 — Duplicate existing battery-replacement skill.
+#1733 — Invented battery closure mechanism despite excellent simulated execution.
+#1772 — Generic equipment substituted for genuine essential interfaces.
+
+Also preserve the actual Version 21 corrections:
+
+- Simulator-state expert planning is permitted.
+- Ordinary procedural instructions are permitted.
+- Shared elementary motions do not automatically establish duplication.
+- Minor scoring gaps receive proportionate treatment.
+- Unclear sampled frames are not automatically fatal.
+- Authenticity and importance must still be demonstrated.
+
+Do not use the 500,000-worker threshold as a way to borrow unrelated occupational employment.
+
+Do not assume a manual proves a procedure is regular core work.
+
+Do not use overcautious hypothetical objections to reject a legitimate, source-supported candidate without examining the actual accepted precedent.
+
+## DELIVERABLES
+
+Write:
+
+research/robocurve-acceptance/PARALLEL_20_SCREEN.md
+
+research/robocurve-acceptance/FIVE_VIABLE_LEADS.md
+
+research/robocurve-acceptance/THREE_DETAILED_BUILD_PLANS.md
+
+research/robocurve-acceptance/IMPLEMENTATION_QUEUE.md
+
+The implementation queue should name:
+
+- Candidate 1
+- Candidate 2
+- Backup 1
+- Backup 2
+- Backup 3
+
+Include exact missing evidence and a go/no-go threshold for each.
+
+Do not falsely label a task qualified if it is not.
+
+## EXECUTION
+
+Use the existing research branch.
+
+Continue the work through completion, committing useful checkpoints without asking for routine permission.
+
+Do not start Brev, GPUs, Dream evaluations, task implementation, official submissions or paid testing.
+
+Produce an actual five-task pipeline rather than another lengthy explanation of why the previous two failed.
+
+Your immediate first action is to screen twenty candidates in parallel.
+
+BEGIN NOW.

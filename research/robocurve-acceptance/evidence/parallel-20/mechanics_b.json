@@ -1,0 +1,696 @@
+{
+  "screen_utc": "2026-11-14T23:33:12.350711+00:00",
+  "owner": "screen_mechanics_b",
+  "baseline_commit": "1ca52c4b9decb94c17c6d5fee40be9c5c4021475",
+  "rubric": "User-provided Version21",
+  "scope": "Rapid evidence screen, no hardware/native/task implementation. PASS FOR DEEP DIVE is not category qualification or GPU readiness.",
+  "rows": [
+    {
+      "id": "N040",
+      "operation": "Release the actual retaining clips and remove the front door trim without bending/marring it, as access for power-window motor service.",
+      "equipment": "2013 U.S. Hyundai Elantra L4-1.8L front door trim/panel, actual matching retaining clips, ordinary plastic panel-removal tool; exact clip/tool part numbers still to bind.",
+      "procedure_sources": [
+        {
+          "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/863.html",
+          "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+          "path": "2013 Hyundai Elantra L4-1.8L/pages/863.html",
+          "sha256": "b79f283bcd3c371b66621294a7558f28307b5f73e662eb8b0e0d31a908b05458",
+          "provenance": "Exact vehicle-specific Operation CHARM workshop reproduction read in pinned third-party archive. Original OEM publication and matching service-part numbers not independently authenticated.",
+          "independently_read": true
+        },
+        {
+          "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/887.html",
+          "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+          "path": "2013 Hyundai Elantra L4-1.8L/pages/887.html",
+          "sha256": "6b7e87d755264330d237715cdce3594f9e05e6dfef2f889de01f9423edb02ef3",
+          "provenance": "Exact vehicle-specific Operation CHARM workshop reproduction read in pinned third-party archive. Original OEM publication and matching service-part numbers not independently authenticated.",
+          "independently_read": true
+        }
+      ],
+      "procedure_verified": "READ: exact trim and power-window-motor service sequence in CHARM reproduction; no OEM-origin hash match.",
+      "core_duty": {
+        "occupation": "49-3023.00 Automotive Service Technicians and Mechanics",
+        "employment": 704640,
+        "employment_source": "MIT-WAL pinned May2025 OEWS export, national row; third-party mirror, not live BLS",
+        "task_id": 23546,
+        "classification": "Core",
+        "task": "Install, adjust, or repair hydraulic or electromagnetic automatic lift mechanisms used to raise and lower automobile windows, seats, and tops.",
+        "bridge": "Page863 names front-door trim removal as first step of power-window motor replacement. This grounds trim access in an explicit Core repair, rather than claiming every cosmetic clip job qualifies."
+      },
+      "comparators": [
+        {
+          "pr": 1986,
+          "operation": "Refit splash shield by aligning holes and installing a push-in retaining clip",
+          "status": "OPEN; revision received",
+          "distinction": "Installation/capture of a loose clip through two holes versus controlled release of retained clips from an actual panel; same component class requires semantic scope comparison, not automatic duplication.",
+          "commit": "e8ecd21da83c33bfe2107962a4d1a28495b1e336",
+          "path": "tasks/trim-clip/task.json",
+          "sha256": "beef3fd96059ab8c5dc4914988d3ae83bf2b619957ca4f0a93559578d2229397"
+        },
+        {
+          "pr": 1378,
+          "operation": "Back up spring-loaded trim panel while pressing fake plunger",
+          "status": "CLOSED; final not accepted",
+          "distinction": "Review explicitly says no retaining fastener and rigid sprung plate; cannot use its shortcuts as precedent. Its old simulator-state expert objection is superseded by Version21."
+        },
+        {
+          "pr": 1628,
+          "operation": "Extract fuse with tong puller, rock and recover",
+          "status": "OPEN; revisions",
+          "distinction": "Tool-assisted extraction overlaps force control, but electrical fuse friction/extraction has a different retaining interface than releasing vehicle trim clips."
+        }
+      ],
+      "new_manipulation": "Find an accessible trim-clip load path and insert/pry with a real panel tool while supporting a compliant real panel; release clip capture without replacing it by a plunger or unsupported lever rule.",
+      "physical_success": "Actual clips disengaged and bounded trim section/panel removable under ordinary handling; no broken retaining seats, new visible marring or permanent panel bend beyond a justified measured baseline. Use before/after photos, straightedge and actual clip/seat inspection; recovered clips need not be reusable if OEM calls for replacement. Do not score only distance moved.",
+      "complexity": "Medium/high: bounded panel/clip compliance and pry-tool contact; full-door perimeter may add substantial reach and multiple fasteners. A disclosed physically calibrated local clip/panel model can be adequate; no full textile model needed.",
+      "YAM_obstacle": "Stock tool grip, wedge access next to door flange, panel reaction and tool sweep. Use real accessible clip/panel geometry and an honest bounded service start; do not shrink a whole door or add a fake grip post.",
+      "strongest_reviewer_objection": "Ordinary clip extraction presented as an important job without preserving panel/access mechanics, or an inverse/component variant of #1986. The narrow scope must retain meaningful clip-release skill rather than just prying a loose plate.",
+      "decision": "PASS FOR DEEP DIVE",
+      "missing_evidence": [
+        "Exact clip/seat and permitted tool dimensions/materials",
+        "Full-size work posture/remaining-fastener start scope",
+        "Meaningful retained release scoring tolerance and damage baseline",
+        "Origin-aware current comparison to #1986 and external suites",
+        "Real force and stock-gripper swept access before implementation"
+      ],
+      "cheap_kill": "First photograph/measure an actual compatible clip seat and plastic tool at 1:1 and inspect whether full fingertips/palm can reach without deleting door features; then hand-rehearse clip release and wrong-position pry negative if genuine hardware is available. No test performed.",
+      "planning_only": true
+    },
+    {
+      "id": "N042",
+      "operation": "Separate the genuinely seated outer tie-rod taper from a steering knuckle using the correct screw-type separator.",
+      "equipment": "Candidate: 2013 Elantra outer tie rod/knuckle plus matching screw separator; OTC model only a search lead, not selected or verified.",
+      "procedure_sources": [
+        {
+          "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/700.html",
+          "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+          "path": "2013 Hyundai Elantra L4-1.8L/pages/700.html",
+          "sha256": "830757a1b9f76cb03b311bccb96ea61686de2e050cb8b2546d33f13b02277661",
+          "provenance": "Exact vehicle-specific Operation CHARM workshop reproduction read in pinned third-party archive. Original OEM publication and matching service-part numbers not independently authenticated.",
+          "independently_read": true
+        },
+        {
+          "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/3013.html",
+          "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+          "path": "2013 Hyundai Elantra L4-1.8L/pages/3013.html",
+          "sha256": "0a217474e6f128ce255634e35c648391c66afe0bf0efc8e242633fcfe210ee84",
+          "provenance": "Exact vehicle-specific Operation CHARM workshop reproduction read in pinned third-party archive. Original OEM publication and matching service-part numbers not independently authenticated.",
+          "independently_read": true
+        }
+      ],
+      "procedure_verified": "PARTIAL: exact vehicle source verifies removal of tie-rod end after split pin/castle nut, but does NOT prescribe an OTC screw separator or its safe seating/load/release method.",
+      "core_duty": {
+        "occupation": "49-3023.00 Automotive Service Technicians and Mechanics",
+        "employment": 704640,
+        "task_id": 23532,
+        "classification": "Core",
+        "task": "Tear down, repair, and rebuild faulty assemblies, such as power systems, steering systems, and linkages.",
+        "bridge": "Exact source places tie-rod end removal inside front hub/knuckle and steering-gear service. Tool-specific method remains unverified."
+      },
+      "comparators": [
+        {
+          "pr": 914,
+          "operation": "Seat swivelling tie-rod ball stud into tapered knuckle hole",
+          "status": "OPEN; revision received",
+          "distinction": "Same real objects/setting, but acquiring a separator to break a preloaded taper has different load path and endpoint from seating an unpreloaded ball stud. Needs actual source-backed preload/tool mechanics, not just inverse-motion claim.",
+          "commit": "be55f092d7f444b3d704a2f4039e5d5bf77a802a",
+          "path": "tasks/tie-rod-end/task.json",
+          "sha256": "2804f3125b42479b6aaa06d02d74969d652744796c1caf15a02ec1374bdf4c54"
+        },
+        {
+          "pr": 369,
+          "operation": "Extract interference collar using already-prepared two-jaw screw puller",
+          "status": "OPEN; revision received",
+          "distinction": "Same screw-to-axial-force principle; taper separator must seat reaction surfaces on real knuckle/stud and cause physical taper release, not become another prepared screw extraction.",
+          "commit": "8125724a6f15081c609cc9d1f9648917a9df8dc3",
+          "path": "tasks/mechanical-puller/task.json",
+          "sha256": "d8b41546250bdaaa3b27a078a9bae9fbac010ae16292c67ef06f16dddd4b4741"
+        },
+        {
+          "pr": 995,
+          "operation": "Drive bearing onto shaft through selected ring using sleeve",
+          "status": "CLOSED; final not accepted",
+          "distinction": "Review rejected a rule-choice-plus-prealigned press. N042 cannot rely on choosing the correct illustrated tool as its main difficulty."
+        }
+      ],
+      "new_manipulation": "Seat fork/reaction jaw and screw tip on an actual loaded taper assembly, retain alignment while generating separation force and manage released joint.",
+      "physical_success": "Real taper disengaged, stud free from matched knuckle seat, separator and joint retained without damaged boot/thread/seat; independent manual movement/visible separation after unloading. Screw rotations alone are not success.",
+      "complexity": "Medium/high unknown: screw mechanics are bounded, but force buildup, compliance, contact shift and sudden release must be genuine. Not estimated from rigid-part count.",
+      "YAM_obstacle": "Real separator size/jaw opening, screw torque transfer, release transient, and access around boot/castle-nut/stud. No numeric required torque currently verified.",
+      "strongest_reviewer_objection": "A generic low-force peg pop is substituted for separating a real loaded taper, or this merely reverses #914/duplicates prepared screw extraction #369 without new tool acquisition.",
+      "decision": "HOLD",
+      "missing_evidence": [
+        "Read exact compatible separator OEM instructions",
+        "Actual tie-rod/knuckle application and preload/reaction method",
+        "Boundary comparison to #914 and #369 current ownership",
+        "Stock-grip tool torque and release access"
+      ],
+      "cheap_kill": "Bind a genuine separator and verify its actual jaw/reaction placement and force on a real matched joint before any scene work. If the job only fits after weakening the taper or presetting the tool, stop.",
+      "planning_only": true
+    },
+    {
+      "id": "N049",
+      "operation": "Acquire and fit a genuine two-jaw puller to a bearing on a shaft, then extract it without losing jaw engagement.",
+      "equipment": "Posi Lock two-jaw family remains a search target; no exact OEM puller/bearing/SKU combination verified. The inspected Elantra wheel-bearing operation uses a press and adapters, not this puller.",
+      "procedure_sources": [
+        {
+          "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/700.html",
+          "commit": "0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06",
+          "path": "2013 Hyundai Elantra L4-1.8L/pages/700.html",
+          "sha256": "830757a1b9f76cb03b311bccb96ea61686de2e050cb8b2546d33f13b02277661",
+          "provenance": "Exact vehicle-specific Operation CHARM workshop reproduction read in pinned third-party archive. Original OEM publication and matching service-part numbers not independently authenticated.",
+          "independently_read": true
+        }
+      ],
+      "procedure_verified": "MISMATCH FOUND: readable matched vehicle procedure is press-based and cannot substantiate the proposed two-jaw extraction. Posi Lock exact instructions not obtained.",
+      "core_duty": {
+        "occupation": "49-3023.00 Automotive Service Technicians and Mechanics",
+        "employment": 704640,
+        "task_id": 23544,
+        "classification": "Core",
+        "task": "Repair or replace parts such as pistons, rods, gears, valves, and bearings.",
+        "bridge": "Bearing work is directly Core; this does not select or validate a two-jaw procedure where the read manual calls for press/support adapters."
+      },
+      "comparators": [
+        {
+          "pr": 369,
+          "operation": "Prepared two-jaw screw puller extracts fitted collar",
+          "status": "OPEN; revision received",
+          "distinction": "Explicitly starts with hooks pre-engaged, excluding fitting the puller. Proper multi-contact jaw acquisition could be a meaningful additional skill, but actual puller setup and centrality require proof; not automatically duplicate because both turn a screw.",
+          "commit": "8125724a6f15081c609cc9d1f9648917a9df8dc3",
+          "path": "tasks/mechanical-puller/task.json",
+          "sha256": "d8b41546250bdaaa3b27a078a9bae9fbac010ae16292c67ef06f16dddd4b4741"
+        },
+        {
+          "pr": 995,
+          "operation": "Bearing installation with inner-ring force sleeve",
+          "status": "CLOSED; final not accepted",
+          "distinction": "Different direction/tool interface, but selecting the correct force ring alone is not sufficient robotic difficulty."
+        },
+        {
+          "pr": 914,
+          "operation": "Seat ball stud in matched tapered hole",
+          "status": "OPEN; revision received",
+          "distinction": "Interference/taper engagement is related, not a bearing-puller extraction endpoint.",
+          "commit": "be55f092d7f444b3d704a2f4039e5d5bf77a802a",
+          "path": "tasks/tie-rod-end/task.json",
+          "sha256": "2804f3125b42479b6aaa06d02d74969d652744796c1caf15a02ec1374bdf4c54"
+        }
+      ],
+      "new_manipulation": "Center screw on shaft while fitting two real jaws behind bearing shoulder; maintain all reaction contacts as interference releases. Must not start with pre-engaged jaws.",
+      "physical_success": "Bearing actually clears shaft while remaining safely controlled; shaft/bearing load surfaces not damaged by wrong ring/jaw placement. Independent released bearing position and genuine fit failure controls, not turns-to-position latch.",
+      "complexity": "High/uncertain force/contact: multi-contact jaw seating, screw friction, retained reaction, bearing interference and release. Large real puller loads may exceed stock tool grip.",
+      "YAM_obstacle": "Access behind bearing, jaw reach and small shoulder clearance, stabilizing puller while starting screw, required torque and real part/tool mass.",
+      "strongest_reviewer_objection": "A different pulled collar called a bearing duplicates active #369, with the task core already prepared; or a read press-based OEM job is falsely presented as approving a jaw puller.",
+      "decision": "HOLD",
+      "missing_evidence": [
+        "Readable exact puller OEM procedure and compatible real job",
+        "Actual bearing shoulder/shaft support and force requirements",
+        "Decide whether non-prepared puller fitting is meaningful and independent of #369",
+        "Current ownership and genuine grasp/reaction access"
+      ],
+      "cheap_kill": "First source-select a real job that permits this exact puller. If only an unrelated press procedure is available, do not substitute the tool. Then map jaws and stock fingertips at real shoulder clearance and calculate required force/torque from measured fit.",
+      "planning_only": true
+    },
+    {
+      "id": "N050",
+      "operation": "Wrap and secure a genuine cushioned P-clamp around a supported hydraulic hose and fasten its ears to the real mounting tab.",
+      "equipment": "Adel/MS21919-style cushioned P-clamp was a bank equipment lead only. No exact clamp/hose/mount OEM installation procedure was read.",
+      "procedure_sources": [],
+      "procedure_verified": "NO exact read procedure. Elantra sources inspected for line/hose service do not establish the bank\u2019s cushioned P-clamp installation.",
+      "core_duty": {
+        "occupation": "49-3023.00 Automotive Service Technicians and Mechanics (candidate only)",
+        "employment": 704640,
+        "task_id": 23540,
+        "classification": "Core",
+        "task": "Repair and service air conditioning, heating, engine cooling, and electrical systems.",
+        "bridge": "Related hose-bearing systems are Core, but exact cushioned P-clamp routine and compatible service application are not established. Do not borrow aircraft employment or all mechanics for an unbound aviation clamp."
+      },
+      "comparators": [
+        {
+          "pr": 539,
+          "operation": "Install split cable guide around connected service-drawer cable and test travel",
+          "status": "MERGED/accepted",
+          "distinction": "Wrapping around a connected flexible member is shared; actual cushioned restraint and matched ear bolt could differ, but a clamp variant needs real functional support."
+        },
+        {
+          "pr": 1916,
+          "operation": "Lay motor/encoder cable in igus carrier and close crossbars",
+          "status": "OPEN; received",
+          "distinction": "Protecting routed flexible members and closing catches overlaps, but fixed P-clamp strain relief is a different interface if authentic."
+        },
+        {
+          "pr": 1501,
+          "operation": "Torque busbar lug bolt with click-type wrench",
+          "status": "OPEN; not accepted/revisions",
+          "distinction": "Bolted tightening shared; fastener torque alone does not supply P-clamp novelty or hose protection."
+        }
+      ],
+      "new_manipulation": "Control sprung clamp ears around a real flexible hose while obtaining bolt alignment without pinching/displacing its cushion; no fictional collar latch.",
+      "physical_success": "Real clamp fully surrounds hose with cushion correctly placed, genuine ears/bolt seated on mounting tab, hose retained without specified pinch/kink under a justified benign check. Numeric torque/slip limits need actual source.",
+      "complexity": "Medium/high unknown: bounded sprung metal and cushion compliance plus flexible hose reaction and thread acquisition. Not low simply because few parts.",
+      "YAM_obstacle": "Compressing/seating sprung ears while starting a small bolt, accessing rear of mounting tab, avoiding hose crush with stock fingers.",
+      "strongest_reviewer_objection": "An unsupported niche clamp operation inherits general maintenance employment; a generic strap/bolt replaces the genuine cushion/ear interface, or duplicates the accepted split-guide assembly in substance.",
+      "decision": "HOLD",
+      "missing_evidence": [
+        "Read exact compatible clamp/hose installation instructions",
+        "Direct routine duty-to-application bridge for a qualifying occupation",
+        "Real ear spring load, clamp size and tool access",
+        "Current semantic comparison to accepted #539"
+      ],
+      "cheap_kill": "Obtain a real documented application before CAD. If only aircraft usage or generic clamp catalogue pictures support the idea, do not claim a qualifying jobs case; map genuine ear/bolt/tool access once selected.",
+      "planning_only": true
+    }
+  ],
+  "query_evidence": [
+    {
+      "id": "N040-trim",
+      "query": "is:pr \"trim\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22trim%22",
+      "attempted_utc": "2026-11-14T23:27:38.360133+00:00",
+      "status": 200,
+      "sha256": "9471315690c75f2c250522261615678d8a43a8245514193f9afeef495e6750b7",
+      "hits": [
+        {
+          "title": "Refit a splash-shield panel with a push-in clip: hold its hole over the body's and push the clip home through both",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1986"
+        },
+        {
+          "title": "Pull a nail from painted trim: first lay a scrap block down as the claw hammer's fulcrum so the paint is never marked",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1744"
+        },
+        {
+          "title": "Measure powdered formula into a 4-ounce bottle: two unpacked scoops, each leveled against the tin's leveling bar",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1668"
+        },
+        {
+          "title": "Fit a circlip into its shaft groove with circlip pliers: spread it just enough, seat it square, turn it to check",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1561"
+        },
+        {
+          "title": "Back up a springy trim panel while pressing a clip home",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1378"
+        },
+        {
+          "title": "Add trim-paper-on-a-guillotine-keeping-the-holding-hand-clear-of-the-blade task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1245"
+        },
+        {
+          "title": "Add trim-card-on-guillotine-cutter task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1135"
+        },
+        {
+          "title": "Add trim-the-hedge-with-hedge-shears-sparing-the-flowers task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1059"
+        },
+        {
+          "title": "Run a dead-weight gauge test: load, float and spin the weights, then trim the gauge",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1023"
+        }
+      ],
+      "pagination_links": []
+    },
+    {
+      "id": "N042-taper",
+      "query": "is:pr \"ball joint\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22ball+joint%22",
+      "attempted_utc": "2026-11-14T23:27:38.361233+00:00",
+      "status": 200,
+      "sha256": "18caee8052e2811869e4887d8cb15209acbfab6a5e8e3626b301b6507f5a1e79",
+      "hits": [
+        {
+          "title": "Add pick-ripe-tomatoes-at-the-knuckle task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/906"
+        }
+      ],
+      "pagination_links": []
+    },
+    {
+      "id": "N042-separator",
+      "query": "is:pr separator",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+separator",
+      "attempted_utc": "2026-11-14T23:27:38.968614+00:00",
+      "status": 200,
+      "sha256": "e651c8be7668912e13b4e9217c10285a161eedea8f582e4ff7361d27e245b69c",
+      "hits": [
+        {
+          "title": "Add Mix the two layers in a separatory funnel by shaking it task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1156"
+        }
+      ],
+      "pagination_links": []
+    },
+    {
+      "id": "N049-puller",
+      "query": "is:pr puller",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+puller",
+      "attempted_utc": "2026-11-14T23:27:39.038303+00:00",
+      "status": 200,
+      "sha256": "a31481925b0f6ddf8ab7bd2292830abd002574bc1682ae9f39729d4761645cde",
+      "hits": [
+        {
+          "title": "Add fuse-puller-rock task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1628"
+        },
+        {
+          "title": "Extract and recover a fitted collar with a prepared screw puller",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/369"
+        }
+      ],
+      "pagination_links": []
+    },
+    {
+      "id": "N049-bearing",
+      "query": "is:pr \"bearing\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22bearing%22",
+      "attempted_utc": "2026-11-14T23:27:39.527113+00:00",
+      "status": 200,
+      "sha256": "07e7fa46f9b506a9c8e6c4b1b9da06d6d047f6c38a5521dc3da34668b3748334",
+      "hits": [
+        {
+          "title": "Attach a removable saucepan handle and use it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2042"
+        },
+        {
+          "title": "Fit a keyed pulley on a shaft",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2037"
+        },
+        {
+          "title": "Add IV bag spiking and drip-chamber priming task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2031"
+        },
+        {
+          "title": "Turn a humanoid's hung upper body round on its gantry hook so that its back faces you",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2015"
+        },
+        {
+          "title": "Shim a door's hinge jamb: drive two opposed tapered shims in from both wall faces until snug, not bowing it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1969"
+        },
+        {
+          "title": "Couple a scaffold transom to a ledger: lay it at its chalk mark, close the cap, swing the bolt in and run the nut down",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1935"
+        },
+        {
+          "title": "Add task: Set a telescoping gauge to a bearing housing's bore diameter and leave it on its stand",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1880"
+        },
+        {
+          "title": "Restock a twin jumbo-roll tissue dispenser: stub to the reserve spindle, new roll on the primary, cover locked",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1852"
+        },
+        {
+          "title": "Support a bound volume for digitization",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1793"
+        },
+        {
+          "title": "Add cue-record-track-three: Cue a record at the start of its third track",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1725"
+        },
+        {
+          "title": "Remove a loaded drawer from ball-bearing slides by pressing both disconnect levers at once",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1708"
+        },
+        {
+          "title": "Set a sink drain's fall inside the code window on three stands: a quarter inch per foot to one diameter, all bearing",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1677"
+        },
+        {
+          "title": "Rout a curved edge on a router table: brace the board on the starting pin and pivot it onto the bearing before feeding",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1572"
+        },
+        {
+          "title": "Loosen a nylon nut with an adjustable wrench, rolling the jaw snug on the flats first",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1570"
+        },
+        {
+          "title": "Fit a circlip into its shaft groove with circlip pliers: spread it just enough, seat it square, turn it to check",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1561"
+        },
+        {
+          "title": "Unpack a supported optical instrument without dropping it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1344"
+        },
+        {
+          "title": "Fit the Matching Bit and Power-Tighten a Loose Drawer Knob",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1288"
+        },
+        {
+          "title": "Transfer an electrode roll using a movable through-core spindle",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1157"
+        },
+        {
+          "title": "Feed a hex shaft through two bearings",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1113"
+        },
+        {
+          "title": "Pack two uneven bearings up to the datum, then seat the beam level across them",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1038"
+        },
+        {
+          "title": "Add Drive a bearing onto its shaft through the inner ring, never through the balls task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/995"
+        },
+        {
+          "title": "Hang a holder on its keyhole studs",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/694"
+        },
+        {
+          "title": "Land decking bundles across three joists, within a foot of the bearing end",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/593"
+        },
+        {
+          "title": "Turn a camera turntable without wrapping its cable",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/581"
+        },
+        {
+          "title": "Line up two bearings with a motor's shaft",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/259"
+        }
+      ],
+      "pagination_links": [
+        "/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22bearing%22&page=2"
+      ]
+    },
+    {
+      "id": "N050-clamp",
+      "query": "is:pr \"P-clamp\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22P-clamp%22",
+      "attempted_utc": "2026-11-14T23:27:39.585347+00:00",
+      "status": 200,
+      "sha256": "43e04773f7a470f636c7ece5898046edab4f822d99c1230482c814c2e07e82a6",
+      "hits": [],
+      "pagination_links": []
+    },
+    {
+      "id": "N050-cushion",
+      "query": "is:pr \"cushioned\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22cushioned%22",
+      "attempted_utc": "2026-11-14T23:27:40.104255+00:00",
+      "status": 200,
+      "sha256": "c2c7ea91c2f9f3e7f31574622e2fc70e8bced9a735d010a8cfb616cdbbb64f11",
+      "hits": [
+        {
+          "title": "Pack a shock-sensitive sensor box with one of four identical-looking foam pads",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1705"
+        },
+        {
+          "title": "Put a pressure-relief cushion in a wheelchair the right way round",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1651"
+        },
+        {
+          "title": "Add shock-protective sensor packaging with a physical drop test",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1348"
+        },
+        {
+          "title": "Fit a child seat tightly: press it into the cushion while the other hand takes up the anchor strap",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1291"
+        },
+        {
+          "title": "Add Pack a failed network card for return, cushioned on both faces task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/646"
+        }
+      ],
+      "pagination_links": []
+    }
+  ],
+  "alternate_source_queries": [
+    {
+      "id": "OTC",
+      "url": "https://github.com/search?q=%22ball+joint+separator%22+in%3Areadme&type=repositories",
+      "query": "\"ball joint separator\" in:readme",
+      "attempted_utc": "2026-11-14T23:29:48.115101+00:00",
+      "status": 200,
+      "sha256": "6738abb6b862abd600b627584166bfabf4a97042b17fc356f309155947b2ccd9",
+      "text": "repositories Search Results \u00b7 \"ball joint separator\" in:readme Filter by Code ... ( ... ) results Repositories 1 ( 1 ) results Issues results Pull requests results AI resources results Discussions results More Advanced Owner Size Number of followers Number of forks Number of stars Date created Date pushed Topic License Archived Public Private Advanced search Filter: Repositories 1 ( 1 ) 1 result ( 85 ms ) 1 result Sort by: Best match Filter pniessen/e46-m3-touring Python \u00b7 0 \u00b7 Updated 23 days ago Star Sponsor open source projects you depend on Contributors are working behind the scenes to make open source better for everyone\u2014give them the help and recognition they deserve. Explore sponsorable projects ProTip! Press the / key to activate the search input again and adjust your query. Sponsor open source projects you depend on Contributors are working behind the scenes to make open source better for everyone\u2014give them the help and recognition they deserve. Explore sponsorable projects ProTip! Press the / key to activate the search input again and adjust your query."
+    },
+    {
+      "id": "PosiLock",
+      "url": "https://github.com/search?q=%22Posi+Lock%22+in%3Areadme&type=repositories",
+      "query": "\"Posi Lock\" in:readme",
+      "attempted_utc": "2026-11-14T23:29:48.115783+00:00",
+      "status": 200,
+      "sha256": "95646267a7f5d40a87d985a97b1d4283658b6f14b9408119a4b3b1b5d9393833",
+      "text": "repositories Search Results \u00b7 \"Posi Lock\" in:readme Filter by Code ... ( ... ) results Repositories 0 ( 0 ) results Issues results Pull requests results AI resources results Discussions results More Advanced search Filter: Repositories 0 ( 0 ) 0 results ( 52 ms ) 0 results Sort by: Best match Filter Your search did not match any repositories Try one of the tips below to find more repositories Search across an organization Saved searches You could try an advanced search ."
+    },
+    {
+      "id": "Adel",
+      "url": "https://github.com/search?q=%22Adel+clamp%22+in%3Areadme&type=repositories",
+      "query": "\"Adel clamp\" in:readme",
+      "attempted_utc": "2026-11-14T23:29:48.520811+00:00",
+      "status": 200,
+      "sha256": "273617c8e11e49c6008331375c4e667f3e75dcfb7a92c1501adabffa46e4bd1f",
+      "text": "repositories Search Results \u00b7 \"Adel clamp\" in:readme Filter by Code ... ( ... ) results Repositories 0 ( 0 ) results Issues results Pull requests results AI resources results Discussions results More Advanced search Filter: Repositories 0 ( 0 ) 0 results ( 38 ms ) 0 results Sort by: Best match Filter Your search did not match any repositories Try one of the tips below to find more repositories Search across an organization Saved searches You could try an advanced search ."
+    },
+    {
+      "id": "hydraulic-clamp",
+      "url": "https://github.com/search?q=%22P-clamp%22+manual+in%3Areadme&type=repositories",
+      "query": "\"P-clamp\" manual in:readme",
+      "attempted_utc": "2026-11-14T23:29:48.542071+00:00",
+      "status": 200,
+      "sha256": "1643185edaa5a3cd212b2416edc0faba5dda49a7a3edb4181359a402abeeec3a",
+      "text": "repositories Search Results \u00b7 \"P-clamp\" manual in:readme Filter by Code ... ( ... ) results Repositories 71 ( 71 ) results Issues results Pull requests results AI resources results Discussions results More Languages Python TypeScript HTML JavaScript Rust Jupyter Notebook C C++ Common Lisp Go More languages... Advanced Owner Size Number of followers Number of forks Number of stars Date created Date pushed Topic License Archived Public Private Advanced search Filter: Repositories 71 ( 71 ) 71 results ( 194 ms ) 71 results Sort by: Best match Filter Ankitbhaumik916/adaptive-testing-engine AI\u2011Driven Adaptive Diagnostic Engine : GRE\u2011style adaptive testing with IRT and AI study plans. Python \u00b7 0 \u00b7 Updated on Mar 10 Star KARTIKrocks/go-paginate A comprehensive, zero-dependency Go pagination library supporting offset, cursor, range, and GraphQL Relay-style pagination with HTTP int\u2026 go pagination golang open-source http Go \u00b7 3 \u00b7 Updated on Jun 29 Star grigor-gatchev/gpufand A fan control daemon for some NVidia cards (3080/3090 among them). Keeps core and RAM cooler. Depends only on libc. Needs root. Can run a\u2026 C \u00b7 0 \u00b7 Updated on Oct 11 Star marcusblabs/autorange-vs-stable-simulator Public archive Compare swap slippage between a concentrated AutoRange band and a Curve-style Stable pool, on the same pair and same capital. Curve pool \u2026 TypeScript \u00b7 0 \u00b7 Updated on Jul 9 Star elbicuderri/PyTorch_Study Python \u00b7 0 \u00b7 Updated on May 13, 2021 Star verticalconsulting/verticalconsulting HTML, CSS, JS, media, and config files for my business website HTML \u00b7 0 \u00b7 Updated on Feb 18 Star haroldl/clamp Python implemented on top of Common Lisp Common Lisp \u00b7 0 \u00b7 Updated on Jun 21 Star Easife/private-newsletter \u79c1\u4eba\u65b0\u95fb\u7b80\u62a5 - RSS \u6293\u53d6\u3001AI \u7b5b\u9009\u3001\u7ffb\u8bd1\u3001HTML \u751f\u6210 Python \u00b7 0 \u00b7 Updated on Sep 28 Star Saadikram667/Vantage-Grid-CODE-CONNECT-26- HTML \u00b7 0 \u00b7 Updated 27 days ago Star ndendic/RustyTags High-performance HTML generation library in Rust with Python bindings. 250k+ pages/sec with advanced caching mechanisms. Python \u00b7 12 \u00b7 Updated on Apr 10 Star Previous 1 2 3 4 5 6 7 8 Next Sponsor open source projects you depend on Contributors are working behind the scenes to make open source better for everyone\u2014give them the help and recognition they deserve. Explore sponsorable projects ProTip! Press the / key to activate the search input again and adjust your query. Sponsor open source projects you depend on Contributors are working behind the scenes to make open source better for everyone\u2014give them the help and recognition they deserve. Explore sponsorable projects ProTip! Press the / key to activate the search input again and adjust your query."
+    }
+  ],
+  "public_PR_evidence": [
+    {
+      "number": 1986,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1986",
+      "retrieved_utc": "2026-11-14T23:28:21.103729+00:00",
+      "title": "Refit a splash-shield panel with a push-in clip: hold its hole over the body's and push the clip home through both by Aayush99000 \u00b7 Pull Request #1986 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "0b5f46573f46c53f9576eb7347bbb1eefd6e7af13d9b8b120577f97967aef722",
+      "comments": [
+        "Adds tasks/trim-clip.",
+        "Received as TK-JJCH8B , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-JJCH8B). Clarity and reproducibility (not met): The custom sprung jaws lack the geometry and spring resistance needed to reproduce the clip's physical insertion and retention. What to change: Specify the sprung catch well enough to build it: give jaw dimensions, resting gap, travel, spring preload or force curve, and the clip engagement geometry. Also add the clip tray's dimensions and material, and consider requiring the grippers to clear the panel and clip before full credit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-KLUMK2 (a revision of TK-JJCH8B), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Revised for the clarity feedback: task.json now specifies the sprung catch (two 4 mm steel rods, 12 mm long, tops 0.3 mm under the flange, 8.4 mm apart at rest, each sliding out up to 3 mm on a 300 N/m spring preloaded 0.5 mm, 0.15 N at rest and 1.05 N at full travel, and how the 9.6 mm collar spreads them and they close round the 7.6 mm stem) and the clip tray (a 4 cm square, 2 cm tall grey plastic block with the 11.4 mm hole). \"Collar past the catch\" in the scoring is now spelled out as the collar's top below the rods' undersides. The task file is unchanged, so the runs and media stand.",
+        "Not accepted (TK-KLUMK2). Clarity and reproducibility (not met): The clip\u2019s collar position and thickness along the stem are not specified, although they determine catch engagement and flush seating. What to change: Please specify the collar\u2019s position and thickness along the clip stem, including its engagement with the rods, so the catch and flush-seating geometry can be reproduced. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Revised again: task.json now gives the clip's profile along its axis (stem 11 mm, then the 9.6 mm collar, 3 mm thick, 11 to 14 mm below the head's underside, then a 2 mm tip) and how the collar engages the rods: where it first meets them going in, when it is past them, and where it sits relative to them once seated flush. The task file is unchanged, so the runs and media stand.",
+        "Received as TK-94YSKR (a revision of TK-KLUMK2), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      ],
+      "embedded_PR_state": "OPEN"
+    },
+    {
+      "number": 1378,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1378",
+      "retrieved_utc": "2026-11-14T23:28:21.104074+00:00",
+      "title": "Back up a springy trim panel while pressing a clip home by Akshat-Kakade \u00b7 Pull Request #1378 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "a42bff628689f20f221b7da53bcf48e07d920b6345d0cc25359831c13df9954e",
+      "comments": [
+        "Bimanual task: one arm backs a spring-seated panel from underneath with a fork paddle (sag <= 3 mm) while the other arm presses a detent clip into it, then withdraws. Scripted demo scores 1.0 in simulation; ablations (press only, back only) score 0.25 and 0.5; Dream-1 run scored 0.0. README lists deviations (no latch, softer springs).",
+        "Received as TK-F3VZB7 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted: final (TK-F3VZB7). Flags: Egregious simplification Importance (not met): The stated automotive relevance rests on calling a spring-loaded button a trim clip, although the specified build does not install or retain a fastener. Construct validity (not met): The specified real-world build uses an unlatched plunger and rigid spring-mounted panel instead of a retaining clip and a flexing trim panel. Scoring (not met): The implementation awards 0.75 after one qualifying step and can report 1.0 before the required stillness hold, contrary to the stated scoring. Clarity and reproducibility (not met): The real-world setup omits material specifications and enough dimensions for the fork, grip post, base and spring seats to reproduce the fixture. Feasibility (not met): The scripted demo controls its actions using exact simulator object poses and clip-slider travel rather than robot-observable measurements. The proposed fixture replaces clip installation with pressing a spring-return plunger, and replaces a flexing trim panel with a rigid plate on springs. It therefore does not represent the claimed fastening and panel-protection skill; a real retaining clip and representative panel assembly would constitute a different task. The scripted demo also relies on simulator-internal object poses and clip travel, and the scorer's hold-time behavior does not match the documented thresholds. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      ],
+      "embedded_PR_state": "CLOSED"
+    },
+    {
+      "number": 1628,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1628",
+      "retrieved_utc": "2026-11-14T23:28:22.667638+00:00",
+      "title": "Add fuse-puller-rock task by YosubShin \u00b7 Pull Request #1628 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "e6afd2b2ed45ff14128bd48b7361255ebb2f26c40e096d92261558257e471795",
+      "comments": [
+        "Rock a named midget fuse out of its open-clip block with a tong puller. Scores: Dream-1 run: 0.0; demo: 1.0. The demo video shows a full-score scripted run. Media ID M-59LL5S. \ud83e\udd16 Generated with Claude Code https://claude.ai/code/session_01WpxAH3sUDW2UJyGCRpSMVb",
+        "Received as TK-T6QCNL , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-T6QCNL). Importance (not met): The de-energized panel presents no specified hazard to people, though fuse servicing is regular work for electricians and fits Impact on jobs. Scoring (not met): The scorer records removal without the puller but does not apply the stated 0.5 cap, allowing later re-gripping to earn higher credit. What to change: Change the domain to Impact on jobs and explain how fuse servicing is part of electricians' regular work. Update the primary scorer so that removing F2 without the puller holding it caps the score at 0.5, even if it is subsequently gripped by the puller. Also verify that disturbing F1 or F3 sets the overall score to 0 after any earlier milestone. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Revision pushed addressing the review: removing F2 without the puller holding it now caps the score at 0.5 for the rest of the trial, even if it is later gripped by the puller (tested: lifted bare, replaced, then pulled properly \u2192 0.5). Disturbing F1 or F3 sets the score to 0 after any earlier milestone (tested before any milestone and after 0.75 \u2192 0). Category changed to Impact on jobs with context on fuse servicing as regular electrician and maintenance work. Demo still 1.0.",
+        "Received as TK-46YUQB (a revision of TK-T6QCNL), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-46YUQB). Tong puller should be oriented perpendicular to the fuse To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      ],
+      "embedded_PR_state": "OPEN"
+    },
+    {
+      "number": 914,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/914",
+      "retrieved_utc": "2026-11-14T23:28:21.877218+00:00",
+      "title": "Seat a swivelling ball stud square in a knuckle's tapered hole, from a tie rod that swings by parvpatodia \u00b7 Pull Request #914 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "c57202b9a6259ac1cca1117e07f98998d1b259b12cc740927673113132d71bef",
+      "comments": [
+        "Adds tasks/tie-rod-end.",
+        "Received as TK-CFSYC8 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-CFSYC8). Flags: Dream-1 was run before the stud neck cylinder was given positive height. Scoring (not met): Full credit is possible while the gripper still supports the stud, and the specified seat depth is a simulation-specific offset rather than a calibrated real-part reference. What to change: Require the gripper to release and clear the stud before awarding full credit. Define the real-world home depth using the actual matched parts rather than the simulation-specific 0.6 mm offset, and explain how to measure it. Run Dream-1 on the final fixture with the corrected stud neck and provide its score and video. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-BVL6ZZ (a revision of TK-CFSYC8), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      ],
+      "embedded_PR_state": "OPEN"
+    },
+    {
+      "number": 369,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/369",
+      "retrieved_utc": "2026-11-14T23:28:21.103271+00:00",
+      "title": "Extract and recover a fitted collar with a prepared screw puller by EmiliyanGospodinov \u00b7 Pull Request #369 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "4472782fb6d4c232a1942a8f6b3736b670f75f3e96b2f5ecc35b8f0dc860ece1",
+      "comments": [
+        "Revises the prepared screw-puller task in response to the fit review . The unexplained 8 N resistance of a clearance metal bore is replaced with a specified integral polymer interference land on the steel shaft. Geometry, material inputs and an offline axisymmetric elastic calculation determine the nominal 14.61 N axial resistance. Contact persists until the land clears the complete shaft and cup rim at 28 mm rise. The physical interference bore is distinguished from the relieved rigid collision proxy; equations, assumptions and sources are included. Validation: corrected nominal scripted demo and reset repeat both score 1.0 at 1,588 of 2,000 steps; 22 CPU checks pass. Matching Dream-1 evaluation scores 0.0 after 2,000 steps, with zero errors. All evaluations use the same nominal source, instruction and scorer. An additional higher-resistance diagnostic did not extract the collar; hardware tolerance-wide feasibility is not claimed. Matching setup, demo and model-run media: M-YHNVC3.",
+        "Received as TK-F66MKL , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-F66MKL). Instruction should only state the extraction and final-state goals, demo should only use observable information To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-8GJ4WA (a revision of TK-F66MKL), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-8GJ4WA). Construct validity (not met): The specified 13 mm collar bore on a 12 mm shaft leaves clearance, so the simulated 8 N fitted resistance has no specified real-world source. What to change: The 13 mm collar bore is larger than the 12 mm shaft, so the specified hardware cannot provide the fitted resistance modeled in simulation. Specify a realistic resisting fit or retaining mechanism, update the simulation and fidelity note accordingly, and demonstrate full extraction within the action limit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-RZ5VQW (a revision of TK-8GJ4WA), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-RZ5VQW). Flags: Verify that the reported extraction and screw turns were produced by the submitted code: design.py specifies 6 mm/turn while the README reports 12 mm/turn. \u00b7 README links to a public pull-request review that may identify the team. Clarity and reproducibility (not met): The README and fidelity note specify a 12 mm/turn screw while design.py specifies 6 mm/turn, so the physical setup and simulation cannot be reproduced consistently. What to change: Make the screw lead consistent across design.py, the setup and fidelity documentation, and the demonstration controller. Verify that the submitted simulation and matching full-score demonstration achieve the specified extraction with that lead; rerun and update the evidence if the code or demonstration must change. Remove the direct link to the earlier public pull-request review from the README to preserve blind review. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "The screw-lead clarification is pushed. The earlier file retained a probe-only 6 mm reference before the final 12 mm task assignment. We have separated that legacy reference from a single LEAD = 0.012 definition. The prepared-task ram coupling, reaction torque and controller already used the final 12 mm value, as did the recorded demo and Dream evaluations. We verified equivalence against both recorded source snapshots: all pre-existing effective constants and executable functions are unchanged; the other runtime files are byte-identical. A regression check now verifies the single task lead and separate legacy probe reference. The identifying public-review link has been removed from the README. Physics, instruction and scoring are unchanged, so the matching demo/reset scores of 1.0/1.0 and Dream score of 0.0 remain applicable; no new paid evaluation was needed. Media remains M-YHNVC3.",
+        "Received as TK-YHT5XN (a revision of TK-RZ5VQW), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      ],
+      "embedded_PR_state": "OPEN"
+    },
+    {
+      "number": 995,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/995",
+      "retrieved_utc": "2026-11-14T23:28:21.862080+00:00",
+      "title": "Add Drive a bearing onto its shaft through the inner ring, never through the balls task by kamya390 \u00b7 Pull Request #995 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "ae4ea07a6bed3f6f64e4157a293f1ac42e974bb732525cc9df9e6919db453c43",
+      "comments": [
+        "No description provided.",
+        "Received as TK-2H9ERX , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted: final (TK-2H9ERX). Flags: Difficulty isn't robotic Importance (not met): Choosing the inner-ring load path can be tested from the setup and a rule, while placing and pressing the sleeve is ordinary manipulation. The task's main difficulty is choosing which bearing ring should receive the force, a decision that can be tested without a robot. Once that choice is made, the pre-aligned bearing requires ordinary sleeve placement and pressing, so this does not meet the benchmark's importance bar. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      ],
+      "embedded_PR_state": "CLOSED"
+    },
+    {
+      "number": 539,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/539",
+      "retrieved_utc": "2026-11-14T23:28:21.992617+00:00",
+      "title": "Add split cable guide retrofit benchmark by TheOneEnzo \u00b7 Pull Request #539 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "cfa380f6d89937e46fd4c0795e91d3b40a7177b4f66668e9cb9763b860330c75",
+      "comments": [
+        "Add a bimanual YAM task for fitting a split guide around an already-connected service drawer cable. The robot locks the guide in the panel and triggers a passive travel test. Full credit requires the thicker cable sleeve to pass through the guide and the drawer to reach its mark while both plugs stay seated. The scripted demo scored 1.0 in 463 steps . Dream-1 scored 0.0 in 800 steps . With the narrow guide preset, the drawer stalled at 9.77 mm and earned 0.5. With the guide absent, full drawer travel earned zero. Five offline scoring tests passed. The task README documents the fixture, scorer, reset and reproduction commands. Media M-D4EQMT includes the Dream-1 run, full-score demo, and setup screenshot.",
+        "Received as TK-KAH5TE , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Accepted (TK-KAH5TE). Thank you! Merging this pull request."
+      ],
+      "embedded_PR_state": "MERGED"
+    },
+    {
+      "number": 1916,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1916",
+      "retrieved_utc": "2026-11-14T23:28:22.525896+00:00",
+      "title": "Lay a robot axis's two cables into its cable carrier and snap every crossbar shut by AMMistry18 \u00b7 Pull Request #1916 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "8b73bd92952fe1add80a81a56f07746decd56d258783e325f22fc331c5192c03",
+      "comments": [
+        "The robot fills a robot axis's cable carrier, a step in building every linear axis or gantry for a robot cell. Two limp cables (grey motor, orange encoder), clamped in the strain relief at the fixed end, must be laid side by side into a real-size igus E2 mini carrier (12 links, 25 mm inner width), grey on the far side and never crossing. Each of the 12 hinged crossbars must then be swung over and pressed until its sprung catch snaps over it. One hand lifts each cable over the side plates near the fixed end while the other lays its far end. A crossbar resting on its catch, or shut on a cable riding a side plate, does not count. Pulling either cable more than 5 mm through its tie-wrap tears the strain relief and scores 0 for the rest of the trial. task.json : instruction, setup, scoring, run limit, fidelity and scores README.md : run and score commands, the carrier, crossbar, catch and cable dimensions, scoring, the scripted demo, real-trial checks (straightedge and fingernail on each bar, top photo) and licences close_cable_carrier_over_robot_cable.py : scene (carrier with hinged crossbars and sprung sliding catches, capsule-chain cables, strain relief), scorer and scripted demo yam_parts.py , yam_joints.py , yam_mesh.py : kit modules, copied unchanged test_close_cable_carrier_over_robot_cable.py : offline checks of the scorer on goal, partial-credit and cheat layouts, and of the demo's reach \ud83e\udd16 Generated with Claude Code",
+        "Received as TK-AY6X8L , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      ],
+      "embedded_PR_state": "OPEN"
+    },
+    {
+      "number": 1501,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1501",
+      "retrieved_utc": "2026-11-14T23:28:22.584820+00:00",
+      "title": "Add Torque a busbar lug bolt with a click-type torque wrench task by kamya390 \u00b7 Pull Request #1501 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "cd6b23611a2ae9ec2dc249f19f788f141fe717a910cfe4c5c30c12201becc860",
+      "comments": [
+        "No description provided.",
+        "Received as TK-NP6A85 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-NP6A85). Scoring (not met): The scorer awards 1.0 at 14.5 degrees, where the specified torque is almost twice the setting, despite the instruction to torque correctly. Clarity and reproducibility (not met): The bolt size, thread, lug and cable dimensions, actual wrench specification, and real joint calibration are missing despite determining the torque-angle thresholds. What to change: Specify the bolt size and thread, lug and cable dimensions, and a suitable real torque wrench and joint, including how the snug starting state and torque-angle relationship are calibrated. Change the primary scorer to reject torque above a documented acceptable tolerance rather than awarding full credit nearly to the yield point, and describe how peak torque is verified in a real trial. Confirm that the demo releases the wrench and holds full success within the run limit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-VCSWCB (a revision of TK-NP6A85), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-VCSWCB). Robot should be responsible for seating the torque wrench To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      ],
+      "embedded_PR_state": "OPEN"
+    }
+  ],
+  "rejected_representation_shortcuts": [
+    "No switched generic trim plunger replacing actual clip release",
+    "No claiming press-based vehicle procedure approves jaw puller",
+    "No prepared puller unless bounded honest goal excludes acquisition, which would worsen #369 overlap",
+    "No claiming simulator-state expert access forbidden under Version21"
+  ]
+}

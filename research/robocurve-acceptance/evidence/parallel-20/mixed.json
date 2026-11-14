@@ -1,0 +1,585 @@
+{
+  "agent": "screen_mixed",
+  "scope": "Four assigned rows of rapid parallel20; no task implementation/native/paid/hardware work. No PASS forced from missing sources.",
+  "baseline": "1ca52c4b9decb94c17c6d5fee40be9c5c4021475",
+  "decisions": {
+    "PASS FOR DEEP DIVE": 0,
+    "HOLD": 3,
+    "REJECT": 1
+  },
+  "rows": [
+    {
+      "id": "N005",
+      "exact_operation_and_equipment": "Progressively engage glazing-bead toe/undercut around an installed pane in a matched REHAU/Deceuninck window-profile system; no exact series/bead/gasket SKU selected.",
+      "specific_procedure_source": {
+        "status": "NOT READ \u2014 exact matched-system procedure missing",
+        "publisher_lead": "https://www.rehau.com/",
+        "search_evidence": "Five global source searches in this group were rate-limited429; publisher URL is a lead, not inspected installation evidence. No manufacturer sequence/force/dimensions are claimed."
+      },
+      "occupation": {
+        "code": "47-2031.00",
+        "employment_mirror_May_2025": 670090,
+        "employment_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/OEWS/all_data_M_2025.csv",
+        "task_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/_cache/onet_task_statements_30_2.parquet",
+        "provenance": "Pinned MIT repository-attributed O*NET30.2 and BLS export copies; not live originals; do not call newest official release.",
+        "tasks": [
+          {
+            "O*NET-SOC Code": "47-2031.00",
+            "Task ID": 23434,
+            "Task": "Install structures or fixtures, such as windows, frames, floorings, trim, or hardware, using carpenters' hand or power tools.",
+            "Task Type": "Core",
+            "Incumbents Responding": 74.0,
+            "Date": "08/2022",
+            "Domain Source": "Incumbent"
+          },
+          {
+            "O*NET-SOC Code": "47-2031.00",
+            "Task ID": 23446,
+            "Task": "Remove damaged or defective parts or sections of structures and repair or replace, using hand tools.",
+            "Task Type": "Core",
+            "Incumbents Responding": 75.0,
+            "Date": "08/2022",
+            "Domain Source": "Incumbent"
+          }
+        ]
+      },
+      "occupational_assessment": "Core fixture/window installation and replacing defective structure parts are directly relevant; exact window-bead refitting as regular work remains unverified. Do not inherit all maintenance/assembler employment simply from a window label.",
+      "comparators": [
+        {
+          "pr": 138,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/138",
+          "actual_operation": "Room-side glazing placement on setting blocks; review requires representative frame/removable bead.",
+          "comparison": "N005 retains pane with actual bead/gasket profile rather than only seating pane; earlier glazing revision scope could encompass bead manipulation, so unresolved.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        },
+        {
+          "pr": 931,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/931",
+          "actual_operation": "Accepted full-size glass-pane removal/carry with suction lifters.",
+          "comparison": "Same glazing setting but different manipulation/goal; bead capture is not glass transport.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        },
+        {
+          "pr": 37,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/37",
+          "actual_operation": "Accepted module snapped/pivoted onto DIN rail.",
+          "comparison": "Shares undercut capture; actual long compliant bead, gasket and glass contact could differ materially. Shared snap verb alone is not duplicate.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        }
+      ],
+      "new_manipulation_capability": "Progressive long-profile hooked engagement under gasket compression, keeping pane supported while the bead seats; hypothesis only until exact hardware read.",
+      "physical_success_measurement": "Released real bead continuous seated height/projection at multiple points, captured ends/corners and retained pane; OEM-compatible benign proof and photos/straightedge. No numeric tolerance invented; pose overlap alone insufficient.",
+      "implementation_complexity": "Medium/high: actual profile/undercut geometry, gasket reaction, distributed bead compliance and long-part contacts. A disclosed calibrated bounded compliant model is allowed; not rigid strip dropped into a slot.",
+      "yam_obstacle": "Whole-length reach and palm/glass interference; actual permitted hand/mallet/block forces; narrow bead grasp. No access/force measurement performed.",
+      "strongest_likely_reviewer_objection": "Exact manufacturer profile and core method are missing; generic snap rail would remove real skill; #138 legitimate revised scope may already include this operation.",
+      "decision": "HOLD",
+      "go_no_go_for_deep_dive": "PASS only after an inspectable exact compatible profile procedure and a materially distinct bead-capture goal versus #138 are documented; do not require completed native/hardware test for this research promotion."
+    },
+    {
+      "id": "N009",
+      "exact_operation_and_equipment": "Angle-lock a genuine UNICLIC-type full-size flooring plank into existing flooring along real long/end locking edges; exact plank/locking-system generation not selected.",
+      "specific_procedure_source": {
+        "status": "NOT READ \u2014 exact compatible manufacturer installation guide missing",
+        "manufacturer_lead": "Quick-Step/UNICLIC",
+        "search_evidence": "Global Uniclic source query429; no manufacturer PDF or dimensions inspected."
+      },
+      "occupation": {
+        "code": "47-2031.00",
+        "employment_mirror_May_2025": 670090,
+        "employment_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/OEWS/all_data_M_2025.csv",
+        "task_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/_cache/onet_task_statements_30_2.parquet",
+        "provenance": "Pinned MIT repository-attributed O*NET30.2 and BLS export copies; not live originals; do not call newest official release.",
+        "tasks": [
+          {
+            "O*NET-SOC Code": "47-2031.00",
+            "Task ID": 23434,
+            "Task": "Install structures or fixtures, such as windows, frames, floorings, trim, or hardware, using carpenters' hand or power tools.",
+            "Task Type": "Core",
+            "Incumbents Responding": 74.0,
+            "Date": "08/2022",
+            "Domain Source": "Incumbent"
+          }
+        ]
+      },
+      "additional_occupation": {
+        "code": "47-2042.00",
+        "employment_mirror_May_2025": 23640,
+        "employment_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/OEWS/all_data_M_2025.csv",
+        "task_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/_cache/onet_task_statements_30_2.parquet",
+        "provenance": "Pinned MIT repository-attributed O*NET30.2 and BLS export copies; not live originals; do not call newest official release.",
+        "tasks": [
+          {
+            "O*NET-SOC Code": "47-2042.00",
+            "Task ID": 8256,
+            "Task": "Trim excess covering materials, tack edges, and join sections of covering material to form tight joint.",
+            "Task Type": "Core",
+            "Incumbents Responding": 79.0,
+            "Date": "12/2005",
+            "Domain Source": "Incumbent"
+          },
+          {
+            "O*NET-SOC Code": "47-2042.00",
+            "Task ID": 8263,
+            "Task": "Lay out, position, and apply shock-absorbing, sound-deadening, or decorative coverings to floors, walls, and cabinets, following guidelines to keep courses straight and create designs.",
+            "Task Type": "Core",
+            "Incumbents Responding": 78.0,
+            "Date": "12/2005",
+            "Domain Source": "Incumbent"
+          }
+        ]
+      },
+      "occupational_assessment": "Carpenters explicitly have Core flooring/fixture installation, but actual system routine still needs binding. Dedicated floor layers count23640 and cannot alone meet >500k; do not count specialty and broad carpenter roles twice.",
+      "comparators": [
+        {
+          "pr": 1920,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1920",
+          "actual_operation": "Real-size600x300mm click-lock vinyl tile angled into laid row groove then lowered to lock; seam/lippage/endgap physical scoring.",
+          "comparison": "Direct same central angle-in/lower/capture operation. Claiming a second edge/system brand is not a demonstrated independent ability.",
+          "state_evidence": "Newly reread public page OPEN, received/waiting TK-6TJTBW; source hash in scratch pr-1920.json"
+        },
+        {
+          "pr": 37,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/37",
+          "actual_operation": "Accepted DIN module snap to rail.",
+          "comparison": "Same local hooked engagement primitive but distinct objects/domain; not the decisive blocker.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        },
+        {
+          "pr": 1412,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1412",
+          "actual_operation": "Accepted long blind headrail engagement into two gated brackets.",
+          "comparison": "Long-part paired capture is a boundary comparator, not floor locking; no automatic duplication from elongated part alone.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        }
+      ],
+      "new_manipulation_capability": "Coupled long/end-edge engagement could be a hypothesis, but no source-backed distinctive action beyond #1920 currently established.",
+      "physical_success_measurement": "Real released plank locked along actual joints; seam gap, lippage and wall allowance measured with feeler/straightedge/rule. No reward for merely flat plank lying near groove.",
+      "implementation_complexity": "Medium/high: exact joint profile, full plank reach/mass, contact and bounded snap behavior; not justified from low part count.",
+      "yam_obstacle": "Full-size plank and entry angle require broad swept reach, simultaneous edge alignment and carrying load; cannot shrink plank or enlarge groove.",
+      "strongest_likely_reviewer_objection": "Earlier active #1920 already owns same click-floor operation; an extra edge or brand is an ordinary variant. Missing manufacturer profile further weakens a claimed distinction.",
+      "decision": "REJECT",
+      "decision_scope": "Current build proposal/active-claim risk, not an invented official duplicate ruling or permanent ban on flooring.",
+      "go_no_go_for_deep_dive": "Do not promote while #1920 is active and the exact central capability is the same. A genuinely different source-backed operation and renewed current-origin check would be needed."
+    },
+    {
+      "id": "N082",
+      "exact_operation_and_equipment": "Reference-set an analog outside micrometer against its genuine setting standard using its ratchet and OEM sleeve-adjustment spanner; Mitutoyo series/model/range not yet bound.",
+      "specific_procedure_source": {
+        "status": "NOT READ \u2014 no exact SKU-compatible OEM adjustment instruction",
+        "located_original": "https://www2.mitutoyo.co.jp/eng/products/menu/QuickGuide_Micrometers.pdf",
+        "provenance": "Previously located via third-party educational repository citation; original blocked. Educational simulator, generic calibration PWA and Army saw-only excerpt are not manufacturer verification and were not re-used as such."
+      },
+      "occupation": {
+        "code": "51-9061.00",
+        "employment_mirror_May_2025": 597370,
+        "employment_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/OEWS/all_data_M_2025.csv",
+        "task_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/_cache/onet_task_statements_30_2.parquet",
+        "provenance": "Pinned MIT repository-attributed O*NET30.2 and BLS export copies; not live originals; do not call newest official release.",
+        "tasks": [
+          {
+            "O*NET-SOC Code": "51-9061.00",
+            "Task ID": 12480,
+            "Task": "Measure dimensions of products to verify conformance to specifications, using measuring instruments, such as rulers, calipers, gauges, or micrometers.",
+            "Task Type": "Core",
+            "Incumbents Responding": 62.0,
+            "Date": "08/2020",
+            "Domain Source": "Incumbent"
+          },
+          {
+            "O*NET-SOC Code": "51-9061.00",
+            "Task ID": 12495,
+            "Task": "Make minor adjustments to equipment, such as turning setscrews to calibrate instruments to required tolerances.",
+            "Task Type": "Core",
+            "Incumbents Responding": 61.0,
+            "Date": "08/2020",
+            "Domain Source": "Incumbent"
+          },
+          {
+            "O*NET-SOC Code": "51-9061.00",
+            "Task ID": 20301,
+            "Task": "Clean, maintain, calibrate, or repair measuring instruments or test equipment, such as dial indicators, fixed gauges, or height gauges.",
+            "Task Type": "Supplemental",
+            "Incumbents Responding": 61.0,
+            "Date": "08/2020",
+            "Domain Source": "Incumbent"
+          }
+        ]
+      },
+      "occupational_assessment": "Core12495 minor instrument adjustments is a legitimate narrow connection, reinforced by Core12480 micrometer measurement. Broader measuring-instrument maintenance/calibration20301 is Supplemental; do not claim complete calibration or all lab technicians from these records.",
+      "comparators": [
+        {
+          "pr": 601,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/601",
+          "actual_operation": "Use a digital caliper to measure an actual held pin with bilateral jaw contact/load and numerical reading.",
+          "comparison": "Measures external workpiece; N082 would adjust physical instrument reference against a standard, not just report diameter. Needs actual setting mechanism to preserve distinction.",
+          "state_evidence": "New public page OPEN; review/revision visible; recorded scratch pr-601.json"
+        },
+        {
+          "pr": 1880,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1880",
+          "actual_operation": "Set telescoping bore gauge to bearing housing bore and leave it on stand.",
+          "comparison": "Transfers an unknown bore dimension; N082 references known standard and adjusts micrometer zero/sleeve. Same measuring-tool context warrants detailed comparison.",
+          "state_evidence": "New public page OPEN received/waiting; scratch pr-1880.json"
+        },
+        {
+          "pr": 1799,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1799",
+          "actual_operation": "Accepted milling vise tramming by physically sweeping jaw with indicator and adjusting vise before clamp.",
+          "comparison": "Both metrology-guided adjustment but different physical interface/output; turning a dial or matching a display alone is not N082 capability.",
+          "state_evidence": "New public page MERGED/accepted; scratch pr-1799.json"
+        }
+      ],
+      "new_manipulation_capability": "Repeatable-force seating of known standard while operating real ratchet/lock/sleeve adjustment, then reproducible indication on re-approach; not arbitrary pointer alignment.",
+      "physical_success_measurement": "Indicated error against real documented standard on repeated reopen/reclose approaches with actual ratchet force method; independent additional check if required by OEM. No fabricated micrometre tolerance or full-calibration certificate claim.",
+      "implementation_complexity": "Medium precision/contact burden, mostly rigid screw/clutch/standard plus real adjustment tool; camera-readability and thermal/force effects must be bounded honestly.",
+      "yam_obstacle": "Tiny ratchet, lock and spanner engagement may be blocked by fingers; two arms must preserve standard alignment without warming/slipping. Stock geometry/precision untested, not known impossible.",
+      "strongest_likely_reviewer_objection": "A simulated zero offset/display knob could replace actual adjustment; exact OEM model/procedure is missing; treating Supplemental full calibration as Core would inflate importance.",
+      "decision": "HOLD",
+      "go_no_go_for_deep_dive": "PASS after actually readable compatible analog micrometer reference-setting procedure identifies genuine adjustment/ratchet interfaces and legitimate narrow worker duty. Finished physical/sim tests are not prerequisites for research PASS."
+    },
+    {
+      "id": "N095",
+      "exact_operation_and_equipment": "Load an actual Scotch H180-type hand carton-tape dispenser: mount compatible tape roll and route adhesive web through real keeper/roller/cutter path; exact H180 variant unbound.",
+      "specific_procedure_source": {
+        "status": "NOT READ \u2014 no exact manufacturer loading sheet or accurately preserved copy inspected",
+        "publisher_lead": "https://www.3m.com/",
+        "search_evidence": "Global H180+tape source search429; previous exact H180 source hunt had no authoritative accessible procedure. No roller-side/orientation/dimensions claimed as verified."
+      },
+      "occupation": {
+        "code": "53-7064.00",
+        "employment_mirror_May_2025": 559820,
+        "employment_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/OEWS/all_data_M_2025.csv",
+        "task_source": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/_cache/onet_task_statements_30_2.parquet",
+        "provenance": "Pinned MIT repository-attributed O*NET30.2 and BLS export copies; not live originals; do not call newest official release.",
+        "tasks": [
+          {
+            "O*NET-SOC Code": "53-7064.00",
+            "Task ID": 3216,
+            "Task": "Seal containers or materials, using glues, fasteners, nails, and hand tools.",
+            "Task Type": "Core",
+            "Incumbents Responding": 72.0,
+            "Date": "08/2020",
+            "Domain Source": "Incumbent"
+          },
+          {
+            "O*NET-SOC Code": "53-7064.00",
+            "Task ID": 3218,
+            "Task": "Assemble, line, and pad cartons, crates, and containers, using hand tools.",
+            "Task Type": "Core",
+            "Incumbents Responding": 71.0,
+            "Date": "08/2020",
+            "Domain Source": "Incumbent"
+          },
+          {
+            "O*NET-SOC Code": "53-7064.00",
+            "Task ID": 3217,
+            "Task": "Load materials and products into package processing equipment.",
+            "Task Type": "Supplemental",
+            "Incumbents Responding": 73.0,
+            "Date": "08/2020",
+            "Domain Source": "Incumbent"
+          }
+        ]
+      },
+      "occupational_assessment": "Core sealing3216 and carton assembly3218 support the work context. Loading packaging-processing equipment3217 is explicitly Supplemental. Need evidence that this ordinary hand-tool replenishment is regular within core sealing, not infer it from the manual or all packers count.",
+      "comparators": [
+        {
+          "pr": 312,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/312",
+          "actual_operation": "Accepted replace rigid cartridge in ratchet-rod sealant dispenser.",
+          "comparison": "Both tool replenishment, but genuine adhesive-web routing differs materially from cartridge swap; real web path must remain causal.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        },
+        {
+          "pr": 1465,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1465",
+          "actual_operation": "Accepted wrapping pipe thread with thread-seal tape from a loaded dispenser.",
+          "comparison": "Uses tape to form a wrap; N095 configures actual roll/roller/cutter path for dispensing and cutting. Tape material alone is not equivalence.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        },
+        {
+          "pr": 1835,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1835",
+          "actual_operation": "Punch conductor into110 IDC with cutter toward waste.",
+          "comparison": "Tool/cutter orientation and guided feed boundary case; different contacts and completion. Not a same-tool/equivalent-goal duplicate.",
+          "state_evidence": "Previously pinned actual metadata/public discussion; no new status claim"
+        }
+      ],
+      "new_manipulation_capability": "Adhesive web routing with correct liner-free tape face/roller relationship and functional dispensing/cutting endpoint; not placing rigid roll on peg.",
+      "physical_success_measurement": "Actual compatible roll retained and web follows actual path; a real standardized test strip dispenses and cuts without self-stick/jam. Counterexample: mounted roll but wrong face/path cannot pass functional test.",
+      "implementation_complexity": "High relative to rigid mechanisms: adhesive web bending/self-contact, roller friction and cut function. A bounded calibrated strip model may be acceptable; arbitrary scripted tape feed or rigid-ring substitute is not.",
+      "yam_obstacle": "Tape leader pinching, adhesion to pads, access under keeper/nip and safe cutter contact; ordinary dispenser dimensions and holding reaction unmeasured.",
+      "strongest_likely_reviewer_objection": "Manual/model absent, loading routine not established for qualifying occupation, and roll-on-peg simulation deletes real adhesive routing/dispensing skill.",
+      "decision": "HOLD",
+      "go_no_go_for_deep_dive": "PASS after exact inspectable loading procedure, regular tool-replenishment/core sealing link and distinct web-path endpoint; no completed GPU or hardware trial needed for rapid research PASS."
+    }
+  ],
+  "new_novelty_queries": [
+    {
+      "id": "N005-glazing",
+      "query": "is:pr glazing",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+glazing",
+      "attempted_utc": "2026-11-14T23:29:34.168618+00:00",
+      "status": 200,
+      "sha256": "53f639ff3f105b22f34f48449d783437c3d6dda3c6e541e89230e97374eb3187",
+      "hits": [
+        {
+          "title": "Combine lighting gels to match a reference colour",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1330"
+        },
+        {
+          "title": "Glaze a window: set two setting blocks, then stand the glass unit on them",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/138"
+        }
+      ],
+      "pagination_links": []
+    },
+    {
+      "id": "N009-floor",
+      "query": "is:pr floor",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+floor",
+      "attempted_utc": "2026-11-14T23:29:34.839086+00:00",
+      "status": 200,
+      "sha256": "1930e86871d1e9f7b85568b3349b0f4070e351d55f56d600178b6fef5ac68d2e",
+      "hits": [
+        {
+          "title": "Fit the air shroud in a rack server: tuck both tabs under the fan cage, then lower it to seat",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2055"
+        },
+        {
+          "title": "Take the steel and electronic items off a patient cart's tray before it goes into the MRI scanner room",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2054"
+        },
+        {
+          "title": "Fit a keyed pulley on a shaft",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2037"
+        },
+        {
+          "title": "Lay a click-lock vinyl floor tile: angle its tongue into the laid row's groove, then lower it flat to lock",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1920"
+        },
+        {
+          "title": "Clear a desk for cleaning, leaving the one cup that is stuck down",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1901"
+        },
+        {
+          "title": "Check a bent tube on its fixture: lower it level in both hands so all four legs drop into their slots at once",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1884"
+        },
+        {
+          "title": "feat(task): hand-requested-screw selection handoff",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1812"
+        },
+        {
+          "title": "feat(task): match-request-hand-screw selection handoff",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1811"
+        },
+        {
+          "title": "Swipe a magnetic-stripe card through a desktop reader in one pass",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1810"
+        },
+        {
+          "title": "Add floor-opening-cover",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1780"
+        },
+        {
+          "title": "Add open-a-stepladder-fully-until-its-spreader-locks task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1700"
+        },
+        {
+          "title": "Measure powdered formula into a 4-ounce bottle: two unpacked scoops, each leveled against the tin's leveling bar",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1668"
+        },
+        {
+          "title": "Add lift-the-chest-instead-of-dragging-it task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1624"
+        },
+        {
+          "title": "Set floor exit arrows at an exhibition hall's aisle junctions toward the nearest exit by walking route",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1617"
+        },
+        {
+          "title": "Set a steel door's hinges 5 in below the head, 10 in above the floor, middle centred",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1600"
+        },
+        {
+          "title": "Add lift-the-rabbit-with-its-back-supported task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1596"
+        },
+        {
+          "title": "Bleed the air out of a brake caliper, shutting the bleeder each cycle before the pedal comes back up",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1577"
+        },
+        {
+          "title": "Fit a circlip into its shaft groove with circlip pliers: spread it just enough, seat it square, turn it to check",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1561"
+        },
+        {
+          "title": "Fill a springform pan with cake batter only after seating its base in the groove and snapping its side clasp shut",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1558"
+        },
+        {
+          "title": "Locate a DC earth fault by pulling fuses one at a time",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1535"
+        },
+        {
+          "title": "Check a small engine's oil with the dipstick: pull, wipe, reseat, pull again to read, and reseat it",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1493"
+        },
+        {
+          "title": "Add Move the perforated floor tile to the loaded rack's inlet, swapping it with a solid tile task",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1484"
+        },
+        {
+          "title": "Add task: put a brad nailer away without ever pointing it at a coworker",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1467"
+        },
+        {
+          "title": "Add task: Wrap a pipe thread with thread-seal tape from a dispenser, the way the fitting turns on",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1465"
+        },
+        {
+          "title": "Sharpen a kitchen knife on a whetstone at 15 to 20 degrees, both sides, then lay it down edge away",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1421"
+        }
+      ],
+      "pagination_links": [
+        "/robocurve/benchmark-tasks/pulls?q=is%3Apr+floor&page=2"
+      ]
+    },
+    {
+      "id": "N082-gauge",
+      "query": "is:pr micrometer",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+micrometer",
+      "attempted_utc": "2026-11-14T23:29:35.594457+00:00",
+      "status": 200,
+      "sha256": "3428500427ed6f8112fd49c9340a1796d499fcc1efd0ae2cb5aa456dbccb30d8",
+      "hits": [],
+      "pagination_links": []
+    },
+    {
+      "id": "N095-tape",
+      "query": "is:pr \"tape dispenser\"",
+      "url": "https://github.com/robocurve/benchmark-tasks/pulls?q=is%3Apr+%22tape+dispenser%22",
+      "attempted_utc": "2026-11-14T23:29:35.953044+00:00",
+      "status": 200,
+      "sha256": "59be342b95e4bdc6069ddbad54f16c715516563496fcdef1e833a086ed9c2c4d",
+      "hits": [
+        {
+          "title": "Add task: Wrap a pipe thread with thread-seal tape from a dispenser, the way the fitting turns on",
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1465"
+        }
+      ],
+      "pagination_links": []
+    }
+  ],
+  "new_source_search_attempts": [
+    {
+      "id": "uniclic",
+      "query": "\"Uniclic\" in:readme",
+      "url": "https://github.com/search?q=%22Uniclic%22+in%3Areadme&type=repositories",
+      "time_utc": "2026-11-14T23:28:34.809824+00:00",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "id": "glazing",
+      "query": "\"glazing bead\" in:readme",
+      "url": "https://github.com/search?q=%22glazing+bead%22+in%3Areadme&type=repositories",
+      "time_utc": "2026-11-14T23:28:34.932185+00:00",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "id": "h180",
+      "query": "\"H180\" \"tape\" in:readme",
+      "url": "https://github.com/search?q=%22H180%22+%22tape%22+in%3Areadme&type=repositories",
+      "time_utc": "2026-11-14T23:28:35.036432+00:00",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "id": "micrometer",
+      "query": "\"QuickGuide_Micrometers.pdf\" in:readme",
+      "url": "https://github.com/search?q=%22QuickGuide_Micrometers.pdf%22+in%3Areadme&type=repositories",
+      "time_utc": "2026-11-14T23:28:35.145773+00:00",
+      "error": "HTTP Error 429: Too Many Requests"
+    },
+    {
+      "id": "micrometer2",
+      "query": "\"micrometer\" \"setting standard\" in:readme",
+      "url": "https://github.com/search?q=%22micrometer%22+%22setting+standard%22+in%3Areadme&type=repositories",
+      "time_utc": "2026-11-14T23:28:35.244914+00:00",
+      "error": "HTTP Error 429: Too Many Requests"
+    }
+  ],
+  "new_public_PR_reads": [
+    {
+      "number": 1920,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1920",
+      "retrieved_utc": "2026-11-14T23:30:14.634196+00:00",
+      "title": "Lay a click-lock vinyl floor tile: angle its tongue into the laid row's groove, then lower it flat to lock by AMMistry18 \u00b7 Pull Request #1920 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "733acf6c15d3a4a93c46dd7aba49b46474493d819670e4437c704f88eb73f027",
+      "comments": [
+        "The robot lays a real-size rigid-core click-lock vinyl floor tile (600 x 300 mm, 1.55 kg) against a row already laid, using the angle-in method carpenters and floor layers use on floating floors. The two arms work the tile's near half together: they keep the long tongue angled up into the laid row's groove along its whole length, slide the tile's end against the 10 mm wall spacer, and lower it flat so the joint hooks shut. A tile lowered before its tongue is home rides on the groove's locking bump with an open seam about 1.4 mm high, and it scores 0. Scoring measures the seam, lippage and end gap with a feeler gauge, straightedge and ruler, and needs the tile released and at rest. task.json : instruction, setup, scoring, run limit, fidelity and scores README.md : run and score commands, the tile, profile, laid row, wall, spacer and batten dimensions, scoring, the scripted demo, real-trial checks and licences lay_click_lock_vinyl_tile.py : scene (tile and laid row with the click profile as contact geometry), scorer and scripted demo yam_parts.py , yam_joints.py , yam_mesh.py : kit modules, copied unchanged test_lay_click_lock_vinyl_tile.py : offline checks of the scorer on goal, partial-credit and cheat layouts, and of the demo's reach \ud83e\udd16 Generated with Claude Code",
+        "Received as TK-6TJTBW , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      ],
+      "state": "OPEN"
+    },
+    {
+      "number": 601,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/601",
+      "retrieved_utc": "2026-11-14T23:30:15.476441+00:00",
+      "title": "Caliper measure by Jingyi-Z \u00b7 Pull Request #601 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "1fc436e8b8b9c9606b576f54cf61927769f651459e0682505812169a6a0f7a7f",
+      "comments": [
+        "Measure a pin's diameter with a digital caliper, holding it in the jaws Category: Impact on jobs Run limit: 1,200 steps (60 seconds at 20 Hz) Task: Measure the diameter of the aluminium pin with the digital caliper. Pick the pin up with one hand and hold it upright between the caliper's open jaws, square to them and close to the fixed jaw (the jaw at the caliper's left end). Keep holding it, but loosely, so it can slide across the jaws: there is nothing under the jaws, so a pin let go falls. With the other hand, push the black thumb rest at the slider's right end to the left to close the sliding jaw until it has carried the pin against the fixed jaw and both jaws just touch it. Do not squeeze: pressing on the jaw makes the display read low. Then take that hand off the slider and keep the pin still between the jaws, so the display shows its diameter. Description: Checking a part's size with a caliper is a routine step in machining, inspection and lab work. A part held cocked or stiffly off the fixed jaw, or a heavy thumb on the slider, gives a wrong reading, so one hand holds the part square but loosely while the other closes the jaw gently and lets it seat the part on the fixed jaw. Scores: Dream-1 run: 0.0 (it moved both hands around the caliper but never picked up the pin), demo: 1.0 (one hand held the pin loosely between the jaws while the other closed the slider, which carried the pin onto the fixed jaw; the display then read its diameter with the slider let go) Setup Dream-1 run Scripted demo Top camera, 20 Hz. Run commands, scoring and assets: README .",
+        "Received as TK-RGRUBN , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-RGRUBN). Scoring (not met): A display photo and a drop test cannot distinguish jaw forces below 0.3 N from larger forces that also let the pin fall. What to change: Please specify how to measure the jaw force in the real trial at the 0.3 N and 2 N thresholds, for example with a calibrated force-sensing pin or instrumented jaw. The current display photo and pin-drop check cannot establish those forces; retain a consistent force-based test in simulation and the real-world scoring procedure. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-GLAAJZ (a revision of TK-RGRUBN), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Revision for TK-RGRUBN (commit 33b52b3 ): Scoring, real-trial jaw force: real trials now use a force-sensing pin of the same size and mass (a split aluminium sleeve, 23.40 mm across, around a 10 N miniature button load cell across its diameter, 0.02 N resolution, logged with the display photo). The 0.3 N and 2 N thresholds are read from it at the moment the display is photographed. The display-photo and pin-drop check is removed. Consistency with simulation: the scored force is the same quantity in both, the force squeezing the pin across its diameter at rest; in simulation it comes from the sliding jaw's flex (0.1 mm per N). Setup, scoring and fidelity text updated. Instruction: now states only the goal and constraints (pin upright between the jaws, both jaws just touching, not squeezed). Scene, scorer code and demo are unchanged.",
+        "Not accepted (TK-GLAAJZ). The clamped caliper differs from typical handheld inspection and uses an unusually compliant simulated jaw. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Something went wrong on our side while reading this pull request. Push any commit to try again, or contact us if it keeps happening.",
+        "Revised for the review: Hand-held, not clamped: one arm holds the caliper off the bench while the other closes the slider. The reading is taken while it is held, then the caliper goes back on its rest and both hands move clear. Rigid jaws: the sliding jaw is fixed to the slider by a locked joint, with no soft compliance. The jaw force is read from that joint's reaction, as stated in fidelity. Scoring: each fingertip is read from its own finger link. Every positive tier needs the caliper back on its rest, all four fingertips 80 mm clear and 1 s of stillness. New media M-25JHBS: demo 1.0, Dream-1 0.0 on the new instruction.",
+        "Something went wrong on our side while reading this pull request. Push any commit to try again, or contact us if it keeps happening.",
+        "Received as TK-H2DVMG (a revision of TK-GLAAJZ), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Not accepted (TK-H2DVMG). Construct validity (not met): The robot can set the jaws near the known diameter without touching both sides of the pin and still earn full credit. Scoring (not met): The accuracy tiers impose only an upper force limit, so a zero-force, non-contact reading can receive full credit. What to change: The handheld caliper and force-sensing pin address the earlier feedback. Please require and verify contact with both sides of the pin for the measurement-accuracy tiers: currently a gap within the display tolerance can earn full credit even when the jaws do not touch the pin. Specify a calibrated contact or force test that works in both simulation and real trials. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+        "Received as TK-SY3AKX (a revision of TK-H2DVMG), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Revised for the review (TK-H2DVMG): Contact on both sides is now required for every accuracy tier: each measuring face must be within 0.1 mm of the pin and loaded with at least 0.05 N. In simulation each jaw has its own stiff mounting, read as a load cell. In a real trial, the force-sensing pin reads the squeeze, and a continuity tester across the pin's two insulated half-sleeves closes only through both jaws. Without contact on both sides, a reading scores 0.1 at most, and a reading without contact never replaces one with it. Shortcut checks: jaw stopped short of the pin 0.1, one jaw only 0.1, caliper dropped instead of returned 0. New media M-G3PHFU: demo 1.0, Dream-1 0.0 (instruction unchanged)."
+      ],
+      "state": "OPEN"
+    },
+    {
+      "number": 1880,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1880",
+      "retrieved_utc": "2026-11-14T23:30:16.348514+00:00",
+      "title": "Add task: Set a telescoping gauge to a bearing housing's bore diameter and leave it on its stand by WiltonSF \u00b7 Pull Request #1880 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "4cef18155af02af082748c673bfaa57acd607d6f29887c4762ac277a147380e7",
+      "comments": [
+        "No description provided.",
+        "Received as TK-84X8VV , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      ],
+      "state": "OPEN"
+    },
+    {
+      "number": 1799,
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1799",
+      "retrieved_utc": "2026-11-14T23:30:16.990233+00:00",
+      "title": "Square a milling vise by sweeping its fixed jaw with an indicator by mulkakhileshmj \u00b7 Pull Request #1799 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+      "sha256": "82db1b7bbd10c034c490f8073125b5b5d8de725e3edbfa880a13856ad867243c",
+      "comments": [
+        "One arm moves a physical indicator along the fixed jaw. The other turns the loosened vise before the cam clamps the swivel again. The demo reduced the dial span to 0.125 mm and left both hands clear. Dream 1 scored 0.0 in 2400 steps. The scripted demonstration scored 1.0 in 1056 steps.",
+        "Received as TK-8AFCU4 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+        "Accepted (TK-8AFCU4). Thank you! Merging this pull request."
+      ],
+      "state": "MERGED"
+    }
+  ],
+  "data_source_pins": {
+    "O*NET30.2_task_parquet": {
+      "url": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/_cache/onet_task_statements_30_2.parquet",
+      "sha256": "56ee34d07b956eead1582b2f978a0fe16ab36eebfbd55b7bfb5f65b9e02948ab"
+    },
+    "BLS_May2025_export": {
+      "url": "https://github.com/MIT-Work-Analytics-Laboratory/US_AI_MAP/blob/e7c8fcc0599a4f02ee38bf9e07b6114ba3e571c3/data/OEWS/all_data_M_2025.csv",
+      "provenance": "Repository-attributed exported data, national cross-industry all ownership counts read; original not authenticated live."
+    }
+  }
+}

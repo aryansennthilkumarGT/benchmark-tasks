@@ -1,0 +1,74 @@
+{
+  "baseline": "1ca52c4b9decb94c17c6d5fee40be9c5c4021475",
+  "official_main": "e8080dca8a20a1deb7cf050f6ded19b44c21c039",
+  "accepted_task_folders": 122,
+  "initial_screen_count": 20,
+  "initial_counts": {
+    "PASS FOR DEEP DIVE": 3,
+    "HOLD": 12,
+    "REJECT": 5
+  },
+  "additional_source_led_candidate": "N022",
+  "queue": [
+    {
+      "slot": "Candidate1",
+      "id": "N040",
+      "screen": "PASS FOR DEEP DIVE",
+      "planning_priority": 1,
+      "GPU_ready": false,
+      "task_implementation_started": false
+    },
+    {
+      "slot": "Candidate2",
+      "id": "N044",
+      "screen": "PASS FOR DEEP DIVE",
+      "planning_priority": 2,
+      "GPU_ready": false,
+      "task_implementation_started": false
+    },
+    {
+      "slot": "Backup1",
+      "id": "N047",
+      "screen": "PASS FOR DEEP DIVE",
+      "planning_priority": 3,
+      "GPU_ready": false,
+      "task_implementation_started": false
+    },
+    {
+      "slot": "Backup2",
+      "id": "N022",
+      "screen": "PASS FOR DEEP DIVE",
+      "planning_priority": 4,
+      "GPU_ready": false,
+      "task_implementation_started": false
+    },
+    {
+      "slot": "Backup3",
+      "id": "N042",
+      "screen": "HOLD",
+      "planning_priority": 5,
+      "GPU_ready": false,
+      "task_implementation_started": false
+    }
+  ],
+  "top_three_plans": [
+    "N040",
+    "N044",
+    "N047"
+  ],
+  "parked_previous": [
+    "N041",
+    "N037"
+  ],
+  "retired_previous": [
+    "N013",
+    "N006"
+  ],
+  "new_accepted_fallback_to_avoid": "N093",
+  "instructions": {
+    "parallel_screen_explicitly_requested": true,
+    "task_implementation": false,
+    "GPU_or_paid_work": false,
+    "official_submission": false
+  }
+}
