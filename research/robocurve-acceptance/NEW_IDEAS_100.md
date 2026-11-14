@@ -508,6 +508,258 @@ Each entry records all ten discovery fields. Novelty statements are hypotheses t
 
 **Primary-source search target:** Parker/airframe clamp manufacturer installation and hose-routing instructions **Difficulty:** Medium. **Evidence:** UNVERIFIED.
 
+## Batch 3
+
+### N051. Heat-seal a filled pouch without trapping product
+
+**Equipment:** Impulse sealer and food-safe thermoplastic pouch **Operation:** Flatten pouch mouth, keep contents below seam and close sealer for correct cycle
+
+**Worker/purpose:** Packers seal products for distribution **Importance hypothesis:** Hand-packing work may qualify; real package use must be documented
+
+**Capability:** Wrinkle-free film presentation followed by thermal seam formation **Novelty hypothesis:** Making a seal differs from feeding a presealed laminating pouch
+
+**Primary-source search target:** Uline or AIE impulse-sealer operating manual and pouch seal specification **Difficulty:** High deformable/thermal. **Evidence:** UNVERIFIED.
+
+### N052. Tension and join polypropylene shipping strap
+
+**Equipment:** Signode hand tensioner/sealer, PP strap and supported carton **Operation:** Route strap, tension without crushing carton and complete approved sealed joint
+
+**Worker/purpose:** Warehouse packers secure shipping loads **Importance hypothesis:** Packing/stocking work plausible; exact workflow evidence needed
+
+**Capability:** Frictional strap tensioning and joint formation around compliant load **Novelty hypothesis:** Strap joining and carton compliance differ from securing a crate with ratchet handle
+
+**Primary-source search target:** Signode exact manual strapping-system operating instructions **Difficulty:** High. **Evidence:** UNVERIFIED.
+
+### N053. Clinch staples through a corrugated carton seam
+
+**Equipment:** Josef Kihlberg manual carton stapler and corrugated closure **Operation:** Seat overlapping flaps, place stapler and drive/clincher staple without missing seam
+
+**Worker/purpose:** Hand packers close transport cartons **Importance hypothesis:** Packaging closure is a plausible core packing duty
+
+**Capability:** Through-wall metal forming across layered corrugate **Novelty hypothesis:** Clinched seam formation differs from tape cutting or box packing
+
+**Primary-source search target:** Josef Kihlberg carton-stapler manual and staple/board compatibility **Difficulty:** High force. **Evidence:** UNVERIFIED.
+
+### N054. Peel and apply a pressure-sensitive label smoothly
+
+**Equipment:** Avery-type label on release liner and curved container **Operation:** Peel label without folding adhesive onto itself, align and squeegee onto container
+
+**Worker/purpose:** Packers label outgoing goods **Importance hypothesis:** Packing/labeling relevance plausible
+
+**Capability:** Layer separation and progressive adhesive laydown **Novelty hypothesis:** Creating a bonded label differs from turning existing labels toward scanner
+
+**Primary-source search target:** Avery Dennison pressure-sensitive label application instructions **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N055. Cuff a liner bag over a waste-bin rim
+
+**Equipment:** Rubbermaid liner, rigid bin and retaining rim **Operation:** Open collapsed bag, seat bottom and fold/capture cuff around bin lip
+
+**Worker/purpose:** Janitors prepare waste stations **Importance hypothesis:** Regular cleaning work plausible for a qualifying occupation
+
+**Capability:** Large flexible bag opening and perimeter cuff capture **Novelty hypothesis:** Installing a flexible liner differs from rigid container placement
+
+**Primary-source search target:** Rubbermaid Commercial bin/liner installation instructions **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N056. Inflate and close a protective air-column sleeve
+
+**Equipment:** Inflatable shipping sleeve with one-way fill valve and hand pump **Operation:** Insert pump nozzle, fill specified chambers and withdraw without losing pressure
+
+**Worker/purpose:** Packers cushion fragile products **Importance hypothesis:** Packing relevance plausible; exact product/procedure needs proof
+
+**Capability:** Pneumatic inflation through compliant check valve **Novelty hypothesis:** Creating protective volume differs from stacking a foam buffer
+
+**Primary-source search target:** Exact air-column packaging OEM inflation and closure instructions **Difficulty:** High fluid/deformable. **Evidence:** UNVERIFIED.
+
+### N057. Stretch-wrap a full-size pallet corner correctly
+
+**Equipment:** Hand stretch-film roll and loaded pallet **Operation:** Anchor film, maintain tension around corners and finish secure tail
+
+**Worker/purpose:** Warehouse workers stabilize freight **Importance hypothesis:** Regular distribution work plausible
+
+**Capability:** Tensioned film payout around convex corners **Novelty hypothesis:** Film stretch/adhesion differs from ratchet strap mechanics
+
+**Primary-source search target:** Berry Global or film OEM hand-wrapping application guide **Difficulty:** Very high reach. **Evidence:** UNVERIFIED.
+
+### N058. Close a produce bag with a wire twist tie
+
+**Equipment:** Plastic produce bag and paper-coated wire tie **Operation:** Gather neck, wrap tie and twist ends to retain closure without tearing bag
+
+**Worker/purpose:** Food-preparation/packing workers close portion bags **Importance hypothesis:** Food packing relevance plausible; ordinary-household category possible
+
+**Capability:** Flexible neck gathering plus torsional wire locking **Novelty hypothesis:** Wire-tie forming differs from knot tying or rigid latch closure
+
+**Primary-source search target:** Bag/tie manufacturer closure instructions and food-packing work standard **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N059. Apply a tamper-evident bolt seal through a freight hasp
+
+**Equipment:** ISO17712-type bolt seal and authentic container-door hasp **Operation:** Align hasp, insert matched seal bolt and snap barrel fully on
+
+**Worker/purpose:** Warehouse/transport staff seal released freight **Importance hypothesis:** Shipping logistics context; independent core-duty evidence needed
+
+**Capability:** One-way mechanical capture through moving hasp **Novelty hypothesis:** Irreversible security seal differs from reversible bolt/nut fastening
+
+**Primary-source search target:** Mega Fortris bolt-seal fitting and inspection instructions **Difficulty:** Medium. **Evidence:** UNVERIFIED.
+
+### N060. Cut steel packaging band while restraining springback
+
+**Equipment:** Safety band cutter, steel strap and protected test load **Operation:** Support loose end and use guarded cutter to sever band without uncontrolled recoil
+
+**Worker/purpose:** Material movers unpack banded stock **Importance hypothesis:** Unpacking industrial material plausible core work
+
+**Capability:** Stored elastic-energy control during severing **Novelty hypothesis:** Loaded metal-band recoil differs from cutting taut cord
+
+**Primary-source search target:** Fromm or Signode steel-band cutter safety/operating guide **Difficulty:** Very high force/safety. **Evidence:** UNVERIFIED.
+
+### N061. Fit and tension a patient transfer belt
+
+**Equipment:** Posey gait belt and sized training torso **Operation:** Wrap belt, thread buckle in specified direction and adjust safe fit
+
+**Worker/purpose:** Nursing assistants prepare assisted transfers **Importance hypothesis:** Nursing-assistant work and direct patient support plausible
+
+**Capability:** Flexible belt/buckle routing and fit-dependent retention **Novelty hypothesis:** Body-conformal buckle fitting differs from cargo tie-down tensioning
+
+**Primary-source search target:** Posey gait-belt instructions for use **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N062. Wrap a blood-pressure cuff at its index mark
+
+**Equipment:** Welch Allyn cuff and training upper arm **Operation:** Place artery marker, wrap cuff flat and secure hook-and-loop within size range
+
+**Worker/purpose:** Medical assistants/LPNs prepare vital-sign measurement **Importance hypothesis:** Vital-sign setup plausible regular clinical work
+
+**Capability:** Conformal wrap alignment and controlled strap overlap **Novelty hypothesis:** Circumferential cuff fit differs from finger pulse-ox clip placement
+
+**Primary-source search target:** Welch Allyn FlexiPort cuff instructions for use **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N063. Fit a fitted sheet over a mattress corner
+
+**Equipment:** Full-size mattress and elastic fitted sheet **Operation:** Stretch pocket over corner and retain under mattress while releasing grip
+
+**Worker/purpose:** Housekeepers/nursing assistants make beds **Importance hypothesis:** Housekeeping core work and household relatability plausible
+
+**Capability:** Elastic textile corner capture under a supported mass **Novelty hypothesis:** Elastic under-corner seating differs from generic cloth folding
+
+**Primary-source search target:** Hospital linen supplier bed-making instructions and fitted-sheet care/use guide **Difficulty:** High reach/deformable. **Evidence:** UNVERIFIED.
+
+### N064. Collapse a manual wheelchair for storage
+
+**Equipment:** Invacare folding wheelchair frame **Operation:** Release prescribed catches and lift seat sling to fold cross-brace without trapping fabric
+
+**Worker/purpose:** Nursing assistants/attendants store mobility equipment **Importance hypothesis:** Patient-equipment handling plausible; exact regularity needed
+
+**Capability:** Coupled scissor-linkage folding driven through flexible seat **Novelty hypothesis:** Whole-frame folding differs from removing a swing-away footrest
+
+**Primary-source search target:** Invacare exact wheelchair owner manual folding section **Difficulty:** High reach/mass. **Evidence:** UNVERIFIED.
+
+### N065. Set a folding walker to matching leg heights
+
+**Equipment:** Drive Medical walker with telescoping button legs **Operation:** Depress spring buttons and set all legs to prescribed index before locking
+
+**Worker/purpose:** Care assistants configure mobility aids **Importance hypothesis:** Care-equipment setup plausible; frequency and domain need evidence
+
+**Capability:** Sequential pin indexing with final stance geometry **Novelty hypothesis:** Stable multi-leg height setup differs from arbitrary height-matching puzzle
+
+**Primary-source search target:** Drive Medical exact walker height-adjustment instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N066. Lock a fresh sharps-container lid onto its base
+
+**Equipment:** BD Sharps-type empty container and OEM lid **Operation:** Engage lid around rim and confirm permanent retention before first use
+
+**Worker/purpose:** Medical assistants/nursing staff prepare disposal stations **Importance hypothesis:** Clinical station preparation plausible
+
+**Capability:** Perimeter snap engagement with irreversible container closure **Novelty hypothesis:** Container commissioning differs from ordinary open/close lid operation
+
+**Primary-source search target:** BD exact sharps-container assembly instructions **Difficulty:** Medium. **Evidence:** UNVERIFIED.
+
+### N067. Load a peristaltic infusion-pump administration set
+
+**Equipment:** Baxter/Sapphire-type pump trainer and matching tubing cassette **Operation:** Seat tubing in actual pump channel, engage anti-free-flow feature and close door
+
+**Worker/purpose:** Nursing staff set up fluid delivery **Importance hypothesis:** Healthcare setup matters; exact qualifying duty and safety limits required
+
+**Capability:** Flexible tubing capture through constrained functional path **Novelty hypothesis:** Tube capture and anti-free-flow engagement differ from ordinary connector insertion
+
+**Primary-source search target:** Exact infusion-pump operator manual set-loading section **Difficulty:** High. **Evidence:** UNVERIFIED.
+
+### N068. Install a suction-canister liner and sealed lid
+
+**Equipment:** Medela suction liner system and canister **Operation:** Expand/seat liner, lock lid and connect designated vacuum/patient ports
+
+**Worker/purpose:** Clinical assistants prepare suction equipment **Importance hypothesis:** Clinical equipment setup plausible; actual routine role needs evidence
+
+**Capability:** Nested flexible liner seating with airtight rim capture **Novelty hypothesis:** Functional liner seal differs from generic module swap
+
+**Primary-source search target:** Medela suction liner instructions for use **Difficulty:** High deformable/fluid. **Evidence:** UNVERIFIED.
+
+### N069. Assemble and leak-check a manual resuscitator
+
+**Equipment:** Ambu training bag, patient valve, mask and test fixture **Operation:** Assemble specified valve orientation and verify bag refills and outlet function
+
+**Worker/purpose:** Clinical staff prepare airway equipment **Importance hypothesis:** Direct patient-support relevance; operator/core-duty mapping needed
+
+**Capability:** Directional valve assembly with pneumatic functional check **Novelty hypothesis:** Useful one-way airflow outcome differs from dry plug mating
+
+**Primary-source search target:** Ambu exact reusable resuscitator assembly and functional-check instructions **Difficulty:** Very high. **Evidence:** UNVERIFIED.
+
+### N070. Thread a sewing machine through tension discs and needle
+
+**Equipment:** JUKI industrial lockstitch machine **Operation:** Route upper thread through guides/tension system and thread needle without skipped path
+
+**Worker/purpose:** Sewing operators/maintenance staff prepare production sewing **Importance hypothesis:** Manufacturing setup authentic; occupation threshold uncertain
+
+**Capability:** Fine flexible-thread routing through multiple directional constraints **Novelty hypothesis:** Thread continuity through tensioner differs from gross cable routing
+
+**Primary-source search target:** JUKI exact machine threading diagram and operator manual **Difficulty:** Very high fine manipulation. **Evidence:** UNVERIFIED.
+
+### N071. Install a bobbin case beneath a needle plate
+
+**Equipment:** Brother/JUKI rotary-hook machine and loaded bobbin case **Operation:** Orient bobbin thread path, engage case latch and seat into hook race
+
+**Worker/purpose:** Sewing operators replenish lower thread **Importance hypothesis:** Routine sewing setup but workforce/domain may fail
+
+**Capability:** Keyed cartridge seating while preserving fine thread routing **Novelty hypothesis:** Hook-race latch plus thread tension path differs from generic cartridge swap
+
+**Primary-source search target:** Exact machine bobbin-case installation instructions **Difficulty:** High fine/deformable. **Evidence:** UNVERIFIED.
+
+### N072. Install a snap-in refrigerator door gasket
+
+**Equipment:** Whirlpool-type replaceable gasket and door retainer groove **Operation:** Seat gasket barb around corners without stretching or leaving gaps
+
+**Worker/purpose:** Appliance assemblers/service staff create thermal door seal **Importance hypothesis:** Appliance assembly could be core assembler work; service frequency uncertain
+
+**Capability:** Progressive compliant perimeter sealing **Novelty hypothesis:** Elastic magnetic gasket seating differs from rigid glazing bead installation
+
+**Primary-source search target:** Whirlpool exact refrigerator gasket replacement instructions **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N073. Attach a washing-machine door boot retaining spring
+
+**Equipment:** OEM bellows gasket and spring-wire retaining band **Operation:** Seat bellows lip on front flange and stretch retaining spring into channel
+
+**Worker/purpose:** Appliance assemblers fit watertight door opening **Importance hypothesis:** Appliance manufacturing relevance plausible
+
+**Capability:** Preloaded circular spring band capture over compliant lip **Novelty hypothesis:** Loaded wire band over bellows differs from simple O-ring stretch fitting
+
+**Primary-source search target:** Bosch/Whirlpool exact washer boot retaining-ring installation procedure **Difficulty:** Very high force/deformable. **Evidence:** UNVERIFIED.
+
+### N074. Align a dishwasher rack wheel onto its axle clip
+
+**Equipment:** OEM rack wheel/axle and rack rail **Operation:** Present wheel bore over formed axle and engage retaining clip without bending rack
+
+**Worker/purpose:** Appliance assemblers install rolling baskets **Importance hypothesis:** Production assembly plausible; standalone importance/novelty uncertain
+
+**Capability:** Rotating wheel assembly with independent axial retention **Novelty hypothesis:** Working rolling axle outcome differs from static panel clip
+
+**Primary-source search target:** Whirlpool exact dishwasher wheel/axle assembly sheet **Difficulty:** Medium. **Evidence:** UNVERIFIED.
+
+### N075. Route and secure a vacuum-cleaner dust bag collar
+
+**Equipment:** Miele-style dust bag and inlet carrier **Operation:** Open bag, slide collar to carrier stop and close housing without trapped fabric
+
+**Worker/purpose:** Housekeepers service ordinary cleaning equipment **Importance hypothesis:** Cleaning work/household relatability plausible; benchmark overlap likely
+
+**Capability:** Stiff collar insertion while managing flexible bag volume **Novelty hypothesis:** Bag-body management differs from generic rigid module replacement
+
+**Primary-source search target:** Miele exact vacuum cleaner bag-replacement instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
 ## Internal distinction audit
 
 No exact title or capability description is repeated. Distinct words alone do not prove distinct skills: the following families require mechanism-level screening before ranking. Blind riveting versus rivet-nut setting differs in permanent sheet joining versus creation of a threaded insert; wire stripping versus ferrule crimping differs in controlled removal versus forming a conductive termination; sealant application versus gasket seating differs in flow/tool path versus elastic capture. Retain both only if those actual contacts and useful outcomes remain central. Generic screw/connector/clip variations must be consolidated if later research reveals equivalent manipulation and success conditions.
