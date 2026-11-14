@@ -1,0 +1,27 @@
+{
+  "official_main": "add552504c5ccfedc201e2967f3230505f1e56fd",
+  "task_folders": 121,
+  "robot_adapter_pin": "0059d02a1a91bc6834c1d0846022891df0c78730",
+  "robot_source_commit": "120c3c81400171174604e503943f8d1ebc891058",
+  "novelty_queries": 21,
+  "novelty_query_failures": 0,
+  "supplied_primary_originals_retrieved": 0,
+  "robot_constants_observed": {
+    "finger_open_per_joint_m": -0.04695,
+    "nominal_pad_aperture_m": 0.0939,
+    "gripper_actuator_effort_config_N": 50.0,
+    "wrist_effort_config_Nm": 7.0,
+    "shoulder_effort_config_Nm": 27.0,
+    "TCP_offset_m": [
+      0,
+      0,
+      0.134
+    ]
+  },
+  "limitations": [
+    "Simulator config is not hardware grasp-force certification or payload rating.",
+    "No new robot IK/contact test performed.",
+    "Adapter default control_hz10 differs from per-task Dream control_hz20; configure selected task explicitly."
+  ],
+  "supplement_queries": 8
+}
