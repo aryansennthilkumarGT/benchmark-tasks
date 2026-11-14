@@ -760,6 +760,258 @@ Each entry records all ten discovery fields. Novelty statements are hypotheses t
 
 **Primary-source search target:** Miele exact vacuum cleaner bag-replacement instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
 
+## Batch 4
+
+### N076. Seat a strain-wave gear wave generator
+
+**Equipment:** Harmonic Drive cup-type flexspline and wave-generator bearing **Operation:** Orient and insert elliptical wave generator without tooth ratcheting or lip damage
+
+**Worker/purpose:** Robot-joint assemblers install reduction gearing **Importance hypothesis:** Direct robot-building relevance if actual robot reducer retained
+
+**Capability:** Elastic ovalization coupled to internal tooth engagement **Novelty hypothesis:** Flexspline deformation and tooth meshing differ from rigid keyed insertion
+
+**Primary-source search target:** Harmonic Drive exact component-set installation manual **Difficulty:** Very high precision/deformation. **Evidence:** UNVERIFIED.
+
+### N077. Set a robot-joint magnetic encoder readhead gap
+
+**Equipment:** RLS-type ring encoder, readhead bracket and spacer gauge **Operation:** Position readhead relative to encoder track, secure mount and remove setup gauge
+
+**Worker/purpose:** Robot assemblers establish reliable joint sensing **Importance hypothesis:** Direct robot-building relevance with documented joint application
+
+**Capability:** Clearance-setting against a curved reference while tightening **Novelty hypothesis:** Physical sensor-gap acquisition differs from simply reading or turning a dial
+
+**Primary-source search target:** RLS exact magnetic encoder installation manual and robot OEM joint procedure **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N078. Transfer a recirculating ball nut from shipping arbor
+
+**Equipment:** Nook/THK ball screw, ball nut and matched transfer arbor **Operation:** Keep arbor butted to screw and rotate nut across transition without releasing balls
+
+**Worker/purpose:** Machine/robot assemblers install linear actuators **Importance hypothesis:** Robot-building relevance if actual actuator installation
+
+**Capability:** Continuous support transfer across a helical recirculating race **Novelty hypothesis:** Ball-retaining transfer differs from generic nut threading
+
+**Primary-source search target:** Nook or THK ball-nut transfer-arbor mounting instructions **Difficulty:** Very high precision. **Evidence:** UNVERIFIED.
+
+### N079. Extract a broken stud with a left-hand extractor
+
+**Equipment:** IRWIN extractor, centered pilot-hole fixture and broken stud **Operation:** Seat extractor in proper pilot and rotate under axial engagement to remove remnant
+
+**Worker/purpose:** Auto/maintenance mechanics recover broken fasteners **Importance hypothesis:** Real repair operation but occurrence/core-duty concern
+
+**Capability:** Self-energizing tapered extraction from damaged fastener **Novelty hypothesis:** Damaged-fastener acquisition differs from normal screw removal
+
+**Primary-source search target:** IRWIN screw-extractor operating instructions and OEM repair procedure **Difficulty:** Very high force. **Evidence:** UNVERIFIED.
+
+### N080. Mount a small bearing after controlled induction heating
+
+**Equipment:** SKF bearing, shaft shoulder and induction-heating fixture **Operation:** Present expanded bearing squarely and slide to shoulder before fit contracts
+
+**Worker/purpose:** Machine assemblers install interference-fit bearings **Importance hypothesis:** Manufacturing relevance; exact core procedure and robot heat safety needed
+
+**Capability:** Temperature-dependent insertion window and full-shoulder seating **Novelty hypothesis:** Thermal clearance window differs from ordinary cold press insertion
+
+**Primary-source search target:** SKF bearing heating and hot-mounting instructions **Difficulty:** Very high thermal. **Evidence:** UNVERIFIED.
+
+### N081. Adjust a dovetail slide gib using a feeler strip
+
+**Equipment:** Machine slide with actual gib screws and specified gauge strip **Operation:** Balance gib contact, tighten lock screws and verify drag throughout travel
+
+**Worker/purpose:** Machine/robot assemblers commission constrained motion **Importance hypothesis:** Robot-building if robot slide; machining occupation bar otherwise uncertain
+
+**Capability:** Distributed contact adjustment with motion-dependent friction **Novelty hypothesis:** Guideway friction uniformity differs from vise angular tramming
+
+**Primary-source search target:** Exact dovetail-stage manufacturer gib-adjustment instructions **Difficulty:** High. **Evidence:** UNVERIFIED.
+
+### N082. Set an outside micrometer against its standard
+
+**Equipment:** Mitutoyo outside micrometer, setting standard and spanner **Operation:** Close measuring faces with ratchet on standard and adjust reference alignment
+
+**Worker/purpose:** Inspectors set dimensional measurement tools **Importance hypothesis:** Inspectors are a potentially qualifying occupation; actual routine must be sourced
+
+**Capability:** Repeatable-force contact calibration with mechanical zero adjustment **Novelty hypothesis:** Calibration through a load-limited measuring screw differs from arbitrary dial matching
+
+**Primary-source search target:** Mitutoyo micrometer adjustment and setting-standard instructions **Difficulty:** High fine manipulation. **Evidence:** UNVERIFIED.
+
+### N083. Connect a tractor PTO driveline to its splined stub
+
+**Equipment:** Walterscheid-type guarded PTO shaft and tractor stub **Operation:** Align splines, operate lock and advance yoke until positively retained
+
+**Worker/purpose:** Agricultural equipment operators connect implements **Importance hypothesis:** Agricultural core procedure exists but worker/domain threshold unproven
+
+**Capability:** Heavy splined coupling with independent shaft retention **Novelty hypothesis:** Full-size articulated driveline acquisition differs from small tool-chuck exchange
+
+**Primary-source search target:** Walterscheid exact PTO shaft coupling and safety manual **Difficulty:** Very high mass/reach. **Evidence:** UNVERIFIED.
+
+### N084. Join roller chain using a spring-clip master link
+
+**Equipment:** Renold chain, connecting link, side plate and spring clip **Operation:** Align chain ends, insert link, seat plate and orient retaining clip correctly
+
+**Worker/purpose:** Machine assemblers/maintenance workers close power-transmission chain **Importance hypothesis:** Assembly/maintenance plausibility; exact regular duty required
+
+**Capability:** Multi-pin chain closure with directional spring-clip capture **Novelty hypothesis:** Articulated chain continuity differs from shackle or pin-and-cotter connection
+
+**Primary-source search target:** Renold connecting-link installation instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N085. Load nylon line into a bump-feed trimmer head
+
+**Equipment:** ECHO Speed-Feed head and correctly sized trimmer line **Operation:** Align feed path, thread balanced line and wind spool to specified exposed length
+
+**Worker/purpose:** Landscaping workers replenish cutting line **Importance hypothesis:** Landscaping is qualifying in rubric; routine replenishment needs manual context
+
+**Capability:** Flexible line threading and symmetric spool winding **Novelty hypothesis:** Functional two-ended winding differs from general cable coiling
+
+**Primary-source search target:** ECHO Speed-Feed400 loading instructions **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N086. Install and tension a chainsaw chain on its bar
+
+**Equipment:** STIHL unpowered saw, guide bar and specified saw chain **Operation:** Engage drive links in bar groove/sprocket, refit cover and adjust tension
+
+**Worker/purpose:** Landscapers maintain cutting equipment **Importance hypothesis:** Tool setup relevance plausible; occasional maintenance concern remains
+
+**Capability:** Closed toothed loop routing with distributed groove engagement **Novelty hypothesis:** Segmented chain/bar engagement differs from smooth belt routing
+
+**Primary-source search target:** STIHL exact saw chain mounting and tensioning manual **Difficulty:** Very high reach/deformable. **Evidence:** UNVERIFIED.
+
+### N087. Wring a mop using a commercial bucket wringer
+
+**Equipment:** Rubbermaid side-press wringer, wet mop and bucket **Operation:** Place mop fully in basket, work lever and withdraw without overturning bucket
+
+**Worker/purpose:** Janitors prepare mop moisture for floor cleaning **Importance hypothesis:** Recognizable regular cleaning work
+
+**Capability:** Constrained textile squeezing with fluid removal **Novelty hypothesis:** Tool-driven fluid extraction differs from wiping or grasping cloth
+
+**Primary-source search target:** Rubbermaid Commercial wringer operating instructions **Difficulty:** High fluid/deformable. **Evidence:** UNVERIFIED.
+
+### N088. Clear a drain obstruction with a manual drum auger
+
+**Equipment:** RIDGID K-3/PowerSpin-type manual auger and real pipe bend **Operation:** Feed cable while rotating into blockage, engage debris and retract it
+
+**Worker/purpose:** Plumbers/maintenance workers restore drainage **Importance hypothesis:** Routine drain work plausible; exact qualifying occupation needs sourcing
+
+**Capability:** Rotating flexible shaft advances through hidden bend and engages obstruction **Novelty hypothesis:** Torque transmission and debris capture differ from pulling wires through conduit
+
+**Primary-source search target:** RIDGID exact drain-auger operating manual **Difficulty:** Very high deformable. **Evidence:** UNVERIFIED.
+
+### N089. Restore flow with a flange plunger
+
+**Equipment:** Korky-type flange plunger and toilet-bowl trainer **Operation:** Seat flange around outlet, maintain seal through strokes and release blockage
+
+**Worker/purpose:** Maintenance workers or household users clear a clog **Importance hypothesis:** Familiar household scenario or regular maintenance; benchmark overlap unverified
+
+**Capability:** Transient pressure generation through an elastic sealed cup **Novelty hypothesis:** Hydraulic clog release differs from dry pushing or surface cleaning
+
+**Primary-source search target:** Korky plunger instructions and sanitary-fixture maintenance guide **Difficulty:** Very high fluids. **Evidence:** UNVERIFIED.
+
+### N090. Embed drywall tape across a joint
+
+**Equipment:** USG joint tape, compound and taping knife **Operation:** Lay tape into wet compound and press out voids without starving joint
+
+**Worker/purpose:** Drywall finishers/construction crews finish wall joints **Importance hypothesis:** Construction relevance; exact qualifying occupational grouping needed
+
+**Capability:** Flexible tape embedding with controlled viscous-layer thickness **Novelty hypothesis:** Void-free recessed joint embedding differs from labeling or painting
+
+**Primary-source search target:** USG joint-treatment application handbook **Difficulty:** Very high deformable/fluid. **Evidence:** UNVERIFIED.
+
+### N091. Pack grout into tiled joints and remove excess
+
+**Equipment:** MAPEI grout, tile joint coupon and rubber float **Operation:** Drive grout across joints at angle, fill voids and strike surface clean
+
+**Worker/purpose:** Tile installers finish wet-area surfaces **Importance hypothesis:** Building finishing relevance; workforce/domain needs proof
+
+**Capability:** Viscoplastic material placement into a channel network **Novelty hypothesis:** Filled-depth joint formation differs from painting a panel surface
+
+**Primary-source search target:** MAPEI exact grout application instructions **Difficulty:** Very high material model. **Evidence:** UNVERIFIED.
+
+### N092. Hone a kitchen knife on a guarded steel
+
+**Equipment:** Victorinox knife and honing steel with ordinary support **Operation:** Maintain bevel contact along steel while drawing both blade sides
+
+**Worker/purpose:** Restaurant cooks maintain safe effective cutting tools **Importance hypothesis:** Cooking occupation qualifies; honing regularity still needs primary evidence
+
+**Capability:** Tool-edge angular contact along a controlled sliding stroke **Novelty hypothesis:** Edge maintenance differs from chopping or ordinary tool relocation
+
+**Primary-source search target:** Victorinox honing-steel use instructions **Difficulty:** High safety/contact. **Evidence:** UNVERIFIED.
+
+### N093. Open a food can with a manual geared opener
+
+**Equipment:** OXO-type manual can opener and sealed food can **Operation:** Clamp cutting wheel on rim, maintain feed-wheel engagement and complete cut
+
+**Worker/purpose:** Food-preparation workers open ingredients **Importance hypothesis:** Food preparation/household relevance plausible
+
+**Capability:** Coupled rolling traction and circumferential metal cutting **Novelty hypothesis:** Continuous geared rim following differs from twist-cap opening
+
+**Primary-source search target:** OXO manual can-opener instructions **Difficulty:** High deformation. **Evidence:** UNVERIFIED.
+
+### N094. Refit a faucet aerator without cross-threading
+
+**Equipment:** NEOPERL keyed recessed aerator and actual faucet spout **Operation:** Engage proper key, start insert squarely and seat gasket without damaging screen
+
+**Worker/purpose:** Maintenance workers service flow at fixtures **Importance hypothesis:** Common household/maintenance setting; standalone core duty uncertain
+
+**Capability:** Recessed tool-to-insert engagement with sealing shoulder **Novelty hypothesis:** Recessed keyed service differs from generic nut or exposed cap threading
+
+**Primary-source search target:** NEOPERL CACHÉ aerator service instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N095. Load a commercial tape dispenser correctly
+
+**Equipment:** Scotch H180-type handheld dispenser and packaging tape roll **Operation:** Mount roll, route adhesive side over roller and through cutter path
+
+**Worker/purpose:** Hand packers prepare carton-sealing tools **Importance hypothesis:** Packing work plausible; setup frequency must be established
+
+**Capability:** Adhesive web routing with nonstick/traction surface roles **Novelty hypothesis:** Tape-path commissioning differs from winding tape onto pipe threads
+
+**Primary-source search target:** 3M Scotch H180 dispenser loading instructions **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N096. Fit a keyed blade to a safety scraper
+
+**Equipment:** OLFA scraper body, replacement blade and retaining plate **Operation:** Release retainer, align blade holes/tabs and secure guarded cutting edge
+
+**Worker/purpose:** Janitors/maintenance workers prepare scraping tools **Importance hypothesis:** Tool maintenance may be too occasional; no importance assumed
+
+**Capability:** Thin sharp-part capture with protected orientation **Novelty hypothesis:** Blade retention and guard state differ from retracting/stowing a whole knife
+
+**Primary-source search target:** OLFA exact scraper replacement-blade instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N097. Set a folding ladder spreader lock fully open
+
+**Equipment:** Werner full-size stepladder and spreader braces **Operation:** Open legs while keeping feet stable and straighten/lock both spreaders
+
+**Worker/purpose:** Maintenance/construction workers deploy access equipment **Importance hypothesis:** Core work setup plausible; full-size reach may defeat YAM
+
+**Capability:** Coupled over-center brace locking under large-frame geometry **Novelty hypothesis:** Load-bearing spreader deployment differs from folding a crate
+
+**Primary-source search target:** Werner stepladder setup and spreader-lock instructions **Difficulty:** Very high reach. **Evidence:** UNVERIFIED.
+
+### N098. Replace a door closer hydraulic backcheck valve seal
+
+**Equipment:** Exact closer serviceable valve and seal kit **Operation:** Remove protected service plug and install specified valve/seal in correct order
+
+**Worker/purpose:** Building maintenance specialists restore closer damping **Importance hypothesis:** Recognizable hardware but specialist maintenance likely weak
+
+**Capability:** Metering-valve assembly with sealing interface **Novelty hypothesis:** Functional hydraulic metering differs from merely adjusting arm geometry
+
+**Primary-source search target:** Exact closer manufacturer authorized service/repair manual **Difficulty:** Very high; serviceability unverified. **Evidence:** UNVERIFIED.
+
+### N099. Install a server slide-rail front and rear brackets
+
+**Equipment:** Dell ReadyRails-type rail pair and real rack posts **Operation:** Extend rail, engage both end brackets and verify catches at correct rack unit
+
+**Worker/purpose:** Data-center technicians install server support rails **Importance hypothesis:** Direct data-center work if exact rail installation preserved
+
+**Capability:** Variable-span dual-ended capture through real rack holes **Novelty hypothesis:** Telescopic support spanning posts differs from flat blanking-panel placement
+
+**Primary-source search target:** Dell exact ReadyRails rack installation guide **Difficulty:** High reach. **Evidence:** UNVERIFIED.
+
+### N100. Remove and replace a hot-swap server fan by its release tabs
+
+**Equipment:** Dell PowerEdge model-specific fan module and chassis socket **Operation:** Release actual fan catches, withdraw module and seat replacement to latch and connector
+
+**Worker/purpose:** Data-center technicians maintain cooling hardware **Importance hypothesis:** Direct data-center procedure; earlier fan tasks may duplicate
+
+**Capability:** Coupled mechanical latch and blind electrical mating **Novelty hypothesis:** Real OEM interface differs from rejected generic gravity cooler; exact fan-swap overlap must be searched
+
+**Primary-source search target:** Dell exact server installation/service manual fan replacement section **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
 ## Internal distinction audit
 
 No exact title or capability description is repeated. Distinct words alone do not prove distinct skills: the following families require mechanism-level screening before ranking. Blind riveting versus rivet-nut setting differs in permanent sheet joining versus creation of a threaded insert; wire stripping versus ferrule crimping differs in controlled removal versus forming a conductive termination; sealant application versus gasket seating differs in flow/tool path versus elastic capture. Retain both only if those actual contacts and useful outcomes remain central. Generic screw/connector/clip variations must be consolidated if later research reveals equivalent manipulation and success conditions.
