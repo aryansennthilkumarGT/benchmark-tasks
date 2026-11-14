@@ -1,6 +1,9 @@
 # Recommendation and research status
 
-**Do not spend on another simulation yet. No candidate has cleared all five hard gates.** This research has produced a substantial GitHub/source-code checkpoint, not the completed40-primary-procedure/20-qualified-concept mission. The remaining gaps are material to the requested decision and are not hidden behind a shortlist.
+> Update: the complete user-provided Version21 rubric is now available. [CURRENT_RUBRIC_AND_SOURCES.md](CURRENT_RUBRIC_AND_SOURCES.md) supersedes older inferred rules on simulator-state experts, procedural instructions, novelty and proportionate defects. Historical reviewer comments remain attributed historical evidence.
+
+
+**Do not spend on another simulation yet. No candidate has cleared all five hard gates.** This research has produced a substantial GitHub/source-code checkpoint, not the completed40-primary-procedure/20-qualified-concept mission. The Version21/appeal supplement adds current rubric corrections and exact rejected-head inspection. The remaining gaps are material to the requested decision and are not hidden behind a shortlist.
 
 ## Verified scope
 
@@ -39,7 +42,7 @@ Counts are machine-readable in evidence/counts.json and candidate-ledger.json. R
 
 ## Important unresolved evidence gaps
 
-1. **Current full rubric:** original Nov12 Version21 document was not located; only source-bound prior v21 records and current public reviewer decisions. No claim that there is no newer private guidance.
+1. **Current full rubric:** the user has now supplied the complete Version21 document; it is retained verbatim. No claim that there is no newer private guidance.
 2. **Task board:** runtime proxy403 for tasks.robocurve.org. Even unrestricted networking may still lead to a normal sign-in page. No access control bypass; authenticated board content must come through authorized access.
 3. **Primary originals:** BLS, O*NET and manufacturer hosts return proxy403. Historical hashes and source summaries cannot be promoted to fresh primary verification. Thus40 fully researched real operations and exact current employment evidence are not complete.
 4. **Novelty coverage:**177 discussions and313 open listings are not all historical/board material. Correct DexHand Remote Battery Swap original implementation, full SimplerEnv and other relevant task corpora need targeted inspection. Five closest-three comparisons remain adversarial hypotheses.
@@ -57,3 +60,7 @@ After connectivity is verified: retrieve and hash original manuals/O*NET/BLS sou
 ## Deliverables and publication
 
 All eight requested filenames exist under research/robocurve-acceptance/, with additional prior-engineering/external-scope reports and machine-readable evidence. They deliberately report a blocked checkpoint rather than a finished acceptance portfolio. Research branch: research/robocurve-acceptance-2026-11-14. Commit identity is reported in the final chat response and Git history; it is not self-embedded in this file because that would change the commit hash.
+
+## Version21 and appeal supplement
+
+The complete user-supplied Version21 text is now preserved and analyzed in CURRENT_RUBRIC_AND_SOURCES.md. Simulator-state scripted planning is permitted; shared abstract coordination alone is not duplication; minor issues require proportionate treatment. New requested filenames are available alongside the first mission's files. PR1733_APPEAL_EVIDENCE.md verifies that the final submitted measurement design predates revision intake, but finds no substantiated importance appeal from the currently inaccessible patent leads. OUR_FOUR_REJECTION_POSTMORTEMS.md adds final-head source inspection and an objection-by-objection prevention matrix. TOP_2_GO_NO_GO.md makes every gate conditional explicitly. No comment or appeal was posted.

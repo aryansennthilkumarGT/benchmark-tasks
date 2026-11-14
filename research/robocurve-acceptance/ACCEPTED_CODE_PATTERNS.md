@@ -1,5 +1,8 @@
 # Accepted implementation patterns:20 targeted static dossiers
 
+> Update: the complete user-provided Version21 rubric is now available. [CURRENT_RUBRIC_AND_SOURCES.md](CURRENT_RUBRIC_AND_SOURCES.md) supersedes older inferred rules on simulator-state experts, procedural instructions, novelty and proportionate defects. Historical reviewer comments remain attributed historical evidence.
+
+
 These twenty tasks were selected for diverse mechanics and authors: assembly, construction/plumbing, electrical installation, data-center service, hydraulic service, manufacturing and familiar household work. The review read scorer/mechanism/controller source sections, metadata, documentation and available tests/receipts. **This is a targeted static code review, not an exhaustive read of every helper/asset line or a native runtime reproduction.** For larger packages, the remaining asset/contact audit is explicitly outstanding. Source locations and hashes are preserved so another reviewer can extend it. Do not report these as twenty independently reproduced demonstrations.
 
 All paths below are pinned to official main `add552504c5ccfedc201e2967f3230505f1e56fd`. Each dossier includes the task's latest acceptance/source commit and the traced merged PR. “Reported” means submitted evidence. No native expert, Dream or real physical trial was run here.

@@ -1,5 +1,8 @@
 # Five conditional implementation blueprints
 
+> Update: the complete user-provided Version21 rubric is now available. [CURRENT_RUBRIC_AND_SOURCES.md](CURRENT_RUBRIC_AND_SOURCES.md) supersedes older inferred rules on simulator-state experts, procedural instructions, novelty and proportionate defects. Historical reviewer comments remain attributed historical evidence.
+
+
 These are concrete mechanism/controller/scoring plans, **not implementation-ready specifications**. Importance/novelty are unresolved, live primary documents remain unavailable and key dimensions/forces have not been measured. No scene code, GPU run or model evaluation was created. Numeric score weights below are proposed benchmark design choices, not OEM requirements. Unset tolerances/load values deliberately prevent a fabricated build-ready status.
 
 Every blueprint needs source-bound asset dimensions/materials/masses, an ordinary physical mounting/reset protocol, task-independent robot controls, complete action/time accounting and source-matched receipts. No prescribed controller trajectory should become the success criterion. Avoid worktrees: use the existing isolated task checkout unless explicitly asked otherwise.

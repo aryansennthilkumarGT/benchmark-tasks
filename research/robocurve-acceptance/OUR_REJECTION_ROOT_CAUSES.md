@@ -1,5 +1,8 @@
 # Our four final rejections: root causes
 
+> Update: the complete user-provided Version21 rubric is now available. [CURRENT_RUBRIC_AND_SOURCES.md](CURRENT_RUBRIC_AND_SOURCES.md) supersedes older inferred rules on simulator-state experts, procedural instructions, novelty and proportionate defects. Historical reviewer comments remain attributed historical evidence.
+
+
 Fresh sources: [#1647](https://github.com/robocurve/benchmark-tasks/pull/1647), [#1703](https://github.com/robocurve/benchmark-tasks/pull/1703), [#1733](https://github.com/robocurve/benchmark-tasks/pull/1733), [#1772](https://github.com/robocurve/benchmark-tasks/pull/1772). Every rendered reviewer comment was read, including intake and earlier revisions. Full text, authors and times: [evidence](evidence/pr-discussions.json). The analysis of why the internal audits missed the flaws is an inference from the published claims and audit artifacts, not a claim to know the team's private deliberations.
 
 ## #1647 — counterweighted service arm

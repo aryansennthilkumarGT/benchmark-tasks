@@ -1,5 +1,8 @@
 # Ranked shortlist: no fully cleared survivors; five conditional leads
 
+> Update: the complete user-provided Version21 rubric is now available. [CURRENT_RUBRIC_AND_SOURCES.md](CURRENT_RUBRIC_AND_SOURCES.md) supersedes older inferred rules on simulator-state experts, procedural instructions, novelty and proportionate defects. Historical reviewer comments remain attributed historical evidence.
+
+
 **Implementation go count:0.** There are five leads worth resolving, not20 reviewer-defensible tasks. None passes all importance, novelty, construct, physical-scoring and robot-feasibility gates with the available evidence. Ranking is the order of further investigation. It does not authorize GPU work or assert acceptance likelihood.
 
 The provisional first two are **L-track anchor engagement** and **SDS-plus chisel exchange**. Scroll-chuck setup falls behind SDS because fresh#400 final feedback directly undermines the earlier occupational argument. If SDS proves semantically equivalent to#662/connector variants, eliminate it rather than adding extra parts. See FINAL_RECOMMENDATION.md for the implementation stop conditions.
@@ -223,4 +226,8 @@ The named closest-three lists prioritize mechanically close RoboCurve tasks, rat
 | DexHand | #1703 reviewer explicitly names Remote Battery Swap. A repository search found similarly named DexMachina training harness, not a verified match to that reviewer corpus | Correct DexHand catalog/task sources remain unverified. Do not claim it was exhaustively screened. |
 | SimplerEnv / other suites | Not fully inspected | Novelty coverage remains incomplete. |
 
-No candidate has three proven nonoverlapping comparators plus exhaustive negative evidence across these corpora. The reports preserve scoped distinctions and actual rejection threats instead of claiming uniqueness.
+Novelty does not require comparators to be wholly nonoverlapping or prove exhaustive absence. No candidate yet has a resolved same-ability/same-kind-setting/equivalent-outcome comparison against all material neighbors. The reports preserve scoped distinctions and actual rejection threats instead of claiming uniqueness.
+
+## Version21 reassessment
+
+The previous shared-pattern objections are hypotheses, not duplicate findings. In particular, SDS construction-tool exchange versus pipe-collet extraction and ER versus U-joint oblique insertion require the full same-kind object/setting/manipulation/outcome test. Simulator-state experts are allowed. Procedural instructions are allowed except when they disclose the decision being evaluated. No candidate status was upgraded without the still-missing primary-source and hardware evidence. Explicit first-two gate verdicts/counterevidence are in TOP_2_GO_NO_GO.md; the other three remain conditional on the specific six-lens objections above.

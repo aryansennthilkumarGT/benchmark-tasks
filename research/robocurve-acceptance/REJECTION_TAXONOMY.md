@@ -1,5 +1,8 @@
 # Rejection taxonomy and current acceptance standard
 
+> Update: the complete user-provided Version21 rubric is now available. [CURRENT_RUBRIC_AND_SOURCES.md](CURRENT_RUBRIC_AND_SOURCES.md) supersedes older inferred rules on simulator-state experts, procedural instructions, novelty and proportionate defects. Historical reviewer comments remain attributed historical evidence.
+
+
 Evidence retrieved 2026-11-14. Sources are official reviewer comments, not acceptance probabilities. The complete rendered comments for each retrieved PR, including author and timestamp, are in [pr-discussions.json](evidence/pr-discussions.json). Some PR timelines can load additional events dynamically; no API completeness guarantee is claimed. All rendered comments on our four specified PRs were read. Reviewer-authored decision comments were distinguished from author claims and automated intake messages.
 
 ## Current rules and limits of authority
@@ -19,13 +22,13 @@ The authoritative accessible authoring instructions are [AGENTS.md](https://gith
 | Complete scoring | #991 and #1019 raw scorer never reaches 1.0; #1592 no partial credit | Test raw scorer as well as runner behavior, all tiers, hold interval, invalid histories and restored-state attacks. |
 | Reproducibility | #1577 wrong wrench size; #230/#281 absent referenced USD | Full material/geometry/reset/asset dependencies; reproduce from the exact submitted package. |
 | Feasibility | #1926 miniature hotstick and #1928 extinguisher change reach/load; #1577 impossible wrench | Full-size interface and real robot limits first; disclose any load approximation and show it preserves the measured skill. |
-| Expert evidence | #32: observable state instead of internal latch; #34: policy-observable demo and 1-second hold | A plan or state-setting script is insufficient. Audit all state changes, controller information and actual native action execution. |
+| Expert evidence | Historical#32/#34 requested observable state; supplied Version21 expressly supersedes that restriction | A plan or task-state-editing script is insufficient. Version21 explicitly permits simulator-state feedback for planning: audit task-state edits and actual native action execution, not whether the expert reads privileged poses. |
 | Evaluation / media | main README/tools: genuine model run, successful demo if needed; H.264 MP4 <=50 MB each; screenshot <=10 MB in uploader | Source-bound receipts and media support feasibility, not conceptual acceptance. No evaluation or upload was done in this research. |
 | Submission | main AGENTS: registered GitHub author, one task/folder per PR, max20/day, blind text/media | #1647 failed intake until registration; #1733 violated setup4000/fidelity500 limits. Check intake separately from concept. |
 
 ### Version 21 and YAM limits
 
-Recovered `coordination/recovery/review-v21-progress.json` and `CHECKPOINT.json` at fork commit `93fda0c41e5dee47773bd49afbb1de54f6372932`, plus repair branches explicitly named v21. They corroborate prior use of a >500,000 threshold. **The original full Version21 reviewer instruction document dated Nov12 was not located.** It is not valid to reconstruct its exact wording or certify that no newer private revision exists. The public decisions above independently corroborate several requirements. Task-board access is blocked here; a signed-in current rubric is still needed.
+Recovered `coordination/recovery/review-v21-progress.json` and `CHECKPOINT.json` at fork commit `93fda0c41e5dee47773bd49afbb1de54f6372932`, plus repair branches explicitly named v21. They corroborate prior use of a >500,000 threshold. The full Version21 was subsequently supplied by the user and is preserved in evidence/; see CURRENT_RUBRIC_AND_SOURCES.md. At the initial checkpoint it had not been located. The supplied exact text now governs analysis; no newer private/live revision has been ruled out. The public decisions above independently corroborate several requirements. Task-board access is blocked here; a signed-in current rubric is still needed.
 
 The accessible official repository provides examples using two parallel-gripper arms and 20Hz, but is not a complete authoritative YAM force/reach specification. Examples cite 50N per simulated finger and stock stock-opening constants; these must be checked against the pinned adapter/SDK. Do not turn a single task's target force into robot payload or safe applied-force capability. Prior CPU exporter diagnostics are supplemental MuJoCo models, not native PhysX validation. No blanket standard action limit was found: published tasks declare their own limits.
 
