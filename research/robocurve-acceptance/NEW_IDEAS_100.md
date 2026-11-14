@@ -256,6 +256,258 @@ Each entry records all ten discovery fields. Novelty statements are hypotheses t
 
 **Primary-source search target:** TE Raychem exact breakout installation and heating instructions **Difficulty:** Very high thermal/deformable. **Evidence:** UNVERIFIED.
 
+## Batch 2
+
+### N026. Form a double flare on a brake tube
+
+**Equipment:** Imperial-type double-flaring bar, yoke and tube adapter **Operation:** Clamp tube at specified projection, form first bubble then invert tool to finish flare
+
+**Worker/purpose:** Auto mechanics prepare replacement hydraulic brake lines **Importance hypothesis:** Brake-line repair fits automotive work; exact frequency needs proof
+
+**Capability:** Two-stage plastic tube-end forming with clamping reference **Novelty hypothesis:** Forming a sealing flare differs from bending tube or assembling compression fittings
+
+**Primary-source search target:** Imperial or OTC double-flaring tool instructions and brake-line OEM guidance **Difficulty:** High force. **Evidence:** UNVERIFIED.
+
+### N027. Expand and assemble a PEX cold-expansion connection
+
+**Equipment:** Uponor ProPEX tubing, reinforcing ring, fitting and expansion tool **Operation:** Expand tube/ring, remove tool and insert fitting before elastic recovery closes the joint
+
+**Worker/purpose:** Plumbers install distribution piping **Importance hypothesis:** Common plumbing installation hypothesis
+
+**Capability:** Timed elastic expansion and recovery onto barbed sealing lands **Novelty hypothesis:** Recovery-window insertion differs from compression-nut or push-fit assembly
+
+**Primary-source search target:** Uponor ProPEX installation manual expansion and insertion section **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N028. Solvent-weld a PVC elbow to a pipe
+
+**Equipment:** Oatey primer/cement, matched PVC pipe and elbow **Operation:** Apply specified coating, insert with prescribed twist and hold against push-out
+
+**Worker/purpose:** Plumbers assemble drain piping **Importance hypothesis:** Drain installation core-duty hypothesis; material/chemical controls required
+
+**Capability:** Wet adhesive joint insertion with rebound restraint **Novelty hypothesis:** Adhesive wetting and push-out differ from mechanical tube coupling
+
+**Primary-source search target:** Oatey PVC solvent-welding instructions and cure guidance **Difficulty:** Very high fluids. **Evidence:** UNVERIFIED.
+
+### N029. Clamp a single-hole faucet from beneath a deck
+
+**Equipment:** Moen-type faucet mounting bracket and nut **Operation:** Keep faucet oriented above deck while engaging lower mounting bracket/nut
+
+**Worker/purpose:** Plumbers install faucets on sinks **Importance hypothesis:** Recognizable plumbing installation; core-duty sourcing needed
+
+**Capability:** Opposed-side alignment through a deck with access-limited clamp **Novelty hypothesis:** Blind under-deck reaction and faucet alignment differ from ordinary nut fastening
+
+**Primary-source search target:** Moen exact faucet installation booklet mounting stage **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N030. Seat a toilet on closet bolts without shearing its seal
+
+**Equipment:** Full-size closet flange, wax-free seal and toilet base **Operation:** Align concealed bolt holes while lowering bowl evenly to sealing flange
+
+**Worker/purpose:** Plumbers install sanitary fixtures **Importance hypothesis:** Plumbing installation plausible; full-size hardware may exceed YAM
+
+**Capability:** Heavy blind two-pin registration with vulnerable annular seal **Novelty hypothesis:** Hidden flange acquisition under a wide base differs from small-part insertion
+
+**Primary-source search target:** Fluidmaster wax-free seal and toilet OEM installation instructions **Difficulty:** Very high mass/reach. **Evidence:** UNVERIFIED.
+
+### N031. Push micro-irrigation tubing onto a real barb
+
+**Equipment:** Rain Bird drip tubing, barbed fitting and hand insertion tool **Operation:** Support fitting and push cut tubing fully over retention barbs
+
+**Worker/purpose:** Landscaping workers install irrigation **Importance hypothesis:** Landscape irrigation installation fits a large occupation; exact task needs evidence
+
+**Capability:** Interference expansion of soft tube over sequential barbs **Novelty hypothesis:** Flexible tube/barb deformation differs from locking a rigid pipe collet
+
+**Primary-source search target:** Rain Bird drip irrigation tubing/fitting installation guide **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
+
+### N032. Straighten a damaged condenser-fin strip
+
+**Equipment:** Yellow Jacket-type fin comb and real aluminum coil coupon **Operation:** Select correct tooth pitch and draw comb through bent fins without puncturing tube
+
+**Worker/purpose:** HVAC/maintenance workers restore coil airflow **Importance hypothesis:** Commercial maintenance hypothesis; specialized frequency unresolved
+
+**Capability:** Tool-pitch registration and progressive thin-fin bending **Novelty hypothesis:** Repairing a dense deformable fin array differs from brush/wipe cleaning
+
+**Primary-source search target:** Ritchie Yellow Jacket fin-comb instructions and coil OEM maintenance guidance **Difficulty:** High delicate contact. **Evidence:** UNVERIFIED.
+
+### N033. Install a capillary thermostat sensing bulb
+
+**Equipment:** Danfoss thermostat bulb, pipe saddle and retention strap **Operation:** Seat sensing bulb against pipe and secure without kinking capillary
+
+**Worker/purpose:** HVAC installers establish thermal sensing contact **Importance hypothesis:** HVAC installation context; employment/core-step evidence needed
+
+**Capability:** Conformal sensor seating while managing delicate trailing tube **Novelty hypothesis:** Thermal contact and capillary protection differ from electrical connector mating
+
+**Primary-source search target:** Danfoss thermostat sensing-bulb mounting instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N034. Locate a blower wheel on a shaft flat
+
+**Equipment:** Greenheck-type blower wheel, motor shaft and set screw **Operation:** Align wheel hub to shaft flat, set axial clearance and secure screw
+
+**Worker/purpose:** HVAC assemblers/service mechanics set fan geometry **Importance hypothesis:** Equipment assembly/service plausible; exact duty linkage needed
+
+**Capability:** Hub/shaft flat registration with measured rotating clearance **Novelty hypothesis:** Shaft datum and blade-to-housing clearance differ from basic bolt tightening
+
+**Primary-source search target:** Greenheck blower wheel replacement and set-screw instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N035. Route a serpentine belt while unloading the tensioner
+
+**Equipment:** Gates belt, pulleys and spring tensioner **Operation:** Hold tensioner clear, route belt into all grooves and restore tension without edge riding
+
+**Worker/purpose:** Auto mechanics replace accessory-drive belts **Importance hypothesis:** Routine automotive service hypothesis
+
+**Capability:** Flexible loop routing under coupled spring tension **Novelty hypothesis:** Multi-pulley groove routing with tensioner handoff differs from ratcheting a tie-down
+
+**Primary-source search target:** Gates serpentine belt installation and tensioner instructions **Difficulty:** High. **Evidence:** UNVERIFIED.
+
+### N036. Place and release a constant-tension hose clamp
+
+**Equipment:** KNIPEX hose-clamp pliers, spring-band clamp and coolant hose **Operation:** Expand clamp, move it over the hose bead and release at specified distance
+
+**Worker/purpose:** Auto mechanics assemble cooling hoses **Importance hypothesis:** Cooling-system service relevant to auto mechanics
+
+**Capability:** Tool-mediated spring clamp transport while expanded **Novelty hypothesis:** Transporting a loaded clamp differs from simply opening a release sleeve
+
+**Primary-source search target:** KNIPEX spring-band clamp tool manual and hose OEM clamp-position guidance **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N037. Install brake-pad abutment clips in a carrier
+
+**Equipment:** Carlson-type brake hardware clips and caliper bracket **Operation:** Engage clip tangs over bracket lands and verify pad sliding faces align
+
+**Worker/purpose:** Auto mechanics service disc brakes **Importance hypothesis:** Brake service is regular automotive work; exact step needs manual
+
+**Capability:** Thin spring-steel clip seating on multiple opposed lands **Novelty hypothesis:** Multi-land clip capture and pad mobility differ from generic snap-lid closure
+
+**Primary-source search target:** Carlson brake hardware installation and vehicle service manual **Difficulty:** Medium. **Evidence:** UNVERIFIED.
+
+### N038. Wind back a parking-brake caliper piston
+
+**Equipment:** Lisle caliper wind-back tool and rear caliper **Operation:** Engage piston slots and rotate while applying axial force to retract
+
+**Worker/purpose:** Auto mechanics prepare caliper for new pads **Importance hypothesis:** Brake-service context plausible
+
+**Capability:** Coupled screw rotation and compressive reaction through tool **Novelty hypothesis:** Simultaneous load-bearing tool rotation/retraction differs from bleed-valve cycling
+
+**Primary-source search target:** Lisle wind-back tool instructions and exact caliper service manual **Difficulty:** Very high force. **Evidence:** UNVERIFIED.
+
+### N039. Fit an internal circlip with snap-ring pliers
+
+**Equipment:** KNIPEX internal circlip pliers, retaining ring and bore groove **Operation:** Compress ring, lower into bore groove and release with both ends fully engaged
+
+**Worker/purpose:** Assemblers/auto mechanics retain bearings or shafts **Importance hypothesis:** Assembly/vehicle repair plausible; exact regular duty needed
+
+**Capability:** Elastic metal-ring compression followed by internal groove capture **Novelty hypothesis:** Dedicated compress-and-release inside bore differs from stretching elastomer O-ring
+
+**Primary-source search target:** KNIPEX circlip tool guidance and retaining-ring OEM installation manual **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+
+### N040. Remove a trim retainer without bending its panel
+
+**Equipment:** Lisle forked trim tool and OEM push-pin panel clip **Operation:** Place fork under clip shoulder, react on support and lever fastener out
+
+**Worker/purpose:** Auto mechanics remove interior service panels **Importance hypothesis:** Vehicle service context; core frequency needs evidence
+
+**Capability:** Controlled prying separating a fastener from flexible panel **Novelty hypothesis:** Lever reaction and reusable clip extraction differ from generic latch release
+
+**Primary-source search target:** Lisle trim tool instructions and OEM panel-removal steps **Difficulty:** Medium. **Evidence:** UNVERIFIED.
+
+### N041. Attach a wiper blade to a J-hook arm
+
+**Equipment:** Bosch-type wiper blade adapter and actual J-hook arm **Operation:** Thread hook through adapter, draw into seat and click latch closed
+
+**Worker/purpose:** Auto mechanics replace visibility-service parts **Importance hypothesis:** Automotive service plausible; standalone novelty uncertain
+
+**Capability:** Curved hook threading through constrained adapter passage **Novelty hypothesis:** Hook acquisition and release-tested retention differ from straight connector insertion
+
+**Primary-source search target:** Bosch exact J-hook wiper installation instructions **Difficulty:** Low/medium. **Evidence:** UNVERIFIED.
+
+### N042. Separate a tapered joint with a screw separator
+
+**Equipment:** OTC ball-joint separator, matched taper stud and steering knuckle **Operation:** Position separator correctly and advance screw until taper breaks free
+
+**Worker/purpose:** Auto mechanics dismantle steering joints **Importance hypothesis:** Steering repair relevant but high force and safety may defeat YAM
+
+**Capability:** Tool alignment under stored taper-release load **Novelty hypothesis:** Taper breakaway differs from pulling an unlocked pin
+
+**Primary-source search target:** OTC separator operating instructions and OEM joint service procedure **Difficulty:** Very high force. **Evidence:** UNVERIFIED.
+
+### N043. Install a parallel key and slide on a keyed hub
+
+**Equipment:** SKF-type shaft, parallel key and hub **Operation:** Seat key in keyway, orient hub groove and slide without cocking key
+
+**Worker/purpose:** Machine/robot assemblers connect rotating drives **Importance hypothesis:** Robot-building if an actual robot drive; otherwise assembler evidence needed
+
+**Capability:** Loose key capture between concentric sliding interfaces **Novelty hypothesis:** Loose torque-transmission key can jam independently of shaft alignment
+
+**Primary-source search target:** SKF power-transmission key/hub mounting instructions **Difficulty:** Medium. **Evidence:** UNVERIFIED.
+
+### N044. Drive a radial lip seal square into a housing
+
+**Equipment:** SKF radial shaft seal and proper installation sleeve **Operation:** Orient lip correctly, protect sealing edge and press case square to depth stop
+
+**Worker/purpose:** Assemblers/auto mechanics seal bearings and gearboxes **Importance hypothesis:** Production/vehicle repair hypothesis
+
+**Capability:** Interference press seating while protecting compliant sealing lip **Novelty hypothesis:** Rigid outer-case pressing with protected lip differs from O-ring stretch seating
+
+**Primary-source search target:** SKF radial shaft-seal installation handbook **Difficulty:** High force. **Evidence:** UNVERIFIED.
+
+### N045. Grease a joint through a locking coupler
+
+**Equipment:** LockNLube-type coupler, grease gun and accessible fitting **Operation:** Lock coupler to nipple, pump specified grease and release without pulling fitting
+
+**Worker/purpose:** Maintenance workers lubricate machinery **Importance hypothesis:** Lubrication appears plausible regular maintenance; exact equipment duty needed
+
+**Capability:** Pressure-tight nipple capture and controlled viscous delivery **Novelty hypothesis:** Fluid injection and coupler lock differ from dry connector mating
+
+**Primary-source search target:** Grease-gun/coupler manufacturer operating manual and equipment lubrication chart **Difficulty:** High fluid/force. **Evidence:** UNVERIFIED.
+
+### N046. Secure a bearing locknut with a tab washer
+
+**Equipment:** SKF KM nut, MB washer and shaft groove **Operation:** Engage washer tongue, tighten nut and bend selected tab into matching nut slot
+
+**Worker/purpose:** Machine assemblers secure bearing position **Importance hypothesis:** Machine assembly context; occupational evidence needed
+
+**Capability:** Anti-rotation keying plus irreversible locking-tab formation **Novelty hypothesis:** Mechanical nut security by plastic tab bend differs from plain screw seating
+
+**Primary-source search target:** SKF locknut and tab-washer mounting instructions **Difficulty:** High. **Evidence:** UNVERIFIED.
+
+### N047. Capture split valve collets under a spring retainer
+
+**Equipment:** OTC valve-spring compressor, valve and two keeper halves **Operation:** Compress retainer, place paired tapered keepers and release load gradually
+
+**Worker/purpose:** Engine mechanics assemble valve train **Importance hypothesis:** Automotive assembly/repair relevance; specialized duty uncertain
+
+**Capability:** Two loose tapered halves captured by spring-load transfer **Novelty hypothesis:** Pairwise tapered keeper seating differs from invented preload-key fixture
+
+**Primary-source search target:** OTC spring-compressor instructions and engine OEM valve assembly manual **Difficulty:** Very high force/access. **Evidence:** UNVERIFIED.
+
+### N048. Fit a drill-press chuck onto a taper arbor
+
+**Equipment:** Jacobs chuck and matching clean taper arbor **Operation:** Align clean taper, seat with approved procedure and verify retention/runout
+
+**Worker/purpose:** Machine assemblers install tooling **Importance hypothesis:** Industrial setup potentially relevant but niche workforce concern
+
+**Capability:** Self-holding conical interface seating **Novelty hypothesis:** Taper friction seating differs from threaded or bayonet engagement
+
+**Primary-source search target:** Jacobs taper-mounting instructions for exact chuck/arbor **Difficulty:** High force. **Evidence:** UNVERIFIED.
+
+### N049. Remove a bearing with a two-jaw puller
+
+**Equipment:** Posi Lock-type puller and bearing on shaft **Operation:** Seat both jaws behind bearing, center forcing screw and draw bearing evenly
+
+**Worker/purpose:** Maintenance/auto mechanics remove interference-fit components **Importance hypothesis:** Repair relevance plausible; high effort and specialized frequency need proof
+
+**Capability:** Balanced multi-point extraction with centered axial reaction **Novelty hypothesis:** Puller-jaw acquisition and centered reaction differ from ordinary fastener turning
+
+**Primary-source search target:** Posi Lock puller safety and operating manual **Difficulty:** Very high force. **Evidence:** UNVERIFIED.
+
+### N050. Secure a hydraulic hose with a cushioned P-clamp
+
+**Equipment:** Adel-type cushioned clamp, hose and mounting tab **Operation:** Open clamp around hose, align both ears and bolt to support without pinching
+
+**Worker/purpose:** Vehicle/robot assemblers provide hose support **Importance hypothesis:** Robot manufacturing domain possible with real hose routing
+
+**Capability:** Wraparound split clamp closure with offset ear alignment **Novelty hypothesis:** Capturing flexible hose while aligning two sprung ears differs from static cable clip
+
+**Primary-source search target:** Parker/airframe clamp manufacturer installation and hose-routing instructions **Difficulty:** Medium. **Evidence:** UNVERIFIED.
+
 ## Internal distinction audit
 
 No exact title or capability description is repeated. Distinct words alone do not prove distinct skills: the following families require mechanism-level screening before ranking. Blind riveting versus rivet-nut setting differs in permanent sheet joining versus creation of a threaded insert; wire stripping versus ferrule crimping differs in controlled removal versus forming a conductive termination; sealant application versus gasket seating differs in flow/tool path versus elastic capture. Retain both only if those actual contacts and useful outcomes remain central. Generic screw/connector/clip variations must be consolidated if later research reveals equivalent manipulation and success conditions.
