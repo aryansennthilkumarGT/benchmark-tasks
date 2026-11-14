@@ -1,0 +1,142 @@
+[
+  [
+    "din-rail-mount",
+    37,
+    "Hook the fixed upper edge, pivot the housing and force the spring slider past the lower rail lip. End clamps prevent sliding on from an end.",
+    "task.py geometry/_update uses transformed hook/back points, latch slider return, milestone history and20-position stillness window. partkit.py authors actual articulated sliders; demo.py uses observed module pose for staged hook/push.",
+    "No-hook and no-push controls are documented; top lip2mm versus real1mm is disclosed. Published420-step success is an author claim. Generalization: preserve constrained motion order, rather than adding a decorative latch."
+  ],
+  [
+    "push-fit-release",
+    662,
+    "Hold a release collet while extracting a pipe along its bore.",
+    "task.py _release raises a stiff tooth drive only while collet travel>=2.5mm; _update latches fitting movement>5mm and records press/pull/out. partkit.py authors both sliders. demo.py simultaneously presses and pulls, then lays down.",
+    "Explicit cone/tooth and grooved-pipe surrogate, square bore/no O-ring. Release-then-pull and no-press controls matter. This is a recognizable fitting operation, not permission to invent any spring-release service fixture."
+  ],
+  [
+    "bayonet-mate",
+    34,
+    "Axially insert two lugs, push below a roof against a spring plate, then quarter-turn under the roof.",
+    "task.py actual slot/roof/stop colliders and PLATE slider; cap_in_box and _update check insertion, rotation, seating, box displacement/tilt and all-finger release/stillness. demo.py grips/stabilizes and follows the push-turn sequence.",
+    "#34 requested observable demo state and a1-second stillness test before acceptance. Full credit requires retention after release; an inserted cap still held does not suffice."
+  ],
+  [
+    "hold-an-m2-drive-flat-and-latch-it",
+    692,
+    "Press a spring-up M.2 card flat while rotating a separate latch over its end.",
+    "hold_an_m2_drive_flat_and_latch_it.py defines card/latch hinges, up-spring and colliding latch arm; _status/_points report flatness and latch angle plus gripper clearance. bodykit.py installs mechanisms and clears per-episode state. Waypoint demo is in the task file.",
+    "The card starts already in its socket: this is retention, not full drive installation. Stem height is explicitly authored. Do not infer permission to remove connectors from a task claiming complete storage exchange."
+  ],
+  [
+    "install-processor",
+    891,
+    "Open a real socket lever/shield interlock, orient keyed loose CPU, close shield and catch.",
+    "install_processor.py _seated/score require correct CPU position/rotation before shield/lever tiers. mechanism.py authors hinged shield, lever and spring catch; parts.py authors keyed loose body. demo phases and static tests include wrong keying and interlock checks.",
+    "README cites Dell R260 operation. Rigid sprung catch substitutes for lever-wire flex; actual order and keyed seating remain. Published1051-action expert / Dream0 are receipts/metadata claims, not rerun here."
+  ],
+  [
+    "compression-joint",
+    1562,
+    "Pipe home, olive first, nut next, then wrench tightening relative to snug.",
+    "fittingkit.CompressionJoint.update tracks ring-on-pipe, thread engagement, spanner-flat capture, helical nut travel and irreversible overcompression. It explicitly poses nut/olive after thread capture; spanner jaws are visual-only. compression_joint.py _update/score impose useful sealed tiers and hold.",
+    "#1562 required a physically calibrated snug reference and raw score correction. README specifies a2Nm pretrial line calibration and new olives. Accepted approximation does not certify true contact-threading or leak tightness."
+  ],
+  [
+    "tube-bender",
+    991,
+    "Overbend a copper tube to compensate for springback; judge after relaxing.",
+    "task.py Trial.step reads lever joint and commands displayed tube angle; update keeps maximum lever-minus-springback set, overbend latch, clearance and settled_s. demo_script uses observed joint/pose feedback; mechkit authors lever return spring.",
+    "Tube material deformation is a state model, not native deformable copper. #991 corrected raw score0.5/full mismatch and specified stock/temper/spring calibration. No blanket permission to miniaturize load-sensitive operations."
+  ],
+  [
+    "tram-milling-vise-with-indicator",
+    1799,
+    "Sweep an indicator, adjust a swivel vise, clamp, and resweep with adjustment hand clear.",
+    "scoring.py TrammingScore.update requires continuous contacting sweep through both endpoints and center, probe not at stop, <=0.20mm variation, stable jaw and clamp contact. task.py observe uses native link pose/contact/joint values and moves the visual dial; demo is fixed waypoints without reading scoring state.",
+    "Retightening can shift alignment; scorer invalidates verification on clamp/yaw change. Source includes measured_results.json and counterexamples. Real-world manual cited: Sherline3570; workforce numbers in README are submitted claims requiring direct BLS verification."
+  ],
+  [
+    "sealant-cartridge-reload",
+    312,
+    "Release ratchet, retract rod, exchange actual cartridge, re-engage piston behind replacement.",
+    "build_scene.py authors prismatic/revolute mechanisms and pawl contact. sealant_reload/scoring.py evaluate uses replacement identity, tray bounds, piston gap, rod rotation, pawl angle, frame pose and complete robot envelope clearance. environment.py reset restores joints and checks initial score0; controller.py emits robot actions from phased plan.",
+    "validation receipts bind source fingerprints and native runs; tests include reverse cartridge, missing used cartridge, held support and permanent escape. Carrier/outlet geometry is explicitly simplified; do not transfer a dispensing-quality claim."
+  ],
+  [
+    "rack-blanking-panel",
+    943,
+    "Insert two panel pegs simultaneously into the target rack unit and leave it retained.",
+    "build_assets.py generates actual square rack holes and panel peg chamfers. task.py _monitor transforms endpoints into rack holes; score distinguishes targetU6, single end home and released hold. scenekit.py checks robot hull clearance; demo.py carries by two ends.",
+    "Panel pegs are rigid slip fits rather than deforming clips; electrical/airflow claims are absent. Wrong rack unit and mismatched hole pair must fail. Dream0/demo1 are submitted results."
+  ],
+  [
+    "battery-pack-assembly",
+    1303,
+    "Load four correctly oriented18650 cells in standard holder halves and assemble a pack in a jig.",
+    "pack_assembly.py uses holder_in_jig, cell_in_cup, lid_on, steps_done and _violation; USD holder halves have cup contacts/SDF collision. Demo separately handles holder halves and cells; tests reject wrong polarity, rim support and wrong lid orientation.",
+    "Upper half retained only by weight; no spring-preload capture is claimed. Real holder/cell assembly is a different operation from the invented twelve-cell cross-key. Older success includes arms-home requirements: #1576 shows that should not be copied as a current universal rule."
+  ],
+  [
+    "split-cable-guide-retrofit",
+    539,
+    "Close a split guide around an existing cable and prove unassisted drawer travel without unplugging.",
+    "task.py Trial.step captures eligible guide at proof start, enforces installation before movement, plug_gap<=2mm, no assisted travel and released hold. run.py authors jointed slack loop, sleeve and native contact carriage.",
+    "Tests reject travel-before-installation and restored violations. Clamp fit alone is insufficient: an independent mechanical functional test establishes a useful retrofit outcome. Gripper proximity is a disclosed assistance approximation."
+  ],
+  [
+    "u-joint-cross",
+    903,
+    "Pass one journal through a yoke ear, swing the too-wide cross level, then recenter both journals.",
+    "u_joint_cross.py journals/_in/installed use both symmetric journal pairs, world endpoints, ear depth and angular alignment; make_meshes.py authors hollow yoke ears and cross. demo uses an offset insertion/swing/recenter path with documented grip-droop compensation.",
+    "No needle bearings/seals/grease; some dimensions from Spicer1310, journal span and ear geometry estimated. Raw score returns0.75 installed; success() lets harness award1 after hold. This illustrates a runner/raw distinction, not an unexplained passed full-score test here."
+  ],
+  [
+    "brake-bleed-close-before-release",
+    1577,
+    "Press pedal, open bleeder while piston expels fluid, shut bleeder, then release pedal; repeat.",
+    "task.py _score/score uses remaining air, backflow latch and actual gripper geometry. livekit.py solves pressure/fluid network; yamkit.py provides articulated parts; demo keeps pressure until screw shut. test_task.py exercises air ingress and pressure/motion behavior.",
+    "#1577 rejected floor-stop-first fake fluid delivery and mismatched wrench; revised published model allows piston travel under pressure and uses11mm wrench.6psi trainer is disclosed scaling of pressure; preserve causal hydraulic order, not fake the physical response."
+  ],
+  [
+    "o-ring-into-groove",
+    1576,
+    "Stretch an elastomer ring over threads and seat square/untwisted in a groove.",
+    "ringkit.py _step models radius, sliding, roll, cocking, stretch damage and closing; task.py _score awards safe progress/physical seating rather than home pose. demo spreads fingertips, advances ring, then withdraws. tests include too-small stretch, roll-on twist and correcting a cocked seal.",
+    "Not a full deformable continuum simulation. #1576 demanded score outcomes instead of release-angle history and reconcile stretch calibration. Final seat must remain observable, while damage history must have a physical observation."
+  ],
+  [
+    "toilet-roll-spindle",
+    1847,
+    "Remove spindle, exchange tube for new roll and refit two spring-loaded tips into sockets.",
+    "rollkit.py authors spring prismatic spindle and rigid hollow rolls. task.py spindle_ends/on_spindle/seated/_update evaluate socket capture, supported roll, empty tube collection and fingertip clearance. demo.py is actual successful-controller entry; task.py demo returns empty waypoints for a do-nothing baseline.",
+    "A model-run command using yam_scripted on task.py alone does not reproduce the successful expert. Spring200N/m is explicitly assumed. Distinction from a tension rod is socket acquisition while the roll blocks central grasp."
+  ],
+  [
+    "push-in-terminal",
+    268,
+    "Land a ferruled flexible conductor in the named WAGO terminal and verify retention.",
+    "terminal_sim/task.py resets leaf joints/history, applies after-release pull test and gathers wrong-terminal events. terminal_sim/scorer.py latches wrong-terminal history; terminal_props.py supplies terminal/leaf geometry. task scorer returns0 on wrong-entry events.",
+    "Physical50N pull check is an evaluator test, not a claim the YAM applies it. Branded product numbers and conductor specification are explicit. #268 was recategorized to jobs; identifiable panel wiring supports that domain."
+  ],
+  [
+    "wrap-a-pipe-thread-with-thread-seal-tape-from-a-dispenser-the-way-the-fitting-turns-on",
+    1465,
+    "Wind thread-seal tape in the mating direction with coverage, tension, tear and tail laydown.",
+    "tapekit.py tracks paid-out tape, orbital angle, stretch/tear and forces on the roll; tape_wrap.py wound_right/taped_heights/_update score direction and height coverage plus tail-down/return/release. Demo orbits roll, tears and presses tail.",
+    "No tape mesh/material wrinkling; outcome model is disclosed. Clockwise direction is judged from thread end. Winding without correct coverage or leaving tail loose is not full completion."
+  ],
+  [
+    "tig-seam",
+    1495,
+    "Coordinate TIG torch travel and filler dabs along an L seam.",
+    "task.py note_step/weld_state track arc geometry, heat per segment, filler dips, contamination and burn-through; score uses40 sound-segment outcomes with caps. tig_seam/mech.py generates tools/bench; embodiment reset clears trial state.",
+    "Arc, heat and deposited metal are proxies in simulation. #1495 required a separate physical bead/defect scoring method, actual power/gas and protective equipment. Real welding quality cannot be inferred from simulated tip geometry. Reported model refusal is preserved."
+  ],
+  [
+    "lift-a-glass-pane-with-suction-lifters",
+    931,
+    "Seal two lever cups, carry pane from sash to bearers, release cups and hands.",
+    "glazekit.py uses three force springs per sealed cup with breakaway limit; glass_pane.py _update latches dropped/tilted/directly-touched pane, requires both-cup lift, on-bearers geometry, cup unlock and release. demo has place/lock/carry/unlock phases.",
+    "Cup engagement must depend on flatness and edge margin. Real cup load rating is not inherited by spring model; glass flex/breakage omitted. Tests include one-cup lift and edge attempts, not merely pose-at-goal states."
+  ]
+]

@@ -1,0 +1,106 @@
+{
+  "integrated": true,
+  "top_three_milestone_reached": false,
+  "confirmed_offline_high_confidence_count": 2,
+  "reason": "Shackle and ER now have source-bound internal OFFLINE READY bundles with five distinct review records each. Cargo final construct review identified exposed pawl-access risk; housing improvement next. Top-three gate not reached.",
+  "repair_branches": {
+    "shackle-v21": {
+      "commit": "ce43ba49685b76affdb6f84e2850387d8620edef",
+      "branch": "repair/rigging-shackle-v21"
+    },
+    "er-v21": {
+      "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+      "branch": "repair/er-collet-v21"
+    },
+    "drive-v21": {
+      "commit": "391edcfa1cdedc7b9bcf4448f570e9502bcb3847",
+      "branch": "repair/drive-bracket-v21"
+    }
+  },
+  "shackle": {
+    "tests": 31,
+    "ik": 299,
+    "collision_endpoints": 299,
+    "full_fk_samples": 639,
+    "ideal_actions": 7217,
+    "ideal_seconds": 360.85,
+    "clean_https": true,
+    "cpu_contact_cases": 8,
+    "tested_source_commit": "65b6ed7b762e0157977290b2dc2df398202cc65e",
+    "offline_state": "OFFLINE READY",
+    "readiness_bundle": "coordination/recovery/offline-bundles/rigging-shackle-connection/bundle.json",
+    "metadata_revalidation_source": "9cdaad9a9d1b15f660cf4ec57d0d4a5579b2c106",
+    "unchanged_runtime_full_checks_source": "65b6ed7b762e0157977290b2dc2df398202cc65e"
+  },
+  "er": {
+    "tests": 37,
+    "ik": 33,
+    "collision_endpoints": 33,
+    "full_fk_samples": 63,
+    "critical_cam_fk_samples": 220,
+    "ideal_actions": 583,
+    "ideal_seconds": 29.15,
+    "clean_https": true,
+    "audit_lookup_failure_repaired": true,
+    "cpu_contact_cases": 6,
+    "tested_source_commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
+    "transient_contact_risk": "Historical MuJoCo manifold distance was mislabeled as literal overlap. Actual geometry and manifold distance are now separated; historical failures preserved. Native PhysX/grasp validation still required.",
+    "implementation_commit": "9b6f6f645cbcb8d969d404a194019f439091aca2",
+    "clean_https_new_source": true,
+    "scoring_repair": "Observable2s pairwise position/axis window0.4mm/0.015rad; yaw irrelevant. Ignores microscopic instantaneous solver velocity spikes without loosening seating bounds.",
+    "cpu_contact_repair": "Exact8-corner convex export avoids observed primitive-box manifold anomaly. All1874original corner sets verified. Full correct fixture path scores1 and straight entry physically stops about1.90mm short, scores0; no YAM or Isaac executed.",
+    "offline_state": "OFFLINE READY",
+    "commit": "1263eb9658f67ddc0e632ee8b22d8621cbd625f5",
+    "readiness_bundle": "coordination/recovery/offline-bundles/er-collet-nut-preassembly/bundle.json"
+  },
+  "drive": {
+    "decision": "FUNDAMENTAL_REPLACEMENT_REQUIRED",
+    "official_same_procedure_PR": 1750,
+    "feedback": "Computer repair occupation below threshold; drive removal not plainly regular core work for user support specialists.",
+    "technical_repairs_preserved": true,
+    "tests": 29,
+    "collision_endpoints": 32,
+    "full_fk_samples": 116,
+    "ideal_actions": 1702
+  },
+  "pipeline": {
+    "implemented_changes": [
+      "Exact-source independent clean HTTPS expert stage",
+      "Self-contained rebuilt-package static audits",
+      "Six-hour global deadline and bounded task windows",
+      "Fresh provider receipt and protected reserve checks",
+      "Quality-first candidate ranking with no stop-after-three",
+      "Source-bound offline evidence gate before paid execution"
+    ],
+    "cpu_integration_tests_passed": 29,
+    "native_execution": false,
+    "dry_run_pending": false,
+    "billing_shutdown_not_automatic": true,
+    "offline_gate_affected_tests_passed": 12,
+    "review_artifact_integrity": "Requires five actual named/hash-bound review records and checks report contents, not passed labels alone."
+  },
+  "cargo": {
+    "slug": "cargo-bar-controlled-release",
+    "branch": "draft/cargo-bar-controlled-release",
+    "commit": "bc6ad88753d35fb6f4af9ee6b644b6a06f66a8c8",
+    "implementation": "COMPLETE_OFFLINE_VERIFIED_FINAL_ACCEPTANCE_PENDING",
+    "cpu_tests_passed": 31,
+    "ik_endpoints": 21,
+    "robot_collision_endpoints": 21,
+    "full_fk_samples": 250,
+    "ideal_actions": 1161,
+    "ideal_seconds": 58.05,
+    "synthetic_score": 1.0,
+    "native_physics": "NOT_RUN",
+    "robot_expert": "NOT_RUN",
+    "physical_hardware": "NOT_RUN",
+    "dream": "NOT_RUN",
+    "reviewer_acceptance_cleared": false,
+    "clean_https": true,
+    "novelty": "Scoped differences supported; loaded pawl release PR538, strapPR1285 and telescopingPR1855 remain final semantic review comparators.",
+    "parameter_provenance": "17,358 numeric values classified; no independently measured hardware",
+    "cpu_mechanism": "Ten repeated free-root/keeper/ratchet/released/final-cradle MuJoCo cases pass. Separate contact-only gearing/pawl/cam probes pass; no Isaac or robot claim.",
+    "tested_source_commit": "3bda1687056622253bceca64f6562c0cb101db3c",
+    "evidence": "tasks/cargo-bar-controlled-release/offline-evidence/clean-cpu-v1/source-verification.json"
+  }
+}
