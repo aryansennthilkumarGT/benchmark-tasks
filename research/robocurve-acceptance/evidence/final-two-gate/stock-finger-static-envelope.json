@@ -1,0 +1,50 @@
+{
+  "pin": "0059d02a1a91bc6834c1d0846022891df0c78730",
+  "method": "Binary visual STL vertices transformed by URDF visual then closed finger-joint origin, in gripper frame minus TCP offset. Static envelope only; no robot or task was instantiated.",
+  "urdf_sha256": "c0967cf85c4904a142c3aa2bb7453af609354ee94997900040fd0b3e1b756bb8",
+  "fingers": [
+    {
+      "link": "tip_left",
+      "joint_position_m": 0,
+      "mesh_path": "yam_arena/assets/yam/assets/tip_left.stl",
+      "mesh_sha256": "281354d77e4914ccd994b6c71fecce49a91527701f268d318f801769a6913685",
+      "min_relative_TCP_mm": [
+        -23.773,
+        -34.0,
+        -81.0
+      ],
+      "max_relative_TCP_mm": [
+        47.797,
+        34.0,
+        12.842
+      ],
+      "axis_extents_mm": [
+        71.571,
+        68.0,
+        93.843
+      ]
+    },
+    {
+      "link": "tip_right",
+      "joint_position_m": 0,
+      "mesh_path": "yam_arena/assets/yam/assets/tip_right.stl",
+      "mesh_sha256": "070925233d4b742c05c4d5508e951deba5947c2fabfa336a4e33db599c70ac3a",
+      "min_relative_TCP_mm": [
+        -47.797,
+        -34.0,
+        -81.0
+      ],
+      "max_relative_TCP_mm": [
+        23.774,
+        34.0,
+        12.842
+      ],
+      "axis_extents_mm": [
+        71.571,
+        68.0,
+        93.843
+      ]
+    }
+  ],
+  "limitation": "Visual CAD bounds are not measured pad contact surfaces or final imported collision hulls. Full palm/wrist and open/regrasp swept paths still required."
+}

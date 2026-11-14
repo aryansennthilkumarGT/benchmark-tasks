@@ -1,0 +1,13 @@
+{
+  "number": 1892,
+  "url": "https://github.com/robocurve/benchmark-tasks/pull/1892",
+  "retrieved_utc": "2026-11-14T22:49:18.218320+00:00",
+  "title": "Add hose-clamp-barb task by eainx \u00b7 Pull Request #1892 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+  "sha256": "5750e60d7cd4dc3c689d8465b5e16867bacb7d8f414609508a225a8c08848b7c",
+  "comments": [
+    "Push a coolant hose onto a barbed pump outlet and tighten its worm-drive clamp with a nut driver Connect the hose to the pump's outlet and clamp it. Fitting a hose to a barbed spigot and clamping it is routine work for auto mechanics and general maintenance and repair workers (coolant, fuel, air and water lines). The hose has to be pushed past the barb's bead all the way to the shoulder, or it blows off under pressure, with the worm-drive clamp's band on the barb behind the bead, and the clamp driven tight with a nut driver: turned, let go and re-gripped as a hand does, while the socket stays seated on the small screw head. Action allowance: 1,600 steps (80 seconds at 20 Hz) Recorded results: Dream-1 run: 0 after 129 steps (6.45 simulated seconds); termination: DreamSessionExpired:expired. Scripted/teleoperated demo: 1 after 795 steps. Reproduction: task README, task-specific scene/scorer, and exported runtime with pinned Docker build recipe. Media: M-Q49LJL (Dream recording, setup screenshot, and full-score demo when needed). Simulation fidelity: PhysX 240 Hz. The hose is a rigid tube; the bead is drawn only, the barb's collider a slimmer pin. Pushed on lined up, the hose grips the barb by a slide joint (holding it on the barb's axis) with ~3 N drag, sprung against coming off once home. The clamp is held on the hose by a stiff joint. Screw turns come from the seated socket's measured twist: 0.4 turn snug, 0.8 tight, about three half-turns of the wrist; no reaction torque on the driver.",
+    "This pull request couldn\u2019t be submitted yet: The task title field is too long (maximum 120 characters). Fill in the task title field. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again.",
+    "Copilot was unable to review this pull request because the user who requested the review has insufficient remaining quota. Try requesting a review at a lower effort level.",
+    "Received as TK-TGHDCE , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+  ]
+}
