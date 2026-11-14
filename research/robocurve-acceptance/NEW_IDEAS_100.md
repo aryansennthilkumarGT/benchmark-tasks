@@ -962,15 +962,15 @@ Each entry records all ten discovery fields. Novelty statements are hypotheses t
 
 **Primary-source search target:** 3M Scotch H180 dispenser loading instructions **Difficulty:** High deformable. **Evidence:** UNVERIFIED.
 
-### N096. Fit a keyed blade to a safety scraper
+### N096. Crack a raw egg into a bowl without shell fragments
 
-**Equipment:** OLFA scraper body, replacement blade and retaining plate **Operation:** Release retainer, align blade holes/tabs and secure guarded cutting edge
+**Equipment:** Ordinary hen egg, preparation bowl and permitted cracking edge **Operation:** Crack shell, separate halves and release contents while retaining shell
 
-**Worker/purpose:** Janitors/maintenance workers prepare scraping tools **Importance hypothesis:** Tool maintenance may be too occasional; no importance assumed
+**Worker/purpose:** Food-preparation workers or household cooks prepare ingredients **Importance hypothesis:** Everyday cooking is recognizable; actual occupational/core task still needs source
 
-**Capability:** Thin sharp-part capture with protected orientation **Novelty hypothesis:** Blade retention and guard state differ from retracting/stowing a whole knife
+**Capability:** Controlled brittle fracture and liquid release between two shell halves **Novelty hypothesis:** Fracture-created shell manipulation differs from slicing bread or pouring from rigid cups
 
-**Primary-source search target:** OLFA exact scraper replacement-blade instructions **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+**Primary-source search target:** American Egg Board foodservice egg-breaking and shell-handling guidance **Difficulty:** Very high fracture/fluid. **Evidence:** UNVERIFIED.
 
 ### N097. Set a folding ladder spreader lock fully open
 
@@ -982,15 +982,15 @@ Each entry records all ten discovery fields. Novelty statements are hypotheses t
 
 **Primary-source search target:** Werner stepladder setup and spreader-lock instructions **Difficulty:** Very high reach. **Evidence:** UNVERIFIED.
 
-### N098. Replace a door closer hydraulic backcheck valve seal
+### N098. Replace a flushometer diaphragm assembly
 
-**Equipment:** Exact closer serviceable valve and seal kit **Operation:** Remove protected service plug and install specified valve/seal in correct order
+**Equipment:** Sloan Royal flushometer, factory diaphragm kit and service wrench **Operation:** Isolate water, remove cover and replace matched diaphragm/bypass assembly before resealing
 
-**Worker/purpose:** Building maintenance specialists restore closer damping **Importance hypothesis:** Recognizable hardware but specialist maintenance likely weak
+**Worker/purpose:** Commercial maintenance workers restore working toilet flush valves **Importance hypothesis:** Commercial plumbing maintenance is recognizable; exact regular core duty needs proof
 
-**Capability:** Metering-valve assembly with sealing interface **Novelty hypothesis:** Functional hydraulic metering differs from merely adjusting arm geometry
+**Capability:** Oriented flexible diaphragm seating with a calibrated bypass passage **Novelty hypothesis:** Functional diaphragm/bypass restoration differs from generic module exchange
 
-**Primary-source search target:** Exact closer manufacturer authorized service/repair manual **Difficulty:** Very high; serviceability unverified. **Evidence:** UNVERIFIED.
+**Primary-source search target:** Sloan Royal flushometer repair and diaphragm installation instructions **Difficulty:** High sealing/fluid. **Evidence:** UNVERIFIED.
 
 ### N099. Install a server slide-rail front and rear brackets
 
@@ -1002,15 +1002,15 @@ Each entry records all ten discovery fields. Novelty statements are hypotheses t
 
 **Primary-source search target:** Dell exact ReadyRails rack installation guide **Difficulty:** High reach. **Evidence:** UNVERIFIED.
 
-### N100. Remove and replace a hot-swap server fan by its release tabs
+### N100. Mount a bicycle tyre without pinching its inner tube
 
-**Equipment:** Dell PowerEdge model-specific fan module and chassis socket **Operation:** Release actual fan catches, withdraw module and seat replacement to latch and connector
+**Equipment:** Full-size bicycle rim, rim tape, compatible tyre, tube and tyre lever **Operation:** Seat both beads while keeping partially inflated tube clear and finish with valve square
 
-**Worker/purpose:** Data-center technicians maintain cooling hardware **Importance hypothesis:** Direct data-center procedure; earlier fan tasks may duplicate
+**Worker/purpose:** Bicycle service workers or household cyclists repair a puncture **Importance hypothesis:** Familiar household repair possible; specialized occupation alone unlikely to qualify
 
-**Capability:** Coupled mechanical latch and blind electrical mating **Novelty hypothesis:** Real OEM interface differs from rejected generic gravity cooler; exact fan-swap overlap must be searched
+**Capability:** Elastic bead-over-rim transfer while protecting an enclosed flexible tube **Novelty hypothesis:** Coupled tyre bead/tube capture differs from static ring seating
 
-**Primary-source search target:** Dell exact server installation/service manual fan replacement section **Difficulty:** Medium/high. **Evidence:** UNVERIFIED.
+**Primary-source search target:** Schwalbe bicycle tyre and inner-tube mounting instructions **Difficulty:** Very high deformables. **Evidence:** UNVERIFIED.
 
 ## Internal distinction audit
 
