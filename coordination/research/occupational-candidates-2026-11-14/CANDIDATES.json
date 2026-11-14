@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "phase": "RESEARCH_PROPOSALS_ONLY",
+  "official_main": "a0afa6cddddcc4e154a8b662a8603af8d75a4a83",
+  "research_branch": "research/next-occupational-candidates",
+  "existing_sprint_sources_modified": false,
+  "paid_compute_started": false,
+  "official_prs_created": [],
+  "hardware_measurements_performed": false,
+  "native_tests_performed": false,
+  "candidates": [
+    {
+      "rank": 1,
+      "id": "double-stud-ltrack-anchor",
+      "reference_product": "US Cargo Control 1519-DSR pear-link fitting; exact compatible rail not yet selected",
+      "procedure_source": "uscargo-fitting",
+      "occupational_sources": ["onet-driver", "bls-drivers"],
+      "novelty": "CONDITIONAL_NO_EXACT_NAMED_PR_FOUND",
+      "nearest_official_prs": [770, 939, 1285],
+      "nearest_accepted_folders": ["din-rail-mount", "bayonet-mate", "camera-plate-release"],
+      "claim_boundary": "Locked anchor connection only; not rated-load cargo certification or a completed whole-load restraint system",
+      "next_step": "Establish the exact same-product rail/disc/keeper geometry and stock YAM end-clip access, then compare its independent anti-translation locking capability against the authenticated board.",
+      "kill_conditions": ["Keeper cannot be manipulated with actual stock fingertips", "Only a superficial variant of undercut/latch mounting", "Useful occupational endpoint depends on falsely claiming a full secured load"]
+    },
+    {
+      "rank": 2,
+      "id": "scroll-chuck-jaw-setup",
+      "reference_product": "Select one matching family from Rohm DC0000364; no mixed DURO key-bar/scroll design",
+      "procedure_source": "rohm-geared-scroll",
+      "occupational_sources": ["onet-machinist", "onet-cnc", "onet-tooldie", "first-4"],
+      "novelty": "CONDITIONAL_DISTINCT_LOOSE_JAW_PHASE_ENGAGEMENT_REQUIRED",
+      "nearest_official_prs": [400, 645, 1455, 1472],
+      "claim_boundary": "Production jaw setup and concentric closure check; no cutting-load qualification without actual appropriate holding evidence",
+      "next_step": "Choose a documented full-size chuck and establish scroll/jaw teeth, guide clearances, free-running effort and gripper access. Verify wrong-phase closure is physically observable.",
+      "kill_conditions": ["Jaws must be permanently preconstrained instead of actually installed", "Real manipulation forces exceed supported robot capability", "Routine production-setup importance cannot be supported", "The result merely repeats PR400 bar clamping"]
+    },
+    {
+      "rank": 3,
+      "id": "ridgid-811a-die-head-setup",
+      "reference_product": "RIDGID 811A quick-opening head and one compatible matched four-die set",
+      "procedure_source": "ridgid-300-manual",
+      "occupational_sources": ["onet-pipe", "first-5"],
+      "novelty": "CONDITIONAL_SHARED_PHYSICAL_SETTING_MECHANISM_REQUIRED",
+      "nearest_official_prs": [936, 1562],
+      "claim_boundary": "Bounded tooling installation/size setup, stopping before manufacturer-required test-thread cutting",
+      "next_step": "Resolve actual die capture, washer tongue, size-bar and clamp interfaces; establish that the bounded setup is meaningful and not just four generic insertions.",
+      "kill_conditions": ["Precision internal interfaces cannot be represented honestly", "Setup-only endpoint is not occupationally consequential", "The mechanism is reduced to generic blocks and an arbitrary lock bit", "Correct-thread production is claimed without the required test cut"]
+    }
+  ],
+  "remaining_novelty_coverage": [
+    "Signed-in RoboCurve task board",
+    "DataCenterBench full catalog",
+    "Complete SimplerEnv and other external-suite semantic equivalence",
+    "Exact same-product hardware dimensions and force/grasp feasibility"
+  ]
+}

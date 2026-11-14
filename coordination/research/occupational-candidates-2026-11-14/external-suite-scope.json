@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-11-14T00:59:07.363849+00:00",
+  "screens": [
+    {
+      "repo": "StanfordVL/BEHAVIOR-1K",
+      "sha": "b544acbbb76b461349bcba21f93b870b11da6608",
+      "terms": [
+        "chuck",
+        "collet",
+        "die head",
+        "l-track",
+        "l_track",
+        "tie_down",
+        "tie-down"
+      ],
+      "hits": {
+        "chuck": [],
+        "collet": [],
+        "die head": [],
+        "l-track": [],
+        "l_track": [],
+        "tie_down": [],
+        "tie-down": []
+      },
+      "definition_count": 1018,
+      "definition_manifest_sha256": "0f6fe50dcefc39baad6815c16c44bff22673fa64c857846cd5a9afb437715b63",
+      "scope": "Literal terms screened in all 1018 checked-out BDDL definitions. Activity names were also reviewed for assembly/repair/cargo work. Not an exhaustive semantic-equivalence proof."
+    },
+    {
+      "repo": "Lifelong-Robot-Learning/LIBERO",
+      "sha": "8f1084e3132a39270c3a13ebe37270a43ece2a01",
+      "truncated": false,
+      "blob_count": 1116,
+      "scope": "Task path inventory screened. RoboDojo FastenScrews, InsertKey, InsertTubes and PlugInCharger additionally read at this SHA. LIBERO/RoboCasa content equivalence review remains incomplete."
+    },
+    {
+      "repo": "robocasa/robocasa",
+      "sha": "425684d332f135f5b30a40b321f52d15a0fe9250",
+      "truncated": false,
+      "blob_count": 1243,
+      "scope": "Task path inventory screened. RoboDojo FastenScrews, InsertKey, InsertTubes and PlugInCharger additionally read at this SHA. LIBERO/RoboCasa content equivalence review remains incomplete."
+    },
+    {
+      "repo": "robodojo-benchmark/RoboDojo",
+      "sha": "f57e1633ffed59761bc8e568cfe7530c4b33381c",
+      "truncated": false,
+      "blob_count": 204,
+      "scope": "Task path inventory screened. RoboDojo FastenScrews, InsertKey, InsertTubes and PlugInCharger additionally read at this SHA. LIBERO/RoboCasa content equivalence review remains incomplete."
+    }
+  ],
+  "uncovered": [
+    "Authenticated RoboCurve board",
+    "DataCenterBench full catalog",
+    "SimplerEnv full task definitions",
+    "Other external suites outside the named snapshots"
+  ],
+  "legacy_archive_note": "StanfordVL/bddl redirects to StanfordVL/bddl-100. The current BEHAVIOR-1K content screen used StanfordVL/BEHAVIOR-1K/bddl3/bddl/activity_definitions, not that legacy archive."
+}

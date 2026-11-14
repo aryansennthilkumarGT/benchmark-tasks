@@ -1,0 +1,472 @@
+{
+  "generated_at": "2026-11-14T00:59:07.363849+00:00",
+  "scope": "Public official PR comments; these are actual comments, not invented explanations of acceptance.",
+  "pull_requests": [
+    {
+      "number": 400,
+      "title": "Chuck a bar in a lathe and put the key away",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/400",
+      "head_sha": "50c4c790cbb65653161a041b129eb10fd493d1cd",
+      "state": "open",
+      "merged": false,
+      "updated_at": "2026-11-12T20:54:10Z",
+      "labels": [],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/400#issuecomment-6647708573",
+          "created_at": "2026-11-05T02:10:50Z",
+          "updated_at": "2026-11-05T02:10:50Z",
+          "body": "This pull request couldn\u2019t be submitted yet:\n\n- Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-05 09:25 UTC.\n\nOnce that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/400#issuecomment-6651693971",
+          "created_at": "2026-11-05T06:48:13Z",
+          "updated_at": "2026-11-05T06:48:13Z",
+          "body": "This pull request couldn\u2019t be submitted yet:\n\n- Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-05 09:25 UTC.\n\nOnce that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/400#issuecomment-6663434780",
+          "created_at": "2026-11-05T16:33:44Z",
+          "updated_at": "2026-11-05T16:33:44Z",
+          "body": "Received as **TK-NSNWQT**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/400#issuecomment-6821056316",
+          "created_at": "2026-11-12T10:25:27Z",
+          "updated_at": "2026-11-12T10:25:27Z",
+          "body": "**Not accepted** (TK-NSNWQT).\n\nConstruct validity (not met): At the specified 3 mm per turn, 60 degrees after actual jaw contact implies about 0.5 mm further jaw travel, unlike a rigid metal chuck gripping an aluminium bar.\n\nScoring (not met): Full credit requires that unrealistic post-contact rotation even if a real chuck securely holds the 30 N test load.\n\nWhat to change: Replace the 60-degree post-contact rotation requirement with a physically appropriate tightness test, such as the specified 30 N pull. Update the scorer and real-world procedure consistently: at the stated jaw travel, the current threshold requires substantial extra movement after rigid jaws touch the bar.\n\nTo submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/400#issuecomment-6835667002",
+          "created_at": "2026-11-12T20:54:10Z",
+          "updated_at": "2026-11-12T20:54:10Z",
+          "body": "Received as **TK-T232QA** (a revision of TK-NSNWQT), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        }
+      ]
+    },
+    {
+      "number": 645,
+      "title": "Add Fit soft jaws to the vise before setting a finished part in it task",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/645",
+      "head_sha": "c09712463b25c70502d7103745a10f155b6b5b49",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T06:39:25Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/645#issuecomment-6671635551",
+          "created_at": "2026-11-05T22:52:42Z",
+          "updated_at": "2026-11-05T22:52:42Z",
+          "body": "Received as **TK-Y3QFRY**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/645#issuecomment-6816677263",
+          "created_at": "2026-11-12T06:39:23Z",
+          "updated_at": "2026-11-12T06:39:23Z",
+          "body": "**Not accepted: final** (TK-Y3QFRY).\n\nFlags: Egregious simplification \u00b7 The simulation history resets when all objects return to their start positions, potentially erasing an earlier order violation.\n\nImportance (not met): With no clamping or contact between the part and soft jaws, the task reduces workholding to placing three objects in a fixed open fixture.\n\nConstruct validity (not met): The box-built vise has no working screw or movable jaw, and the finished part remains loose with clearance from both plates.\n\nThis setup leaves the part loose in a permanently open fixture, so it does not represent the workholding skill described. A meaningful evaluation would need actual protective jaw fitting and clamping of a finished part; the current task also states the setup order instead of requiring the robot to determine it.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 770,
+      "title": "Drop a T-nut into the profile slot, quarter-turn it, slide it to the mark",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/770",
+      "head_sha": "5477556e5bd3e6137485e2a8f109113c05a14219",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T09:57:30Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/770#issuecomment-6686180519",
+          "created_at": "2026-11-06T13:40:17Z",
+          "updated_at": "2026-11-06T13:40:17Z",
+          "body": "Received as **TK-VB7R6Y**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/770#issuecomment-6820473610",
+          "created_at": "2026-11-12T09:57:28Z",
+          "updated_at": "2026-11-12T09:57:28Z",
+          "body": "**Not accepted: final** (TK-VB7R6Y).\n\nImportance (not met): Fitting one T-nut into a profile is a specialized machine-frame assembly step, and the stated machine-builder and maker-space roles do not establish impact across large occupations.\n\nThe task accurately models a particular T-slot manipulation, but placing one T-nut is a specialized preparatory operation whose broader job impact is not clear. The submission stops before mounting a useful component, so it does not establish a sufficiently important real-world outcome on its own.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 798,
+      "title": "Add break-loose-a-pipe-union-with-two-wrenches task",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/798",
+      "head_sha": "e89fa5de762515b93618c2e913e168da809e6ff7",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T07:20:25Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/798#issuecomment-6688870739",
+          "created_at": "2026-11-06T15:44:42Z",
+          "updated_at": "2026-11-06T15:44:42Z",
+          "body": "This pull request couldn\u2019t be submitted yet:\n\n- Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-06 21:52 UTC.\n\nOnce that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/798#issuecomment-6713450632",
+          "created_at": "2026-11-07T21:48:26Z",
+          "updated_at": "2026-11-07T21:48:26Z",
+          "body": "This pull request couldn\u2019t be submitted yet:\n\n- Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-07 22:26 UTC.\n\nOnce that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/798#issuecomment-6713855084",
+          "created_at": "2026-11-07T22:27:20Z",
+          "updated_at": "2026-11-07T22:27:20Z",
+          "body": "Received as **TK-CW7VYS**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/798#issuecomment-6817395838",
+          "created_at": "2026-11-12T07:20:23Z",
+          "updated_at": "2026-11-12T07:20:23Z",
+          "body": "**Not accepted: final** (TK-CW7VYS).\n\nFlags: Variant of [TK-7BMTFD](https://tasks.robocurve.org/board?task=TK-7BMTFD), submitted earlier by the same team\n\nImportance (not met): Holding a pipe against rotation while turning its union nut repeats an earlier task from this team; adding wrenches and reversing the operation does not establish a distinct ability.\n\nConstruct validity (not met): A wrench-tight threaded union is specified to release the pipe after only 25 degrees of nut rotation, which does not represent disengaging an ordinary union.\n\nClarity and reproducibility (not met): The instruction explicitly directs the robot to hold the blue backup wrench and press the red wrench, revealing the key counterholding strategy.\n\nThis task repeats your earlier bimanual pipe-union task: both require holding the pipe against rotation while turning its nut, and the added wrenches do not make the tested ability distinct. The specified union also releases after only 25 degrees, which does not reproduce disengagement of an ordinary threaded union; the instruction explicitly supplies the backup-wrench procedure as well.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 939,
+      "title": "Feed a captive nut under channel lips",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/939",
+      "head_sha": "94e20c4d82c58227e9e76a3a5a5e5973ef860ac5",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T07:08:39Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/939#issuecomment-6708529261",
+          "created_at": "2026-11-07T14:55:28Z",
+          "updated_at": "2026-11-07T14:55:28Z",
+          "body": "Received as **TK-GJ35KH**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/939#issuecomment-6817198035",
+          "created_at": "2026-11-12T07:08:36Z",
+          "updated_at": "2026-11-12T07:08:36Z",
+          "body": "**Not accepted: final** (TK-GJ35KH).\n\nFlags: Duplicate of [TK-VB7R6Y](https://tasks.robocurve.org/board?task=TK-VB7R6Y), an earlier task by another team\n\nImportance (not met): An earlier pending task already tests inserting a T-nut beneath channel lips and sliding it to a marked position; the entry route does not establish a sufficiently distinct ability.\n\nThe submission tests inserting and positioning a T-nut beneath channel lips, which does not establish a sufficiently distinct manipulation capability for this benchmark.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 1285,
+      "title": "Add Ratchet a tie-down strap taut round a crate and latch its handle before the deck is jolted task",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1285",
+      "head_sha": "bd086ec13f7673191723d18c48ad48b51dc8f224",
+      "state": "open",
+      "merged": false,
+      "updated_at": "2026-11-12T09:50:57Z",
+      "labels": [],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1285#issuecomment-6741669207",
+          "created_at": "2026-11-09T13:49:12Z",
+          "updated_at": "2026-11-09T13:49:12Z",
+          "body": "Received as **TK-AUMWWL**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1285#issuecomment-6820243070",
+          "created_at": "2026-11-12T09:46:23Z",
+          "updated_at": "2026-11-12T09:46:23Z",
+          "body": "**Not accepted** (TK-AUMWWL).\n\nScoring (not met): The 50 N threshold is inferred from fixed winding and spring behavior without a specified calibration for a real strap and ratchet.\n\nClarity and reproducibility (not met): The strap length, ratchet and anchor geometry, and the slide and stop mechanism are insufficiently specified to reproduce the rig and jolt.\n\nWhat to change: Specify the strap length, ratchet and anchor geometry, and the slide, actuator and end stop needed to reproduce the setup. Provide a practical, calibrated real-world method for verifying 50 N strap tension rather than assuming each ratchet stroke winds exactly 5 mm, and describe guarding and safe operation of the 20 kg moving deck.\n\nTo submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1285#issuecomment-6820337924",
+          "created_at": "2026-11-12T09:50:57Z",
+          "updated_at": "2026-11-12T09:50:57Z",
+          "body": "Received as **TK-72ZFXG** (a revision of TK-AUMWWL), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        }
+      ]
+    },
+    {
+      "number": 1323,
+      "title": "Add land-a-container-on-twistlocks-and-lock-them task",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1323",
+      "head_sha": "e29021f67dfa6c845a88cabea54efe438109559c",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T07:44:36Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1323#issuecomment-6750243879",
+          "created_at": "2026-11-09T20:10:20Z",
+          "updated_at": "2026-11-09T20:10:20Z",
+          "body": "Received as **TK-KGLZXK**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1323#issuecomment-6817817027",
+          "created_at": "2026-11-12T07:44:33Z",
+          "updated_at": "2026-11-12T07:44:33Z",
+          "body": "**Not accepted: final** (TK-KGLZXK).\n\nFlags: Miniaturization \u00b7 The run_scores description says the left arm turns both locks, while the README says each arm turns one\n\nImportance (not met): Landing a 100 g, 15 cm toy box by its top lug does not meaningfully test landing and securing full-size shipping containers.\n\nConstruct validity (not met): The miniature container and twistlocks omit the full-scale forces, tolerances, reach and lifting equipment of the claimed maritime operation.\n\nThe 15 cm, 100 g container and tabletop twistlocks are a miniature stand-in for freight-container lashing. The reduced loads, reach and handling equipment change the real-world skill being measured, so this task cannot establish the claimed container-securing capability.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 1455,
+      "title": "Add centre-a-block-in-a-four-jaw-chuck task",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1455",
+      "head_sha": "5a8550bd717c8ab5147238b0a24e779da66fc73f",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T10:40:25Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1455#issuecomment-6764627083",
+          "created_at": "2026-11-10T10:10:01Z",
+          "updated_at": "2026-11-10T10:10:01Z",
+          "body": "Received as **TK-U8D3D9**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1455#issuecomment-6821362840",
+          "created_at": "2026-11-12T10:40:23Z",
+          "updated_at": "2026-11-12T10:40:23Z",
+          "body": "**Not accepted: final** (TK-U8D3D9).\n\nFlags: Miniaturization \u00b7 Egregious simplification\n\nImportance (not met): Sliding four tabs around a block without screw adjustment, tightening, or runout measurement does not establish the stated machining skill.\n\nConstruct validity (not met): The 1:3 rail-based stand-in lacks jaw screws and permits full credit with gaps rather than a securely clamped workpiece.\n\nScoring (not met): Full credit permits 1.5 mm gaps at each jaw, so a loose block can be scored as gripped.\n\nClarity and reproducibility (not met): A solid 4 \u00d7 4 \u00d7 8 cm steel bar weighs about 1 kg, not the specified 80 g.\n\nThe printed scale model replaces independent chuck screws and secure clamping with sliding tabs, while the score allows gaps between the jaws and the block. This does not test the machining setup described; a meaningful evaluation would need an actual-scale chuck and the associated adjustment and secure-holding skill. Also correct the specified steel block mass: a solid bar of those dimensions weighs about 1 kg.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 1471,
+      "title": "Start a hex nut on a stud the trained way: turn it back until the thread drops, then run it down by hand",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1471",
+      "head_sha": "abc0704daf297b2f6a2b6781658f59ae40f89e91",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T11:02:32Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1471#issuecomment-6771887350",
+          "created_at": "2026-11-10T15:46:01Z",
+          "updated_at": "2026-11-10T15:46:01Z",
+          "body": "Received as **TK-ALS3T2**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1471#issuecomment-6821808650",
+          "created_at": "2026-11-12T11:02:29Z",
+          "updated_at": "2026-11-12T11:02:29Z",
+          "body": "**Not accepted: final** (TK-ALS3T2).\n\nConstruct validity (not met): A square nut can engage by turning forward without cross-threading, so declaring every 60-degree forward start damaged misrepresents the central skill.\n\nScoring (not met): The scorer rejects valid forward starts and its real-world 1.0 cm height threshold also permits less than two turns after a 2 mm drop.\n\nClarity and reproducibility (not met): The stated 7.3 cm stud top and 4.8 cm nut underside give 25 mm of overlap, contradicting the claimed 6 mm perched engagement.\n\nThe central requirement treats a backward turn as necessary to avoid cross-threading, although a correctly aligned nut can start normally by turning forward. The specified stud and nut heights also imply 25 mm of engagement rather than 6 mm, and the real-world height threshold does not establish two turns after the stated drop. A credible evaluation would need to measure actual thread engagement and damage rather than impose the current deterministic back-turn rule.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 1472,
+      "title": "Fit a new hacksaw blade over both pins with its teeth pointing away from the handle, then tension it with the wing nut",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1472",
+      "head_sha": "3cbba0aa50b36054244700b41dbe2270dd8fb869",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T11:02:36Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1472#issuecomment-6771925639",
+          "created_at": "2026-11-10T15:47:33Z",
+          "updated_at": "2026-11-10T15:47:33Z",
+          "body": "Received as **TK-CTY366**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1472#issuecomment-6821810133",
+          "created_at": "2026-11-12T11:02:33Z",
+          "updated_at": "2026-11-12T11:02:33Z",
+          "body": "**Not accepted: final** (TK-CTY366).\n\nImportance (not met): Changing a hand hacksaw blade is occasional tool maintenance, not a core regular task of general maintenance workers or machinists.\n\nScoring (not met): The scorer gives zero for tightening by pushing the nut's wings rather than gripping and rolling them, even if the blade is properly tensioned.\n\nThe task focuses on occasional hacksaw upkeep rather than a core occupational activity, and it does not establish a qualifying alternative impact domain. Its scorer also excludes legitimate wing-nut tightening by pushing the wings, even when the resulting tension is correct.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 1570,
+      "title": "Loosen a nut with an adjustable wrench: roll the jaw snug on the flats before pulling, so it doesn't round the nut",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1570",
+      "head_sha": "36948252c4ae0fab5032214c889fc713de963ceb",
+      "state": "open",
+      "merged": false,
+      "updated_at": "2026-11-12T18:32:21Z",
+      "labels": [],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1570#issuecomment-6786561871",
+          "created_at": "2026-11-11T03:57:12Z",
+          "updated_at": "2026-11-11T03:57:12Z",
+          "body": "Received as **TK-4BTMR9**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1570#issuecomment-6822285402",
+          "created_at": "2026-11-12T11:25:25Z",
+          "updated_at": "2026-11-12T11:25:25Z",
+          "body": "**Not accepted** (TK-4BTMR9).\n\nScoring (not met): A jaw measurement before the first pull cannot detect later excessive-play turns or establish the stated cumulative fault history.\n\nClarity and reproducibility (not met): The setup specifies 0.48 N\u00b7m breakaway torque while the README instructs builders to tighten to about 5 N\u00b7m.\n\nWhat to change: Use a consistent breakaway torque in the setup, reset instructions, and real-world build, and explain any remaining simulation-to-real force difference. Specify a practical calibrated measurement procedure for jaw play and nut rotation throughout all pulls, including later adjustments, so the cumulative fault conditions can be scored; describe the play thresholds as operational proxies unless actual rounding has been validated.\n\nTo submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1570#issuecomment-6832414272",
+          "created_at": "2026-11-12T18:31:33Z",
+          "updated_at": "2026-11-12T18:31:33Z",
+          "body": "Received as **TK-XPPYJE** (a revision of TK-4BTMR9), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1570#issuecomment-6832432274",
+          "created_at": "2026-11-12T18:32:21Z",
+          "updated_at": "2026-11-12T18:32:21Z",
+          "body": "\n**Revisions made**\n\n- Scoring: a jaw reading before the first pull can't catch later loose-jaw turns -> the real trial films the nut from above for the whole run and reads the nut's angle and the jaw's play in every frame, through every pull and every worm adjustment. A loose-jaw pull is called when those readings show 2 degrees or more of nut turn, in total, with over 1 mm of play. The nut is also a fresh soft aluminum one each trial, photographed before and after at the same magnification, and any visible flattening or burr on a corner counts as a loose-jaw pull too.\n- Clarity: 0.48 N*m in the setup, about 5 N*m in the README -> 0.48 N*m everywhere (setup, reset, fidelity, README), set with a torque screwdriver and checked to 0.43 to 0.53 N*m every ten trials.\n- Explain the sim-to-real force difference -> 0.48 N*m is 3.7 N at the 13 cm grip, which the arm can push; a nut in service takes about 50 N*m, which is why the faults are scored as proxies and checked on a soft nut.\n- Calibrated measurement of play and rotation through all pulls -> a 0.5 mm scale on the head, zeroed on the flats and checked with 1 mm and 2 mm feeler gauges, plus a paint line on the nut read with a video angle tool.\n- Call the play thresholds proxies -> the scoring text names both faults as proxies, says what each stands in for, and says what a real trial checks instead (the per-frame play and turn readings plus the corner photos; the nut's clockwise turn from its paint line).\n\n**Additional**\n\n- The arm-home tier is gone, and an open hand resting near the wrench no longer counts as holding it.\n"
+        }
+      ]
+    },
+    {
+      "number": 1574,
+      "title": "Seat a cocked tri-clamp square on both ferrules before drawing it up with its wing nut",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1574",
+      "head_sha": "19dcb5d270def9bf09d9cddd9bf272d6c023f6ac",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T11:26:27Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1574#issuecomment-6786690810",
+          "created_at": "2026-11-11T04:05:45Z",
+          "updated_at": "2026-11-11T04:05:45Z",
+          "body": "Received as **TK-DA72NN**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1574#issuecomment-6822306502",
+          "created_at": "2026-11-12T11:26:25Z",
+          "updated_at": "2026-11-12T11:26:25Z",
+          "body": "**Not accepted: final** (TK-DA72NN).\n\nImportance (not met): The named food batchmakers and separating-machine operators do not together establish the 500,000-worker jobs bar, and routine sanitary-clamp assembly is not established for a larger occupation.\n\nConstruct validity (not met): Overtightening permanently squeezes the gasket into the bore but can still earn 0.25.\n\nThe submission does not establish that sanitary clamp assembly is a regular core task for occupations totaling over 500,000 US workers, and the specialist setting does not meet the everyday-relatability bar. The scoring also awards credit after overtightening has permanently damaged the gasket.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 1711,
+      "title": "Take a spring-loaded bayonet coupling sleeve off its shaft: push down, turn, lift, turn back, pull off",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/1711",
+      "head_sha": "3970200735bceefe75559bc584e7299670e1f96a",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T11:59:34Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1711#issuecomment-6813318677",
+          "created_at": "2026-11-12T03:16:11Z",
+          "updated_at": "2026-11-12T03:16:11Z",
+          "body": "Received as **TK-F8KB6N**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1711#issuecomment-6822992282",
+          "created_at": "2026-11-12T11:59:32Z",
+          "updated_at": "2026-11-12T11:59:32Z",
+          "body": "**Not accepted: final** (TK-F8KB6N).\n\nFlags: Third-party source geometry license unverified\n\nImportance (not met): The custom sleeve's reversal sequence is not tied to a demonstrated regular task of electricians, general maintenance workers, or another qualifying occupation.\n\nScoring (not met): Removing the sleeve without yet placing it in the tray earns no partial credit, while the only partial tier rewards a shorter final hold.\n\nThe custom coupling's hidden reversal sequence is not established as a regular, consequential job task; the cited sensor-probe and connector analogies do not show that workers encounter this mechanism. A future submission should use a demonstrated real servicing operation rather than a custom release puzzle; also resolve and declare the source geometry's license.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    },
+    {
+      "number": 175,
+      "title": "Fit a two-pin lamp tube into its sockets and turn it to lock",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/175",
+      "head_sha": "7cc4f6a935658a401a7af6b30c11e617a95a477c",
+      "state": "open",
+      "merged": false,
+      "updated_at": "2026-11-12T13:11:14Z",
+      "labels": [],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/175#issuecomment-6626588861",
+          "created_at": "2026-11-04T08:45:30Z",
+          "updated_at": "2026-11-04T08:45:30Z",
+          "body": "Received as **TK-ZKUVPT**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/175#issuecomment-6820618000",
+          "created_at": "2026-11-12T10:04:28Z",
+          "updated_at": "2026-11-12T10:04:28Z",
+          "body": "**Not accepted** (TK-ZKUVPT).\n\nConstruct validity (not met): A robot can hold the tube at 75 degrees for full credit without demonstrating that the spring detents have locked it.\n\nScoring (not met): The scorer awards 1.0 for a seated tube at 75 degrees even when it is held or has not been still for one second.\n\nWhat to change: Update the full-score condition and scorer to require both detents to engage and both grippers to release the tube, with the tube remaining still for one second. Ensure score() cannot return 1.0 before those conditions are met, and provide a full-score demo under the revised scorer within the run limit.\n\nTo submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/175#issuecomment-6824542308",
+          "created_at": "2026-11-12T13:11:14Z",
+          "updated_at": "2026-11-12T13:11:14Z",
+          "body": "Received as **TK-5YZCRC** (a revision of TK-ZKUVPT), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        }
+      ]
+    },
+    {
+      "number": 369,
+      "title": "Extract and recover a fitted collar with a prepared screw puller",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/369",
+      "head_sha": "8ca09740cc8a70f9868ce27084b05f9df42dddf3",
+      "state": "open",
+      "merged": false,
+      "updated_at": "2026-11-12T13:40:17Z",
+      "labels": [],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/369#issuecomment-6646920501",
+          "created_at": "2026-11-05T01:18:02Z",
+          "updated_at": "2026-11-05T01:18:02Z",
+          "body": "Received as **TK-F66MKL**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/369#issuecomment-6814878069",
+          "created_at": "2026-11-12T04:49:29Z",
+          "updated_at": "2026-11-12T04:49:29Z",
+          "body": "**Not accepted** (TK-F66MKL).\n\nInstruction should only state the extraction and final-state goals, demo should only use observable information\n\nTo submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/369#issuecomment-6825193990",
+          "created_at": "2026-11-12T13:40:17Z",
+          "updated_at": "2026-11-12T13:40:17Z",
+          "body": "Received as **TK-8GJ4WA** (a revision of TK-F66MKL), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        }
+      ]
+    },
+    {
+      "number": 591,
+      "title": "Assemble a hanging carabiner chain",
+      "url": "https://github.com/robocurve/benchmark-tasks/pull/591",
+      "head_sha": "e4a6ffbf0fa1395784efd113a4e45b24b039728e",
+      "state": "closed",
+      "merged": false,
+      "updated_at": "2026-11-12T08:14:31Z",
+      "labels": [
+        "Not accepted: final"
+      ],
+      "comments": [
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/591#issuecomment-6667046065",
+          "created_at": "2026-11-05T19:19:39Z",
+          "updated_at": "2026-11-05T19:19:39Z",
+          "body": "Received as **TK-RE3RNF**, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+        },
+        {
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/591#issuecomment-6818395680",
+          "created_at": "2026-11-12T08:14:29Z",
+          "updated_at": "2026-11-12T08:14:29Z",
+          "body": "**Not accepted: final** (TK-RE3RNF).\n\nImportance (not met): Hanging three accessory carabiners in a chain has no stated practical use, and the context only describes the assembly mechanics.\n\nFeasibility (not met): The scripted controller uses exact simulator poses and score feedback rather than only robot-observable information.\n\nThe submission does not establish a meaningful real-world purpose for assembling a hanging chain of three accessory carabiners; the context describes the manipulation rather than an outcome. The scripted demo also relies on simulator-state feedback rather than observations available to a real robot.\n\nIf you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.\n\nThis task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+        }
+      ]
+    }
+  ]
+}
