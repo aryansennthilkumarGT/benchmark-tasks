@@ -189,3 +189,21 @@ def test_pawl_verification_holds_real_command_and_still_requires_physical_cleara
    output=c.step(q,frame);assert np.array_equal(output[7:13],reference)
    if c.index>9:break
   assert (c.index>9) is (not locked)
+
+
+def test_initialization_feedback_compensates_recorded_native_steady_offset():
+ # Synthetic tracking regression using the failed native initialization offset.
+ # This is not a physics run or demonstration.
+ c=Controller(PLAN,SPEC);p=c.phases[0];m=c.motion['left']
+ reference=np.array([-.22527046211763327,1.4825027983488341,1.3900565516055945,-1.4783335511066888,.000011072235610570975,1.3455378921413326])
+ measured=np.array([-.2256479412317276,1.4846205711364746,1.3887468576431274,-1.477592945098877,.002518698573112488,1.339275598526001])
+ offset=measured-reference;m.reference=reference.copy()
+ q=np.r_[measured,1.]
+ initial=np.linalg.norm(ik.tcp_pose(measured,m.base)[0]-p['target']['pos'])
+ assert initial>p['position_tolerance']
+ for _ in range(100):
+  command,_,_=m.target(q,p['target']['pos'],p['target']['quat'],1.,speed=p['speed'],feedback_gain=1.)
+  assert np.max(np.abs(command[:6]-m.reference))<1e-12
+  q=np.r_[command[:6]+offset,1.]
+ final=np.linalg.norm(ik.tcp_pose(q[:6],m.base)[0]-p['target']['pos'])
+ assert final<p['position_tolerance'] and final<initial/2

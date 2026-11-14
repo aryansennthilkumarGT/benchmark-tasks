@@ -154,7 +154,7 @@ class Controller:
      motion=self.motion[side];held=motion.reference if motion.reference is not None else q[start:start+6]
      action=np.r_[held,motion.gripper_target(q[start+6],p['opening'])];pe=re=0.
     elif 'arc' in original:action,pe,re=self.arc_action(original,frame,q)
-    else:action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],p['opening'],speed=p['speed'],angular_speed=.5)
+    else:action,pe,re=self.motion[side].target(q[start:start+7],p['target']['pos'],p['target']['quat'],p['opening'],speed=p['speed'],angular_speed=.5,feedback_gain=1.0 if p['label'].startswith('Initialize') else 0.)
     output[start:start+7]=action
     if side==phase['side']:error,theta=pe,re
    if phase.get('bimanual_carry'):output=self.coordinate_carry(q,output)
