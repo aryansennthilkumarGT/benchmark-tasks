@@ -1,147 +1,123 @@
-# Five conditional implementation blueprints
+# Five fresh implementation blueprints
 
-> Update: the complete user-provided Version21 rubric is now available. [CURRENT_RUBRIC_AND_SOURCES.md](CURRENT_RUBRIC_AND_SOURCES.md) supersedes older inferred rules on simulator-state experts, procedural instructions, novelty and proportionate defects. Historical reviewer comments remain attributed historical evidence.
+These replace the old five historical-lead plans for the new discovery mission. Source verification is still a prerequisite: they are concrete research/implementation plans, not qualified executable specifications. Numeric score weights are proposed benchmark choices; no unset dimension, load or tolerance is disguised as manufacturer data. Version21 permits simulator-state planning and explained material approximations; it does not permit teleporting task objects or deleting the central physical mechanism.
 
+## 1. N013 — Assemble a cable gland around a routed cable
 
-These are concrete mechanism/controller/scoring plans, **not implementation-ready specifications**. Importance/novelty are unresolved, live primary documents remain unavailable and key dimensions/forces have not been measured. No scene code, GPU run or model evaluation was created. Numeric score weights below are proposed benchmark design choices, not OEM requirements. Unset tolerances/load values deliberately prevent a fabricated build-ready status.
+**Source to bind:** [LAPP SKINTOP installation instructions for exact gland model](https://www.lapp.com/); original document/page/figure not yet retrieved.
 
-Every blueprint needs source-bound asset dimensions/materials/masses, an ordinary physical mounting/reset protocol, task-independent robot controls, complete action/time accounting and source-matched receipts. No prescribed controller trajectory should become the success criterion. Avoid worktrees: use the existing isolated task checkout unless explicitly asked otherwise.
+**Assets and scene:** Exact gland/body/locknut/seal/compression nut, matched cable, ordinary enclosure panel and actual tightening tools. Select one LAPP family/SKU and cable range before fixing dimensions; no commercial CAD or force value is claimed yet.
 
-## 1. Double-stud L-track cargo-anchor engagement
+**Articulations/material/contact model:** Fixed panel as ordinary installed enclosure; cable flexible enough for real axial/torsional response; actual threads or a disclosed causal thread model; elastomer seal compression must couple tightening to real retention. No magic attachment when score crosses a threshold.
 
-**Go/no-go before implementation:** Reject unless exact keeper access works with stock fingers and an anchor-only endpoint survives#770 importance/novelty review.
+**Controller phases:** Acquire/route cable through the correct loose components → fit body/locknut to panel → position actual seal → thread compression nut while restraining body/cable as required → tighten to the verified OEM procedure → release → evaluator performs a benign calibrated retention check.
 
-**Assets:** Rail segment with two or more actual aperture pairs, ordinary mounting plate, selected two-stud fitting, real keeper/link and reference scale. Primitive meshes must retain circular entry edges, undercut thickness and keeper collision geometry. Store product SKU/source-page provenance beside each dimension.
+**Primary scoring proposal:** Proposed tiers: 0.25 for correct undamaged component/cable assembly, 0.5 when gland is secured to panel and seal/nut correctly seated, 0.75 after retention proof, 1.0 after all declared completion conditions remain released and stable. Wrong/missing seal cannot earn full credit. No IP/waterproof rating is inherited; if sealing is claimed, add the real prescribed seal test.
 
-**Articulations/contact:** Fitting free6DOF; keeper actual passive slider/hinge and spring only after its real mechanism is documented; link articulation if present. Fixed rail does not actuate the fitting.
+**Physical verification:** Photographs with scale for component seating and cable mark; visible nut datum or measured OEM tightening requirement; spring-scale pull with displacement mark. Fix actual load/tolerance after manual/hardware calibration, not by inventing an OEM number.
 
-**Controller phases:** Acquire fitting without touching keeper inadvertently → hold actual keeper disengaged if required → align both discs with openings → insert to real depth → translate to captured position → release keeper → release both hands → observe retention. A separate evaluator performs the calibrated proof check.
+**Reset:** Release compression, inspect actual seal for permanent damage, restore same cable marks and loose component order; replace seal/cable if the real procedure consumes/damages them. Restore panel mounting.
 
-**Scoring/physical observations:** 0 if damage/fixture detachment or no meaningful capture; proposed0.25 for both studs truly under lips,0.5 with fitting positioned and keeper engaged,1 only when released retention/proof test passes. Do not reward a single captured stud if it is an unsafe unusable anchor. All pose tolerances and proof load remain unset pending hardware evidence.
+**Negative controls:** Nut looks seated with seal absent; cable supported by fingers; cable outside permitted range; body rotates during tightening; nut bottoms before clamping; valid alternate assembly order; safe temporary repositioning; false retention from cable welded to fixture.
 
-**Reset:** Remove fitting by documented release, return same aperture location/keeper start, inspect rail and keeper for damage, restore fitting and mount positions. Photograph start with scale.
+**Useful CPU validation:** Start with stock-gripper access and thread/torque/reaction measurements. Exercise seal compression versus measured cable-slip behavior, then actual robot joint actions over the full path. A rigid cable welded to the gland, as in the routing comparator, cannot establish this task.
 
-**Negative controls:** One stud captured; keeper perched but not engaged; finger holds link; rail pulled off mount; translated but keeper absent; reverse-direction pull; wrong aperture pitch; a second valid manipulation sequence; safe repositioning; reset does not erase genuine damage.
+**Stop condition:** Stop if no genuine fitting/retention procedure can be reproduced, if stock tool access/torque fails or if another earlier gland-assembly task matches.
 
-**Required tests:**
+**Required later evidence:** complete source-bound physical-path test, counterexamples and repeatable reset; only after separate authorization, native exact-source expert success, independent cold reproduction, genuine required model evaluation and matching media. None was executed by this research. Minor issues should be assessed proportionately; these are cost-control tests, not invented additional official criteria.
 
-1. Source/equipment audit maps every essential contact to a real interface; compare closest three tasks and signed-in board before authoring.
-2. Physical measurement rehearsal demonstrates all score conditions can be observed without dismantling or disturbing the result.
-3. Full-size stock YAM grasp/IK/collision/force feasibility check over the complete path, including simultaneous hands and tool inertia. Endpoints alone are insufficient.
-4. Unit scorer tests cover all tiers, boundary tolerances, safe alternative solutions, released hold, invalid histories, time discontinuity and repeated physical reset.
-5. CPU contact diagnostics must preserve task geometry and force limits. A task-only mechanism pass or initialized grasp fixture is not a full robot pass; report both separately.
-6. Only after conceptual clearance and separately authorized compute: native exact-source contact checks, full robot expert, independent fresh-reset reproduction, genuine model evaluation and matching media. These are future requirements, not research results.
+## 2. N085 — Load nylon line into a bump-feed trimmer head
 
-**Cost control:** no action count or wall-runtime estimate is measured for this design. Stop early on the stated conceptual or grasp-access blocker; do not solve it by inventing larger knobs, lighter hardware or hidden task actuators.
+**Source to bind:** [ECHO Speed-Feed400 loading instructions](https://www.echo-usa.com/); original document/page/figure not yet retrieved.
 
-## 2. SDS-plus full-size chisel exchange
+**Assets and scene:** Exact ECHO Speed-Feed family head, actual eyelets, internal spool/catch and correct nylon line; retain actual full-size supported trimmer/tool interface where OEM loading expects it. No prewound cassette substitution.
 
-**Go/no-go before implementation:** Reject if semantic comparison to#662/#175 shows only a different connector or if force/gripper dimensions cannot be met at actual scale.
+**Articulations/material/contact model:** Passive spool/knob rotation, actual line-routing passages and feed/locking mechanism, deformable line with contact/friction and realistic bending. Model only geometry supported by the exact manual/hardware; never script line segments into a final wound pose.
 
-**Assets:** Exact unpowered hammer front/tool holder, actual sleeve, retaining ball, guide keys, two matched SDS-plus shanks/chisels, supported storage rack and scale. Do not turn real circular interfaces into square peg sockets.
+**Controller phases:** Align OEM loading indicator → pass line through actual eyelets → equalize exposed ends → hold real housing and turn winding knob through legitimate grasps/regrasps → leave allowed leader lengths → release → perform the prescribed benign feed/readiness check.
 
-**Articulations/contact:** Tool free6DOF; passive sleeve axial motion and radial ball contact; key grooves block rotation appropriately; locked tool retains intended axial freedom. No state-triggered weld joint or ball actuator based on score.
+**Primary scoring proposal:** Proposed tiers: 0.25 for genuine passage through both proper eyelets, 0.5 for correctly engaged winding, 0.75 for correct exposed leaders, 1.0 for working feed/retention after release. Winding progress must be physically observable/functional, not just a counted knob angle.
 
-**Controller phases:** Acquire old shank → other arm retracts actual sleeve → withdraw tool along permitted axis → let sleeve return and store old tool → acquire new shank → rotate/advance through guide keys until automatic capture → release → evaluator confirms retention and axial float.
+**Physical verification:** Ruler for exposed leaders, visible alignment/engagement marks, and an OEM-consistent feed/release test. Hidden internal wraps must be inferred only by a legitimate functional check or provided ordinary inspection access, not simulator coordinates.
 
-**Scoring/physical observations:** Proposed0 for no valid change/damage,0.25 old tool removed and safely supported,0.5 correct replacement inserted but lock unproven,1 correct retained replacement after release and proper pull/float check. The physical evaluator test must distinguish allowed float from withdrawal; numeric limits require manual/hardware measurement.
+**Reset:** Unwind/remove through the actual permitted release; inspect line abrasion and replace consumed line; restore empty head/indicator and unthreaded line. Do not silently retain successful wraps across resets.
 
-**Reset:** Use genuine sleeve release to remove new tool, restore old shank/lock and starting sleeve state; confirm power isolated, tools clean/lightly lubricated per manual, same orientation and insertion state.
+**Negative controls:** Line merely draped through eyelets; unequal ends masquerade as full spool; knob turns without pulling line; prewound hidden spool; failed feed despite good external lengths; finger support; benign tail contacts/table overhang must not automatically erase valid progress.
 
-**Negative controls:** Wrong groove orientation; shallow insertion; sleeve still held back; removing without sleeve; tool held in place rather than locked; intended axial float; tool identity swapped; no task-object pose setters; valid rotate-and-insert alternatives.
+**Useful CPU validation:** First actual knob torque and stock grasp; then short contact-verified threading/first-turn prototype; only then full actual line length and complete robot-controller diagnostic. Long thin line may dominate collision cost and make this slower than other leads.
 
-**Required tests:**
+**Stop condition:** Stop if the actual head only permits an inaccessible control, if an earlier same-kind line-loading benchmark is found or if a causal flexible-line model cannot preserve feed behavior.
 
-1. Source/equipment audit maps every essential contact to a real interface; compare closest three tasks and signed-in board before authoring.
-2. Physical measurement rehearsal demonstrates all score conditions can be observed without dismantling or disturbing the result.
-3. Full-size stock YAM grasp/IK/collision/force feasibility check over the complete path, including simultaneous hands and tool inertia. Endpoints alone are insufficient.
-4. Unit scorer tests cover all tiers, boundary tolerances, safe alternative solutions, released hold, invalid histories, time discontinuity and repeated physical reset.
-5. CPU contact diagnostics must preserve task geometry and force limits. A task-only mechanism pass or initialized grasp fixture is not a full robot pass; report both separately.
-6. Only after conceptual clearance and separately authorized compute: native exact-source contact checks, full robot expert, independent fresh-reset reproduction, genuine model evaluation and matching media. These are future requirements, not research results.
+**Required later evidence:** complete source-bound physical-path test, counterexamples and repeatable reset; only after separate authorization, native exact-source expert success, independent cold reproduction, genuine required model evaluation and matching media. None was executed by this research. Minor issues should be assessed proportionately; these are cost-control tests, not invented additional official criteria.
 
-**Cost control:** no action count or wall-runtime estimate is measured for this design. Stop early on the stated conceptual or grasp-access blocker; do not solve it by inventing larger knobs, lighter hardware or hidden task actuators.
+## 3. N005 — Snap glazing bead around an installed pane
 
-## 3. Removable scroll-chuck jaw setup and concentric verification
+**Source to bind:** [Exact window-system manufacturer glazing-bead installation manual](https://www.rehau.com/); original document/page/figure not yet retrieved.
 
-**Go/no-go before implementation:** Importance gate is first: prove direct regular-core duty across valid disjoint occupations above threshold. If not, abandon before modeling teeth.
+**Assets and scene:** One exact commercially documented window frame/glazing system, real pane, gasket and actual matching bead profile; ordinary glazing supports and OEM-permitted hand/block/mallet tool. Choose actual available sizes, not a scaled-down frame.
 
-**Assets:** One real-size chuck body with actual scroll/key drive, three independently removable numbered jaws and their true guide/tooth profiles, original key and a documented gauge/mandrel. Include spindle-lock/bench mount only as an ordinary unpowered workholding aid.
+**Articulations/material/contact model:** Preserve bead toe, groove undercut, retaining lip and gasket contact. Disclosed compliant/contact approximation may replace difficult polymer flex only if it preserves the real insertion/retention skill. No pose-triggered weld.
 
-**Articulations/contact:** Passive scroll rotation driven by key contact; jaw radial guides become constrained by tooth engagement, with genuine out-of-phase states. A simplistic synchronized-prismatic-jaw actuator is insufficient for this objective.
+**Controller phases:** Orient bead → engage required toe/end → progressively rotate/press/tap using actual allowed tool → seat all required length/corners → release → inspect profile and retention without holding pane/bead.
 
-**Controller phases:** Index scroll to the actual pickup position → present first jaw until tooth acquisition → rotate to acquire subsequent jaws at physical phases → close on gauge → inspect concentricity and retention → remove key and release. Allow any physically correct cyclic numbering/order.
+**Primary scoring proposal:** Proposed 0.25 for valid toe engagement, 0.5 for actual partial retained length, 1.0 for complete correct bead/gasket retention and released state. Do not count a flush-looking but unhooked strip or a gripper-supported bead.
 
-**Scoring/physical observations:** Proposed0 if no functional engagement or loose unsupported jaws;0.25 all three jaws engaged,0.5 concentric closure established,1 gauge retained and verified with key removed/hands clear. Do not score a fixed number of post-contact turns (#400). Indicator/caliper tolerance and load require gauge/chuck specification first.
+**Physical verification:** Side/end photos and depth/straightedge measurement of proudness, plus a justified gentle retention check at accessible locations. Numerical thresholds come from selected profile/physical build. No unsupported claim that every window bead uses the same method.
 
-**Reset:** Reverse scroll to release gauge, remove jaws via proper terminal tooth position, restore key and loose jaws with original numbering. Check guides/teeth and ensure no powered spindle state.
+**Reset:** Remove using the actual bead-release procedure and permitted tool; restore intact gasket/pane support and initial bead pose. Replace any damaged profile; no forced reverse collision reset treated as a physical method.
 
-**Negative controls:** Jaw one tooth out; missing jaw; nominal pose without tooth capture; wrong jaw family; no gauge contact; software forced centering; incorrect valid-order rejection; excessive post-contact rotation; key still present; released gauge fails proof.
+**Negative controls:** Bead reversed, toe in wrong slot, middle pressed but ends loose, real gasket pinched, hand holds final strip, rigid box stand-in has no actual undercut, impossible access because glazing blocks the tool.
 
-**Required tests:**
+**Useful CPU validation:** Test exact profile contact and required insertion force before robot motion. Then test stock-gripper/tool access for one short real section and progress to complete actual-size assembly; do not claim the short coupon validates full reach.
 
-1. Source/equipment audit maps every essential contact to a real interface; compare closest three tasks and signed-in board before authoring.
-2. Physical measurement rehearsal demonstrates all score conditions can be observed without dismantling or disturbing the result.
-3. Full-size stock YAM grasp/IK/collision/force feasibility check over the complete path, including simultaneous hands and tool inertia. Endpoints alone are insufficient.
-4. Unit scorer tests cover all tiers, boundary tolerances, safe alternative solutions, released hold, invalid histories, time discontinuity and repeated physical reset.
-5. CPU contact diagnostics must preserve task geometry and force limits. A task-only mechanism pass or initialized grasp fixture is not a full robot pass; report both separately.
-6. Only after conceptual clearance and separately authorized compute: native exact-source contact checks, full robot expert, independent fresh-reset reproduction, genuine model evaluation and matching media. These are future requirements, not research results.
+**Stop condition:** Stop if normal installation requires unachievable load/reach or earlier glazing revisions already contain the same bead-refit objective.
 
-**Cost control:** no action count or wall-runtime estimate is measured for this design. Stop early on the stated conceptual or grasp-access blocker; do not solve it by inventing larger knobs, lighter hardware or hidden task actuators.
+**Required later evidence:** complete source-bound physical-path test, counterexamples and repeatable reset; only after separate authorization, native exact-source expert success, independent cold reproduction, genuine required model evaluation and matching media. None was executed by this research. Minor issues should be assessed proportionately; these are cost-control tests, not invented additional official criteria.
 
-## 4. ER collet-to-nut supported preassembly
+## 4. N062 — Wrap a blood-pressure cuff at its index mark
 
-**Go/no-go before implementation:** Resolve importance/useful endpoint and failed stock grasp before any native scene effort. Source discrepancy is an elimination trigger, not a request to strengthen the virtual snap.
+**Source to bind:** [Welch Allyn FlexiPort cuff instructions for use](https://www.hillrom.com/); original document/page/figure not yet retrieved.
 
-**Assets:** Matching ER32 collet/nut from one source family, accurate extraction groove and eccentric ring, ordinary bench supports, optional matching holder only if endpoint scope is explicitly expanded and re-reviewed. Mark all authored quantities as authored.
+**Assets and scene:** Actual-size training arm, real-style bladder/fabric cuff with marker/index range and authentic closure; no rigid cuff arches or prewrapped starting state. Patient circulation and diagnosis outside scope.
 
-**Articulations/contact:** Collet and nut free rigid bodies; their ring/groove contact alone defines pivot path. Support objects fixed. No fake spring, attachment, fixture-driven task actuator or guaranteed hanging retention.
+**Articulations/material/contact model:** Preserve wrap path, textile bending/stretch and hook-and-loop retention. A disclosed contact/adhesion model is acceptable only if loose, folded or wrongly tensioned fabric can genuinely fail. Rigid arch placement cannot substitute.
 
-**Controller phases:** Acquire real collet lands and lift (reproduce failed CPU grasp first) → acquire supported nut → incline collet into eccentric ring → move groove into engagement → pivot axes coaxial → lower pair onto support → clear hands → inspect engagement. Expanded holder insertion requires new source/importance/novelty review.
+**Controller phases:** Acquire cuff/locate marker → wrap actual arm with controlled slack → tension and close genuine overlap → smooth without trapping folds → release → inspect OEM fit and retained location.
 
-**Scoring/physical observations:** Proposed0 no valid engagement;0.5 supported groove/ring acquisition;1 verified supported preassembly with correct coaxial fit and released hands. A physically valid but unsupported collet must not fail an invented hanging test. No depth/angle tolerances finalized before drawing and sight-line protocol.
+**Primary scoring proposal:** Proposed 0.25 for meaningful partial wrap, 0.5 for closed retained cuff, 1.0 only with correct marker/index/edge positions, flat bladder region and proper fit after release. Avoid demanding a particular hand sequence or rewarding visual size choice alone.
 
-**Reset:** Separate using manufacturer tilt/release procedure; inspect groove/ring for burrs; restore same supports/part orientations and cleanliness. Do not prefit so deeply that straight placement suffices.
+**Physical verification:** Ruler and photos at defined marker/index/edge locations plus the OEM fit check; benign inflation only if specified and needed to inspect fit, never a fabricated medical diagnostic result. Exact dimensions/fit tolerances await the actual cuff instructions.
 
-**Negative controls:** Straight coaxial push; contact on wrong lip; apparently aligned but unengaged pair; correct pair supported; unsupported drop is not proof manufacturer guarantee; gripper still supports; different collet yaw accepted; alternative valid tilt direction; reset state scores0.
+**Reset:** Open cuff normally, inspect closure, restore unwrapped flat starting cuff and same arm posture. Do not preload tension or retain hidden fold state.
 
-**Required tests:**
+**Negative controls:** Rigid arch over beam; prewrapped cuff; unsupported self-adhesive pose constraint; marker displaced; sleeve folded underneath; closure retained only by robot; correctly fitted alternative wrapping technique; wrong size-selection logic without physical fitting.
 
-1. Source/equipment audit maps every essential contact to a real interface; compare closest three tasks and signed-in board before authoring.
-2. Physical measurement rehearsal demonstrates all score conditions can be observed without dismantling or disturbing the result.
-3. Full-size stock YAM grasp/IK/collision/force feasibility check over the complete path, including simultaneous hands and tool inertia. Endpoints alone are insufficient.
-4. Unit scorer tests cover all tiers, boundary tolerances, safe alternative solutions, released hold, invalid histories, time discontinuity and repeated physical reset.
-5. CPU contact diagnostics must preserve task geometry and force limits. A task-only mechanism pass or initialized grasp fixture is not a full robot pass; report both separately.
-6. Only after conceptual clearance and separately authorized compute: native exact-source contact checks, full robot expert, independent fresh-reset reproduction, genuine model evaluation and matching media. These are future requirements, not research results.
+**Useful CPU validation:** Actual closure/shear and fabric bending tests first; then two-arm wrap path with measured joint/gripper actions. Deformable-material work is likely expensive and is why this is not one of the first two builds.
 
-**Cost control:** no action count or wall-runtime estimate is measured for this design. Stop early on the stated conceptual or grasp-access blocker; do not solve it by inventing larger knobs, lighter hardware or hidden task actuators.
+**Stop condition:** Stop if an earlier genuine cuff-wrapping task matches; if only pose-based arches can be simulated; or if stock fingers cannot grasp the real cuff edge/closure.
 
-## 5. RIDGID811A quick-opening die-head setup
+**Required later evidence:** complete source-bound physical-path test, counterexamples and repeatable reset; only after separate authorization, native exact-source expert success, independent cold reproduction, genuine required model evaluation and matching media. None was executed by this research. Minor issues should be assessed proportionately; these are cost-control tests, not invented additional official criteria.
 
-**Go/no-go before implementation:** Obtain cam/guide drawing, stock-control access and core-duty proof. If the bounded setup is not independently consequential, reject or redesign around an authentic complete operation before any spending.
+## 5. N077 — Set a robot-joint magnetic encoder readhead gap
 
-**Assets:** Exact811A head, matched die set/slot marks, size bar/link, washer tongue and clamp lever; original throwout control, restrained unpowered mount. Asset pack requires one documented head configuration rather than combining parts catalogs.
+**Source to bind:** [RLS exact magnetic encoder installation manual and robot OEM joint procedure](https://www.rls.si/); original document/page/figure not yet retrieved.
 
-**Articulations/contact:** Real die radial guides and common positioning/retention mechanism; physical washer/tongue engagement; actual clamp screw/link. No automatic seating or color-matching rewards without contact consequences.
+**Assets and scene:** One actual robot-joint encoder installation: matched magnetic ring/readhead, OEM bracket/fasteners and approved gauge/spacer. A generic dial on a block cannot borrow robot-building importance.
 
-**Controller phases:** Open throwout → loosen clamp approximately3turns per manual → lift tongue and move washer to slot end → insert each correct die with indicator line flush → align index to requested size and seat tongue → tighten clamp → perform normal open/close retention inspection → release. Do not cut a thread in this CPU research scope.
+**Articulations/material/contact model:** Rigid joint/ring/bracket geometry, actual adjustment degrees of freedom and screw clamping; gauge carries real clearance/contact. Any simulated signal model must derive from physically relevant pose/gap, with limitations explicit.
 
-**Scoring/physical observations:** Proposed0 no usable die capture;0.25 correct complete die set at required seating marks;0.5 correct size setting/tongue engagement;1 retained configured assembly after release/normal head travel. This scores setup only. A gauge/thread quality/pressure-seal claim requires the manufacturer-mandated subsequent test cut, outside this blueprint.
+**Controller phases:** Locate ring/joint datum → place actual setup gauge → align readhead/bracket while engaging real fasteners → secure without losing gap → remove gauge → release → perform benign joint-turn/signal/gap check per manual.
 
-**Reset:** Open/loosen through documented controls, remove dies, restore selected start size/washer slot and mark orientations. Track matched set; inspect guide/cam damage. No synthetic fixture resets posed as physical reset.
+**Primary scoring proposal:** Proposed 0.25 for legitimate bracket placement, 0.5 for secured in-range gap, 1.0 for complete retained orientation/runout allowance and required functional check. No reward for simply moving a dial to a mark or reading a screen.
 
-**Negative controls:** Wrong die/slot ID; mixed dies; shallow indicator line; tongue outside slot; clamp loose; dies fall on opening; false positive from color order; software captures free die; safe alternate insertion order; correct setup still not labeled cut-thread-ready.
+**Physical verification:** Actual approved shim/feeler/gap measurements and readable witness locations; if an OEM signal diagnostic is required, retain it as an ordinary test, not a fictional visual indicator. Precision values remain unset until source verification.
 
-**Required tests:**
+**Reset:** Release bracket normally, restore loose fasteners and start offset/gauge, inspect contact surfaces, retain exact encoder calibration state and real joint datum. No scored target written into the mechanism.
 
-1. Source/equipment audit maps every essential contact to a real interface; compare closest three tasks and signed-in board before authoring.
-2. Physical measurement rehearsal demonstrates all score conditions can be observed without dismantling or disturbing the result.
-3. Full-size stock YAM grasp/IK/collision/force feasibility check over the complete path, including simultaneous hands and tool inertia. Endpoints alone are insufficient.
-4. Unit scorer tests cover all tiers, boundary tolerances, safe alternative solutions, released hold, invalid histories, time discontinuity and repeated physical reset.
-5. CPU contact diagnostics must preserve task geometry and force limits. A task-only mechanism pass or initialized grasp fixture is not a full robot pass; report both separately.
-6. Only after conceptual clearance and separately authorized compute: native exact-source contact checks, full robot expert, independent fresh-reset reproduction, genuine model evaluation and matching media. These are future requirements, not research results.
+**Negative controls:** Correct pointer but wrong physical gap; bracket moves when gauge removed; sensor touches ring during rotation; readhead aligned at one position but runout makes contact elsewhere; hand-supported final state; invented bracket/oversized knobs.
 
-**Cost control:** no action count or wall-runtime estimate is measured for this design. Stop early on the stated conceptual or grasp-access blocker; do not solve it by inventing larger knobs, lighter hardware or hidden task actuators.
+**Useful CPU validation:** Gauge/contact geometry and stock screwdriver access first; fastener reaction and full rotation clearance next; then complete actual robot action sequence. No thermal, torque-rating or signal-accuracy claim from geometry alone.
 
-## Why these plans remain conditional
+**Stop condition:** Stop if no exact robot-building application/manual exists, required precision/tool access exceeds YAM or a near-identical sensor-gap setup already exists.
 
-The user requested five strongest implementation blueprints. The available evidence supports only five research-level plans, so claiming five build-ready packages would repeat the failure this mission is meant to prevent. The primary-source/board/robot-envelope gaps must be resolved first. In particular, manufacturer-required test cuts, product-specific extraction behavior and real control forces cannot be replaced by confidence in a mesh or scorer.
+**Required later evidence:** complete source-bound physical-path test, counterexamples and repeatable reset; only after separate authorization, native exact-source expert success, independent cold reproduction, genuine required model evaluation and matching media. None was executed by this research. Minor issues should be assessed proportionately; these are cost-control tests, not invented additional official criteria.

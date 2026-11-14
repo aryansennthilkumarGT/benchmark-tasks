@@ -1,0 +1,834 @@
+[
+  {
+    "number": 17,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/17",
+    "title": "Leave a drip loop before a cable gland by RamyE \u00b7 Pull Request #17 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "RamyE",
+        "body": "Leave a drip loop before a cable gland The black cable comes out of the gland on the side of the grey enclosure. Lay the cable over the support hook so that, between the hook and the gland, it hangs down in a drip loop whose lowest point is 3 to 7 cm below the centre of the gland, then rises into the gland. The rest of the cable hangs down on the far side of the hook. Then let go of the cable. Scores: Dream-1 run: 0.0; demo: 1.0"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-2UDNS3 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-2UDNS3). Variant of task TK-YDWX58 This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "21db69720505930645eddd91fcbf1e3c3512d83295c35709c14ca789c5d79478"
+  },
+  {
+    "number": 138,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/138",
+    "title": "Glaze a window: set two setting blocks, then stand the glass unit on them by VihanAggarwal \u00b7 Pull Request #138 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "VihanAggarwal",
+        "body": "Adds tasks/glaze-on-setting-blocks/ : Glaze a window: set two setting blocks, then stand the glass unit on them. See the task's README.md for how to run and score a trial."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-GMU4YS , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-GMU4YS). Construct validity (not met): A robot can hold the unit stationary within 2 mm of both blocks for three seconds and earn full credit without actually supporting it on them. Scoring (not met): The stated resting test and early-success condition do not distinguish a gripper-supported or hovering unit from one resting on the blocks. What to change: Require the glazing unit to be released and actually supported by the blocks wherever a tier credits it as resting; update the scorer and tests so a unit held or hovering within 2 mm cannot earn those tiers. Confirm the full-score demo reaches this released state within the run limit. The task fits societal relatability better than impact on jobs, since glazing is a familiar niche trade. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-WB6CLU (a revision of TK-GMU4YS), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-WB6CLU). Flags: Prior review feedback for the revision was not supplied; verify that the revision addresses it. Importance (not met): Setting blocks in a double-glazed unit is specialist work rather than a scenario most people know firsthand, but window repair is regular work for general maintenance and repair workers. Scoring (not met): A chalk print detects contact, not every approach within the scored 2 mm clearance, and the hidden channel makes that clearance difficult to verify throughout a real trial. What to change: Use Impact on jobs and explain how placing replacement glazing units fits the regular work of general maintenance and repair workers. Make the real and simulated sill-contact rule agree: for example, score actual contact in both and use the chalk transfer to check it, or provide a practical way to detect the specified 2 mm clearance throughout the trial. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-ABAK5X (a revision of TK-WB6CLU), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-ABAK5X). Construct validity (not met): The cut-down frame requires lowering the unit from above between two fixed stops rather than inserting it from the room side with a bead removed. Scoring (not met): A 0.5 mm simulated air gap triggers the zero-score contact gate, but the real-world chalk check does not detect that near miss. What to change: The jobs-domain explanation and the released-unit scoring requirement address the earlier feedback. Two points remain: make the simulated sill-contact gate and real-world check measure the same event, since a 0.5 mm air gap currently scores as contact in simulation but leaves no chalk print; and use a representative window frame and insertion procedure, including a removable bead and room-side insertion, rather than lowering the unit from above between two fixed stops. Update the demo and scorer for the revised setup. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "58ef0001e7660aeaa7e8b75ac85230ed43a8d55e28460958908b8dd24e25fc5d"
+  },
+  {
+    "number": 369,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/369",
+    "title": "Extract and recover a fitted collar with a prepared screw puller by EmiliyanGospodinov \u00b7 Pull Request #369 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "EmiliyanGospodinov",
+        "body": "Revises the prepared screw-puller task in response to the fit review . The unexplained 8 N resistance of a clearance metal bore is replaced with a specified integral polymer interference land on the steel shaft. Geometry, material inputs and an offline axisymmetric elastic calculation determine the nominal 14.61 N axial resistance. Contact persists until the land clears the complete shaft and cup rim at 28 mm rise. The physical interference bore is distinguished from the relieved rigid collision proxy; equations, assumptions and sources are included. Validation: corrected nominal scripted demo and reset repeat both score 1.0 at 1,588 of 2,000 steps; 22 CPU checks pass. Matching Dream-1 evaluation scores 0.0 after 2,000 steps, with zero errors. All evaluations use the same nominal source, instruction and scorer. An additional higher-resistance diagnostic did not extract the collar; hardware tolerance-wide feasibility is not claimed. Matching setup, demo and model-run media: M-YHNVC3."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-F66MKL , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-F66MKL). Instruction should only state the extraction and final-state goals, demo should only use observable information To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-8GJ4WA (a revision of TK-F66MKL), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-8GJ4WA). Construct validity (not met): The specified 13 mm collar bore on a 12 mm shaft leaves clearance, so the simulated 8 N fitted resistance has no specified real-world source. What to change: The 13 mm collar bore is larger than the 12 mm shaft, so the specified hardware cannot provide the fitted resistance modeled in simulation. Specify a realistic resisting fit or retaining mechanism, update the simulation and fidelity note accordingly, and demonstrate full extraction within the action limit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-RZ5VQW (a revision of TK-8GJ4WA), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-RZ5VQW). Flags: Verify that the reported extraction and screw turns were produced by the submitted code: design.py specifies 6 mm/turn while the README reports 12 mm/turn. \u00b7 README links to a public pull-request review that may identify the team. Clarity and reproducibility (not met): The README and fidelity note specify a 12 mm/turn screw while design.py specifies 6 mm/turn, so the physical setup and simulation cannot be reproduced consistently. What to change: Make the screw lead consistent across design.py, the setup and fidelity documentation, and the demonstration controller. Verify that the submitted simulation and matching full-score demonstration achieve the specified extraction with that lead; rerun and update the evidence if the code or demonstration must change. Remove the direct link to the earlier public pull-request review from the README to preserve blind review. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "EmiliyanGospodinov",
+        "body": "The screw-lead clarification is pushed. The earlier file retained a probe-only 6 mm reference before the final 12 mm task assignment. We have separated that legacy reference from a single LEAD = 0.012 definition. The prepared-task ram coupling, reaction torque and controller already used the final 12 mm value, as did the recorded demo and Dream evaluations. We verified equivalence against both recorded source snapshots: all pre-existing effective constants and executable functions are unchanged; the other runtime files are byte-identical. A regression check now verifies the single task lead and separate legacy probe reference. The identifying public-review link has been removed from the README. Physics, instruction and scoring are unchanged, so the matching demo/reset scores of 1.0/1.0 and Dream score of 0.0 remain applicable; no new paid evaluation was needed. Media remains M-YHNVC3."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-YHT5XN (a revision of TK-RZ5VQW), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "e226067965c6d8b9bb98129a186cb9c51c181f330f97c967ac25d160da4e8a22"
+  },
+  {
+    "number": 541,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/541",
+    "title": "Fish a cable through a conduit with a fish tape by RamyE \u00b7 Pull Request #541 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "RamyE",
+        "body": "Fish a cable through a conduit with a fish tape Pull the orange cable through the grey conduit with the yellow fish tape: hook the cable's eyelet onto the fish-tape hook at the conduit's right-hand end, then pull the tape back out of the left-hand end until the eyelet is at least 5 cm out of the conduit. Scores: Dream-1 run: 0.0; demo: 1.0"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-X25UCA , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-X25UCA). Construct validity (not met): The scorer can award 0.25 after the tape is pulled out and its hook and eyelet are joined away from the right mouth. Scoring (not met): The global cable-through-bore requirement contradicts the 0.25 tier where no cable is yet inside, and the code does not bound the hook's distance from the mouth. What to change: Revise the 0.25 tier so it requires the eyelet to be hooked within a specified distance of the right mouth while the fish tape remains threaded through the conduit. Update the scorer accordingly, and clarify that the cable-through-bore requirement applies only after the cable has entered the conduit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-DGEGZU (a revision of TK-X25UCA), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-DGEGZU). Construct validity (not met): The specified pre-bent J is merely hooked onto an enlarged eyelet, omitting the bending, twisting and taping needed to make the claimed real pulling joint. What to change: The bent conduit and wire-pulling scenario are relevant to electricians, but the ready-made J hooked onto an enlarged eyelet does not test making the secured pulling joint described in your context. Revise the real-world setup and scoring to require a realistic joint, including bending, twisting and taping the wire, and provide a full-score demonstration of the revised task within the run limit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "53c7700953b75b43e1020573975f14621a815674ae3d938be8fd1440d264596c"
+  },
+  {
+    "number": 675,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/675",
+    "title": "Add task: join a PVC pipe to a tee with a quarter turn and a 30-second hold by AnukritiSinghh \u00b7 Pull Request #675 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "AnukritiSinghh",
+        "body": "Adds tasks/pvc-joint-quarter-turn-and-30-second-hold (Safety and alignment). A grey PVC pipe with wet cement on its end stands beside a white tee. The goal is to join them. The rule, from Oatey's solvent-cement instructions (ASTM D2855 practice): assemble while the cement is wet (here within 15 s), push the pipe fully home with a quarter turn, and hold pipe and fitting together for 30 seconds so the pipe cannot push back out, with the other hand keeping the fitting still. Letting go early still looks finished, but scores at most 0.25. Scores: Dream-1 run 0; scripted demo 1.0 Run limit: 1,200 steps (1 minute at 20 Hz) Media: M-2XRGPR Offline checks (no simulator): python test_pvc.py The task folder includes mech.py, which builds the tee and its socket as one rigid body in the yam_arena scene; no change to yam_arena itself is needed. Commands to run and score a trial are in the folder's README."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-RXRS28 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-RXRS28). Importance (not met): The accepted pipe-in-fixture task tests the same basic insertion, while a turn and a timed stationary hold add no distinct physical challenge. Construct validity (not met): The oversized, water-wetted socket and contact-only hold do not require the sustained axial force needed to prevent push-out in the claimed cemented joint. Scoring (not met): The scorer compares pipe orientation with its starting orientation, so a turn made before insertion can satisfy the required seated turn. The task primarily measures ordinary pipe insertion; the added waiting period and rotation do not create a sufficiently distinct manipulation challenge. The loose, water-wetted joint and contact-only hold also do not reproduce the insertion resistance or sustained axial force central to a solvent-cemented joint, and the scorer can credit rotation performed before insertion. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "304850d0b7fadb3321ad80beb9bbe1f4f3e9597f4b89dfb9ebb3c99f24a5761e"
+  },
+  {
+    "number": 741,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/741",
+    "title": "Add crimp-a-terminal-onto-a-cable-end task by Huangruopeng \u00b7 Pull Request #741 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Huangruopeng",
+        "body": "Adds tasks/crimp-a-terminal-onto-a-cable-end/ : Pick up the cable and push its bare end straight into the terminal's barrel in the crimper with one hand, and hold it there while the other presses the crimper's lever down until it closes; then let the lever spring open. crimp_a_terminal_onto_a_cable_end.py : the yam_arena task file (scene, success() , score() and a scripted demo() ) task.json : media M-TFAZ4B (Dream-1 run, scripted demo, setup screenshot) README.md : commands to run and score a trial, runtime per trial, seeds Scores: Dream-1 run: 0.0; demo: 1.0."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-06 10:50 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-07 06:05 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-07 06:26 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-Y3RQVT , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-Y3RQVT). Construct validity (not met): A 6 mm copper conductor in a 13 mm bore, with as little as 6 mm inserted into a 16 mm barrel, does not represent a reliably sized terminal crimp. Scoring (not met): The full-score condition uses insertion geometry but does not check that the resulting terminal is securely crimped to the conductor. What to change: Specify a matched cable, ring terminal and crimper, including a realistic insertion depth and crimping setup. Update full-credit scoring to check the completed crimp, for example with a specified pull test and observable insertion marks, and provide an updated demo. The task fits the Other domain as electrical assembly; the current setup does not itself establish a data-centre-specific operation. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-13 08:11 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-K6ECAU (a revision of TK-Y3RQVT), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "Huangruopeng",
+        "body": "Revision addressing the review: Matched parts: a 16 mm\u00b2 single-core PVC cable (stranded copper 5 mm across, insulation 8 mm, stripped 16 mm to the barrel's length) and a tinned-copper tube lug for 16 mm\u00b2 (barrel 6 mm inside, 16 mm long), in a pneumatic bench crimping press with a 16 mm\u00b2 hexagonal die. These replace the 6 mm conductor in a 13 mm barrel. Realistic insertion: the insulation, too wide for the barrel, stops on the lead-in. A good crimp now needs 13 to 16.5 mm of the 16 mm copper in the barrel (it was 6-14 mm), with the cable within 8 degrees of the axis, and the die fully closed. Completed crimp: in a real trial a good crimp must also pass a pull test, holding a steady 450 N pull (the UL 486A pull-out force for this size). The simulation can't test the hold, and the fidelity note says so. Category: now Other, as suggested. Instruction: states only the goal (crimp the lug on, lay the cable back, arms home). New demo (1.0) and Dream-1 videos."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-K6ECAU). Flags: Prior revision feedback was not provided Importance (not met): Crimping cable lugs is regular work for electricians and panel-building assemblers, but the submission selects Other rather than Impact on jobs. What to change: Change the category to Impact on jobs and explain how cable-lug crimping forms part of electricians' regular work. Please also reconcile the README's stated 10 mm demo insertion with the 13 mm minimum for full credit; provide the measured demo depth and, if it did not reach the threshold, a full-score demonstration. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-15 01:16 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      }
+    ],
+    "sha256": "6087446b71b0a32a14656bb9571ace31fa445c75e7992aea465ca1a4abe80e1e"
+  },
+  {
+    "number": 757,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/757",
+    "title": "Add strip-a-wire-end-in-a-stripping-station task by Huangruopeng \u00b7 Pull Request #757 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Huangruopeng",
+        "body": "Adds tasks/strip-a-wire-end-in-a-stripping-station/ : Take the cable by its plug and put its free end down into the stripping station's hole, 10 mm deep; with the other hand press the station's lever down and keep it down while the first hand pulls the cable straight back out; then let the lever up. strip_a_wire_end_in_a_stripping_station.py : the yam_arena task file (scene, success() , score() and a scripted demo() ) task.json : media M-N425K9 (Dream-1 run, scripted demo, setup screenshot) README.md : commands to run and score a trial, runtime per trial, seeds Scores: Dream-1 run: 0.0; demo: 1.0."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-06 21:52 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-3V78DN , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-3V78DN). Clarity and reproducibility (not met): The custom station lacks a blade and insulation-retention mechanism specification needed to build a real tool that performs the stated cut and pull. What to change: Specify a real stripping station that can reproduce the operation: identify a suitable tool or provide the blade geometry, lever-to-blade mechanism, sleeve-retention method and relevant dimensions and operating forces. Include the holder dimensions so the starting setup can be rebuilt. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-13 08:25 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-13 08:37 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-UEJBT7 (a revision of TK-3V78DN), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "Huangruopeng",
+        "body": "Revision addressing the review: Buildable station: a 1 kg steel block 5 x 5 x 4 cm with a 16 mm hole to 5 mm above the table and a 4.4 cm lead-in funnel. Blades: two opposed hardened-steel V-blades at the hole's top close to an 8.2 mm opening, just over the 8 mm core, with the lever down, and open to 16 mm with it up. Lever-to-blade mechanism: a cam on the lever's hinge pushes the blades together. Slug retention: while closed, the blades bite the insulation and keep the cut slug in the station as the cable is pulled out; it drops out when they open. Lever: a steel bar 24 x 16 mm, 22.5 cm long, 150 g, hinged 1.2 cm above the block. Its grip is 20 cm from the hinge. A torsion spring of 0.06 N m per degree holds it 12 degrees up, so holding it down takes about 6 N at the grip; the earlier \"5 N\" is corrected. Cable and holder: the cable is a 35 mm2 single-core PVC copper cable, 12 mm over insulation with an 8 mm core, 12 cm long, 40 g, with a 16 mm plug. Its holder is a cup 19 mm across, 1.8 cm tall, with an 11 mm bore. Instruction: it now states only the goal (strip 10 mm off the free end, let the lever back up), without prescribing which hand does what."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-UEJBT7). Flags: Earlier review feedback was not supplied Importance (not met): Stripping cable is regular work for electricians and team assemblers, but this scene does not show robot building or data-center work. Clarity and reproducibility (not met): The 12 mm cable is specified to start inside an 11 mm holder bore, leaving the initial configuration physically inconsistent. What to change: Change the domain to Impact on jobs and explain how cable stripping fits regular electrical-assembly work. Correct the holder bore or cable diameter so the specified starting position is physically reproducible, and reconcile the stated core diameter with the 35 mm\u00b2 cable specification. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "be90f0bffa231929fb60a858fe0141528d156aa3e5d9738874e38c972954ccc2"
+  },
+  {
+    "number": 984,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/984",
+    "title": "Add task: Fit an inside-bolt-circle gasket: far bolts first as stops, then the near bolts by WiltonSF \u00b7 Pull Request #984 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "WiltonSF",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-PGPJKF , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-PGPJKF). Construct validity (not met): Fixed posts permanently hold the flanges apart, and the short unthreaded bolts end above the table, preventing the gasketed joint from being closed and fastened. Scoring (not met): A centered gasket with both near bolts and one far bolt scores zero, while the gasket with only two far bolts scores 0.5, despite equivalent or greater assembly progress. What to change: Use an actual pipe-flange arrangement with removable spreading support and appropriately sized bolts that can later be secured, while retaining the gasket-insertion task. Revise partial credit to recognize a centered gasket and bolts installed in any valid order, including three bolts when only one is on the far side. Verify that the recorded demo shows all four bolts and the gasket seated and released within the action limit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-RTCLEY (a revision of TK-PGPJKF), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-RTCLEY). Construct validity (not met): A robot can move the loose upper flange away and centre the gasket on the lower flange for 0.2 without fitting it between the flanges. Scoring (not met): The scorer checks bolts only against the movable upper flange and never requires that it remain aligned with the lower flange or that bolts pass through both. What to change: Revise the scoring and implementation so the gasket earns credit only when the upper flange remains correctly positioned over it, and each credited bolt passes through both aligned flanges. Add tests for a removed or shifted upper flange and bolts passing through only the upper flange. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "e96d93419c49af014d9dc10ced7c93edfbe6ee9b879fba5283ceb45d7cc6c1b0"
+  },
+  {
+    "number": 1264,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1264",
+    "title": "Add task: Join two rectangular duct sections and lock the joint with a drive cleat on each side by WiltonSF \u00b7 Pull Request #1264 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "WiltonSF",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-EVF4TU , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "bb6d2364c4c12a6819024b2a85d58d90e3fbdc850cafa2d677edd411c341c0fd"
+  },
+  {
+    "number": 1269,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1269",
+    "title": "Add crack-an-egg-into-a-bowl-with-both-hands task by Huangruopeng \u00b7 Pull Request #1269 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Huangruopeng",
+        "body": "Adds tasks/crack-an-egg-into-a-bowl-with-both-hands/ : Crack the egg into the white bowl: tap its middle on the bowl's rim to crack it, then pull the two halves of the shell apart over the bowl so the yolk and the white drop in. Put both shell halves in the steel scraps tray, none in the bowl, and take both arms back to where they started. crack_an_egg_into_a_bowl_with_both_hands.py : the yam_arena task file (scene, success() , score() and a scripted demo() ) task.json : media M-LT339M (Dream-1 run, scripted demo, setup screenshot) README.md : commands to run and score a trial, runtime per trial, seeds Scores: Dream-1 run: 0.0; demo: 1.0."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-GA22SQ , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "7f424b38e077529bf69a9f8ef98aff55e3370933499ba26ee584c338f5b9422f"
+  },
+  {
+    "number": 1335,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1335",
+    "title": "Add replace-a-wiper-blade-holding-its-arm-off-the-glass task by Huangruopeng \u00b7 Pull Request #1335 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Huangruopeng",
+        "body": "Adds tasks/replace-a-wiper-blade-holding-its-arm-off-the-glass/ : Replace the wiper blade: with one hand lift the wiper arm off the windscreen and hold it up; with the other slide the old blade along the arm toward its pivot, off the hook, and drop it in the grey scrap tray, then hook the new blade from the cardboard tray onto the arm and slide it toward the arm's tip until it clicks in. Lower the arm gently back onto the glass without letting it snap down, and take both arms back to where they started. replace_a_wiper_blade_holding_its_arm_off_the_glass.py : the yam_arena task file (scene, success() , score() and a scripted demo() ) task.json : media M-TXGLX8 (Dream-1 run, scripted demo, setup screenshot) README.md : commands to run and score a trial, runtime per trial, seeds Scores: Dream-1 run: 0.0; demo: 1.0."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-10 00:18 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-PDXCDC , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-PDXCDC). Flags: Miniaturization Importance (not met): The 54 cm-wide windscreen and 24 cm blade miniaturize a car-front replacement job, changing reach and spring-loading demands. Construct validity (not met): The small wiper and specified 0.2 N m holding torque do not establish the forces and reach involved in replacing a full-size car wiper. The car front and wiper are substantially smaller than a full-size vehicle, changing the reach and forces that make this maintenance task meaningful. A future task should use representative vehicle-scale geometry and spring loading, and state the goal and safety constraints without prescribing the blade-removal and installation procedure. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "19ce96257467fdb540add84082a46637665b91be44705422c5f92981cfa1ed2e"
+  },
+  {
+    "number": 1378,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1378",
+    "title": "Back up a springy trim panel while pressing a clip home by Akshat-Kakade \u00b7 Pull Request #1378 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Akshat-Kakade",
+        "body": "Bimanual task: one arm backs a spring-seated panel from underneath with a fork paddle (sag <= 3 mm) while the other arm presses a detent clip into it, then withdraws. Scripted demo scores 1.0 in simulation; ablations (press only, back only) score 0.25 and 0.5; Dream-1 run scored 0.0. README lists deviations (no latch, softer springs)."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-F3VZB7 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-F3VZB7). Flags: Egregious simplification Importance (not met): The stated automotive relevance rests on calling a spring-loaded button a trim clip, although the specified build does not install or retain a fastener. Construct validity (not met): The specified real-world build uses an unlatched plunger and rigid spring-mounted panel instead of a retaining clip and a flexing trim panel. Scoring (not met): The implementation awards 0.75 after one qualifying step and can report 1.0 before the required stillness hold, contrary to the stated scoring. Clarity and reproducibility (not met): The real-world setup omits material specifications and enough dimensions for the fork, grip post, base and spring seats to reproduce the fixture. Feasibility (not met): The scripted demo controls its actions using exact simulator object poses and clip-slider travel rather than robot-observable measurements. The proposed fixture replaces clip installation with pressing a spring-return plunger, and replaces a flexing trim panel with a rigid plate on springs. It therefore does not represent the claimed fastening and panel-protection skill; a real retaining clip and representative panel assembly would constitute a different task. The scripted demo also relies on simulator-internal object poses and clip travel, and the scorer's hold-time behavior does not match the documented thresholds. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "a9645757913fb6f78bd2b46a715c74399bd2ec35ee853129d22f5e1c6a8cfb2b"
+  },
+  {
+    "number": 1380,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1380",
+    "title": "Take a manual blood pressure on a training arm by ogershony \u00b7 Pull Request #1380 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "ogershony",
+        "body": "Adds one task in tasks/bp-manual-auscultate/ : Take the training arm's blood pressure with the stethoscope and cuff: pump the cuff above 160 mmHg, let it down past 100 mmHg at 2 to 4 mmHg per second while listening over the red mark the whole way, let the cuff empty, then let go of everything. Category: Impact on jobs Scores: Dream-1 run 0.0, scripted demo 1.0 (1,200-step run limit) Media: see task.json \ud83e\udd16 Generated with Claude Code"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-5YRZPK , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-5YRZPK). Flags: Egregious simplification Construct validity (not met): A rectangular arm, simulated listening without sound, and no reported blood-pressure values do not represent auscultatory blood-pressure measurement. Scoring (not met): The scorer uses only the average fall rate from 160 to 100 mmHg, allowing a rapid dump and slow bleed to score as a compliant reading. Clarity and reproducibility (not met): The instruction gives the pressure sequence, bleed rate, listening position, and continuous-hold procedure that the robot is meant to determine. The task does not measure taking a manual blood pressure: the arm is an abstract bar, no arterial sounds are represented, and the robot never determines or reports systolic and diastolic pressures. A meaningful assessment would need the actual auscultation and measurement skill, not just a prescribed pressure ramp and simulated chestpiece contact; the current task would need to become a different task. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "d0bdf3ea5f112711ec3cfec669549e6db656c9bf4076a6784aa9a1dc4b0ee3f0"
+  },
+  {
+    "number": 1411,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1411",
+    "title": "Finish a wire splice: even the wire tips, then twist the connector on clockwise until snug by Andresg324 \u00b7 Pull Request #1411 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Andresg324",
+        "body": "Adds tasks/wire-nut-twisted-on/ . Run and scoring instructions are in the task's README. \ud83e\udd16 Generated with Claude Code"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-HGKRZN , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-HGKRZN). Scoring (not met): Fixed turn angles and a 2 mm post-capture motion limit can misclassify a real splice because real connector travel and wire twisting differ from the simulation. What to change: Revise the real-world scoring to assess actual connector seating and wire retention: specify a repeatable tug test and observable conditions for partial and full credit instead of assuming 4 mm of travel per turn, a fixed snug angle, or that a captured conductor cannot move more than 2 mm. Permit valid ways of turning the connector and avoid making the score depend on returning the arms to their exact starting positions. State that the real conductors are de-energized, and clarify how the fixed conductor and sliding conductor are supported for reset. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "Andresg324",
+        "body": "Revisions made Scoring: fixed turn angles and a 2 mm limit can misclassify a real splice -> the real trial no longer uses the sim's angles. The sim's angles, 3 mm and 2 mm are now named as proxies, each with its reason. Score real seating and retention with a repeatable tug test and observable conditions -> after the robot lets go, the checks run in order: a flashlight look for copper below the skirt; a tug test (2 kg on the wire for 5 s, then the connector pulled to 20 N, with a tape flag that must show no more than 1 mm of slide); and a snug check by hand, counting the 45-degree ribs. The text gives a score for each outcome and a reason for each level. Permit valid ways of turning the connector -> a real trial counts any way the robot turns the connector on. In the sim, turning is credited when a gripper grips the connector and turns with it (either hand, both in turn, a regrasp loop or one long roll, on the skirt or the tapered top), because the sim's coil holds the connector only lightly, so a push or a knock could spin it on where a real connector would not turn; the text names this as a sim limit. Don't depend on the arms returning home -> the arm-home tier is gone (\"Where the arms end up does not matter\"). State that the conductors are de-energized -> the setup and README say both are short lengths connected to nothing. Clarify how the fixed and sliding conductors are supported for reset -> the left wire is held by a cable clamp under the bench. The right wire rides in a rubber grommet (2 to 3 N to slide) with a cable-tie stop and a paint mark for the reset. The wires enter the box through drilled holes with snap bushings. Additional The wires enter the box through drilled 6.4 mm holes with 9 mm snap bushings (5 mm from the walls leaves no room for a knockout); the text says so. The text states the grip credit as in the sim: up to 1.25x the holding wrist's roll. Full credit now also needs both hands let go, with no gripper touching the connector or either wire (0.5 if snug but a hand still rests on the splice). The demo backs off 10 cm and pauses before going home. The connector no longer rises at the start of the video: the simulator settles the scene for 0.5 s before the first frame, and the coil's drives now act in those settling steps too (before, the connector dropped onto its slide's stop during the settle and was lifted back in the first second). Offline test added. README: removed references to other PRs and tasks. Holding is judged by contact, not distance. \"Still holds the connector or the right wire\" at the end was fingers under 60 % open with the tool point within 2 cm; it is now both fingers touching it with their opening stopped by it (the connector's 2.0 cm or the wire's 3.3 mm). The grip that earns turning credit was the opening at the connector's width with the tool point within 1.5 cm of its axis; it is now both fingers touching the connector with the opening stopped by it and the pads over its length. Let go is judged by contact only: no gripper touching the connector or either wire (guardkit touching , the gripper's own shape within 2 mm). The 2 cm clearance rule for tool points and pad tips is gone, so a hand near the splice but off it is let go (pad tips 1.7 cm or 5 mm over the connector now score 1.0, tested). An open finger resting on the connector with the tool point far away scores 0.5 (tested). The text now says the sim credits turning when a gripper grips the connector and turns with it, while a real trial counts any way of turning, in place of \"any way of turning counts\", matching what the sim credits. The demo was re-rendered: 1.0 in 946 steps (was 1,062). With the 2 cm rule gone, the full score holds from the moment the hand is off the splice, so the run ends while the left hand is still backing off. A finished splice still held at the end is no longer 0. A gripper still holding the connector or the right wire (both fingers touching it, their opening stopped by it) now caps the score at 0.5, the same as a hand resting on it: the splice isn't shown to stay together on its own, since the hand could be what keeps the wire in. Held with copper showing stays 0.25, and held while loose stays 0.5 (tested; 4 test cases changed or added). In a real trial the operator opens a gripper still closed at the end, then runs the copper, tug and snug checks; the scoring field and README (spec table, scoring table, real-trial levels, \"why each level\") say so. Scoring field 3,713/4,000. Fidelity now says the connector is held on the wires' axis by its slide and hinge (457/500). Demo re-rendered after the scorer change: still 1.0 in 946 steps. Dream-1 was not re-run: it never drew the short wire up or turned the connector on, so the change cannot lift its 0 (marked in ~/media/wire-nut-twisted-on/.dream_kept)."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-4W76R4 (a revision of TK-HGKRZN), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-4W76R4). Task appears to be oversimplified compared to real-world context cited This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "5dc659cdde971023d06299580cbd6cf0c543d004f828d3d8f97e6e7cdb78e1d5"
+  },
+  {
+    "number": 1468,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1468",
+    "title": "Add task: Join two aluminium strips with a pop rivet: hold the riveter square, pump it till the stem snaps, bin the stem by DarK404 \u00b7 Pull Request #1468 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "DarK404",
+        "body": "Adds tasks/join-two-aluminium-strips-with-a-pop-rivet-hold-the-riveter-square-pump-it-till-the-stem-snaps-bin-the-stem/ . Two clamped aluminium strips with a hole through both, a plier-type hand riveter nose down in its holster, blind rivets stem up in a holder, and a scrap tray. The robot must rivet the strips together and put the riveter back, to the sheet-metal standard the instruction does not spell out: load the rivet by its stem, put it through the hole, hold the riveter square and pressed on the head while pumping the handles until the stem snaps (pulled tilted or lifted, the rivet sets crooked or loose: latched 0), and bin the spent stem rather than leave it in the tool or on the work. The parallel gripper works the tool as a hand does: it carries the riveter by its grips, squeezes the sprung handle (a PhysX hinge with a preloaded return spring) and eases it open. PhysX cannot pull a stem, so the rivet is our own model: loading through the nosepiece's mouth, the rivet finding the hole, the nose held on the rivet, the stem pulled per radian of handle closing, the snap, and the stem dropping out when the handles open wide. Scores: Dream-1 run: 0.0; demo: 1.0 (success at step 809 of 1,600; three squeezes with the riveter within 4.5 degrees of square, the stem in the tray, the riveter back in its holster) Media: M-H4G54L Shortcut checks ( RIVET_DEMO=tilted , RIVET_DEMO=nobin ): pumping with the riveter leaning about 8 degrees sets the rivet crooked, 0; the stem let go over the work, 0.5 Offline checks of the riveting model, every scoring tier, the latch and the demo's reach and per-step limits: python -m pytest -q test_pop_rivet.py (26 tests) \ud83e\udd16 Generated with Claude Code"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-RZY3PZ , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-RZY3PZ). Construct validity (not met): The real-world build specifies a 12 mm rivet grip for two strips totaling only 3 mm, so the selected rivet is not specified for the joint. Clarity and reproducibility (not met): The README's 12 mm grip specification conflicts with the 3 mm sheet stack and needs a reproducible, compatible rivet specification. What to change: Choose and identify a blind rivet with a manufacturer-rated grip range covering the 3 mm combined sheet thickness; distinguish shank length from grip range. Update the setup and real-world build, and adjust the simulation and demonstration if the replacement changes the tool action. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "DarK404",
+        "body": "Revised for the review. Rivet: now a 4.8 x 8 mm dome-head blind rivet (aluminium body, zinc-plated steel mandrel 2.7 mm across and 28 mm long overall, 9.5 mm head) with a manufacturer-rated grip range of 2.0-3.5 mm, for a 4.9 mm hole; the two 1.5 mm strips make 3.0 mm. The setup and README now give the shank length (8 mm) and the grip range separately. Simulation and demo: the simulated rivet is drawn at that size (8 mm shank, 18.5 mm of mandrel above the head) and the demo was re-measured for it. It reaches 1.0 at step 810; the tilted check still scores 0 (set crooked) and the no-bin check 0.5. Scorer: score() now gives 1.0 only after the full-score state has held still for 1 s (0.5 until then), with offline tests. New media: M-EBDALV (Dream-1 run: 0.0; demo: 1.0)."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-5SFT34 (a revision of TK-RZY3PZ), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-5SFT34). Clarity and reproducibility (not met): The revised build states a grip range but does not identify a manufacturer and product whose rating can be verified. What to change: Identify a specific manufacturer and blind-rivet part number, with its documented grip range covering the 3 mm sheet stack, in the setup and real-world build. Ensure its dimensions and required tool action match the simulation and demo. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "078c69bfc52226c651d3c7c67084d9f2319875ada05dca5ace02d1f387b59878"
+  },
+  {
+    "number": 1501,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1501",
+    "title": "Add Torque a busbar lug bolt with a click-type torque wrench task by kamya390 \u00b7 Pull Request #1501 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "kamya390",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-NP6A85 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-NP6A85). Scoring (not met): The scorer awards 1.0 at 14.5 degrees, where the specified torque is almost twice the setting, despite the instruction to torque correctly. Clarity and reproducibility (not met): The bolt size, thread, lug and cable dimensions, actual wrench specification, and real joint calibration are missing despite determining the torque-angle thresholds. What to change: Specify the bolt size and thread, lug and cable dimensions, and a suitable real torque wrench and joint, including how the snug starting state and torque-angle relationship are calibrated. Change the primary scorer to reject torque above a documented acceptable tolerance rather than awarding full credit nearly to the yield point, and describe how peak torque is verified in a real trial. Confirm that the demo releases the wrench and holds full success within the run limit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-VCSWCB (a revision of TK-NP6A85), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-VCSWCB). Robot should be responsible for seating the torque wrench To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "1ebbdea9c992a77ef8a776d800adfda529fa295278e497079c9d748f89f5e343"
+  },
+  {
+    "number": 1561,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1561",
+    "title": "Fit a circlip into its shaft groove with circlip pliers: spread it just enough, seat it square, turn it to check by Andresg324 \u00b7 Pull Request #1561 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Andresg324",
+        "body": "Adds tasks/circlip-pliers-into-groove/ . Run and scoring instructions are in the task's README. \ud83e\udd16 Generated with Claude Code"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-E7G2CT , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-E7G2CT). The assembly should not be clamped down to better represent parts involving ring clamps at this scale To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "Andresg324",
+        "body": "Revisions made The assembly should not be clamped down -> The cast-iron fixture (base plate and bearing housing fixed to the table) is gone. The shaft and gear are now one loose 1.6 kg assembly standing on end on the bench: a 40 mm shaft, 14.9 cm long, with the gear on a 46 mm shoulder and plain shaft below it. Nothing fixes it, so it can slide, turn or be knocked over (a sim check with a fist swept through it tipped it onto its side). A part this size is fitted by hand on the bench, so the demo does what a fitter does: the left hand holds the shaft low on its plain part from the side while the right hand spreads, slides, seats and turns the ring with the pliers, then lets go. The setup, context, README (\"Why the shaft is loose\"), real-world build (stand it on end at a marked spot, no vise) and reset all say so. How the shaft is steadied is not scored, and full credit needs it left standing on the bench. Unclamping now matters in the score, not only in the scene: closed in its groove the ring grips the shaft (about 270 N, estimated from the maker's 14,000 rpm detaching speed for this ring), so the 15-degree check turn puts up to 0.61 N\u00b7m on the shaft (mu 0.12, estimated). A loose shaft standing on its end gives way at about 0.04 to 0.10 N\u00b7m on a real bench (0.27 N\u00b7m in the sim), so a shaft nobody holds turns with the pliers and the ring does not turn on it. Sim check: the demo with the steadying hand scores 1.0 (shaft turned under 1 degree, ring 25 degrees net in its groove); the same demo with the left hand left at home scores 0.5 (shaft turned with the pliers up to 17 degrees each way, ring 0.5 degrees on it: seated, not checked). The scoring text says the turn counts on the shaft; setup, fidelity and README give the forces and their basis. Additional Partial credit: the score climbs 0 / 0.25 / 0.5 / 0.75 / 1.0 (ring on the shaft at least 5 mm past the end face; seated; seated and turned 15 degrees; plus the pliers put down and the shaft standing). Before, it was 0 / 0.5 / 0.9 / 1.0, with no credit short of seated and put down. Each level says why it is worth that much. Doing nothing scores 0, and the text says so. No arm-home term: the 0.9 for arms not home is gone, and where the arms end is not scored. Release by contact: the pliers count as put down only when no gripper touches them (guardkit touching() , contact with the hand's own shape within 2 mm). This replaces \"a closed gripper within 3 cm of the pliers\". Damage checks tied to real measurements: the over-spread 0 is checked in a real trial on the top video and by the ring's free bore with calipers after removal. The twist 0 is called a modeled stand-in, checked by laying the removed ring on a flat plate with a 0.1 mm feeler gauge. The context no longer states \"it is scrapped\" as a consequence. The category cites the BLS count (about 547,300 jobs in 2025, OOH, checked on the BLS page) and the core duty (repairing or replacing machine parts). The fidelity text says the ring model pushes nothing on the shaft, and the real ring's light drag is what the steadying hand resists, which the real trial shows. The pliers' bent tips now have colliders. The demo's tips stop 0.5 mm above the gear face instead of passing 0.5 mm into it. tracekit is dropped (guardkit's Latch does the twist debounce). guardkit is trimmed to the helpers used. Tests rewritten (29): every ladder level, contact release (an open fingertip 1 mm over a handle counts as touching, 1 cm above does not), shaft knocked over, lifted or on the floor (0.75), shaft slid 3 cm or still held (1.0), and arms not home (1.0). Ring visible from the first frame: the ring markers are now also drawn right after each reset (before the settle steps and reset renders), so the yellow ring shows at t = 0 instead of popping in at 0.15 s. Ring loads on the shaft (ringkit \"reaction loads\"): a stick-slip at the lug holes, applied as a torque about the shaft's axis every physics step. Spread clear of the shaft the ring pushes nothing (it slides only with 0.2 mm to spare). Not modeled, and said so in fidelity: the reaction on the pliers and any sideways push of the ring on the shaft. Tests: 32 (added: the ring's grip and slip force numbers, stick then slip with the wind-up not counted as a turn, and a shaft that turns with the pliers giving 0.5). The demo was re-rendered after these changes: 1.0 in 583 steps (29 s at 20 Hz), the same as before. Dream-1 is pending (its earlier run is stale). Tips left in the ring (Nov 13): a ring closed in its groove now counts as seated for 0.5 and 0.75 even with the pliers' tips still in its lug holes, as long as they are not spreading it. Before, a ring seated and turned with the tips left in scored 0.25, below a seated, unturned ring with the pliers out (0.5). 1.0 still needs the pliers out of the ring and put down. Tests: 35 (the tips-left-in case is now 0.75; added tips in and seated, 0.5; tips in, seated and turned, 0.75; ring held open by the tips over the groove, 0.25). The demo was re-rendered: 1.0 in 583 steps, the video the same as before."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-DKQNQY (a revision of TK-E7G2CT), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "458934a9f98d959cfcab3753b1f4b18cda85170a7353e9da15afaaa2adc324ed"
+  },
+  {
+    "number": 1681,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1681",
+    "title": "Add bp-cuff-size task by matteoroda05 \u00b7 Pull Request #1681 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "matteoroda05",
+        "body": "Summary New task: put a blood-pressure cuff on a child-size training arm. Three rigid cuffs (4, 8 and 12 cm wide) all fit over the arm and differ only in width. The right one is about 40% of the arm's 20 cm circumference (the 8 cm cuff), per standard cuff-sizing practice: too narrow reads falsely high, too wide falsely low. The right cuff stands in the middle of the row, so nearest, farthest, widest and narrowest all fail. Category: Impact on jobs. Scoring (end state): 1.0 the 8 cm cuff stands astride the upper arm, centred within 2.5 cm, lower edge at least 2 cm above the elbow crease, tilt <= 8 degrees, turn <= 12 degrees, no other cuff on the arm; 0.5 it is astride the arm elsewhere or askew, or another cuff is on the arm too; 0.25 it is over the arm but not standing on the table; 0 otherwise, including any wrong-size cuff on the arm. Test plan Offline unit tests ( python3 -m unittest discover -s tasks/bp-cuff-size -p test_task.py ): 32 pass, including a scan showing only the 8 cm cuff can ever reach 1.0 Scripted demo: task_score 1.0 on two trials (reset checked) Shortcut variants: narrow 0.0, wide 0.0, elbow 0.5, beside 0.0, hold 0.25, nothing 0.0 Dream-1 full run: task_score 0.0 (took the 4 cm cuff and set it astride the arm by the elbow crease)"
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-11 19:44 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "Copilot",
+        "body": "Copilot was unable to review this pull request because the user who requested the review has insufficient remaining quota. Try requesting a review at a lower effort level."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-FWWYEM , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-FWWYEM). Flags: Egregious simplification \u00b7 Difficulty isn't robotic Importance (not met): Medical assistants and nurses routinely take blood pressure, but selecting an arch by width can be tested from a picture and the remaining placement is ordinary. Construct validity (not met): Rigid arches standing clear of a square beam omit wrapping, fastening and fitting a real cuff to an arm. This setup does not test applying a blood-pressure cuff: rigid arches placed over a square beam omit wrapping, fastening and fit. The remaining sizing choice can be answered visually, while the physical action is ordinary placement, so this would need a substantially different task to represent the clinical skill. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "b3d31d76d86ef944fa536b311ae1c071a58ac75c5b6a2ef6c80697cd297e7bc1"
+  },
+  {
+    "number": 1732,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1732",
+    "title": "Bench can opener: one hand holds the sprung cutter lever down while the other cranks; the cut itself is invisible by jjenchen-unc \u00b7 Pull Request #1732 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "jjenchen-unc",
+        "body": "Adds a bimanual task: open a can with a bench can opener and put the lid in a tray. One hand must hold the sprung cutter lever down while the other cranks; the cut cannot be seen, so progress has to be judged from the can turning. The task runs through Isaac Lab-Arena and Inspect Robots. Dream-1 run: 0.0 (1,200 steps). Scripted demo: 1.0 (722 steps)."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-PNPV43 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "05366f80f6751be65468370ae1b9720fdebeb5336e6db96c9e8c679a1988d4fe"
+  },
+  {
+    "number": 1835,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1835",
+    "title": "Add Punch a wire down on a 110 block with the tool's cutting side toward the loose end task by kamya390 \u00b7 Pull Request #1835 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "kamya390",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-UN96DV , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-UN96DV). Task is oversimplified compared to real-world context cited This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "51a715b00c64f879c2d7919ee972851e2c8c5b6af2be9b73d6ae7b67a318ae7c"
+  },
+  {
+    "number": 1854,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1854",
+    "title": "Add task: Fix a hook tight to a hollow panel with its toggle bolt by WiltonSF \u00b7 Pull Request #1854 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "WiltonSF",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-T3YWTK , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-T3YWTK). Scoring (not met): Full credit permits a 0.5 mm gap behind the board and a 0.5 mm plate gap, so a loose, unclamped hook can score as tight; the concealed wing gap is also difficult to inspect in the closed cavity. What to change: The task tests a useful toggle-installation skill, but the current full-score thresholds can reward an unclamped hook as tight, and the wing position is hidden inside the cavity. Define a practical tightness test, such as a specified pull force and maximum hook displacement, implement an equivalent simulation check, and show the demo meeting the revised full-score conditions. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-RC3KML (a revision of TK-T3YWTK), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "d42fadd0503e4e13099ab7e9e53fd408020dc10bad43914092d6e7142d0d159f"
+  },
+  {
+    "number": 1880,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1880",
+    "title": "Add task: Set a telescoping gauge to a bearing housing's bore diameter and leave it on its stand by WiltonSF \u00b7 Pull Request #1880 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "WiltonSF",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-84X8VV , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "53de56c0ae3c771068806f2e6431697de02d34187f656e3e19767c46121c484c"
+  },
+  {
+    "number": 1881,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1881",
+    "title": "Seal a loaded container door: thread an ISO 17712 bolt seal through the cam keeper hasp and close its barrel by parvpatodia \u00b7 Pull Request #1881 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "parvpatodia",
+        "body": "Adds tasks/container-bolt-seal."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-6AURHZ , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted: final (TK-6AURHZ). Flags: The scoring text says 16 mm hole minus pin radius; the code correctly uses the 8 mm hole radius. Importance (not met): Installing CTPAT container seals is a specialized shipping-security step, not a core regular duty of heavy truck drivers or freight handlers generally. The seal procedure is credible, but this specific freight-security step is not established as a core regular duty of a sufficiently large occupation, and the scenario is too specialized for the everyday-relatability domain. The scoring description should also use the hole radius, not its diameter, when defining radial play. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+      }
+    ],
+    "sha256": "abd6f07960bc6ac5d49ffe1c395b30d0cd81b12cb1be9c26c7b98cf07db3cc11"
+  },
+  {
+    "number": 1882,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1882",
+    "title": "Add drive chain joint assembly task by alesspalma \u00b7 Pull Request #1882 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "alesspalma",
+        "body": "Adds a bimanual chain-joint assembly task under Impact on jobs. The robot joins two bare articulated chain ends on a loose connecting link, fits a side-entry retaining plate, and leaves the joint released in its service cradle with the loop seated on its fixed guide. Setup, custom-part fidelity, licenses and numeric partial/full scoring are documented in tasks/drive-chain-link . All task motion after reset comes from native contacts and ordinary robot controls. The scripted reference uses elapsed time only, with no live simulator object-state feedback. Validation: native and registered camera references score 1.0 in 1,180 actions / 59 seconds; the single matching Dream-1 episode scores 0.0 at 2,400 actions / 120 seconds. Omitting retention scores 0.4. All 37 tests and four USD structure checks pass. Both videos preserve every recorded frame from the three cameras and are bound with the initial screenshot by media ID M-4UKEJ5 ."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-KEKMGP , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-KEKMGP). Construct validity (not met): The 8 mm stems in 32 mm end bores and custom friction-only keeper omit the fit and positive retention of a commercial chain service joint. What to change: Use a representative drive-chain connecting link with realistic pin-to-bore clearance and the proper retaining plate and spring clip or cotters, rather than the oversized loose-fit joint and friction-only fork. Update the fixture, fidelity note and scoring to reflect the hardware, and provide a full-score demonstration and matching Dream-1 run for the revised setup. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "36447a8fe352a72d5b6df18acab3199008ae9a99bf201ba93530dc58ee02fcc4"
+  },
+  {
+    "number": 1892,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1892",
+    "title": "Add hose-clamp-barb task by eainx \u00b7 Pull Request #1892 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "eainx",
+        "body": "Push a coolant hose onto a barbed pump outlet and tighten its worm-drive clamp with a nut driver Connect the hose to the pump's outlet and clamp it. Fitting a hose to a barbed spigot and clamping it is routine work for auto mechanics and general maintenance and repair workers (coolant, fuel, air and water lines). The hose has to be pushed past the barb's bead all the way to the shoulder, or it blows off under pressure, with the worm-drive clamp's band on the barb behind the bead, and the clamp driven tight with a nut driver: turned, let go and re-gripped as a hand does, while the socket stays seated on the small screw head. Action allowance: 1,600 steps (80 seconds at 20 Hz) Recorded results: Dream-1 run: 0 after 129 steps (6.45 simulated seconds); termination: DreamSessionExpired:expired. Scripted/teleoperated demo: 1 after 795 steps. Reproduction: task README, task-specific scene/scorer, and exported runtime with pinned Docker build recipe. Media: M-Q49LJL (Dream recording, setup screenshot, and full-score demo when needed). Simulation fidelity: PhysX 240 Hz. The hose is a rigid tube; the bead is drawn only, the barb's collider a slimmer pin. Pushed on lined up, the hose grips the barb by a slide joint (holding it on the barb's axis) with ~3 N drag, sprung against coming off once home. The clamp is held on the hose by a stiff joint. Screw turns come from the seated socket's measured twist: 0.4 turn snug, 0.8 tight, about three half-turns of the wrist; no reaction torque on the driver."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: The task title field is too long (maximum 120 characters). Fill in the task title field. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "Copilot",
+        "body": "Copilot was unable to review this pull request because the user who requested the review has insufficient remaining quota. Try requesting a review at a lower effort level."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-TGHDCE , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "047142f1e5ab3a2f98b67aa81dd08bc3e81adce79ecbf824087e73377b8e3ddb"
+  },
+  {
+    "number": 1911,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1911",
+    "title": "Add refit-window-insect-screen task by lianegalanti \u00b7 Pull Request #1911 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "lianegalanti",
+        "body": "Adds tasks/refit-window-insect-screen. Dream-1 run: 0; demo: 1.0. Media: M-T2FRF2. \ud83e\udd16 Generated with Claude Code"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-9FXQU5 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "574f45a667a2d327fa6c0549273f9a06f9e76738bc0baf76ffe95e7d1a3cf229"
+  },
+  {
+    "number": 1916,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1916",
+    "title": "Lay a robot axis's two cables into its cable carrier and snap every crossbar shut by AMMistry18 \u00b7 Pull Request #1916 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "AMMistry18",
+        "body": "The robot fills a robot axis's cable carrier, a step in building every linear axis or gantry for a robot cell. Two limp cables (grey motor, orange encoder), clamped in the strain relief at the fixed end, must be laid side by side into a real-size igus E2 mini carrier (12 links, 25 mm inner width), grey on the far side and never crossing. Each of the 12 hinged crossbars must then be swung over and pressed until its sprung catch snaps over it. One hand lifts each cable over the side plates near the fixed end while the other lays its far end. A crossbar resting on its catch, or shut on a cable riding a side plate, does not count. Pulling either cable more than 5 mm through its tie-wrap tears the strain relief and scores 0 for the rest of the trial. task.json : instruction, setup, scoring, run limit, fidelity and scores README.md : run and score commands, the carrier, crossbar, catch and cable dimensions, scoring, the scripted demo, real-trial checks (straightedge and fingernail on each bar, top photo) and licences close_cable_carrier_over_robot_cable.py : scene (carrier with hinged crossbars and sprung sliding catches, capsule-chain cables, strain relief), scorer and scripted demo yam_parts.py , yam_joints.py , yam_mesh.py : kit modules, copied unchanged test_close_cable_carrier_over_robot_cable.py : offline checks of the scorer on goal, partial-credit and cheat layouts, and of the demo's reach \ud83e\udd16 Generated with Claude Code"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-AY6X8L , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "273c04379ff7dcf4fd91dcd1d8202bbe4a509ce71331a94ab83b0c3e545d0033"
+  },
+  {
+    "number": 1920,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1920",
+    "title": "Lay a click-lock vinyl floor tile: angle its tongue into the laid row's groove, then lower it flat to lock by AMMistry18 \u00b7 Pull Request #1920 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "AMMistry18",
+        "body": "The robot lays a real-size rigid-core click-lock vinyl floor tile (600 x 300 mm, 1.55 kg) against a row already laid, using the angle-in method carpenters and floor layers use on floating floors. The two arms work the tile's near half together: they keep the long tongue angled up into the laid row's groove along its whole length, slide the tile's end against the 10 mm wall spacer, and lower it flat so the joint hooks shut. A tile lowered before its tongue is home rides on the groove's locking bump with an open seam about 1.4 mm high, and it scores 0. Scoring measures the seam, lippage and end gap with a feeler gauge, straightedge and ruler, and needs the tile released and at rest. task.json : instruction, setup, scoring, run limit, fidelity and scores README.md : run and score commands, the tile, profile, laid row, wall, spacer and batten dimensions, scoring, the scripted demo, real-trial checks and licences lay_click_lock_vinyl_tile.py : scene (tile and laid row with the click profile as contact geometry), scorer and scripted demo yam_parts.py , yam_joints.py , yam_mesh.py : kit modules, copied unchanged test_lay_click_lock_vinyl_tile.py : offline checks of the scorer on goal, partial-credit and cheat layouts, and of the demo's reach \ud83e\udd16 Generated with Claude Code"
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-6TJTBW , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "6e0b17dbdd4619460f46fb194b7728022faf8f133545ba6e37f4e78c387c550f"
+  },
+  {
+    "number": 1958,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1958",
+    "title": "Add cup-sealer-seal by chris-lihsin-den \u00b7 Pull Request #1958 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "chris-lihsin-den",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: The fidelity note field is too long (maximum 500 characters). Fill in the fidelity note field. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-V9ZKF4 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "dfdf06d5a1d80300b09c4be5a3b0c0c6cde1d87f0b475c4ac2033730bd869bdb"
+  },
+  {
+    "number": 1966,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1966",
+    "title": "Load an IV set into an Alaris pump module: blue upper fitment into its recess first, then the safety clamp pressed home by K-XZY \u00b7 Pull Request #1966 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "K-XZY",
+        "body": "Loading a primed IV set into an Alaris pump module, the step that starts a pump infusion, done every shift by registered and licensed practical nurses. BD's manual gives the order, and the instruction states it: the blue upper fitment lowered into its recess first, then the safety clamp pressed into its recess below the mechanism, with the set neither twisted nor stretched. The difficulty is the seating of a soft line between two keyed seats: the fitment's tubing has to go into a 6 mm slot and its collar onto the ledge, where it sits loosely; the clamp, hanging on the soft segment at its recess's mouth, then has to be pressed square past two sprung pins without lifting the fitment back out, and a clamp spun a full turn leaves the set twisted even though it goes in square. Unlike loading a rigid syringe into a cradle, here the part that matters is the soft segment between the two seats. Full credit needs the fitment seated first and never more than 3 mm above its seat afterwards, the clamp pressed home, the segment never stretched and the set untwisted at the end, then both grippers at least 5 cm from the set, held for 2 s. One hand does it. Dream-1 scored 0 in its 2,400 steps."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-B7NWNE , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "e5d0d28735c165f4659bc1159f085cbbc32379a86094cb588a536cf7fb9749f7"
+  },
+  {
+    "number": 1967,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1967",
+    "title": "Add task: Fit new brake pads into a rear caliper with an integral parking-brake piston by WiltonSF \u00b7 Pull Request #1967 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "WiltonSF",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-2TDJUM , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-2TDJUM). Construct validity (not met): The fixed caliper and carrier, absent rotor and extended preloaded pad channels replace the normal separate-caliper and rotor-mounted-carrier procedure. What to change: Rework the physical setup to follow normal rear-brake service: use a rotor-mounted carrier and a separable caliper, retract the piston with the proper wind-back tool, fit the pads and reassemble the caliper over the rotor. Update the setup, reset and scoring to match, and provide model and full-score demo runs for the revised procedure. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "8d24b45570770d75923fcc664de7da254467e5bb4f2492c2cfcd48cd0ea28cc7"
+  },
+  {
+    "number": 1972,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1972",
+    "title": "Heat-shrink a sleeve over a crimped cable lug: one hand turns the cable, the other works a heat gun along it by K-XZY \u00b7 Pull Request #1972 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "K-XZY",
+        "body": "Heat-shrinking an adhesive-lined sleeve over a crimped cable lug, the usual last step of a power-cable termination by electricians, following the maker's steps: start from one end, work progressively to the other with uniform heat, by rotating the assembly or the gun, and never let the gun's end touch the tubing. One hand holds the cable by its jacket and turns it; the other switches a real-weight 745 g heat gun on and works its jet along the sleeve, or holds it while the cable is slid through the jet. The difficulty is an even dose from a tool that must not touch: every side of every part of the sleeve must recover, which needs the cable turned or the gun taken round it, while a part held in the jet too long chars, the nozzle must never come within 3 mm of the sleeve, and the holding hand must stay out of the hot air. Unlike placing or fastening a part, the result is built up by controlled exposure over time. Full credit needs all 8 stations recovered with adhesive showing at both ends and none charred, the gun back in its stand switched off, and every fingertip clear, held for 2 s. Dream-1 scored 0 in its 3,600 steps."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-X5ZRTM , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "d0c7ae6b3e69fb778064fa551cb4d02002fd413a8ae80fcc59abb8d288981bb1"
+  },
+  {
+    "number": 1986,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1986",
+    "title": "Refit a splash-shield panel with a push-in clip: hold its hole over the body's and push the clip home through both by Aayush99000 \u00b7 Pull Request #1986 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "Aayush99000",
+        "body": "Adds tasks/trim-clip."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-JJCH8B , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Not accepted (TK-JJCH8B). Clarity and reproducibility (not met): The custom sprung jaws lack the geometry and spring resistance needed to reproduce the clip's physical insertion and retention. What to change: Specify the sprung catch well enough to build it: give jaw dimensions, resting gap, travel, spring preload or force curve, and the clip engagement geometry. Also add the clip tray's dimensions and material, and consider requiring the grippers to clear the panel and clip before full credit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea."
+      }
+    ],
+    "sha256": "963d0213a45792ad5289d1af4296eb1578a892bafabc35fed1588e064fce4f2c"
+  },
+  {
+    "number": 2006,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/2006",
+    "title": "Add rail-plate-mount task by lweigelt \u00b7 Pull Request #2006 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "lweigelt",
+        "body": "No description provided."
+      },
+      {
+        "author": "achyutha11",
+        "body": "This pull request couldn\u2019t be submitted yet: The fidelity note field is too long (maximum 500 characters). Fill in the fidelity note field. The code archive is larger than 25 MB. Leave out large assets and try again. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-VNSKDK , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "a6a945bf42b37fbbfda5aae438e642df5ac02b79406c4886e9386d3950a0f008"
+  },
+  {
+    "number": 2037,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/2037",
+    "title": "Fit a keyed pulley on a shaft by girardijp3 \u00b7 Pull Request #2037 \u00b7 robocurve/benchmark-tasks \u00b7 GitHub",
+    "comments": [
+      {
+        "author": "girardijp3",
+        "body": "Fit a keyed pulley on a shaft Category: Impact on jobs Run limit: 2,400 steps (2 minutes at 20 Hz) Media: M-NE959U (the setup screenshot, the Dream-1 run and the scripted demo) Task: Put the yellow key in the shaft's keyway, then slide the aluminium pulley onto the shaft over the key, up against the shoulder, and let go of everything. Description: Fitting a keyed pulley, sprocket or coupling hub on a shaft is routine machinery maintenance for general maintenance and repair workers (O*NET 49-9071), industrial machinery mechanics (49-9041), millwrights (49-9044) and HVAC mechanics (49-9021). The parts are true scale: a DIN 6885 parallel key (8 x 7 x 40 mm, 17 g) in 8.2 mm keyways (0.1 mm a side), a 25 mm steel shaft in a 25.5 mm bore (0.25 mm a side), an 80 mm aluminium V-belt pulley (217 g). The shaft turns freely in a pillow-block bearing and a hand crank on its end hangs down, so at rest its keyway faces the robot: one hand has to turn the crank and hold the keyway up while the other lays the key in, lines the pulley's keyway up with it and slides the pulley home against the shoulder. What is new against the board: the skill is a two-part keyed fit on a shaft that is free to turn. The shaft is a pendulum: let go, its keyway swings round to face the robot and a key laid in it falls out. So one hand has to find the crank, turn the shaft a quarter turn and hold it there against gravity while the other hand places a separate loose part (the key) into an open keyway, and then turns a second part (the pulley) about its own axis until its keyway lines up with that key (0.1 mm a side) before sliding it home on a 0.25 mm fit. Nearby accepted tasks test single-part fits on fixed shafts or housings: #1800 slides one sleeve into a fixed housing and turns it to register a port, with nothing turning under it and no second part to place; #1113 feeds a hex shaft through two bores, where the hex itself sets the angle and no key is involved. Pending #1864 (another team, being revised) presses a horn straight onto a fixed splined servo shaft with one hand: the spline is part of the shaft. Here the angle is set by a separate key the robot places itself, and the shaft must be counter-held throughout, as a mechanic does when keying a pulley, sprocket or coupling hub. Scores: Dream-1 run: 0.0 (both arms reached out over the shaft stand and stayed there, the left one nudging the crank once; neither picked up the key or the pulley); demo: 1.0 (all four steps and the parts still from step 1125, held 1 s: 1.0 at step 1145) Scoring: four steps, 0.2 each Step Done when 1. Key in the shaft's keyway on the keyway's floor (within 0.5 mm), within 0.5 mm of its middle line, lined up with the shaft, ends inside the keyway; not held 2. Pulley started with step 1, the pulley's bore around the shaft (axes within 1 mm and 3 degrees), at least 10 mm on 3. Pulley home with step 2, its face within 2 mm of the shoulder and the key inside the pulley's keyway too 4. Released with step 3, no gripper holds the pulley and both are at least 3 cm from the key, the pulley and the crank handle Score When 1.0 (ends the run) every full-success condition has held together, without a break, for 1 s: all four steps (so both hands have let go and are clear), nothing off the table, and the key, the pulley and the shaft each within 2 mm and 2 degrees of where they were when that second began 0.2 per step, at most 0.8 otherwise, including while that second is being timed 0 the key or the pulley off the table, or a state that is not finite The 1 s is timed in the task file itself: every control step, _Progress notes when the full-success conditions first held together and the parts' poses at that moment, and any lapse (a step undone, a gripper back within 3 cm, the key, the pulley or the shaft moved more than 2 mm or turned more than 2 degrees) clears it, so the second starts over. success() and score() return 1.0 only once that second is complete; SUCCESS_HOLD_S is 0, so the run ends on that same step. The tests check no 1.0 after 0.95 s and 1.0 at 1 s, that a lapse restarts the second, and that 1.0 is never reached over 3 s while any one condition is missing (9 cases). A pulley pushed home without the key, or with its keyway off the key, scores nothing for steps 2 and 3. Top camera, 20 Hz control, 240 Hz physics. Run commands, the demo's timeline, assets and the real-station build are in the task's README."
+      },
+      {
+        "author": "achyutha11",
+        "body": "Received as TK-ZSRSAK , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+      }
+    ],
+    "sha256": "7bafc41d645d89e142fc8565730c2c1e9ee5f0a0cf627bc2fe417f28b53a520c"
+  }
+]

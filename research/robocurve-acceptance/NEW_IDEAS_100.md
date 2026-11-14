@@ -1017,3 +1017,7 @@ Each entry records all ten discovery fields. Novelty statements are hypotheses t
 No exact title or capability description is repeated. Distinct words alone do not prove distinct skills: the following families require mechanism-level screening before ranking. Blind riveting versus rivet-nut setting differs in permanent sheet joining versus creation of a threaded insert; wire stripping versus ferrule crimping differs in controlled removal versus forming a conductive termination; sealant application versus gasket seating differs in flow/tool path versus elastic capture. Retain both only if those actual contacts and useful outcomes remain central. Generic screw/connector/clip variations must be consolidated if later research reveals equivalent manipulation and success conditions.
 
 The bank is a discovery inventory, not a claim of100 novel, eligible or feasible submissions. Ranking will not label unsupported concepts STRONG merely to meet a target.
+
+## Post-discovery screening checkpoint
+
+The initial bank remains100 distinct proposals, not100 proven novel benchmark operations. Fresh research found earlier matches for several, including toggle installation, blind riveting, wire stripping/crimping, fish-tape pulling, click-floor assembly, carrier closure, wiper replacement, wire splice and keyed pulley fitting. These are being excluded or demoted in screening, not hidden by renaming. RANKED_TOP_20.md contains only fresh-bank leads, and RESEARCHED_TOP_50.md records concrete overlaps and unresolved primary-source checks.
