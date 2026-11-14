@@ -1,6 +1,8 @@
+> Budget amended by the user: $12 TOTAL for the SAME already-started sprint, $11 operational shutdown trigger, original six-hour/start/charge history preserved. Reported rate$1.79/hour and credits$13 require fresh verification; do not assume they are current. Existing bd3c404 transfer updates only through explicit --refresh-from. Cloud must not access Brev. See coordination/brev_transfer/START_HERE.md (repository-root path).
+
 # Native handoff for the existing Brev instance
 
-Authoritative transfer instructions: [START_HERE.md](../brev_transfer/START_HERE.md). Cloud must not access/start Brev or incur charges. The forthcoming user-started session has an explicit$15 NEW spending cap,$13.50 conservative shutdown trigger and six-hour outer deadline, whichever comes first. This scoped approval supersedes the historical$30 reserve only for the matching transfer session. Fresh provider balance/rate/start facts are mandatory.
+Authoritative transfer instructions: [START_HERE.md](../brev_transfer/START_HERE.md). Cloud must not access/start Brev or incur charges. The forthcoming user-started session has an explicit$12 NEW spending cap,$11 conservative shutdown trigger and six-hour outer deadline, whichever comes first. This scoped approval supersedes the historical$30 reserve only for the matching transfer session. Fresh provider balance/rate/start facts are mandatory.
 
 Preserve `/data/benchmark-tasks`, all old trajectories, credentials, TMUX sessions and evidence. New paths are `/data/robocurve-ops`, `/data/robocurve-task-cargo` and `/data/robocurve-sprint`. Sources must be independent Git repositories with clean exact heads. The caller supplies the exact published coordinator SHA; bootstrap records it outside Git. Never substitute a moving branch or unrelated old task source.
 
@@ -40,10 +42,10 @@ A passing prefix is not full qualification. Continue actual repairs/switching â†
 
 Use [GPU_RESUME_PLAN.md](../../GPU_RESUME_PLAN.md) for the one-path continuous coordinator. Do not run both standalone full task_runner and coordinator over the same work and repeat expensive evaluations. Historical diagnostic command examples are preserved in [the previous handoff](GPU_DIAGNOSTIC_HANDOFF-before-brev-transfer.md), and are not the current execution instructions.
 
-At the$13.50 conservative estimated trigger, six-hour limit or unaffordable/unproductive work, stop workloads and run on the LOCAL laptop:
+At the$11 conservative estimated trigger, six-hour limit or unaffordable/unproductive work, stop workloads and run on the LOCAL laptop:
 
 ```bash
 brev stop yam-eval-launchable-0cb74b
 ```
 
-Verify provider state is actually stopped. No automatic provider shutdown is claimed; killing Python or detaching TMUX does not stop billing. An application-side$15 limit cannot guarantee a$15 invoice if the instance is left running.
+Verify provider state is actually stopped. No automatic provider shutdown is claimed; killing Python or detaching TMUX does not stop billing. An application-side$12 limit cannot guarantee a$12 invoice if the instance is left running.

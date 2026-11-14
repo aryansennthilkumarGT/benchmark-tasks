@@ -15,9 +15,9 @@
     "sprint": "/data/robocurve-sprint"
   },
   "spending_policy": {
-    "id": "robocurve-brev-transfer-15usd-2026-11-13",
-    "hard_new_spend_usd": 15.0,
-    "estimated_shutdown_trigger_usd": 13.5,
+    "id": "robocurve-brev-transfer-12usd-11trigger-same-sprint",
+    "hard_new_spend_usd": 12.0,
+    "estimated_shutdown_trigger_usd": 11.0,
     "maximum_session_seconds": 21600,
     "legacy_reserve_override_usd": 0.0,
     "scope": "Only matching instance, exact user authorization reference and dedicated transfer-session identity; all other receipts retain legacy guards",
@@ -59,17 +59,17 @@
     }
   },
   "source_files_sha256": {
-    "GPU_RESUME_PLAN.md": "98519a6fb245da17af30641e1419f872e8253025ddad2547a872e98c57dd96ad",
-    "coordination/brev_policy.py": "30ab8e14fab362504e327aa97bf5aa93009d74df1603f3f7184eef84d7120631",
-    "coordination/brev_transfer/START_HERE.md": "868b0ed2414688800ff5f40196923c34ba7756fdc0e80bdc4cab94b3ee3c0ee8",
-    "coordination/brev_transfer/bootstrap.sh": "ed011bb6b58e01aab445c36f644dd5304acb41861f1fc7f8f590d02f4ab33921",
+    "GPU_RESUME_PLAN.md": "8c7e4633377b14c97cee760b5b97479688bc5ff68c9fd13488451f81c26fa4a2",
+    "coordination/brev_policy.py": "8f803f4cda8fd23295991967cfe220bbbd3f547f2bd3a8edc8f394f4b8f4f0e0",
+    "coordination/brev_transfer/START_HERE.md": "15648cf0ecc73b5c1c10b55c14594e71987d2b41496fe6a140edec519807c665",
+    "coordination/brev_transfer/bootstrap.sh": "7a3cd721517ae5251a048a88a4be3cae03aa186c5eef6bf06e55d37da15333d0",
     "coordination/brev_transfer/codex_session.sh": "a0aaaab2033fa7f56e4c629a8323da4c9b6c6bc4b3944e478e7792b140ad5ded",
     "coordination/brev_transfer/preflight.sh": "5cbd682de96a703140501140f4469d68a0b9556001bc19ff1bcd15b64a010124",
     "coordination/brev_transfer/run_first_diagnostic.sh": "ed0139c97270447aa02027aac70a7f843c9bae04c3e6b5e62901ed47c182fbb0",
     "coordination/brev_transfer/runtime_probe.py": "9bb1dfccc0dac36e39c8a5180b30d99ebfe48905b20c768338a478a20fa3c190",
-    "coordination/brev_transfer/transfer.py": "a91cacee8d3c8879a4d14922ab51a67a8660ec02aff67556ecc5761e4ac19114",
+    "coordination/brev_transfer/transfer.py": "57f972c2e8103fab8edffc7f8118c98ea9ba62ae8c668a46b6af78aff64d0208",
     "coordination/diagnostic_native.py": "2a40ee1e4494e385511680afd78058793dedbe14f2a65f54289044646f634502",
-    "coordination/engine.py": "7f8bc514825272b22c241e19a6c575b81462d94be7f4bb64a562884cef768cfa",
+    "coordination/engine.py": "e5abea69688ef6ca3f9282602ad87377dc0f8a23d6499f505e3d6a77e7dc52ab",
     "coordination/environment.py": "74661cd993c2332f9ace24a356180101589770f3cb90ff755e5775385596766b",
     "coordination/marathon.py": "a90e75e88fc4550cc7a9730008f865a6c339df46cc6737a68f0d2b74b4808f11",
     "coordination/pipeline.py": "e1532c8fc2fc42c138d51a5cf5fd38c106fe34273c11f9b65f6822ce8af401b7",
@@ -77,5 +77,19 @@
     "coordination/sprint_diagnostic.py": "7047eca13075fd55d6b1c70c22954d21b8a305858a334e2ea87887750940bf47",
     "coordination/sprint_state.py": "49e84f66fcac292ae72c58f0dd574d2aa584b7298fde90db45ae4e68ea64655a",
     "coordination/stack-lock.json": "d78235334cf77437c0e104465d355ebb0000aecffb782f7750461ba3ea46043d"
+  },
+  "latest_user_reported_provider_facts": {
+    "hourly_usd": 1.79,
+    "remaining_credits_usd": 13.0,
+    "observation_time": "UNKNOWN_DO_NOT_PRETEND_CURRENT",
+    "billing_start": "MUST_USE_ACTUAL_ORIGINAL_FULL_TIMESTAMP",
+    "not_a_live_provider_query": true
+  },
+  "budget_amendment": {
+    "from_coordinator": "bd3c404842dd7f8b8fd843e6be4a4469f7bcaed1",
+    "same_original_sprint": true,
+    "includes_already_incurred_charges": true,
+    "reset_original_start": false,
+    "reset_deadline": false
   }
 }

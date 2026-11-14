@@ -24,22 +24,22 @@ def scoped(tmp_path,monkeypatch):
         balance_observed_unix=1000.,instance_id='NO_GPU_TEST',gpu_uuid='NO_GPU_TEST',instance_name=brev_policy.INSTANCE,
         provider_evidence='SYNTHETIC_NOT_PROVIDER_DATA',spending_policy_id=brev_policy.POLICY_ID,
         authorization_reference=brev_policy.AUTHORIZATION_REFERENCE,authorization_session_id='FORMAT_FIXTURE_NOT_REAL_AUTH',
-        authorized_session_spend_usd=15.,estimated_shutdown_trigger_usd=13.5,
+        authorized_session_spend_usd=12.,estimated_shutdown_trigger_usd=11.,
         provider_stop_command=brev_policy.STOP_COMMAND,shutdown_method_confirmed=True)
     atomic(path,value)
     return root,path,value
 
 
-def test_scoped_15_approval_works_below_legacy_30_reserve_without_faking_past_cost(scoped):
+def test_scoped_12_approval_works_below_legacy_30_reserve_without_faking_past_cost(scoped):
     root,path,value=scoped;budget=Budget(path,clock=lambda:1000)
     result=budget.check(1200)
-    assert result['cap_usd']==15. and result['reserve_usd']==0. and result['estimated_shutdown_trigger_usd']==13.5
+    assert result['cap_usd']==12. and result['reserve_usd']==0. and result['estimated_shutdown_trigger_usd']==11.
     assert read(path)['spent_before_start_usd']==999.  # Historical facts were not zeroed/mutated.
 
 
-def test_1350_trigger_and_insufficient_actual_credit_block_before_work(scoped):
+def test_11_trigger_and_insufficient_actual_credit_block_before_work(scoped):
     root,path,value=scoped
-    with pytest.raises(Incomplete,match='13.50'):Budget(path,clock=lambda:1000+13.5*1800).check()
+    with pytest.raises(Incomplete,match='11.00'):Budget(path,clock=lambda:1000+11.*1800).check()
     value['balance_usd']=.01;atomic(path,value)
     with pytest.raises(Incomplete,match='reserve'):Budget(path,clock=lambda:1000).check(1200)
 
@@ -190,7 +190,7 @@ def test_native_only_runtime_probe_does_not_require_dream_or_upload_auth(monkeyp
 
 
 def test_six_hour_deadline_cannot_be_extended_when_money_remains(scoped):
-    root,path,value=scoped;open_sprint(root,path,clock=lambda:1000)
+    root,path,value=scoped;value['hourly_usd']=1.;atomic(path,value);open_sprint(root,path,clock=lambda:1000)
     with pytest.raises(Incomplete,match='six hours'):open_sprint(root,path,resume=True,clock=lambda:22601)
 
 
@@ -207,9 +207,47 @@ def test_provider_wizard_preserves_observations_and_cannot_reset_start(scoped,mo
     monkeypatch.setattr('builtins.input',lambda prompt:next(facts))
     transfer.record_provider()
     pointer=root/'active-provider-receipt.json';before=pointer.read_bytes();receipt=read(Path(read(pointer)['receipt']))
-    assert receipt['authorized_session_spend_usd']==15. and receipt['estimated_shutdown_trigger_usd']==13.5
+    assert receipt['authorized_session_spend_usd']==12. and receipt['estimated_shutdown_trigger_usd']==11.
     assert read(transfer.active_run()/'sprint-session.json')['deadline_unix']==22600
-    changed=iter(['2','20','1970-01-01T00:16:50+00:00','1970-01-01T00:16:50+00:00','NO_GPU_TEST','NO_GPU_TEST','SYNTHETIC_NOT_PROVIDER_DATA','CONFIRMED','STARTED'])
-    monkeypatch.setattr('builtins.input',lambda prompt:next(changed))
-    with pytest.raises(Incomplete,match='reset spending'):transfer.record_provider()
-    assert pointer.read_bytes()==before
+    refresh=iter(['2','20','1970-01-01T00:16:40+00:00','NO_GPU_TEST','NO_GPU_TEST','SYNTHETIC_NOT_PROVIDER_DATA','CONFIRMED','STARTED'])
+    monkeypatch.setattr('builtins.input',lambda prompt:next(refresh))
+    transfer.record_provider()
+    updated=read(Path(read(pointer)['receipt']))
+    assert updated['instance_started_unix']==1000 and read(transfer.active_run()/'sprint-session.json')['deadline_unix']==22600
+    assert Path(json.loads(before)['receipt']).exists()
+
+
+def test_incomplete_timestamp_gets_a_clear_example_and_timezone_is_required():
+    for bad in ('6:55','2026-11-13T18:55:00'):
+        with pytest.raises(Incomplete,match='FULL date'):transfer.parse_billing_timestamp(bad)
+    assert transfer.parse_billing_timestamp('2026-11-13T18:55:00-05:00')==transfer.parse_billing_timestamp('2026-11-13T23:55:00+00:00')
+
+
+def test_refresh_reduces_budget_in_place_without_resetting_source_history_or_cost_clock(local_repo):
+    repo,old,cargo,root,env=local_repo;assert bootstrap(local_repo).returncode==0
+    sprint=root/'robocurve-sprint';handoff=read(sprint/'handoff-state.json')
+    handoff['spending_policy_id']=brev_policy.PREVIOUS_POLICY_ID;atomic(sprint/'handoff-state.json',handoff)
+    run=sprint/'sessions'/handoff['authorization_session_id'];run.mkdir(parents=True,exist_ok=True)
+    identity={'instance_id':'CPU_FIXTURE','gpu_uuid':'CPU_FIXTURE','instance_started_unix':1000.,'hourly_usd':1.79,
+        'spent_before_start_usd':0.,'authorization_reference':brev_policy.PREVIOUS_AUTHORIZATION_REFERENCE,
+        'authorized_session_spend_usd':15.,'estimated_shutdown_trigger_usd':13.5,'spending_policy_id':brev_policy.PREVIOUS_POLICY_ID,
+        'authorization_session_id':handoff['authorization_session_id'],'instance_name':brev_policy.INSTANCE,'provider_stop_command':brev_policy.STOP_COMMAND}
+    atomic(run/'sprint-session.json',{'identity':identity,'deadline_unix':22600,'repairs':{'keep':['old']},'submissions':{'keep':'PR'},'initial_provider_verified_at':1000.,'initial_balance_observed_unix':1000.})
+    (run/'ledger.json').write_text('{"preserve":"old raw evidence"}')
+    observations=sprint/'provider-observations';observations.mkdir(exist_ok=True)
+    old_receipt=observations/'old-facts.json';atomic(old_receipt,dict(identity,balance_usd=13.,balance_observed_unix=1000.,provider_evidence='CPU_FORMAT_FIXTURE',shutdown_method_confirmed=True))
+    original=old_receipt.read_bytes();atomic(sprint/'active-provider-receipt.json',{'receipt':str(old_receipt)})
+    (repo/'REFRESH_NOTE').write_text('New source-pinned coordinator; no simulation.')
+    git(repo,'add','.');git(repo,'commit','-m','CPU fixture forward update');new=git(repo,'rev-parse','HEAD')
+    result=subprocess.run(['/bin/bash',str(HERE/'bootstrap.sh'),'--ops-ref',new,'--refresh-from',old],env=env,text=True,capture_output=True)
+    assert result.returncode==0,result.stderr
+    assert git(root/'robocurve-ops','rev-parse','HEAD')==new and git(root/'robocurve-task-cargo','rev-parse','HEAD')==cargo
+    current=read(run/'sprint-session.json');assert current['identity']['instance_started_unix']==1000. and current['deadline_unix']==22600
+    assert current['identity']['authorized_session_spend_usd']==12. and current['identity']['estimated_shutdown_trigger_usd']==11.
+    assert current['repairs']=={'keep':['old']} and current['submissions']=={'keep':'PR'}
+    assert (run/'ledger.json').read_text()=='{"preserve":"old raw evidence"}' and old_receipt.read_bytes()==original
+    updated=read(Path(read(sprint/'active-provider-receipt.json')['receipt']))
+    assert updated['balance_observed_unix']==1000. and updated['instance_started_unix']==1000.
+    assert updated['balance_usd']==13. and updated['hourly_usd']==1.79
+    assert read(sprint/'handoff-state.json')['authorization_session_id']==handoff['authorization_session_id']
+    assert subprocess.run(['/bin/bash',str(HERE/'bootstrap.sh'),'--ops-ref',new,'--refresh-from',old],env=env,capture_output=True).returncode==0

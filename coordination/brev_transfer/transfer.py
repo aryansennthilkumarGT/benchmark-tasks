@@ -7,7 +7,7 @@ HERE=Path(__file__).resolve().parent
 OPS=HERE.parents[1]
 sys.path.insert(0,str(OPS/'coordination'))
 from engine import Incomplete,atomic,digest,read,Budget,exclusive
-from brev_policy import POLICY_ID,INSTANCE,AUTHORIZATION_REFERENCE,STOP_COMMAND
+from brev_policy import POLICY_ID,INSTANCE,AUTHORIZATION_REFERENCE,STOP_COMMAND,HARD_CAP,SHUTDOWN_TRIGGER,PREVIOUS_POLICY_ID,PREVIOUS_AUTHORIZATION_REFERENCE
 
 
 def data_root():
@@ -62,7 +62,7 @@ def source_manifest(folder):
 def manifest():return read(HERE/'HANDOFF_MANIFEST.json')
 
 
-def bootstrap(ops_ref):
+def bootstrap(ops_ref,refresh_from=None):
     m=manifest();p=paths();repository=m['repository_url']
     if os.environ.get('ROBOCURVE_TRANSFER_TEST_MODE')=='1':repository=os.environ['ROBOCURVE_TRANSFER_TEST_REPO']
     verify_checkout(p['ops'],ops_ref,repository)
@@ -85,12 +85,74 @@ def bootstrap(ops_ref):
     with exclusive(p['sprint']/'transfer-bootstrap.lock'):
         if state_path.exists():
             state=read(state_path)
-            if any(state.get(k)!=v for k,v in baseline.items()):raise Incomplete('Existing handoff session identity differs; preserve it instead of replacing it')
+            if any(state.get(k)!=v for k,v in baseline.items()):
+                if not refresh_from or state.get('coordinator_commit')!=refresh_from or state.get('spending_policy_id') not in (PREVIOUS_POLICY_ID,POLICY_ID):
+                    raise Incomplete('Existing handoff differs; use a verified explicit refresh, never replace the session')
+                amend_budget_state(p,state,baseline)
         else:
             state=dict(baseline,authorization_session_id=str(uuid.uuid4()))
             atomic(state_path,state)
     print('BOOTSTRAP COMPLETE: independent exact sources; no GPU/provider calls or environment installation.')
     print('Next: bash '+str(p['ops']/'coordination/brev_transfer/preflight.sh')+' --free')
+
+
+def amend_budget_state(p,old_handoff,baseline):
+    """Explicit authorization amendment; no clock, balance, UUID or evidence reset."""
+    run_root=p['sprint']/'sessions'/old_handoff['authorization_session_id']
+    with exclusive(run_root/'pipeline.lock'),exclusive(run_root/'sprint-state.lock'):
+        session_file=run_root/'sprint-session.json'
+        pointer=p['sprint']/'active-provider-receipt.json'
+        session_data=read(session_file) if session_file.exists() else None
+        old_pointer=read(pointer) if pointer.exists() else None
+        old_receipt=read(Path(old_pointer['receipt'])) if old_pointer else None
+        if old_receipt and old_receipt.get('authorization_session_id')!=old_handoff['authorization_session_id']:
+            raise Incomplete('Existing receipt belongs to a different session; no migration performed')
+        amendment={'kind':'EXPLICIT_SAME_SPRINT_BUDGET_REDUCTION','old_handoff':old_handoff,
+                   'old_session':session_data,'old_pointer':old_pointer,'old_receipt':old_receipt,
+                   'new_cap_usd':HARD_CAP,'new_trigger_usd':SHUTDOWN_TRIGGER,
+                   'new_coordinator_commit':baseline['coordinator_commit'],'authorization_reference':AUTHORIZATION_REFERENCE}
+        journal=p['sprint']/'policy-amendments'/(baseline['coordinator_commit']+'.json')
+        if not journal.exists():atomic(journal,amendment)
+        changes={'spending_policy_id':POLICY_ID,'authorization_reference':AUTHORIZATION_REFERENCE,
+                 'authorized_session_spend_usd':HARD_CAP,'estimated_shutdown_trigger_usd':SHUTDOWN_TRIGGER}
+        if old_receipt and old_receipt.get('spending_policy_id')==PREVIOUS_POLICY_ID and old_receipt.get('authorization_reference')!=PREVIOUS_AUTHORIZATION_REFERENCE:
+            raise Incomplete('Previous receipt authorization does not match the approved predecessor')
+        if session_data:
+            identity=session_data['identity']
+            if identity.get('authorization_session_id')!=old_handoff['authorization_session_id']:
+                raise Incomplete('Existing sprint identity differs; original history preserved')
+            if identity['instance_started_unix']+21600!=session_data['deadline_unix']:
+                raise Incomplete('Existing deadline does not match original billing start')
+            session_data.setdefault('budget_amendments',[]).append({'previous_identity':identity.copy(),**changes})
+            identity.update(changes)
+            incurred=max(0.,(datetime.datetime.now(datetime.timezone.utc).timestamp()-identity['instance_started_unix'])*identity['hourly_usd']/3600)
+            session_data['last_cost_check']={'status':'POLICY_AMENDED_REVALIDATE_BEFORE_WORK','cap_usd':HARD_CAP,'estimated_shutdown_trigger_usd':SHUTDOWN_TRIGGER,
+                'already_incurred_from_original_start_usd':incurred,'remaining_to_authorized_cap_usd':max(0.,HARD_CAP-incurred),
+                'remaining_to_shutdown_trigger_usd':max(0.,SHUTDOWN_TRIGGER-incurred)}
+            atomic(session_file,session_data)
+        if old_receipt and old_receipt.get('spending_policy_id')==PREVIOUS_POLICY_ID:
+            if old_receipt.get('authorization_reference')!=PREVIOUS_AUTHORIZATION_REFERENCE:
+                raise Incomplete('Previous receipt authorization does not match the approved predecessor')
+            amended=dict(old_receipt,**changes)
+            amended['supersedes_receipt']=old_pointer['receipt']
+            target=p['sprint']/'provider-observations'/('budget-reduction-'+baseline['coordinator_commit']+'.json')
+            if target.exists() and read(target)!=amended:raise Incomplete('Budget amendment record changed; preserve for review')
+            if not target.exists():atomic(target,amended)
+            atomic(pointer,{'receipt':str(target)})
+        updated=dict(old_handoff,**baseline)
+        updated.setdefault('refresh_history',[]).append({'from_commit':old_handoff['coordinator_commit'],
+                'to_commit':baseline['coordinator_commit'],'policy_amendment':str(journal)})
+        atomic(p['sprint']/'handoff-state.json',updated)
+    print('Same sprint refreshed: UUID/start/deadline/spending history preserved; cap$12, trigger$11.')
+
+
+def parse_billing_timestamp(value):
+    try:
+        parsed=datetime.datetime.fromisoformat(value.replace('Z','+00:00'))
+        if parsed.tzinfo is None:raise ValueError('Timezone missing')
+        return parsed.timestamp()
+    except ValueError as exc:
+        raise Incomplete('Use a FULL date, time and timezone, for example 2026-11-13T18:55:00-05:00; 6:55 alone is incomplete. Use your actual original start, not this example.') from exc
 
 
 def required_command(name):
@@ -178,10 +240,17 @@ def record_provider():
     rate=float(prompt('Observed GPU hourly USD rate'))
     balance=float(prompt('Observed remaining Brev credits in USD'))
     def timestamp(label):
-        value=datetime.datetime.fromisoformat(prompt(label).replace('Z','+00:00'))
-        if value.tzinfo is None:raise Incomplete('Use a timezone, for example +00:00 or -05:00')
-        return value.timestamp()
-    started=timestamp('Actual current instance billing START time (ISO8601 with timezone)')
+        while True:
+            try:return parse_billing_timestamp(prompt(label))
+            except Incomplete as exc:print(str(exc),file=sys.stderr)
+    prior_path=p['sprint']/'active-provider-receipt.json'
+    prior=read(Path(read(prior_path)['receipt'])) if prior_path.exists() else None
+    session_file=active_run()/'sprint-session.json'
+    prior_session=read(session_file) if session_file.exists() else None
+    if prior or prior_session:
+        started=prior['instance_started_unix'] if prior else prior_session['identity']['instance_started_unix']
+        print('Original billing START is locked and reused: '+datetime.datetime.fromtimestamp(started,datetime.timezone.utc).isoformat())
+    else:started=timestamp('Actual ORIGINAL instance billing START (including time already billed; full ISO8601 with timezone)')
     observed=timestamp('Time provider BALANCE was observed (ISO8601 with timezone)')
     provider_id=prompt('Actual existing provider instance ID/name')
     gpu_uuid=prompt('Actual GPU UUID from nvidia-smi --query-gpu=uuid --format=csv,noheader')
@@ -194,8 +263,8 @@ def record_provider():
           'instance_id':provider_id,'instance_name':INSTANCE,'gpu_uuid':gpu_uuid,'provider_evidence':evidence,
           'spent_before_start_usd':0.,'spending_accounting_scope':'NEW_SESSION_ONLY_NOT_HISTORICAL_TOTAL',
           'spending_policy_id':POLICY_ID,'authorization_reference':AUTHORIZATION_REFERENCE,
-          'authorization_session_id':state['authorization_session_id'],'authorized_session_spend_usd':15.,
-          'estimated_shutdown_trigger_usd':13.5,'provider_stop_command':STOP_COMMAND,'shutdown_method_confirmed':True}
+          'authorization_session_id':state['authorization_session_id'],'authorized_session_spend_usd':HARD_CAP,
+          'estimated_shutdown_trigger_usd':SHUTDOWN_TRIGGER,'provider_stop_command':STOP_COMMAND,'shutdown_method_confirmed':True}
     old=p['sprint']/'active-provider-receipt.json'
     if old.exists():
         previous=read(Path(read(old)['receipt']))
@@ -214,7 +283,7 @@ def record_provider():
     atomic(old,{'receipt':str(target)})
     from sprint_state import open_sprint
     open_sprint(active_run(),target,resume=(active_run()/'sprint-session.json').exists())
-    print('Fresh observation validated; $15 hard cap, $13.50 conservative trigger, six-hour outer deadline. No provider stop was performed.')
+    print('Fresh observation validated; $12 TOTAL same-sprint cap, $11 conservative trigger, six-hour outer deadline. No provider stop was performed.')
 
 
 def diagnostic(execute=False):
@@ -224,7 +293,7 @@ def diagnostic(execute=False):
         '--case',candidate['case'],'--run-root',str(active_run() if (p['sprint']/'handoff-state.json').exists() else p['sprint']/'sessions/PERSISTED_SESSION_ID'),'--launchable-root',str(data_root()),
         '--registered-account',manifest()['registered_github_account'],'--timeout-seconds','1200']
     if not execute:
-        print(json.dumps({'kind':'DRY_RUN_NO_GPU_OR_PROVIDER_CALLS','command':command,'policy':{'hard_cap_usd':15,'estimated_shutdown_trigger_usd':13.5},'no_auto_dream_media_or_pr':True},indent=2));return
+        print(json.dumps({'kind':'DRY_RUN_NO_GPU_OR_PROVIDER_CALLS','command':command,'policy':{'hard_cap_usd':15,'estimated_shutdown_trigger_usd':SHUTDOWN_TRIGGER},'no_auto_dream_media_or_pr':True},indent=2));return
     result=gpu_checks('diagnostic');atomic(active_run()/'first-diagnostic-preflight.json',result)
     command+=['--budget-file',str(budget_path()),'--execute']
     if (active_run()/'sprint-session.json').exists():command+=['--resume']
@@ -234,7 +303,7 @@ def diagnostic(execute=False):
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__);sub=parser.add_subparsers(dest='command',required=True)
-    p=sub.add_parser('bootstrap');p.add_argument('--ops-ref',required=True)
+    p=sub.add_parser('bootstrap');p.add_argument('--ops-ref',required=True);p.add_argument('--refresh-from')
     p=sub.add_parser('preflight');group=p.add_mutually_exclusive_group(required=True);group.add_argument('--free',action='store_true');group.add_argument('--gpu',action='store_true');group.add_argument('--record-provider-facts',action='store_true');p.add_argument('--stage',choices=('diagnostic','qualification'),default='diagnostic')
     p=sub.add_parser('diagnostic');p.add_argument('--execute',action='store_true');p.add_argument('--dry-run',action='store_true')
     sub.add_parser('launch-codex')
@@ -246,9 +315,9 @@ def main(argv=None):
         os.environ.update(PYTHONDONTWRITEBYTECODE='1',XDG_CACHE_HOME=str(cache),CUDA_CACHE_PATH=str(cache/'cuda'))
         command=[result['codex_path'],'--sandbox','workspace-write','--config','sandbox_workspace_write.network_access=true',
                  '--add-dir',str(p['cargo']),'--add-dir',str(p['sprint']),
-                 'Read coordination/brev_transfer/START_HERE.md and GPU_RESUME_PLAN.md. Continue the source-pinned continuous RoboCurve sprint, respecting the scoped $15 hard cap/$13.50 trigger. Verify actual preflight/provider facts; no fabricated native evidence or automatic billing-stop claims.']
+                 'Read coordination/brev_transfer/START_HERE.md and GPU_RESUME_PLAN.md. Continue the source-pinned continuous RoboCurve sprint, respecting the scoped $12 TOTAL same-sprint hard cap/$11 trigger including already-incurred charges. Verify actual preflight/provider facts; no fabricated native evidence or automatic billing-stop claims.']
         os.chdir(p['ops']);os.execv(command[0],command)
-    elif a.command=='bootstrap':bootstrap(a.ops_ref)
+    elif a.command=='bootstrap':bootstrap(a.ops_ref,a.refresh_from)
     elif a.command=='diagnostic':
         if a.execute and a.dry_run:raise Incomplete('Choose dry-run or execute, never both')
         diagnostic(a.execute)

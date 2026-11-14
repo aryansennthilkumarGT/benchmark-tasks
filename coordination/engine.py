@@ -125,11 +125,13 @@ class Budget:
         if self.authorized_cap is not None and projected + shutdown_headroom > self.authorized_cap:
             raise Incomplete('Explicit approved session spending cap reached; provider billing still requires shutdown')
         if self.policy['trigger'] is not None and projected + shutdown_headroom >= self.policy['trigger']:
-            raise Incomplete('Estimated $13.50 shutdown trigger reached: stop workloads and run '+r['provider_stop_command'])
+            raise Incomplete(f"Estimated ${self.policy['trigger']:.2f} shutdown trigger reached: stop workloads and run "+r['provider_stop_command'])
         prior=0. if self.policy['new_session_only'] else r['spent_before_start_usd']
         if projected + shutdown_headroom + prior > self.policy['cap'] or r['balance_usd'] - charge_after_balance - shutdown_headroom < self.policy['reserve']:
             raise Incomplete('Compute budget or credit reserve reached; instance billing continues until the operator stops it.')
-        return {'estimated_instance_charge_usd': self.estimate(), 'projected_charge_usd': projected,
+        return {'estimated_instance_charge_usd': self.estimate(), 'already_incurred_from_original_start_usd':self.estimate(),
+                'remaining_to_authorized_cap_usd':None if self.authorized_cap is None else max(0.,self.authorized_cap-self.estimate()),
+                'remaining_to_shutdown_trigger_usd':None if self.policy['trigger'] is None else max(0.,self.policy['trigger']-self.estimate()), 'projected_charge_usd': projected,
                 'projected_balance_usd': r['balance_usd'] - charge_after_balance, 'balance_observed_unix':self.balance_observed_at,
                 'cap_usd': self.policy['cap'], 'reserve_usd': self.policy['reserve'], 'estimated_shutdown_trigger_usd':self.policy['trigger'], 'authorized_session_spend_usd':self.authorized_cap, 'shutdown_headroom_usd':shutdown_headroom, 'checked_at': utc()}
 

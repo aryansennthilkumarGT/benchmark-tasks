@@ -1,8 +1,28 @@
+# Urgent same-sprint budget amendment
+
+The current approval is **$12 TOTAL for the already-started sprint**, with an **$11 operational shutdown trigger** and the ORIGINAL six-hour deadline. It is not$12 more from refresh time. The reported$1.79/hour and$13 credits are user-reported observations, not a fresh Cloud query; enter/check actual provider facts before work.
+
+Since bootstrap/FREE preflight already succeeded atbd3c404842dd7f8b8fd843e6be4a4469f7bcaed1, download the NEW immutable bootstrap using the exact new commit in the Cloud reply, verify its published checksum, and run:
+
+```bash
+bash "$BOOT" --ops-ref "$OPS_REF" --refresh-from bd3c404842dd7f8b8fd843e6be4a4469f7bcaed1
+```
+
+This explicitly advances only the clean coordinator checkout. It never deletes/replaces the transfer folders or checks out another Cargo source. It archives the prior policy/state, preserves the session UUID, original billing start, deadline, old observations, repairs, PRs and raw ledger. Existing valid observations are copied into a clearly labeled budget-amended receipt without pretending their observation time is fresh. The old$15/$13.50 policy is historical migration input only and is no longer an executable spending authorization.
+
+If the earlier wizard failed on `6:55`, no valid start may have been saved. Run `preflight.sh --record-provider-facts` again and supply the **actual ORIGINAL** full start timestamp. Example: `2026-11-13T18:55:00-05:00` means6:55PM Eastern on November13 (23:55UTC). **Use that example only if it matches your real start; do not guess AM/PM/date/timezone.** `6:55` alone is incomplete. The wizard now explains and retries invalid timestamp input. An already-recorded original start is displayed and reused, never reset.
+
+At$1.79/hour, already-incurred estimate=(current time−original start)×1.79/3600. One hour already running would count as$1.79, leaving$9.21 to the$11 trigger and$10.21 to the$12 cap; this is an example, not a claim about your elapsed time. Even if the first valid receipt is created only now, all time since the actual original start counts. Six hours at that rate is about$10.74, so the original six-hour deadline may bind first. Current native commands/receipts stay under the SAME persisted session directory.
+
+After refresh, run FREE preflight, record/check provider facts and run GPU preflight. Tell any already-running Codex session to reread this updated guide and honor$12TOTAL/$11; do not kill old TMUX sessions. Qualified tasks are still submitted individually and immediately, never batched. Cloud has not connected to Brev or run paid work.
+
+---
+
 # Cloud → existing Brev: start here
 
 This transfer package is CPU-tested. It does not prove that Isaac, the controllers or credentials work on the stopped machine. **No Cloud access/start of Brev is authorized.** You will start your EXISTING instance only when ready and explicitly authorized. Never create a replacement.
 
-Instance: `yam-eval-launchable-0cb74b`. New spending: **$15 maximum**. Conservative estimated shutdown trigger: **$13.50**, or six hours from the original actual instance start, whichever comes first. The scoped policy replaces the old$30 reserve only for this approved, dedicated session. Other receipts retain their legacy guards. No balance/rate/start time is guessed.
+Instance: `yam-eval-launchable-0cb74b`. Same already-started sprint spending: **$12 total maximum, including already-incurred charges**. Conservative estimated shutdown trigger: **$11**, or six hours from the original actual instance start, whichever comes first. The scoped policy replaces the old$30 reserve only for this approved, dedicated session. Other receipts retain their legacy guards. No balance/rate/start time is guessed.
 
 The target remains at least three genuinely qualified NEW PRs, then more if affordable. None of the three candidates currently has native full-score evidence; nailer additionally has an importance hold. A quota never permits weaker scoring, novelty or fabricated results. A failed Dream score is acceptable if the genuine required run and full-score expert evidence satisfy the official rules.
 
@@ -16,7 +36,7 @@ Before paying for time, check your existing laptop `brev` CLI is available and k
 brev stop yam-eval-launchable-0cb74b
 ```
 
-Verify the actual stopped state in the Brev console afterwards. Do not mistake a detached TMUX session, killed Python process, disconnected SSH or guest shutdown for verified stopped provider billing. No automatic provider-level shutdown has been verified. **The application-side$15 cap cannot guarantee a$15 invoice if the instance stays running.** The$13.50 trigger leaves a margin; it is not an automatic billing stop.
+Verify the actual stopped state in the Brev console afterwards. Do not mistake a detached TMUX session, killed Python process, disconnected SSH or guest shutdown for verified stopped provider billing. No automatic provider-level shutdown has been verified. **The application-side$12 cap cannot guarantee a$12 invoice if the instance stays running.** The$11 trigger leaves a margin; it is not an automatic billing stop.
 
 ## 2. One-command source transfer (REMOTE SSH)
 
@@ -29,7 +49,7 @@ OPS_REF=PASTE_EXACT_RECOVERY_COMMIT_FROM_FINAL_CLOUD_ANSWER
 BOOT=$(mktemp)
 gh api -H 'Accept: application/vnd.github.raw+json' \
  "repos/aryansennthilkumarGT/benchmark-tasks/contents/coordination/brev_transfer/bootstrap.sh?ref=$OPS_REF" > "$BOOT" \
- && printf '%s  %s\n' 'ed011bb6b58e01aab445c36f644dd5304acb41861f1fc7f8f590d02f4ab33921' "$BOOT" | sha256sum --check --status \
+ && printf '%s  %s\n' '7a3cd721517ae5251a048a88a4be3cae03aa186c5eef6bf06e55d37da15333d0' "$BOOT" | sha256sum --check --status \
  && bash "$BOOT" --ops-ref "$OPS_REF"
 ```
 
@@ -70,7 +90,7 @@ bash /data/robocurve-ops/coordination/brev_transfer/preflight.sh --record-provid
 bash /data/robocurve-ops/coordination/brev_transfer/preflight.sh --gpu
 ```
 
-The first observation must be no older than five minutes. New observations are immutable files; refreshing cannot change instance, GPU, rate, original start or the approved cap. The policy is bound to this actual transfer's persistent UUID and dedicated receipt directory. Historical spending is not falsified: this approval accounts for NEW session spending. The initial approved observation establishes the original six-hour deadline, including transfer/startup/idle time. A verified continuation of this SAME scoped session may use its timestamped observation with rate-based charge estimates; it does not pretend to have re-queried a fresh provider balance. Refresh actual provider observations when available. A restart cannot reset the deadline or charges.
+The first observation must be no older than five minutes. New observations are immutable files; refreshing cannot change instance, GPU, rate, original start or the approved cap. The policy is bound to this actual transfer's persistent UUID and dedicated receipt directory. Historical spending is not falsified: this approval accounts for NEW session spending. The actual original start establishes the six-hour deadline, including all time before the first valid receipt, transfer/startup/idle time. A verified continuation of this SAME scoped session may use its timestamped observation with rate-based charge estimates; it does not pretend to have re-queried a fresh provider balance. Refresh actual provider observations when available. A restart cannot reset the deadline or charges.
 
 GPU preflight checks the expected existing L40S/565.57.01 profile, existing `/data/IsaacLab-Arena/yam.env`, its pinned Python3.12 and exact installed SDK sources/versions. It will not change the driver or reinstall packages. A read-only preflight is not a successful scored native smoke. **Native-only Cargo does not require Dream/upload authentication.** `--gpu --stage qualification` and the full coordinator retain the required Dream/upload gates before those services run; credential presence is not falsely called API authentication.
 
@@ -113,7 +133,7 @@ For actual qualified candidate manifests, the same coordinator can subsequently 
 
 ## 7. Stop the actual provider instance
 
-At the$13.50 estimated trigger, six-hour limit, unaffordable work or exhausted productive candidates, stop workloads and run in the separate LOCAL laptop/WSL terminal:
+At the$11 estimated trigger, six-hour limit, unaffordable work or exhausted productive candidates, stop workloads and run in the separate LOCAL laptop/WSL terminal:
 
 ```bash
 brev stop yam-eval-launchable-0cb74b
