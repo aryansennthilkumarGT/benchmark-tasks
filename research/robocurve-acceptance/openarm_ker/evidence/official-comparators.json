@@ -1,0 +1,122 @@
+[
+  {
+    "number": 1900,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1900",
+    "sha256": "a1752d96f752793c372597eb0d35832ee485466ca49e1bf6c122a07dbe0df4b5",
+    "state": [
+      {
+        "number": 1900,
+        "state": "OPEN",
+        "title": "Zero an unpowered robot arm joint: hold the link on its zero mark and insert the calibration pin",
+        "mergedTime": null
+      }
+    ],
+    "comments": [
+      "Adds the task \"Zero an unpowered robot arm joint: hold the link on its zero mark and insert the calibration pin\" in tasks/robot-joint-zeroing-pin, category Impact on AI timelines. The policy is told \"Zero the robot arm joint: raise the link to its zero mark, push the calibration pin home so the link rests on it, then let go.\" The scripted demo reaches task_score 1.0 and ends on success; the Dream-1 trial scores 0.0. Media M-JAU3SK holds the Dream-1 video, the demo video and the setup screenshot. The README gives the run and scoring commands, versions, runtime and the task file's SHA-256, which matches both logs. \ud83e\udd16 Generated with Claude Code https://claude.ai/code/session_01Y6uD3LRgbE9XKyU7GStKFV",
+      "This pull request couldn\u2019t be submitted yet: Your team has submitted 20 tasks in the past 24 hours, the daily limit is 20. You can submit again after 2026-11-13 16:50 UTC. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again.",
+      "Received as TK-UJZYER , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Not accepted (TK-UJZYER). Scoring (not met): The permanent zero for exceeding 120 degrees per second also penalizes controlled, harmless link movement, regardless of the final result. What to change: Remove the permanent zero for exceeding 120 degrees per second, or replace it with an objectively measurable damage or unsafe-handling condition; controlled fast movement should not invalidate an otherwise successful trial. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+      "Received as TK-QM672L (a revision of TK-UJZYER), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "This task (TK-QM672L) is already waiting for review, so changes pushed now won\u2019t be reviewed. To change it, close this pull request (which withdraws it) and open a new one."
+    ]
+  },
+  {
+    "number": 827,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/827",
+    "sha256": "5e591ed64febb058cf4a3d6cde407a50b4495083e8d6ba64d18423a7929f45c0",
+    "state": [
+      {
+        "number": 827,
+        "state": "OPEN",
+        "title": "Calibrate a tool tip by touching one point from four angles",
+        "mergedTime": null
+      }
+    ],
+    "comments": [
+      "Adds tasks/tool-tip-calibration.",
+      "Received as TK-SM5DKH , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Not accepted (TK-SM5DKH). Construct validity (not met): The scorer permits the pin's end up to 7 mm above the pocket floor and does not require a fixed pin-to-gripper transform, so a full score need not represent calibration contact. Scoring (not met): The proposed video and phone-level check does not explain how to measure the occluded tip's 4 mm displacement or three-dimensional separation between poses. What to change: Use a pointed tool rigidly attached to the gripper and require its tip to touch the same reference point in all four poses, rather than allowing it to hover inside the pocket. Specify a practical way to measure tip displacement and three-dimensional pose separation in real trials, and provide a full-score demo under the revised conditions. Industrial robot setup fits the Other impact domain more directly than Impact on jobs, since the cited technician role is specialized. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+      "Received as TK-Z29LGN (a revision of TK-SM5DKH), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Not accepted (TK-Z29LGN). Flags: Prior feedback for the earlier version was not provided Importance (not met): Calibrating a robot-mounted tool is relevant to robot building, but the submission chooses Other and describes industrial setup rather than its robot-building impact. What to change: Change the category to Impact on AI timelines and explain how this TCP calibration step supports building or commissioning robots. Also clarify how calibrated close-up video verifies the 0.5 mm tip-drift limit in a real trial, since a continuous beep on a 2 mm contact does not establish that limit by itself. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+      "Received as TK-SHQ94B (a revision of TK-Z29LGN), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+    ]
+  },
+  {
+    "number": 1799,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1799",
+    "sha256": "34639626adbfd4cf5659f8f0d31a553dad3a104c89cde2eac71e8757253bae85",
+    "state": [
+      {
+        "number": 1799,
+        "state": "MERGED",
+        "title": "Square a milling vise by sweeping its fixed jaw with an indicator",
+        "mergedTime": "2026-11-14T08:00:29Z"
+      }
+    ],
+    "comments": [
+      "One arm moves a physical indicator along the fixed jaw. The other turns the loosened vise before the cam clamps the swivel again. The demo reduced the dial span to 0.125 mm and left both hands clear. Dream 1 scored 0.0 in 2400 steps. The scripted demonstration scored 1.0 in 1056 steps.",
+      "Received as TK-8AFCU4 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Accepted (TK-8AFCU4). Thank you! Merging this pull request."
+    ]
+  },
+  {
+    "number": 1112,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1112",
+    "sha256": "03a9461498634bd9aefd83d82da8e8f907e9e1c726707a67900f011314ea6ddc",
+    "state": [
+      {
+        "number": 1112,
+        "state": "CLOSED",
+        "title": "Seat a platform on three kinematic datums",
+        "mergedTime": null
+      }
+    ],
+    "comments": [
+      "This revision replaces the three support force thresholds with independent native contact clearance tests at 0.20 mm gauge resolution. A physical replica uses a feeler blade rather than sensitive force sensors. The setup now specifies the groove axis and every cup and groove profile and datum height. Foot identities use station coordinates instead of inconsistent front and rear names. The numerical score includes the continuous one second success hold and checks every finger joint plus native robot release. Fresh matching source and measured evaluation receipts and native 720p model and demo videos accompany the revision. The README gives the contact test and complete thresholds and reproduction commands. The earlier provider expired attempt is excluded. The selected model session recovery count is disclosed in the README and validation receipt.",
+      "Received as TK-JQQ836 , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Not accepted (TK-JQQ836). Scoring (not met): Verifying that all three supports exceed 0.02 N requires sensitive force sensors rather than the simple measurement tools specified by the checklist. Clarity and reproducibility (not met): The setup omits the groove direction and datum heights, while the instruction's front/rear foot labels do not match the stated station coordinates. What to change: Please replace the three 0.02 N force thresholds with an unambiguous contact or no-rock test that can be scored using simple tools, and update the scoring implementation and demo accordingly. Specify the groove direction and cup and groove heights or profiles, and correct the front/rear foot labels to match the stated coordinates. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+      "Received as TK-QM9973 (a revision of TK-JQQ836), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Not accepted: final (TK-QM9973). Importance (not met): The submission does not show that seating instrument carriers on kinematic datums is regular work for team assemblers, maintenance workers, or other occupations totaling over 500,000 workers. The kinematic seating operation is a specialist instrument-fixture task, and the submission does not establish that it is regular work for occupations meeting the jobs-impact threshold. The scenario also does not clearly meet another impact domain, so the task does not meet the importance bar. If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it. This task doesn\u2019t meet the importance bar, so it can\u2019t be revised, and this pull request is now closed. You\u2019re welcome to submit a different task in a new pull request."
+    ]
+  },
+  {
+    "number": 2006,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/2006",
+    "sha256": "e8897e2926d75cd5c58d2920b3bf9e928edfaa5b6023f258068654417916e724",
+    "state": [
+      {
+        "number": 2006,
+        "state": "OPEN",
+        "title": "Add rail-plate-mount task",
+        "mergedTime": null
+      }
+    ],
+    "comments": [
+      "No description provided.",
+      "This pull request couldn\u2019t be submitted yet: The fidelity note field is too long (maximum 500 characters). Fill in the fidelity note field. The code archive is larger than 25 MB. Leave out large assets and try again. Once that\u2019s addressed, push a commit to this pull request (or close and reopen it) to try again.",
+      "Received as TK-VNSKDK , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+    ]
+  },
+  {
+    "number": 890,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/890",
+    "sha256": "1a8cfa06c4fd95f23441cf536d9560f8c997e5aac07ab0565c7d73f5cdf99162",
+    "state": [
+      {
+        "number": 890,
+        "state": "OPEN",
+        "title": "Fasten a bracket bolt with a ratchet in confined access",
+        "mergedTime": null
+      }
+    ],
+    "comments": [
+      "The robot picks up a ratchet from its cradle, fits the socket onto a started bracket bolt, and seats it using short drive and return strokes between two walls. Partial credit now measures axial advancement from the 2.5 mm initial gap; seating credit requires actual head/bracket contact, with a continuous 0.5-second hold for full credit. Torque and productive-cycle counts are diagnostics only. Thread-integrity, penetration and fixture checks remain enforced. The revised demo withdraws the socket and exposes the seated interface. Two seed-17 demos each finished at 1.0 in 3,150 actions; Dream-1 scored 0.0 at the 4,000-action limit. Both use the same frozen source, assets, physics and cameras. Media M-RPDV89 contains the matching current demo, Dream video and authentic setup screenshot, replacing the historical recordings. Validation: 42 offline scorer/contact/mechanism/asset checks passed, both live demos and resets passed, and recorded-trace audits reproduced the scores. The README documents physical gap measurement and exposed-interface inspection separately from numerical contact checks. No verified service torque or clamp preload is claimed. Runtime versions, source/asset hashes, video hashes and point-by-point responses are in the task folder.",
+      "Received as TK-GMVZWK , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Not accepted (TK-GMVZWK). Construct validity (not met): The scoring accepts an under-head gap of 0.2 mm as seated, although a bolt that remains clear of the bracket has not seated against it. Scoring (not met): The full-score seating threshold permits a visibly measurable gap instead of requiring bolt-head contact with the bracket. Feasibility (not met): The reported full-score demo ends with a 0.196 mm under-head gap, so it does not demonstrate the instructed seated bolt. What to change: The confined-access ratcheting skill is useful, but a bolt head 0.196 mm above the bracket is not seated. Change the full-score seating criterion to require actual contact with the bracket, adjust the simulated seat if necessary, and provide a full-score demo showing the corrected condition within the action limit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+      "Received as TK-CH9EQ5 (a revision of TK-GMVZWK), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "This task (TK-CH9EQ5) is already waiting for review, so changes pushed now won\u2019t be reviewed. To change it, close this pull request (which withdraws it) and open a new one.",
+      "Not accepted (TK-CH9EQ5). Flags: Attached media are historical; the revised 1.0 demo and revised Dream-1 run require their matching videos. \u00b7 The attached Dream frames show the ratchet on its cradle, unlike the README description of the revised run's final state. Scoring (not met): The permanent 1 N m torque limit has no specified practical real-world measurement method, and the socket obscures evidence of individual bolt advances. Feasibility (not met): The attached historical demo predates the seating criterion, while the claimed 2,458-action revised full-score demo is not attached. What to change: Upload the revised 2,458-action seated-contact demo and the matching revised Dream-1 video, rather than the historical recordings, so the reported results can be checked against the current scorer. Specify how a physical trial will verify the 1 N m torque cap and count strokes with actual bolt advance, or replace those conditions with practically observable equivalents. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+      "Received as TK-VFWZ47 (a revision of TK-CH9EQ5), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+    ]
+  }
+]

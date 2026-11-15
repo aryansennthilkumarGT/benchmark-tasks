@@ -1,0 +1,131 @@
+{
+  "scope": "Static source-CAD Boolean/distance diagnostics, NOT dynamics, snap-fit or a release simulation",
+  "units": "mm, mm2, mm3",
+  "source_outer_cylinder_face_count": 2,
+  "seat_faces": [
+    {
+      "face": 688,
+      "type": "GeomAbs_SurfaceType.GeomAbs_Cylinder",
+      "area_mm2": 1130.9733552923242,
+      "center_mm": [
+        -106.75,
+        -60.000000000000014,
+        -4.774648292756835
+      ],
+      "bounds_mm": [
+        -114.25,
+        -84.0,
+        -7.499999999999973,
+        -99.25,
+        -36.00000000000001,
+        2.074446781879822e-14
+      ],
+      "radius_mm": 7.499999999999993,
+      "axis": [
+        -0.0,
+        1.0,
+        -0.0
+      ],
+      "axis_origin_mm": [
+        -106.75,
+        -120.00000000000041,
+        1.9825982719437738e-14
+      ]
+    },
+    {
+      "face": 700,
+      "type": "GeomAbs_SurfaceType.GeomAbs_Cylinder",
+      "area_mm2": 1210.8277173647216,
+      "center_mm": [
+        106.75000000000009,
+        -59.77263578547458,
+        17.742867777239887
+      ],
+      "bounds_mm": [
+        99.24999990000009,
+        -84.0000001,
+        5.598836262317363,
+        114.2500001000001,
+        -35.64285704285714,
+        32.11820284187881
+      ],
+      "radius_mm": 7.499999999999992,
+      "axis": [
+        2.0816681711721818e-17,
+        0.9340497736158581,
+        -0.35714285714285865
+      ],
+      "axis_origin_mm": [
+        106.75000000000009,
+        -121.70692699902145,
+        46.53580662435255
+      ]
+    }
+  ],
+  "right_seat_axis_angle_to_exported_Y_axis_deg": 20.924832427638407,
+  "controls": [
+    {
+      "name": "as_exported_nominal",
+      "diagnostic_translation_mm": [
+        0,
+        0,
+        0
+      ],
+      "minimum_BRep_distance_mm": 0.0,
+      "interference_volume_mm3": 0.0,
+      "shared_seat_surface_area_mm2": 1130.9733552923276,
+      "force_or_retention_or_task_success_assessed": false
+    },
+    {
+      "name": "hover_1mm",
+      "diagnostic_translation_mm": [
+        0,
+        0,
+        1
+      ],
+      "minimum_BRep_distance_mm": 2.220446049250313e-16,
+      "interference_volume_mm3": 0.0,
+      "shared_seat_surface_area_mm2": 0.0,
+      "force_or_retention_or_task_success_assessed": false
+    },
+    {
+      "name": "lateral_interference_1mm",
+      "diagnostic_translation_mm": [
+        1,
+        0,
+        0
+      ],
+      "minimum_BRep_distance_mm": 0.0,
+      "interference_volume_mm3": 495.57969990273756,
+      "shared_seat_surface_area_mm2": 0.0,
+      "force_or_retention_or_task_success_assessed": false
+    },
+    {
+      "name": "partial_axial_shift_60mm",
+      "diagnostic_translation_mm": [
+        0,
+        60,
+        0
+      ],
+      "minimum_BRep_distance_mm": 0.0,
+      "interference_volume_mm3": 0.0,
+      "shared_seat_surface_area_mm2": 471.23889803846964,
+      "force_or_retention_or_task_success_assessed": false
+    },
+    {
+      "name": "off_seat_shift_120mm",
+      "diagnostic_translation_mm": [
+        0,
+        120,
+        0
+      ],
+      "minimum_BRep_distance_mm": 23.5,
+      "interference_volume_mm3": 0.0,
+      "shared_seat_surface_area_mm2": 0.0,
+      "force_or_retention_or_task_success_assessed": false
+    }
+  ],
+  "calibration_ready_KER_joint_registration": "NOT_ESTABLISHED",
+  "force_model": "NONE",
+  "global_joint_path": "NONE"
+}

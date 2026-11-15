@@ -1,6 +1,6 @@
 # Implementation-planning queue
 
-> **Current allocation update:** [The decisive N022 source gate](N022_DECISIVE_SOURCE_AND_GO_NO_GO.md) parks N022 for implementation. N040 remains parked; N013/N006 stay excluded and N044/N047 retain their prior gates. The next source-backed research nomination is OpenArm KER calibration-jig loading, with no prototype approval. The older queue below is historical and does not override this decision.
+> **Current allocation update:** [The actual-CAD OpenArm KER gate](openarm_ker/GO_NO_GO.md) is HOLD for a registered articulated calibration-ready configuration. Official CAD was downloaded and static diagnostics ran; no causal mechanism or full-access test passed. N022/N040 remain parked, N013/N006 excluded, and N044/N047 retain their prior gates. The older queue below is historical.
 
 **Recommended first two: N040 door-trim service access and N044 rear crankshaft seal installation. Backups: N047 valve keepers, N022 robot-harness spiral sleeve and source-gated N042 tapered-joint separation.** Keep all five open as a pipeline rather than committing the sprint to a pair until both fail.
 

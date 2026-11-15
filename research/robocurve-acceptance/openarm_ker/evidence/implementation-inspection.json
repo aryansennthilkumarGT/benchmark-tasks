@@ -1,0 +1,244 @@
+[
+  {
+    "number": 1900,
+    "pin": "1893637a3248bc93d716cce2d8ed6313f8901a4c",
+    "path": "tasks/robot-joint-zeroing-pin/task.py",
+    "sha256": "1d64e228670e905d3152cc017634e631d3cb69fd954c7d519a5e4cd2b57f482c",
+    "hits": [
+      {
+        "line": 15,
+        "excerpt": "  table) up to +25 deg. Gravity torque at zero is about 0.12 N m. A 7 x 7 mm calibration window goes through the arm\n  45 mm from the hinge; engraved zero marks sit on the arm and the housing.\n- Pin: a 6 mm dia, 40 mm long steel calibration pin with a 16 mm dia knob in the guide, sprung back (0.8 N at full\n  travel). Its tip waits 15 mm before the arm's near face; it can travel 28 mm. It passes the window only when the\n  arm is at zero within about +-0.6 deg (0.5 mm of play each way at 45 mm). With the arm anywhere else the tip meets\n  the arm or passes beside it. A pin pushed to 26 mm is held by an O-ring detent (the brake here).\n\nGoal: the arm held on its zero mark, the pin pushed home through the window, both grippers let go.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nimport os\nimport pathlib\nimport sys\n\nsys.path.insert(0, str(pathlib.Path(__file__).parent))\n\nimport linkkit as lk  # noqa: E402\nimport numpy as np  # noqa: E402\nfrom yam_arena.task_file import TABLE_TOP  # noqa: E402\n\nSCENE = \"station\""
+      },
+      {
+        "line": 18,
+        "excerpt": "  travel). Its tip waits 15 mm before the arm's near face; it can travel 28 mm. It passes the window only when the\n  arm is at zero within about +-0.6 deg (0.5 mm of play each way at 45 mm). With the arm anywhere else the tip meets\n  the arm or passes beside it. A pin pushed to 26 mm is held by an O-ring detent (the brake here).\n\nGoal: the arm held on its zero mark, the pin pushed home through the window, both grippers let go.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport math\nimport os\nimport pathlib\nimport sys\n\nsys.path.insert(0, str(pathlib.Path(__file__).parent))\n\nimport linkkit as lk  # noqa: E402\nimport numpy as np  # noqa: E402\nfrom yam_arena.task_file import TABLE_TOP  # noqa: E402\n\nSCENE = \"station\"\nTOP = TABLE_TOP[SCENE]\nVARIANT = os.environ.get(\"DEMO_VARIANT\", \"\")\nMM = 0.001"
+      },
+      {
+        "line": 50,
+        "excerpt": "PIN_TRAVEL = 0.028\nPIN_THROUGH = 0.018  # tip 3 mm into the arm's thickness\nPIN_HOME = 0.026  # tip 1 mm past the arm's far face; the O-ring detent holds\nKNOB_REAR = -0.068  # knob rear face, joint frame x\nZERO_TOL = 1.0  # deg\nSTILL_V, STILL_W = 0.002, 2.0  # m/s, deg/s\nPINCH_Y = 0.145  # the actuator can's centre: the hand grips its flat ends, clear of the pin guide\n\n\n# ---- joint assembly ---------------------------------------------------------------------------------------------\nt = lk.Tree(\"joint\", pos=(O_XY[0], O_XY[1], TOP), yaw_deg=YAW, fixed=True, color=(0.30, 0.31, 0.34))\nt.link(\"base\", [\n    lk.box((0.050, 0.024, ZREL + 0.020), (0.0, -0.038, (ZREL + 0.020) / 2), color=(0.30, 0.31, 0.34)),  # housing\n    lk.box((0.120, 0.150, 0.008), (0.0, 0.0, 0.004), color=(0.20, 0.21, 0.23)),  # base plate\n    lk.box((0.020, 0.035, ZREL - 0.012), (-0.021, Y_PIN, (ZREL - 0.012) / 2), color=(0.30, 0.31, 0.34)),  # guide post\n    lk.box((0.020, 0.010, 0.024), (-0.021, Y_PIN - 0.0205, ZREL), color=(0.30, 0.31, 0.34)),  # guide cheeks\n    lk.box((0.020, 0.010, 0.024), (-0.021, Y_PIN + 0.0205, ZREL), color=(0.30, 0.31, 0.34)),\n    lk.box((0.0004, 0.004, 0.0004), (0.0252, -0.026, ZREL), color=(0.97, 0.97, 0.97)),  # housing zero mark\n], mass=1.2, at=(0.0, 0.0, 0.0))\n\nhw = 0.0035  # half window\narm = [\n    lk.box((0.010, Y_PIN - hw + 0.020, 0.020), (0.0, (Y_PIN - hw - 0.020) / 2, 0.0), color=(0.74, 0.75, 0.78)),\n    lk.box((0.010, LINK_LEN - Y_PIN - hw, 0.020), (0.0, (Y_PIN + hw + LINK_LEN) / 2, 0.0), color=(0.74, 0.75, 0.78)),"
+      },
+      {
+        "line": 133,
+        "excerpt": "# ---- on_step ----------------------------------------------------------------------------------------------------\n\nREC = lk.History()\nLOG: dict = {}\nST = {\"prev\": None, \"lock\": False}\n\n\n@lk.on_reset\ndef _reset(tick):\n    ST[\"prev\"] = None\n    ST[\"lock\"] = False\n    LOG.clear()\n\n\n@lk.on_step\ndef track(tick):\n    s = tick.states[\"joint\"]\n    m = measure(s)\n    A = s.poses[\"arm\"]\n    prev, dt = ST[\"prev\"], max(REC.dt, 1e-3)\n    tip = A[:3, 3] + A[:3, :3] @ np.array([0.0, LINK_LEN, 0.0])\n    if prev is None:\n        m[\"a_speed\"], m[\"a_spin\"] = 0.0, 0.0\n    else:"
+      },
+      {
+        "line": 164,
+        "excerpt": "    record(REC, m)\n    if m[\"qp\"] >= 1000 * PIN_HOME and not lk.braked(\"joint\", \"pin\"):\n        lk.brake(\"joint\", \"pin\", True)  # the O-ring detent holds the pin home\n    tl = tools[\"left\"]\n    pp = s.point(\"arm\", (0.0, PINCH_Y, 0.0))\n    REC.trace(\"d\", tuple(round(1000 * float(x), 1) for x in (tl.tcp - pp)) + (round(1000 * tl.opening, 1),), every=0.5)\n    REC.trace(\"m\", (round(m[\"th\"], 2), round(m[\"qp\"], 1), round(m[\"a_spin\"], 1)), every=0.5)\n\n\ndef score(objects) -> float:\n    return ladder(REC)[0]\n\n\ndef success(objects) -> bool:\n    return ladder(REC)[0] >= 1.0\n\n\ndef distance(objects) -> float:\n    return 1.0 - ladder(REC)[0]\n\n\n# ---- demo -------------------------------------------------------------------------------------------------------\n\n"
+      },
+      {
+        "line": 171,
+        "excerpt": "\n\ndef score(objects) -> float:\n    return ladder(REC)[0]\n\n\ndef success(objects) -> bool:\n    return ladder(REC)[0] >= 1.0\n\n\ndef distance(objects) -> float:\n    return 1.0 - ladder(REC)[0]\n\n\n# ---- demo -------------------------------------------------------------------------------------------------------\n\n\ndef demo():\n    return {}\n\n\ndef demo_report() -> dict:\n    sc, info = ladder(REC)\n    return {\"score\": sc, \"info\": info, \"values\": {k: v for k, v in REC.values.items() if k != \"last\"},"
+      },
+      {
+        "line": 203,
+        "excerpt": "\ndef left_hold(ctx, target=0.0):\n    \"\"\"Pinch the arm near its middle and swing it up to the zero mark, then trim from the seen angle.\"\"\"\n    seen = ctx.observe()\n    start = seen.angle_deg(\"joint\", \"zero\")\n    yield from ctx.pinch_pivot(\"left\", \"joint\", \"zero\", target - start, local=(0.0, PINCH_Y, 0.0), width=0.034,\n                               squeeze=float(os.environ.get(\"SQUEEZE\", \"0.0030\")), follow=1.0, pivot_s=5.0)\n    arm = ctx.left\n    LOG[\"cmd_mm\"] = [round(1000 * float(x), 1) for x in arm.pos]\n    LOG[\"tcp_mm\"] = [round(1000 * float(x), 1) for x in ctx.observe().tools[\"left\"].tcp]\n    LOG[\"pp_mm\"] = [round(1000 * float(x), 1) for x in ctx.observe().point(\"joint\", \"arm\", (0.0, PINCH_Y, 0.0))]\n    for i in range(4):\n        yield from arm.wait(0.4)\n        err = target - _angle(ctx)\n        LOG.setdefault(\"trim\", []).append(round(err, 3))\n        if abs(err) < 0.15 or abs(err) > 10:\n            break\n        hinge, axis = ctx.observe().axis(\"joint\", \"zero\")\n        yield from arm.arc(hinge, axis, err, point=(0.0, 0.0, arm.pivot[\"depth\"]), follow=arm.pivot[\"follow\"],\n                           duration=max(0.8, abs(err) / 4.0))\n    yield from arm.wait(0.5)\n    LOG[\"held_deg\"] = round(_angle(ctx), 3)\n\n"
+      },
+      {
+        "line": 226,
+        "excerpt": "\ndef right_push(ctx, depth=0.028, tilt=45.0):\n    \"\"\"Pinch the knob across its diameter with the hand pitched down 45 deg, push it along the pin axis, let go.\"\"\"\n    from linkdemo import grip_frame\n    from yam_arena.constants import PAD_TIP_PAST_TCP\n\n    arm = ctx.right\n    seen = ctx.observe()\n    B = seen.pose(\"joint\", \"base\")[:3, :3]\n    a, ly = B @ np.array([1.0, 0.0, 0.0]), B @ np.array([0.0, 1.0, 0.0])\n    ap = math.cos(math.radians(tilt)) * a + np.array([0.0, 0.0, -math.sin(math.radians(tilt))])\n    knob = seen.point(\"joint\", \"plunger\", (-0.044, 0.0, 0.0))\n    r = grip_frame(ap, ly)\n    tcp0 = knob - ap * (PAD_TIP_PAST_TCP - 0.002)\n    yield from arm.move(tcp0 - ap * 0.07, r, width=0.050, duration=3.0)\n    yield from arm.move(tcp0, r, duration=1.5)\n    yield from arm.grip(0.016 - float(os.environ.get(\"KSQ\", \"0.001\")), 0.8)\n    yield from arm.wait(0.3)\n    yield from arm.move(tcp0 + a * depth, r, duration=2.5)\n    yield from arm.wait(0.6)\n    LOG[\"pin_mm\"] = round(1000 * ctx.observe().angle_deg(\"joint\", \"pin\"), 2)\n    yield from arm.open(0.6)\n    yield from arm.move(arm.pos - ap * 0.07, r, duration=1.5)\n"
+      }
+    ]
+  },
+  {
+    "number": 827,
+    "pin": "8fb68539254d58b2841bc956a7f74f553bf77576",
+    "path": "tasks/tool-tip-calibration/tool_tip_calibration.py",
+    "sha256": "65b3daf734cded1e81007011901ff5470dea03e203063e435b6de21b95d20d58",
+    "hits": []
+  },
+  {
+    "number": 1799,
+    "pin": "6cc925c160a4a2036fa394541a23ae156286a85d",
+    "path": "tasks/tram-milling-vise-with-indicator/task.py",
+    "sha256": "f6163367da9414826998b9e49bff9cdc88518402b8b71283a85d3911a39f6801",
+    "hits": [
+      {
+        "line": 51,
+        "excerpt": "    parts=d.RAIL_PARTS,fixed_base=True,self_collisions=True,\n    initial_joints=(('traverse',d.TRAVERSE_START),\n                    ('plunger',d.predicted_probe_q(d.TRAVERSE_START,d.INITIAL_YAW))),\n    links=(dict(name='carriage',pos=(0,d.TRAVERSE_START,0),mass=.15,parts=d.CARRIAGE_PARTS),\n           dict(name='probe',pos=(d.PROBE_HOME[0],d.TRAVERSE_START,d.PROBE_HOME[2]),\n                mass=.006,parts=d.PROBE_PARTS)),\n    joints=(dict(name='traverse',body0='root',body1='carriage',type='prismatic',axis='Y',\n                 anchor0=(0,0,0),anchor1=(0,0,0),lower=-.04,upper=.04,\n                 stiffness=0.,damping=.1,max_force=.01),\n            dict(name='plunger',body0='carriage',body1='probe',type='prismatic',axis='X',\n                 anchor0=d.PROBE_HOME,anchor1=(0,0,0),lower=d.Q_MIN,upper=d.Q_MAX,\n                 stiffness=150.,damping=.15,max_force=1.5)))\nOBJECTS=[VISE,INDICATOR]\n_scorer=TrammingScore();_value=0.;_diagnostics={};_pointer=None\n\n\ndef reset_history():\n    global _scorer,_value,_diagnostics,_pointer\n    _scorer=TrammingScore();_value=0.;_diagnostics={};_pointer=None\n    native_contacts.reset()\n\n\ndef _joint(art,name):\n    return float(art.data.joint_pos.torch[0,art.joint_names.index(name)])"
+      },
+      {
+        "line": 53,
+        "excerpt": "                    ('plunger',d.predicted_probe_q(d.TRAVERSE_START,d.INITIAL_YAW))),\n    links=(dict(name='carriage',pos=(0,d.TRAVERSE_START,0),mass=.15,parts=d.CARRIAGE_PARTS),\n           dict(name='probe',pos=(d.PROBE_HOME[0],d.TRAVERSE_START,d.PROBE_HOME[2]),\n                mass=.006,parts=d.PROBE_PARTS)),\n    joints=(dict(name='traverse',body0='root',body1='carriage',type='prismatic',axis='Y',\n                 anchor0=(0,0,0),anchor1=(0,0,0),lower=-.04,upper=.04,\n                 stiffness=0.,damping=.1,max_force=.01),\n            dict(name='plunger',body0='carriage',body1='probe',type='prismatic',axis='X',\n                 anchor0=d.PROBE_HOME,anchor1=(0,0,0),lower=d.Q_MIN,upper=d.Q_MAX,\n                 stiffness=150.,damping=.15,max_force=1.5)))\nOBJECTS=[VISE,INDICATOR]\n_scorer=TrammingScore();_value=0.;_diagnostics={};_pointer=None\n\n\ndef reset_history():\n    global _scorer,_value,_diagnostics,_pointer\n    _scorer=TrammingScore();_value=0.;_diagnostics={};_pointer=None\n    native_contacts.reset()\n\n\ndef _joint(art,name):\n    return float(art.data.joint_pos.torch[0,art.joint_names.index(name)])\n\n"
+      },
+      {
+        "line": 58,
+        "excerpt": "                 anchor0=(0,0,0),anchor1=(0,0,0),lower=-.04,upper=.04,\n                 stiffness=0.,damping=.1,max_force=.01),\n            dict(name='plunger',body0='carriage',body1='probe',type='prismatic',axis='X',\n                 anchor0=d.PROBE_HOME,anchor1=(0,0,0),lower=d.Q_MIN,upper=d.Q_MAX,\n                 stiffness=150.,damping=.15,max_force=1.5)))\nOBJECTS=[VISE,INDICATOR]\n_scorer=TrammingScore();_value=0.;_diagnostics={};_pointer=None\n\n\ndef reset_history():\n    global _scorer,_value,_diagnostics,_pointer\n    _scorer=TrammingScore();_value=0.;_diagnostics={};_pointer=None\n    native_contacts.reset()\n\n\ndef _joint(art,name):\n    return float(art.data.joint_pos.torch[0,art.joint_names.index(name)])\n\n\ndef _dial_visual(reading):\n    \"\"\"Only uncollidable display geometry changes. This cannot move a mechanism.\"\"\"\n    global _pointer\n    from pxr import Gf,UsdGeom\n    from isaaclab.sim.utils.stage import get_current_stage"
+      },
+      {
+        "line": 120,
+        "excerpt": "    _value=_scorer.update(m)\n    _dial_visual(-q)\n    _diagnostics=dict(score=_value,yaw_deg=math.degrees(yaw),swivel_coordinate_deg=math.degrees(swivel_coordinate),probe_mm=-q*1000,\n        traverse_mm=traverse*1000,clamp_compression_mm=compression*1000,\n        cam_deg=math.degrees(_joint(vise,'cam_axis')),tip_contact=contacts['tip'],\n        pad_contact=contacts['pad'],adjustment_hand_clear=m.adjustment_hand_clear,\n        both_open_clear=m.both_open_clear,measured_range_mm=None if _scorer.last_range is None else _scorer.last_range*1000,\n        verified=_scorer.verified)\n\n\ndef score(states):return _value\ndef success(states):return _value==1.\ndef distance(states):return 1.-_value\ndef diagnostics():return _diagnostics\n\n\ndef _carriage(y):return np.array(d.ORIGIN)+[-.115,y,.034+D]\ndef _jaw(q):return np.array(d.ORIGIN)+[0,0,d.ROTOR_Z]+d.rz(q)@np.array([.062,0.,.050])+[0,0,.005]\ndef _cam(q):return d.cam_knob(q)+[0,0,D]\n\n\ndef demo():\n    \"\"\"Fixed layout actions only. No simulator states or measured dial values are read.\"\"\"\n    right=[];left=[]"
+      },
+      {
+        "line": 128,
+        "excerpt": "\n\ndef score(states):return _value\ndef success(states):return _value==1.\ndef distance(states):return 1.-_value\ndef diagnostics():return _diagnostics\n\n\ndef _carriage(y):return np.array(d.ORIGIN)+[-.115,y,.034+D]\ndef _jaw(q):return np.array(d.ORIGIN)+[0,0,d.ROTOR_Z]+d.rz(q)@np.array([.062,0.,.050])+[0,0,.005]\ndef _cam(q):return d.cam_knob(q)+[0,0,D]\n\n\ndef demo():\n    \"\"\"Fixed layout actions only. No simulator states or measured dial values are read.\"\"\"\n    right=[];left=[]\n    def add(path,dt,pos,finger,yaw=0.):path.append(Waypoint(float(dt),tuple(map(float,pos)),finger,yaw=float(yaw)))\n    def wait(path,time,pos,finger,yaw=0.):\n        duration=time-sum(p.duration for p in path)\n        if duration>1e-6:add(path,duration,pos,finger,yaw)\n    start=_carriage(d.TRAVERSE_START);end=_carriage(d.TRAVERSE_END)\n    add(right,1.5,start+[0,0,.06],O);add(right,1.,start,O);add(right,.8,start,C)\n    add(right,3.,end,C);add(right,.5,end,C);add(right,.8,end,O);add(right,1.2,end+[0,0,.06],O)\n    closed=_cam(d.CAM_CLOSED);opened=_cam(d.CAM_OPEN)"
+      }
+    ]
+  },
+  {
+    "number": 1799,
+    "pin": "6cc925c160a4a2036fa394541a23ae156286a85d",
+    "path": "tasks/tram-milling-vise-with-indicator/scoring.py",
+    "sha256": "f1f07ecea13ca666dae560c0caafc329d588865afbbd5397bdf7c4665426679f",
+    "hits": [
+      {
+        "line": 1,
+        "excerpt": "\"\"\"Contact sweep scorer. Physical probe displacement supplies every reading.\"\"\"\nfrom dataclasses import dataclass\nimport math\n\n\n@dataclass\nclass Sample:\n    t: float\n    traverse: float\n    probe_q: float\n    yaw: float\n    centre_error: float\n    tip_contact: bool\n    pad_contact: bool\n    clamp_compression: float\n    adjustment_hand_clear: bool\n    both_open_clear: bool\n    speed: float\n\n\nclass TrammingScore:\n    def __init__(self):"
+      },
+      {
+        "line": 10,
+        "excerpt": "    t: float\n    traverse: float\n    probe_q: float\n    yaw: float\n    centre_error: float\n    tip_contact: bool\n    pad_contact: bool\n    clamp_compression: float\n    adjustment_hand_clear: bool\n    both_open_clear: bool\n    speed: float\n\n\nclass TrammingScore:\n    def __init__(self):\n        self.invalid=False\n        self.segment=[]\n        self.best_inspection=0.\n        self.verified=None\n        self.hold=None\n        self.last_t=None\n        self.value=0.\n        self.last_range=None\n"
+      },
+      {
+        "line": 32,
+        "excerpt": "        self.last_range=None\n\n    def update(self,m):\n        nums=(m.t,m.traverse,m.probe_q,m.yaw,m.centre_error,m.clamp_compression,m.speed)\n        if not all(math.isfinite(v) for v in nums) or m.centre_error>.0005:\n            self.invalid=True\n        if self.invalid:\n            self.value=0.;self.hold=None;return 0.\n        continuous=self.last_t is None or 0 <= m.t-self.last_t <= .100001\n        self.last_t=m.t\n        clamped=m.pad_contact and .00025 <= m.clamp_compression <= .0055\n        valid=m.tip_contact and -.006 <= m.probe_q <= .0005 and abs(m.traverse)<=.040\n        if not continuous:\n            self.segment=[];self.hold=None\n        if self.verified is not None:\n            if (not clamped or abs(m.yaw-self.verified['yaw'])>math.radians(.1)\n                    or abs(m.centre_error-self.verified['centre_error'])>.0001):\n                self.verified=None;self.hold=None\n        if valid:\n            self.segment.append(m)\n            # A stopped dial is not a measurement. Both endpoints and the centre\n            # must occur in the same continuous valid contact interval.\n            ys=[p.traverse for p in self.segment]\n            full=(min(ys)<=-.030 and max(ys)>=.030"
+      },
+      {
+        "line": 33,
+        "excerpt": "\n    def update(self,m):\n        nums=(m.t,m.traverse,m.probe_q,m.yaw,m.centre_error,m.clamp_compression,m.speed)\n        if not all(math.isfinite(v) for v in nums) or m.centre_error>.0005:\n            self.invalid=True\n        if self.invalid:\n            self.value=0.;self.hold=None;return 0.\n        continuous=self.last_t is None or 0 <= m.t-self.last_t <= .100001\n        self.last_t=m.t\n        clamped=m.pad_contact and .00025 <= m.clamp_compression <= .0055\n        valid=m.tip_contact and -.006 <= m.probe_q <= .0005 and abs(m.traverse)<=.040\n        if not continuous:\n            self.segment=[];self.hold=None\n        if self.verified is not None:\n            if (not clamped or abs(m.yaw-self.verified['yaw'])>math.radians(.1)\n                    or abs(m.centre_error-self.verified['centre_error'])>.0001):\n                self.verified=None;self.hold=None\n        if valid:\n            self.segment.append(m)\n            # A stopped dial is not a measurement. Both endpoints and the centre\n            # must occur in the same continuous valid contact interval.\n            ys=[p.traverse for p in self.segment]\n            full=(min(ys)<=-.030 and max(ys)>=.030\n                  and any(abs(p.traverse)<=.002 for p in self.segment))"
+      },
+      {
+        "line": 41,
+        "excerpt": "        self.last_t=m.t\n        clamped=m.pad_contact and .00025 <= m.clamp_compression <= .0055\n        valid=m.tip_contact and -.006 <= m.probe_q <= .0005 and abs(m.traverse)<=.040\n        if not continuous:\n            self.segment=[];self.hold=None\n        if self.verified is not None:\n            if (not clamped or abs(m.yaw-self.verified['yaw'])>math.radians(.1)\n                    or abs(m.centre_error-self.verified['centre_error'])>.0001):\n                self.verified=None;self.hold=None\n        if valid:\n            self.segment.append(m)\n            # A stopped dial is not a measurement. Both endpoints and the centre\n            # must occur in the same continuous valid contact interval.\n            ys=[p.traverse for p in self.segment]\n            full=(min(ys)<=-.030 and max(ys)>=.030\n                  and any(abs(p.traverse)<=.002 for p in self.segment))\n            if full:\n                span=max(p.probe_q for p in self.segment)-min(p.probe_q for p in self.segment)\n                self.last_range=span\n                self.best_inspection=max(self.best_inspection,.5 if span<=.0005 else .25)\n                ysaw=[p.yaw for p in self.segment]\n                centres=[p.centre_error for p in self.segment]\n                released=all(p.adjustment_hand_clear for p in self.segment)\n                all_clamped=all(p.pad_contact and .00025<=p.clamp_compression<=.0055 for p in self.segment)"
+      },
+      {
+        "line": 56,
+        "excerpt": "                  and any(abs(p.traverse)<=.002 for p in self.segment))\n            if full:\n                span=max(p.probe_q for p in self.segment)-min(p.probe_q for p in self.segment)\n                self.last_range=span\n                self.best_inspection=max(self.best_inspection,.5 if span<=.0005 else .25)\n                ysaw=[p.yaw for p in self.segment]\n                centres=[p.centre_error for p in self.segment]\n                released=all(p.adjustment_hand_clear for p in self.segment)\n                all_clamped=all(p.pad_contact and .00025<=p.clamp_compression<=.0055 for p in self.segment)\n                if (span<=.0002 and released and all_clamped\n                        and max(ysaw)-min(ysaw)<=math.radians(.1)\n                        and max(centres)-min(centres)<=.0001):\n                    self.verified=dict(yaw=m.yaw,centre_error=m.centre_error,range_m=span,t=m.t)\n                # Preserve the endpoint sample so the reverse pass is independent.\n                self.segment=[m]\n        else:\n            self.segment=[]\n        if self.verified is not None and clamped:\n            if m.both_open_clear and m.speed<=.008:\n                if self.hold is None:self.hold=m.t\n                self.value=1. if m.t-self.hold>=1.-1e-9 else .75\n            else:\n                self.hold=None;self.value=.75\n        else:"
+      }
+    ]
+  },
+  {
+    "number": 1112,
+    "pin": "f4c89ee54e15d4fd443b68b107adde1f3f185a29",
+    "path": "tasks/seat-three-point-kinematic-platform/task.py",
+    "sha256": "03f8bb80d406c5aac6465256e2cfb26e02f6b0f06f013fd5befe576710bc277d",
+    "hits": [
+      {
+        "line": 63,
+        "excerpt": "  if _qualified_since is None:_qualified_since=now\n else:_qualified_since=None\ndef instantaneous_score(states):\n if _bad or _pose is None:return 0.\n rotation=quat_xyzw_to_matrix(_pose[3:]);yaw=abs(math.atan2(rotation[1,0],rotation[0,0]))\n aligned=np.max(np.abs(_pose[:2]-np.array([.26,0.])))<.003 and abs(_pose[2]-SEAT_Z)<.003 and rotation[2,2]>math.cos(math.radians(3)) and yaw<math.radians(3)\n supported=_contacts\n if aligned and supported.all() and states['mount_plate'].resting(.008,.1):return 1. if _open and _clear else .75\n if supported.any() and rotation[2,2]>math.cos(math.radians(10)):return .5\n if states['mount_plate'].low[2]>TOP+.015:return .25\n return 0.\n\ndef score(states):\n value=instantaneous_score(states)\n if value!=1.:return value\n if _qualified_since is not None and _observation_time is not None and _observation_time-_qualified_since>=1.-1e-9:return 1.\n return .9\ndef success(states):return score(states)==1.\ndef distance(states):return 1. if _pose is None else float(np.linalg.norm(_pose[:3]-np.array([.26,0,SEAT_Z])))\ndef demo():\n paths={}\n for arm,sign in [('left',1),('right',-1)]:\n  pick=(.10,sign*.085,TOP+.093+D);carry=(.26,sign*.085,TOP+.155+D);seat=(.26,sign*.085,SEAT_Z+.065+D-.0005)\n  paths[arm]=[Waypoint(1.5,(pick[0],pick[1],TOP+.14),O),Waypoint(1.5,pick,O),Waypoint(.8,pick,C),Waypoint(1.5,(pick[0],pick[1],carry[2]),C),Waypoint(2.,carry,C),Waypoint(2.,seat,C),Waypoint(1.,seat,C),Waypoint(.8,seat,O),Waypoint(1.5,(seat[0],seat[1],TOP+.14),O)]"
+      },
+      {
+        "line": 73,
+        "excerpt": " return 0.\n\ndef score(states):\n value=instantaneous_score(states)\n if value!=1.:return value\n if _qualified_since is not None and _observation_time is not None and _observation_time-_qualified_since>=1.-1e-9:return 1.\n return .9\ndef success(states):return score(states)==1.\ndef distance(states):return 1. if _pose is None else float(np.linalg.norm(_pose[:3]-np.array([.26,0,SEAT_Z])))\ndef demo():\n paths={}\n for arm,sign in [('left',1),('right',-1)]:\n  pick=(.10,sign*.085,TOP+.093+D);carry=(.26,sign*.085,TOP+.155+D);seat=(.26,sign*.085,SEAT_Z+.065+D-.0005)\n  paths[arm]=[Waypoint(1.5,(pick[0],pick[1],TOP+.14),O),Waypoint(1.5,pick,O),Waypoint(.8,pick,C),Waypoint(1.5,(pick[0],pick[1],carry[2]),C),Waypoint(2.,carry,C),Waypoint(2.,seat,C),Waypoint(1.,seat,C),Waypoint(.8,seat,O),Waypoint(1.5,(seat[0],seat[1],TOP+.14),O)]\n return paths\ndef diagnostics():\n return dict(bad=_bad,root_pose=None if _pose is None else _pose.tolist(),datum_contacts=_contacts.tolist(),contact_gaps_m=[float(v) if math.isfinite(v) else None for v in seating_contact.gaps()],robot_clear=_clear,fingers_open=_open)"
+      },
+      {
+        "line": 78,
+        "excerpt": " if _qualified_since is not None and _observation_time is not None and _observation_time-_qualified_since>=1.-1e-9:return 1.\n return .9\ndef success(states):return score(states)==1.\ndef distance(states):return 1. if _pose is None else float(np.linalg.norm(_pose[:3]-np.array([.26,0,SEAT_Z])))\ndef demo():\n paths={}\n for arm,sign in [('left',1),('right',-1)]:\n  pick=(.10,sign*.085,TOP+.093+D);carry=(.26,sign*.085,TOP+.155+D);seat=(.26,sign*.085,SEAT_Z+.065+D-.0005)\n  paths[arm]=[Waypoint(1.5,(pick[0],pick[1],TOP+.14),O),Waypoint(1.5,pick,O),Waypoint(.8,pick,C),Waypoint(1.5,(pick[0],pick[1],carry[2]),C),Waypoint(2.,carry,C),Waypoint(2.,seat,C),Waypoint(1.,seat,C),Waypoint(.8,seat,O),Waypoint(1.5,(seat[0],seat[1],TOP+.14),O)]\n return paths\ndef diagnostics():\n return dict(bad=_bad,root_pose=None if _pose is None else _pose.tolist(),datum_contacts=_contacts.tolist(),contact_gaps_m=[float(v) if math.isfinite(v) else None for v in seating_contact.gaps()],robot_clear=_clear,fingers_open=_open)"
+      }
+    ]
+  },
+  {
+    "number": 1112,
+    "pin": "f4c89ee54e15d4fd443b68b107adde1f3f185a29",
+    "path": "tasks/seat-three-point-kinematic-platform/seating_contact.py",
+    "sha256": "910f1c3ad4bef03c935e671ef667e61ce966a1ca9e74a161d2d1b12b3ff64250",
+    "hits": [
+      {
+        "line": 22,
+        "excerpt": "    return np.asarray(value.numpy() if hasattr(value, 'numpy') else value)\n\ndef grouped_contacts(separations, counts, starts, gap):\n    \"\"\"Each filter group must independently contain a finite close contact.\"\"\"\n    separations = np.asarray(separations, dtype=float).reshape(-1)\n    counts = np.asarray(counts).reshape(-1)\n    starts = np.asarray(starts).reshape(-1)\n    if len(counts) != len(starts): raise ValueError('Contact group lengths differ')\n    gaps = np.full(len(counts), np.inf)\n    for i, (count, start) in enumerate(zip(counts, starts)):\n        count = int(count); start = int(start)\n        if count < 0 or start < 0 or start + count > len(separations):\n            raise ValueError('Invalid native contact group bounds')\n        values = separations[start:start + count]\n        if len(values) and np.isfinite(values).all(): gaps[i] = values.min()\n    return gaps <= gap, gaps\n\ndef poll(manager):\n    global _touching, _contacts, _gaps, _error\n    if _robot is None: return\n    try:\n        _, _, _, sep, counts, starts = _robot.get_contact_data(dt=manager.get_physics_dt())\n        touching, _ = grouped_contacts(array(sep), array(counts), array(starts), .001)\n        _touching = bool(touching.any())"
+      },
+      {
+        "line": 76,
+        "excerpt": "    if not getattr(PhysxManager.step, '_mount_contact_hook', False):\n        original = PhysxManager.step.__func__\n        def step(cls): original(cls); poll(cls)\n        step._mount_contact_hook = True\n        PhysxManager.step = classmethod(step)\n\ndef clear():\n    if _error: raise RuntimeError('Mount contact monitor failed: ' + _error)\n    return not _touching\n\ndef contacts():\n    if _error: raise RuntimeError('Mount contact monitor failed: ' + _error)\n    return _contacts.copy()\n\ndef gaps():\n    if _error: raise RuntimeError('Mount contact monitor failed: ' + _error)\n    return _gaps.copy()"
+      },
+      {
+        "line": 84,
+        "excerpt": "    return not _touching\n\ndef contacts():\n    if _error: raise RuntimeError('Mount contact monitor failed: ' + _error)\n    return _contacts.copy()\n\ndef gaps():\n    if _error: raise RuntimeError('Mount contact monitor failed: ' + _error)\n    return _gaps.copy()"
+      }
+    ]
+  },
+  {
+    "number": 2006,
+    "pin": "d610be5cc394c8dd91cf028c7445e6707b233179",
+    "path": "tasks/rail-plate-mount/task.py",
+    "sha256": "7bfa62141dddc7c992d12a1c007ea911b843dfa0975d8ecbbb0d70c9defffc2d",
+    "hits": [
+      {
+        "line": 122,
+        "excerpt": "\n\ndef score(objects) -> float:\n    \"\"\"0.25 for each screw started (at least one turn into its thread) through a slot of the rail, 0.5 instead for\n    each one tight; the sum.\"\"\"\n    return float(sum(screw_credit(objects, n) for n in SCREWS))\n\n\ndef success(objects) -> bool:\n    \"\"\"Both screws tight through the rail's slots, and still (held 1 s).\"\"\"\n    return score(objects) >= 1.0 - 1e-9 and all(objects[n].resting() for n in SCREWS)\n\n\ndef distance(objects) -> float:\n    \"\"\"Metres from each screw's tip to its nearest hole, summed (a progress measure, not the score).\"\"\"\n    total = 0.0\n    for n in SCREWS:\n        tip = screw_tip(objects[n])\n        total += min(float(np.linalg.norm(tip - (np.array(h) - (0, 0, rp.DOG_LEN)))) for h in HOLES)\n    return total"
+      }
+    ]
+  },
+  {
+    "number": 2006,
+    "pin": "d610be5cc394c8dd91cf028c7445e6707b233179",
+    "path": "tasks/rail-plate-mount/rp_parts.py",
+    "sha256": "5a24856c94f8cf5a51a7f6922fbe0a89bbaf009cc85268815fa0066451c5e140",
+    "hits": [
+      {
+        "line": 866,
+        "excerpt": "\n\ndef update_threads(base) -> None:\n    \"\"\"Catch or release each screw's thread (once per control step, see the module docstring).\"\"\"\n    import numpy as np\n\n    step = getattr(base, \"episode_length_buf\", None)\n    step = None if step is None else int(step[0])\n    if step == 0 or (_EPISODE_STEP[0] is not None and step is not None and step < _EPISODE_STEP[0]):\n        _TRACK.clear()  # a new episode: everything starts loose\n    _EPISODE_STEP[0] = step\n    origin = base.scene.env_origins[0].detach().cpu().numpy()\n    for screw, twin in _THREADS.items():\n        if twin not in _PARKED:\n            _PARKED[twin] = tuple(_np(base.scene.articulations[twin].data.root_pose_w)[:3] - origin)\n        tr = _TRACK.setdefault(screw, _Track())\n        if not tr.engaged:\n            pose = _np(base.scene.rigid_objects[screw].data.root_pose_w)\n            tip, rot = pose[:3] - origin, _rot(pose[3:])\n            tilt = math.acos(min(1.0, max(-1.0, rot[2, 2])))\n            seated = None\n            r_ok = ENGAGE_R + (ENGAGE_R_HYST if tr.turned > 0.0 else 0.0)  # once it is being turned, a little more\n            for i, (hx, hy, hz) in enumerate(_HOLES):\n                if (math.hypot(tip[0] - hx, tip[1] - hy) < r_ok"
+      }
+    ]
+  },
+  {
+    "number": 890,
+    "pin": "b410e4aba3763a5d6c35933b38fc4d4c67ccb4eb",
+    "path": "tasks/confined-ratchet-fastening/task.py",
+    "sha256": "3d7a80bf6150fd540feb6a7fb54c6230e8c27088716a4ffc310ca954b8087f09",
+    "hits": [
+      {
+        "line": 14,
+        "excerpt": " Box('drive',pos=tuple(TOOL_PARK),size=(.021,.021,.035),mass=SOCKET_MASS),\n Box('tool_cradle',pos=(TOOL_PARK[0]-.08,TOOL_PARK[1],TABLE),size=(.23,.065,.03))]\ndef score(objects):return 0. if HISTORY is None else HISTORY.score\ndef success(objects):return HISTORY is not None and HISTORY.score==1."
+      },
+      {
+        "line": 15,
+        "excerpt": " Box('tool_cradle',pos=(TOOL_PARK[0]-.08,TOOL_PARK[1],TABLE),size=(.23,.065,.03))]\ndef score(objects):return 0. if HISTORY is None else HISTORY.score\ndef success(objects):return HISTORY is not None and HISTORY.score==1."
+      }
+    ]
+  },
+  {
+    "number": 827,
+    "pin": "8fb68539254d58b2841bc956a7f74f553bf77576",
+    "path": "tasks/tool-tip-calibration/calibration_tool/scoring.py",
+    "sha256": "fa8833ece6eb64558c7d84e06279ba8f8484832e56efd0a6a5507dc58bb6a23c",
+    "hits": [
+      {
+        "line": 33,
+        "excerpt": "        self.held = 0\n\n    def update(self, tool_pos, tool_rot, gripper_pos, gripper_rot, contact_force_n):\n        tool_pos, gripper_pos = np.asarray(tool_pos), np.asarray(gripper_pos)\n        tool_rot, gripper_rot = np.asarray(tool_rot), np.asarray(gripper_rot)\n        tip = tool_pos + tool_rot @ TIP_LOCAL\n        axis = -tool_rot[:, 2]\n        mount_rotation = math.degrees(math.acos(float(np.clip(\n            (np.trace(gripper_rot.T @ tool_rot)-1.)/2., -1., 1.))))\n        tilt = angle_deg(axis, np.array([0., 0., 1.]))\n        valid = (np.linalg.norm(tool_pos-gripper_pos) <= MOUNT_DRIFT_M\n                 and mount_rotation <= MOUNT_DRIFT_DEG\n                 and contact_force_n >= MIN_FORCE_N\n                 and np.linalg.norm(tip[:2]-REFERENCE[:2]) <= CONTACT_RADIUS_M\n                 and abs(tip[2]-REFERENCE[2]) <= CONTACT_Z_M\n                 and MIN_TILT_DEG <= tilt <= MAX_TILT_DEG)\n        if not valid:\n            self.anchor, self.held = None, 0\n            return len(self.axes)/4\n        if (self.anchor is None or np.linalg.norm(tip-self.anchor[0]) > TIP_DRIFT_M\n                or angle_deg(axis, self.anchor[1]) > AXIS_DRIFT_DEG):\n            self.anchor, self.held = (tip.copy(), axis.copy()), 1\n        else:\n            self.held += 1"
+      },
+      {
+        "line": 43,
+        "excerpt": "        valid = (np.linalg.norm(tool_pos-gripper_pos) <= MOUNT_DRIFT_M\n                 and mount_rotation <= MOUNT_DRIFT_DEG\n                 and contact_force_n >= MIN_FORCE_N\n                 and np.linalg.norm(tip[:2]-REFERENCE[:2]) <= CONTACT_RADIUS_M\n                 and abs(tip[2]-REFERENCE[2]) <= CONTACT_Z_M\n                 and MIN_TILT_DEG <= tilt <= MAX_TILT_DEG)\n        if not valid:\n            self.anchor, self.held = None, 0\n            return len(self.axes)/4\n        if (self.anchor is None or np.linalg.norm(tip-self.anchor[0]) > TIP_DRIFT_M\n                or angle_deg(axis, self.anchor[1]) > AXIS_DRIFT_DEG):\n            self.anchor, self.held = (tip.copy(), axis.copy()), 1\n        else:\n            self.held += 1\n        if (self.held >= self.hold_steps and len(self.axes) < 4\n                and all(angle_deg(self.anchor[1], old) >= MIN_SPREAD_DEG for old in self.axes)):\n            self.axes.append(self.anchor[1].copy())\n            self.tips.append(self.anchor[0].copy())\n        self.success = len(self.axes) == 4\n        return len(self.axes)/4"
+      }
+    ]
+  },
+  {
+    "number": 827,
+    "pin": "8fb68539254d58b2841bc956a7f74f553bf77576",
+    "path": "tasks/tool-tip-calibration/calibration_tool/mechanism.py",
+    "sha256": "a8e4dc9b52e8a5cc498ae1dbb6fe621536d6e05c97da24a4081cb46c3b3d1a0e",
+    "hits": []
+  },
+  {
+    "number": 890,
+    "pin": "b410e4aba3763a5d6c35933b38fc4d4c67ccb4eb",
+    "path": "tasks/confined-ratchet-fastening/ratchet_task/scoring.py",
+    "sha256": "29eb5b919308915e647cf4bd2ed2563252bf9d736192e8cc387d26a1d9616286",
+    "hits": [
+      {
+        "line": 25,
+        "excerpt": "    seat_gap_max_m: float=1.\n\ndef seat_confirmed(s):\n    return (s.seat_contact and s.seat_contact_fraction>=SEAT_CONTACT_FRACTION and\n            s.seat_force_n>=SEAT_MIN_FORCE and -SEAT_MAX_PENETRATION<=s.gap<=SEAT_ROUNDOFF and\n            s.seat_gap_min_m>=-SEAT_MAX_PENETRATION and s.seat_gap_max_m<=SEAT_MAX_EDGE_GAP)\n@dataclass\nclass History:\n    score: float=0.\n    invalid: bool=False\n    reason: str=''\n    tightened: bool=False\n    proof: float=0.\n    released_seconds: float=0.\n    def update(self,s,dt):\n        numbers=(s.turns,s.gap,s.interface_torque,s.fixture_displacement,dt,\n                 s.seat_contact_fraction,s.seat_force_n,s.seat_gap_min_m,s.seat_gap_max_m)\n        if not all(math.isfinite(v) for v in numbers) or dt<=0:self.invalid=True;self.reason='nonfinite_state'\n        elif not s.valid:self.invalid=True;self.reason='mechanism_integrity'\n        elif s.fixture_displacement>.002:self.invalid=True;self.reason='fixture_displaced'\n        elif s.captured and s.seat_gap_min_m < -SEAT_MAX_PENETRATION:self.invalid=True;self.reason='seat_penetration'\n        self.score=0.\n        if self.invalid:return self.score\n        if not s.captured:"
+      },
+      {
+        "line": 37,
+        "excerpt": "    proof: float=0.\n    released_seconds: float=0.\n    def update(self,s,dt):\n        numbers=(s.turns,s.gap,s.interface_torque,s.fixture_displacement,dt,\n                 s.seat_contact_fraction,s.seat_force_n,s.seat_gap_min_m,s.seat_gap_max_m)\n        if not all(math.isfinite(v) for v in numbers) or dt<=0:self.invalid=True;self.reason='nonfinite_state'\n        elif not s.valid:self.invalid=True;self.reason='mechanism_integrity'\n        elif s.fixture_displacement>.002:self.invalid=True;self.reason='fixture_displaced'\n        elif s.captured and s.seat_gap_min_m < -SEAT_MAX_PENETRATION:self.invalid=True;self.reason='seat_penetration'\n        self.score=0.\n        if self.invalid:return self.score\n        if not s.captured:\n            self.tightened=False;self.proof=0.;self.released_seconds=0.;return self.score\n        if s.gap<=INITIAL_GAP-PITCH/4:self.score=.2\n        if s.gap<=INITIAL_GAP-PITCH:self.score=.4\n        seated=seat_confirmed(s)\n        if seated:self.score=.7\n        good=seated\n        self.proof=self.proof+dt if good else 0.\n        if self.proof>=.5-1e-9:self.tightened=True\n        if not seated:self.tightened=False\n        if self.tightened and seated:self.score=1.\n        return self.score"
+      }
+    ]
+  },
+  {
+    "number": 890,
+    "pin": "b410e4aba3763a5d6c35933b38fc4d4c67ccb4eb",
+    "path": "tasks/confined-ratchet-fastening/ratchet_task/mechanics.py",
+    "sha256": "eaa746891a04d1f9c79c895d6d4d38c2aee52e1365f2a6752fa1806673f8fb59",
+    "hits": [
+      {
+        "line": 9,
+        "excerpt": "    drag:float=.002\n    phase:float|None=None\n    def update(self,relative,speed):\n        if self.phase is None:self.phase=relative+self.backlash\n        # Re-index with a finite opening gap while the hard upper stop separates.\n        # A loaded or closing stop never changes its reference.\n        if speed<0.:self.phase=min(self.phase,relative+self.backlash)\n        return self.phase,self.drag*speed\n@dataclass\nclass Screw:\n    \"\"\"Capture reference for a native helix. This class never writes a pose.\"\"\"\n    pitch:float=.00125\n    captured:bool=False\n    z0:float=0.\n    angle0:float=0.\n    def capture(self,z,angle):self.captured=True;self.z0=z;self.angle0=angle\n    def expected_z(self,angle):\n        if not self.captured:raise RuntimeError('Thread not captured')\n        return self.z0+self.pitch*(angle-self.angle0)/(2*math.pi)"
+      },
+      {
+        "line": 24,
+        "excerpt": "    def capture(self,z,angle):self.captured=True;self.z0=z;self.angle0=angle\n    def expected_z(self,angle):\n        if not self.captured:raise RuntimeError('Thread not captured')\n        return self.z0+self.pitch*(angle-self.angle0)/(2*math.pi)"
+      }
+    ]
+  }
+]

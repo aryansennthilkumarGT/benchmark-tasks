@@ -1,0 +1,90 @@
+{
+  "candidate": "OPENARM_KER",
+  "essential_phases": [
+    "acquire_and_support_articulated_KER",
+    "seat_P1_both_sites",
+    "seat_J8_both_sites",
+    "rear_body_datum",
+    "actual_body_lock",
+    "M2_tool_approaches_and_fastening",
+    "release_hands_retained",
+    "left_right_completion"
+  ],
+  "required_geometry": [
+    "static_KER_509_occurrences",
+    "actual_jig_BRep",
+    "registered_articulated_KER_link_joint_definition_and_calibration_ready_pose",
+    "actual_M2_tool_shape_grasp_and_drive_interface"
+  ],
+  "geometry_inputs": {
+    "static_KER_509_occurrences": {
+      "status": "source_bound",
+      "source_ref": "official-release2.0.0:f9fdb476bb460ca396511bdde9d528ea7bc9d15a145963cfa0e4816240dcd17a",
+      "value": {
+        "units": "m",
+        "bounds": {
+          "min": [
+            -0.13000000210993412,
+            -0.39520000010000006,
+            -0.2739931517230511
+          ],
+          "max": [
+            0.13000000210993412,
+            0.12999999999999995,
+            0.02000000010000001
+          ]
+        },
+        "scope": "Native exported pose only; bounds are metadata, not collision proxies. Real BRep is retained externally."
+      }
+    },
+    "actual_jig_BRep": {
+      "status": "source_bound",
+      "source_ref": "official-release2.0.0:7912bc827c20e01e45b97ee4eaa68ad9e2399aac88b28baf002d254af77ee3b1",
+      "value": {
+        "units": "m",
+        "bounds": {
+          "min": [
+            -0.12175,
+            -0.12000000000000041,
+            -0.03900000000000001
+          ],
+          "max": [
+            0.12175000010000005,
+            0.0400000001,
+            0.05100000009999284
+          ]
+        },
+        "scope": "Native exported pose only; bounds are metadata, not collision proxies. Real BRep is retained externally."
+      }
+    },
+    "registered_articulated_KER_link_joint_definition_and_calibration_ready_pose": {
+      "status": "missing",
+      "source_ref": null,
+      "value": null
+    },
+    "actual_M2_tool_shape_grasp_and_drive_interface": {
+      "status": "missing",
+      "source_ref": null,
+      "value": null
+    }
+  },
+  "required_force_inputs": [
+    "KER_mass_CG_joint_resistance_and_support",
+    "actual_jig_elastic_lock_contact",
+    "M2_driver_wrench_grip_and_friction"
+  ],
+  "force_inputs": {},
+  "requires_site_inventory": true,
+  "required_sites": [
+    "P1_negative_X",
+    "P1_positive_X",
+    "J8_negative_X_pair",
+    "J8_positive_X_pair",
+    "rear_body_lock"
+  ],
+  "path": null,
+  "targets": null,
+  "static_obstacles": null,
+  "moving_body_sweep_envelopes": null,
+  "declared_contact_interfaces": []
+}
