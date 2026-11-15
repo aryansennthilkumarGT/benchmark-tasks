@@ -1,0 +1,46 @@
+[
+  {
+    "number": 1916,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1916",
+    "page_sha256": "36fe97f60c35db9aaf51fb4a352a4a777cd89561e2f8e822ad96844a30be2a11",
+    "state": [
+      {
+        "number": 1916,
+        "state": "MERGED",
+        "title": "Lay a robot axis's two cables into its cable carrier and snap every crossbar shut",
+        "mergedTime": "2026-11-15T05:14:28Z",
+        "closedAt": null
+      }
+    ],
+    "head": "3482b4e8d5b41eb855c92ab3aae7297668c900cd",
+    "task_path": "tasks/close-cable-carrier-over-robot-cable/task.json",
+    "task_sha256": "6b04738fe19940bca3ae555f41e37df09bd36d7552f75df3cf1f727b41630bb4",
+    "comments": [
+      "The robot fills a robot axis's cable carrier, a step in building every linear axis or gantry for a robot cell. Two limp cables (grey motor, orange encoder), clamped in the strain relief at the fixed end, must be laid side by side into a real-size igus E2 mini carrier (12 links, 25 mm inner width), grey on the far side and never crossing. Each of the 12 hinged crossbars must then be swung over and pressed until its sprung catch snaps over it. One hand lifts each cable over the side plates near the fixed end while the other lays its far end. A crossbar resting on its catch, or shut on a cable riding a side plate, does not count. Pulling either cable more than 5 mm through its tie-wrap tears the strain relief and scores 0 for the rest of the trial. task.json : instruction, setup, scoring, run limit, fidelity and scores README.md : run and score commands, the carrier, crossbar, catch and cable dimensions, scoring, the scripted demo, real-trial checks (straightedge and fingernail on each bar, top photo) and licences close_cable_carrier_over_robot_cable.py : scene (carrier with hinged crossbars and sprung sliding catches, capsule-chain cables, strain relief), scorer and scripted demo yam_parts.py , yam_joints.py , yam_mesh.py : kit modules, copied unchanged test_close_cable_carrier_over_robot_cable.py : offline checks of the scorer on goal, partial-credit and cheat layouts, and of the demo's reach \ud83e\udd16 Generated with Claude Code",
+      "Received as TK-AY6X8L , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Accepted (TK-AY6X8L). Thank you! Merging this pull request."
+    ]
+  },
+  {
+    "number": 1465,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1465",
+    "page_sha256": "52473f152806876b46017990f5971e548423ba70c38f919e92fd2b639b129087",
+    "state": [
+      {
+        "number": 1465,
+        "state": "MERGED",
+        "title": "Add task: Wrap a pipe thread with thread-seal tape from a dispenser, the way the fitting turns on",
+        "mergedTime": "2026-11-12T11:21:26Z",
+        "closedAt": null
+      }
+    ],
+    "head": "688b3c5681944689d533014b7659e115a651eaa0",
+    "task_path": "tasks/wrap-a-pipe-thread-with-thread-seal-tape-from-a-dispenser-the-way-the-fitting-turns-on/task.json",
+    "task_sha256": "476c6f9f4fe7779ae91aef0deb08cdf4e7b974f9715acf9d47eb7cc862c5eae8",
+    "comments": [
+      "Adds tasks/wrap-a-pipe-thread-with-thread-seal-tape-from-a-dispenser-the-way-the-fitting-turns-on/ . A 3/4-inch pipe nipple stands upright in a floor flange, its male thread at the top, and a handheld PTFE tape dispenser lies on a mat beside it. The robot must wrap the thread, ready for a fitting to be screwed on, and put the dispenser back. The instruction does not state the trade standard that is scored: wound the way the fitting turns on (clockwise seen from the thread's end; wound the other way the tape bunches and the joint leaks), 3 to 6 turns covering the thread with the first thread left bare, torn off and its tail pressed down. PhysX has no tape, so it is our own model: the tape is wound by the roll's path round the pipe, comes off only as the roll turns on the dispenser's braked spindle (a PhysX hinge), and its stretch pulls the roll round; a steady wrap pays out at 0.2 to 0.6 N, and a yank outruns the braked roll and tears the tape at 1.5 N. Scores: Dream-1 run: 0.0; demo: 1.0 (success at step 609 of 1,600; four turns clockwise, the thread covered, the tail pressed down by the second hand) Media: M-4KYK3E Shortcut checks ( TAPE_DEMO=backwards , TAPE_DEMO=nopress ): the same wrap anticlockwise scores 0; the tail left standing scores 0.5 Offline checks of the tape model (including that a roll which cannot turn tears the tape in its first turn), every scoring tier, and the demo's reach and per-step limits: python -m pytest -q test_tape_wrap.py (33 tests) \ud83e\udd16 Generated with Claude Code",
+      "Received as TK-QXRCYD , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+      "Accepted (TK-QXRCYD). Thank you! Merging this pull request."
+    ]
+  }
+]

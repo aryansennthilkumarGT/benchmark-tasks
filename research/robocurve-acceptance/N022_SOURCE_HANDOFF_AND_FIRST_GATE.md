@@ -1,6 +1,8 @@
 # N022 independent reserve — source research resumed
 
-**Current allocation: N022 source research only. Contact implementation HOLD.** N040 remains parked after actual supplier-catalog inspection. N044 and N047 retain their separate prior geometry/force/importance gates; neither is promoted by N040's blockage. This is a bounded pass on the already selected independent reserve, not a restarted100-idea discovery cycle.
+> **Superseded:** [The completed decisive source gate](N022_DECISIVE_SOURCE_AND_GO_NO_GO.md) now parks N022 for implementation and nominates the next independent source-backed research operation. This file preserves the preceding source-shift findings.
+
+**Prior allocation: N022 source research only. Contact implementation HOLD at that checkpoint.** N040 remains parked after actual supplier-catalog inspection. N044 and N047 retain their separate prior geometry/force/importance gates; neither is promoted by N040's blockage. This is a bounded pass on the already selected independent reserve, not a restarted100-idea discovery cycle.
 
 ## Actual source work performed
 

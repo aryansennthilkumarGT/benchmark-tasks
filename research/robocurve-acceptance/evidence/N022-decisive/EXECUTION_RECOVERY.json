@@ -1,0 +1,46 @@
+{
+  "verified_utc": "2026-11-15T21:39:53.821566+00:00",
+  "initial_minimal_command": "pwd",
+  "initial_minimal_stdout": "/workspace",
+  "repository_probe": [
+    {
+      "command": [
+        "pwd"
+      ],
+      "exit_code": 0,
+      "stdout": "/workspace/benchmark-tasks\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "status",
+        "--short"
+      ],
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "branch",
+        "--show-current"
+      ],
+      "exit_code": 0,
+      "stdout": "research/robocurve-acceptance-2026-11-14\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "6f3db2c11197aeb0eb0acab17dd18855661305aa\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Actual shell and Git results; not environment-status-only readiness"
+}
