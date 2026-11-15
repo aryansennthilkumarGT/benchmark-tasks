@@ -1,0 +1,27 @@
+{
+  "url": "https://github.com/robocurve/benchmark-tasks/pull/1986",
+  "retrieved_utc": "2026-11-15T06:32:29.404392+00:00",
+  "html_sha256": "b493b5034c67e09ad764c0eb7c96645ff5c5f5e9405f94a7337c0364bd61a1d1",
+  "state_objects": [
+    {
+      "number": 1986,
+      "state": "OPEN",
+      "title": "Refit a splash-shield panel with a push-in clip: hold its hole over the body's and push the clip home through both",
+      "mergedTime": null,
+      "closedAt": null,
+      "headRefOid": null
+    }
+  ],
+  "head": "e8ecd21da83c33bfe2107962a4d1a28495b1e336",
+  "task_sha256": "beef3fd96059ab8c5dc4914988d3ae83bf2b619957ca4f0a93559578d2229397",
+  "comments": [
+    "Adds tasks/trim-clip.",
+    "Received as TK-JJCH8B , and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+    "Not accepted (TK-JJCH8B). Clarity and reproducibility (not met): The custom sprung jaws lack the geometry and spring resistance needed to reproduce the clip's physical insertion and retention. What to change: Specify the sprung catch well enough to build it: give jaw dimensions, resting gap, travel, spring preload or force curve, and the clip engagement geometry. Also add the clip tray's dimensions and material, and consider requiring the grippers to clear the panel and clip before full credit. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+    "Received as TK-KLUMK2 (a revision of TK-JJCH8B), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself.",
+    "Revised for the clarity feedback: task.json now specifies the sprung catch (two 4 mm steel rods, 12 mm long, tops 0.3 mm under the flange, 8.4 mm apart at rest, each sliding out up to 3 mm on a 300 N/m spring preloaded 0.5 mm, 0.15 N at rest and 1.05 N at full travel, and how the 9.6 mm collar spreads them and they close round the 7.6 mm stem) and the clip tray (a 4 cm square, 2 cm tall grey plastic block with the 11.4 mm hole). \"Collar past the catch\" in the scoring is now spelled out as the collar's top below the rods' undersides. The task file is unchanged, so the runs and media stand.",
+    "Not accepted (TK-KLUMK2). Clarity and reproducibility (not met): The clip\u2019s collar position and thickness along the stem are not specified, although they determine catch engagement and flush seating. What to change: Please specify the collar\u2019s position and thickness along the clip stem, including its engagement with the rods, so the catch and flush-seating geometry can be reproduced. To submit a revision, push your changes to this pull request (no need to open a new one). Your idea stays reserved for 48 hours from this review; if no revision arrives by then, the hold lapses and another team can claim the idea.",
+    "Revised again: task.json now gives the clip's profile along its axis (stem 11 mm, then the 9.6 mm collar, 3 mm thick, 11 to 14 mm below the head's underside, then a 2 mm tip) and how the collar engages the rods: where it first meets them going in, when it is past them, and where it sits relative to them once seated flush. The task file is unchanged, so the runs and media stand.",
+    "Received as TK-94YSKR (a revision of TK-KLUMK2), and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don\u2019t merge this pull request yourself."
+  ]
+}

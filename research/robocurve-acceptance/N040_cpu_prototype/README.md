@@ -1,5 +1,7 @@
 # First N040 CPU contact coupon
 
+> **Superseded disposition: PARKED.** The authentic-geometry correction could not establish the essential real clip/carrier/tool mechanism. This file preserves the original hypothetical coupon evidence, not a justified Hyundai model. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md).
+
 **Exploratory mechanism implementation, not authenticated Hyundai physics or full-door/YAM feasibility.** Start with [SOURCE_AND_GEOMETRY.md](SOURCE_AND_GEOMETRY.md), actual [numerical results](results/summary.csv), [sensitivity](PARAMETER_SENSITIVITY.md), and [remaining gates](LIMITATIONS_AND_NEXT_GATES.md).
 
 Requires Python 3.10+, NumPy and SciPy. Matplotlib is optional for the figure/report script. The environment already supplied these; no GPU or new physics package was installed.

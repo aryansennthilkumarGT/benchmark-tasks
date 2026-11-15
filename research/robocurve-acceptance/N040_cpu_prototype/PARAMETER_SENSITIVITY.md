@@ -1,5 +1,7 @@
 # Parameter sensitivity — actual CPU results
 
+> **Superseded disposition: PARKED.** The authentic-geometry correction could not establish the essential real clip/carrier/tool mechanism. This file preserves the original hypothetical coupon evidence, not a justified Hyundai model. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md).
+
 **Exploratory assumed-material study, not measured Hyundai uncertainty bounds.** All dimensions are mm, forces N. `valid` requires initial retention, resolved equilibrium, the numerical contact-domain checks, released/recovered retaining geometry and no modeled plastic set. It does not certify authentic clip fitment or YAM access.
 
 Each trace is in [results/traces](results/traces); complete inputs and diagnostics are in [summary.json](results/summary.json). `retention_released` is not complete stem withdrawal. All runs were executed on CPU; no empirical force curve was fitted.
