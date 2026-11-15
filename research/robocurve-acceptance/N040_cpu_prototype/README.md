@@ -1,6 +1,6 @@
 # First N040 CPU contact coupon
 
-> **Superseded disposition: PARKED.** The authentic-geometry correction could not establish the essential real clip/carrier/tool mechanism. This file preserves the original hypothetical coupon evidence, not a justified Hyundai model. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md).
+> **Current disposition: PARKED.** The uploaded supplier catalog has now been independently inspected, but installed carrier/sheet/tool geometry and flexible-member connectivity still prevent a justified local model. This file preserves historical hypothetical-coupon evidence. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md) and [AUTHENTIC_CLIP_COMPARISON.md](AUTHENTIC_CLIP_COMPARISON.md).
 
 **Exploratory mechanism implementation, not authenticated Hyundai physics or full-door/YAM feasibility.** Start with [SOURCE_AND_GEOMETRY.md](SOURCE_AND_GEOMETRY.md), actual [numerical results](results/summary.csv), [sensitivity](PARAMETER_SENSITIVITY.md), and [remaining gates](LIMITATIONS_AND_NEXT_GATES.md).
 

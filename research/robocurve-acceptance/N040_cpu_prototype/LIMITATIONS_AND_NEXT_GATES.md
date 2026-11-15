@@ -1,6 +1,6 @@
 # Decision and remaining gates
 
-> **Superseded disposition: PARKED.** The authentic-geometry correction could not establish the essential real clip/carrier/tool mechanism. This file preserves the original hypothetical coupon evidence, not a justified Hyundai model. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md).
+> **Current disposition: PARKED.** The uploaded supplier catalog has now been independently inspected, but installed carrier/sheet/tool geometry and flexible-member connectivity still prevent a justified local model. This file preserves historical hypothetical-coupon evidence. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md) and [AUTHENTIC_CLIP_COMPARISON.md](AUTHENTIC_CLIP_COMPARISON.md).
 
 **Historical parent-revision decision, now superseded — GO: use this CPU coupon to falsify the assumed mechanism and its diagnostics. HOLD: Hyundai-specific mechanism validation, full N040 implementation, robot reachability and any GPU/native-evaluation promotion.** There is now a coupled contact/deformation model with observable retention, rather than only numerical robot controls. There is still no source-bound demonstration that the actual selected Hyundai retainer releases by this mechanism.
 

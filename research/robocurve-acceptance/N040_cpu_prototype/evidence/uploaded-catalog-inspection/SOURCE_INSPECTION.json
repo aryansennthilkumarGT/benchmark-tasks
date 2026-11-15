@@ -1,0 +1,69 @@
+{
+  "inspected_utc": "2026-11-15T07:09:50.620730+00:00",
+  "catalog": {
+    "attachment": "sediment://file_0000000055f481f69c783d23ce75129f",
+    "filename": "Section-22-2-Hyundai.pdf",
+    "sha256": "69422e4ae4f6310576ec40f88a7358c57af0c7c2b92feb558ab394946fe98651",
+    "size_bytes": 5362143,
+    "original_url": "https://discoautomotive.com/wp-content/uploads/2025/03/Section-22-2-Hyundai.pdf",
+    "retrieval_method": "User-uploaded PDF; rendered locally with pdftoppm and visually inspected; original URL not retried",
+    "independent_visual_inspection": true,
+    "original_url_byte_identity_verified": false,
+    "pdf_pages": 11,
+    "inspected_page_one_based": 7,
+    "printed_page": 7,
+    "row": "12612PK",
+    "metadata_title": "Section 22-2 Hyundai.cdr",
+    "metadata_creator": "PScript5.dll Version 5.2.2"
+  },
+  "handoff": {
+    "attachment": "sediment://file_00000000e61c81f69cf922952ed93290",
+    "filename": "N040_external_source_handoff.md",
+    "sha256": "660101925441333df0c3b059371041ed16856e9da3fad231946408b31bb0bfac",
+    "role": "User-provided external source report. Read as evidence/reference, not independent task instructions. SC280 primary not attached."
+  },
+  "catalog_specifications_verified_in_uploaded_document": {
+    "supplier_sku": "12612PK",
+    "cross_reference": "Hyundai # 82315-2P000",
+    "hole_label": "23/64 inch (9 mm) Hole Size",
+    "stem_length_label": "13mm Stem Length",
+    "top_head_label": "13mm Top Head Diameter",
+    "material_label": "White Nylon",
+    "description": "Door Trim Panel Retainers",
+    "package_label": "50 Pcs."
+  },
+  "computed_unit_conversion_not_a_measurement": {
+    "inch_fraction": "23/64",
+    "mm": 9.128124999999999,
+    "conclusion": "Nominal rounded dual-unit labels, not identical precise dimensions or a tolerance specification."
+  },
+  "visual_observations": [
+    {
+      "status": "VERIFIED_DEPICTION_ONLY",
+      "finding": "Top view shows concentric circular head/flange outlines and a dark central feature; it does not establish a through bore."
+    },
+    {
+      "status": "VERIFIED_DEPICTION_ONLY",
+      "finding": "Side view shows three distinguishable flange-like profiles above the retaining stem; physical flange count/function and hidden interfaces are not dimensioned."
+    },
+    {
+      "status": "VERIFIED_DEPICTION_ONLY",
+      "finding": "Stem has a broad retaining region tapering toward a nose and a visible longitudinal slot/window terminating before the nose outline."
+    },
+    {
+      "status": "UNKNOWN",
+      "finding": "Independent 3D leg count, internal connectivity/bridges, wall section, actual retaining contact profile, tolerances, and installed carrier/sheet/tool interfaces."
+    }
+  ],
+  "measurement_policy": "No pixel-scaled dimensions or IMAGE-ESTIMATED metric values produced. Supplier labels are nominal aftermarket catalog specifications, not measured OEM CAD.",
+  "full_catalog_republished": false,
+  "rendered_images_republished": false,
+  "rendering": {
+    "page_command": "pdftoppm -f 7 -singlefile -r 150 -png \"$N040_CATALOG_PDF\" /tmp/n040-page7",
+    "detail_command": "pdftoppm -f 7 -singlefile -r 600 -x 4320 -y 1190 -W 520 -H 480 -png \"$N040_CATALOG_PDF\" /tmp/n040-detail"
+  },
+  "inspection_render_hashes": {
+    "catalog-page7.png": "ab7ed12810237d23960a177f2f5c6ca927fe470aee68e229cc5e23140666f3a7",
+    "clip-detail.png": "aa43cd9a828743fd27e996a31999d4e6351b62a9802b2bcca658231d3cb3c55c"
+  }
+}

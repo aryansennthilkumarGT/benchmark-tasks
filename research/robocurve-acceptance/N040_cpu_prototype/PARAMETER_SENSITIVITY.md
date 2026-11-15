@@ -1,6 +1,6 @@
 # Parameter sensitivity — actual CPU results
 
-> **Superseded disposition: PARKED.** The authentic-geometry correction could not establish the essential real clip/carrier/tool mechanism. This file preserves the original hypothetical coupon evidence, not a justified Hyundai model. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md).
+> **Current disposition: PARKED.** The uploaded supplier catalog has now been independently inspected, but installed carrier/sheet/tool geometry and flexible-member connectivity still prevent a justified local model. This file preserves historical hypothetical-coupon evidence. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md) and [AUTHENTIC_CLIP_COMPARISON.md](AUTHENTIC_CLIP_COMPARISON.md).
 
 **Exploratory assumed-material study, not measured Hyundai uncertainty bounds.** All dimensions are mm, forces N. `valid` requires initial retention, resolved equilibrium, the numerical contact-domain checks, released/recovered retaining geometry and no modeled plastic set. It does not certify authentic clip fitment or YAM access.
 

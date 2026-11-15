@@ -1,34 +1,44 @@
-# Authentic clip comparison and disposition
+# Authentic clip comparison — uploaded catalog inspected
 
-**Disposition: PARKED.** The existing two-leg/single-shoulder coupon is not justified as an approximation of Hyundai 82315-2P000 or Disco 12612PK. Preserve it as an explicitly hypothetical mechanics archive; do not tune it further as Hyundai hardware. There is insufficient independently inspected evidence to replace it with an authentic model in this revision.
+**Disposition: KEEP PARKED.** The source-acquisition gate has partially advanced: the uploaded Disco supplier PDF was actually rendered and inspected. The installed carrier/receiving edge, three-dimensional flexible-member connectivity, ordinary tool contact and constitutive response remain insufficiently bound to construct a faithful local service-release model. No correction to contact equations is justified yet.
 
-## What the new lead actually establishes here
+## Independently inspected new evidence
 
-The user located the [Disco Automotive Hyundai catalog](https://discoautomotive.com/wp-content/uploads/2025/03/Section-22-2-Hyundai.pdf), **printed page 7 / PDF page 7, row 12612PK**. The user reports an aftermarket equivalent for Hyundai 82315-2P000, a 9 mm hole, 13 mm stem, 13 mm top head, white nylon, and a side-view illustration of a slotted/tapered stem with multiple upper flanges. These are **externally reported findings, not independently inspected in this environment**: the PDF returned proxy tunnel 403. The independent [FR12612 listing](https://www.shop-supplies.com/proddetail.php?prod=FR12612) and both supplied HyundaiPartsDeal pages also returned 403.
+User attachment `Section-22-2-Hyundai.pdf`, SHA-256 `69422e4ae4f6310576ec40f88a7358c57af0c7c2b92feb558ab394946fe98651`: **seventh displayed PDF page, printed page 7, second door-trim row, 12612PK**. This is distinct from neighboring pink 10774PK and the other retainers. The PDF has 11 pages and the title metadata `Section 22-2 Hyundai.cdr`. It was rendered locally at 150 dpi, with the relevant side illustration also inspected at 600 dpi. The blocked supplier URL was not retried.
 
-No image, crop, contour, flange count or dimension was reconstructed from this unseen PDF. Exact-PDF/part/supplier GitHub searches yielded no usable mirror; archive discovery was blocked. Even an inspected supplier image would establish an aftermarket equivalent, not original Hyundai CAD, precise internal sections or a calibrated force curve. See [CLIP_SOURCE_INVENTORY.md](CLIP_SOURCE_INVENTORY.md) for provenance and value labels.
+The row independently verifies these **supplier catalog claims**: 12612PK; Hyundai #82315-2P000; `23/64 inch (9 mm) Hole Size`; 13 mm stem; 13 mm top head; white nylon; door-trim-panel retainer; 50 pieces. These are nominal aftermarket specifications, not measured original Hyundai CAD or donor fitment. The row does **not** state 19 mm overall length, grade of nylon, installed stack, tolerances or force.
 
-## Mechanism comparison
+The dual-unit label is nominal: 23/64 inch converts to **9.128125 mm**, not precisely 9 mm. This arithmetic is not an actual-hole measurement or a newly established tolerance. Do not silently replace the coupon's 9 mm with either number as a calibration.
 
-| Feature | Existing equations / geometry | Authentic evidence available here | Consequence |
-|---|---|---|---|
-| Flexible member count | Two independently deflecting equivalent beams with symmetric results | UNKNOWN. User reports a slotted stem; no inspected orthogonal views or section. A visible slot alone would not establish the number of 3D legs. | Neither two legs nor their orientation/cross-section is justified. Do not infer two or four members from an unseen side view. |
-| Stem slot | No actual slot width/depth, closed tip, bridge or leg-to-leg self-contact | UNKNOWN | The model cannot identify the flexure root, coupling or maximum inward travel. It only rejects negative-radius results afterward. |
-| Retaining stem | A single peak at assumed axial 7.2 mm, preceded by a steep shoulder and followed by a linear taper | Only externally reported slotted/tapered appearance | The shoulder slope determines axial resisting force. Matching overall length cannot validate that slope or the retaining edge. |
-| Upper flanges | Head diameter is metadata; flanges are not represented as contact geometry | Multiple upper flanges externally reported, count/thickness/gaps UNKNOWN | Potential mounting/cushioning/sealing features are absent. Upper flanges must not automatically be interpreted as multiple retaining barbs. |
-| Door-trim mounting | A unilateral 180 N/mm spring with 0.2 mm slack transfers panel lift to clip root | Carrier slot/keyhole/pocket, neck capture, installed stack and pull-through resistance UNKNOWN | This invented coupling may select the wrong load path or suppress a real carrier failure. |
-| Receiving sheet | Fixed 0.8 mm plate, 9 mm round cylindrical hole without lip/chamfer | 9 mm nominal hole externally reported; sheet thickness, burr, embossment and installed orientation UNKNOWN | Retaining engagement depth and edge contact are unbound. |
-| Removal tool | A rotating 2D nose beneath a panel patch; no actual fork slot/prongs or head/carrier collision | Plastic tool supported at type level by the previously read workshop reproduction; exact tool and placement UNKNOWN | No demonstration that an ordinary tool can acquire this contact. |
-| Compliance | One cantilever mode per assumed leg; independent reduced panel plasticity | White nylon externally reported; grade, moisture, section, nonlinear response and force curve UNKNOWN | Neither elastic stiffness, yield limit nor rigid/flexible partition follows from the material name. |
-| Removal/reuse | Plastic set invalidates this coupon's strict nondestructive-release flag | Workshop reproduction says replace damaged clips; no part-specific damage frequency or consumption policy | Universal reuse and universal permitted breakage are both unsupported. |
+## Topology established and unresolved
 
-The two-leg hypothesis is **not proved false** by a user-described side view. It is also **not demonstrated representative**. The unresolved slot, retaining edge, carrier and tool contact are essential to the equations, not cosmetic details. Drawing new flanges while preserving an incompatible two-beam energy law would not fix construct validity.
+| Feature | What is now VERIFIED in the depiction | Essential UNKNOWN / model consequence |
+|---|---|---|
+| Upper assembly | Three distinguishable flange-like profiles in the side view; concentric circular outlines in the top view | Their actual 3D count/sections, compliance, spacing and which interface mounts in trim are not dimensioned. A dark central top-view mark is not proof of a through bore. |
+| Stem | Broad retaining region, longitudinal slot/window and taper toward a nose | Exact retaining edge/radius/slope, slot depth/width, wall section, tolerance and out-of-plane members remain unknown. |
+| Distal geometry | The visible slot terminates before the nose outline; the depicted outer contour continues around the nose | Actual internal connectivity/bridges and mechanical coupling cannot be recovered from one side view. This does not justify free-ended independent cantilevers. |
+| Member count | More than a solid rigid pin is depicted | Number and orientation of independent 3D flexible members remain UNKNOWN. Do not infer two/four legs from projected outlines. |
+| Receiving interface | Supplier labels a nominal receiving-hole size | Sheet thickness/edge/chamfer/embossment, installed depth and actual bearing surfaces remain UNKNOWN. |
+| Trim mounting and tool | None shown installed | Carrier slot/pocket and neck capture, mounting stack, accessible flange/underside, real fork/prong geometry and fulcrum remain UNKNOWN. |
 
-## Load path that must be resolved before replacement
+No metric image estimates were made. The image is a catalog representation, not a sectional metrology drawing or an authenticated photograph of the installed Elantra assembly. The source narrows morphology but cannot determine a unique contact/deformation law.
 
-Two candidate paths require authentic interface evidence: a fork may bear directly under an accessible clip flange/head, or a wedge may lift a panel region whose real carrier then transmits the load. They imply different contact surfaces, local panel bending and pull-through failure. Neither is selected as a verified operation here. The receiving edge must load the real retaining surfaces, the correct slotted portions must deform, and any upper flange compression or carrier compliance must be modeled where consequential. No particular flange is declared rigid without evidence.
+## Comparison with the existing coupon
 
-A single side image may permit an **IMAGE-ESTIMATED outer silhouette** once actually inspected and appropriately scaled. It would still leave out-of-plane section, hidden bridges, installed stack and force response UNKNOWN. No inferred pixel length should be relabeled an OEM dimension. A replacement model should follow the actual topology—coupled slotted shell/legs, fins or another verified structure—not an a priori choice of two beams.
+The coupon assumes two independent cantilever modes, a single piecewise-linear retaining shoulder, no actual slot or distal bridge, an invented root position and a unilateral spring as the entire panel carrier. Its tool is an invented planar nose. Head diameter is metadata; the multiple flange contacts are absent.
+
+The inspected clip belongs to the same broad compressible-retainer family, so a reduced compliant model might eventually be legitimate. **This particular two-leg/free-ended/single-shoulder model is not established representative.** A closed/bridged slotted structure may have coupled deformation unlike those modes; the drawing alone does not fix that alternative either. An equivalent low-order model could be justified by real section/connectivity or calibration, but neither exists here. Replacing a drawing or adding decorative flanges while retaining unsupported force equations would not be a correction.
+
+The stop is not a demand for perfect CAD or a measured value for every material parameter. Disclosed material/friction ranges remain permissible. The missing items are more basic: which material regions flex together, which surfaces carry retention, and how the actual panel/tool transmits extraction load. Without those, sensitivity studies would explore alternative invented mechanisms rather than uncertainty in one established mechanism.
+
+## Exact minimum needed to resume N040
+
+1. An installed clip/carrier/receiving-sheet section or equivalent views defining neck/head capture, bearing edges, stack and tool access. Nominal head/stem lengths do not define it.
+2. Orthogonal/section evidence defining the slot and mechanically connected members, sufficient to select a deformation model and prohibit impossible interpenetration.
+3. A real plastic tool's nose/fork, handle and grippable surface bound to the intended bearing point. Do not assume direct head lift if actual removal loads the panel/carrier instead.
+4. Source-supported or explicitly defensible material/contact bounds for that topology; empirical extraction/recovery remains a separate calibration gate. The old 46.126 N is not an authentic requirement.
+
+The external Kia SC280 evidence is considered separately in [SC280_SCOPE_AND_REUSE.md](SC280_SCOPE_AND_REUSE.md). It changes the reuse interpretation, not these missing geometries. **Do not build more N040 clip experiments now.** Contact code, all 51 original runs and their negative controls remain untouched. Research has shifted to independent N022; see [its bounded source pass](../N022_SOURCE_HANDOFF_AND_FIRST_GATE.md).
 
 ## A–E state separation using the archived outputs
 

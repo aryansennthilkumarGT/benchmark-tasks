@@ -1,46 +1,41 @@
-# Clip source and dimensional inventory
+# Clip source inventory — uploaded evidence checkpoint
 
-**Status: PARKED pending inspectable authentic geometry.** `VERIFIED` means independently read/inspected supporting source or an actual authorized measurement; `IMAGE-ESTIMATED` means a disclosed estimate from an image actually inspected; `UNKNOWN` includes uninspected external reports and model assumptions. An external report is retained as a useful lead, without promoting it to independently verified geometry. No image-estimated dimensions were produced in this revision.
+`VERIFIED` identifies what was actually read in the supplied catalog or directly visible in its illustration; it is explicitly scoped as a **supplier claim/depiction**, not measured OEM geometry. `IMAGE-ESTIMATED` would denote a disclosed metric estimate; **none were made**. `UNKNOWN` remains the status for hidden geometry, installed interfaces and model assumptions.
 
-## New source chain and provenance
+## Source chain
 
-| ID | Exact source | Intended evidence | Retrieval/result |
-|---|---|---|---|
-| D1 | https://discoautomotive.com/wp-content/uploads/2025/03/Section-22-2-Hyundai.pdf | Printed/PDF p7, row 12612PK: equivalent 82315-2P000, stated dimensions/material, illustrated shape | Proxy tunnel 403. **Externally located and user-described; not independently inspected.** No PDF bytes, page rendering or measurements obtained. |
-| D2 | https://www.shop-supplies.com/proddetail.php?prod=FR12612 | Independent supplier listing / equivalence cross-check | Proxy tunnel 403. Not read. No purported confirming quotation. |
-| D3 | https://www.hyundaipartsdeal.com/genuine/hyundai-fastener-dr-trim~82315-2p000.html | Part identity / supersession | Proxy tunnel 403. This is the new user-supplied exact URL, distinct from the guessed part URL recorded in the previous sprint. |
-| D4 | https://www.hyundaipartsdeal.com/parts-list/2013-hyundai-elantra-us_alabama_made/trim/front_door_trim.html | Original 2013 catalog context / donor applicability | Proxy tunnel 403. No specific left-front donor/VIN/options compatibility independently established. |
-| W1/W2 | Previously read [workshop extracts](evidence/workshop-extracts.json), pinned `Kmberry1989/Elantra@0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06`, pages 863/887 | Front-door trim steps; general plastic trim-tool instruction; replace damaged clips | Preserved attributed workshop reproduction, not authenticated Hyundai OEM CAD or force data. Page 887 is general interior/scuff/pillar context. No metric reconstruction. |
+| Source | Inspection status | What it supports |
+|---|---|---|
+| D1 — Disco Automotive Hyundai catalog, original URL https://discoautomotive.com/wp-content/uploads/2025/03/Section-22-2-Hyundai.pdf | **Uploaded original-format supplier PDF independently inspected**, page 7 / row12612PK. SHA-256 `69422e4ae4f6310576ec40f88a7358c57af0c7c2b92feb558ab394946fe98651`. No new outbound attempt. | Nominal supplier dimensions, material/part cross-reference and visible topology. Aftermarket equivalent, not original Hyundai dimensional CAD. Byte identity with the blocked URL was not independently checked. |
+| Uploaded `N040_external_source_handoff.md` | Independently read as **external evidence report**, not extra user instructions | Source leads and externally inspected SC280/retailer/photo reports. Its suggestion to request a catalog upload was not reissued; the user already supplied it. |
+| Kia SC280, https://static.nhtsa.gov/odi/rcl/2023/RCRIT-23V610-6691.pdf | Handoff read; primary retrieval returned proxy403; bounded GitHub mirror search found no relevant bulletin | Externally attested Sorento service reuse/damage policy and part identity; no independent primary-bulletin inspection claimed. See [SC280 scope](SC280_SCOPE_AND_REUSE.md). |
+| Shop-Supplies FR12612 / HyundaiPartsDeal supersession and 2013 catalog | Previously blocked; **not retried** | External equivalence/supersession/donor leads only. Do not infer installed Elantra fitment from the new supplier row. |
+| Exist.ua / eBay genuine-parts photo leads in handoff | Not fetched or independently inspected | External visual leads only; no dimensions or donor fitment inferred from a reported bag label. |
+| Prior pinned CHARM workshop reproduction | Previously read source retained | Elantra trim access, handle cage and plugs; replace damaged clips. Attributed reproduction, not OEM geometry or force data. |
 
-New [retrieval records](evidence/authentic-correction/retrievals.json) and [follow-up records](evidence/authentic-correction/followup-retrievals.json) preserve exact URLs, UTC attempts, errors, and hashes where content was received. The user request was supplied as `sediment://file_0000000092c481f6abd17f91f47fc09f`; that attribution is not a downloaded supplier document. No newly supplied manufacturer/supplier document was independently inspected.
+[New source inspection manifest](evidence/uploaded-catalog-inspection/SOURCE_INSPECTION.json) records attachment IDs/hashes, original URL, PDF metadata, inspected page, observations and rendering commands. Full catalog and rendered images stay in the local workspace; they are not republished in this public branch. Facts and provenance are committed. Earlier failed retrieval records remain historical; they no longer describe the uploaded catalog as uninspected.
 
-### Legitimate mirror investigation
+## Identity, material and visible topology
 
-[Search records](evidence/authentic-correction/mirror-tool-geometry-searches.json) include exact PDF filename, `12612PK`, `FR12612` and Disco Automotive repository/issue searches. No usable catalog mirror, part illustration or authenticated photograph was recovered. Archive.org CDX discovery also returned tunnel 403. GitHub search cannot exhaust all code/documents without authenticated code search; negative results are bounded, not proof of absence. We did not attempt to bypass network restrictions.
-
-Tool searches returned unrelated numeric issue IDs for `84090`, generic community trim-tool mentions and marketing/catalog keyword repositories, none an authoritative calibrated tool drawing. The accessible `phil-gg/vhedia-head-unit` README mentions supplied generic trim tools but provides no identified SKU, material or metric shape. The Elantra/door/CAD README search returned a book-title repository, not usable geometry. These are **search exclusions**, not sources supporting clip or tool dimensions.
-
-## Identity, material and installation facts
-
-| Field | External finding / value | Label | Limit |
-|---|---|---|---|
-| Commercial equivalent | Disco 12612PK ↔ Hyundai 82315-2P000 | UNKNOWN | Reported by user from D1; not independently cross-read in D1/D2. Aftermarket equivalence would not establish identical OEM CAD. |
-| Supersession | 82315-38000 → 82315-2P000 | UNKNOWN | User-provided catalog lead, D3/D4 inaccessible. |
-| Material/color | White nylon | UNKNOWN | User report from D1. Does not establish polymer grade, conditioning, reinforcement, E, yield or friction. |
-| Topology | Slotted/tapered stem; multiple upper flanges | UNKNOWN | Externally reported appearance. No inspected view/section; no leg count or hidden shape inferred. |
-| Donor fitment / exact mounted carrier | Proposed 2013 U.S. Elantra front door | UNKNOWN | VIN/variant/side and installed carrier stack remain unbound. |
-| Normal damage/reuse | No part-specific data | UNKNOWN | W1/W2 say replace damaged clips, not how often this part breaks or whether nondestructive reuse is expected. |
+| Field | New status | Remaining limit |
+|---|---|---|
+| Disco12612PK ↔ Hyundai82315-2P000 | VERIFIED catalog cross-reference | Commercial equivalence, not identical OEM CAD or fitment for a selected donor. |
+| White nylon | VERIFIED catalog material/color label | Polymer grade, reinforcement, moisture/conditioning, modulus, yield, fracture and friction UNKNOWN. |
+| 50 pieces | VERIFIED package label | Not clip mass, geometry or task count. |
+| Multiple flanges / slot / taper / nose | VERIFIED depiction, including three distinguishable side profiles and a slot/window ending before the nose outline | Actual independent member count, connectivity, section and contact surfaces UNKNOWN. No image-scaled metric reconstruction. |
+| 82315-38000 supersession and selected Elantra application | UNKNOWN independently | Previously supplied catalog links remain unread. |
+| Nondestructive reuse | UNKNOWN for this installed Elantra operation | SC280 external evidence distinguishes reusable/damaged clips on a Sorento; no universal reuse/breakage criterion follows. |
 
 ## Every geometric value used or sought
 
 | Feature | Value / extent | Label | Source / interpretation |
 |---|---|---|---|
-| Receiving-hole nominal diameter | 9 mm | UNKNOWN | User report from D1 and earlier supplier. Useful nominal lead, not an independently verified tolerance. |
-| Stem nominal length | 13 mm | UNKNOWN | User report from D1; datum/end definition not inspected. |
-| Top-head nominal diameter | 13 mm | UNKNOWN | User report from D1. Not a stem diameter or lower-flange diameter. |
-| Overall length | About 19 mm | UNKNOWN | Earlier user-attributed supplier only; the new D1 report did not independently confirm this field. |
+| Receiving-hole nominal label | 23/64 inch (9 mm) | VERIFIED — supplier label | Independently read in uploaded D1 page 7. Rounded dual-unit label, not measured diameter/tolerance; 23/64 inch =9.128125 mm by arithmetic. |
+| Stem nominal length | 13 mm | VERIFIED — supplier label | Independently read in uploaded D1. No dimensioned datum/end definition or tolerance. |
+| Top-head nominal diameter | 13 mm | VERIFIED — supplier label | Independently read in uploaded D1. Not stem diameter or lower-flange diameter. |
+| Overall length | About 19 mm | UNKNOWN | Earlier user-attributed supplier only; the inspected D1 row does not contain this field. |
 | Actual stem cross-section, leg count and slot | No values | UNKNOWN | Need slot depth/width, end condition, bridges and orthogonal views/section. |
-| Upper flange count, diameters, spacing, thickness and root radii | No values | UNKNOWN | Multiple upper flanges reported; 13 mm top head does not determine the others. |
+| Upper flange count, diameters, spacing, thickness and root radii | No values | UNKNOWN | Three flange-like profiles visible in side depiction; exact 3D count/sections still unbound. The 13 mm top head does not determine other flange dimensions. |
 | Actual retaining maximum diameter, slope and axial edges | No values | UNKNOWN | Essential to installed overlap and extraction force. |
 | Actual carrier slot/pocket, neck capture and sheet details | No values | UNKNOWN | Need installed section, seat lip/chamfer/burr/embossment and contact directions. |
 | Coupon sheet thickness / root height | 0.8 / 6 mm | UNKNOWN | Old model assumptions. **19−13 is not a validated stack dimension.** |
@@ -55,8 +50,8 @@ Tool searches returned unrelated numeric issue IDs for `84090`, generic communit
 | Full panel/door dimensions; clip-site coordinates | No values | UNKNOWN | Workshop diagrams uncalibrated; no scale or actual-size surfaces inferred. |
 | Handle cage / plug / harness / support dimensions | No values | UNKNOWN | Illustrated/mentioned interfaces are not metric inputs. |
 
-No real clip geometry currently earns the independently `VERIFIED` or `IMAGE-ESTIMATED` label. Solver coordinates, sampling counts, numerical bounds and audit tolerances remain declared algorithm settings in the archived code, not purported physical measurements.
+Only the nominal supplier labels and visual depiction now earn the limited VERIFIED labels described above. No IMAGE-ESTIMATED metric dimensions were produced; original OEM/installed geometry is still unknown. Solver coordinates, sampling counts, numerical bounds and audit tolerances remain declared algorithm settings in the archived code, not purported physical measurements.
 
 ## Mechanical unknowns that dimensions alone cannot resolve
 
-The real flexible/rigid partition, force–displacement curve, unload recovery, leg coupling/contact, viscoelasticity, fracture, molding history, moisture/temperature, local sheet/clip friction, flange preload, carrier tear-out and permissible consumable damage remain UNKNOWN. White nylon and an outer side profile cannot determine them. No hardware purchase or physical test was performed.
+The real flexible/rigid partition, force–displacement curve, unload recovery, leg coupling/contact, viscoelasticity, fracture, molding history, moisture/temperature, local sheet/clip friction, flange preload, carrier tear-out and permissible consumable damage remain UNKNOWN. The now-inspected white-nylon catalog label and outer side profile cannot determine them. No hardware purchase or physical test was performed.

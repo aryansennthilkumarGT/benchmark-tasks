@@ -1,6 +1,6 @@
 # N040 local clip/seat/tool coupon — provenance and mechanism
 
-> **Superseded disposition: PARKED.** The authentic-geometry correction could not establish the essential real clip/carrier/tool mechanism. This file preserves the original hypothetical coupon evidence, not a justified Hyundai model. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md).
+> **Current disposition: PARKED.** The uploaded supplier catalog has now been independently inspected, but installed carrier/sheet/tool geometry and flexible-member connectivity still prevent a justified local model. This file preserves historical hypothetical-coupon evidence. See [UPDATED_N040_GO_NO_GO.md](UPDATED_N040_GO_NO_GO.md) and [AUTHENTIC_CLIP_COMPARISON.md](AUTHENTIC_CLIP_COMPARISON.md).
 
 **Exploratory parameterized study; not a Hyundai-specific physics validation.** Candidate hardware is Hyundai trim fastener **82315-2P000**, user-reported replacement for **82315-38000**, with a nominal **9 mm receiving hole**. Compatibility with the proposed left-front 2013 U.S. Elantra UD donor is **not independently established**. The exact retainer topology could invalidate this entire two-leg hypothesis. No authenticated part photograph or measured cross-section was obtained. This is the bounded alternative authorized when the real interface cannot be established.
 

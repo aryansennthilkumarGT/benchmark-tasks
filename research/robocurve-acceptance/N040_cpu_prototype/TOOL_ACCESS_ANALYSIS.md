@@ -1,5 +1,7 @@
 # Actual plastic-tool and YAM access gate
 
+> **Uploaded-catalog update:** clip depiction and supplier nominal labels are now independently inspected. The catalog supplies no installed tool-bearing section or ordinary tool dimensions. The handoff adds an externally located Geoshield trim-tool-kit lead (https://geoshieldusa.com/products/trim-panel-removal-tools), not an inspected/calibrated tool. No blocked tool URLs were retried; the YAM tool-access gate remains blocked.
+
 **Result: BLOCKED_MISSING_AUTHENTIC_TOOL_AND_INTERFACE.** No identified commercial plastic tool has both independently inspected documentation and usable geometry here. No actual tool grasp, palm-clearance or swept-access test can legitimately be reported. The earlier invented nose is not accepted as a replacement for that input.
 
 ## Commercial tool investigation

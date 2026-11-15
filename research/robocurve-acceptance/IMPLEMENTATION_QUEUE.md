@@ -1,5 +1,7 @@
 # Implementation-planning queue
 
+> **Current allocation update:** N040 remains PARKED after [actual uploaded-catalog inspection](N040_cpu_prototype/UPDATED_N040_GO_NO_GO.md). Current independent research effort is [N022 source/variant binding](N022_SOURCE_HANDOFF_AND_FIRST_GATE.md); no contact implementation is cleared. The selection/queue below is historical and does not override these decisions. N044/N047 retain their own unresolved gates.
+
 **Recommended first two: N040 door-trim service access and N044 rear crankshaft seal installation. Backups: N047 valve keepers, N022 robot-harness spiral sleeve and source-gated N042 tapered-joint separation.** Keep all five open as a pipeline rather than committing the sprint to a pair until both fail.
 
 This revision advances **four PASS FOR DEEP DIVE** leads and **one HOLD** documentation reserve. PASS is permission to invest research/planning effort, not proof of qualification or a completed full-score demonstration. **No task implementation, GPU/Brev, Dream/paid evaluation, official submission, procurement or physical test was started.**
