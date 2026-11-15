@@ -1,0 +1,266 @@
+{
+  "candidate": "N047",
+  "input_status": "BLOCKED_MISSING_INPUTS",
+  "access_decision": "NOT_CLEARED",
+  "empirical_candidate_test": false,
+  "physical_task_or_simulation_executed": false,
+  "input_sha256": "94d7ab3925e88c27e3722d855ab54e56ef28d38627692c26169a6d52d1324f03",
+  "robot_reference": {
+    "pin": "0059d02a1a91bc6834c1d0846022891df0c78730",
+    "asset_source_commit": "120c3c81400171174604e503943f8d1ebc891058",
+    "bundle_sha256": "f02631ba507361c82444704bee9604cb060cf9d4d155127c77c62941773f6625",
+    "collision_hulls_per_arm": 315,
+    "collision_hulls_per_link": {
+      "base": 26,
+      "gripper": 44,
+      "link1": 105,
+      "link2": 8,
+      "link3": 12,
+      "link4": 12,
+      "link5": 16,
+      "tip_left": 45,
+      "tip_right": 47
+    },
+    "station_bases_m": {
+      "left": [
+        0.0,
+        0.305,
+        0.75
+      ],
+      "right": [
+        0.0,
+        -0.305,
+        0.75
+      ]
+    },
+    "nominal_aperture_m": 0.0939,
+    "necessary_only_TCP_radius_about_base_m": 0.941268730424485,
+    "ready_joint_coordinates": [
+      0.0,
+      1.0,
+      1.0,
+      -0.6,
+      0.0,
+      0.0,
+      -0.04695,
+      -0.04695
+    ],
+    "ready_TCP_left_m": [
+      0.3234096581812836,
+      0.3050041444307181,
+      1.008104160176804
+    ],
+    "ready_TCP_right_m": [
+      0.3234096581812836,
+      -0.3049958555692819,
+      1.008104160176804
+    ],
+    "ready_Jacobian_linear_then_angular": [
+      [
+        -4.144435848019914e-06,
+        0.14460399676251126,
+        0.07754376922516125,
+        0.1375449691613295,
+        1.6246516559967697e-06,
+        -1.1446220914043377e-17
+      ],
+      [
+        0.32341035647067307,
+        2.5719365255878287e-07,
+        2.565975691141353e-06,
+        2.139353037965697e-06,
+        -0.16959999999080175,
+        -2.7755575615628914e-17
+      ],
+      [
+        -6.496176008127867e-12,
+        -0.30340982533323246,
+        0.4460505280054211,
+        0.20105174840207707,
+        6.932126400542441e-07,
+        -1.673123004887738e-17
+      ],
+      [
+        -3.673205103247453e-06,
+        -7.346400459438151e-06,
+        9.579314009574123e-06,
+        9.579314009574123e-06,
+        -0.5646394417122231,
+        0.8253376889317154
+      ],
+      [
+        -2.6984871462320583e-11,
+        0.9999999999694945,
+        -0.9999999999457653,
+        -0.9999999999457653,
+        -8.782293174448146e-06,
+        5.5982962562411175e-06
+      ],
+      [
+        0.9999999999932537,
+        -2.653589793334828e-06,
+        4.0873386794561984e-06,
+        4.0873386794561984e-06,
+        -0.8253376889405817,
+        -0.5646394417657289
+      ]
+    ],
+    "analysis_gravity_m_s2": 9.80665,
+    "ready_gravity_joint_load_Nm_no_tool": [
+      3.249606032943222e-08,
+      1.9296863137021054,
+      -6.487284483856033,
+      -1.4423972565673133,
+      -0.0006867135333997708,
+      0.0011165934587441043
+    ],
+    "ready_static_force_ceiling_up": {
+      "direction_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "direction_semantics": "External force on robot TCP; force applied by robot to object has opposite direction.",
+      "feasible_static_interval_N": [
+        0.0,
+        41.99116557635514
+      ],
+      "limiting_configured_joint": "joint4",
+      "scope": "Optimistic static TCP point-force screening at this q, model gravity only; no payload/grip/contact/dynamics/impact or hardware certification."
+    },
+    "ready_static_force_ceiling_down": {
+      "direction_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "direction_semantics": "External force on robot TCP; force applied by robot to object has opposite direction.",
+      "feasible_static_interval_N": [
+        0.0,
+        27.64264816199565
+      ],
+      "limiting_configured_joint": "joint4",
+      "scope": "Optimistic static TCP point-force screening at this q, model gravity only; no payload/grip/contact/dynamics/impact or hardware certification."
+    },
+    "local_collision_shape_bounds": {
+      "tip_left": {
+        "collision_hulls": 45,
+        "local_axis_extents_m": [
+          0.06799826584756374,
+          0.07157080247998238,
+          0.09384259581565857
+        ]
+      },
+      "tip_right": {
+        "collision_hulls": 47,
+        "local_axis_extents_m": [
+          0.06799921952188015,
+          0.07157080282922834,
+          0.09384259581565857
+        ]
+      },
+      "gripper": {
+        "collision_hulls": 44,
+        "local_axis_extents_m": [
+          0.10199999948963523,
+          0.06499999947845936,
+          0.07399876415729523
+        ]
+      },
+      "link5": {
+        "collision_hulls": 16,
+        "local_axis_extents_m": [
+          0.06895344890654087,
+          0.056999996304512024,
+          0.0691000004298985
+        ]
+      },
+      "link4": {
+        "collision_hulls": 12,
+        "local_axis_extents_m": [
+          0.11570026353001595,
+          0.0860000099055469,
+          0.11979283764958382
+        ]
+      }
+    },
+    "limits": [
+      "Necessary reach sphere is NOT a reachable workspace/IK result.",
+      "Gravity/Jacobian are static source-model calculations, not impact/actuator certification.",
+      "Cameras, task geometry, grasp loads and actual work poses remain separate inputs."
+    ]
+  },
+  "missing_inputs": [
+    {
+      "input": "keeper_halves_OD_height_taper_and_stem_groove_dimensions",
+      "reason": "No numeric geometry/shape supplied."
+    },
+    {
+      "input": "retainer_cup_seat_and_insertion_opening_shape",
+      "reason": "No numeric geometry/shape supplied."
+    },
+    {
+      "input": "full_head_and_SST_lever_support_handle_hulls",
+      "reason": "No numeric geometry/shape supplied."
+    },
+    {
+      "input": "actual_tool_pivot_and_contact_lever_arms",
+      "reason": "No numeric geometry/shape supplied."
+    },
+    {
+      "input": "actual_service_pose_and_first_half_retention_interface",
+      "reason": "No numeric geometry/shape supplied."
+    },
+    {
+      "input": "two_arm_joint_path",
+      "reason": "No complete full-scale essential procedure path."
+    },
+    {
+      "input": "full_surroundings_collision_geometry",
+      "reason": "Door/cowl/block/tool surroundings not supplied."
+    },
+    {
+      "input": "tools_panel_or_payload_swept_envelopes",
+      "reason": "Moving tool/panel/payload clearance is not a point-TCP check."
+    },
+    {
+      "input": "compressor_reaction_and_placement",
+      "reason": "Essential procedure phase not covered by joint path."
+    },
+    {
+      "input": "first_keeper_acquisition",
+      "reason": "Essential procedure phase not covered by joint path."
+    },
+    {
+      "input": "first_keeper_seating",
+      "reason": "Essential procedure phase not covered by joint path."
+    },
+    {
+      "input": "second_keeper_placement_with_first_retained",
+      "reason": "Essential procedure phase not covered by joint path."
+    },
+    {
+      "input": "gradual_load_transfer",
+      "reason": "Essential procedure phase not covered by joint path."
+    },
+    {
+      "input": "released_captured_pair",
+      "reason": "Essential procedure phase not covered by joint path."
+    }
+  ],
+  "force_inputs_missing": [
+    "spring_force_displacement_and_installed_preload",
+    "SST_handle_force_friction_and_reaction",
+    "keeper_grasp_and_first_half_retention_friction"
+  ],
+  "reach": "NOT_ASSESSED_WITHOUT_SOURCE_BOUND_TARGETS",
+  "swept_access": "NOT_ASSESSED_WITHOUT_COMPLETE_GEOMETRY_AND_PATH",
+  "not_tested": [
+    "Grasp stability/friction, dynamic torque/impulse and compliant mechanism response.",
+    "Current ownership/importance, physical scoring and end-state mechanism correctness.",
+    "Sensor/fixture geometry not in the pinned asset and unvalidated expected contacts.",
+    "Declared expected tool contacts are not contact-force proofs.",
+    "Whole adjacent-link pairs and intentional finger-carriage overlap are exempt; unintended adjacent-link contact is not certified."
+  ],
+  "input_file_sha256": "81e2ede4b1a16e2c0350f1999e8965afb3f0f6343bc9c3e2d4e9df5934e7054d"
+}

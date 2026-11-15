@@ -1,0 +1,115 @@
+{
+  "selected_equipment": "Elantra1.8L full head; spring222212E000, keeper pair2222302500, retainer222222E000, SST09222-3K000/3K100.",
+  "essential_phases": [
+    "compressor_reaction_and_placement",
+    "first_keeper_acquisition",
+    "first_keeper_seating",
+    "second_keeper_placement_with_first_retained",
+    "gradual_load_transfer",
+    "released_captured_pair"
+  ],
+  "required_geometry": [
+    "keeper_halves_OD_height_taper_and_stem_groove_dimensions",
+    "retainer_cup_seat_and_insertion_opening_shape",
+    "full_head_and_SST_lever_support_handle_hulls",
+    "actual_tool_pivot_and_contact_lever_arms",
+    "actual_service_pose_and_first_half_retention_interface"
+  ],
+  "required_force_inputs": [
+    "spring_force_displacement_and_installed_preload",
+    "SST_handle_force_friction_and_reaction",
+    "keeper_grasp_and_first_half_retention_friction"
+  ],
+  "requires_site_inventory": false,
+  "required_sites": [],
+  "evidence": {
+    "CHARM230": {
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/230.html",
+      "kind": "Read attributed dimension/inspection reproduction"
+    },
+    "CHARM231": {
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/231.html",
+      "kind": "Read actual SST procedure/reproduction"
+    }
+  },
+  "known_numeric_geometry": {
+    "intake_stem_OD_interval_m": {
+      "value": [
+        0.005465,
+        0.00548
+      ],
+      "unit": "m",
+      "status": "source_bound",
+      "source_ref": "CHARM230"
+    },
+    "spring_free_height_m": {
+      "value": 0.04593,
+      "unit": "m",
+      "status": "source_bound",
+      "source_ref": "CHARM230"
+    },
+    "max_retainer_depression_m": {
+      "value": 0.012,
+      "unit": "m",
+      "status": "source_bound",
+      "source_ref": "CHARM231",
+      "limitation": "Travel limit is not a spring force or keeper opening."
+    }
+  },
+  "source_limit": "Known stem/free-height/travel values cannot determine keeper access, lever advantage, spring force or first-half stability.",
+  "candidate": "N047",
+  "geometry_inputs": {
+    "keeper_halves_OD_height_taper_and_stem_groove_dimensions": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "retainer_cup_seat_and_insertion_opening_shape": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "full_head_and_SST_lever_support_handle_hulls": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "actual_tool_pivot_and_contact_lever_arms": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "actual_service_pose_and_first_half_retention_interface": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "force_inputs": {
+    "spring_force_displacement_and_installed_preload": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "SST_handle_force_friction_and_reaction": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "keeper_grasp_and_first_half_retention_friction": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "path": null,
+  "targets": null,
+  "static_obstacles": null,
+  "moving_body_sweep_envelopes": null,
+  "declared_contact_interfaces": []
+}

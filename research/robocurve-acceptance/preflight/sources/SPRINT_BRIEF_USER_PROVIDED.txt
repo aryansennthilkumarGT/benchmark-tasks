@@ -1,0 +1,123 @@
+# ROBOCURVE — MOVE FROM RESEARCH REPORTS TO CPU-ONLY FEASIBILITY PREFLIGHT
+
+The new research portfolio at commit eb2dacdcbf8ff59440aa924de0a613d574bbb3de is complete.
+
+You have achieved the requested five-candidate pipeline.
+
+DO NOT GENERATE ANOTHER 100 IDEAS.
+DO NOT REPEAT THE FOUR-REJECTION ANALYSIS.
+DO NOT WRITE ANOTHER GENERIC RESEARCH PLAN.
+
+Now do actual, bounded, source-backed, CPU-only feasibility work to determine which candidate can become our FIRST real implementation.
+
+## CANDIDATES
+
+Primary A: N040 — genuine full-size Hyundai door-trim service-access removal.
+
+Primary B: N044 — genuine Hyundai rear crankshaft-seal installation.
+
+Reserve C: N047 — real two-piece valve-keeper capture.
+
+Also preserve N022 robot-harness spiral sleeve as an independent backup, and N042 as source-gated HOLD.
+
+## ADDITIONAL READABLE SOURCE LEADS
+
+Door-trim and window-motor procedure:
+https://charm.li/Hyundai/2013/Elantra%20L4-1.8L/Repair%20and%20Diagnosis/Body%20and%20Frame/Doors%2C%20Hood%20and%20Trunk/Doors/Front%20Door/Service%20and%20Repair/Repair%20Procedures/
+
+https://charm.li/Hyundai/2013/Elantra%20L4-1.8L/Repair%20and%20Diagnosis/Windows%20and%20Glass/Windows/Power%20Window%20Motor/Front%20Door%20Window%20Motor/Service%20and%20Repair/
+
+Rear seal and tooling:
+https://www.hemanual.org/reassembly-1111.html
+
+https://www.hemanual.org/special_service_tools-1083.html
+
+https://www.hemanual.org/rear_oil_seal_repair_procedures-1115.html
+
+Treat these as externally located service-manual reproductions. Read and verify exact applicability; do not assert an inaccessible page was read.
+
+## PRE-FLIGHT 1: N040
+
+1. Identify actual selected door, panel, clips, ordinary removal tool, plugs and handle mechanism.
+2. Recheck the CURRENT status and legitimate task scope of official PR #1986, which is active and has undergone repeated revisions.
+3. Determine whether actual tool-mediated panel removal, controlled attachment release and connector handoff are a substantially different manipulation capability from push-in clip insertion.
+4. Obtain defensible full-size dimensions.
+5. Use the pinned actual YAM robot geometry to construct a CPU-only swept-access and reach test for the entire essential procedure.
+6. Include both fingertips, full palm, wrist, second-arm support and actual cowl/door/panel surroundings.
+7. Identify the real physical clip-release/retention model and incorrect-release negative controls.
+8. If full-size access cannot work without removing essential hardware, shrinking the panel or enlarging the clips, PARK N040.
+
+Do not call a point-TCP IK result proof of robot feasibility.
+
+## PRE-FLIGHT 2: N044
+
+1. Bind exact rear seal, crankshaft/block, SST driver/handle and compatible installation procedure.
+2. Verify genuine surrounding geometry and normal engine-service support.
+3. Analyze seal acquisition, unstarted alignment, driver seating and ordinary hammer contact.
+4. Create a CPU-only geometry/swept-tool-access proof using actual YAM dimensions.
+5. Check whether the required force/impulse is plausibly achievable with actual tools and contact/reaction.
+6. Compare its central physical skill against bearing/bushing pressing and existing seal-installation tasks. If it is merely a different annular component pressed to a depth stop, PARK it.
+7. Design a physically repeatable score distinguishing correct flush seating from tilted, reversed, damaged or improperly engaged seal states.
+8. Do not claim oil tightness based on pose alone.
+
+Also scrutinize the importance argument: a real rear-seal installation procedure does not by itself establish that this specific operation is regular core work. Do not borrow the entire mechanic occupation without linking the actual activity to accepted core duties.
+
+## PRE-FLIGHT 3: N047 RESERVE
+
+Perform a shorter, strictly CPU/source-based check:
+
+- Exact keeper dimensions and seating interfaces.
+- Tiny-part acquisition with stock fingers.
+- Genuine compressor/tool reaction and spring-force estimates.
+- First keeper-half retention while positioning the second.
+- Real load transfer and physically measurable final capture.
+
+If N040 or N044 fails, advance N047 only if it independently passes its critical evidence gates.
+
+## REAL DELIVERABLES, NOT JUST ANOTHER ESSAY
+
+Create a separate preflight directory:
+
+research/robocurve-acceptance/preflight/
+
+Produce:
+
+- N040_ACCESS_TEST.py and its reproducible output, if sufficient trustworthy geometry exists.
+- N044_ACCESS_TEST.py and its reproducible output, if sufficient trustworthy geometry exists.
+- N040_MECHANISM_AND_SCORING.md
+- N044_MECHANISM_AND_SCORING.md
+- N047_BACKUP_KILL_TEST.md
+- FIRST_BUILD_DECISION.md
+
+The scripts should compute actual source-bound clearance/reach conditions or explicitly report missing input dimensions. Do not construct guessed geometry and call that an empirical pass.
+
+If all critical dimensions are not obtainable, implement reusable geometric checks with clearly labeled unknown inputs, document the blocker and move to the other candidate. Do not falsely clear anything.
+
+The decision file must say:
+
+- First candidate to implement.
+- Which evidence now supports proceeding.
+- Which requirements remain untested.
+- Which candidate failed and why, if applicable.
+- First small CPU implementation milestone.
+- Exact criteria for later authorizing native GPU testing.
+
+DO NOT require a fully validated finished robot implementation just to decide which candidate deserves a small CPU prototype.
+
+## EXECUTION RULES
+
+Use the existing independent research branch.
+
+Commit and push completed tests, results and the decision.
+
+Continue through the task without asking for routine permission.
+
+No GPU, Brev, Dream evaluations, official PR submissions, paid experiments or hardware purchases.
+
+Do not claim any execution test passed unless it actually ran.
+
+If the source or geometry access blocks both primary candidates, identify the blocker and conduct the same bounded preflight on the strongest available backup instead of repeatedly restating HOLD.
+
+YOUR GOAL IS TO DELIVER A CONCRETE FIRST-BUILD DECISION BASED ON CPU EVIDENCE, NOT ANOTHER ROUND OF INDEFINITE RESEARCH.
+
+BEGIN.

@@ -1,0 +1,88 @@
+{
+  "selected_equipment": "Actual FIRST robot arm-to-grabber servo bundle with documented spiral variant;7378K43 only an example parts-list entry.",
+  "essential_phases": [
+    "sleeve_acquisition",
+    "first_actual_wrap",
+    "branch_passage",
+    "full_span_coverage",
+    "service_loop_attachment",
+    "normal_joint_sweep"
+  ],
+  "required_geometry": [
+    "selected_sleeve_pitch_ID_OD_section_and_cut_length",
+    "actual_robot_arm_grabber_and_joint_hulls",
+    "actual_full_bundle_span_wire_count_and_branches",
+    "attachment_shapes_and_swept_joint_limits",
+    "actual_work_pose_and_gripper_tool_contacts"
+  ],
+  "required_force_inputs": [
+    "sleeve_opening_bending_torsion_and_friction",
+    "wire_bundle_bending_and_retention_friction",
+    "source_bound_joint_sweep_load_and_strain_limits"
+  ],
+  "requires_site_inventory": true,
+  "required_sites": null,
+  "evidence": {
+    "FIRST": {
+      "url": "https://github.com/FIRST-Tech-Challenge/ftcdocs/blob/ea5b3846f78f3cdae1372eb24333217fe95ea18f/docs/source/robot_building/wiring_guide/wiring-guide.rst",
+      "kind": "Primary actual robot-builder guide, not manufacturer dimension sheet"
+    }
+  },
+  "known_numeric_geometry": {},
+  "source_limit": "Package10ft does not establish selected cut length, pictured SKU, robot span or sleeve dimensions.",
+  "candidate": "N022",
+  "geometry_inputs": {
+    "selected_sleeve_pitch_ID_OD_section_and_cut_length": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "actual_robot_arm_grabber_and_joint_hulls": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "actual_full_bundle_span_wire_count_and_branches": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "attachment_shapes_and_swept_joint_limits": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "actual_work_pose_and_gripper_tool_contacts": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "force_inputs": {
+    "sleeve_opening_bending_torsion_and_friction": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "wire_bundle_bending_and_retention_friction": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "source_bound_joint_sweep_load_and_strain_limits": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "path": null,
+  "targets": null,
+  "static_obstacles": null,
+  "moving_body_sweep_envelopes": null,
+  "declared_contact_interfaces": []
+}

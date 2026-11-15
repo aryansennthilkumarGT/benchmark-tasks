@@ -1,0 +1,94 @@
+{
+  "run_utc": "2026-11-15T01:57:34.277714+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "scope": "CPU-only source-geometry/logic preflight. No simulator, physical hardware or GPU evaluation.",
+  "commands": [
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/workspace/benchmark-tasks/research/robocurve-acceptance/preflight",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_s": 0.5277510170017194,
+      "stdout_stderr_file": "UNIT_TEST_OUTPUT.txt",
+      "output_sha256": "4056cc06757a7f5ee6b036e41ddcbebcee940571ac387aba0ee5e89c11153e2e"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/benchmark-tasks/research/robocurve-acceptance/preflight/N040_ACCESS_TEST.py"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "elapsed_s": 0.4881670530012343,
+      "stdout_stderr_file": "N040_EXECUTION.txt",
+      "output_sha256": "313a977c6bbb799cbf64a98cfe2dc7752b85c5a84e64deac5e676c7ae045ebf6"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/benchmark-tasks/research/robocurve-acceptance/preflight/N044_ACCESS_TEST.py"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "elapsed_s": 0.4423287120007444,
+      "stdout_stderr_file": "N044_EXECUTION.txt",
+      "output_sha256": "451807d6793f2836286c8377fc599c4f44b93c2087ee7e1fd9aef3c5ff240eb9"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/benchmark-tasks/research/robocurve-acceptance/preflight/N047_ACCESS_TEST.py"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "elapsed_s": 0.3719551190006314,
+      "stdout_stderr_file": "N047_EXECUTION.txt",
+      "output_sha256": "b812256f8774f79b2870114f0b0d29695e18162bedcf2d83f778ba8ebb35d3e3"
+    },
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/benchmark-tasks/research/robocurve-acceptance/preflight/N022_ACCESS_TEST.py"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2,
+      "elapsed_s": 0.48992473500038614,
+      "stdout_stderr_file": "N022_EXECUTION.txt",
+      "output_sha256": "81d5be753f2bc71fa4b00db87154f634b58fc4ab2c8b79c7398696f5311a2f85"
+    }
+  ],
+  "all_commands_returned_expected_status": true,
+  "candidate_partial_geometric_certificates": 0,
+  "candidate_tests_blocked": 4,
+  "full_feasibility_passes": 0,
+  "code_sha256": {
+    "BUILD_YAM_REFERENCE.py": "90a1ef4417b567295aebf975c3058b052af5563f1a2dfbe66c1be1dbfc606834",
+    "N022_ACCESS_TEST.py": "84aa59b3c7d2e66ad41337396aae75dd58d22704d05fce3f866c1043871d8a6b",
+    "N040_ACCESS_TEST.py": "0c13f77ca2eacbf6102074daf7210c3f3bf052faadec084bf805bb511f91a157",
+    "N044_ACCESS_TEST.py": "f03c0f0007499911bea53a16b7c96f7550c2008ea908d3761e4eed26453c84d9",
+    "N047_ACCESS_TEST.py": "1e6f901c32a6647054a6d14e4693cb759df49a3c4e0cc0250b0acbd846939fc5",
+    "PLOT_ROBOT_REFERENCE.py": "05d81328e41288da0c174570c0546ad8229656d2448a24e96003f8b32d2bbda9",
+    "RUN_PREFLIGHT.py": "9e9c4075b53d9479441becf84e2cb8ca87a854f24530a835a2edb2a400b948d3",
+    "VALIDATE_RESULTS.py": "cd59cccb11ea2afbef84ea4345c7a6a9311890a5ce361286b66d04f6ec962be5",
+    "VERIFY_SOURCE_REFERENCE.py": "b58838b332adf3effddf9ee5a89efb7b4fcd5ec741fd9f75db41fa090f47f393",
+    "access_core.py": "3e41c7a4a98ab3a1889452c46c9da5bd5386c01a5f34fc1fbc106f867e31a233",
+    "test_access_core.py": "9e67f5583599aca0a05278b56053881476ca6a4aab685c06f82594ddf22285cc"
+  },
+  "input_sha256": {
+    "N022.json": "c5a491fd565d5410d8a766646c50bffc0a2b70a18721feb13bb8a2096bcabb06",
+    "N040.json": "cd204c18f67c9a3a5abc2164c762853a67fc6eb55383ceeecb9786eaee80af88",
+    "N044.json": "30c8b5a688f499b3d117be8619f4f32ba8aab54b93d7365a77de67ee5962752d",
+    "N047.json": "81e2ede4b1a16e2c0350f1999e8965afb3f0f6343bc9c3e2d4e9df5934e7054d"
+  },
+  "interpretation": "Unit tests PASS is an engine/logic result. Candidate exit2 means BLOCKED, not feasibility PASS or physical infeasibility."
+}

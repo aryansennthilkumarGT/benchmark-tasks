@@ -1,0 +1,126 @@
+{
+  "selected_equipment": "2013 US Hyundai Elantra UD1.8L proposed left-front door/trim; donor VIN/options and exact clip/tool/plugs unbound.",
+  "essential_phases": [
+    "clip_acquisition",
+    "perimeter_release",
+    "upper_edge_release",
+    "handle_cage_release",
+    "electrical_connector_handoff",
+    "panel_supported_handoff"
+  ],
+  "required_geometry": [
+    "actual_door_trim_clip_and_tool_part_binding",
+    "door_shell_flange_cowl_and_upper_edge_hulls",
+    "full_size_panel_hulls_and_clip_site_positions",
+    "clip_seat_barb_and_release_geometry",
+    "plastic_removal_tool_full_shape",
+    "handle_cage_and_tabs_shape",
+    "rear_plug_latch_shapes_and_harness_slack",
+    "actual_service_pose_and_support_shapes",
+    "panel_mass_CG_and_second_arm_grasp_sites"
+  ],
+  "required_force_inputs": [
+    "clip_release_force_displacement",
+    "wedge_and_handle_friction",
+    "panel_support_and_grasp_force",
+    "connector_and_handle_release_force"
+  ],
+  "requires_site_inventory": true,
+  "required_sites": null,
+  "evidence": {
+    "CHARM863": {
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/863.html",
+      "kind": "Attributed workshop reproduction, read; not live authenticated OEM"
+    },
+    "CHARM887": {
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/887.html",
+      "kind": "Attributed workshop reproduction, read; plastic tool required"
+    }
+  },
+  "known_numeric_geometry": {},
+  "source_limit": "Diagrams/parts names do not supply trustworthy full-panel/clip/tool geometry. No image was scaled into metric empirical data.",
+  "candidate": "N040",
+  "geometry_inputs": {
+    "actual_door_trim_clip_and_tool_part_binding": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "door_shell_flange_cowl_and_upper_edge_hulls": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "full_size_panel_hulls_and_clip_site_positions": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "clip_seat_barb_and_release_geometry": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "plastic_removal_tool_full_shape": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "handle_cage_and_tabs_shape": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "rear_plug_latch_shapes_and_harness_slack": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "actual_service_pose_and_support_shapes": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "panel_mass_CG_and_second_arm_grasp_sites": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "force_inputs": {
+    "clip_release_force_displacement": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "wedge_and_handle_friction": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "panel_support_and_grasp_force": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "connector_and_handle_release_force": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "path": null,
+  "targets": null,
+  "static_obstacles": null,
+  "moving_body_sweep_envelopes": null,
+  "declared_contact_interfaces": []
+}

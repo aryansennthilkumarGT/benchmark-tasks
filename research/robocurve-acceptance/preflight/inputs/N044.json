@@ -1,0 +1,126 @@
+{
+  "selected_equipment": "2013 Elantra1.8L rear main seal archive HYD214432E000; SST09231-H1100/09214-2E000; actual block/crankshaft and ordinary hammer.",
+  "essential_phases": [
+    "seal_acquisition",
+    "unstarted_alignment",
+    "driver_engagement",
+    "ordinary_hammer_contact",
+    "circumferential_flush_inspection",
+    "released_seat"
+  ],
+  "required_geometry": [
+    "VIN_matched_seal_section_OD_ID_width_and_orientation",
+    "actual_block_rear_face_housing_crankshaft_and_flange_hulls",
+    "SST_driver_and_handle_full_hulls",
+    "ordinary_hammer_shape_mass_and_strike_path",
+    "normal_engine_support_and_world_pose",
+    "seal_driver_hammer_grasps_and_reaction_surfaces",
+    "physical_flush_and_tilt_measurement_resolution"
+  ],
+  "required_force_inputs": [
+    "case_interference_and_force_displacement",
+    "lip_and_shaft_friction",
+    "seating_impulse_or_tap_energy",
+    "grasp_contact_and_reaction_friction",
+    "loaded_joint_pose_and_tool_COM"
+  ],
+  "requires_site_inventory": false,
+  "required_sites": [],
+  "evidence": {
+    "CHARM265": {
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/265.html",
+      "kind": "Attributed reproduction: oil lip, actual SST/hammer, rear-face datum"
+    },
+    "CHARM4278": {
+      "url": "https://github.com/Kmberry1989/Elantra/blob/0f7b23efdcf6ecc48919fb781be7e95a1b8f0f06/2013%20Hyundai%20Elantra%20L4-1.8L/pages/4278.html",
+      "kind": "Attributed part identifier; no dimensions/current supersession"
+    }
+  },
+  "known_numeric_geometry": {
+    "source_flush_nominal_axial_offset_m": {
+      "value": 0.0,
+      "unit": "m",
+      "status": "source_bound",
+      "source_ref": "CHARM265",
+      "limitation": "Nominal datum only; no allowable numerical band or actual source-bound case/housing geometry."
+    }
+  },
+  "source_limit": "The new hemanual links are unread403; same procedure/applicability cannot be assumed.",
+  "candidate": "N044",
+  "geometry_inputs": {
+    "VIN_matched_seal_section_OD_ID_width_and_orientation": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "actual_block_rear_face_housing_crankshaft_and_flange_hulls": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "SST_driver_and_handle_full_hulls": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "ordinary_hammer_shape_mass_and_strike_path": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "normal_engine_support_and_world_pose": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "seal_driver_hammer_grasps_and_reaction_surfaces": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    },
+    "physical_flush_and_tilt_measurement_resolution": {
+      "value": null,
+      "unit": "SI geometry/hulls as described",
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "force_inputs": {
+    "case_interference_and_force_displacement": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "lip_and_shaft_friction": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "seating_impulse_or_tap_energy": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "grasp_contact_and_reaction_friction": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    },
+    "loaded_joint_pose_and_tool_COM": {
+      "value": null,
+      "status": "missing",
+      "source_ref": null
+    }
+  },
+  "path": null,
+  "targets": null,
+  "static_obstacles": null,
+  "moving_body_sweep_envelopes": null,
+  "declared_contact_interfaces": []
+}
