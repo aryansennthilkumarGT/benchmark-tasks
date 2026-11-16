@@ -1,0 +1,524 @@
+# Additional food-appliance source screening
+
+10 additional real procedures screened. Ninja has one detailed reserve dossier, no new final recommendation. Simple paired beaters/dispenser flap/caps were not promoted. Root retains Chefman handle and Oster ring from original food ledger.
+
+## Ten operations
+
+|ID|Real procedure|Read original source|Disposition|Reason|
+|---|---|---|---|---|
+|E01|Ninja BL610: seat pitcher lid and fold its locking handle|[manual091, printed12-13; physical PDF9](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/091_blender_en_fr_sp/091_EN.pdf)|DEEP HIGH-RISK RESERVE|RealAppliance same model explicitly includes close(lid); physical handle/catch execution differs from its planning score but endpoint overlap must remain visible. Internal handle/latch linkage not dimensioned.|
+|E02|BLACK+DECKER MX1200: fit the left/right wire-beater pair|[manual051, How to Use, unnumbered English page after parts list](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/051_mixer_en/051_EN.pdf)|SOURCE-BACKED RESERVE|Ordinary household scenario but comparatively simple keyed tool insertion. Internal catch topology unshown; no generic spring latch invented. #2185 bakery beater is real bayonet neighbor, not exact same pairing.|
+|E03|DASH DBM150: refit and rearm ingredient dispenser|[manual072, printed16-17; physical PDF9](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/072_breadmaker_en/072_EN.pdf)|HIGH-RISK RESERVE|Authentic node/door sequence, but niche bread-maker feature weak under first-hand societal criterion; node function/retention not source-dimensioned.|
+|E04|Ninja Flip toaster oven: flip upright for storage|[manual088, printed9-10 Cleaning/Maintenance & Storage](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/088_oven_en/088_EN.pdf)|REJECT scale/importance economy|Source-backed real operation; moves entire oven and accessories. Whole-appliance mass/hinge/base reaction not established; cannot assert YAM payload clearance or miniaturize it.|
+|E05|Panasonic SR-DL101/SR-DL151: refit warming cap with gasket|[manual012, printed10, visually read original Chinese diagram](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/012_ricecooker_ch/012_CH.pdf)|REJECT low distinctiveness|Real routine operation, but simple cap/gasket insertion lacks exceptional new physical ability relative to occupied retention/plug families.|
+|E06|Panasonic NW-CW10-D baby-food cooker: refit glass-lid seal|[manual010, printed10, visually read original Chinese diagram](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/010_ricecooker_ch/010_CH.pdf)|REJECT near ring-seating family|Genuine routine source, but another large gasket-seating operation would repeat the stronger Oster retention concept without added consequence or ability.|
+|E07|Chefman RJ07-45-SS-PM: refit heating/control module in guides|[manual080, printed8, BEFORE FIRST USE step5; prior scoped original source](../food_warehouse/appliance-manuals/080_EN.pdf)|EXCLUDE same product portfolio|Real rigid rail-guided insertion with true seating/interlock endpoint. Root keeps fryer handle, so this is not counted as a second unrelated final task from same product.|
+|E08|Chefman RJ31-SS-V2: push to release crumb tray, then withdraw it|[manual042, printed5, Cleaning & Maintenance step3; physical PDF6](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/042_toaster_en/042_EN.pdf)|SOURCE-BACKED HIGH-RISK RESERVE|Genuine household maintenance with push-to-release behavior. Manual does not expose catch topology (do not assert heart cam), and thin low tab may defeat stock YAM palm purchase. No final promotion.|
+|E09|Vitamix 5200: lock the two-part lid and correctly insert tamper|[manual086, Parts/Features and Use/Tamper guidance](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/086_blender_en/086_EN.pdf)|REJECT low distinctiveness|Known household workflow, but lid/cap operations and shaft insertion offer weak distinction from existing food-processor/lid tasks. Do not invent an internal blade-bearing repair.|
+|E10|Chefman RJ56-PB-V2: remove and reseal ice-maker drain plug|[manual025, printed12 Keep It Clean](https://github.com/gaoyz1235/RealAppliance/blob/fb7bd3c6ad7e26472d89719efe55d281cff8c528/manuals_pdfs/025_icemaker_en/025_EN.pdf)|REJECT low mechanical complexity|Authentic regular household workflow but simple plug insertion, with liquid leakage essential for meaningful outcome; weaker than source-backed mechanical finalists.|
+
+## Ninja BL610: detailed reserve
+
+**HIGH-RISK RESERVE —71/100.** Not counted as an additional final task. Root retains only Chefman handle and Oster ring from food branch. No independent strong second extension met threshold.
+
+The original manufacturer manual establishes the user-facing mechanical topology: orient/seat the detached lid with its handle upright, then fold the handle down so lid catches fit under pitcher tabs. Exact hidden cam geometry is not supplied. A bounded access experiment can use honest outer-envelope ranges and preserved tab/catch interference; it cannot certify the product or replace retention with a pose trigger.
+
+**Existing external overlap is explicit:** RealAppliance model091 includes `close(lid)` on the same Ninja. Its measured output is an atomic-action plan/next action, while this proposal concerns continuous physical handle/catch execution. This distinction may matter, but no acceptance/novelty clearance is claimed.
+
+### importance
+
+{
+  "person": "Household cook replacing blender lid after filling or washing",
+  "real_outcome": "Broad lid correctly seated and captured against lift before appliance use",
+  "why_it_matters": "Recognizable household blender preparation, with two separable user-facing operations: lid seating and handle-driven locking. No niche repair, no borrowed occupation totals.",
+  "strict_objection": "Many households know blender lids firsthand; fewer use this exact locking-handle model. Importance is plausible but not independently proved by familiar object alone."
+}
+
+### authentic inventory
+
+[
+  {
+    "component": "Original NinjaBL61030 pitcher",
+    "known_material_size": "72oz/2.1L, BPA-free clear polymer; manufacturer resin grade/exact envelope/mass not given in read pages",
+    "initial_state": "Dry, empty, mounted/locked on original unplugged motor base; original blade properly seated before task begins",
+    "essential_interfaces": "Rim seating datum, orientation arrow/pour-spout corner, pitcher tabs matching lid catches"
+  },
+  {
+    "component": "Original detachable lid assembly",
+    "known_material_size": "Rigid polymer approximation; original pivoted locking handle, latch elements and release button. Exact handle/latch dimensions and hidden linkage not documented",
+    "initial_state": "Detached on ordinary counter, handle upright; pour-spout cap closed",
+    "essential_interfaces": "Lid perimeter seat; physical latch elements must enter beneath matching pitcher tabs when handle folds"
+  },
+  {
+    "component": "Original stacked blade and base",
+    "known_material_size": "Unpowered metal blade/polymer shaft assembly and original base. No operation of motor, no food/fluid required for closure sub-operation",
+    "initial_state": "Installed normally; robot does not touch blade",
+    "essential_interfaces": "Preserve blade-to-lid clearance and base/pitcher support; do not omit interfering geometry"
+  },
+  {
+    "component": "Counter and ordinary support",
+    "known_material_size": "Normal table, no custom jig or enlarged grip tab",
+    "initial_state": "Base free on counter, source normal orientation",
+    "essential_interfaces": "One hand may steady original pitcher handle/body; counter carries weight"
+  }
+]
+
+### instruction
+
+Put the lid on the pitcher with its handle upright, align the arrows and fully seat the rim. Fold the locking handle down so the latches catch beneath the pitcher tabs. Leave the pour-spout cap closed and both hands clear.
+
+### core ability
+
+Mechanically coupled lid seating and handle-actuated under-tab capture. No bayonet yaw motion, no over-center force-peak assumption, no success-on-pose latch flag.
+
+### authentic topology vs approximation
+
+{
+  "verified_topology": [
+    "Detachable lid seats with handle raised",
+    "Handle rotates down on a visible hinge",
+    "Lid latch elements end beneath pitcher tabs and resist lid lift",
+    "Release button/handle lifting permits removal"
+  ],
+  "permissible_bounded_engineering": [
+    "Smooth unimportant shell details, approximate lumped masses and friction disclosed",
+    "Conservative scale range for outer lid/pitcher/handle envelope, tied to2.1L product drawings; do not label nominal values OEM dimensions",
+    "A causal representative contact linkage may support a CPU planning experiment if clearly labeled, with actual latch/tab interference and passive retention. It is not automatically faithful to unknown hidden OEM cam geometry."
+  ],
+  "forbidden": [
+    "Attaching lid when center/yaw is near target",
+    "Turning off lid/pitcher collisions to permit assembly",
+    "Using handle angle alone as evidence of retention",
+    "Inventing an over-center spring because swing-top competitor has one",
+    "Transferring newerBN700C anti-fold interlock behavior toBL610 without revision-specific proof"
+  ]
+}
+
+### physical scoring
+
+{
+  "initial": "Detached original lid, handle raised, pour cap shut; dry pitcher/base/blade already in normal state, power unplugged.",
+  "partial": "0.5 if lid correctly oriented and fully rim-seated with handle still raised, no robot support for2s; otherwise0 until an independently stable stage exists. A proposed2mm rim gap is an authored benchmark threshold to validate against actual hardware, not OEM tolerance.",
+  "full": "1.0 requires full rim seating, handle in original closed detent, every matching latch captured beneath its pitcher tab, pour cap shut, both hands at least50mm clear2s. Evaluator holds pitcher body and gently attempts to lift lid at its rigid edges without touching release/handle: lid remains retained. Then OEM release allows normal removal to prove it is not wedged. Pull-force limit must be chosen from measured original behavior; no fabricated manufacturer torque/force.",
+  "measurement": "Ruler/side photos for rim height and handle posture, transparent-pitcher views for accessible latch overlap, and manual edge-lift/release check. Do not demand invisible internal flags or use a powered motor test as retention proxy.",
+  "invalid_damage": "Broken/bent catches, cracked lid/pitcher, forced rim wedging, added glue/ties, destructive blade contact or powered motor invalidates score.",
+  "wrong_solutions_prevented": [
+    {
+      "wrong": "Close handle while lid stands on rim or wrong corner",
+      "prevention": "Correct arrow/spout orientation, rim height and edge-lift retention required."
+    },
+    {
+      "wrong": "Rest lid correctly but never actuate catches",
+      "prevention": "Physical under-tab capture plus independent released retention check."
+    },
+    {
+      "wrong": "Press lid down with gripper throughout endpoint",
+      "prevention": "50mm hands-clear interval and evaluator proof after release."
+    },
+    {
+      "wrong": "Trap lid by force/wedge instead of latches",
+      "prevention": "Damage check and normal OEM release/removal path must remain possible."
+    },
+    {
+      "wrong": "Only move handle to a geometric target",
+      "prevention": "Handle posture alone receives no full credit; catches must physically resist edge lift."
+    }
+  ],
+  "reset": "With machine unplugged, press original release and lift handle, remove lid normally, return detached lid and original pitcher/base to fixed counter poses. No consumables."
+}
+
+### closest official competitors
+
+[
+  {
+    "family": "close-a-swing-top-bottle",
+    "head": "c82d718b83f44a49ed9e7bdb2a49d8434563e103",
+    "accepted_latest_commit": "82e39c486077c3d3723848a2fcf0eb4ffd3b192a",
+    "files": [
+      {
+        "path": "tasks/close-a-swing-top-bottle/README.md",
+        "sha256": "c03c759d7954a2ea11be8ca5a4e6703a7bd4db827205bb2619ff2a7a6ae3bdff"
+      },
+      {
+        "path": "tasks/close-a-swing-top-bottle/bottlekit.py",
+        "sha256": "d8cf845ba6959447a12c500bd9009078e15b44144c26148146ef506d944bf68f"
+      },
+      {
+        "path": "tasks/close-a-swing-top-bottle/demo.py",
+        "sha256": "91858d1484ec6dd30e7df20607e1d4423f0d8a730e50a943fbb5d6164b5b468e"
+      },
+      {
+        "path": "tasks/close-a-swing-top-bottle/task.json",
+        "sha256": "b32d667d1acfb2768cd7d27d571dece669d13cc64116f6c6350cc897f9e42ecb"
+      },
+      {
+        "path": "tasks/close-a-swing-top-bottle/task.py",
+        "sha256": "a9f1d5d324861071751f5421cf63513f95eee89f846ae2ec73f10368c92b932c"
+      },
+      {
+        "path": "tasks/close-a-swing-top-bottle/test_scoring.py",
+        "sha256": "59c6324a1d06fb880c60527b3debb9fb359f97268fba87093aab6e31c23da9a5"
+      }
+    ],
+    "current_state": "Accepted in official main",
+    "semantic_comparison": "Actual task seats a separate stopper then moves a neck-mounted wire-bail lever through an over-center peak to clamp a bottle. Its task.py/bottlekit.py scorer requires past-center with stopper seated and released upright bottle. Ninja has one detachable broad lid and a central hinged handle actuating latches under pitcher tabs; source does NOT establish over-center peak. Same general close-then-lever pattern is insufficient by itself, but setting/outcome closeness remains a novelty concern."
+  },
+  {
+    "family": "detent-latch-bottle",
+    "head": "c82d718b83f44a49ed9e7bdb2a49d8434563e103",
+    "accepted_latest_commit": "6d99a93ee28b2b885f5065e0c374bedf317074df",
+    "files": [
+      {
+        "path": "tasks/detent-latch-bottle/README.md",
+        "sha256": "134a688da95a933ceba01976e44b681995a4509e62e208333a2a40ca603331a8"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/check_submission.py",
+        "sha256": "a105f9186a400c2d85503ff226395fcbf35dda12b9f482940dc017fa9c10f1d3"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/__init__.py",
+        "sha256": "63938a393542cf4a344ecab63d0c98c0ec4e21e2d49c91e996720a4ae904b211"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/bottle_model.py",
+        "sha256": "78d27cf13301c4c4cfc42466a8d0798afc46cba2fb097d299c7ca35e9db66ea0"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/environment.py",
+        "sha256": "7fb44034d7a3ac618c18f92f32c3aee9627f09d6d2d47c554e987268efabd207"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/inspect_adapter.py",
+        "sha256": "fe71306332c73b98f57476a915464b65aa0492f5143e77056fb425fa26706f83"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/reference.py",
+        "sha256": "1893c019bdc5833bfdb30cd8731117d475ac644ea2a3004974399dcda879c17b"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/rendering.py",
+        "sha256": "fc4ba95ff192923c23a21113c7d09ab8ff13ea3fe615f2f968e1a1e0024d7a3b"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/robot_model.py",
+        "sha256": "afe94b7a9c085ba584f2b02aa89ae33b4d63b8f98be5d443b98f01975908ac3c"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/run.py",
+        "sha256": "7598c592e21077eec32014a390210ccb608012c45ed0442ae59e78a74813b6ad"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/scene.py",
+        "sha256": "b91556c73844da720760761b1ea535807881815f2b0f2d12057b1fa56c49a1ac"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/scoring.py",
+        "sha256": "3bcd49cb5917a397c879e03b5d9843c3b8214728e413ae9b7bcf34b016e78eeb"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/detent_bottle/support.py",
+        "sha256": "ad977d668b06fb332ecbf51d3f18c58d2732bc6ca6ec92679ff7f0da804deda9"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/provenance.json",
+        "sha256": "c7b2cbda165a922f760f970b57c62abb5f5624981c65a838f7f44453bb466114"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/run.py",
+        "sha256": "24b62b3544bfe486e7f3e198b7315474ae1bdcd524fb99301f7f3100cb5fbfd4"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/task.json",
+        "sha256": "2165597e12d1021742784ceedd045959eaa2ba7649b7159e5f23a00d94978ac9"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/task.mujoco-reference.json",
+        "sha256": "ef1fa4f58d3b8d3c741ba06757ac91154a23cad022d2b9f858604a287f70e330"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/task.py",
+        "sha256": "0f3f24e393efa3562c6549ed8d96dd0b867d54a0a19ee7e31390b419ff7330bc"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/test_inspect_adapter.py",
+        "sha256": "20793583c9a0438c6ddc14b7017be5bc2d8d46c7da18a497c701804d4321dce0"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/test_support.py",
+        "sha256": "644f18e66e07a3be539f2f7f984b0ae360da092efd2039ae9102b15fe60435d8"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/test_task.py",
+        "sha256": "1dfdaf90a6bd1452a65a137344af8850411d0b511f94092040607975dcac4fc0"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/verification.json",
+        "sha256": "794673c09c2521c9c281668c1071eca394c8b221f8566c3efe1cf31c05b418b3"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/analyze_evaluation.py",
+        "sha256": "e60fd07d3944d17407862a54475bd25ad42794c1503d298c5e101dad162cbe35"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/audit_press_only.py",
+        "sha256": "cfadaf021d3c45c0008e726986fe25e195ede6130d04350704aba267768ed32a"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/bottle_runtime.py",
+        "sha256": "7962c967a20c46365412d982cb35fffe508b38b6dc2e75435e1df0f6c78a4ef4"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/bottle_usd.py",
+        "sha256": "2c735626154e15c0313bce4bf56cc4741da25dd20765b96159a6b164d3574682"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/check_reach.py",
+        "sha256": "a3622639e78e54e7a0ffa7dc4b902aaf2479c6655e04f2600c899e618ab6e8b6"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/dream1-initial-verification.json",
+        "sha256": "95c8a5a5e259cf3d75392fc56969e8098272f4c359b8a0788896cf38d423c0a2"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/dream1-verification.json",
+        "sha256": "401a26e6cddd89fa34e157ee7e749f4c43ea67611f0aec9da090dd2b25658390"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/dream_continuity.py",
+        "sha256": "e7943ee76a2979a1f6c1af32d28d65864fe50a6afd9c0892856dbb381bfe6c63"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/motion.py",
+        "sha256": "3910f067d4d376401244b22d57ea81bb23b42b59078fa641d478831144403a15"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/probe.py",
+        "sha256": "796d7b8e32a6ee41a3010af05d7688dc289a23e9ea14a9881137c62d6b719a33"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/submission-audit.json",
+        "sha256": "685defdab00bf3b5a00616813f29a7d9c63347c0b03123d53930666f4dd56bf0"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/task.py",
+        "sha256": "848473f4fe2503e58ea34a5503d0237c74c82bec12db27d09b1c49a983b1e854"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/test_continuity.py",
+        "sha256": "e8b58e02e068f2e412b8fcfc54ed7dd9df8f96dba5eb93ae8b52bcb97ad5240b"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/test_contract.py",
+        "sha256": "e46afa1340e37979d00137f1604bc1181588aa2a973254a3e95eb829f8e4f93a"
+      },
+      {
+        "path": "tasks/detent-latch-bottle/yam/verification.json",
+        "sha256": "cce2a11a4d0564ccf74088a030642d0cd4271a9a1a92ebf5896be1284b636378"
+      }
+    ],
+    "current_state": "Accepted in official main",
+    "semantic_comparison": "Actual bottle opening requires releasing a U safety loop, pressing a spring-return rocker hook and allowing hinged lid to spring open. Native contact hooks/loop and lid/rocker springs plus angle/upright scoring were read. Ninja closes a detached lid by folding a single handle; no independent safety loop and no opening a spring-hinged lid."
+  },
+  {
+    "family": "dual-latch-lid",
+    "head": "c82d718b83f44a49ed9e7bdb2a49d8434563e103",
+    "accepted_latest_commit": "ffbabf7f24b9839d9f9451afc4c67f6756bff2a6",
+    "files": [
+      {
+        "path": "tasks/dual-latch-lid/README.md",
+        "sha256": "fd5e221a671a89381683ce1792c350c090d807a85034c814b23b438da09bd497"
+      },
+      {
+        "path": "tasks/dual-latch-lid/demo.py",
+        "sha256": "4d7a8c8b0136bc42ae19881dfb0b13ed7e1e7df1f2f6a2c99663ee1241c837c0"
+      },
+      {
+        "path": "tasks/dual-latch-lid/partkit.py",
+        "sha256": "fee11c77e04d2aa0a981215b335919a8bec9dba8760ed40feaa82bdd6a36b424"
+      },
+      {
+        "path": "tasks/dual-latch-lid/task.json",
+        "sha256": "dcdf9da299dfebe1697e9d4e2590a5d30aa1d56ed19a22b3adcde27b84245a08"
+      },
+      {
+        "path": "tasks/dual-latch-lid/task.py",
+        "sha256": "be1cb6b45b4641f17c8d31cae5ba835b0cc93a2c324b1e542afeb6ff5c335ac8"
+      }
+    ],
+    "current_state": "Accepted in official main",
+    "semantic_comparison": "Actual rigid enclosure lid has two independent opposed spring sliders 20cm apart. Robot must retract both simultaneously while lifting; score counts one/both release, elevation and placed lid. Ninja couples lid catches to one central handle. Different coordination and source equipment, though both rely on lid catch/slot retention."
+  },
+  {
+    "family": "snapfit-close",
+    "head": "c82d718b83f44a49ed9e7bdb2a49d8434563e103",
+    "accepted_latest_commit": "266d8584d82425eea1514a2e2fb9bbf471b1157b",
+    "files": [
+      {
+        "path": "tasks/snapfit-close/README.md",
+        "sha256": "a3bca776751de5d57568043f4a1fe49ee62d256a8d8f9c9e761a85b54b9a1bba"
+      },
+      {
+        "path": "tasks/snapfit-close/demo.py",
+        "sha256": "ae819be90d20270156cf66582a234dc54d2e44192be12c725e5a5a53602f29c9"
+      },
+      {
+        "path": "tasks/snapfit-close/partkit.py",
+        "sha256": "79ad085abbe1e480d9880e45864cbda4bcdbda8c98a8c4bae6d7e5f082aefceb"
+      },
+      {
+        "path": "tasks/snapfit-close/task.json",
+        "sha256": "934cf03d2284661e9a8a6a1b9384f1c061ac4cf5e4ac8524d131cc5a8963b947"
+      },
+      {
+        "path": "tasks/snapfit-close/task.py",
+        "sha256": "a37fbfbec7d74f255250e2f00306217c187510174cdb41631cc9ef285a447d27"
+      }
+    ],
+    "current_state": "Accepted in official main",
+    "semantic_comparison": "Actual snap-case closure presses flexural corner catches and scores released retained lid. Ninja must move a separate operating lever after seating; snapping lid down alone is insufficient. Mechanical retention still must be implemented physically, not granted on handle pose."
+  },
+  {
+    "pr": 1760,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/1760",
+    "current_state_at_retrieval": "Closed",
+    "head": "4cdbb76a3d72ba0d28d922209801ee2449354a02",
+    "actual_files": [
+      {
+        "path": "tasks/assemble-a-mini-chopper-so-it-runs-then-pulse-it-once/README.md",
+        "sha256": "04506bb5fcd0e3bb82008de6c3f2a14848db003f83342858e738e6fcf63b12e2"
+      },
+      {
+        "path": "tasks/assemble-a-mini-chopper-so-it-runs-then-pulse-it-once/assemble_a_mini_chopper_so_it_runs_then_pulse_it_once.py",
+        "sha256": "257ded77f3b8deecd22968883c391fffad7d424291bd05669d744d7c19df0537"
+      },
+      {
+        "path": "tasks/assemble-a-mini-chopper-so-it-runs-then-pulse-it-once/bodykit.py",
+        "sha256": "e2f994afff76cb25e76b1bc36c09a53ca5633b0a4511e11bd33807176d757939"
+      },
+      {
+        "path": "tasks/assemble-a-mini-chopper-so-it-runs-then-pulse-it-once/task.json",
+        "sha256": "cf33f3bd70586ad5e84c55d803db8dce63d7b6f2cdf6569bc99ff8fd15ae0a02"
+      }
+    ],
+    "semantic_comparison": "Closed earlier mini-chopper task (head4cdbb76a) inserts blade then bayonet-turns motor top and pulses. Actual task.json and main scorer use motor-top yaw/detent/pulse, not folding a lid handle."
+  },
+  {
+    "pr": 2021,
+    "url": "https://github.com/robocurve/benchmark-tasks/pull/2021",
+    "current_state_at_retrieval": "Closed",
+    "head": "06db6ba6e075966635d9f59d893093a3ed1449af",
+    "actual_files": [
+      {
+        "path": "tasks/lock-food-processor-bowl-and-lid/README.md",
+        "sha256": "0142bf9a494a6e8756a772a8e75e9db490e9e58cacf74c023029616268f85a04"
+      },
+      {
+        "path": "tasks/lock-food-processor-bowl-and-lid/demo.py",
+        "sha256": "d4e19c5d1bb16349513224949f53f8d5a28ba79400c854ad64080a823a1a1e05"
+      },
+      {
+        "path": "tasks/lock-food-processor-bowl-and-lid/fpkit.py",
+        "sha256": "e19719742b5fb88b7aa448db29c8b4faee3c051606db6a54f7d3e58e705cbc2b"
+      },
+      {
+        "path": "tasks/lock-food-processor-bowl-and-lid/geometry.py",
+        "sha256": "32aea03ca203b66311acb7740170aa7e707c8d000845ab12776f0ec3043054cf"
+      },
+      {
+        "path": "tasks/lock-food-processor-bowl-and-lid/task.json",
+        "sha256": "c475e2ce705bf77d3b1249c3d0398c3b1eb540c66b102092a16f1a629025dcd0"
+      },
+      {
+        "path": "tasks/lock-food-processor-bowl-and-lid/task.py",
+        "sha256": "1dab5a62c912a0557af24087f8f36792a8c5e34431f5b9f537f9deabffa6619c"
+      },
+      {
+        "path": "tasks/lock-food-processor-bowl-and-lid/test_task.py",
+        "sha256": "fd1f1f113338f87e7055e3fec1f5f643a234b1b233f3393cf81c7b632b97723b"
+      }
+    ],
+    "semantic_comparison": "Closed earlier processor task (head06db6ba6) locks bowl and lid by bayonet yaw with detents and interlock rod; source scoring checks lug overlap/yaw. It remains a legitimate same-setting comparison; Ninja lever actuation differs from rotational capture."
+  }
+]
+
+### external benchmark audit
+
+{
+  "evidence": "../critic/realappliance-extension-external-audit.json",
+  "repo": "https://github.com/gaoyz1235/RealAppliance",
+  "pin": "fb7bd3c6ad7e26472d89719efe55d281cff8c528",
+  "actual_overlap": "Same model091 has10 open-planning Task2 and7 next-action Task4 definitions; some explicitly include close(lid). Thus same object and endpoint already appear. Do NOT claim external endpoint absent.",
+  "ability_distinction": "Read benchmark definitions ask for strings from atomic actions such as pick/close/rotate; source model091gt_part exposes lid and controls, not separate operating handle/catches. The proposed task would test continuous physical acquisition, handle motion and passive retained contact. This is a potentially meaningful distinction, not a proved official novelty clearance.",
+  "hard_limit": "If evaluator regards this same familiar blender-lid closure as the same physical skill despite planning-versus-execution distinction, novelty fails. Portfolio omits Ninja rather than assume acceptance."
+}
+
+### yam
+
+{
+  "status": "PLANNING ONLY, no executed CPU, IK, reach, collision, grip-force or mechanism test.315 collision hulls per arm remain required.",
+  "grasp": "Pitcher loop/vertical bar for stabilizing hand; lid acquisition at original rim/pour-cap-free corner or raised handle only if its dynamics permit; folding stroke by original broad handle, no added tabs.93.9mm nominal jaw aperture does not prove purchase.",
+  "critical_paths": [
+    "Approach detached lid without forcing handle to rotate",
+    "Orient lid/spout above rim and descend past installed blade shaft",
+    "Release/regrasp if needed and sweep locking handle from upright to flat",
+    "Withdraw working fingers without opening pour cap or release button"
+  ],
+  "risks": [
+    "Palm under lid rim can hit pitcher before finger contacts settle",
+    "Working wrist and bracing hand collide around handle corner",
+    "Blade shaft/upper blade and lid underside must remain collision-active",
+    "Raised handle and release button leave limited safe purchase",
+    "No verified spring/cam reaction torque, contact clearance or original component mass"
+  ]
+}
+
+### bounded cpu preflight plan not run
+
+{
+  "purpose": "Determine access sensitivity for the known user-facing topology, without pretending OEM internal CAD or full clearance certification.",
+  "geometry": "Parameterize outer pitcher/lid/handle dimensions over source-proportion-consistent ranges; retain full installed blade/base obstacles and native robot hulls. Treat actual latch/tab contact envelope as unresolved local mechanism; do not weld lid.",
+  "observables": [
+    "Finger+palm+wrist clearance on lid acquisition",
+    "Second-arm clearance while stabilizing original pitcher handle",
+    "Reachable raised-to-flat handle sweep without forbidden collision",
+    "Whether feasible solutions survive outer-envelope and handle-width perturbation"
+  ],
+  "interpretation": "Successful bounded access cases only justify continued source/geometry work, not a verified product path or physics implementation. A collision across all plausible original-scale cases cheaply kills the candidate. Root did not select this for final CPU run."
+}
+
+### essential missing inputs
+
+[
+  "Actual number/placement and motion path ofBL610 latch elements, hidden handle linkage and detent/release coupling",
+  "Safe physical lid acquisition site at stock-YAM scale and actual masses",
+  "Resolution of same-model external close(lid) novelty objection"
+]
+
+### cheapest falsifier
+
+First reject under strict same-model external endpoint novelty if physical-versus-planning distinction is judged insufficient. Otherwise run bounded full-hull lid/handle approach and fold sweep; reject if no grasp survives plausible original-size envelopes. Exact OEM cam CAD is not required merely to run this bounded screen.
+
+### critic
+
+{
+  "strongest_rejection": "Same Ninja close(lid) appears in existing external benchmark; accepted swing-top/dual-latch/snap-case tasks already cover close/lever/latch outcomes.",
+  "resolution": "Actual mechanics differ from bayonet, wire-bail over-center and independent dual sliders. External measured ability is atomic-action planning. This supports a distinction but does not settle novelty; remains reserve."
+}
+
+### weighted components
+
+{
+  "importance_max20": 15,
+  "novelty_max25": 14,
+  "source_mechanism_max20": 16,
+  "yam_fidelity_max20": 14,
+  "scoring_economy_max15": 12,
+  "total": 71
+}
+
+## Portfolio reconciliation
+
+Original food_warehouse ledger source-gated labels are preserved. Root may justify bounded CPU preflight for Chefman/Oster from established essential topology and disclosed parameter ranges; that is a finite planning/contact test, not authenticated OEM geometry, verified YAM clearance or demonstrated task success.
+
+No task implementation, CPU test, GPU/model run, submission, purchase, commit or push performed.

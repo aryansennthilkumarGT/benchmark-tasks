@@ -1,0 +1,126 @@
+{
+  "checked_utc": "2026-11-16T19:21:10.274966+00:00",
+  "operations": [
+    {
+      "id": "EC31",
+      "operation": "YUBI rigid opposed-finger mechanism assembly",
+      "source": "Toyota/yubi-hw@dd8bd13d2fd8e5003057243576f88be333d95fc5 glove Step5 and gripper Steps3/7/8/9",
+      "procedure_read": "Full extracted manufacturer PDF text; actual named gears, shaft keys, bearings, washers, upper plate and torque instructions.",
+      "decision": "DO NOT NOMINATE",
+      "reason": "No overlooked rigid cam/trigger/catch beyond ordinary geared pivots, indexed horn/keyed shafts and bearing plate capture. Geared finger phasing overlaps actual existing robot-gripper gear assembly. Adding upperplate screws/multiple bearings does not establish distinct central ability.",
+      "comparators": [
+        {
+          "pr": 1898,
+          "head": "710c0182af256c2ba3c69f280171a0358cc15b41",
+          "current_state": "Open",
+          "checked_utc": "2026-11-16T19:19:32.307232+00:00",
+          "read_files": "task.json, README.md and central scene/scoring file sections",
+          "code_manifest": "competitor-code.json",
+          "comparison": "Open rack-and-pinion gripper task: phase toothed part onto free pinion so both fingers open symmetrically, then demonstrate actual coupled travel. YUBI spur gears differ geometrically, but same robot-gripper gear-phasing outcome creates strong semantic objection."
+        },
+        {
+          "pr": 1864,
+          "head": "75d200f90327bee4339c6ed82f34e5563abc24c0",
+          "current_state": "Open",
+          "checked_utc": "2026-11-16T19:19:32.308127+00:00",
+          "read_files": "task.json, README.md and central scene/scoring file sections",
+          "code_manifest": "competitor-code.json",
+          "comparison": "Open servo-horn spline indexing/axial press to zero mark; YUBI motor wheel engraved-mark step is not a new family."
+        },
+        {
+          "pr": 836,
+          "head": "1418835a339d23235b85931e0e29e9a74930361e",
+          "current_state": "Closed",
+          "checked_utc": "2026-11-16T19:19:32.308977+00:00",
+          "read_files": "task.json, README.md and central scene/scoring file sections",
+          "code_manifest": "competitor-code.json",
+          "comparison": "Closed SO101 bracket/servo tight pocket insertion. YUBI controller sidebutton-notch seating may change object but lacks verified distinct physical retention ability."
+        }
+      ],
+      "ownership": "RB owns one YUBI No16 return-band family; no inverse/rigid variant counted as extra finalist."
+    },
+    {
+      "id": "EC32",
+      "operation": "Finger-seat32mm output bearing in an ODRI actuator shell",
+      "source": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_shell_preparation.md#installing-the-bearings",
+      "procedure_read": "Full source text says light press-fit; manual install/remove with moderate force; stainless output bearings32x25x4mm and transmission bearings8x4x2mm. Place horizontal and press with fingers. Genuine robot actuator assembly, not borrowed occupation.",
+      "decision": "DEMOTE; NOT FINALIST",
+      "reason": "Rigid mechanism/source is unusually tractable, but real bearing press-fit/load-path skill is close to legitimate existing bearing mounting. A different ring, housing and robot label do not automatically establish novelty. No actual force/hand/clearance test performed.",
+      "comparators": [
+        {
+          "pr": 995,
+          "head": "6fd1b5275c8e2e5ba23981e7f962b65fac945dd0",
+          "current_state": "Closed",
+          "checked_utc": "2026-11-16T19:19:32.306586+00:00",
+          "read_files": "task.json, README.md and central scene/scoring file sections",
+          "code_manifest": "competitor-code.json",
+          "comparison": "Closed task legitimately presses a bearing onto a shaft through fitted inner ring, avoiding balls. It starts bearing on shaft and tests load-path selection. ODRI housing fit loads outer ring and begins loose bearing. Differences are recorded; not treated as proved duplicate or active ownership block, but insufficient exceptional novelty demonstrated."
+        }
+      ]
+    },
+    {
+      "id": "EC33",
+      "operation": "InstallM2.5x3.75 Helicoil and remove its driving tang in a robot actuator shell",
+      "source": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_shell_preparation.md#installing-the-helicoil-inserts",
+      "procedure_read": "Full source text: use specified Helicoil tap, insertion tool and tang-break-off tool; stop tap at rising bottom resistance because printed threads strip easily; install fourM2.5x3.75mm coils and remove tangs, ensuring none stay inside part.",
+      "decision": "HIGH-RISK RESEARCH RESERVE; NOT FINALIST",
+      "reason": "Distinct thread-insert formation/tang removal, no exact helicoil PR hit, but helically elastic wire and fracture are essential; not a rigid ordinary-screw model. Tiny coil/tool contacts and thread geometry not source-dimensioned; three-tool manipulation plus tang collection requires costly mechanism proof. Merely declaring latched insert/removed tang from turn count would be invalid. Do not promote to satisfy quota.",
+      "cheapest_falsifier": "Obtain exact coil/tool contact geometry and verify stock tool grasp plus causal insertion/tang fracture before full simulation.",
+      "competitor_query": "queries-rigid-final.json helicoil0hits; thread-insert finds#1212 heat-set insert, a thermal embed mechanism.0hits is not exhaustive novelty proof."
+    },
+    {
+      "id": "EC34",
+      "operation": "Press-fit an ODRI compound pulley using actual matched toothed profiles",
+      "source": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_center_pulley_preparation.md#press-fitting-the-pulleys",
+      "procedure_read": "Full source text: apply Loctite648 to printed internal tooth profile, align aluminium pulley tooth pattern/centering hole, use published protection/assembly tools and arbor press or vise; finish flush and remove excess adhesive/scraped material.",
+      "decision": "DEMOTE; NOT FINALIST",
+      "reason": "Source-rich genuine robot manufacturing step; not belt winding. However press-fit forming plus adhesive cure/retention, tiny toothed profiles and press tool reaction add source/physics cost. Similar generic bearing/shaft pressing family; no exceptional novelty/stock-YAM proof established in bounded pass."
+    },
+    {
+      "id": "EC35",
+      "operation": "Load free thermal-transfer ribbon on a ZebraZT410 from supply spindle around printhead route onto take-up core",
+      "source": "https://www.zebra.com/content/dam/zebra_new_ia/en-us/manuals/printers/industrial/zt400/zt400-ug-en.pdf",
+      "procedure_read": "NOT READ. OEM PDF and support guide403; seven initial GitHub repository mirrors contain software/SNMP or are empty, not physical user manuals.",
+      "decision": "PROMISING BUT SOURCE-GATED; NOT FINALIST",
+      "reason": "No primary loading procedure, actual spindle retention, ribbon routing path, tension/wrinkle constraints, dimensions or model-specific inventory verified. Cannot invent hardware from memory. Exact occupational regularity also unverified: packaging employment/core label duty alone does not establish printer ribbon replacement is that group\u2019s routine work.",
+      "competitors": [
+        {
+          "pr": 2316,
+          "head": "e66e2594e26437baa9f0f875d1ac5a6285a01482",
+          "current_state": "Open",
+          "checked_utc": "2026-11-16T19:19:33.178019+00:00",
+          "read_files": "task.json, README.md and central scene/scoring file sections",
+          "code_manifest": "competitor-code.json",
+          "comparison": "Open PT-D600-class sealed rigid tape cassette exchange in keyed bay. Tape/ribbon internal to cassette; no free ribbon routing or separate take-up attachment. Do not call this an exact duplicate."
+        },
+        {
+          "pr": 2027,
+          "head": "60abf2f0239ec030f4c9301ff4d839a94dc0bb1a",
+          "current_state": "Closed",
+          "checked_utc": "2026-11-16T19:19:33.254000+00:00",
+          "read_files": "task.json, README.md and central scene/scoring file sections",
+          "code_manifest": "competitor-code.json",
+          "comparison": "Closed Epson receipt paper reload with free end toward exit. Same consumable context, but one paper roll in cradle rather than routed transfer-film supply/take-up web."
+        },
+        {
+          "pr": 1877,
+          "head": "5f30a6612e21667ce6604ecb958b8ff5b04cc703",
+          "current_state": "Closed",
+          "checked_utc": "2026-11-16T19:19:33.263229+00:00",
+          "read_files": "task.json, README.md and central scene/scoring file sections",
+          "code_manifest": "competitor-code.json",
+          "comparison": "Closed earlier receipt-printer reload version. Legitimate one-roll receipt feeding scope remains relevant despite disclosed rigid strip/sprung-cover simplifications; not evidence that ribbon web routing is already owned."
+        }
+      ],
+      "bounded_search_evidence": [
+        "zebra-direct-attempts.json",
+        "zebra-repo-search.json",
+        "zebra-mirror-searches.json",
+        "zebra-last-mirror-searches.json",
+        "queries-zebra-final.json"
+      ],
+      "cheapest_falsifier": "Original model-matched manufacturer loading manual through a legitimate mirror, then practical spindle/core retention geometry and actual packing-work frequency source. Root stopped this pass after source failure; no further retrieval attempted."
+    }
+  ],
+  "no_promotion": "No new finalist or build-ready claim; bounded extra discovery stopped per root steering."
+}

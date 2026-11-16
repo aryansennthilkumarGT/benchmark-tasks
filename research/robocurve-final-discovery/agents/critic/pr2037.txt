@@ -1,0 +1,332 @@
+Fit a keyed pulley on a shaft by girardijp3 · Pull Request #2037 · robocurve/benchmark-tasks · GitHub
+Skip to content
+Navigation Menu
+Sign in
+Products
+Platform
+GitHub
+Repository hosting, code review, and collaboration
+Copilot
+AI coding agent for tasks, projects, and automated work
+Build & Ship
+Actions
+CI/CD and automation
+Code Quality
+Quality analysis, fixes, and enforcement
+Codespaces
+Cloud development environments
+Secure
+Code Security
+Vulnerability detection and remediation
+Secret Protection
+Secret scanning and leak prevention
+All Features
+Developers
+Learn
+Documentation
+Training
+Certifications
+Build
+Build with Copilot
+Customize Copilot
+Integrations
+Explore
+Trending repos
+GitHub Sponsors
+Developer articles
+Changelog
+Changelog
+Your source for the latest features, improvements, and fixes across GitHub products, all in one place.
+Businesses
+By Stage
+Enterprises
+Team
+Startups
+Nonprofits
+By Industry
+Healthcare
+Financial services
+Manufacturing
+Government
+See all industries
+Evaluate GitHub
+Why GitHub
+Customer Stories
+Business insights
+Trust Center
+Add-ons
+GitHub Advanced Security
+Enterprise-grade code security
+Copilot for business
+Enterprise-grade AI features
+Premium Support
+Enterprise-grade 24/7 support
+Resources
+Learn & Connect
+Documentation
+Resource center
+Blog
+Events & webinars
+Community Forum
+Customer Stories
+Integrations
+Support
+Customer support
+Training
+GitHub Status
+Company
+About
+Partners
+Changelog
+GitHub Universe
+GitHub Universe
+The event for developers, by developers — talks, workshops, and what’s next for GitHub.
+Pricing
+Search
+/
+Sign in
+Sign up
+Appearance settings
+You signed in with another tab or window.
+Reload
+to refresh your session.
+You signed out in another tab or window.
+Reload
+to refresh your session.
+You switched accounts on another tab or window.
+Reload
+to refresh your session.
+Dismiss alert
+{{ message }}
+robocurve
+benchmark-tasks
+Repository navigation
+Code
+Issues
+1
+(
+1
+)
+Pull requests
+441
+(
+441
+)
+Actions
+Projects
+Security and quality
+Insights
+More
+items
+Fit a keyed pulley on a shaft
+- #
+2037
+#
+2037
+Closed
+girardijp3
+wants to merge 1 commit into
+robocurve:main
+robocurve/benchmark-tasks:main
+from
+girardijp3:shaft-key-pulley
+girardijp3/benchmark-tasks:shaft-key-pulley
+Copy head branch name to clipboard
+Conversation
+Commits
+1
+(
+1
+)
+Checks
+Files changed
+Closed
+Fit a keyed pulley on a shaft
+#
+2037
+girardijp3
+wants to merge 1 commit into
+robocurve:main
+robocurve/benchmark-tasks:main
+from
+girardijp3:shaft-key-pulley
+girardijp3/benchmark-tasks:shaft-key-pulley
+Copy head branch name to clipboard
+Conversation
+girardijp3
+commented
+Nov 14, 2026
+•
+edited
+Loading
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+Copy link
+Copy Markdown
+Contributor
+Fit a keyed pulley on a shaft
+Task board:
+TK-ZSRSAK
+Media:
+M-NE959U (the setup screenshot, the Dream-1 run and the scripted demo are on the task board under this ID)
+Category:
+Impact on jobs
+Run limit:
+2,400 steps (2 minutes at 20 Hz)
+Task:
+Put the yellow key in the shaft's keyway, then slide the aluminium pulley onto the shaft over the key, up against the shoulder, and let go of everything.
+Description:
+Fitting a keyed pulley, sprocket or coupling hub on a shaft is routine machinery maintenance for general maintenance and repair workers (O*NET 49-9071), industrial machinery mechanics (49-9041), millwrights (49-9044) and HVAC mechanics (49-9021). The parts are true scale: a DIN 6885 parallel key (8 x 7 x 40 mm, 17 g) in 8.2 mm keyways (0.1 mm a side), a 25 mm steel shaft in a 25.5 mm bore (0.25 mm a side), an 80 mm aluminium V-belt pulley (217 g). The shaft turns freely in a pillow-block bearing and a hand crank on its end hangs down, so at rest its keyway faces the robot: one hand has to turn the crank and hold the keyway up while the other lays the key in, lines the pulley's keyway up with it and slides the pulley home against the shoulder.
+What is new against the board:
+the skill is a two-part keyed fit on a shaft that is free to turn. The shaft is a pendulum: let go, its keyway swings round to face the robot and a key laid in it falls out. So one hand has to find the crank, turn the shaft a quarter turn and hold it there against gravity while the other hand places a separate loose part (the key) into an open keyway, and then turns a second part (the pulley) about its own axis until its keyway lines up with that key (0.1 mm a side) before sliding it home on a 0.25 mm fit. Nearby accepted tasks test single-part fits on fixed shafts or housings:
+#1800
+slides one sleeve into a fixed housing and turns it to register a port, with nothing turning under it and no second part to place;
+#1113
+feeds a hex shaft through two bores, where the hex itself sets the angle and no key is involved. Pending
+#1864
+(another team, being revised) presses a horn straight onto a fixed splined servo shaft with one hand: the spline is part of the shaft. Here the angle is set by a separate key the robot places itself, and the shaft must be counter-held throughout, as a mechanic does when keying a pulley, sprocket or coupling hub.
+Scores:
+Dream-1 run: 0.0 (both arms reached out over the shaft stand and stayed there, the left one nudging the crank once; neither picked up the key or the pulley); demo: 1.0 (all four steps and the parts still from step 1125, held 1 s: 1.0 at step 1145)
+Setup
+Dream-1 run (GIF at 2x speed)
+Scripted demo (GIF at 2x speed)
+Scoring: four steps, 0.2 each
+Step
+Done when
+1. Key in the shaft's keyway
+on the keyway's floor (within 0.5 mm), within 0.5 mm of its middle line, lined up with the shaft, ends inside the keyway; not held
+2. Pulley started
+with step 1, the pulley's bore around the shaft (axes within 1 mm and 3 degrees), at least 10 mm on
+3. Pulley home
+with step 2, its face within 2 mm of the shoulder and the key inside the pulley's keyway too
+4. Released
+with step 3, no gripper holds the pulley and both are at least 3 cm from the key, the pulley and the crank handle
+Score
+When
+1.0 (ends the run)
+every full-success condition has held together, without a break, for 1 s: all four steps (so both hands have let go and are clear), nothing off the table, and the key, the pulley and the shaft each within 2 mm and 2 degrees of where they were when that second began
+0.2 per step, at most 0.8
+otherwise, including while that second is being timed
+0
+the key or the pulley off the table, or a state that is not finite
+The 1 s is timed in the task file itself: every control step,
+_Progress
+notes when the full-success conditions first held together and the parts' poses at that moment, and any lapse (a step undone, a gripper back within 3 cm, the key, the pulley or the shaft moved more than 2 mm or turned more than 2 degrees) clears it, so the second starts over.
+success()
+and
+score()
+return 1.0 only once that second is complete;
+SUCCESS_HOLD_S
+is 0, so the run ends on that same step. The tests check no 1.0 after 0.95 s and 1.0 at 1 s, that a lapse restarts the second, and that 1.0 is never reached over 3 s while any one condition is missing (9 cases). A pulley pushed home without the key, or with its keyway off the key, scores nothing for steps 2 and 3.
+Top camera, 20 Hz control, 240 Hz physics. Run commands, the demo's timeline, assets and the real-station build are in the task's README.
+Sorry, something went wrong.
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+All reactions
+Add shaft-key-pulley task
+1e5c334
+achyutha11
+commented
+Nov 14, 2026
+Copy link
+Copy Markdown
+Collaborator
+Received as
+TK-ZSRSAK
+, and waiting for review. The decision will be posted here: accepted tasks are merged, and tasks not accepted get feedback here, and you can push a revision to this pull request. Please don’t merge this pull request yourself.
+All reactions
+Sorry, something went wrong.
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+achyutha11
+commented
+Nov 15, 2026
+Copy link
+Copy Markdown
+Collaborator
+Not accepted: final
+(TK-ZSRSAK).
+Flags: Duplicate of
+TK-UG9SYY
+, an earlier task by another team
+Importance (not met): Keyed-pulley assembly is relevant to general maintenance workers, but the same key seating and pulley fitting are already tested by an earlier task.
+The submission tests keyed-pulley assembly without a sufficiently distinct physical skill for this benchmark.
+If you think this misjudges your task, reply on this pull request within 48 hours and a person will review it.
+This task doesn’t meet the importance bar, so it can’t be revised, and this pull request is now closed. You’re welcome to submit a different task in a new pull request.
+All reactions
+Sorry, something went wrong.
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+achyutha11
+closed this
+Nov 15, 2026
+achyutha11
+added
+  the
+Not accepted: final
+label
+Nov 15, 2026
+This file contains hidden or bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+Learn more about bidirectional Unicode characters
+Show hidden characters
+Sign up for free
+to join this conversation on GitHub
+.
+    Already have an account?
+Sign in to comment
+Reviewers
+No reviews
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+Assignees
+No one assigned
+Labels
+Not accepted: final
+Projects
+None yet
+Milestone
+No milestone
+Development
+Successfully merging this pull request may close these issues.
+Uh oh!
+There was an error while loading.
+Please reload this page
+.
+2 participants
+Add this suggestion to a batch that can be applied as a single commit.
+This suggestion is invalid because no changes were made to the code.
+Suggestions cannot be applied while the pull request is closed.
+Suggestions cannot be applied while viewing a subset of changes.
+Only one suggestion per line can be applied in a batch.
+Add this suggestion to a batch that can be applied as a single commit.
+Applying suggestions on deleted lines is not supported.
+You must change the existing code in this line in order to create a valid suggestion.
+Outdated suggestions cannot be applied.
+This suggestion has been applied or marked resolved.
+Suggestions cannot be applied from pending reviews.
+Suggestions cannot be applied on multi-line comments.
+Suggestions cannot be applied while the pull request is queued to merge.
+Suggestion cannot be applied right now. Please check back later.
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Community
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+You can’t perform that action at this time.

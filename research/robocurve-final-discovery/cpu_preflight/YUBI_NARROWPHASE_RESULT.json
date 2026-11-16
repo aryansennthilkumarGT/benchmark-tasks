@@ -1,0 +1,41 @@
+{
+  "kind": "OCCT narrow phase of best static case from same bounded screen",
+  "case": {
+    "yaw_deg": -90,
+    "hook_ahead_of_tcp_mm": 25.0
+  },
+  "source_parts": 46,
+  "pairs": [
+    {
+      "source_occurrence": 1,
+      "robot_link": "tip_left",
+      "robot_hull": "tip_left:15",
+      "source_solid_valid": true,
+      "hull_solid_valid": true,
+      "common_volume_mm3": 0.0,
+      "minimum_surface_distance_mm": 1.48531641387349,
+      "interpretation": "separated in exact model"
+    },
+    {
+      "source_occurrence": 14,
+      "robot_link": "tip_right",
+      "robot_hull": "tip_right:5",
+      "source_solid_valid": true,
+      "hull_solid_valid": true,
+      "common_volume_mm3": 26.39522092699623,
+      "minimum_surface_distance_mm": 0.0,
+      "interpretation": "actual source-solid overlap"
+    },
+    {
+      "source_occurrence": 14,
+      "robot_link": "tip_right",
+      "robot_hull": "tip_right:8",
+      "source_solid_valid": true,
+      "hull_solid_valid": true,
+      "common_volume_mm3": 0.0,
+      "minimum_surface_distance_mm": 1.2412670766236365e-13,
+      "interpretation": "touching/numerically unresolved"
+    }
+  ],
+  "scope": "Only resolves the source-envelope overlaps in this one pose. Does not certify any grasp, path, band routing, actual material or force."
+}

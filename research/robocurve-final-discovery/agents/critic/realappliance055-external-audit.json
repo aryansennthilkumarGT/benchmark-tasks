@@ -1,0 +1,804 @@
+{
+  "task_2_open_planning.json": [
+    {
+      "id": "055_oven_en_fr_sp_plans_0",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven and potato on the table now. please plan how to put potato in the oven."
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)\npick(potato)\nmove(potato, table, oven rack)\nplace(potato, oven rack)\nclose(door)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_0.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_1",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven. please plan how to set the 250\u00b0C temperature"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_1.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_2",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven. please plan how to set the convection function"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(function dial, convection, rotate clockwise 180\u00b0)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_2.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_3",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven. please plan how to set the 30min time"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(on/off oven control/timer, 30min, rotate clockwise 67.5\u00b0)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_3.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_4",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven and roasted bell peppers on the table now. please plan how to use the oven via the broil function to bake roasted bell peppers at 450\u00b0C for 40min."
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)\npick(roasted bell peppers)\nmove(roasted bell peppers, table, oven rack)\nplace(roasted bell peppers, oven rack)\nclose(door)\nrotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)\nrotate(function dial, broil, rotate clockwise 270\u00b0)\nrotate(on/off oven control/timer, 40min, rotate clockwise 90\u00b0)\nwait(40min)\nopen(door)\npick(roasted bell peppers)\nmove(roasted bell peppers, oven rack, table)\nplace(roasted bell peppers, table)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_4.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_5",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven and roast chicken on the table now. please plan how to use the oven via the rotisserie function to bake roast chicken at 350\u00b0C for 100min."
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)\npick(roast chicken)\nmove(roast chicken, table, oven rack)\nplace(roast chicken, oven rack)\nclose(door)\nrotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)\nrotate(function dial, rotisserie, rotate clockwise 0\u00b0)\nrotate(on/off oven control/timer, 100min, rotate clockwise 225\u00b0)\nwait(100min)\nopen(door)\npick(roast chicken)\nmove(roast chicken, oven rack, table)\nplace(roast chicken, table)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_5.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_6",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven and roasted walnuts on the table now. please plan how to use the oven via the rotisserie function to bake roasted walnuts at 200\u00b0C for 10min."
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)\npick(roasted walnuts)\nmove(roasted walnuts, table, oven rack)\nplace(roasted walnuts, oven rack)\nclose(door)\nrotate(temperature dial, 200\u00b0C, rotate clockwise 120\u00b0)\nrotate(function dial, rotisserie, rotate clockwise 0\u00b0)\nrotate(on/off oven control/timer, 10min, rotate clockwise 22.5\u00b0)\nwait(10min)\nopen(door)\npick(roasted walnuts)\nmove(roasted walnuts, oven rack, table)\nplace(roasted walnuts, table)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_6.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_7",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven and roasted almonds on the table now. please plan how to use the oven via the bake function to bake roasted almonds at 350\u00b0C for 90min."
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)\npick(roasted almonds)\nmove(roasted almonds, table, oven rack)\nplace(roasted almonds, oven rack)\nclose(door)\nrotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)\nrotate(function dial, bake, rotate clockwise 90\u00b0)\nrotate(on/off oven control/timer, 90min, rotate clockwise 202.5\u00b0)\nwait(90min)\nopen(door)\npick(roasted almonds)\nmove(roasted almonds, oven rack, table)\nplace(roasted almonds, table)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_7.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_8",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven and pie on the table now. please plan how to use the oven via the bake function to bake pie at 300\u00b0C for 60min."
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)\npick(pie)\nmove(pie, table, oven rack)\nplace(pie, oven rack)\nclose(door)\nrotate(temperature dial, 300\u00b0C, rotate clockwise 180\u00b0)\nrotate(function dial, bake, rotate clockwise 90\u00b0)\nrotate(on/off oven control/timer, 60min, rotate clockwise 135\u00b0)\nwait(60min)\nopen(door)\npick(pie)\nmove(pie, oven rack, table)\nplace(pie, table)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_8.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_plans_9",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is an oven and baked pudding on the table now. please plan how to use the oven via the bake function to bake baked pudding at 250\u00b0C for 70min."
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)\npick(baked pudding)\nmove(baked pudding, table, oven rack)\nplace(baked pudding, oven rack)\nclose(door)\nrotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)\nrotate(function dial, bake, rotate clockwise 90\u00b0)\nrotate(on/off oven control/timer, 70min, rotate clockwise 157.5\u00b0)\nwait(70min)\nopen(door)\npick(baked pudding)\nmove(baked pudding, oven rack, table)\nplace(baked pudding, table)"
+        }
+      ],
+      "image": [
+        "image/open_planning/055/055_oven_en_fr_sp_plans_9.png"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055_EN.pdf"
+    }
+  ],
+  "task_4_closeloop.json": [
+    {
+      "id": "055_oven_en_fr_sp_closeloop_0",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and potato on the table now. please plan how to put potato in the oven..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "close(door)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(potato)",
+        "move(potato, table, oven rack)",
+        "place(potato, oven rack)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(potato)",
+        "move(potato, table, oven rack)",
+        "place(potato, oven rack)",
+        "open(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(potato)",
+        "move(potato, table, oven rack)",
+        "place(potato, oven rack)",
+        "close(door)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_1",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roasted bell peppers on the table now. please plan how to use the oven via the broil function to bake roasted bell peppers at 450\u00b0C for 40min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "close(door)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "open(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)",
+        "rotate(function dial, broil, rotate clockwise 270\u00b0)",
+        "rotate(on/off oven control/timer, 40min, rotate clockwise 90\u00b0)",
+        "wait(40min)",
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, oven rack, table)",
+        "place(roasted bell peppers, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_2",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roasted bell peppers on the table now. please plan how to use the oven via the broil function to bake roasted bell peppers at 450\u00b0C for 40min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(function dial, correcting mistake, clockwise to 220\u00b0)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)",
+        "rotate(function dial,  broil, clockwise to 50)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)",
+        "rotate(function dial, broil, rotate clockwise 270\u00b0)",
+        "rotate(on/off oven control/timer, 40min, rotate clockwise 90\u00b0)",
+        "wait(40min)",
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, oven rack, table)",
+        "place(roasted bell peppers, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_3",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roasted bell peppers on the table now. please plan how to use the oven via the broil function to bake roasted bell peppers at 450\u00b0C for 40min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)",
+        "rotate(function dial, broil, rotate clockwise 270\u00b0)",
+        "rotate(on/off oven control/timer, 40min, rotate clockwise 90\u00b0)",
+        "wait(40min)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)",
+        "rotate(function dial, broil, rotate clockwise 270\u00b0)",
+        "rotate(on/off oven control/timer, 40min, rotate clockwise 90\u00b0)",
+        "wait(40min)",
+        "close(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, table, oven rack)",
+        "place(roasted bell peppers, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 450\u00b0C, rotate clockwise 270\u00b0)",
+        "rotate(function dial, broil, rotate clockwise 270\u00b0)",
+        "rotate(on/off oven control/timer, 40min, rotate clockwise 90\u00b0)",
+        "wait(40min)",
+        "open(door)",
+        "pick(roasted bell peppers)",
+        "move(roasted bell peppers, oven rack, table)",
+        "place(roasted bell peppers, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_4",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roast chicken on the table now. please plan how to use the oven via the rotisserie function to bake roast chicken at 350\u00b0C for 100min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, rotisserie, rotate clockwise 0\u00b0)",
+        "rotate(on/off oven control/timer, 100min, rotate clockwise 225\u00b0)",
+        "wait(100min)",
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, oven rack, table)",
+        "place(roast chicken, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_5",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roast chicken on the table now. please plan how to use the oven via the rotisserie function to bake roast chicken at 350\u00b0C for 100min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "pick(roast chicken)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, rotisserie, rotate clockwise 0\u00b0)",
+        "rotate(on/off oven control/timer, 100min, rotate clockwise 225\u00b0)",
+        "wait(100min)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, rotisserie, rotate clockwise 0\u00b0)",
+        "rotate(on/off oven control/timer, 100min, rotate clockwise 225\u00b0)",
+        "wait(100min)",
+        "open(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, rotisserie, rotate clockwise 0\u00b0)",
+        "rotate(on/off oven control/timer, 100min, rotate clockwise 225\u00b0)",
+        "wait(100min)",
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, oven rack, table)",
+        "place(roast chicken, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_6",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roast chicken on the table now. please plan how to use the oven via the rotisserie function to bake roast chicken at 350\u00b0C for 100min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(on/off oven control/timer, correcting mistake, clockwise to 180\u00b0)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, rotisserie, rotate clockwise 0\u00b0)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, rotisserie, rotate clockwise 0\u00b0)",
+        "rotate(on/off oven control/timer,  100min, clockwise to 45)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, table, oven rack)",
+        "place(roast chicken, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, rotisserie, rotate clockwise 0\u00b0)",
+        "rotate(on/off oven control/timer, 100min, rotate clockwise 225\u00b0)",
+        "wait(100min)",
+        "open(door)",
+        "pick(roast chicken)",
+        "move(roast chicken, oven rack, table)",
+        "place(roast chicken, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_7",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roasted almonds on the table now. please plan how to use the oven via the bake function to bake roasted almonds at 350\u00b0C for 90min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "pick(roasted almonds)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, table, oven rack)",
+        "place(roasted almonds, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 90min, rotate clockwise 202.5\u00b0)",
+        "wait(90min)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, table, oven rack)",
+        "place(roasted almonds, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 90min, rotate clockwise 202.5\u00b0)",
+        "wait(90min)",
+        "open(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, table, oven rack)",
+        "place(roasted almonds, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 90min, rotate clockwise 202.5\u00b0)",
+        "wait(90min)",
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, oven rack, table)",
+        "place(roasted almonds, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_8",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and roasted almonds on the table now. please plan how to use the oven via the bake function to bake roasted almonds at 350\u00b0C for 90min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, table, oven rack)",
+        "place(roasted almonds, oven rack)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, table, oven rack)",
+        "place(roasted almonds, oven rack)",
+        "close(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, table, oven rack)",
+        "place(roasted almonds, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 350\u00b0C, rotate clockwise 210\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 90min, rotate clockwise 202.5\u00b0)",
+        "wait(90min)",
+        "open(door)",
+        "pick(roasted almonds)",
+        "move(roasted almonds, oven rack, table)",
+        "place(roasted almonds, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_9",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and pie on the table now. please plan how to use the oven via the bake function to bake pie at 300\u00b0C for 60min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(temperature dial, correcting mistake, clockwise to 170\u00b0)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(pie)",
+        "move(pie, table, oven rack)",
+        "place(pie, oven rack)",
+        "close(door)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(pie)",
+        "move(pie, table, oven rack)",
+        "place(pie, oven rack)",
+        "close(door)",
+        "rotate(temperature dial,  300\u00b0C, clockwise to 10)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(pie)",
+        "move(pie, table, oven rack)",
+        "place(pie, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 300\u00b0C, rotate clockwise 180\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 60min, rotate clockwise 135\u00b0)",
+        "wait(60min)",
+        "open(door)",
+        "pick(pie)",
+        "move(pie, oven rack, table)",
+        "place(pie, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_10",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and pie on the table now. please plan how to use the oven via the bake function to bake pie at 300\u00b0C for 60min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(function dial, correcting mistake, clockwise to 80\u00b0)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(pie)",
+        "move(pie, table, oven rack)",
+        "place(pie, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 300\u00b0C, rotate clockwise 180\u00b0)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(pie)",
+        "move(pie, table, oven rack)",
+        "place(pie, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 300\u00b0C, rotate clockwise 180\u00b0)",
+        "rotate(function dial,  bake, clockwise to 10)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(pie)",
+        "move(pie, table, oven rack)",
+        "place(pie, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 300\u00b0C, rotate clockwise 180\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 60min, rotate clockwise 135\u00b0)",
+        "wait(60min)",
+        "open(door)",
+        "pick(pie)",
+        "move(pie, oven rack, table)",
+        "place(pie, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_11",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and baked pudding on the table now. please plan how to use the oven via the bake function to bake baked pudding at 250\u00b0C for 70min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "open(door)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, table, oven rack)",
+        "place(baked pudding, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 70min, rotate clockwise 157.5\u00b0)",
+        "wait(70min)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, table, oven rack)",
+        "place(baked pudding, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 70min, rotate clockwise 157.5\u00b0)",
+        "wait(70min)",
+        "close(door)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, table, oven rack)",
+        "place(baked pudding, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 70min, rotate clockwise 157.5\u00b0)",
+        "wait(70min)",
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, oven rack, table)",
+        "place(baked pudding, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    },
+    {
+      "id": "055_oven_en_fr_sp_closeloop_12",
+      "task": "Instruction_QA",
+      "conversations": [
+        {
+          "from": "human",
+          "value": "[Task]\nGive the next step to use the appliance complete the task there is an oven and baked pudding on the table now. please plan how to use the oven via the bake function to bake baked pudding at 250\u00b0C for 70min..\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+        },
+        {
+          "from": "gpt",
+          "value": "rotate(function dial, correcting mistake, clockwise to 50\u00b0)"
+        }
+      ],
+      "history": [
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, table, oven rack)",
+        "place(baked pudding, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)"
+      ],
+      "conduct": [
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, table, oven rack)",
+        "place(baked pudding, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)",
+        "rotate(function dial,  bake, clockwise to 40)"
+      ],
+      "gt_planning": [
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, table, oven rack)",
+        "place(baked pudding, oven rack)",
+        "close(door)",
+        "rotate(temperature dial, 250\u00b0C, rotate clockwise 150\u00b0)",
+        "rotate(function dial, bake, rotate clockwise 90\u00b0)",
+        "rotate(on/off oven control/timer, 70min, rotate clockwise 157.5\u00b0)",
+        "wait(70min)",
+        "open(door)",
+        "pick(baked pudding)",
+        "move(baked pudding, oven rack, table)",
+        "place(baked pudding, table)"
+      ],
+      "pdf": "manuals_pdfs_only\\055_oven_en_fr_sp\\055.pdf"
+    }
+  ],
+  "gt_part.json": {
+    "door": "part_03",
+    "oven racks": "part_02",
+    "on/off oven control/timer": "part_01",
+    "function dial": "part_05",
+    "temperature dial": "part_04"
+  }
+}

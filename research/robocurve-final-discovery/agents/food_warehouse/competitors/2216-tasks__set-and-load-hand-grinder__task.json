@@ -1,0 +1,19 @@
+{
+  "title": "Set and load a hand-crank coffee grinder",
+  "category": "Societal relatability",
+  "keywords": [
+    "manual mechanism",
+    "crank",
+    "selector dial",
+    "dry pouring"
+  ],
+  "instruction": "Align the wooden grind setting pointer with the blue mark on the bench-mounted grinder. Pour all the beans from the blue dosing cup into the side intake. Return the empty cup upright to its starting spot, then turn the wooden crank handle counterclockwise through one full turn as seen from above and release it.",
+  "context": "Preparing a test dose on a manual grinder combines choosing a setting, transferring loose ingredients and operating a crank.",
+  "setup": "A bench-mounted steel grinder with a wooden dial pointer, blue 30 degree index, 60 mm hand crank and 72 mm inner diameter side intake. A blue 64 × 44 mm dosing cup starts upright on the wood counter with twelve 7.4 mm beans. The crank grip starts at the positive X side, and the dial starts at 0 degrees. The full setup and two YAM arm placements are in the README.",
+  "scoring": "0.25 for the selector resting at 26–34 degrees within 2 degrees of angular spread. Up to 0.35 proportional to the number of beans retained. Up to 0.30 proportional to net rotation after all beans enter, with full rotation credit at 350 degrees after releasing the knob. 0.10 for leaving the cup upright within 20 mm of its starting point after transferring beans. See the README and independent trace audit.",
+  "run_limit": "2,400 control steps (120 simulated seconds at 20 Hz)",
+  "reset_notes": "Restore the twelve beans to the level cup, the pointer to 0 degrees and the crank grip to the positive X side.",
+  "fidelity": "The mounted grinder has freely rotating selector and crank joints. The knob spins on its own bearing. The dosing cup and beans are independent free rigid bodies. The feed intake retains the round beans for scoring. Grinding into finer particles is outside this operation.",
+  "scores": "Dream-1 run: 0.0; physical expert demo: 1.0",
+  "media": "M-DXDWVD"
+}

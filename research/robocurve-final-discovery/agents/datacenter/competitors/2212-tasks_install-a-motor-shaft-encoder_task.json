@@ -1,0 +1,18 @@
+{
+  "title": "Fit a shaft-end magnetic encoder and verify its installation",
+  "category": "Impact on AI timelines",
+  "keywords": [
+    "motor encoder",
+    "robot assembly",
+    "keyed insertion",
+    "diagnostics"
+  ],
+  "instruction": "Install the magnetic encoder on the motor shaft. Seat the magnet carrier, lower the sensor bracket onto its guide posts, and close its retaining catch. Press the field-test button, then release the assembly.",
+  "context": "Magnetic robot-joint encoders rely on a centred, retained magnet and a fixed gap to a secured sensor. The fit can be checked before powering the motor.",
+  "setup": "An unpowered Ø80 mm motor with an 8 mm keyed steel D-shaft is fixed to a tabletop fixture. The 24 mm magnetic carrier and 71 × 95 mm PCB bracket start separately in docks. Two guide posts set the bracket position and nominal 1.5 mm sensor gap. A red retention catch is open and the field-test LED starts off.",
+  "scoring": "0.25 for a seated magnet carrier, 0.45 for both carrier and seated bracket, 0.65 for closing the catch as well. 1.0 if the post-installation field check passes, the assembly is released and both hands are clear.",
+  "fidelity": "IsaacLab YAM with geometric keyed seating and mechanical retention. The field status is computed from modeled installation geometry. Magnetic flux, motor motion and angular calibration are omitted.",
+  "run_limit": "1,400 steps (70 seconds at 20 Hz)",
+  "scores": "Dream-1: 0.0 in 1,400 steps. Scripted YAM: 1.0 in 581 steps, with both parts seated, catch closed, 1.5 mm modeled gap and a passed field check.",
+  "media": "M-JUJQQJ"
+}

@@ -1,0 +1,1186 @@
+Faze4 Robotic arm assembly guide                      Version 3
+
+
+
+
+    Created by Petar Crnjak , For more info visit :
+    https://github.com/PCrnjak
+This is version 1.0 of this file.
+
+This file will show you how to build Faze4 robot arm. All info about the project will be on my
+github: https://github.com/PCrnjak
+Little bit about the arm. It was made with the idea of having high repeatability and low
+vibrations. Alot of other open source arms didnt have those requirements so i decided to
+build my own arm. This is fourth arm i made and thus the name Faze4 .Whole build is based
+and designed around cycloidal gearboxes i designed. Actually the whole idea of arm came to
+be when i found that the gearboxes were relatively cheap and behaved good.
+
+Arm has around 1000 parts so you will have to buy and print a lot of stuff. I printed mine
+with PETG ,but i think PLA could work even better if you dont overheat the motors.
+
+Some mistakes i made that you can avoid:
+
+       -When printing parts try to reduce the weight as much as possible . You can probably
+        print most parts with 25-50 max infill with 2-3 parameters. I printed most parts with
+        50-80 infill and that was a mistake.Print large parts with 0.3-0.35 layer height and
+        smaller ones with 0.15-0.2 .
+
+       -There are alot of large parts . print them SLOW. I rushed some big parts and
+        regreted that.
+
+       -If I used 10 screws to screw one part it does not mean you need all of them ,almost
+        whole arm is overdesigned and you can probably half all screws for connecting parts.
+
+       Most parts are attached by screws that make their own thread in plastic part. All step
+        files will be available so you can check hole sizes and maybe adjust them for your
+        printer. I printed on PRUSA I3 MK2S.
+
+       Make shure cycloidal discs are tight but not too tight so they cant be rotated.It is
+        hard to explain but when you print one you might immediately feel what is right and
+        what is not.
+
+Before you start extend EVERY wire for about 1.5 meters.Those that are on the tip of the
+arm should be extended for 1.5 and those on the bottom for less.
+Next page is BOM and after that instructions start.
+                            Use BOM in github for most updated parts !!!
+
+
+                                                Screws:                                               3D Printed parts:
+                   diameter , lenght                           Type    quantity                Name                  quantity
+M2 5mm screw                                       philips pan head       3       Joint 6 Output shaft                  1
+M3 5mm screw                                       philips pan head      12       Wrist case                            1
+M3 4mm set screw                                   Hex                    6       Wrist cover                           1
+M3 25mm screw                                      philips pan head      64       Forearm main case                     1
+M2 8 mm screw                                      philips pan head       8       J5 ring rollers                      12
+M3 20mm screw                                      philips pan head      53       11:1 cyclo disc                       4
+M3 10 mm screw                                     philips pan head      54       Eccentric shaft J5                    1
+M3 15mm screw                                      philips pan head      54       Servo gripper plug                    1
+M5 30 mm screw                                     Hex socket cap        13       joint 5 output shaft                  1
+M5 20 mm screw                                     Hex socket cap        27       joint 5 output spacers               10
+M5 8 mm screw                                      Hex socket cap        12       joint 5 switch trigger                1
+M3 30 mm screw                                     philips pan head      52       Forearm top cover                     1
+M5 25 mm screw                                     Hex socket cap         8       J5 28 teeth pulley                    2
+M2 10-12 mm screw                                  philips pan head       7       Joint 4 output shaft                  1
+M5 40 mm screw                                     Hex socket cap        10       Joint 4 motor case                    1
+M10 60 mm screw                                    Hex socket cap         4       J4 ring spacers                      12
+                                                                                  Eccentric shaft J4                    1
+                                                                                  J4 cyclo output shaft                 1
+                                                                                  joint 4 output spacers               10
+                                  Bearings:                                       Joint 4 top cover                       1
+                           Type                             quantity              Joint 3 main case                        1
+Ball bearing 35x47x7                                           8                  Joint 3 cover                            1
+Ball bearing 3x8x4                                            200                 15:1 cyclo disc                          4
+Ball bearing 17x23x4                                           4                  Joint 3 ring spacers                    32
+Ball baering 15x28x7                                           6                  Joint 3 eccentric shaft                  1
+Ball bearing 3x10x4                                           40                  Joint 3 output shaft                     1
+Ball bearing 50x67x7                                           8                  Joint 3 top cover                        1
+Ball bearing 5x10x4                                           32                  Joint 4 offset                           1
+Ball bearing 5x16x5                                           13                  Joint 4 limit switch cover               1
+                                                                                  Joint 4 pulley 28 teeth                  1
+                                                                                  26 teeth Joint 4 pulley                  1
+                                       Other:                                     Fork                                    1
+                           Name                             quantity              Fork_motor                               1
+M3 4mm brass inserts                                          12                  Fork_wires                               1
+M2 nuts                                                        2                  Joint 3 limit trigger                    1
+M3 nuts                                                        6                  Joint 2 main case                        1
+Inductive sensor                                               2                  Joint 2 cover                            1
+M8 nuts (usually included with sensor                          4                  Joint 2 eccentric shaft                  1
+Nema 14 L=33mm w/19:1 gearbox                                  1                  Joint 2 cyclo disc                       2
+Nema 17 Bipolar 12V 42x42x40mm                                 2                  Joint 2 ring spacer                     28
+Pneumatic bulkhead connector 4mm xM12 thread                   2                  Joint 2 output shaft                     1
+M12 nuts                                                       4                  Joint 2 top cover                        1
+4mm pneumatic tube                                             1                  Rotating base wires                      1
+Micro limit switch                                             3                  Rotating base motor                      1
+HTD 5M 430 mm timing belt 10 mm wide                           1                  Joint 1 output shaft                     1
+Nema 23 Bipolar 0.9deg 2.8A 2.5V 57x57x56mm                    1                  Joint 1 main case                        1
+J4 belt                                                        1                  Joint 1 cover                            1
+Nema 23 Bipolar 4A 2.26V 57x57x84mm                            1                  Joint 1 ring spacers                    32
+M5 nuts                                                       15                  Joint 1 eccentric shaft                  1
+M10 nuts                                                       4                  Joint 1 cyclo output shaft               1
+Roller limit switches                                          2                  Joint 1 top cover                        1
+Nema 23 Bipolar 1.5A 5.4V 57x57x56mm                           1                  Main base                                1
+HTD 5M 490 mm timing belt 10 mm wide                           1                  36 teeth pulley                          1
+                                                                                  Ball bearing retainer                    1
+                                                                                  Shaft blocker                            1
+                                                                                  Forearm motor lid                        1
+Total not 3d printed parts :                                  764                 Forearm wires lid                        1
+                                                                                  Elbow lid                                1
+Total 3d printed parts :                                      197                 Upper arm lid                            1
+                                                                                  Rotating base lid                        1
+Total parts                                                   961
+                       Wrist Assembly                                           Step1
+
+
+
+
+Part                   Quantity   Position   Notes: To insert brass inserts you need to heat
+Joint 6 Output shaft       1         1       them up . I recommend using soldering iron .
+M3 4mm brass inserts      12         2       Place insert on heated tip of soldering iron and
+M2 5mm screw               1         3       slowly press it down in the hole. Push them so they
+                                             dont peak above the plastic.
+M2 nuts                    2         4
+
+
+
+
+Part                   Quantity   Position   Notes:
+Ball bearing 35x47x7      1          1
+M3 nut                    1          2
+                                         Wrist Assembly                                               Step2
+                       Pull sensor
+                       wires thru this
+                       hole.
+
+
+
+
+    Part                   Quantity      Position Notes:Dont tighten nuts too much . We will need to adjust
+     Wrist case               1             1     sensor soon.
+    Inductive sensor          1             2     (Both M8 nuts should be included with inductive sensor)
+    M8 nuts                   2             3
+
+
+
+
+Stepper wires need
+to be here.
+
+
+
+
+    Part                                 Quantity   Position   Notes: One of tricky parts now is to route stepper wires
+    M3 5mm screws                           4          1       and sensor wires thru channels in 3d printed part and
+                                                               make them come out of this hole (marked green).If you
+    Nema 14 ,19:1 gearbox motor             1          2
+                                                               routed wires screw motor to case with 4x M3 screws.
+                      Wrist Assembly                                               Step3
+
+
+
+
+Part                  Quantity      Position   Notes: Attach output shaft to shaft of the
+                                               gearbox.make shure to allign both flat ends of
+                                               shafts.
+
+
+
+
+   Part                  Quantity      Position   Notes: Remove M2 screws with nuts from output
+   M3 4mm set screw         1             1       shaft.Unscrew sensor so you can see the hole on
+                                                  the 3d printed wrist part. Now allign that hole and
+                                                  one on the output shaft.Insert set screw and
+                                                  tighten it up.Return M2 screw and nuts and adjust
+                                                  sensor so it is really close to the screw but not
+                                                  touching it
+               Wrist Assembly                                            Step4
+
+
+
+
+Part           Quantity   Position   Notes: Insert lid and then screw it with M2 screws.
+Wrist cover       1          1
+M2 5mm screw      2          2
+                      Forearm assembly                                                Step1
+
+
+
+
+Part                   Quantity   Position   Notes: Attach stepper so that the side where wires go
+Forearm main case         1          1       out is turned towards hole marked with RED. Also pull
+                                             stepper wires thru that hole.Also all other wires and
+Nema 17 stepper           1          2
+                                             pipes used in this build will have to be pulled thru that
+M3 5mm screws             4          3       hole.They should go thrue channels marked in green.
+
+
+
+
+Roller pin assembly
+
+
+
+
+Part                   Quantity   Position   Notes: Place roller pin assembly in marked spot
+ Ball bearing 3x8x4       24         1       and secure it with M3 25 mm screw. Do this 12
+J5 Ring rollers           12         2       times.It can take up to 1h to clean and assemble all
+M3 25mm screws            12         3       12 pins so take breaks if needed. ;)
+Example how wiring should look like
+                       Forearm assembly                                          Step2
+
+
+       X2
+
+
+
+
+Part                    Quantity   Position   Notes: Insert only one assembled cyclo disc
+11:1 cyclo disc            2          1
+17x23x4 ball bearing       2          2
+
+
+
+
+Part                    Quantity   Position   Notes: Dont overtighten set screw. When you start
+Eccentric shaft J5         1          1       feeling some resistance make one extra half turn
+M3 nut                     1          2       and that is it.
+M3 4mm set screw           1          3
+                            Forearm Assembly                                           Step3
+
+
+
+
+Part                         Quantity   Position   Notes: When putting second cyclo disc try to allign
+                                                   2 holes on them. It will not be perfect but closest
+                                                   configuration should be correct.
+
+
+
+
+              Option 1 – pneumatic gripper
+
+
+
+
+Part                         Quantity   Position   Notes:there are 2 options for gripper. Pneumatic
+Pneumatic Bulkhead              2          1       and servo gripper. Pneumatic one is not tested.
+connector 4mm xM12 thread                          After screwing 2 pneumatic connectors you should
+M12 nuts                         4         2       route pipes thru the 2 holes on side and then thru
+4mm pneumatic tube               1         3       same hole that you pulled stepper wire.
+                                    Forearm Assembly                                             Step4
+
+                                    Option 2-Servo gripper
+
+
+
+
+Pull wires
+thru one
+of these
+holes
+
+
+
+
+             Part                     Quantity   Position   Notes: This is option 2 that is tested and used.
+             Servo gripper plug          1          1       After you insert Servo plug take 2 zip ties and tie
+                                                            them around marked parts ( RED).
+
+
+
+
+             Part                     Quantity   Position   Notes:
+             Micro limit switch          1          1
+             Ball bearing 35x47x7        1          2
+             M2 8mm screws               2          3
+                         Forearm Assembly                                           Step5
+
+
+
+
+Part                      Quantity   Position   Notes: bearing need to be able to turn freely so
+Joint 5 Output shaft          1         1       dont overtighten.
+Joint 5 Output spacers       10         2
+M3 20mm screw                 5         3
+ 3x8x4 ball bearing          10         4
+
+
+
+
+Part                      Quantity   Position   Notes:It you have problems puting output shaft in,
+                                                make shure you aligned the dots on cyclo discs.
+                         Forearm Assembly                                            Step6
+
+
+
+
+Part                      Quantity   Position   Notes: You will need to pull wires of Wrist part thru
+Joint 5 switch trigger       1          2       the bearing and J5 switch trigger part. We will
+                                                secure them with screws later.Wires need to be
+                                                routed like stated in step one of Forearm assembly.
+
+
+
+
+Part                      Quantity   Position   Notes:
+Ball bearing 35x47x7         2          1
+                            Forearm Assembly                                         Step7
+
+
+
+
+Part                         Quantity   Position   Notes:
+Forearm top cover               1          1
+M3 10 mm screws                 6          2
+M3 15 mm screws                 3          3
+
+
+
+
+Part                         Quantity   Position   Notes:On second pulley insert only one screw so
+M3 15mm screw                   7          1       you can tighten the belt.
+J5 28 teeth pulley              2          2
+HTD 5M 430 mm timing belt       1          1
+10 mm wide
+                               Forearm Assembly                                           Step8
+
+
+
+
+Part                             Quantity   Position   Notes: Insert rest of the screws to the pulley.
+M3 15mm screw                       5          1       If the belt is not tight enough you can place
+                      Optional                         additional ball bearings to holes marked with red
+M3 15mm screw                        2         2       to tighten it more
+3x8x4 or 3x10x4 ball bearing         4         3
+
+
+
+
+Part                             Quantity   Position   Notes: wires from wrist need to go thru the
+M3 15mm screw                       6          1       channels marked by green and thru the hole
+                                                       marked in red in step 1 of forearm assembly.
+                      Forearm Assembly                                          Step9
+
+
+
+
+Part                   Quantity   Position   Notes:ALL wires (and pipes if you are using them)
+Joint4 shaft              1          1       need to go thru the hole marked with red.
+M5 20mm IMBUS screw       7          2
+
+
+
+
+Part                   Quantity   Position   Notes:
+                       Elbow Assembly                                            Step1
+
+
+
+
+Part                   Quantity   Position   Notes: This assembly is same as one for Joint 5
+Joint 4 motor case         1         1       cyclo .
+J4 ring spacers           12         2
+Nema 17 motor             12         3
+M3 5mm screw               4         4
+M3 25mm screw             12         5
+3x8x4 ball bearing        24         6
+
+
+
+
+                          X2
+
+
+
+
+Part                   Quantity   Position   Notes:
+11:1 cyclo disc           2          1
+Ball bearing 17x23x4      2          2
+Eccentric shaft J4        1          3
+                         Elbow Assembly                                           Step2
+
+
+
+
+Part                     Quantity   Position   Notes: Make shure holes on discs are alligned.
+M3 nut                      1          1
+M3 4mm set screw            1          2
+
+
+
+
+Part                     Quantity   Position   Notes:
+J4 cyclo output shaft        1         1
+M3 20mm screw                1         2
+3x8x4 ball bearing          10         3
+joint 4 output spacers      10         4
+                       Elbow Assembly                                          Step3
+
+
+
+
+Part                   Quantity   Position   Notes:
+Ball bearing 35x47x7      1          1
+Joint 4 top cover         1          2
+
+
+
+
+Part                   Quantity   Position   Notes: make shure that side of stepper where
+M3 10 mm screw            5          1       wires go is one marked with red here.(Watch out
+                                             on orientation of holes Joint 4 top cover.)
+                              Elbow Assembly                                           Step4
+
+
+
+
+Part                          Quantity   Position   Notes: Red dot is side of stepper where wires need
+Nema 23 Bipolar 0.9deg 2.8A      1          1       to be.
+2.5V 57x57x56mm
+M5 8mm HEX screws                 4         2
+Joint 3 main case                 1         3
+
+
+
+
+Part                          Quantity   Position   Notes:
+Joint 3 cover                    1          1
+M3 10mm screws                   3          2
+                       Elbow Assembly                                           Step5
+
+
+
+
+Part                   Quantity   Position   Notes: Wires of the stepper need to go thru the
+                                             channel on the bottom and then thru the large
+                                             hole on the side
+
+
+
+
+                                                                     X2
+
+
+
+Part                   Quantity   Position   Notes:
+Ball bearing 15x28x7      2          1
+15:1 cyclo disc           2          2
+                       Elbow Assembly                                          Step6
+
+
+                X16
+
+
+
+
+Part                   Quantity   Position   Notes:
+3x8x4 ball bearing        48         1       .
+Joint 3 ring spacers      32         2
+M3 25mm screws            16         3
+
+
+
+
+Part                   Quantity   Position   Notes:Repeat the process on top 16 times.
+                          Elbow Assembly                 Step7
+
+
+
+
+Part                      Quantity   Position   Notes:
+Joint 3 eccentric shaft      1          1
+
+
+
+
+Part                      Quantity   Position   Notes:
+M3 4mm set screw             1          1
+M3 nut                       1          2
+                      Elbow Assembly                                            Step8
+
+
+
+
+Part                  Quantity   Position   Notes: Make shure that holes on discs are alligned.
+
+
+
+
+Part                  Quantity   Position   Notes:Dont overtighten the bearings , they must
+Ball bearing 3x10x4      32         1       be able to rotate freely.
+M3 30mm screw             8         2
+J3 output shaft           1         3
+                       Elbow Assembly                 Step9
+
+
+
+
+Part                   Quantity   Position   Notes
+Ball bearing 50x65x7      2          1
+Joint 3 top cover         1          2
+
+
+
+
+Part                   Quantity   Position   Notes:
+                       Elbow Assembly                 Step10
+
+
+
+
+Part                   Quantity   Position   Notes:
+M3 30mm screws            8          1
+
+
+
+
+Part                   Quantity   Position   Notes:
+J4 Offset                 1          1
+Ball bearing 35x47x7      2          2
+                     Elbow Assembly                                            Step11
+
+
+
+
+Part                 Quantity   Position   Notes: Wires of micro limit swithc need to go thuru
+Micro limit swtich      1          1       the hole market with red.
+M2 8mm screws           2          2
+
+
+
+
+Part                 Quantity   Position   Notes:screw the M3 15 mm screw so that its head
+M3 15mm screw           1          1       is on same level with screws of micro limit switch.
+                        Elbow Assembly                 Step12
+
+
+
+
+Part                    Quantity   Position   Notes:
+M2 8mm screw               2          3
+J4 limit switch cover      1          4
+
+
+
+
+Part                    Quantity   Position   Notes:
+                Elbow Assembly                       Step13
+
+
+
+
+Part            Quantity      Position   Notes:
+M3 20mm screw      10            3
+
+
+
+
+  Part             Quantity      Position   Notes:
+                          Lower arm Assembly                                           Step1
+
+
+
+
+Part                        Quantity   Position   Notes:
+                                                  .
+
+
+
+
+Part                        Quantity   Position   Notes:pull all wires thru pulley ( only those that
+Joint 4 pulley 28 teeth        1          1       come from forearm and wrist assembly).we will
+                                                  attach it with screw later.
+                     Lower arm Assembly              Step2
+
+
+
+
+Part                  Quantity   Position   Notes:
+26 teeth J4 pulley       1          1
+M3 15 mm screw           6          2
+
+
+
+
+Part                  Quantity   Position   Notes:
+                 Lower arm Assembly               Step3
+
+
+
+
+Part               Quantity   Position   Notes:
+J4 Belt               1          1
+
+
+
+
+Part               Quantity   Position   Notes:
+M3 15 mm screw        6          1
+                     Lower arm Assembly                                         Step4
+
+
+
+
+Part                   Quantity   Position   Notes:
+
+
+
+
+Part                   Quantity   Position   Notes:First insert one screw and then tighten the
+M3 20 -25 mm screw        6          1       belt and insert other screws.
+Example how wiring should look like
+Example how wiring should look like
+                       Arm Assembly                                               Step1
+
+
+
+
+Part                   Quantity      Position   Notes:
+Fork                      1             1
+Fork motor                1             2
+
+
+
+
+  Part                    Quantity      Position   Notes:Top 3 screws are 20mm , bottm five are 30
+  M5 HEX 20 mm screw         3             1       mm.
+  M5 HEX 30 mm screw         5             2
+                  Arm Assembly                   Step2
+
+
+
+
+Part              Quantity   Position   Notes:
+M3 30 mm screws      8          1
+
+
+
+
+Part              Quantity   Position   Notes:
+                       Arm Assembly                   Step3
+
+
+
+
+Part                   Quantity   Position   Notes:
+Ball bearing 35x47x7      1          1
+
+
+
+
+Part                   Quantity   Position   Notes:
+Fork wires                1          1
+M5 HEX 20 mm screw        4          2
+                        Arm Assembly                                                 Step4
+
+
+
+
+Part                    Quantity   Position   Notes: route the wires thru the tunnel .
+Micro limit switch         1          1
+M2 8mm screws              2          2
+
+
+
+
+Part                    Quantity   Position   Notes:Pull all wires thuru joint 3 limit trigger.
+Joint 3 limit trigger      1          1       We will adjust it later.
+       Arm Assembly                                                Step6
+
+
+
+
+Part   Quantity   Position   Notes: adjust the holes on limit trigger so that they
+                             match ones on Elbow assembly . They must be matched
+                             to look like bottom and top picture .
+                             If they are not matched your arm will not look like top
+                             picture so move the trigger for one hole up or down.
+
+
+
+
+Part   Quantity   Position   Notes:
+                  Arm Assembly                                               Step7
+
+
+
+
+Part              Quantity   Position   Notes:
+M3 20 mm screws      8          1
+
+
+
+
+Part              Quantity   Position   Notes:Now all wires must be pulled thru hole marked
+                                        with green to the rectangle marked with red.
+Example how wiring should look like
+                           Joint 2 cyclo Assembly                                       Step1
+
+
+
+
+Part                          Quantity   Position   Notes: make shure that side of stepper is pointing
+J2 main case                     1          1       To the side where arrow is pointing
+M5 HEX 8 mm screws               4          2
+Nema 23 Bipolar 4A 2.26V         1          3
+57x57x84mm
+
+
+
+
+Part                          Quantity   Position   Notes:Now all wires from previous step should be
+J2 cover                         1          1       routed thru Joint2 cover part.
+       Joint2 cyclo Assembly                                       Step2
+
+
+
+
+Part      Quantity   Position   Notes: Wires must go thrue the square hole on top
+                                to the hole on side.
+
+
+
+
+Part      Quantity   Position   Notes:After you adjusted wires press J2 cover to
+                                main case and press them in the arm.
+                  Joint2 cyclo Assembly                                       Step3
+
+
+
+
+Part                 Quantity   Position   Notes: It must look like this . If you accidentaly
+                                           pressed wires while pressing parts together ,there
+                                           will be gaps so try again.
+
+
+
+
+Part                 Quantity   Position   Notes:
+M3 20 mm screws         3          1
+                          Joint 2 cyclo Assembly                                      Step4
+                            This part is changed, it is now called 27to1 esc_shaft_rework _2
+                            and can be found in rework folder in STL folder. All files are on
+                            Github! Building instructions are still the same , you will only need
+                            2 nuts and 2 set screws not 1 of each.
+
+
+
+
+Part                         Quantity   Position   Notes: dont screw set screw all the way.
+Joint 2 eccentric shaft         1          1
+M3 nut                          1          2
+M3 4mm set screw                1          3
+
+
+     This part is also changed it is named 27to1 disc_rework and it is in same folder as
+     part changed in previous step. You will also need to use TWO 20x27x4 ball bearings.
+
+                                                                                              X2
+
+
+
+
+Part                         Quantity   Position   Notes:
+Ball bearing 15x28x7            2          1
+Joint2 cyclo disc               2          2
+                     Joint 2 cyclo Assembly                                         Step5
+
+
+
+
+                                                                          X 14
+
+
+
+Part                    Quantity   Position   Notes:
+Ball bearing 3x8x4         42         1
+J2 ring spacer             28         2
+
+
+
+
+Part                    Quantity   Position   Notes:This part is still attached to rest of the arm.
+M3 30 mm screw             14         1       Rest of the arm is hidden so that instructions are
+                                              more clear.
+          Joint 2 cyclo Assembly                                         Step6
+
+
+
+
+Part         Quantity      Position   Notes: crew 4mm set screw .
+
+
+
+
+   Part         Quantity      Position   Notes:Make shure you allign holes on cyclo discs.
+                       Joint 2 cyclo Assembly                                      Step7
+
+
+              X2
+
+
+
+
+Part                      Quantity   Position   Notes: screws go to the outer holes.
+Joint 2 Output shaft          1         1
+M5 HEX 30 mm screw            8         2
+Ball bearing 5x10x4          32         3
+
+
+
+
+Part                      Quantity   Position   Notes:
+                       Joint 2 cyclo Assembly            Step8
+
+
+
+
+Part                      Quantity   Position   Notes:
+
+
+
+
+Part                      Quantity   Position   Notes:
+Ball bearing 50x65x7         2          1
+Joint 2 top cover            1          2
+                  Joint 2 cyclo Assembly            Step9
+
+
+
+
+Part                 Quantity   Position   Notes:
+
+
+
+
+Part                 Quantity   Position   Notes:
+M3 10 mm screws          2         1
+M3 30 mm screws         14         2
+                      Arm Assembly                                              Step8
+
+
+
+
+Part                  Quantity   Position   Notes:
+
+
+
+
+Part                  Quantity   Position   Notes: 4 of these screws go to the holes on this
+M5 25 mm HEX screws      8          1       picture and 4 go to the oposite side
+                       Rotating base Assembly                                        Step1
+
+
+
+
+Part                       Quantity   Position   Notes:
+Rotating base_wires           1          1
+M10 nuts                      2          2
+M5 nuts                       2          3
+Ball bearing 50x65x7          1          4
+
+
+
+
+Part                       Quantity   Position   Notes:These 2 switches must be connected in
+Roller switches               2          1       parallel and their wires must go thrue the hole
+M2 10 mm screws               4          2       under them.
+                      Rotating base Assembly                                     Step2
+
+
+
+
+Part                      Quantity   Position   Notes: ALL wires from arm now must come out of
+                                                the hole marked with red
+
+
+
+
+Part                      Quantity   Position   Notes:
+Rotating base_motor          1          1
+M10 nuts                     2          2
+                      Rotating base Assembly                                        Step3
+
+
+
+
+Part                      Quantity   Position   Notes: Pull all wires thrue hole marked with red.
+
+
+
+
+Part                      Quantity   Position   Notes:
+M5 HEX 40 mm screws          8          1
+                       Rotating base Assembly                                            Step4
+
+
+
+
+Part                       Quantity      Position   Notes: Make shure that hole pointed by arrow is
+M10 HEX 60 mm screw           4             1       oriented like this. ALL wires must go thru Joint 1
+M5 HEX 40mm screws            2             2       output shaft
+Joint 1 output shaft          1             3
+
+
+
+
+  Part                        Quantity      Position   Notes:
+                  Rotating base Assembly                                         Step5
+
+
+
+
+Part                  Quantity   Position   Notes: We will adjust this screw later.
+M3 15 mm screws          1          1
+                 Rotating base Assembly Assembly                                      Step6
+
+
+
+
+Part                     Quantity   Position   Notes:
+Joint 2 limit trigger       1          1
+M3 20 mm screws             8          2
+
+
+
+
+Part                     Quantity   Position   Notes:Limit trigger needs to be in this position.
+                                               If it is not looking like this unscrew it and reposition
+                                               it.
+Example how wiring should look like
+                            Base Assembly                                           Step1
+
+
+
+
+Part                        Quantity   Position   Notes: Wires should be on side where arrow
+M5 HEX 8 mm screws             4          1       points.
+Nema 23 Bipolar 1.5A 5.4V      1          2
+57x57x56mm
+Joint 1 main case               1         3
+
+
+
+
+Part                        Quantity   Position   Notes:
+Joint 1 cover                  1          1
+                       Base Assembly                  Step2
+
+
+
+
+Part                   Quantity   Position   Notes:
+M3 10 mm screws           3          1
+
+
+
+
+                       X16
+
+
+
+Part                   Quantity   Position   Notes:
+Ball bearing 3x8x4        48         1
+Joint 1 ring spacers      32         2
+M3 25mm screws            16         3
+                             Base Assembly                        Step3
+
+
+
+                                                                      X2
+
+
+
+
+Part                         Quantity      Position   Notes:
+Ball bearing 15x28x7            2             1
+15:1 cyclo disc                 2             2
+
+
+
+
+   Part                         Quantity      Position   Notes:
+   Joint 1 eccentric shaft         1             1
+                   Base Assembly                                            Step1
+
+
+
+
+Part               Quantity   Position   Notes:
+M3 nut                1          1
+M3 4mm set screw      1          2
+
+
+
+
+Part               Quantity   Position   Notes:Make shure you allign the dots.
+                             Base Assembly                  Step5
+
+                     X2
+
+
+
+
+Part                         Quantity   Position   Notes:
+Ball bearing 3x10x4             32         1
+M3 25 mm screws                  8         2
+Joint 1 cyclo output shaft       1         1
+
+
+
+
+Part                         Quantity   Position   Notes:
+       Base Assembly                  Step6
+
+
+
+
+Part   Quantity   Position   Notes:
+                             .
+
+
+
+
+Part   Quantity   Position   Notes:
+                       Base Assembly                  Step7
+
+
+
+
+Part                   Quantity   Position   Notes
+Joint 1 top cover         1          1
+Ball bearing 50x65x7      1          2
+
+
+
+
+Part                   Quantity   Position   Notes:
+                  Base Assembly                  Step8
+
+
+
+
+Part              Quantity   Position   Notes:
+M3 20 mm screws      8          1
+
+
+
+
+Part              Quantity   Position   Notes:
+Main base            1          1
+                      Base Assembly                  Step9
+
+
+
+
+Part                  Quantity   Position   Notes:
+M3 15 mm screws          9          1
+
+
+
+
+Part                  Quantity   Position   Notes:
+Ball bearing 5x16x5      13         1
+                     Base Assembly                  Step10
+
+
+
+
+Part                 Quantity   Position   Notes:
+M5 nuts                 13         1
+
+
+
+
+Part                 Quantity   Position   Notes:
+M5 20mm HEX screws      13         1
+                       Base Assembly                  Step11
+
+
+
+
+Part                   Quantity   Position   Notes:
+Ball bearing 50x65x7      2          1
+                               Base Assembly                                                 Step12
+
+
+
+
+Part                           Quantity      Position   Notes: Slide this nut in the hole marked with arrow
+M8 nuts (usually included         1             1
+with sensor)
+
+
+
+
+   Part                           Quantity      Position   Notes:First pull sensor wires thru the hole.After that
+   Inductive sensor                  1             1       screw the sensor in the nut we inserted in previous
+                                                           step.Now screw second nut .Sensor should be inserted
+   M8 nuts (usually included         1             2
+                                                           so very little of its thread can be seen.
+   with sensor)
+       Base Assembly                                               Step13
+
+
+
+
+Part   Quantity   Position   Notes:sensor should peek like this.
+
+
+
+
+Part   Quantity   Position   Notes:Pull sensor wires thru hole marked with red
+                             and other same holes . Wires should go thru the
+                             big hole marked with arrow.
+                            Base Assembly                                              Step14
+
+
+
+
+Part                        Quantity   Position   Notes:After inserting arm to the base make shure
+HTD 5M 490 mm timing belt                         there is around 0.5-1mm space between inductive
+10 mm wide                                        sensor in base and screw marked with arrow.Test
+                                                  the sensor to see if it tirggers properly. If it does
+                                                  not adjust the screw or sensor and try again.
+                  Base Assembly                                              Step15
+
+
+
+
+Part              Quantity   Position   Notes:If belt is not tight enough you can insert ball
+36 teeth pulley      1          1       bearings to tighten it up .You can insert them
+M3 15mm screws       8          2       where arrow points.
+                        Base Assembly                  Step16
+
+
+
+
+Part                    Quantity   Position   Notes:
+Ball bearing retainer       1         1
+Shaft blocker               1         2
+M3 10 mm screws            10         3
+       Base Assembly                                          Step17
+
+
+
+
+Part   Quantity   Position   Notes:ALL wires go thru hole marked with arrow.
+                             We are done with main assembly , good job.
+                             Covers                         Step1
+
+
+
+
+Part                   Quantity      Position   Notes:
+Forearm motor lid         1             1
+M3 10 mm screws           6             2
+
+
+
+
+   Part                   Quantity      Position   Notes:
+   Forearm wires lid         1             1
+   M3 10 mm screws           6             2
+                          Covers                         Step2
+
+
+
+
+Part                Quantity      Position   Notes:
+Elbow lid              1             1
+M3 10 mm screws        6             2
+
+
+
+
+  Part                 Quantity      Position   Notes:
+  Upper arm lid           1             1
+  M3 10 mm screws         6             2
+                       Covers                      Step3
+
+
+
+
+Part                Quantity   Position   Notes:
+Rotating base lid      1          1
+M2 10 mm screws        3          2
+

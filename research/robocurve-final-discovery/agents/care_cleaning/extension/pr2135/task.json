@@ -1,0 +1,23 @@
+{
+  "title": "Swap a dead E27 bulb in a table lamp",
+  "category": "Societal relatability",
+  "keywords": [
+    "household",
+    "light bulb",
+    "E27",
+    "screw thread",
+    "unscrewing",
+    "regrasping",
+    "fragile object",
+    "hand-tight"
+  ],
+  "instruction": "The lamp's bulb is dead. Put it in the collection box and screw the new bulb into the lamp.",
+  "context": "Changing a light bulb is one of the most common household chores, and screw-base (Edison E27/E26) bulbs are still the standard fitting in homes in most of the world. The robot must take out a bulb that is in hand-tight, put it in a box without dropping it, then fit the new one: the same thread turned both ways. The only grip is a smooth, round, fragile 60 mm globe with no flats, regripped every half turn while the hand follows the thread 3.5 turns out and 3.5 turns in. The lamp stands free, so forcing or pulling sideways tips it. The new bulb must be started square on the upright lampholder, and screwing must stop at the contact, with no mark to see: too loose and it does not light, forced and the cap can twist off the globe. The instruction states only the goal.",
+  "setup": "Positions in cm from the midpoint between the two arm bases, on the table top (x forward, y left, z up). Arms start in the ready pose. Table lamp with its shade off (white, 1.2 kg, free): round weighted base 14 cm across and 2 cm thick, a 2.4 cm column, an upright black E27 lampholder (40 mm across) on top, its mouth 8.3 cm above the table; lamp axis at x 29, y -12. In it, screwed in hand-tight: a dead Philips LED classic 60W A60 E27 WW FR ND bulb (12NC 929001243082; frosted, 60 mm across, 110 mm long, 0.040 kg). The new bulb, same model, stands cap down in a pine stand (6 x 6 x 2.5 cm, 30 mm square hole) at x 40, y -27. A cardboard collection box for spent lamps (open top, 10 x 10 cm inside, 7 cm tall) at x 17, y -30. Nothing else on the table.",
+  "scoring": "From the video and a hand check after the trial. 0 if a bulb fell off the table or was dropped (fell freely more than about 10 cm), the lamp was knocked over, or a bulb was forced against the lampholder's contact (2 N m, see README). Otherwise the sum of: 0.25 the dead bulb is off the thread and out of the lamp; 0.25 it is inside the collection box; 0.25 the new bulb is threaded at least one full turn; 0.25 the new bulb is screwed in until its contact touches the lampholder's base contact and is hand-tight (it does not turn further clockwise when the operator twists it gently by hand; success, held 1 s). The thread lowers the bulb 3.63 mm per clockwise turn; pushing it down without turning does not seat it.",
+  "run_limit": "2,400 steps (2 minutes at 20 Hz)",
+  "reset_notes": "Screw the dead bulb back into the lamp hand-tight, stand the new bulb cap down in its stand, empty the collection box; lamp, stand and box on their taped outlines.",
+  "fidelity": "Approximate. Rigid boxes (round parts as 16-sided prisms). The E27 thread is emulated: once the cap rests centred on the lampholder's first thread, a joint lets the bulb turn and slide, its height following the real 3.63 mm pitch over 3.5 turns. With the contacts touching the seat is a hard stop; hand-tight = 0.3 N m, forced = 2 N m (our thresholds). Glass does not break in simulation. Details in README.",
+  "scores": "Dream-1 run: 0.0 (2,400 steps; the bulb is touched but not unscrewed); scripted demo: 1.0 (2,082 steps)",
+  "media": "M-N6MSUD"
+}

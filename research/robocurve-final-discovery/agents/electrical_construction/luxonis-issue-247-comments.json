@@ -1,0 +1,194 @@
+[
+  {
+    "author": "Luxonis-Brandon",
+    "body": "[Pre-order on shop here](https://shop.luxonis.com/collections/early-access/products/oak-d-lr-pre-order)\r\n![image](https://user-images.githubusercontent.com/26538615/206412610-e4b981dc-2d4d-4933-a6bb-11a93fe0450e.png)\r\n\r\n### Start with the `why`:\r\n\r\nWhile the OAK-D Series 1 and 2 ([here](https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s2.html)) cover medium depth ranges (from ~20cm to 16 meters), and the coming OAK-D-SR (short-range) series (USB https://github.com/luxonis/depthai-hardware/issues/241, PoE https://github.com/luxonis/depthai-hardware/issues/244) specializes in close-in depth (from 0 to 1 or 2 meters), OAK/DepthAI technology is actually capable of much longer depth sensing - and we've tested up to 350 meters (as below) when doing a 30cm stereo baseline:\r\n  \r\n![image](https://user-images.githubusercontent.com/32992551/171061305-3bba014f-a193-4f6c-b767-aee338bc123d.png)\r\n\r\nAnd the only current way to accomplish this is to use OAK-FFC (e.g. [OAK-FFC-3P](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html) or [OAK-FFC-4P](https://docs.luxonis.com/projects/hardware/en/latest/pages/DD2090.html) with modular cameras such as the [OV9282; 1MP Global Shutter Grayscale](https://shop.luxonis.com/collections/modular-cameras/products/oak-ffc-ov9282-22-pin), [OV9782; 1MP Global Shutter Color](https://shop.luxonis.com/collections/modular-cameras/products/oak-ffc-ov9782-22-pin), or [AR0234; 2.3 MP Global Shutter Color](https://www.arducam.com/product/arducam-full-hd-color-global-shutter-camera-for-raspberry-pi-2-3mp-ar0234-wide-angle-pivariety-camera-module-b0353/).\r\n\r\nThis works, but is not \"production ready\" and dealing with FFC cables is just annoying.  So although it is possible to make a wide-stereo-baseline + narrow-FOV stereo pair using the options above (as shown below) such a setup is larger and harder to integrated than is desirable in many cases.  \r\n\r\n![image](https://user-images.githubusercontent.com/32992551/168455162-c30e910f-7ab4-4ed8-84d2-fc3a2fc85147.png)\r\n\r\nFor longer ranges, using the setups above, we've found that a stereo baseline of 15cm (2x the 7.5cm baseline of the OAK-D Series 2), coupled with variable optics, can cover quite a wide range of depth sensing needs.  And also from this testing, we've found the AR0234 to be quite beneficial for long-range sensing, given its large pixel size (matching the OV9282) while having a higher resolution of 2.3MP, which effectively doubling the maximum depth sensing range compared to the OV9282.\r\n\r\nThe AR0234 also provides the benefit of supporting both global shutter grayscale (for maximizing low-light performance) and also global shutter color (for native pixel-aligned RGBD).\r\n\r\nThe desired maximum depth range various quite a bit per application - with some situations requiring 100 meters, others 200 meters, and some 300+ meters.  (The furthers the Luxonis team has tested with the AR0234 is 350 meters.)  Supporting M12-mount lenses in the design enables choosing optics with FOVs (fields of view) corresponding to the required sensing distance.  \r\n\r\n### Move to the `how`:\r\n\r\nLeverage existing DepthAI ecosystem support for AR0234 to implement a dual-AR0234 M12-mount OAK-D-LR.\r\n\r\n### Move to the `what`: [NEW; based on feedback below]\r\n\r\n- triple AR0234 [NEW]\r\n- Camera Spacing {right} <-5cm-> {middle} <-10cm-> {left} [NEW]\r\n - Gives 3 stereo baselines: 5cm, 10cm, and 15cm for short, medium and long-range depth\r\n- M12-mount lenses\r\n- M12 lock rings (to keep focus/alignment)\r\n- Front Gorilla Glass [NEW; Replaceable front for various filter options by unscrewing front]\r\n- USB3.1\r\n- 802.3at PoE [NEW]\r\n- IP67 Sealed [NEW]\r\n- Aluminum Enclosure\r\n- OAK-SoM-Pro based so can support Myriad X and KeemBay equally [NEW]\r\n\r\n\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247",
+    "createdAt": "2022-05-15T03:11:12Z"
+  },
+  {
+    "author": "ynjiun",
+    "body": "Welcome OAK-D-LR!\r\n\r\nI would suggest to include following few features:\r\n\r\nadd polarizer filter lenses option: since this long range version primarily is for outdoor application, there might be glare caused by the windshield glass, or raining road surface reflection, etc. Adding polarizer might remove or attenuate the glare significantly. \r\n\r\nkeembay: wish this new product using latest 3rd Gen VPU!\r\n\r\nShip with 2 sets of lenses: I would suggest to ship this product with two sets of M12 rectilinear lenses: One set of Narrow HFOV (e.g. around 40 to 50 deg) and one set of Wide HFOV (e.g. around 80 to 120 deg). Also the unit should store manufacturing calibrated matrixes for these two sets of lenses. The shipping configuration for example could be preinstalled Narrow_FOV lenses and the default LensMode.Narrow_FOV, such that the rectifiedLeft/Right will assume to apply the Narrow_FOV stereo calibrated matrixes. If user would like to change the lenses to Wide_FOV, then in programming, after user changed the lenses themselves and then need to set LensMode.Wide_FOV to produce correct rectifiedLeft/Right output.\r\n\r\nThe reason of requesting to ship two lenses sets is a convenient product configuration for an end user like me. Such that I don't need to go out and do the rectilinear lenses sourcing myself and sometime cannot get a quality rectilinear lenses with low quantity like 2 lenses ; )\r\n\r\nSynced Left/Right requirement: I am not sure the current OAK-D left/right sync requirement in terms of time difference. I would suggest that new product left/right sync frame time difference < 100us. If it can be less than 50us or smaller would be even better. When the left/right exposure start/end time not in sync, the disparity map will not be accurate for moving objects. The problem will be amplified particularly when the ego view is turning (with angular speed): for example, when a car is turning at the cross road, say at 90 deg/ 5.4 sec => 16.6 deg/sec, then at around 25 m away, there will be disparity error by 1 pix for every 1 ms of out of sync left/right exposure. The further the distance, the bigger the disparity error will be (at around 250m, then it will be amplified by 10X..)\r\n\r\nFuture product roadmap:\r\n\r\nPoE: wish will have IP67 enclosure PoE version available soon.\r\n\r\n\r\n\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1126964533",
+    "createdAt": "2022-05-15T15:30:05Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "Thanks @ynjiun !\r\n\r\n> Add polarizer filter lenses option: since this long range version primarily is for outdoor application, there might be glare caused by the windshield glass, or raining road surface reflection, etc. Adding polarizer might remove or attenuate the glare significantly.\r\n\r\nThis is the beauty of M12.  This makes it possible to simply buy M12 solutions that have this capability built-in.  \r\n\r\n> keembay: wish this new product using latest 3rd Gen VPU!\r\n\r\nGreat point.  We can likely design this using the OAK-SoM-Pro or OAK-SoM-MAX to have KeemBay support.  \r\n\r\n> Ship with 2 sets of lenses: I would suggest to ship this product with two sets of M12 rectilinear lenses: One set of Narrow HFOV (e.g. around 40 to 50 deg) and one set of Wide HFOV (e.g. around 80 to 120 deg). Also the unit should store manufacturing calibrated matrixes for these two sets of lenses. The shipping configuration for example could be preinstalled Narrow_FOV lenses and the default LensMode.Narrow_FOV, such that the rectifiedLeft/Right will assume to apply the Narrow_FOV stereo calibrated matrixes. If user would like to change the lenses to Wide_FOV, then in programming, after user changed the lenses themselves and then need to set LensMode.Wide_FOV to produce correct rectifiedLeft/Right output.\r\n\r\nGreat suggestion on lens types/etc. and agreed on the FOVs here.  One catch is that once the lenses are removed, the calibration is invalidated.  So probably what is best here is to have just 2 different purchase options as the default for this model, such that they can come pre-calibrated.  And then there's a decent chance that for a given purpose these might be \"Good enough\".  And then a no-lens option for folks who need their own lenses (so as to not waste lenses/etc.)\r\n1. Narrow FOV (e.g. around 40 to 50 deg), lenses pre-installed and lock-ringed in place (likely with breakable staking), factory calibrated.\r\n2. Wide FOV (e.g. around 80 to 120 deg), lenses pre-installed and lock-ringed in place (likely with breakable staking), factory calibrated.\r\n3. No lenses.  Lock-rings included in gift box.\r\n\r\nWe'll then also sell lenses on our site, just like our friends OpenMV do, [here](https://openmv.io/collections/lenses).  Note they even have the polarization filter as well, which would very likely work here (not yet tested of course, as we haven't even started work on OAK-D-LR yet).  \r\n\r\n> The reason of requesting to ship two lenses sets is a convenient product configuration for an end user like me. Such that I don't need to go out and do the rectilinear lenses sourcing myself and sometime cannot get a quality rectilinear lenses with low quantity like 2 lenses ; )\r\n\r\nAgreed.  Good points.  Doing them as separately-orderable options will save cost.  And it's required for factory-calibration to be applied and usable.\r\n\r\n> Synced Left/Right requirement: I am not sure the current OAK-D left/right sync requirement in terms of time difference. I would suggest that new product left/right sync frame time difference < 100us. If it can be less than 50us or smaller would be even better. When the left/right exposure start/end time not in sync, the disparity map will not be accurate for moving objects. The problem will be amplified particularly when the ego view is turning (with angular speed): for example, when a car is turning at the cross road, say at 90 deg/ 5.4 sec => 16.6 deg/sec, then at around 25 m away, there will be disparity error by 1 pix for every 1 ms of out of sync left/right exposure. The further the distance, the bigger the disparity error will be (at around 250m, then it will be amplified by 10X..)\r\n\r\nYes.  We'll do hardware sync here.  My understanding of the OAK-D sync is it's likely in the sub-1-microsecond range.  It gets very hard to actually test that though in terms of pixels.  But as far as our testing has revealed (leveraging MIPI readouts/etc.) we're at least under a couple microseconds.  And the same would be true here.  \r\n\r\n> PoE: wish will have IP67 enclosure PoE version available soon.\r\n\r\nAgreed.  We'll do a PoE as well.  I actually think PoE will be more important here.  USB is a tad quicker to get out to test optics/etc. so we'll simply do that first - to learn the `unknown unknown` here in terms of the discovery that always occurs on a new product like this.\r\n\r\nThanks again!\r\n-Brandon\r\n\r\n\r\n\r\n\r\n\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1133590781",
+    "createdAt": "2022-05-21T09:51:00Z"
+  },
+  {
+    "author": "stephansturges",
+    "body": "I would be very interested in this product as well, especially the PoE version with an IP67 enclosure. \r\n\r\nOn the subject of filters and mechanics I would love the option to order the camera with a set of two \"front plates\", with the glass on one of these plates incorporating a polarization layer directly if that's possible. \r\n\r\nOr alternatively (but more complicated) having a gasket-sealed \"hatch\" on the side of the assembly that would allow to slide a filter in front of the 3 lenses, held in place by a groove for example. This could then also allow the use of other filters for specific wavelengths of light or ND filters to reduce exposure without mounting anything to the outside of the sensor.... but I realise this second option is more complicated as the use of filters would depend on the size of the lenses and sensors on the board.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1133888629",
+    "createdAt": "2022-05-22T12:45:06Z"
+  },
+  {
+    "author": "ynjiun",
+    "body": "@Luxonis-Brandon \r\n\r\n> Yes. We'll do hardware sync here. My understanding of the OAK-D sync is it's likely in the sub-1-microsecond range. It gets very hard to actually test that though in terms of pixels. But as far as our testing has revealed (leveraging MIPI readouts/etc.) we're at least under a couple microseconds. And the same would be true here.\r\n\r\nQuestion: is that possible to sync all 3 cameras including the center 4K camera with the other two stereo cameras?\r\n\r\nCenter 4K camera position: for this 15cm baseline version, I would recommend the center 4K camera position at right side with distance to right camera of 5cm and distance to the left camera of 10cm. Plus if possible to sync all three cameras, then we might have a stereo system with 3 baselines: 15cm, 10cm, and 5cm in operation simultaneously. If the software and keembay hardware throughput can handle 3 pairs of stereo disparity computation, then we could have a hybrid system that fuse 3 disparity maps together to generate a much higher accuracy disparity map. What do you think? I would happy to join the prototyping work on this front if you can send me an early prototype ; ))\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1134000818",
+    "createdAt": "2022-05-22T22:23:20Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "> On the subject of filters and mechanics I would love the option to order the camera with a set of two \"front plates\", with the glass on one of these plates incorporating a polarization layer directly if that's possible.\r\n\r\nI love this idea!  We will do this for sure.  \r\n\r\nAnd yes, I do like the idea of like separate front covers for this.  So that they can still be sealed.  \r\n\r\nThanks,\r\nBrandon",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1138733863",
+    "createdAt": "2022-05-26T16:02:07Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "For this one we were thinking only 2x AR0234 global shutter color 2.3MP.  So no 4K rolling shutter at all.  Thoughts on that?",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1138735751",
+    "createdAt": "2022-05-26T16:04:10Z"
+  },
+  {
+    "author": "stephansturges",
+    "body": "For my applications rolling sur if any kind is a no-go, and 2MP global shutter sensors would actually be ideal for balance between light sensitivity and quantity of data :)\r\n\r\n*Stephan Sturges*\r\n\r\n\r\nOn Thu, May 26 2022 at 6:04 PM, Luxonis-Brandon < ***@***.*** > wrote:\r\n\r\n> \r\n> \r\n> \r\n> \r\n> \r\n> \r\n> \r\n> For this one we were thinking only 2x AR0234 global shutter color 2.3MP.\r\n> So no 4K rolling shutter at all. Thoughts on that?\r\n> \r\n> \r\n> \r\n> \u2014\r\n> Reply to this email directly, view it on GitHub (\r\n> https://github.com/luxonis/depthai-hardware/issues/247#issuecomment-1138735751\r\n> ) , or unsubscribe (\r\n> https://github.com/notifications/unsubscribe-auth/AE3BDJR2UTXF7RIS4HSFUI3VL6OILANCNFSM5V6OC6ZQ\r\n> ).\r\n> You are receiving this because you are subscribed to this thread. Message\r\n> ID: <luxonis/depthai-hardware/issues/247/1138735751 @ github. com>\r\n> \r\n> \r\n>",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1138786370",
+    "createdAt": "2022-05-26T16:54:08Z"
+  },
+  {
+    "author": "gtech888AU",
+    "body": "Brandon, \r\nHave you considered adding a design feature which would allow users to be able to modify the camera angles to face inwards rather than being forced to keep them parallel.  This would open up usage of this model across different depth ranges (both near and far) due to its ability to customize the lens into much narrower FOVs if desired - to date, this is something your other cameras besides FFC all lack.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1139688846",
+    "createdAt": "2022-05-27T14:46:26Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "Hi @gtech888AU ,\r\n\r\nSo actually for stereo disparity depth having cameras angled-in prevents the disparity depth from working properly.  As with disparity depth the key is for the cameras to see the information from the same vantage point, just displaced.  And with angled cameras, one camera will see the left side of an object, and the other will see the right - and so feature matching won't work.\r\n\r\nThat and any angle between the sensors reduces FOV of the depth.  So it's a disadvantage to do so all around.\r\n\r\nHi @stephansturges,\r\n\r\nThanks, makes sense.  And PS I edited your post to remove private information.\r\n\r\nThanks all,\r\nBrandon",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1140288132",
+    "createdAt": "2022-05-28T15:55:46Z"
+  },
+  {
+    "author": "ynjiun",
+    "body": "> For this one we were thinking only 2x AR0234 global shutter color 2.3MP. So no 4K rolling shutter at all. Thoughts on that?\r\n\r\nI think no 4K rolling shutter is fine. \r\n\r\nThen I would suggest to enhance this unit with an extra AR0234 global shutter (thus total of 3x AR0234) at the following position:\r\n\r\nleft <- 1.5 cm -> middle <- 13.5cm -> right\r\n\r\nSo the left/right baseline is 15cm\r\nAnd middle/right baseline is 13.5cm\r\nAnd left/middle baseline is 1.5cm\r\n\r\nAll three cameras are in h/w sync.\r\n\r\n\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1140310731",
+    "createdAt": "2022-05-28T18:32:01Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "YES!  That's a great idea @ynjiun .  As that gives both long-range and not-long-range depth out of the same model.  \r\n\r\nAnd with that idea I'm now pondering what the \"right\" distribution of baselines is.  \r\n\r\nMy gut is something like the following might be super useful.\r\n\r\nleft <- 5cm -> middle <- 10cm -> right\r\n\r\nAs this gives the 3 following baselines:\r\n1. 15cm\r\n2. 10cm\r\n3. 5cm\r\n\r\nThe `why` of this distribution is that the \"middle\" baseline of 13.5cm and widest baseline of 15cm feel very close in terms of usable range.  And likely are.  Whereas with something like this spread, the \"middle\" baseline is a bigger jump from the widest baseline, with 10cm covering a more-different depth range than 15cm.  \r\n\r\nAnd then similar to 5cm, that can allow fairly-close in depth compared to both 10cm an 15cm.\r\n\r\nThoughts?\r\n\r\nThanks,\r\nBrandon",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1140312163",
+    "createdAt": "2022-05-28T18:41:52Z"
+  },
+  {
+    "author": "ynjiun",
+    "body": "@Luxonis-Brandon \r\n\r\n> left <- 5cm -> middle <- 10cm -> right\r\n\r\nAgree. This would definitely address those who need different baseline in a meaningful seperation.\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1140317916",
+    "createdAt": "2022-05-28T19:26:26Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "Fascinating.  Thanks.  I just updated the specs at the very top with the culmination of discussions here.  Added [NEW] for things that came from the discussion.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1141597829",
+    "createdAt": "2022-05-31T02:14:20Z"
+  },
+  {
+    "author": "stephansturges",
+    "body": "I would love to know if there is already a tentative timeline attached to this project?",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1158572580",
+    "createdAt": "2022-06-17T07:19:49Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "Unknown as of yet.  We're triaging internally on when we can implement this.  We'll circle back when we have a better view of schedule.\r\n\r\nWe're also triaging interest on this vs. other models.  So this helps that there's interest.  And if you want to pre-order, we can get you links for that.  :-). Helps with customer voting.  ;-)",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1159043724",
+    "createdAt": "2022-06-17T16:32:09Z"
+  },
+  {
+    "author": "stephansturges",
+    "body": "Hey guys, is there any update on the IP5X rated-version, or future availability of the current version? I will probably need better IP rating and will have to make my own case anyway, but I need to start planning :)",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1539567309",
+    "createdAt": "2023-05-09T06:56:28Z"
+  },
+  {
+    "author": "Erol444",
+    "body": "Hi @stephansturges , We actually have that in plan already - our next production batch OAK-D-LR will (should) be IP5X rated :)",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1540002972",
+    "createdAt": "2023-05-09T11:37:19Z"
+  },
+  {
+    "author": "stephansturges",
+    "body": "@Erol444 yep I saw that but I think I will need IP63 at minimum so I will need to make my own enclosures probably, which is why I was curious on when the first samples from the final design will be available for me to work with \ud83d\ude04",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1540026204",
+    "createdAt": "2023-05-09T12:23:13Z"
+  },
+  {
+    "author": "jingnanshi",
+    "body": "Any information on when will the camera be in stock? We would like to try this camera in our robotics lab for outdoor depths sensing. @Erol444 ",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1836452990",
+    "createdAt": "2023-12-01T16:51:49Z"
+  },
+  {
+    "author": "Luxonis-David",
+    "body": "@jingnanshi we will start shipping the cameras shortly.\r\nWe were doing extra testing and improved calibration procedure so it took us a bit longer.\r\nBelow is a photo of few pcs we just packaged and should be distributed next week, hopefully you get one as well (if you placed an order already). \r\n![IMG_7707](https://github.com/luxonis/depthai-hardware/assets/75903226/61dc4280-3614-4c37-a97a-bda56b188475)\r\n  ",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1837234314",
+    "createdAt": "2023-12-02T19:24:16Z"
+  },
+  {
+    "author": "jingnanshi",
+    "body": "@Luxonis-David Thanks for the info! We haven't placed an order yet but I'll pass the news to my colleagues. We will probably place an order soon. ",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1837245801",
+    "createdAt": "2023-12-02T20:25:38Z"
+  },
+  {
+    "author": "GoldenZephyr",
+    "body": "@Luxonis-David Do the OAK-D LR cameras support hardware time synchronization / triggering? I see that many of the other Oak cameras do, but I don't see any reference to it for the LR.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1841324685",
+    "createdAt": "2023-12-05T17:56:22Z"
+  },
+  {
+    "author": "Luxonis-David",
+    "body": "@GoldenZephyr unfortunately OAK-D-LR was not targeted for applications where time synchronization is needed, so you are right, it does not support the hardware FrameSync signal out of the box. \r\nMaybe you can use NTP software host time syncing protocol though, if your timings does not need to be really precise.\r\nThoughts? ",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1846470557",
+    "createdAt": "2023-12-08T02:47:11Z"
+  },
+  {
+    "author": null,
+    "body": "Hello, are there any updates on the shipment. We order a couple of these and were just wondering when they would be sent.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1852813616",
+    "createdAt": "2023-12-12T21:07:56Z"
+  },
+  {
+    "author": "Erol444",
+    "body": "Hi @robsan7777 , I believe we plan to ship these in January.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1853413490",
+    "createdAt": "2023-12-13T07:44:12Z"
+  },
+  {
+    "author": null,
+    "body": "Is that the first shipment that will be done, or old orders were shipped already? We ordered them about 3 to 4 months ago so I am just trying to get an idea of when we will get them. Thank you!!",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1854338817",
+    "createdAt": "2023-12-13T16:53:47Z"
+  },
+  {
+    "author": "Erol444",
+    "body": "Hi @robsan7777 , is your order number 15425? If so, then we should start shipping these in a week or two, we are now working on the calibration of these devices. We apologize for the delay.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1855903498",
+    "createdAt": "2023-12-14T13:59:01Z"
+  },
+  {
+    "author": null,
+    "body": "Yes, that is my order number! Thank you for the update.",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1855921703",
+    "createdAt": "2023-12-14T14:09:26Z"
+  },
+  {
+    "author": "jimas95",
+    "body": "@robsan7777 \r\nrunning on the same issue, any solutions ? \r\n\r\nAlso the installer for windows is not working for me ",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1888237815",
+    "createdAt": "2024-01-12T01:14:59Z"
+  },
+  {
+    "author": null,
+    "body": "@jimas95 \r\nI was hoping to have an SDK for the camera for easier integration but I do not think there is yet.\r\n\r\nI tried multiple methods and ended up setting the ros_depthai_driver on ROS Iron since it is supported in just a few distributions. Was able to only see live camera images but not depth or anything else. It is a relatively new camera, not sure if they are still working on the drivers and supportive software for it. ",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1889462881",
+    "createdAt": "2024-01-12T15:07:46Z"
+  },
+  {
+    "author": null,
+    "body": "@jimas95\r\nFigured out the initial problem, when using the ethernet port from my laptop directly with the camera it does not find it sometimes. I used now a USB to Ethernet adapter and the depthai_demo works fine",
+    "url": "https://github.com/luxonis/oak-hardware/issues/247#issuecomment-1889575076",
+    "createdAt": "2024-01-12T16:09:36Z"
+  }
+]

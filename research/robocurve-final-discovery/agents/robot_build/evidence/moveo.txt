@@ -1,0 +1,1009 @@
+Manual de usuario
+    User manual
+ÍNDICE INDEX
+
+
+Manual de usuario User manual
+
+    Sobre el BCN3D Moveo            3-4
+    About de BCN3D Moveo
+
+    Manual de montaje               6 - 39
+    Assembly manual
+
+    Instalación del firmware        40 - 42
+    Firmware installation
+
+    ¿Cómo usar el BCN3D Moveo?      43 - 45
+    How to use the BCN3D Moveo?
+
+
+
+
+2 - Manual de usuario User manual
+Sobre el BCN3D Moveo About the BCN3D Moveo
+
+
+BCN3D Technologies sigue dando pasos impor-              BCN3D Technologies keeps taking important steps
+tantes para cumplir con su objetivo de acercar las       in order to achieve his goal of bringing the digital
+tecnologías de fabricación digital y aditiva al públi-   manufacturing technology to everyone. In this
+co general. En esta ocasión queremos presentar el        occasion we are presenting the BCN3D Moveo, a
+BCN3D Moveo, un brazo robótico diseñado desde            robotic arm design from scratch and developed by
+cero y desarrollado por nuestros ingenieros en co-       our engineers in collaboration with the Departa-
+laboración con el Departament d’Ensenyament de           ment d’Ensenyament from the Generalitat de Ca-
+la Generalitat de Catalunya, cuya estructura está        talunya. Its structure is fully printed using additive
+impresa en 3D y su tecnología controlada por el          manufacturing technologies and its electronics are
+software Arduino.                                        controlled by the software Arduino.
+Moveo, totalmente funcional a día de hoy, ha na-         Moveo, fully functional nowadays, has been born,
+cido, como todos los demás productos salidos de          as all the BCN3D Technologies products, with an
+BCN3D Technologies, con voluntad formativa y             open and educational wish.
+abierta.
+                                                         WHY BCN 3D MOVEO
+EL PORQUÉ DE BCN 3D MOVEO
+                                                         One of the Departament d’Ensenyament worries is
+Una de las preocupaciones del Departament                the high price of the materials the grade students
+d’Ensenyament es el elevado coste de los materia-        must use on their internships. Holding that in mind,
+les que deben usar los alumnos de formación de           an Open Source robotic arm, adaptable by the stu-
+grado para realizar sus prácticas. En este sentido,      dents and low cost reproducible could take several
+un brazo robótico Open Source, modificable por           educational itineraries: mechanical design, auto-
+los alumnos y reproducible a bajo coste podía co-        matism, industrial programing, etc.
+par varios de los itinerarios formativos existentes:     Thus, the BCN3D Moveo should allow the educatio-
+Diseño mecánico, automatismos, programación              nal centers to enjoy a modifiable and easily acces-
+industrial, etc.                                         sible for the students, at a price far lower than the
+Así pues, el BCN3D Moveo debería permitir a los          usual industrial equipment they used to have to
+institutos disfrutar de un equipamiento personali-       acquire, with enough output for training purposes.
+zable, modificable y de fácil acceso para el alumno      As a Fundació CIM area, BCN3D Technologies sha-
+a un precio lejos de los equipamientos industriales      res its educational vocation. That is the reason why
+que normalmente habían tenido que adquirir, pero         when the Departament d’Ensenyament contacted
+con unas prestaciones suficientes para los fines for-    us in order to suggest and offer this project a year
+mativos.                                                 ago we didn’t hesitate on taking that opportunity.
+Como área de la Fundació CIM, BCN3D Technolo-            Once we had the robotic arm designed and manu-
+gies comparte la vocación formativa de su alma           factured we started the last phase of the project,
+máter. Es por dicho motivo que cuando el Departa-        which consisted on an assembling and fine tuning
+ment d’Ensenyament se puso en contacto con no-           workshop for 15 institutes around Catalonia, which
+sotros para proponernos el proyecto un año atrás,        took place in the BCN3D Technologies.
+no dudamos en aceptar la propuesta.                      These institutes already have the BCN3D Moveo
+Una vez tuvimos el brazo diseñado y fabricado, se        in their classrooms and workshops, and will have
+inició la última parte del proyecto que consistía en     to present an internship program that proves their
+un workshop de montaje y puesta en marcha para           knowledge about the arm during September.
+15 institutos de Cataluña, realizado en las instala-
+ciones de BCN3D Technologies.
+Estos institutos ya cuentan con el BCN3D Moveo en
+sus aulas y talleres, y deberán presentar prácticas
+que acrediten su conocimiento del equipo durante
+el mes de setiembre.
+
+
+
+                                                                          Manual de usuario User manual - 3
+Sobre el BCN3D Moveo About the BCN3D Moveo
+
+
+TECNOLOGÍA OPEN SOURCE: LA PLATAFORMA                   OPEN SOURCE TECHNOLOGY: GITHUB
+GITHUB
+                                                        As we have done with all our developed pordutcs,
+Como hiciéramos con todos nuestros productos,           the BCN3D Moveo files will be available for everyo-
+los archivos del BCN3D Moveo estarán a la disposi-      ne. Thanks to the platform Github, a website where
+ción de todo aquel que quiera acceder a ellos. Gra-     users around the world share their designs, anyone
+cias a la plataforma Github, un espacio en el que       will be able to obtain all the necessary informa-
+los usuarios comparten sus diseños de forma libre,      tion in order to assemble his own BCN3D Moveo
+cualquier persona podrá obtener toda la informa-        at home.
+ción necesaria para montarse su propio BCN3D            Unlike the other BCN3D products, the Moveo won’t
+Moveo en casa.                                          be commercialized. The project has been born and
+A diferencia de los otros productos de BCN3D Te-        developed in order to make a move for the com-
+chnologies, el BCN3D Moveo no será comercializa-        munity progress starting from the Departament
+do. El proyecto se ha realizado con el ánimo de dar     d’Ensenyament idea.
+una aportación más a la comunidad a partir de la        Nevertheless, BCN3D will fee all the Moveo know
+idea del Departament d’Ensenyament.                     how on our Github account, as we have been
+BCN3D liberará el conocimiento del Moveo en sus         doing with all the BCN3D Technologies products.
+repositorios en Github como se ha venido hacien-        Thus, the users will be able to find the bill of mate-
+do con los productos oficiales de BCN3D Techolo-        rial (BOM), where all the needed components for
+gies. De esta manera, se espera que la comunidad y      the assembling of the arm come detailed, as the
+los centros formativos que estén interesados pue-       CAD designs, so anyone will be able to modify the
+dan fabricar sus propios robots.                        BCN3D Moveo design as they wish.
+Así, entre los archivos que subiremos a dicha pla-      Furthermore, the Github users will find the STL files
+taforma incluimos el “bill of materials” (BOM), en el   for the structure printing and the assembling, fine
+que se detallan todos los componentes necesarios        tuning and firmware upload manuals, which will
+para montar el brazo, así como los diseños CAD,         be available both in English and Spanish.
+para que todo el mundo pueda modificar el diseño         Thanks to this project motivated by the Departa-
+del BCN3D Moveo a su gusto. De la misma forma,          ment d’Ensenyament and developed by BCN3D
+los usuarios de Github podrán encontrar los archi-      Technologies everyone will be able to fabricate
+vos STL para la impresión de la estructura del bra-     their own robotic arm at home, no highly techni-
+zo, y el manual de montaje del mismo que estará         cal knowledge needed. Therefore, we encourage
+en español e inglés.                                    you to fabricate the BCN3D Moveo and share the
+ Gracias a este proyecto impulsado por el Depar-        results on the social networks using the hashtag
+tament d’Ensenyament y desarrollado por BCN3D           #BCN3DMoveo.
+Technologies, todo el mundo podrá fabricarse un
+brazo robótico en casa, sin necesidad de tener un
+amplio conocimiento técnico. Así, os animamos a
+todos a fabricaros el BCN3D Moveo y compartir los
+resultados en las redes con el hashtag #BCN3DMo-
+veo.
+
+
+
+
+4 - Manual de usuario User manual
+Manual de montaje
+   Assembly manual
+Montaje del módulo 1 Module 1
+
+Paso 1 Step 1
+                                                                             x8
+
+
+
+
+ BOM       Descripción Description                                Cant Qty
+ 115       Tornillo M5 x 20mm Screw M5 x 20mm                     8
+ 16        Rodamiento 5mm x 16mm x 5mm Bearing 5mm x 16mm x 5mm   8
+ 30        Espaciador 5mm x 10mm Spacer 5mm x 10mm                8
+
+Paso 2 Step 2
+                                                                             x1
+
+
+
+
+ BOM       Descripción Description                                Cant Qty
+ 121       Tuerca autoblocante M5 M5 locknut                      8
+ 15        Rodamiento 8mm x 22mm x 7mm Bearing 8mm x 22mm x 7mm   2
+ -         1M2A Base rotatoria 1M2A Rotary plate                  1
+
+
+
+
+6 - Manual de usuario User manual
+Montaje del módulo 1 Module 1 assembly
+Paso3 Step 3
+                                                                                 x1
+
+
+
+
+ BOM       Descripción Description                                Cant Qty
+ 116       Tornillo M8 x 65mm Screw M8 x 65mm                     1
+ 120       Tuerca autoblocante M4 M4 l ocknut                     6
+ 31        Espaciador 8mm x 20mm Spacer 8mm x 2 0mm               1
+ 202       1M1A Base rotatoria 1M1A Rotary Plate                  1
+
+
+Paso 4 Step 4
+                                                                           x1
+
+
+
+
+ BOM       Descripción Description                                Cant Qty
+ -         Ensamblaje 1M2A 1M2A Assembly                          1
+ -         Ensamblaje 1M1 A 1M1A Assembly                         1
+ -         Sistema rodaments Bearing system                       1
+
+
+
+                                                      Manual de usuario User manual - 7
+Montaje del módulo 1 Module 1 assembly
+
+Paso 5 Step 5                                                   x1
+
+
+
+
+ BOM ID Descripción Description                      Cant Qty
+ 204       Pieza impresa 1M3 Printed part 1M3        1
+ 1         Motor nema 17 largo Large nema 17 motor   1
+ 101       Tornillo M3 x 10mm M3 x 8mm screw         4
+ 22        Polea 5mm 5mm pulley                      1
+
+
+
+
+8 - Manual de usuario User manual
+Montaje del módulo 2 Module 2 assembly
+
+Paso 1 Step 1
+                                                                            x1
+
+
+
+
+ BOM ID Descripción Description                               Cant Qty
+ 119       Tuerca M4 M4 Nut                                   2
+ 120       Tuerca autoblocante M4 M4 locknut                  4
+ 207       Pieza impresa 2M2H Printed part 2M2H               1
+
+
+Paso 2 Step 2
+                                                                            x1
+
+
+
+
+ BOM ID Descripción Description                               Cant Qty
+ 119       Tuerca M4 M4 Nut                                   2
+ 111       Tornillo M4 x 40mm M4 x 40mm screw                 4
+ 206       Pieza impresa 2M2M Printed part 2M2M               1
+
+
+
+                                                  Manual de usuario User manual - 9
+Montaje del módulo 2 Module 2 assembly
+
+Paso 3 Step 3
+                                                      x1
+
+
+
+
+ BOM ID Descripción Description            Cant Qty
+ -         Ensamblaje 2M2H 2M2H assembly   2
+ -         Ensamblaje 2M2M 2M2M assembly   2
+
+
+
+
+10 - Manual de usuario User manual
+Montaje del módulo 2 Module 2 assembly
+Paso 4 Step 4
+                                                                                     x1
+
+
+
+
+ BOM ID Descripción Description                                          Cant Qty
+ 208        Pieza impresa T2M1D Printed part T2M1D                       1
+ 117        Tornillo M4 x 20mm M4 x 20mm screw                           1
+ 119        Tuerca M4 M4 nut                                             1
+ 118        Tuerca M3 M3 nut                                             1
+ 17         Rodamiento 4mm x 13mm x 5mm Bearing 4mm x 13mm x 5mm         3
+
+
+
+                                                                                     x1
+Paso 5 Step 5
+
+
+
+
+ BOM ID Descripción Description                                          Cant Qty
+ 209        Pieza impresa T2M1I Printed part T2M 1I                      1
+ 117        Tornillo M4 x 20mm M4 x 20mm screw                           1
+ 119        Tuerca M4 M4 nut                                             1
+ 118        Tuerca M3 M3 nut                                             1
+ 17         Rodamiento 4mm x 13mm x 5mm Bearing 4mm x 13mm x 5mm         3
+
+
+
+
+                                                            Manual de usuario User manual - 11
+Montaje del módulo 2 Module 2 assembly
+
+Paso 6 Step 6
+
+
+
+
+ BOM ID Descripción Description                  Cant Qty
+ -         Ensamblaje T2M1D T2M1D assembly       1
+ -         Ensamblaje T2M1I T2M1I assembly       1
+ 205        Pieza impresa 2M1 Printed part 2M1   1
+ 105       Tornillo M3 x 25mm M3 x 25mm screw    2
+
+
+
+
+12 - Manual de usuario User manual
+Montaje del módulo 2 Module 2 assembly
+Paso 7 Step 7
+                                                                         x1
+
+
+
+
+ BOM ID Descripción Description                              Cant Qty
+ 9         Motor Nema 23 Nema 23 motor                       2
+ 114       Tornillo M5 x 14mm M5 x 14mm screw                8
+ 121       Tuerca autoblocante M5 M5 locknut                 8
+
+
+
+
+                                                Manual de usuario User manual - 13
+Montaje del módulo 2 Module 2 assembly
+
+Paso 8 Step 8
+                                                                             x1
+
+
+
+
+ BOM ID Descripción Description                                   Cant Qty
+ 21         Polea 8mm T5 Pulley 8mm T5                            2
+
+Paso 9 Step 9
+                                                                             x1
+
+
+
+
+ BOM ID Descripción Description                                   Cant Qty
+ 15        Rodamiento 8mm x 22mm x 7mm Bearing 8mm x 22mm x 7mm   2
+
+
+
+
+14 - Manual de usuario User manual
+Montaje del módulo 2 Module 2 assembly
+
+Paso 10 Step 10
+                                                                          x1
+
+
+
+
+ BOM ID Descripción Description                             Cant Qty
+ -         Ensamblaje 2M2 2M2 assembly                      1
+
+
+Paso 11 Step 11
+                                                                          x1
+
+
+
+
+ BOM ID Descripción Description                             Cant Qty
+ 12        Barra lisa 134mm Smooth bar 134mm                1
+
+
+
+
+                                               Manual de usuario User manual - 15
+Montaje del módulo 2 Module 2 assembly
+
+Paso 12 Step 12
+                                                                     x1
+
+
+
+
+ BOM ID Descripción Description                           Cant Qty
+ 19        Inserto M4 M4 insert                           2
+
+Paso 13 Step 13
+                                                                     x1
+
+
+
+
+ BOM ID Descripción Description                           Cant Qty
+ 20        Inserto M3 M3 insert                           2
+ 101       Tornillo M3 x 10mm M3 x 10mm screw             6
+ 229       Pieza impresa Tapa 2M1 Printed part Tapa 2M1   1
+
+
+
+16 - Manual de usuario User manual
+Montaje de la herramienta Tool assembly
+
+Paso 1 Step 1
+                                                                           x1
+
+
+
+
+ BOM ID Descripción Description                                Cant Qty
+ 217       Parte superior Top plate                            1
+ 103       Tornillo M3 x 16mm M3 x 16mm screw                  5
+ 101       Tornillo M3 x 10mm M3 x 10mm screw                  1
+ 219        Cilindros Cilinder                                 2
+  127       Arandela Washer                                    4
+
+Paso 2 Step 2
+                                                                           x1
+
+
+
+
+BOM ID Descripción Description                             Cant Qty
+224       Engranaje del servo Servo gear                   1
+223       Engranaje libre Idol gear                        1
+220       Pivotante Pivot arm                              2
+127       Arandela Washer                                  3
+
+
+
+                                                Manual de usuario User manual - 17
+Montaje de la herramienta Tool assembly
+
+Paso 3 Step 3                                              x1
+
+
+
+
+ BOM ID Descripción Description                 Cant Qty
+ 218       Parte inferior Bottom plate          1
+ 118       Tuerca M3 M3 nut                     4
+
+
+Paso 4 Step 4
+                                                           x1
+
+
+
+
+ BOM ID Descripción Description                 Cant Qty
+ 221       Pinza izquiera Left gripper          1
+ 222       Pinza derecha Right gripper          1
+ 103       Tornillo M3 x 16mm M3 x 16mm screw   8
+ 118        Tuerca M3 M3 nut                    4
+
+
+
+
+18 - Manual de usuario User manual
+Montaje del módulo 3 Module 3 assembly
+
+Paso 1 Step 1
+                                                                           x1
+
+
+
+
+BOM ID Descripción Description                              Cant Qty
+-          Módulo 2M 2M module                              1
+210        Pieza impresa 3M1 Printed part 3M1               1
+110        Tornillo M4 x 16mm M4 x 16mm screw               4
+
+
+
+
+                                                Manual de usuario User manual - 19
+Montaje del módulo 3 Module 3 assembly
+
+Paso 2 Step 2
+                                                                             x1
+
+
+
+
+ BOM ID Descripción Description                                   Cant Qty
+ 212       Pieza impresa T3M1 Printed part T3M1                   1
+ 17        Rodamiento 4mm x 13mm x 5mm Bearing 4mm x 13mm x 5mm   3
+ 123       Tornillo M4 x 20mm M4 x 20mm screw                     1
+ 119        Tuerca M4 M4 nut                                      1
+
+
+Paso 3 Step 3                                                                x1
+
+
+
+
+ BOM ID Descripción Description                                   Cant Qty
+ -         Módulo T3M1 T3M1 module                                1
+ 107       Tornillo M3 x 40mm M3 x 40mm screw                     1
+ 118        Tuerca M3 M3 nut                                      1
+
+
+
+
+20 - Manual de usuario User manual
+Montaje del módulo 3 Module 3 assembly
+
+Paso 4 Step 4
+                                                                                      x1
+
+
+
+
+ BOM ID Descripción Description                                         Cant Qty
+ 210A      Pieza impresa 3M2C Printed part 3M2C                         1
+ 11        Motor Nema-17 34mm Nema-17 motor 34mm                        1
+ 101       Tornillo M3 x 10mm M3 x 10mm screw                           2
+
+
+Paso 5 Step 5                                                                         x1
+
+
+
+
+ BOM ID Descripción Description                                         Cant Qty
+ 24        Acoplador 8mm - 5mm Coupling 8mm- 5mm                        1
+ 23        Barra roscada 42mm Rod bar 42mm                              1
+ 15        Rodamiento 8mm x 22mm x 7mm Bearing 8mm x 22mm x 7mm         1
+
+
+
+
+                                                           Manual de usuario User manual - 21
+Montaje del módulo 4 Module 4 assembly
+
+Paso 1 Step 1
+                                                                             x1
+
+
+
+
+ BOM ID Descripción Description                                   Cant Qty
+ 213       Pieza impresa 4M1 Printed part 4M1                     1
+ 15        Rodamiento 8mm x 22mm x 7mm Bearing 8mm x 22mm x 7mm   1
+ 122        Tuerca autoblocante M8 M8 locknut                     1
+ 20         Inserto M3 Brass insert M3                            2
+ 232        Pieza impresa TBB Printed part TBB                    1
+ 102        Tornillo M3 x 12mm M3 x 12mm screw                    2
+
+
+Paso 2 Step 2
+                                                                             x1
+
+
+
+
+ BOM ID Descripción Description                                   Cant Qty
+ 216       Pieza impresa T4M Printed part T4M                     1
+ 18        Rodamiento 3mm x 10mm x 4mm Bearing 3mm x 10mm x 4mm   3
+ 118        Tuerca M3 M3 nut                                      1
+ 104        Tornillo M3 x 20mm M3 x 20mm screw                    1
+
+
+
+
+22 - Manual de usuario User manual
+Montaje del módulo 4 Module 4 assembly
+
+Paso 3 Step 3
+                                                                                      x1
+
+
+
+
+BOM ID Descripción Description                                          Cant Qty
+-          Módulo T3M T3M module                                        1
+118         Tuerca M3 M3 nut                                            1
+106        Tornillo M3 x 30mm M3 x 30mm screw                           1
+15         Rodamiento 8mm x 22mm x 7mm Bearing 8mm x 22mm x 7mm         2
+
+
+Paso 4 Step 4                                                                         x1
+
+
+
+
+BOM ID Descripción Description                                          Cant Qty
+214        Pieza impresa 4M2 Printed part 4M2                           1
+215        Pieza impresa 4M2C Printed part 4M2C                         1
+118         Tuerca M3 M3 nut                                            3
+117        Tornillo M4 x 25mm M4 x 25mm screw                           2
+120         Tuerca autoblocante M4 M4 Locknut                           4
+
+
+
+
+                                                           Manual de usuario User manual - 23
+Montaje del módulo 4 Module 4 assembly
+
+Paso 5 Step 5
+                                                                x1
+
+
+
+
+ BOM ID Descripción Description                      Cant Qty
+ -          Módulo 4M2 4M2 module                    1
+ 14         Barra lisa 80mm Smooth bar 80mm          1
+
+
+Paso 6 Step 6
+                                                                x1
+
+
+
+
+ BOM ID Descripción Description                      Cant Qty
+ 10         Motor Nema-14 Nema-14 motor              1
+ 22         Pulley T5, eje 5mm Pulley T5, bore 5mm   1
+ 124        Tornillo M3 x 8mm M3 x 8mm screw         4
+
+
+
+
+24 - Manual de usuario User manual
+Montaje del módulo 4 Module 4 assembly
+
+Paso 7 Step 7
+                                                                                     x1
+
+
+
+
+ BOM ID Descripción Description                                        Cant Qty
+ 20        Inserto M3 M3 insert                                        6
+ 231       Pieza impresa Tapa 4M1 Printed part tapa 4M1                6
+ 102       Tornillo M3 x 12mm M3 x 12mm screw                          2
+
+
+
+Paso 8 Step 8                                                                        x1
+
+
+
+
+ BOM ID Descripción Description                                        Cant Qty
+ -         Módulo herramienta Tool module                              1
+ 103       Tornillo M3 x 16mm M3 x 16mm screw                          4
+
+
+
+
+                                                                               MS-2016-4
+                                                          Manual de usuario User manual - 25
+Montaje del módulo 4 Module 4 assembly
+
+Paso 9 Step 9
+                                                           x1
+
+
+
+
+ BOM ID Descripción Description                 Cant Qty
+ 7         Servo motor Servo motor              1
+ 101       Tornillo M3 x 10mm M3 x 10mm screw   4
+
+
+
+
+26 - Manual de usuario User manual
+Montaje del módulo 3 Module 3 assembly
+
+Paso 6 Step 6                                                              x1
+
+
+
+
+ BOM ID Descripción Description                              Cant Qty
+ -         Ensamblaje módulo 4 Tool module                   1
+ 103       Tornillo M3 x 16mm M3 x 16mm screw                4
+
+
+
+
+                                                Manual de usuario User manual - 27
+Montaje del módulo 3 Module 3 assembly
+
+Paso 7 Step 7
+                                                              x1
+
+
+
+
+ BOM ID Descripción Description                    Cant Qty
+ -         Ensamblaje módulo 4 Module 4 assembly   1
+ 107       Tornillo M3 x 40mm M3 x 40 mm screw     6
+ 118       Tuerca M3 M3 nut                        2
+ 211       Pieza impresa 3M2 Printed part 3M2      1
+ -          Ensamblaje 3M2C 3M2C assembly          1
+
+
+
+
+28 - Manual de usuario User manual
+Montaje del módulo 3 Module 3 assembly
+
+Paso 8 Step 8                                                                         x1
+
+
+
+
+ BOM ID Descripción Description                                         Cant Qty
+ 15        Rodamiento 8mm x 22mm x 7mm Bearing 8mm x 22mm x 7mm         2
+
+
+
+
+                                                           Manual de usuario User manual - 29
+Montaje del módulo 3 Module 3 assembly
+
+Paso 9 Step 9
+                                                          x1
+
+
+
+
+ BOM ID Descripción Description                Cant Qty
+ 13        Barra lisa 114mm Smooth bar 114mm   1
+
+
+
+
+30 - Manual de usuario User manual
+Montaje del módulo 3 Module 3 assembly
+
+Paso 10 Step 10
+                                                                              x1
+
+
+
+
+BOM ID Descripción Description                                  Cant Qty
+8          Motor nema 17 R1:5 Nema 17 R1:5 motor                1
+21         Polea 8mm 8mm pulley                                 1
+118        Tuerca M3 M3 nut                                     3
+
+
+
+
+                                                   Manual de usuario User manual - 31
+Montaje del módulo 3 Module 3 assembly
+
+Paso 11 Step 11
+                                                                     x1
+
+
+
+
+ BOM ID Descripción Description                           Cant Qty
+ 230       Pieza impresa tapa 3M1 Printed part tapa 3M1   2
+ 101       Tronillo M3 x 10mm M3 x 10mm srew              1
+
+
+
+
+32 - Manual de usuario User manual
+Montaje de la base Base assembly
+
+Paso 1 Step 1
+                                                                              x1
+
+
+
+
+ BOM ID Descripción Description                                 Cant Qty
+ -         Módulo 1M2 1M2 module                                1
+ 32        Base 550mm x 550mm 550mm x 550mm base                1
+ 111        Tornillo M4 x 40mm M4 x 40mm screw                  4
+ 120       Tuerca autoblocante M4 M4 locknut                    2
+
+
+
+
+                                                   Manual de usuario User manual - 33
+Montaje de la base Base assembly
+
+Paso 2 Step 2
+                                                          x1
+
+
+
+
+ BOM ID Descripción Description                Cant Qty
+ -         Módulo 1M1 1M1 module               1
+ 112       Tronillo M4 x 45mm M4 x 45mm srew   6
+
+
+
+
+34 - Manual de usuario User manual
+Montaje de la base Base assembly
+
+Paso 3 Step 3
+                                                                            x1
+
+
+
+
+ BOM ID Descripción Description                               Cant Qty
+ 116        Tornillo M8 x 65mm M8 x 65mm screw                1
+ 122       Tuerca autoblocante M8 M8 locknut                  1
+
+
+
+
+                                                 Manual de usuario User manual - 35
+Montaje de la base Base assembly
+
+Paso 4 Step 4
+                                                            x1
+
+
+
+
+ BOM ID Descripción Description                  Cant Qty
+ -          Módulo 1M3 1M3 module                1
+ 120       Tuerca autoblocante M4 M4 locknut     4
+ 125        Tornillo M4 x 30mm M4 x 30mm screw   4
+
+
+
+
+36 - Manual de usuario User manual
+Conexionado Connections
+
+Paso 1 Step 1
+                                                     x1
+
+
+
+
+                          Manual de usuario User manual - 37
+Montaje de la base Base assembly
+
+Paso 5 Step 5
+                                                              x1
+
+
+
+
+ BOM ID Descripción Description                    Cant Qty
+ 225        Carcasa electrónica Electronics case   1
+ 227       Soporte controladores Drivers support   1
+
+Paso 6 Step 6
+                                                              x1
+
+
+
+
+ BOM ID Descripción Description                    Cant Qty
+ 226        Módulo ventilador Fan module           1
+ 126       Tornillo M3 x 35mm M3 x 35mm screw      4
+
+
+
+
+38 - Manual de usuario User manual
+Montaje de la base Base assembly
+
+Paso 7 Step 7
+                                                                                         x1
+
+
+
+
+BOM ID Descripción Description                                             Cant Qty
+-           Módulo caja electrónica Electronics case module                1
+125        Tornillo M4 x 30mm M4 x 30mm screw                              2
+
+
+
+
+                                                              Manual de usuario User manual - 39
+Instalación del firmware Firmware installation
+
+
+Arduino IDE                                             Arduino IDE
+
+Arduino IDE es una plataforma que permite escri-        Arduino IDE is a platform that allows you to write
+bir código en un entorno limpio y ordenado. Una         code in a clean and tidy environment. Once the
+vez terminado podemos cargarlo en el arduino            code is written it, we can upload it to the arduino
+con solo pulsar un botón.                               with just touching a button.
+Estos són los passos a seguir para cargar el fir-       These are the steps to load the firmware. In our
+mware. En nuestro caso, el firmware se llama “Mar-      case, the firmware is called “Marlin_BCN3D_Mo-
+lin_BCN3D_Moveo” y está en una carpeta llamada          veo” and is located in a folder called Firmware.
+Firmware.
+
+
+
+
+Una vez localizado el archivo “Marlin_BCN3D_Mo-         Once you have located “Marlin_BCN3D_Moveo.
+veo.ino” hacer doble click en él para abrirlo.          ino” file, double-click on it to open it.
+Cuando se haya cargado hacer click en herramien-        Click “Tools”, go to “Board”, and select Arduino
+tas y dirigirse a los apartados de “Placa”, “Procesa-   Mega 2560.
+dor” y “Puerto”. Conectamos el Arduino en el PC.
+Abrimos el apartado de placa y seleccionamos
+nuestro modelo, Arduino Mega 2560.
+
+
+
+
+40 - Manual de usuario User manual
+Instalación del firmware Firmware installation
+
+
+
+
+A continuación extendemos el apartado de “Pro-      Then we go to, “Tools”, “Processor”. ““ATmega2560
+cesador”. Como se ha conectado el Arduino y se      (mega 2560)” will appear as selected. We maintain
+ha escogido la placa por defecto aparecerá selec-   that option.
+cionada “ATmega2560 (mega 2560)”. Mantene-
+mos esa opción.
+
+
+
+
+                                                                 Manual de usuario User manual - 41
+Instalación del firmware Firmware installation
+
+El último parámetro es el del puerto. Hay que se-   The last parameter is the “Tools”, “port”. You have to
+leccionar el puerto que contenga el modelo de       select the port that contains the model of your pla-
+nuestra placa en el nombre, por ejemplo COM16       que in the name, eg COM16 “Arduino Mega or Mega
+“Arduino Mega or Mega 2560”.                        2560”.
+
+
+
+
+Para acabar hay que hacer click en botón de su-        Finally, you must click the button “upload”. After
+bir. Después de aproximadamente 1 minuto el            about 1 minute firmware will be uploaded. If the-
+firmware se habrá subido correctamente. Si hay         re are problems in the compilation, download the
+problemas en la compilación descargar los drivers      most current drivers from the website of Arduino.
+más actualizados desde la web de Arduino.
+
+
+
+
+42 - Manual de usuario User manual
+¿Cómo usar el BCN3D Moveo? How to use the BCN3D Moveo?
+
+
+Pronterface                                         Pronterface
+
+Pronterface es un programa destinado al testeo de   Pronterface is a program for the testing of 3D pr-
+impresoras 3D. Con él se pueden mover todos los     inters. With it you can move all axes individually in
+ejes individualmente hacia todas las direcciones    all directions and also the extruders of your printer.
+y también los extrusores. En la parte derecha hay   On the right side of the program, there is a termi-
+un terminal de comandos con el que se pueden        nal command with which you can send gcode li-
+enviar líneas de gcode para mover los motores,      nes to move steppers, read the positions of each
+leer las posiciones de cada motor y mover servo     stepper and also move servo motors.
+motores.                                            In our case, we will use the software Pronterface
+En nuestro caso, haremos uso del software Pron-     in order to move the BCN3D Moveo. To act on the
+terface con el objetivo de mover el BCN3D Moveo.    BCN3D Moveo we must establish communication
+Para poder actuar sobre el BCN3D Moveo hay que      between Pronterface and Arduino. This is accom-
+establecer una comunicación entre Pronterface       plished by performing the following steps.
+y el Arduino. Esto se consigue realizando los si-
+guientes pasos. Primero se tiene que escoger el
+puerto COM en el que esté conectado el arduino.
+
+
+
+
+Atención: No se deben tener abiertos los dos pro-   Please note that should not be open both pro-
+gramas (Pronterface y Arduino IDE) a la vez.        grams (Pronterface and Arduino IDE) simulta-
+                                                    neously.
+
+
+
+
+                                                                   Manual de usuario User manual - 43
+¿Cómo usar el BCN3D Moveo? How to use the BCN3D Moveo?
+
+
+El siguiente paso es escoger una velocidad de          The next step is to choose a speed of 250,000
+250.000 baudios.                                       baud.
+
+
+
+
+Finalmente para acabar de realizar la conexión         Finally, to finish the connection, click the “Con-
+hacer click en el botón “Connect”. Entre otras co-     nect” button. Among other things, a text will ap-
+sas aparecerá un texto notificando que nuestra         pear notifying you that your printer is online “Pr-
+impresora ya está online “Printer is now online”. A    inter is now online.”
+partir de ese momento se activará la función del       From that moment, the function of the terminal
+terminal (situada en la parte inferior derecha) y la   (located on the bottom right) and the function of
+de mover los motores.                                  moving the motors will be activated.
+El círculo superior izquierdo nos muestra 3 de los     The upper left circle shows 3 of the 5 axis (the main
+5 ejes (los principales). Con el movimiento de esos    axis). With the movement of those 3 axes you can
+3 ejes se pueden realizar aproximaciones y tests       perform tests to find approaches and positions
+para encontrar las posiciones que más se adecúen       that are most suited to the sequence of work re-
+a la secuencia de trabajo que se requiera. Una vez     quired. Once the positions have been found, the
+se hayan encontrado las posiciones el procedi-         procedure is to write a .Gcode containing all this
+miento es el de escribir un Gcode que contenga         information.
+toda esa información.
+
+
+
+
+44 - Manual de usuario User manual
+¿Cómo usar el BCN3D Moveo? How to use the BCN3D Moveo?
+
+
+
+
+En éste círculo también se aprecian distintos valo-   In this circle also they appreciate different values,
+res, del 0.1 al 100. La unidad usada en los valores   from 0.1 to 100. The unit used in the securities re-
+se refiere a un paso de los motores. Por norma ge-    fers to a step of the engines. Generally, when we
+neral, cuando estamos testeando no se recomien-       are testing, it is not recommended to use options
+da usar las opciones de 100 pasos.                    100 steps.
+
+
+
+
+                                                                    Manual de usuario User manual - 45
+

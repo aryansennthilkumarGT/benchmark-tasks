@@ -1,0 +1,544 @@
+# ROBOCURVE — FINAL AUTONOMOUS TASK DISCOVERY AND VALIDATION
+
+## YOUR MISSION
+
+Find the 15 BEST NEW RoboCurve benchmark tasks we could realistically build and submit.
+
+This is a complete autonomous research assignment.
+
+I do NOT want another conversation where you give me two ideas, ask for permission, investigate them, discover blockers, and then ask what to do next.
+
+YOU are responsible for running the entire discovery, research, verification, competitive analysis, feasibility screening, adversarial review and final ranking process.
+
+Work independently until you have a strong final deliverable.
+
+Do not stop after finding the first promising candidate.
+
+Do not repeatedly ask me to choose between candidates.
+
+Do not produce an endless series of HOLD reports.
+
+The objective is to FINISH THE BRAINSTORMING PHASE and deliver a genuinely useful portfolio of 15 diverse, highly promising, well-verified task concepts.
+
+## REPOSITORY AND CONTEXT
+
+Repository:
+aryansennthilkumarGT/benchmark-tasks
+
+Branch:
+research/robocurve-acceptance-2026-11-14
+
+Last known checkpoint:
+9cc7e816191528ebdea8b3356f29a0cb249140a6
+
+First verify shell/Git access, fetch the latest branch and inspect its actual HEAD. Do not reset, overwrite or discard existing work.
+
+Read the existing research documents, current RoboCurve review rubric, rejection history, prior candidate bank and competitor analysis.
+
+Use those materials to avoid repeating work, NOT to restrict yourself to previously considered ideas.
+
+IMPORTANT HISTORY:
+
+Our earlier submissions were rejected because of:
+
+- Weak importance or an invented occupational justification.
+- Duplication of earlier tasks.
+- Unrealistic substitutes for genuine hardware.
+- Physical simulations that omitted the essential mechanism.
+- Scoring or construct-validity failures.
+- Poorly supported physical setups.
+
+Later research candidates also repeatedly stalled on unavailable component geometry, inaccessible supplier data, YAM access constraints or newly discovered competing tasks.
+
+Do not repeat that pattern.
+
+Previously parked or retired ideas include:
+
+- N040 Hyundai door-trim removal.
+- N022 robot spiral-wire sleeving.
+- OpenArm KER calibration-jig loading.
+- N077 magnetic encoder mounting.
+- N013 cable gland.
+- N006 Euro lock cylinder.
+- N044 rear crankshaft seal.
+- N047 valve keepers.
+- Previously rejected battery, generic service-arm and cooling/storage tasks.
+
+PAROL6 belt installation is already under a final source gate. Do not devote this new discovery project to repeatedly rescuing it.
+
+Find GENUINELY NEW operations.
+
+## WHAT COUNTS AS AN EXCEPTIONAL TASK
+
+A great task must satisfy ALL five RoboCurve criteria:
+
+1. IMPORTANCE
+2. NOVELTY
+3. CONSTRUCT VALIDITY
+4. PHYSICAL SCORING
+5. REPRODUCIBILITY AND ROBOT FEASIBILITY
+
+Apply the actual current competition rubric, including Version 21 guidance and newer official updates.
+
+Prioritize two domains:
+
+### A. Impact on Jobs
+
+The physical operation must be a regular CORE activity of a qualifying occupation or appropriately combined occupations with over 500,000 U.S. workers.
+
+Verify occupation counts and relevant O*NET tasks using credible sources.
+
+Do not borrow the employment total of an entire occupation to justify a rare niche repair.
+
+Do not convert a Supplemental duty into a Core duty.
+
+### B. Impact on AI Timelines
+
+Real work directly involved in constructing, assembling, commissioning, maintaining or equipping robots, robotics research systems or data centers.
+
+The importance must follow from the actual operation, not from calling an ordinary object a robot part.
+
+Favor consequential operations with concrete physical outcomes.
+
+Also consider other permitted domains when genuinely justified, but do not force an idea into the wrong category.
+
+## THE DISCOVERY STRATEGY
+
+Search BROADLY before selecting.
+
+Generate and initially screen at least 80 substantially different operations, aiming for 100 if efficient.
+
+Explore multiple independent task families rather than producing 15 variations of one idea.
+
+Useful fields to investigate include:
+
+- Industrial equipment installation and maintenance.
+- Electrical work and physical electrical assembly.
+- Mechanical assembly and servicing.
+- Warehousing, packing and material handling.
+- Construction and building maintenance.
+- Restaurant and food-service operations.
+- Medical-support and care workflows where safe and appropriate.
+- Robot construction, robot lab maintenance and hardware preparation.
+- Data-center physical infrastructure.
+- Other real, common, consequential manual operations.
+
+This is NOT a requirement to select one task from every category.
+
+Choose based on merit.
+
+Look for specific manufacturer procedures, assembly manuals, service manuals, industrial work instructions, public CAD and authentic physical workflows.
+
+Do NOT generate generic operations like "align two blocks," "insert a peg," "press a button" or "turn a screw" and then invent an occupational explanation.
+
+Start from REAL WORK, then derive the benchmark.
+
+## PRIORITIZE HIGH BUILDABILITY
+
+We have lost too much time investigating physically interesting tasks that require inaccessible hardware data or complex unvalidated material simulation.
+
+Strongly prefer candidates with:
+
+- Actual published procedures.
+- Accessible source documentation.
+- Known dimensions or CAD.
+- Genuine, tractable mechanical interfaces.
+- Stock YAM-compatible manipulation.
+- Limited numbers of crucial contact surfaces.
+- Clearly observable retained/completed states.
+- Manageable implementation cost.
+- Genuine bimanual or long-horizon manipulation complexity.
+- A realistic route to a full-score scripted demonstration.
+
+Rigid or moderately compliant mechanical mechanisms may be especially attractive.
+
+Flexible or deformable objects are allowed when the essential physics can be faithfully modeled with a defensible approximation.
+
+Do NOT require perfect OEM CAD or exhaustive material testing for every candidate. The rubric permits disclosed, faithful simplifications.
+
+But never replace a critical real mechanism with an arbitrary scripted latch, invisible attachment, proximity trigger, rigid substitute or fake physics.
+
+Distinguish normal engineering approximations from changes that erase the skill.
+
+## AUTONOMOUS COMPETITOR SEARCH
+
+For EVERY serious candidate, investigate the official RoboCurve competition repository:
+
+https://github.com/robocurve/benchmark-tasks
+
+Check:
+
+- Merged/accepted tasks.
+- Open and pending pull requests.
+- Recently rejected/revised submissions.
+- Earlier legitimate versions of relevant tasks.
+- Close semantic neighbors in the broader robotics benchmark ecosystem.
+
+DO NOT search only the exact title.
+
+Search synonyms, operations, components, intended outcomes and physical manipulation families.
+
+Read the actual task.json, README and important implementation/scoring files for close competitors.
+
+Distinguish:
+
+- Same physical ability, different object: likely weak novelty.
+- Same object, different essential physical ability: possibly novel.
+- Same general context but different central operation: investigate.
+- Earlier failed implementation of a legitimate operation: still relevant.
+- Pending competitor with an earlier submission: serious ownership risk.
+
+Check current PR status and revision date instead of assuming historical snapshots remain valid.
+
+Important known competitor families include:
+
+#1916 robot cable carrier.
+#1465 PTFE winding.
+#1900 joint zero pinning.
+#1986 panel clip fastening.
+#2212 magnetic encoder installation.
+#2203 robot timing-belt tensioning.
+#2003 dowel joining.
+
+These are EXAMPLES, not an exhaustive competitor list.
+
+Do not dismiss another team's task merely because its implementation has simplifying assumptions or received negative feedback.
+
+## INDEPENDENT IMPORTANCE CHECK
+
+For every finalist:
+
+1. Identify the real person or worker performing the operation.
+2. Cite the actual documented duty or genuine robot/data-center workflow.
+3. Explain what the operation accomplishes in the real world.
+4. Explain why automating it matters.
+5. Identify the strongest possible reviewer objection.
+6. State whether that objection is resolved.
+
+If the importance justification requires a complicated rhetorical argument, downgrade the task.
+
+## AUTHENTIC HARDWARE CHECK
+
+For every finalist, produce a verified equipment inventory:
+
+- Actual components.
+- Material and size.
+- Installed and starting state.
+- Real mating surfaces.
+- Physical attachment or retention method.
+- Ordinary tools used.
+- Required support or fixturing.
+- Source documentation.
+- Essential dimensions known versus unknown.
+
+Prefer one real named product or assembly over a fictional combination of parts.
+
+Do not mix incompatible product revisions.
+
+If a source is blocked by a 403, use legitimate alternate sources such as original GitHub files, public drawings, manufacturer mirrors or previously downloaded archives.
+
+Do not repeat the same failed retrieval indefinitely.
+
+An unknown nonessential dimension may be a disclosed approximation. An unknown essential physical mechanism is a genuine blocker.
+
+## STOCK YAM FEASIBILITY
+
+Use our existing validated YAM geometry and CPU preflight infrastructure.
+
+Remember:
+
+- There are 315 collision hulls per arm.
+- Finger-tip reach alone does not prove grasp feasibility.
+- Palm, wrist, elbow, second-arm and tool clearance matter.
+- Nominal gripper aperture does not prove stable acquisition.
+- Gripper force settings do not automatically prove tool wrench capacity.
+- A source-derived robot reach bound is necessary, not sufficient.
+
+For each finalist, screen:
+
+- Required object scale and mass.
+- Plausible grasp points.
+- Tool acquisition if applicable.
+- Bimanual coordination.
+- Support or fixture reaction.
+- Critical insertion/removal paths.
+- Major collision risks.
+- Whether normal YAM hands can perform the task without changing the hardware.
+
+For top candidates with enough genuine geometry, perform actual CPU reach/collision tests and preserve outputs.
+
+For candidates without a complete path, distinguish PLANNING PLAUSIBILITY from VERIFIED CLEARANCE.
+
+Do not claim an unexecuted test passed.
+
+## PHYSICAL SCORING DESIGN
+
+For EACH of the final 15 tasks, write a practical, externally measurable scoring scheme.
+
+Include:
+
+- Initial physical state.
+- Exact task instruction.
+- What constitutes partial progress.
+- What constitutes complete success.
+- How to measure completion.
+- Damaging or invalid outcomes.
+- How to reset the hardware.
+- At least three plausible incorrect solutions.
+- How the scorer prevents those incorrect solutions from earning undeserved credit.
+
+The task should remain meaningful after the robot lets go.
+
+Avoid scores based only on object proximity, hidden simulator flags, commanded actions, arbitrary time elapsed or a scripted success animation.
+
+Use observable final mechanical outcomes.
+
+Do not invent precise physical tolerances and claim they are manufacturer specifications.
+
+## ADVERSARIAL REVIEW
+
+After finding your preliminary best 15, independently attack every candidate as though you were a strict RoboCurve reviewer.
+
+Attempt rejection under:
+
+- Importance.
+- Semantic novelty.
+- Authenticity.
+- Physics fidelity.
+- Score exploits.
+- Physical reproducibility.
+- YAM feasibility.
+- Submission ownership.
+- Excessive implementation complexity.
+
+The critic should try to disqualify the candidate, not confirm the researcher's original opinion.
+
+Replace candidates that fail a decisive test with stronger alternatives from the larger idea pool.
+
+Do not keep a weak concept simply to reach 15.
+
+## RANKING MODEL
+
+Score each finalist out of 100:
+
+- Importance and real-world consequence: 20.
+- Semantic novelty versus official tasks: 25.
+- Authentic source and mechanism evidence: 20.
+- YAM feasibility and achievable fidelity: 20.
+- Physical scoring, reproducibility and implementation economy: 15.
+
+Separately label hard blockers that cannot be compensated by a high weighted score.
+
+A task with a known active near-duplicate or an invented essential mechanism cannot win simply by collecting points elsewhere.
+
+Do not fabricate a numerical probability of official acceptance.
+
+Be conservative.
+
+## FINAL DELIVERABLE — 15 TASKS
+
+Produce a final ranked list of 15 distinct tasks.
+
+For EACH, include:
+
+1. Concise benchmark title.
+2. Category and precise importance justification.
+3. The actual real-world work it represents.
+4. Real source/procedure URL.
+5. Exact starting configuration.
+6. Robot instruction.
+7. Essential physical manipulation and why it is interesting.
+8. Required objects, approximate sizes and mechanisms.
+9. Meaningful bimanual or long-horizon challenge.
+10. Partial and full physical scoring.
+11. Why it is semantically novel.
+12. Closest official task PRs, with status and comparison.
+13. Main simulation and YAM challenges.
+14. Evidence already verified.
+15. Remaining uncertainty and cheapest falsification test.
+16. Estimated implementation effort relative to the other finalists.
+17. Final weighted score and classification.
+
+Classify each as:
+
+- BUILD-READY FOR CPU PREFLIGHT: No known fatal research blocker; small implementation justified.
+- PROMISING BUT SOURCE-GATED: One specific evidence issue remains.
+- HIGH-RISK RESERVE: Novel and important, but technically challenging.
+
+Be honest. Do not describe all 15 as fully verified if they are not.
+
+If fewer than 15 candidates pass the minimum quality threshold, expand discovery into additional unrelated families before reducing the threshold.
+
+Do not manufacture quality to fill a quota.
+
+## THREE FULL BUILD PLANS
+
+For the top three, produce detailed practical plans:
+
+- Real hardware configuration.
+- Fidelity-critical geometry and contacts.
+- Proposed simulation mechanism.
+- What can be approximated.
+- What cannot be approximated.
+- Actual stock-YAM grasp and tool requirements.
+- Negative-control tests.
+- Scoring implementation.
+- Minimal CPU proof of mechanism.
+- Expected implementation modules/files.
+- Finite path from CPU testing to eventual native demonstration.
+- Specific kill conditions.
+
+Do not write three generic essays. These should be actionable build blueprints.
+
+## CHOOSE THE SINGLE BEST TASK
+
+After completing the 15-task portfolio, select ONE first implementation candidate.
+
+Choose the one with the highest combination of:
+
+- Genuine novelty.
+- Important real-world application.
+- Source completeness.
+- Physical authenticity.
+- Feasible YAM manipulation.
+- Reasonable engineering time.
+- Chance of surviving an adversarial review.
+
+Explain why it beats the other 14.
+
+Do not simply select the most complicated or visually impressive task.
+
+## OPTIONAL EXECUTED CPU PREFLIGHT
+
+If the best candidate has sufficient source-grounded geometry, go beyond writing a report:
+
+Implement and execute ONE bounded CPU-only geometry or mechanism feasibility test for the chosen candidate.
+
+Include reproducible commands, numerical output, and a negative control.
+
+Do not turn it into a full native benchmark or spend time on speculative physics.
+
+If no candidate has enough genuine inputs for a meaningful CPU test, stop at the completed portfolio and state the exact limitation.
+
+## REQUIRED REPOSITORY ARTIFACTS
+
+Create:
+
+research/robocurve-final-discovery/
+
+Files:
+
+- DISCOVERY_METHODOLOGY.md
+- INITIAL_80_PLUS_CANDIDATES.md
+- OFFICIAL_COMPETITOR_AUDIT.md
+- TOP_15_VERIFIED_TASKS.md
+- TOP_15_SOURCE_AND_FEASIBILITY_MATRIX.md
+- TOP_3_DETAILED_BUILD_PLANS.md
+- ADVERSARIAL_REVIEW.md
+- BEST_TASK_FINAL_SELECTION.md
+- NEXT_IMPLEMENTATION_PLAN.md
+- README.md
+
+Include scripts, machine-readable evidence and executed CPU test output where useful.
+
+The README must make it easy to reproduce source/competition checks and identify the final recommended task.
+
+Use source-linked facts and distinguish verified evidence from estimates.
+
+## IMPORTANT AUTONOMY INSTRUCTIONS
+
+DO NOT ask me to approve research steps.
+
+DO NOT ask whether to investigate another idea when one fails.
+
+DO NOT stop after discovering a competitor.
+
+DO NOT continually return with another small shortlist.
+
+DO NOT spend the entire assignment trying to rescue one candidate.
+
+DO NOT silently substitute a previously parked task.
+
+DO NOT claim sources were inspected if they were blocked.
+
+DO NOT invent successful tests.
+
+Use your own judgment to eliminate ideas and pursue stronger replacements.
+
+Parallelize independent discovery and source/competitor checks if your available tools support it. Otherwise work systematically in one task.
+
+Maintain a clear evidence ledger so independent candidate investigations cannot accidentally reuse claims from incompatible hardware.
+
+Prefer meaningful finished results over thousands of lines of low-value research.
+
+## RESOURCE RESTRICTIONS
+
+You are authorized to:
+
+- Research autonomously.
+- Read official competition tasks and public documentation.
+- Download freely available source CAD and manuals.
+- Execute local CPU scripts.
+- Run lightweight CPU geometry/kinematics tests.
+- Create and modify files in the research branch.
+- Commit and push the completed research.
+
+You are NOT authorized to:
+
+- Spend GPU credits.
+- Run Brev or paid native evaluation.
+- Run Dream-1.
+- Buy hardware.
+- Start paid cloud services.
+- Submit official competition PRs.
+- Modify unrelated existing task implementations.
+- Declare a task accepted without an official review.
+
+If a later implementation needs paid compute, identify that as a future decision. Do not use it in this assignment.
+
+## COMPLETION CONDITIONS
+
+This assignment is NOT complete when you find one plausible task.
+
+It is complete when you have:
+
+1. Explored at least 80 distinct ideas.
+2. Researched and comparatively screened them.
+3. Produced a credible, source-backed portfolio of the 15 strongest.
+4. Checked close official competitors for all 15.
+5. Designed practical physical scoring for all 15.
+6. Critically screened YAM and fidelity limitations.
+7. Completed adversarial reviews.
+8. Written three actionable build plans.
+9. Chosen one genuinely compelling first implementation.
+10. Committed and pushed the final portfolio.
+
+Do not repeatedly mark every finalist HOLD for general unknowns. Identify which missing information is truly essential to the physical operation, use faithful disclosed approximations where allowed, and make decisive investment decisions.
+
+If some gate cannot be executed, clearly report the limitation and continue all other independent work.
+
+## HOW TO RESPOND TO ME AT THE END
+
+Give me ONE FINAL CONSOLIDATED ANSWER, not 15 separate status messages.
+
+Start with the headline:
+
+"FINAL ROBOCURVE DISCOVERY: 15 RANKED TASKS"
+
+Show the complete ranked list with titles, scores, category, one-sentence task descriptions, and important outstanding risks.
+
+Then provide:
+
+- The top three and why they win.
+- The single best task to build first.
+- The strongest remaining rejection risk.
+- Which checks actually ran.
+- Which checks remain unverified.
+- Exact repository artifact links.
+- Final pushed commit hash.
+
+No generic praise, no optimistic hand-waving and no request for me to brainstorm the next candidate.
+
+Our goal is to finish research and move to a defensible implementation.
+
+BEGIN THE COMPLETE AUTONOMOUS DISCOVERY NOW.

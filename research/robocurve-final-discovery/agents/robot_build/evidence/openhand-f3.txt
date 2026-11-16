@@ -1,0 +1,254 @@
+                                                   Yale University
+Model F3 (Version 1.0)                       Mechanical Engineering
+
+
+
+
+                                                       OpenHand
+
+                                 Model F3
+                                                       Version 1.0
+
+
+
+
+ Assembly Instructions
+               Last updated: December 15, 2024
+                                                                                      Yale University
+        Model F3 (Version 1.0)                                                 Mechanical Engineering
+
+
+
+                                Bill of Materials
+Part Name                          Quantity     Description                      Vendor
+Power Pro Spectra                  1            Tendon                           Amazon [link]
+PMC-780 Urethane                   1            Finger Joint Urethane            Smooth-On [link]
+
+Dragon Skin 10 Silicone            1            Finger Pad Urethane              Smooth-On [link]
+
+Ø1/4”, L1-1/2”, 8-32 zinc-plated   4            Support                          McMaster [93330A482]
+female standoff
+Ø3mm, L32mm dowel pin              8            Joint pin                        McMaster [91595A138]
+
+Shielded stainless steel ball      8            Joint ball bearings for          McMaster [7804K126]
+bearing, 3mm shaft diameter                     reducing friction
+8-32, L3/4” countersunk bolt       8            Support bolt                     McMaster [92210A197]
+
+M2.5, L8mm bolt                    2            Center bolt for Dynamixel        McMaster [91292A012]
+                                                (included w/ Dynamixel)
+M2, L5mm bolt                      4            Mounting bolts for Dynamixel     McMaster [91290A012]
+
+4-40, L0.135” heat-set insert      4            Insert for bolt anchors          McMaster [93365A120]
+
+4-40, L1/4” countersunk screw      4            Tendon/spring anchors            McMaster [91253A106]
+
+Dynamixel XM430                    2            Actuator                         Various [Link]
+
+Logitech C920x HD Pro Webcam       1            RGB Camera                       Amazon[link]
+
+
+
+
+* Note * There are certainly other combinations of fasteners that may work with these designs. We do not
+even claim that the parts list provided here is optimal for these designs. They are merely the components that
+we have used in past builds.                                                                                     1
+                                                                               Yale University
+        Model F3 (Version 1.0)                                           Mechanical Engineering
+
+
+
+                             Printed Parts List
+Part Name                      Quantity   Description                      STL File Name
+F3 finger (thin wall mold)     2          Fingers                          F3_finger_mold.STL
+a1 part 1                      1          Finger base with camera          a1_part1.STL
+                                          mount
+a1 part 2                      1          Extended camera mount            a1_part2.STL
+
+a2                             1          Motor fixture top                a2.STL
+
+a3                             1          Motor fixture bottom             a3.STL
+
+a4                             1          Mount to robot arm               a4.STL
+
+b1                             2          Tendon routing for motors        b1_xm_f3.STL
+
+d1                             2          Case                             d1.STL
+
+Bearing sleeve                 8          Sleeve for ball bearings to      bearing_sleeve.STL
+                                          prevent tendon from slipping
+
+
+
+
+                                                                                                  2
+                                                                                         Yale University
+            Model F3 (Version 1.0)                                                Mechanical Engineering
+
+
+
+                                Finger Sub-Assembly
+                                               Flexure-Flexure
+Parts                                                       Refer to the OpenHand Finger Guide for more detail
+                                                            on casting these pads and flexures. No pins or
+F3_finger_mold.STL                                          additional elastic elements are needed for the joints
+                                                            in the Flexure-Flexure finger design.
+                                 (x2)
+PMC-780 urethane (2:1)
+
+Dragon Skin 10 Silicone (1:1)
+
+
+
+
+   * Note * We printed the finger in red so that it stands out from the background. Theoretically any finger color
+   that doesn’t blend in with the background should work fine for force estimation.
+                                                                                                                     3
+                                                                                Yale University
+             Model F3 (Version 1.0)                                      Mechanical Engineering
+
+
+
+                                    Finger Sub-Assembly
+                                          Flexure-Flexure
+Parts                                             Press fit the 3mm dowel pins for tendon-rerouting
+                                                  into the finger links. If the pins do not press-fit
+Flexure-flexure finger from page 3 (x2)           easily, use a larger reamer to clean out the pin
+                                                  clearances or a vice. Use a soldering iron to install
+                                                  the heat-set insert into the distal link. The heat-set
+4-40, L0.135” heat-set insert (x2)                insert can be skipped in favor of using a nut for
+                                                  tendon termination.
+4-40, L1/4” countersunk screw (x2)
+                                                  The tolerance of the bearing sleeve may come out
+Ø3mm, L32mm dowel pin (x8)                        differently from different printers. Test print and
+                                                  change the size of the inner sleeve to find out what
+stainless steel ball bearing (x8)                 would achieve a press or loose fit. Fix sleeve relative
+                                                  to outer bearing using super glue if necessary.
+bearing sleeves (x8)
+
+
+
+
+                                                                 Bearing sub assembly
+
+
+
+
+                                                                                                            4
+                                                                             Yale University
+               Model F3 (Version 1.0)                                 Mechanical Engineering
+
+
+
+                              Finger Sub-Assembly
+                                        Flexure-Flexure
+Parts                                           The Flexure-Flexure fingers are simply inserted up
+                                                through the top plate a1_part1.stl and press-fit into
+Flexure-flexure finger sub-assembly             place.
+from page 4 (x2)                                The following visuals are adapted from the T42
+                                                finger assembly guide. The a1 part used for F3 is
+                                                wider but should follow the same assembly. Part 1
+a1_part1.stl                                    and part 2 of a1 can be glued or clamped together.
+
+
+
+
+                                                                                                        5
+                                                                       Yale University
+            Model F3 (Version 1.0)                             Mechanical Engineering
+
+
+
+                       Actuator Sub-Assembly
+                                     Dynamixel
+Parts                                     Tie about a foot (~30cm) of tendon line to the servo
+                                          pulley b1_dynamixel_t42.stl through the non-bolt
+Dynamixel XM430 (x2)                      hole. It’s a good idea to wire the two Dynamixels
+                                          together in a daisy-chain setup in this step.
+b1_xm_f3.stl (x2)
+                                          The following final assembly is adapted from the
+Spectra tendon line                       T42 assembly guide. The middle-printed part is no
+                                          longer needed and the Dynamixels should fit
+M2.5, L8mm bolt (x2)                      directly between parts a3 and a4.
+
+M2, L5mm bolt (x4)
+
+
+
+
+                                                                                                 6
+                                                                        Yale University
+            Model F3 (Version 1.0)                               Mechanical Engineering
+
+
+
+                          Actuator Sub-Assembly
+                                      Dynamixel
+Parts                                      The final actuator sub-assembly is sandwiched
+                                           together as shown. The Dynamixel sub-assembly
+Dynamixel sub-assembly from page 12        should be oriented such that negative rotation
+                                           (counterclockwise) of the servos will pull the tendon
+a2.stl                                     downwards.
+
+a3.stl                                     The following visuals are adapted from the T42
+                                           assembly guide. The cooling fans are not needed
+a4.stl                                     and the a2, a3, a4 parts are wider than they were to
+                                           avoid additional finger tendon routing. The overall
+8-32, L3/4” countersunk bolt (x4)          structure should be similar to T42.
+
+Ø1/4”, L1-1/2”, 8-32 zinc-plated
+female standoff (x4)
+
+
+
+
+                                                                                                   7
+                                                                         Yale University
+             Model F3 (Version 1.0)                               Mechanical Engineering
+
+
+
+                                     Final Assembly
+                                         Hand Frame
+Parts                                         The top sub-assembly with topmost plate and the
+                                              fingers are assembled onto the actuator sub-
+Actuator sub-assembly (Dynamixel)             assembly in the same way, no matter which fingers
+from page 7                                   are used. Use the 4 countersunk 8-32 bolts to
+Top flexure-base sub-assembly from            sandwich and secure all the parts together.
+page 5
+8-32, L3/4” countersunk bolt (x4)
+
+d1.stl (x2, optional)
+
+
+
+
+                                                                                                  8
+                                                                           Yale University
+            Model F3 (Version 1.0)                                 Mechanical Engineering
+
+
+
+                             Final Assembly
+                                     Tendon Routing
+Parts                                       The tendon is routed from the servo pulley through
+                                            the tendon clearance. The tendon is routed for each
+Hand assembly                               finger as shown below. The tendons will run over
+                                            the ball bearings on the dowel pins.
+
+                                            The tendon can be terminated on the bolt at the
+Spectra tendon line                         back of the distal finger link or with a nut right after
+                                            the tendon exits the back of the finger.
+
+                                            To zero the tendon line:
+                                            1. Anchor the tendon
+                                            2. Hook up the actuator and command it to its zero
+                                                position
+                                            3. Unscrew the pulley until it can spin freely
+                                            4. Rotate the pulley until the tendon line is taut
+                                            5. Re-secure the drive pulley to the actuator
+
+
+
+
+                                                                                                       9
+

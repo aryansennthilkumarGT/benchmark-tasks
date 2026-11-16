@@ -1,0 +1,471 @@
+YUBI Glove Assy_ver.2 Assembly Procedure
+
+
+【Assembly Procedure】
+(1) Install components onto UPPER PLATE
+    • Install INSERTs
+    • Install BUSHINGs
+(2) Install components onto UNDER PLATE
+    • Install INSERTs
+    • Install BUSHINGs
+(3) Install components onto FINGER with Gear_t30_R or t20_R
+    • Install RUBBER SHEET
+    • Install ENCODER MAGNET
+(4) Install components onto FINGER with Gear_t30_L or t20_L
+    • Install RUBBER SHEET
+(5) Install FINGER with Gear and UPPER PLATE
+(6) Install FLAPs                                             【YUBI Glove Assy_ver.2_for Right-hand】
+    • Install FLAP_R
+    • Install FLAP_L
+(7) Install HOLDER_Quest_R/L
+    • Install INSERTs
+    • Install HOLDER_Quest_R/L
+(8) Install PCB and Wiring
+    • Install PCB (AS5601) onto UPPER PLATE
+    • Install PCB (ESP32C6) on HOLDER_Quest_R/L
+    • Install USB TYPE-C CABLE
+(9) Install CAMERA
+    • Install CAMERA
+    • Connect CAMERA WIRING
+(10) Install GRIP                                             【YUBI Glove Assy_ver.2_for Left-Hand】
+    • Install T-SLOT NUT
+    • Install GRIP
+    • Adjust GRIP position
+(11) Install Rubber Band for Finger opening and closing
+(12) Install Meta Quest Touch Plus Controller
+
+
+
+
+【Optional Parts Assembly Procedure】
+(1) Install FINGER ATTACHMENT_Glove and FINGER PAD
+(1) Install components onto UPPER PLATE
+
+
+• Install INSERTs
+  Install following INSERTs into UPPER PLATE
+  ① SB-264040: 2 pcs. (Installation positions differ between for right-hand and left-hand versions.)
+
+
+         【for Right-hand Version】                             【for Left-hand Version】
+
+
+
+
+            ①                                                    ①
+
+
+• Install BUSHINGs
+  Install following BUSHINGs into UPPER PLATE
+  ② JZF8-5: 2 pcs.
+
+
+
+
+                          ②
+(2) Install components onto UNDER PLATE
+
+
+   • Install INSERTs
+     Install following INSERTs into UNDER PLATE
+     ① SB-264040: 3 pcs.
+
+
+                                ①
+
+
+
+
+   • Install BUSHINGs
+     Install following BUSHINGs into UNDER PLATE
+     ② JZF8-5: 2 pcs.
+
+
+
+
+                                                   ②
+(3) Install components onto FINGER with Gear_t30_R or t20_R
+
+
+• Install RUBBER SHEET
+ ① Attach RUBBER SHEET onto FINGER with Gear_t30_R or t20_R using adhesive
+    (e.g., Super X).
+    Select RUBBER SHEET size based on gripping location and required area.
+
+
+
+
+                                           ①
+
+• Install ENCODER MAGNET
+ ② Attach NEODYMIUM MAGNET_AS5601 to FINGER with Gear_t30_R or t20_R
+    using instant adhesive.
+
+
+
+                              ②
+(4) Install components onto FINGER with Gear_t30_L or t20_L
+
+
+• Install RUBBER SHEET
+ ① Attach RUBBER SHEET to FINGER with Gear_t30_L or t20_L using adhesive
+    (e.g., Super X).
+    Select RUBBER SHEET size based on gripping location and required area.
+
+
+
+
+                                                         ①
+(5) Install FINGER with Gear_Glove and UPPER PLATE
+
+
+Install following components onto UNDER PLATE.
+ ① Install FINGER with Gear_R/L from steps (3)/(4).
+ ② Install UPPER PLATE from step (1).
+
+
+
+
+                                ②
+
+
+
+                        ①
+
+
+
+
+ ③ Secure UPPER PLATE with CB2.5-15 (3 pcs). (Torque: 0.36 N·m)
+
+
+
+                   ③
+ (6) Install FLAPs
+
+
+• Install FLAP_R
+  ① Install FLAP_R on FINGER with Gear_t30_R or t20_R.
+  ② Secure FLAP_R with CB2-6 (2 pcs). (Torque: 0.315 N·m)
+
+
+                         ②
+
+
+              ①
+
+
+
+
+      • Install FLAP_L
+        ③ Install FLAP_L onto FINGER with Gear_t30_L or t20_L.
+        ④ Secure FLAP_L with CB2-6 (2 pcs). (Torque: 0.315 N·m)
+
+
+                                                    ④
+
+                                                             ③
+(7) Install HOLDER_Quest_R/L
+
+
+• Install INSERTs
+  Install following INSERTs in HOLDER_Quest_R/L.
+  ① SB-304540: 2 pcs.
+
+
+
+               ①
+
+
+
+
+【for Right-hand Version】
+• Install HOLDER_Quest_R
+  ② Install HOLDER_Quest_R onto rear side of UPPER PLATE. (Press it against locating features.)
+  ③ Secure HOLDER_Quest_R with CB2.5-8 (2 pcs). (Torque: 0.36 N·m)
+
+
+
+
+                                                            ②
+
+
+
+
+             locating features
+
+                                         ③
+【for Left-hand Version】
+• Install HOLDER_Quest_L
+ ④ Install HOLDER_Quest_L onto rear side of UPPER PLATE. (Press it against locating features.)
+ ⑤ Secure HOLDER_Quest_L with CB2.5-8 (2 pcs). (Torque: 0.36 N·m)
+
+
+
+
+                 ④
+                                                                   locating features
+
+
+
+
+                                                              ⑤
+ (8) Install wiring onto PCB
+
+
+• Install wiring onto PCB following procedure below
+
+          PCB (AS5601)
+
+
+
+
+         PCB (ESP32C6)
+
+
+      ① Solder wires onto PCB (ESP32C6) and PCB (AS5601).
+        Refer to connection table for wiring positions (see figure).
+
+
+      PCB(ESP32C6)
+
+
+
+
+      PCB(AS5601)                                Connection Table
+                                                  ESP32C6 Wire Type / Color         AS5601
+                                                      3V3     AWG28 / Black          3V3
+                                                    GND       AWG28 / Black          GND
+                                                      D4      AWG28 / Black          SDA
+                                                      D5      AWG28 / Black          SCL
+
+
+                                              Wire Length for Right-hand Version: 80 mm
+                                                             for Left-hand Version: 180 mm
+
+
+      ② Secure PCB (ESP32C6) onto UNIVERSAL PCB (25.4 × 25.4 × t1.6) using PIN HEADERs.
+         (4 locations shown below).
+
+
+
+                                                                       UNIVERSAL PCB(25.4x25.4xt1.6)
+
+
+                                                                       PCB (ESP32C6)
+
+                                                                       PIN HEADER
+
+
+                           Fix at same position for right-hand and left-hand versions
+③ Assemble COVER_PCB_R/L onto PCB (ESP32C6) + UNIVERSAL PCB assembly from step ②.
+• Hook COVER_PCB_R/L from side of PCB and place it.
+ Route wires from front side.
+
+
+
+
+                                COVER_PCB_R
+
+
+
+
+                                Front side         Front side
+
+
+
+
+         Installed State                                            Installed State
+         (for Right-hand Version)                               (for Left-hand Version)
+
+
+④ Assemble COVER_PCB_R/L with PCB into groove of Quest HOLDER_R/L
+  by hooking UNIVERSAL PCB and sliding from top.
+
+
+
+
+                                                    groove of Quest HOLDER
+
+
+
+
+⑤ Secure COVER_PCB_R/L with CB3-6 (1 pc). (Torque: 0.63 N・m)
+
+
+
+                                                           ⑤
+
+
+
+                                                   COVER_PCB_R
+⑥ Connect USB cable to PCB (ESP32C6).
+
+
+
+
+                                 ⑥
+
+⑦ Install COVER_CABLE_R/L on Quest HOLDER_R/L and secure it with LRLM3-6 bolt.
+
+
+                                        LRLM3-6
+
+
+
+
+                                 COVER_CABLE_R
+
+
+⑧ Install PCB (AS5601) onto UPPER PLATE with CBSTNR3-5 (2 pcs). (Torque: 0.63 N·m)
+
+
+
+CBSTNR3-5
+                                          PCB (AS5601)
+⑨ If excess wiring remains, secure wires to hook section of Quest HOLDER_R/L
+  using cable ties.
+
+
+
+
+   Hook
+
+
+
+
+          【PCB + Cover Assembly State】
+ (9) Install CAMERA
+
+
+• Install CAMERA
+  ① Place CAMERA on CAMERA_BRACKET of UPPER PLATE.
+  ② Secure CAMERA with CB2.5-6 (2 pcs). (Torque: 0.36 N·m)
+
+                      ①
+
+                                                             CAMERA_BRACKET
+
+
+
+
+           ②
+
+
+
+
+     • Connect CAMERA WIRING
+       ③ Connect CAMERA WIRING to connector from rear side of CAMERA_BRACKET.
+(10) Install GRIP
+
+
+• Install T-SLOT NUT
+  ① Install T-SLOT NUT in the groove of UNDER PLATE.
+
+
+
+
+                                                        ①
+
+
+
+     • Install GRIP
+       ② Install GRIP by passing ADJUST BOLT through GRIP.
+
+
+
+
+                                      ②
+
+
+     • Adjust GRIP position
+       ③ Slide the GRIP forward or backward to a comfortable position.
+       ④ Hand-tighten the ADJUST BOLT to secure the GRIP.
+
+
+
+
+                                                  ③
+
+
+
+                       ④
+(11) Install Rubber Band for Finger Opening and Closing
+
+
+• Install rubber band No.16 for finger opening and closing as follows.
+  ① Hook rubber band No.16 onto the hook at base of the finger.
+     Use right-finger side for right-hand version and left-finger side for left-hand Version.
+  ② Hook rubber band onto the hook and groove of HOLDER_Quest_R/L.
+  ③ Confirm that the fingers open and close smoothly.
+
+
+
+
+                                                                                 ①
+
+
+
+
+                                    ②
+(12) Install Meta Quest Touch Plus Controller
+
+
+① Remove battery cover from Meta Quest Touch Plus Controller_R/L.
+② Install Meta Quest Touch Plus Controller_R/L in HOLDER_Quest_R/L.
+  Install it so that the switch on the side of Meta Quest Touch Plus Controller_R/L
+  rests on the notch of HOLDER_Quest_R/L.
+
+
+
+                               MetaQuestTouchPlus
+                               Controller_R
+
+
+
+
+                             ①
+
+
+
+
+                                                            notch of HOLDER
+【Optional Parts Assembly Procedure】
+(1) Install FINGER ATTACHMENT_Glove and FINGER PAD
+
+
+• Install FINGER PAD
+
+
+  ① Install FINGER PAD_t30_R/L or FINGER PAD_t20 on FINGER ATTACHMENT_Glove_R/L.
+    When using FINGER PAD_R/L_v2, install Fin at the fingertip.
+  ② Secure FINGER PAD with CB2.5-10 (2 pcs). (Torque: 0.36 N·m)
+
+
+
+
+            ①
+
+                                                          ②
+
+
+
+
+                                   FINGER PAD_v2
+
+
+
+
+                FIN
+
+
+
+
+    • Install RUBBER SHEET
+      ③ Attach RUBBER SHEET onto FINGER PAD using adhesive (e.g., Super X).
+         Select RUBBER SHEET size based on gripping location and required area.
+
+
+
+
+                                                   ③
+

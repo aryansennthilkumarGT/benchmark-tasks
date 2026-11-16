@@ -1,0 +1,1344 @@
+{
+  "domain": "Genuine robot building and laboratory hardware assembly",
+  "checked_utc": "2026-11-16",
+  "scope": "NoGPU,paidservice,purchase,officialsubmission,taskimplementation,commit orpush. CPUgeometryinspectiononly.",
+  "initial_count": 25,
+  "initial20": [
+    {
+      "id": "RB01",
+      "title": "Close a Faze4 cycloidal reducer across both eccentric disks and the common output carrier",
+      "real_procedure_url": "https://github.com/Source-Robotics/Faze4-Robotic-arm/blob/a482f3993457fd5b4071d740f0bc826ffc0d7b32/Assembly%20instructions%203.1.pdf",
+      "procedure_status": "VERIFIED: complete designer PDF; J4 STLs and disk STEP inspected",
+      "disposition": "FINALIST",
+      "reason": "Genuine robot gearbox; whole closed-loop assembly plus functional ratio differentiates it from independent spur gears."
+    },
+    {
+      "id": "RB02",
+      "title": "Install and finish helical thread inserts in an ODRI actuator shell",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_shell_preparation.md",
+      "procedure_status": "VERIFIED: exact procedure, named inserts/tools, shell STL",
+      "disposition": "HIGH-RISK RESERVE",
+      "reason": "Actual robot shell manufacturing; tiny wire-coil mechanics and tool access need bounded proof."
+    },
+    {
+      "id": "RB03",
+      "title": "Seat an ODRI motor rotor over its stator and secure both radial set screws under axial preload",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_actuator_module_assembly.md",
+      "procedure_status": "VERIFIED procedure/photos; motor STEP falsified as shaft-only",
+      "disposition": "SOURCE-GATED",
+      "reason": "Essential driver corridor through rotor spokes lacks dimensions; do not substitute solid bell or external screw."
+    },
+    {
+      "id": "RB04",
+      "title": "Route and zero an OpenHand F3 finger tendon",
+      "real_procedure_url": "https://github.com/grablab/openhand-hardware/blob/b10197dcd79e7bcfa92c6d5a0bfa479e6a789fba/model%20f3%20%28forces-for-free%20hand%29/Model%20F3%20Assembly%20Guide%201.0.pdf",
+      "procedure_status": "VERIFIED: complete embedded assembly PDF, STL parts and license",
+      "disposition": "HIGH-RISK RESERVE",
+      "reason": "Real robotic hand; long thin tendon and flexure response cost more than rigid finalists."
+    },
+    {
+      "id": "RB05",
+      "title": "Close the two actual four-bar jaw linkages of a BCN3D Moveo gripper",
+      "real_procedure_url": "https://github.com/BCN3D/BCN3D-Moveo/blob/0866a92501277636f76000a195d8a16d44b5b476/USER%20MANUAL/User%20Manual%20BCN3D%20Moveo.pdf",
+      "procedure_status": "VERIFIED: designer manual pp17–18 and gripper STLs",
+      "disposition": "DOWNGRADED RESERVE",
+      "reason": "Actual hardware strong; semantic overlap with #1376 closed-loop arm linkage and #1898 symmetric gripper leaves weak novelty case."
+    },
+    {
+      "id": "RB06",
+      "title": "Punch the factory shaft out of an ODRI brushless rotor on its genuine support tool",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_motor_preparation.md#removing-the-motor-shaft",
+      "procedure_status": "VERIFIED: exact hammer/punch/extraction-tool step and tool STL pointer",
+      "disposition": "ELIMINATE",
+      "reason": "Impact manipulation plus unknown factory interference and stator-safe support; less economical than cycloid."
+    },
+    {
+      "id": "RB07",
+      "title": "Hand-ream the ODRI rotor bore to accept its custom shaft",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_motor_preparation.md#increasing-the-rotor-bore-diameter",
+      "procedure_status": "VERIFIED: 3.98/3.99/4.00mm tools, trial-fit criterion",
+      "disposition": "ELIMINATE",
+      "reason": "Micrometre fit and real material removal; #2244 is legitimate rotary cutting neighbor, so high cost without clear advantage."
+    },
+    {
+      "id": "RB08",
+      "title": "Cast OpenHand F3 urethane flexures and silicone finger pads",
+      "real_procedure_url": "https://github.com/grablab/openhand-hardware/blob/b10197dcd79e7bcfa92c6d5a0bfa479e6a789fba/model%20f3%20%28forces-for-free%20hand%29/Model%20F3%20Assembly%20Guide%201.0.pdf",
+      "procedure_status": "VERIFIED: PMC780 2:1 and Dragon Skin10 1:1; mold STL",
+      "disposition": "ELIMINATE",
+      "reason": "Actual hand fabrication but curing, pouring and bubbles dominate; poor rigid-mechanism fit."
+    },
+    {
+      "id": "RB09",
+      "title": "Assemble the twelve silicone centering elements of an ODRI optical foot switch",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/foot_contact_switch_v1/README.md",
+      "procedure_status": "VERIFIED: six elements per side, OD6/ID4/length3mm, designer layout",
+      "disposition": "ELIMINATE",
+      "reason": "Genuine load-sensing foot, but twelve 3mm compliant pieces and a 1.5mm antirotation pin make stock-hand handling unattractive; no invented large surrogate."
+    },
+    {
+      "id": "RB10",
+      "title": "Mount the RH-P12-RN gripper on OpenManipulator-P frame FRP42_A110K",
+      "real_procedure_url": "https://github.com/ROBOTIS-GIT/emanual/blob/0807b1b5f7472bbbbb2c9751f1d3406678e86d37/docs/en/platform/openmanipulator_p/ros_tool.md",
+      "procedure_status": "VERIFIED: exact eight plus four M3x8 screws and cable",
+      "disposition": "ELIMINATE",
+      "reason": "Real robot setup but predominantly ordinary screw fastening; #1054 already covers richer held tool mounting."
+    },
+    {
+      "id": "RB11",
+      "title": "Build a bearing-supported angled roller into a Mantis mecanum wheel",
+      "real_procedure_url": "https://github.com/4ndreas/MantisRover/tree/master/CAD/MecanumWheels",
+      "procedure_status": "VERIFIED CAD repository; exact assembly procedure absent from README",
+      "disposition": "SOURCE-GATED OUTSIDE FINALISTS",
+      "reason": "Not equivalent to mounting a whole wheel; no source-grounded fastener/roller procedure recovered. REV manufacturer documentation403 once; not looped."
+    },
+    {
+      "id": "RB12",
+      "title": "Lace filament roller tires into a FilaMecanum hub",
+      "real_procedure_url": "https://github.com/Arcus-3d/FilaMecanum",
+      "procedure_status": "VERIFIED designer SCAD and project README; full instructions on Hackaday not retrieved",
+      "disposition": "ELIMINATE",
+      "reason": "Actual unconventional wheel but continuous flexible-filament lacing and source completeness inferior to Faze4."
+    },
+    {
+      "id": "RB13",
+      "title": "Join a lab vacuum KF flange using its centering ring and clamp",
+      "real_procedure_url": "https://www.lesker.com/newweb/flanges/flanges_technicalnotes_1.cfm",
+      "procedure_status": "SOURCE TARGET ONLY; not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Real lab assembly hypothesis, but no direct robot-work binding and potential quick-coupler overlap; cannot borrow AI importance from laboratory location."
+    },
+    {
+      "id": "RB14",
+      "title": "Fit a metal face-seal VCR gasket while counterholding the two coupling bodies",
+      "real_procedure_url": "https://www.swagelok.com/downloads/webcatalogs/en/ms-01-24.pdf",
+      "procedure_status": "SOURCE TARGET ONLY; not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Different gasket compression operation, but robotics-specific deployment and essential torque/tool geometry unverified."
+    },
+    {
+      "id": "RB15",
+      "title": "Capture a lens in a robot optics cell with a threaded retaining ring and spanner",
+      "real_procedure_url": "https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=1430",
+      "procedure_status": "SOURCE TARGET ONLY; not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Legitimate optical construction; direct robot role absent and vision/lens family delegated elsewhere. No arbitrary robot label."
+    },
+    {
+      "id": "RB16",
+      "title": "Seat and lock a centrifuge rotor on its drive spindle",
+      "real_procedure_url": "https://www.eppendorf.com/product-media/doc/en/261874/Centrifugation_Operating-manual_Centrifuge-5702.pdf",
+      "procedure_status": "SOURCE TARGET ONLY; not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Useful lab equipment operation, but standalone lab duty has no demonstrated qualifying jobs or robot-building role."
+    },
+    {
+      "id": "RB17",
+      "title": "Replace a robot-vacuum brush roll with its drive end engaged",
+      "real_procedure_url": "https://homesupport.irobot.com/s/article/8973",
+      "procedure_status": "SOURCE TARGET ONLY; not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Authentic robot service hypothesis, already a very close official operation #2169; no reason to invest."
+    },
+    {
+      "id": "RB18",
+      "title": "Index a Petoi leg onto the correct servo spline tooth",
+      "real_procedure_url": "https://github.com/PetoiCamp/OpenCat",
+      "procedure_status": "VERIFIED source repository exists; exact current manual not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Independent real robot assembly family, but exact servo-horn phasing is already #1864. Not rescued by different robot brand."
+    },
+    {
+      "id": "RB19",
+      "title": "Remove additive supports from an actual printed robot part",
+      "real_procedure_url": "https://help.prusa3d.com/article/removing-support-material_177323",
+      "procedure_status": "SOURCE TARGET ONLY; not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Different manufacturing preparation, but current official #2321 already owns this explicit robot-part operation."
+    },
+    {
+      "id": "RB20",
+      "title": "Hand-tap the load-bearing metric threads of an ODRI printed actuator shell",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_shell_preparation.md#cutting-the-metric-threads",
+      "procedure_status": "VERIFIED: exact M3 tapping through shell; distinguish from STI insert tapping",
+      "disposition": "ELIMINATE",
+      "reason": "Real thread creation rather than screw placement, but plastic cutting/strip physics and tool regrasp add cost. Do not promote merely because source is accessible."
+    }
+  ],
+  "additional_discovery": [
+    {
+      "id": "RB21",
+      "title": "Install the bearings into an ODRI actuator shell through their proper seating faces",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_shell_preparation.md#installing-the-bearings",
+      "procedure_status": "VERIFIED: 32x25x4 and8x4x2 bearings, light manual press fit",
+      "disposition": "ELIMINATE",
+      "reason": "Legitimate manufacturing, close to #995 bearing mounting and existing basic press-fit families; not a new finalist."
+    },
+    {
+      "id": "RB22",
+      "title": "Bond a rubber tread sole onto an ODRI robot foot",
+      "real_procedure_url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/foot_contact_switch_v1/README.md#bicycle-tire",
+      "procedure_status": "VERIFIED: Schwalbe65x10mm piece and Loctite406",
+      "disposition": "ELIMINATE",
+      "reason": "Genuine robot foot preparation, but adhesive coverage/cure and simple placement do not beat mechanical alternatives."
+    },
+    {
+      "id": "RB23",
+      "title": "Open and service the removable platform of an automated pipetting robot",
+      "real_procedure_url": "https://github.com/Opentrons/opentrons/tree/edge/hardware",
+      "procedure_status": "VERIFIED hardware repository exists; exact operation not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Broad equipment lead only; specific deck/module workflows owned by datacenter agent, so no duplicate nomination."
+    },
+    {
+      "id": "RB24",
+      "title": "Adjust a robot gripper pneumatic slot sensor with its clamping screw",
+      "real_procedure_url": "https://github.com/robocurve/benchmark-tasks/pull/2094",
+      "procedure_status": "VERIFIED official semantic search result; OEM procedure not inspected",
+      "disposition": "ELIMINATE",
+      "reason": "Current competitor already captures this exact sensor commissioning skill; no robot-domain relabeling."
+    },
+    {
+      "id": "RB25",
+      "title": "Fit the passive spring loop to a Toyota YUBI teleoperation glove",
+      "real_procedure_url": "https://github.com/Toyota/yubi-hw/blob/dd8bd13d2fd8e5003057243576f88be333d95fc5/docs/AssemblyInstruction/YUBI%20Glove%20Assy_AssemblyGuide.pdf",
+      "procedure_status": "VERIFIED step11/photo/BOM and complete matched right-glove STEP assembly",
+      "disposition": "FINALIST; BUILD-READY FOR CPU PREFLIGHT",
+      "reason": "Actual robot teleoperation hardware, genuine passive spring loop over rigid hooks/groove; distinct from active tendons and rigid bungee end-hook fitting."
+    }
+  ],
+  "source_heads": {
+    "thor": "286b081fe6f056d87c379b884781ef77ff6a0159",
+    "filamecanum": "597e4007552168849b1d11b0b194f18af90af623",
+    "moveo": "0866a92501277636f76000a195d8a16d44b5b476",
+    "emanual": "0807b1b5f7472bbbbb2c9751f1d3406678e86d37",
+    "openmanipulator": "cb946894a8b5d242d2d4e012f93f01eecac5a3ce",
+    "mecanumprint": "5a4eab2f5f474d3d3eb048ee6e607a6d5affd322",
+    "faze4": "a482f3993457fd5b4071d740f0bc826ffc0d7b32",
+    "openhand": "b10197dcd79e7bcfa92c6d5a0bfa479e6a789fba",
+    "moteus": "d37bff0ff9798594801469bc899c47e3425f8375",
+    "mjmech": "ea347388f2ee1a0dac93b3074b275fcd3407738c",
+    "mantis": "0ccbf853ea3157feb863e69520534b90ebbf682f",
+    "quad": "8ce3bc4ae14e033fea38d88b6a1f46c349e871d6",
+    "openhand-workshop": "ac11e5cf5c99382e61cd413fe10ac133f7c61ef0",
+    "odri-site": "44b1db7c1028ed5c2519f29b43965442dbf16961",
+    "odri": "66af1522b4fba0ec4a1d7790e66f5e4652208d30",
+    "poppy": "d66c8fbd6aa3ebbf9e38399cc56aae3c155ee991",
+    "thor-wiki": "6010119320cb55aa93a4a4b8e1d6d652d0d992f7",
+    "yubi": "dd8bd13d2fd8e5003057243576f88be333d95fc5"
+  },
+  "strongest_candidates": [
+    {
+      "id": "RB25",
+      "title": "Fit the passive spring loop to a Toyota YUBI teleoperation glove",
+      "category": "Impact on AI timelines",
+      "importance": {
+        "worker": "Robot hardware builder preparing the Toyota YUBI finger-driven teleoperation glove",
+        "workflow": "Official right-glove assembly procedure step11: hook the selected No16 rubber band onto the right finger base, route it onto the holder hook and groove, then confirm smooth finger opening and closing.",
+        "consequence": "Equips a real robot teleoperation/data-collection interface used with a robot-mounted gripper; this is direct robotics hardware preparation, not an arbitrary household elastic renamed a robot part.",
+        "independent_review": "Critic independently read Toyota README, exact step11 text/photo and BOM and found the importance/source chain strong."
+      },
+      "source_provenance": [
+        {
+          "url": "https://github.com/Toyota/yubi-hw/blob/dd8bd13d2fd8e5003057243576f88be333d95fc5/README.md",
+          "path": "robot_build/evidence/yubi/README.md",
+          "sha256": "76bb4ab490f27481391b76bf2d40a5467ad0fdeabf1634e1bfb44239c68628a7"
+        },
+        {
+          "url": "https://github.com/Toyota/yubi-hw/blob/dd8bd13d2fd8e5003057243576f88be333d95fc5/LICENSE",
+          "path": "robot_build/evidence/yubi/LICENSE",
+          "sha256": "6d3e25e377354ac09d62d33c38520d0fc2a0d7be84b346643de91a5d46d98902"
+        },
+        {
+          "url": "https://github.com/Toyota/yubi-hw/blob/dd8bd13d2fd8e5003057243576f88be333d95fc5/docs/AssemblyInstruction/YUBI%20Glove%20Assy_AssemblyGuide.pdf",
+          "path": "robot_build/evidence/yubi/docs/AssemblyInstruction/YUBI Glove Assy_AssemblyGuide.pdf",
+          "sha256": "f9b185b67fc36b57850055642f609768529ef9f736bef15e2f24bd1921efb069"
+        },
+        {
+          "url": "https://github.com/Toyota/yubi-hw/blob/dd8bd13d2fd8e5003057243576f88be333d95fc5/docs/BOM/YUBI%20Glove%20Assy_BOM.md",
+          "path": "robot_build/evidence/yubi/docs/BOM/YUBI Glove Assy_BOM.md",
+          "sha256": "3741ed6d8960176a654d462283b274fc71fe7d6f3be6589a6d0fbf1c15d8ad24"
+        },
+        {
+          "url": "https://github.com/Toyota/yubi-hw/blob/dd8bd13d2fd8e5003057243576f88be333d95fc5/STEP/glove/YUBI%20Glove%20Assy_ver2_R.STEP",
+          "path": "robot_build/evidence/yubi/STEP/glove/YUBI Glove Assy_ver2_R.STEP",
+          "sha256": "7cffdf898a1cf54b897e95c116aa9dea6ac4307c06964d551001ecf938f321dd"
+        }
+      ],
+      "exact_source_quote": "Hook rubber band No.16 onto the hook at base of the finger. Use right-finger side for right-hand version and left-finger side for left-hand Version. Hook rubber band onto the hook and groove of HOLDER_Quest_R/L. Confirm that the fingers open and close smoothly.",
+      "hardware": {
+        "product": "Toyota YUBI Glove Assy_ver.2, RIGHT-hand version only",
+        "source_pin": "dd8bd13d2fd8e5003057243576f88be333d95fc5",
+        "materials": "BOM: PLA_BLACK plates/holder/grip, PLA_RED finger parts, POM JZF8-5 bushings, metal fasteners, natural-rubber loop.",
+        "band_identification": "BOM row39: RUBBER BAND No16; Kyowa Oband GE011, Japanese Amazon product B000THQ9R2. The source names a real commercially available standard part. No purchase was made.",
+        "band_dimensions": "Manufacturer catalog fetch was proxy403. Free loop circumference, cross-section and force–strain curve are not independently verified. Do not substitute a different country's No16 sizing. Any provisional elastic law or band cross-section is a disclosed engineering assumption requiring sensitivity checks, not an OEM measurement.",
+        "parts": [
+          {
+            "part": "HOLDER_Quest_R",
+            "source_size_mm": [
+              72.1,
+              26.0,
+              58.0
+            ],
+            "registered_occurrence": 16
+          },
+          {
+            "part": "Outer FINGER with Gear_t30_R",
+            "registered_occurrence": 2,
+            "global_bounds_mm": [
+              -24.690497,
+              -15.080052,
+              1005.260348,
+              4.2498,
+              23.919948,
+              1124.993719
+            ]
+          },
+          {
+            "part": "Inner FINGER with Gear_t20_L",
+            "registered_occurrence": 3
+          },
+          {
+            "part": "UNDER PLATE",
+            "source_size_mm": [
+              67,
+              21.77044,
+              39
+            ],
+            "registered_occurrence": 0
+          },
+          {
+            "part": "GRIP",
+            "source_size_mm": [
+              20,
+              80.3,
+              13.7
+            ],
+            "registered_occurrence": 8
+          },
+          {
+            "part": "One genuine No16 natural-rubber spring loop",
+            "state": "Loose loop in an ordinary tray; no preinstalled invisible attachments"
+          }
+        ],
+        "starting_state": "Genuine assembled right-hand glove without the spring band, with printed finger hooks and holder groove exposed; electronics/camera may be installed as source background but are not manipulated. The body is counterheld at its ordinary grip or supported at the plate; neither support supplies band retention. Choose fixture orientation during preflight so gravity alone cannot imitate the claimed spring response.",
+        "tools_support": "Stock YAM hands directly manipulate the soft loop and body. An ordinary open tray/nonslip mat is allowed. Do not enlarge the loop into a rigid ring or add a task-specific gripping tab.",
+        "retention": "Real rubber-to-hook/groove contact and loop tension only; no snap-to, weld, magnet or proximity attachment.",
+        "known_dimensions": "Named source STEP assembly has46 leaf occurrences and true source-native transforms; six relevant registered body exports and hashes are preserved. Exact finger shaft axis and a source hook support face are extracted.",
+        "unknown": "Second fixed holder-hook saddle is not yet confidently assigned. Full route, hand approach, restoring direction and material response remain unverified engineering inputs."
+      },
+      "starting_configuration": "Fully assembled right-hand source glove, passive spring absent. One loose real No16 loop in tray, both arms clear. Pins, gear pair, encoder and all electronics are already installed and are not subtasks.",
+      "instruction": "Fit the rubber spring loop onto the finger-base hook and the holder hook and groove, then leave the fingers opening and closing smoothly with the loop retained.",
+      "essential_skill": "Acquire a narrow closed soft loop, capture its first doubled segment on a small moving-finger hook, route it in the actual fixed holder groove, then stretch and capture the opposite part on the rear hook without losing the first contact. The loop is a passive restoring spring, unlike an active driven tendon or a toothed power belt.",
+      "bimanual_challenge": "One hand controls the first captured segment or counterholds the glove while the other stretches/routes the loop; regrasp must rely on the first real hook retaining it. The palm can obscure the holder even if nominal jaw aperture spans it. Direct soft-loop acquisition is a critical stock-hand question.",
+      "physical_scoring": {
+        "initial": "No installed spring, both real source hooks/groove accessible, actual loose loop supplied.",
+        "partial": "0.25: correct moving-finger hook captures the real loop after that hand releases it.0.5: both required hooks and source groove contain the loop after both hands withdraw.0.75: one declared full safe finger open/close stroke is completed with the loop retained and no damaged hook or torn loop. Partial rungs are hierarchical and scored from external pose/contact/route inspection.",
+        "full": "1.0: after released correct route and completed stroke, the loop produces the source-geometry-consistent elastic finger response under a declared small displacement/release test, with both fingers free and all hooks/groove still retaining it. Determine restoring direction from actual pivot/route geometry before fixing a reference angle. Use joint-axis-vertical orientation or an against-gravity test so a missing loop cannot earn full credit. A proposed return-angle/time threshold must be declared as a benchmark choice calibrated to the actual selected band, not attributed to Toyota.",
+        "measurement": "Macro photo/video of both hook contacts and groove route; protractor or camera fiducials for finger angles during the released test; visible retention after the operator/robot lets go. A real spring-force measurement may validate the declared test but no calibrated force is claimed here.",
+        "invalid": "Wrong finger side, bypassed groove, loop around a grip/fixture instead of the specified hook, torn band, broken hook, locked finger or band still supported by a gripper.",
+        "reset": "Unhook loop without damaging the printed hooks, restore finger pose and place loop loose in tray. Replace a damaged/stretched band for physical reset; do not silently re-use a failed spring."
+      },
+      "wrong_solutions": [
+        {
+          "solution": "Loop only around one hook and hold the other side with a gripper",
+          "prevention": "Independent release at the first rung; both hands clear at subsequent rungs; no hand contact during functional test."
+        },
+        {
+          "solution": "Stretch a shortcut across the device, bypassing the real groove",
+          "prevention": "Macro route inspection at both source hook features and all groove contact sections; mere tension or proximity is not enough."
+        },
+        {
+          "solution": "Attach the loop to the wrong finger side or around the grip/bench fixture",
+          "prevention": "Source-native right-glove part identity and exact hook/groove route required."
+        },
+        {
+          "solution": "Omit spring and rely on gravity or joint friction to imitate a return",
+          "prevention": "Joint-axis-vertical or against-gravity displacement test; missing-band negative control must fail the functional rung."
+        },
+        {
+          "solution": "Add a hidden weld after the loop approaches a hook",
+          "prevention": "Contact-only retention and a regrasp stage; the first-hook slip-off negative control must remain possible."
+        },
+        {
+          "solution": "Lock the finger at a cosmetically correct rest pose",
+          "prevention": "Complete real open/close stroke and released elastic response, not a static target angle."
+        }
+      ],
+      "closest_official_tasks": [
+        {
+          "pr": 1872,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1872",
+          "current_status": "pullOpened",
+          "head": "8c10b6f0e80f49908d5d0afdc1ae3092f3ce3729",
+          "inspected_files": [
+            "tasks/luggage-cart-bungee/README.md",
+            "tasks/luggage-cart-bungee/demo.py",
+            "tasks/luggage-cart-bungee/partkit.py",
+            "tasks/luggage-cart-bungee/task.json",
+            "tasks/luggage-cart-bungee/task.py"
+          ],
+          "semantic_comparison": "Legitimate scope: grasp rigid J-hook endpieces on a bungee cord, hook them around fixed cart tubes against tension, retain a cargo load. YUBI grasps a closed soft loop and places it on fixed hardware hooks/groove to create a passive spring for a moving finger. Object roles, acquisition and functional outcome differ; shared elastic fitting remains a serious neighbor. Do not dismiss cargo scope because its simulation omits robot–cord contact."
+        },
+        {
+          "pr": 1519,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1519",
+          "current_status": "pullClosed",
+          "head": "e16dff9adc7571e34938aa44c26a53443259d320",
+          "inspected_files": [
+            "tasks/elastic-tote-lid-restraint/B-route-choice.json",
+            "tasks/elastic-tote-lid-restraint/README.md",
+            "tasks/elastic-tote-lid-restraint/THIRD_PARTY_NOTICES.md",
+            "tasks/elastic-tote-lid-restraint/bar-axis-grasp-narrow-candidates.json",
+            "tasks/elastic-tote-lid-restraint/bar-axis-mouth-path-shallow15.json",
+            "tasks/elastic-tote-lid-restraint/bar-axis-near16-self-contact-audit.json",
+            "tasks/elastic-tote-lid-restraint/bar-axis-shallow15-held-audit.json",
+            "tasks/elastic-tote-lid-restraint/carry-seat-plan.json",
+            "tasks/elastic-tote-lid-restraint/cord_gripper_contact.py",
+            "tasks/elastic-tote-lid-restraint/core-source-manifest.json",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/geometry.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/guards.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/kit.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/motor_limits.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/rigging.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/routeguard.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/scoring.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/strap.py",
+            "tasks/elastic-tote-lid-restraint/d1r_arena/visuals.py",
+            "tasks/elastic-tote-lid-restraint/dream_continuity.py",
+            "tasks/elastic-tote-lid-restraint/ik-pickup.json",
+            "tasks/elastic-tote-lid-restraint/joint_target_force.py",
+            "tasks/elastic-tote-lid-restraint/measured_planning_scene.py",
+            "tasks/elastic-tote-lid-restraint/media_recorder.py",
+            "tasks/elastic-tote-lid-restraint/plan_B_route_candidate.py",
+            "tasks/elastic-tote-lid-restraint/planning_geometry.py",
+            "tasks/elastic-tote-lid-restraint/portable-input-manifest.json",
+            "tasks/elastic-tote-lid-restraint/promote_B_route_plan.py",
+            "tasks/elastic-tote-lid-restraint/publication-metadata-bridge.json",
+            "tasks/elastic-tote-lid-restraint/retained-closure-plan-43447.json",
+            "tasks/elastic-tote-lid-restraint/robot_motion.py",
+            "tasks/elastic-tote-lid-restraint/run_model.py",
+            "tasks/elastic-tote-lid-restraint/run_trial.py",
+            "tasks/elastic-tote-lid-restraint/runtime-bindings.json",
+            "tasks/elastic-tote-lid-restraint/setup-inventory.json",
+            "tasks/elastic-tote-lid-restraint/submission-fields.json",
+            "tasks/elastic-tote-lid-restraint/task.json",
+            "tasks/elastic-tote-lid-restraint/task.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_geometry.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_guards.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_hold_identity.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_motor_limits.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_rigging.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_routeguard.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_seat_boundary.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_strap_scoring.py",
+            "tasks/elastic-tote-lid-restraint/tests/test_visible_path.py",
+            "tasks/elastic-tote-lid-restraint/verified-prefix-preflight.json"
+          ],
+          "semantic_comparison": "Choose one elastic strap with two rigid hooks to restrain a spring-loaded tote lid. Same broad elastic-load retention, different closed-loop handling, fixed hook roles, moving finger and robotics workflow."
+        },
+        {
+          "pr": 2203,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2203",
+          "current_status": "OPEN",
+          "head": "cb29b8fc8d4ca1d6a237d91d4932115d9db7598b",
+          "inspected_files": [
+            "task.json",
+            "README.md",
+            "belt_task.py",
+            "mechanics.py"
+          ],
+          "semantic_comparison": "A closed toothed timing belt is already seated, and its motor mount is pulled and bolted to tension. YUBI installs a passive rubber spring onto exposed hook/groove features; there are no pulleys, teeth, translating motor mount or fastening-under-tension stage."
+        },
+        {
+          "internal_candidate": "RB04 OpenHand F3 tendon",
+          "semantic_comparison": "F3 routes an open active tendon across rollers, anchors it and tensions a motor pulley to drive flexure joints. YUBI fits one closed passive spring loop over source hooks. Do not count mere differing brands or line thickness as novelty; the opposing mechanical roles are the substantive distinction."
+        }
+      ],
+      "feasibility": {
+        "verified": [
+          "Complete Toyota README and actual glove step11 read",
+          "Source step11 photo rendered and visually inspected",
+          "BOM identifies correct band and PLA/POM hardware",
+          "46 source-native STEP occurrences imported and registered transforms preserved",
+          "Correct outer30_R and inner20_L fingers selected from the same right-hand assembly",
+          "Exact radius4mm finger pivot axis and finger-base hook support face extracted",
+          "Official current rubber/elastic/teleoperation searches and actual close competitor scopes inspected"
+        ],
+        "planning_only": [
+          "Loose narrow-loop acquisition by stock YAM pads",
+          "First-hook retention during regrasp",
+          "Second holder-hook/groove route and palm/wrist clearance",
+          "Passive spring restoring direction",
+          "Actual band force/strain and safe stroke",
+          "Full stock315-hulls-per-arm collision path",
+          "Contact simulation and full-score scripted demonstration"
+        ]
+      },
+      "hard_blockers": [],
+      "cheapest_falsifier": "Use the registered real finger-base hook face and full stock YAM gripper/palm/wrist envelope to test whether a narrow-loop capture pose can physically approach. Then identify the second real hook and sweep the true groove path versus finger angle. Missing band, shortcut route and first-hook slip-off are mandatory negative controls. Kill if only a rigid enlarged band, invisible attachment or deleted printed structure permits capture.",
+      "relative_effort": "Medium, roughly3/5: one modest elastic loop over rigid source hardware is materially cheaper than active F3 tendon/flexure dynamics or Faze4 closed cycloidal loops. Authentic hook contact and stock-hand acquisition remain central risks.",
+      "adversarial_strongest_rejection": {
+        "objection": "This may reduce to an existing bungee-hook fitting task, or stock YAM may not acquire and route the narrow loop without a palm collision.",
+        "resolved": "Importance and exact source are independently supported; novelty distinction is substantial but not guaranteed. Actual stock-hand/source-local clearance is not yet verified. The proposed spring test must not presume an OEM neutral angle or use gravity as success."
+      },
+      "score_components": {
+        "importance": 20,
+        "semantic_novelty": 22,
+        "authentic_sources": 20,
+        "yam_fidelity": 13,
+        "scoring_economy": 13
+      },
+      "score": 88,
+      "classification": "BUILD-READY FOR CPU PREFLIGHT",
+      "recommendation": "First bounded CPU screen candidate, ahead of Faze4 for implementation economy. No full grasp, spring response, native demonstration or official acceptance is claimed.",
+      "source_geometry": {
+        "units": "mm in native exported assembly coordinates",
+        "pivot_axis": {
+          "point": [
+            -11.69049699564,
+            -10.08005181157,
+            1020.0
+          ],
+          "direction": [
+            0,
+            1,
+            0
+          ],
+          "radius_mm": 4.0,
+          "part": "registered_parts/2.step",
+          "faces": [
+            167,
+            178,
+            302,
+            304
+          ]
+        },
+        "finger_hook_target": {
+          "point": [
+            -22.055430441875,
+            9.919948188427,
+            1035.0
+          ],
+          "part": "registered_parts/2.step",
+          "support_face": 5,
+          "area_mm2": 2.54026621506,
+          "bounds": [
+            -22.69049699564,
+            8.919948188427,
+            1035.0,
+            -21.42036388811,
+            10.919948188427,
+            1035.0
+          ],
+          "status": "Exact source support-face center, not a proven band centerline or YAM grasp pose",
+          "surrounding_hook_faces": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "holder_hook_target": null,
+        "holder_hook_status": "Not yet confidently assigned; do not invent a second point to claim a band torque/return test."
+      }
+    },
+    {
+      "id": "RB01",
+      "title": "Close a real robot cycloidal reducer across two eccentric disks and a common five-roller output carrier",
+      "category": "Impact on AI timelines",
+      "importance": {
+        "worker": "Robot hardware builder assembling the Faze4 J4 elbow reducer",
+        "workflow": "Designer assembly guide Elbow Assembly steps1–3, explicitly the same cycloidal construction as Joint5: phase both disks, engage the output rollers and retain the output with the real bearing cover.",
+        "consequence": "The joint cannot transmit its intended reduced rotation if the paired disks or shared carrier are wrong; this is directly constructing a real six-axis robot.",
+        "independent_objection": "This might be another gear-phasing task.",
+        "resolution": "Substantial overlap acknowledged; candidate includes simultaneously closing two opposed eccentric orbits around a common five-roller output and proving the completed reducer, whereas independent spur meshes and board dowels do not have this closure."
+      },
+      "source_provenance": [
+        {
+          "url": "https://github.com/Source-Robotics/Faze4-Robotic-arm/blob/a482f3993457fd5b4071d740f0bc826ffc0d7b32/Assembly%20instructions%203.1.pdf",
+          "quote": "Make shure holes on discs are alligned.",
+          "local": "robot_build/evidence/faze4/Assembly instructions 3.1.pdf",
+          "sha256": "a19999af7c7e0c326ea6bffc4303d7018cc24792f0c912c751302e6207c637a9"
+        },
+        {
+          "url": "https://github.com/Source-Robotics/Faze4-Robotic-arm/blob/a482f3993457fd5b4071d740f0bc826ffc0d7b32/Assembly%20instructions%203.1.pdf",
+          "quote": "Dont overtighten the bearings , they must be able to rotate freely.",
+          "local": "robot_build/evidence/faze4/Assembly instructions 3.1.pdf",
+          "sha256": "a19999af7c7e0c326ea6bffc4303d7018cc24792f0c912c751302e6207c637a9"
+        },
+        {
+          "url": "https://github.com/Source-Robotics/Faze4-Robotic-arm/blob/a482f3993457fd5b4071d740f0bc826ffc0d7b32/Assembly%20instructions%203.1.pdf",
+          "quote": "This assembly is same as one for Joint 5 cyclo .",
+          "local": "robot_build/evidence/faze4/Assembly instructions 3.1.pdf",
+          "sha256": "a19999af7c7e0c326ea6bffc4303d7018cc24792f0c912c751302e6207c637a9"
+        }
+      ],
+      "hardware": {
+        "product": "Faze4 J4 elbow cycloidal reducer, using J4 filenames throughout; not mixed with the large J5 forearm",
+        "materials": "Designer printed the arm in PETG; PLA is mentioned as possible if motors are not overheated. Steel commercial bearings/screws; printed disk/eccentric/carrier/case/cover.",
+        "inventory": [
+          {
+            "part": "Joint4 motor case",
+            "size_mm": [
+              77,
+              76.737,
+              25
+            ],
+            "state": "Fixed to bench through an ordinary support plate; NEMA17 motor and twelve ring rollers already installed"
+          },
+          {
+            "part": "Two11:1 cycloidal disks",
+            "size_mm": [
+              58.768,
+              58.296,
+              7
+            ],
+            "state": "Both carry17x23x4mm bearings; lower disk already installed per manual, second loose"
+          },
+          {
+            "part": "J4 eccentric shaft",
+            "size_mm": [
+              17,
+              19.964,
+              16.6
+            ],
+            "state": "Mounted on motor shaft as the source stage; opposing bearing seats create two orbital centers"
+          },
+          {
+            "part": "Common output carrier",
+            "size_mm": [
+              46,
+              45.843,
+              20.5
+            ],
+            "state": "Five M3x20mm screws carry ten3x8x4mm bearings with ten printed spacers; bearing pairs already assembled and free to turn"
+          },
+          {
+            "part": "Top cover",
+            "size_mm": [
+              90.004,
+              80.005,
+              14
+            ],
+            "state": "Loose with a35x47x7mm output bearing already in its seat; fiveM3x10mm screws prestarted only enough to remain in their cover bores"
+          }
+        ],
+        "interfaces": "Five output holes: STEP radius5.503029mm on19mm pitch radius; center-bearing recess radius11.54mm. The STEP feature origin is offset1.503029mm from its construction origin; independent STL circle extraction gives17mm eccentric seats separated about3.000mm, corresponding to1.500mm opposed eccentricity. With8mm output-bearing OD, nominal radial orbital room is1.503029mm. This clearance is part of the real cycloidal orbit, not permission to enlarge bores.",
+        "tools": "Ordinary correctly sized Phillips driver for cap screws; tray; no invented alignment jig.",
+        "support": "Compact genuine housing fixed in an upright bench nest, reacting to robot push/torque. Housing support is ordinary fixturing; disks and carrier remain free during assembly.",
+        "known_vs_unknown": "Exact part meshes and disk analytic surfaces verified. STL installation transforms, screw lengths/cap stack, actual print friction and assembly tolerance remain engineering work. PDF contains obvious quantity typos: infer five output-screw stacks from five CAD bores and exploded picture, not its typo quantity1."
+      },
+      "starting_state": "J4 housing with genuine motor, ring rollers, eccentric and first bearing-equipped disk assembled. Second bearing-equipped disk, preassembled five-roller carrier, cover/bearing assembly and ordinary driver lie in separate trays. No belt, encoder or calibration fixture is manipulated.",
+      "instruction": "Fit the second cycloidal disk and the output carrier into the J4 reducer, close and secure its bearing cover, and leave the reducer free to turn.",
+      "essential_skill": "Rotate/settle the second disk on its opposite eccentric seat while respecting the fixed ring roller contacts, then acquire a common carrier through the five orbit-clearance holes of both disks. A wrong relative phase can look seated locally yet fail full input motion.",
+      "bimanual_challenge": "One hand controls second-disk/carrier phase while the other stabilizes the first disk or guides the carrier; then one supports the cover against the springless loose stack while the other starts/tightens screws. Full arm, palm and tool corridor checks remain necessary;59mm disk diameter alone is not a grasp proof.",
+      "physical_scoring": {
+        "initial": "Lower disk installed, second and carrier absent, cap open.",
+        "partial": "0.25: second disk fully supported by its actual eccentric bearing seat, inside the ring, with disk spacing within0.5mm of CAD stack and no damaged part.0.5: both disks and all five output-roller pairs engaged across both disks;0.75: real bearing cover seated, all specified cover screws retain it, robot released. Rungs are hierarchical and evaluated physically at the end.",
+        "full": "1.0 only after real motor input test with hands clear: one360degree forward input and one360degree return must produce approximately32.727degrees output and return to its initial angle, with all five rollers/disk stack retained and no jamming. Proposed benchmark tolerances: output within2degrees at the end of each forward/back stage, cover gap<=0.5mm at each of four points, no detached/damaged part. These are proposed benchmark limits, not manufacturer specifications. Motor drives actual contacts; never animate output angle.",
+        "measurement": "Input/output witness marks and video/protractor; feeler gauge at cover; visually count retained screw heads and disk/roller stack. Small low-speed powered motor test is an ordinary bench verification, not an agent pressing an arbitrary success button. Ratio alone does not prove two disks: record a preclose macro inspection or let an external assessor open the cover after the retained motion test and count both disks, all ten output bearings, twelve ring stacks, and cover bearing. A one-disk build must fail part-count even if its ratio is correct.",
+        "invalid": "Any broken printed tooth/lobe, displaced ring roller, missing disk, seized bearing or stripped screw invalidates full credit. Damage must be visible/measurable, not an ungrounded hidden damage flag.",
+        "reset": "Remove cover, withdraw carrier and second disk, inspect bearing freedom/lobes, return first disk and eccentric to reference orientation. No consumables unless physically damaged."
+      },
+      "wrong_solutions": [
+        {
+          "solution": "Seat only the upper disk; omit lower one or miss its roller holes",
+          "prevention": "Count both retained disks and require every output pair engaged; full360degree ratio test jams/slips otherwise."
+        },
+        {
+          "solution": "Force carrier onto incorrectly phased disks and close the cap",
+          "prevention": "Cover gap and no-damage checks plus complete forward/back motion expose a locally plausible but globally blocked assembly."
+        },
+        {
+          "solution": "Hold/turn the output by the robot during motor proof",
+          "prevention": "Both hands clear by30mm and video during test; score requires motor-driven mechanical coupling."
+        },
+        {
+          "solution": "Use scripted angle/hidden latch after proximity",
+          "prevention": "Forbidden implementation: output torque must pass through eccentric, disk lobes, ring rollers and output rollers; negative controls remove one essential interface."
+        },
+        {
+          "solution": "Leave cover loose but hold the stack together",
+          "prevention": "External release and genuine screw retention are required; no hand-support credit."
+        }
+      ],
+      "closest_official_tasks": [
+        {
+          "pr": 893,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/893",
+          "current_status": "pullMerged",
+          "head": "010e1d8f838e0c2d68826a422d4d6c2e883edb86",
+          "inspected_files": [
+            "pr893/README.md",
+            "pr893/arm_watch.py",
+            "pr893/test_gear_train.py",
+            "pr893/gear_train.py",
+            "pr893/task.json"
+          ],
+          "semantic_comparison": "MERGED accepted: three independent spur gears on three fixed axes; contact tooth phase. Shared gearbox assembly setting but lacks opposed eccentric orbits and one carrier coupling both disks."
+        },
+        {
+          "pr": 719,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/719",
+          "current_status": "pullClosed",
+          "head": "ac0114b81413f8897863cc2177428a5a39ee5993",
+          "inspected_files": [
+            "tasks/mesh-a-gear-turning-its-partner-to-line-up-the-teeth/README.md",
+            "tasks/mesh-a-gear-turning-its-partner-to-line-up-the-teeth/bodykit.py",
+            "tasks/mesh-a-gear-turning-its-partner-to-line-up-the-teeth/mesh_a_gear_turning_its_partner_to_line_up_the_teeth.py",
+            "tasks/mesh-a-gear-turning-its-partner-to-line-up-the-teeth/task.json"
+          ],
+          "semantic_comparison": "CLOSED final: hold mating spur while a small gear descends a keyed shaft, then30degree coupled turn. Legitimate physical scope remains relevant even though its simulation was rejected; Faze whole dual-orbit closure is the distinction."
+        },
+        {
+          "pr": 2003,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2003",
+          "current_status": "pullOpened",
+          "head": "cbf99b266424ced8264791d9fde0783f6b5b0ac7",
+          "inspected_files": [
+            "tasks/dowel-joint-two-boards/README.md",
+            "tasks/dowel-joint-two-boards/linkdemo.py",
+            "tasks/dowel-joint-two-boards/linkkit.py",
+            "tasks/dowel-joint-two-boards/task.json",
+            "tasks/dowel-joint-two-boards/task.py",
+            "tasks/dowel-joint-two-boards/tests/test_scoring.py"
+          ],
+          "semantic_comparison": "OPEN revised snug three-dowel board joint; live48h scope afterNov16 feedback. Shared multi-interface acquisition, but no phase-dependent rolling orbit, reduction, or common moving output."
+        }
+      ],
+      "external_neighbors": "NIST/Factory gear assembly and industrial insertion benchmarks cover single spur/peg registration; full paired cycloidal closure is more specific. No claim of exhaustive external task-set search.",
+      "feasibility": {
+        "verified": [
+          "Exact PDF read in full relevant J4/J5 steps",
+          "SourceSTL archive extracted",
+          "OCCT analytic disk surfaces inspected",
+          "Binary STL dimensions and shaft-only motor falsifier executed",
+          "Current semantic PR searches cycloidal/planetary/mecanum/eccentric returned no extra exact match",
+          "Closest PR actual task.json/README/code read"
+        ],
+        "planning_only": [
+          "StockYAM59mm disk grasp and46mm carrier grasp",
+          "Second-arm collision corridor and driver regrasp",
+          "Physical contact stability of closed cycloidal loops",
+          "Full scripted motor-driven demonstration"
+        ],
+        "stock_yam": "Compact77mm housing and90mm cover fit a plausible bench workspace. Fingers need accessible side strips on7mm disk; source lobe edges must not be crushed by pinch. Carrier middle permits body grasp rather than handling3mm screws. Motor/housing mass supported by fixture; robot carries only individual printed subassemblies. No full-hull collision test executed."
+      },
+      "hard_blockers": [],
+      "remaining_uncertainty": "Whether actual source eccentric/disks/carrier/cap can be registered and traverse a full input cycle without contradictory source meshes or YAM pad occlusion.",
+      "cheapest_falsifier": "Rigid source-mesh registration and CPU sweep of both eccentric orbits through360degrees with common carrier, negative controls one disk phased incorrectly and one output roller absent. Then YAM315hulls-per-arm grasp/access test. If correct source assembly has hard interference or all disk grasp strips collide with roller ring/palm, kill.",
+      "relative_effort": "Medium-high, roughly4/5 among this domain: source complete; genuine rolling contact and closed loops dominate. Finite bounded geometry preflight is justified before native physics.",
+      "adversarial_strongest_rejection": {
+        "objection": "Gear meshing plus multi-peg insertion may be a combination of existing abilities, and oversized orbit holes may make alignment trivial.",
+        "resolved": "Partly. Exact matched1.503mm orbit allowance and two opposed disks show why hole size is mechanism-critical; full functional closure is essential. A CPU correct-vs-misphase sweep must demonstrate the claimed challenge before implementation."
+      },
+      "score_components": {
+        "importance": 19,
+        "semantic_novelty": 20,
+        "authentic_sources": 19,
+        "yam_fidelity": 15,
+        "scoring_economy": 13
+      },
+      "score": 86,
+      "classification": "BUILD-READY FOR CPU PREFLIGHT",
+      "recommendation": "Only domain candidate currently recommended for first bounded mechanism investment; not an accepted or demonstrated benchmark."
+    },
+    {
+      "id": "RB02",
+      "title": "Install helical wire thread inserts and clear their drive tangs from an actual robot actuator shell",
+      "category": "Impact on AI timelines",
+      "importance": {
+        "worker": "ODRI robot hardware builder",
+        "workflow": "Shell preparation installs fourM2.5x3.75mm inserts in base and four in cover before actuator assembly.",
+        "consequence": "Strengthens load-bearing threaded joints of a documented research robot; no occupational aggregation required."
+      },
+      "source_provenance": [
+        {
+          "url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_shell_preparation.md",
+          "quote": "Shell Base: Install four M2,5 x 3,75mm Helicoils using the installation tool. Remove the tangs using the tang break-off tool. Make sure that the tangs don't stay inside of the part.",
+          "local": "robot_build/evidence/odri/mechanics/actuator_module_v1/details/details_shell_preparation.md",
+          "sha256": "72577064b5ada117f1b151b209b895ff647304bbe9a18abd5dc7ea79bf70f810"
+        }
+      ],
+      "hardware": {
+        "product": "Archived ODRI2dof_v1 shell; use original oldshell STL explicitly, not a newer shell without rechecking",
+        "inventory": "Base33.110x37x198.499mm,28g; cover12x37x168.303mm,16g. PC-ABS FDM or Duraform HST SLS source options. Four base holes pretapped withM2.5STI tool, four Böllhoff41890250375 wire inserts. Named Hoffmann082800M2.5 tap/insertion/tang-breakoff tool set.",
+        "tools": "Genuine slotted insertion mandrel, tang-breakoff punch, ordinary magnifier/tray. Do not substitute a nut, solid sleeve or invisible attachment.",
+        "state": "Pretapped base supported in padded ordinary vise, no installed coil; insert loaded on tool may be legitimate focused starting stage; tang collection tray underneath accessible through-holes.",
+        "known": "NominalM2.5, installed length3.75mm and exact shell body geometry verified.",
+        "unknown": "ODRI does not publish free coil diameter, diamond wire section, installation-mandrel slot and tang notch dimensions. Manufacturer dimensional package must precede full coil simulation."
+      },
+      "instruction": "Install the four helical thread inserts in the actuator shell, break off and remove every drive tang, and leave all four screw bores clear.",
+      "essential_skill": "Drive a contracting spring coil through an STI thread without cross-threading, stop at correct depth, then access and fracture its tang without leaving debris in the motor housing.",
+      "bimanual_challenge": "Counterhold the long light shell and react driver torque, change from insertion to breakoff tool, orient shell to recover four tiny tangs.",
+      "physical_scoring": {
+        "partial": "0.25 per correctly retained, straight insert at its specified depth with its tang removed and recovered; total capped0.75 until all four screw bores pass gauge.",
+        "full": "Four actualM2.5 gauge screws engage full intended length freely, inserts remain retained after screws withdrawn, no tang left in shell, all parts released. Depth limit must come from insert manufacturer; do not invent OEM tolerance.",
+        "measurement": "Macro photo/count of four inserts and recovered four tangs, gauge screw through each bore; inspect blind pockets for debris.",
+        "invalid": "Stripped shell thread, coil distortion, tang inside, overdeep obstructed bore; no credit from tool rotations alone.",
+        "reset": "New inexpensive insert and fresh shell holes for physical trials; tang breakage is consumable. Simulation restore exact fresh coils/tangs, do not pretend physical reversal."
+      },
+      "wrong_solutions": [
+        {
+          "solution": "Turn a plain screw into the hole",
+          "prevention": "Visible retained wire insert, gauge screw removed before scoring."
+        },
+        {
+          "solution": "Install coils but leave their tangs",
+          "prevention": "Four recovered tangs and full bore gauge required."
+        },
+        {
+          "solution": "Break tang with a proximity-triggered invisible event",
+          "prevention": "Actual notch fracture driven by contact/load; debris remains a body to recover."
+        },
+        {
+          "solution": "Strip receiving thread or force solid sleeve home",
+          "prevention": "Gauge engagement plus pullout/retention check; true helical coil contact must remain."
+        }
+      ],
+      "closest_official_tasks": [
+        {
+          "pr": 1212,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1212",
+          "current_status": "pullClosed",
+          "head": "3db7df644772d3e6487a481a125dfc0e3105646e",
+          "inspected_files": [
+            "pr1212/heat_set_insert_flush.py",
+            "pr1212/test_heat_set_insert_flush.py",
+            "pr1212/make_looks.py",
+            "pr1212/colliders.py",
+            "pr1212/README.md",
+            "pr1212/seat.py",
+            "pr1212/grip.py",
+            "pr1212/looks.py",
+            "pr1212/task.json",
+            "pr1212/bonds.py"
+          ],
+          "semantic_comparison": "CLOSED: heat-set brass sleeve pushed by hot iron to depth, no helical drive contraction or tang/debris. Same inserted-thread purpose alone insufficient for duplication."
+        },
+        {
+          "pr": 995,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/995",
+          "current_status": "pullClosed",
+          "head": "6fd1b5275c8e2e5ba23981e7f962b65fac945dd0",
+          "inspected_files": [
+            "pr995/README.md",
+            "pr995/mechkit.py",
+            "pr995/task.json",
+            "pr995/bearing_drive_through_inner_ring.py"
+          ],
+          "semantic_comparison": "CLOSED: force path through bearing ring, not coil threading; reminder not to scale away tool forces."
+        },
+        {
+          "pr": 2003,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2003",
+          "current_status": "pullOpened",
+          "head": "cbf99b266424ced8264791d9fde0783f6b5b0ac7",
+          "inspected_files": [
+            "tasks/dowel-joint-two-boards/README.md",
+            "tasks/dowel-joint-two-boards/linkdemo.py",
+            "tasks/dowel-joint-two-boards/linkkit.py",
+            "tasks/dowel-joint-two-boards/task.json",
+            "tasks/dowel-joint-two-boards/task.py",
+            "tasks/dowel-joint-two-boards/tests/test_scoring.py"
+          ],
+          "semantic_comparison": "OPEN board dowels do not supply spring-coil torque contraction or tang finishing."
+        }
+      ],
+      "feasibility": {
+        "verified": [
+          "Exact procedure and named supplier/tool sizes",
+          "Archived matching shellSTL dimensions",
+          "Actual closest heat-set code uses damped axial/tilt motion; no coil mechanism"
+        ],
+        "planning_only": [
+          "YAM driver grip and shell vise support",
+          "Repeated tang handling",
+          "Wire-coil reduced mechanical model"
+        ]
+      },
+      "hard_blockers": [
+        "No dimensioned selected coil/mandrel/tang drawing recovered; this is an essential contact package, not cosmetic OEMCAD."
+      ],
+      "cheapest_falsifier": "Obtain selectedBöllhoffM2.5 insert/tool dimension sheet, then one real geometry CPU coil/mandrel screw-in and tang fracture model with cross-threaded negative control; kill if requires invisible success attachment.",
+      "relative_effort": "High:5/5 because small helical compliant contacts plus fracture and debris; source claim alone is not feasibility.",
+      "adversarial_strongest_rejection": {
+        "objection": "A wire-coil insert could become a scripted threaded nut with fake tang breakage.",
+        "resolved": false
+      },
+      "score_components": {
+        "importance": 19,
+        "semantic_novelty": 22,
+        "authentic_sources": 17,
+        "yam_fidelity": 9,
+        "scoring_economy": 11
+      },
+      "score": 78,
+      "classification": "PROMISING BUT SOURCE-GATED",
+      "specific_source_issue": "A dimensioned Böllhoff41890250375 plus Hoffmann082800M2.5 installation-tool/tang interface package is missing.",
+      "recommendation": "Do not rank above source-complete rigid candidates."
+    },
+    {
+      "id": "RB03",
+      "title": "Seat and clamp an ODRI motor rotor through its real spoke-window driver access",
+      "category": "Impact on AI timelines",
+      "importance": {
+        "worker": "ODRI robot actuator builder",
+        "workflow": "Official motor-shaft/rotor installation: preserve brass spacer, align hub set screws to custom shaft flats, push rotor down and tighten both screws while pushing.",
+        "consequence": "Creates a freely rotating, axially retained robot motor assembly."
+      },
+      "source_provenance": [
+        {
+          "url": "https://github.com/open-dynamic-robot-initiative/open_robot_actuator_hardware/blob/66af1522b4fba0ec4a1d7790e66f5e4652208d30/mechanics/actuator_module_v1/details/details_actuator_module_assembly.md",
+          "quote": "Tighten both setscrews using a 1,5mm hex driver while pushing down on the rotor. Manually spinn the rotor to make sure that it runs freely. Pull on the rotor in the axial direction - there should be no or only minimal play.",
+          "local": "robot_build/evidence/odri/mechanics/actuator_module_v1/details/details_actuator_module_assembly.md",
+          "sha256": "e26faeebec0a323aa02688dbe99d9f95c3d84ffae66e2f4c350bdb7dd473d543"
+        }
+      ],
+      "hardware": {
+        "product": "T-Motor Antigravity4004 300kV modified for ODRIcorev1",
+        "inventory": "45mm rotor diameter,53g entire stock motor,24magnets/18slots (designer specifications); custom stainless shaft3.990mm actualCAD diameter x33.400mm length with flats; genuine brass spacer; twoM3 set screws,1.5mm hex driver; source motor stator fixed to shell by fourM3x5 flatheads.",
+        "state": "Stator mounted and shaft/spacer installed per actual source; rotor loose, set screws partly in hub. This is a final assembly substep, not factory motor disassembly.",
+        "tool_support": "Ordinary hexdriver held by handle, actual shell fixed in bench nest. Driver passes through rotor spoke window to radial hub screw; do not move screw to the outer rim.",
+        "known": "Exact shaftSTEP and whole motor nominal diameter/mass/specification, procedure and close photos.",
+        "unknown": "Rotor-spoke opening width/depth, hub screw registration and winding clearance. The filename motor_antigravity_4004_custom_shaft.STEP is shaft-only: one solid with15faces; no rotor/stator present."
+      },
+      "instruction": "Fit the rotor over the stator onto the shaft flats, hold it down while tightening both hub set screws, then check that it turns freely with negligible axial play.",
+      "essential_skill": "Control magnetically attracted annular landing without rubbing windings, preserve axial stack and radial shaft-flat alignment while tool accesses internal hub.",
+      "bimanual_challenge": "One hand holds the45mm bell down; the other enters spoke window with1.5mm driver, tightens first screw, reindexes rotor and accesses second without losing preload or striking windings.",
+      "physical_scoring": {
+        "partial": "0.25 rotor square and fully on shaft with spacer present;0.5 both set screws mechanically clamp flats and no component damage.",
+        "full": "Hands released;360degree free spin under a declared low test torque, plus axial pull test shows<=0.3mm play. Proposed0.3mm is benchmark tolerance requiring explicit declaration, not manufacturer quote. Witness-mark slip under pull invalidates retention.",
+        "measurement": "Visible axial gap/dial indicator or photo scale, rotor witness mark/video for free rotation; inspect windings and spacer.",
+        "invalid": "Missing washer, hub not clamped, rubbing/cut windings or detached rotor; ordinary damage checks.",
+        "reset": "Loosen both screws, lift rotor off carefully and restore spacer/shaft as source."
+      },
+      "wrong_solutions": [
+        {
+          "solution": "Just place rotor low without clamping",
+          "prevention": "Axial retention test after release."
+        },
+        {
+          "solution": "Overtighten until rotor rubs stator",
+          "prevention": "Full free-spin test and winding inspection."
+        },
+        {
+          "solution": "Tighten screws on shaft round rather than flats",
+          "prevention": "Witness-mark no-slip retention under declared test load."
+        },
+        {
+          "solution": "Relocate screws outside bell or omit spokes for simulation access",
+          "prevention": "Source-registered window/hub/winding collision corridor is required."
+        }
+      ],
+      "closest_official_tasks": [
+        {
+          "pr": 1359,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1359",
+          "current_status": "pullOpened",
+          "head": "5638bf2a114e1d2e5cc40384aac5261f2a650983",
+          "inspected_files": [
+            "pr1359/README.md",
+            "pr1359/bodykit.py",
+            "pr1359/fit_the_last_magnet_into_a_motor_rotor.py",
+            "pr1359/task.json"
+          ],
+          "semantic_comparison": "OPEN: insert a loose block magnet into a laminated rotor while holding adjacent magnet down. Same motor/magnet setting, different annular rotor landing, internal radial clamping and free-spin outcome."
+        },
+        {
+          "pr": 727,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/727",
+          "current_status": "pullClosed",
+          "head": "83beaf8e313042691e666652bc789ed60bec0608",
+          "inspected_files": [
+            "pr727/slide_a_strong_magnet_off_a_steel_plate_without_it_snapping_back.py",
+            "pr727/README.md",
+            "pr727/bodykit.py",
+            "pr727/task.json"
+          ],
+          "semantic_comparison": "CLOSED: slide pot magnet off flat plate and retain clearance; lacks coaxial motor gap/shaft retention."
+        },
+        {
+          "pr": 995,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/995",
+          "current_status": "pullClosed",
+          "head": "6fd1b5275c8e2e5ba23981e7f962b65fac945dd0",
+          "inspected_files": [
+            "pr995/README.md",
+            "pr995/mechkit.py",
+            "pr995/task.json",
+            "pr995/bearing_drive_through_inner_ring.py"
+          ],
+          "semantic_comparison": "CLOSED bearing-on-shaft focuses force path, not magnetic annular acquisition."
+        },
+        {
+          "pr": 1054,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1054",
+          "current_status": "pullOpened",
+          "head": "fb3d3d46365834513669acbcce1e75be52cfe42b",
+          "inspected_files": [
+            "pr1054/README.md",
+            "pr1054/bodykit.py",
+            "pr1054/lock_a_tool_onto_a_robots_quick_change_flange.py",
+            "pr1054/task.json"
+          ],
+          "semantic_comparison": "OPEN tool flange held while external locking ring turns; hold-while-lock alone shared reasoning, but different retention and internal driver corridor."
+        },
+        {
+          "pr": 2037,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2037",
+          "current_status": "pullClosed",
+          "head": "1e5c3340f7edaff34f74a709081aaff232fd42cc",
+          "inspected_files": [
+            "tasks/shaft-key-pulley/README.md",
+            "tasks/shaft-key-pulley/shaft_key_pulley.py",
+            "tasks/shaft-key-pulley/task.json",
+            "tasks/shaft-key-pulley/test_shaft_key_pulley.py"
+          ],
+          "semantic_comparison": "CLOSED final keyed-pulley task: loose key into shaft, pulley over key to shoulder; no set-screw retention. Earlier reference TK-UG9SYY remains unmapped; see critic evidence."
+        },
+        {
+          "pr": 930,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/930",
+          "current_status": "pullClosed",
+          "head": "See critic/motor-comparators.json",
+          "inspected_files": [],
+          "semantic_comparison": "CLOSED final trainer keyed dog coupling then90degree transfer proof, no motor source or internal screws."
+        }
+      ],
+      "feasibility": {
+        "verified": [
+          "Exact source procedure/photo",
+          "45mm diameter and53g source specs",
+          "ExecutedOCCT audit falsifies misleading whole-motorSTEP claim"
+        ],
+        "planning_only": [
+          "Any stockYAM bell grasp",
+          "Spoke-window tool clearance",
+          "Magnetic force bound",
+          "Two-screw reindexing path"
+        ]
+      },
+      "hard_blockers": [
+        "Dimensioned source motor spoke-window/hub screw/winding collision corridor missing."
+      ],
+      "cheapest_falsifier": "One dimensioned source drawing or defensible scaled registered image set of the actual4004 rotor/hub; then CPU stock-hand plus driver approach sweep. If no corridor through both windows with rotor held, kill.",
+      "relative_effort": "Medium if geometry recovered, otherwise no further rescue; do not substitute another motor revision.",
+      "adversarial_strongest_rejection": {
+        "objection": "The claimed YAM tool path goes through a spoke or coil because essential rotor geometry was never published.",
+        "resolved": false
+      },
+      "score_components": {
+        "importance": 19,
+        "semantic_novelty": 20,
+        "authentic_sources": 15,
+        "yam_fidelity": 10,
+        "scoring_economy": 13
+      },
+      "score": 77,
+      "classification": "PROMISING BUT SOURCE-GATED",
+      "specific_source_issue": "ActualAntigravity4004 radial hub set-screw corridor through spoke windows is not dimensioned.",
+      "recommendation": "Archive gate, do not make this the next source-rescue project."
+    },
+    {
+      "id": "RB04",
+      "title": "Route and zero the actual tendon transmission of an OpenHand F3 finger",
+      "category": "Impact on AI timelines",
+      "importance": {
+        "worker": "YaleOpenHand research robot-hand builder",
+        "workflow": "Complete F3version1.0 assembly guide, lastupdatedDec15,2024; final tendon routing and5-stepzeroing procedure.",
+        "consequence": "Makes an underactuated robot finger respond at its calibrated rest shape instead of taking up slack or remaining preflexed; force-estimation hand depends on its real tendon route."
+      },
+      "source_provenance": [
+        {
+          "url": "https://github.com/grablab/openhand-hardware/blob/b10197dcd79e7bcfa92c6d5a0bfa479e6a789fba/model%20f3%20%28forces-for-free%20hand%29/Model%20F3%20Assembly%20Guide%201.0.pdf",
+          "quote": "The tendon is routed from the servo pulley through the tendon clearance. ... The tendons will run over the ball bearings on the dowel pins.",
+          "local": "robot_build/evidence/openhand-f3.pdf",
+          "sha256": "14ac12f6fce72af916aabaacedfabd3d7881f1f0398eae38e379d5b7114ba518"
+        },
+        {
+          "url": "https://github.com/grablab/openhand-hardware/blob/b10197dcd79e7bcfa92c6d5a0bfa479e6a789fba/model%20f3%20%28forces-for-free%20hand%29/Model%20F3%20Assembly%20Guide%201.0.pdf",
+          "quote": "Unscrew the pulley until it can spin freely ... Rotate the pulley until the tendon line is taut ... Re-secure the drive pulley to the actuator",
+          "local": "robot_build/evidence/openhand-f3.pdf",
+          "sha256": "14ac12f6fce72af916aabaacedfabd3d7881f1f0398eae38e379d5b7114ba518"
+        }
+      ],
+      "hardware": {
+        "product": "F3v1.0 flexure-flexure hand only; no olderT42 part substitution",
+        "inventory": "TwoXM430actuators, PowerProSpectra tendon~30cm per finger, PMC780urethane flexures and DragonSkin10silicone pads, eight3mm-shaft bearings with11x4x11mm printed sleeves. Pins already installed: no dowel-joining task. Selected assembly uses actual~26.232x27.997x6mm motor pulley, M2.5x8 center screw,4-40x1/4inch distal anchor screw; a1plate159x24x122.527mm source bounds.",
+        "state": "Hand frame/flexures/bearings already built; one finger tendon attached at servo per source but slack and un-routed over exposed guides; distal anchor ready. Servo held at its real zero position during zeroing stage.",
+        "tools_support": "Ordinarydriver, optional ordinary fine tweezers held by stockgripper; authentic frame bench support. No expanded-scale line or rigid surrogate.",
+        "known": "FullPDF and actualCAD, tendonapproxlength and guide-bearing dimensions, sourceflexure materials.",
+        "unknown": "Exact chosenPowerProline gauge, finished flexure stiffness and practical line acquisition. These are material/configuration choices to declare and validate, not permission to use a rigid cable.",
+        "license": "CC-BY-NC3.0 at publishedHEAD; research source inspection allowed, public benchmark reuse must preserve attribution and assess the noncommercial restriction."
+      },
+      "instruction": "Route the tendon around the finger guide bearings, secure its distal anchor, then take up slack at the zeroed motor pulley and secure the pulley so the relaxed finger opens and closes correctly.",
+      "essential_skill": "Route a slack open tendon across multiple true rollers without skipping or slipping a guide, then choose tension just sufficient to remove lost motion while preserving unloaded flexure shape.",
+      "bimanual_challenge": "One hand manages line tension/route while other manipulates distal anchor or pulley screw; many small regrips and finger deformations. Stockhands do not automatically acquire a submillimetreline.",
+      "physical_scoring": {
+        "partial": "0.25 complete correct roller path;0.5 both real anchors retain line and slack take-up is completed;0.75 zeroed unloaded finger matches reference pose and no derailment.",
+        "full": "After release, a declared small realmotor pulse closes both joints through tendon force, then restoringzero returns finger to reference within3degrees perjoint, with no slipped anchor, derailment or visible slack. Proposed angles/travel must be calibrated to the actual chosen flexures, not quoted asOEMspec.",
+        "measurement": "Side photos atzero and actuated pose, video of guides/anchors and finger return; line tension may be checked with a light spring gauge.",
+        "invalid": "Torn flexure, line routed behind bearing, crushed guide, slipped anchor or finger held by gripper.",
+        "reset": "Loosenpulley, release distalanchor, unroute tendon and restore known slack; replacefrayed line if necessary."
+      },
+      "wrong_solutions": [
+        {
+          "solution": "Tension a shortcut straight to tip skipping guides",
+          "prevention": "Visible guide-path check and contact-dependent joint-motion test."
+        },
+        {
+          "solution": "Leave slack but manually bend finger",
+          "prevention": "Motor-driven response after hands withdraw."
+        },
+        {
+          "solution": "Overtension atzero so finger is already bent",
+          "prevention": "Unloaded rest-angle test, not merely closingdistal tip."
+        },
+        {
+          "solution": "Weld line to guides/anchor in software",
+          "prevention": "Free sliding rollers and frictional anchors; negativecontrol pulls tendon atwrongroute."
+        }
+      ],
+      "closest_official_tasks": [
+        {
+          "pr": 1898,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1898",
+          "current_status": "pullOpened",
+          "head": "710c0182af256c2ba3c69f280171a0358cc15b41",
+          "inspected_files": [
+            "pr1898/cablekit.py",
+            "pr1898/linkkit.py",
+            "pr1898/adhoc_c23125b9.json",
+            "pr1898/README.md",
+            "pr1898/result.json",
+            "pr1898/linkdemo.py",
+            "pr1898/test_scoring.py",
+            "pr1898/cabledemo.py",
+            "pr1898/task.json",
+            "pr1898/task.py"
+          ],
+          "semantic_comparison": "OPEN: rack/pinion meshing gives symmetricparallel opening; similar completedgripper purpose, but no tendonpath, slack, flexure rest-state or frictional anchors."
+        },
+        {
+          "pr": 1376,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1376",
+          "current_status": "pullClosed",
+          "head": "44bec9b5b1a98e192461da5b5b9441de854f51fc",
+          "inspected_files": [
+            "pr1376/linkkit.py",
+            "pr1376/README.md",
+            "pr1376/linkdemo.py",
+            "pr1376/test_scoring.py",
+            "pr1376/task.json",
+            "pr1376/task.py"
+          ],
+          "semantic_comparison": "CLOSED parallel-link branch closure is rigidloop selection, not continuous flexible transmission tension."
+        },
+        {
+          "pr": 2203,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2203",
+          "current_status": "pullOpened",
+          "head": "cb29b8fc8d4ca1d6a237d91d4932115d9db7598b",
+          "inspected_files": [
+            "tasks/set-timing-belt-tension/README.md",
+            "tasks/set-timing-belt-tension/belt_task.py",
+            "tasks/set-timing-belt-tension/controls.py",
+            "tasks/set-timing-belt-tension/make_evidence.py",
+            "tasks/set-timing-belt-tension/mechanics.py",
+            "tasks/set-timing-belt-tension/rig_view.py",
+            "tasks/set-timing-belt-tension/run_task.py",
+            "tasks/set-timing-belt-tension/task.json"
+          ],
+          "semantic_comparison": "OPEN current robot timing-belt task: actual task.json, README, belt_task.py and mechanics.py were read. It uses a closed belt on two16-tooth pulleys and changes tension through a sliding motor plate, force-deflection gauge and two clamp bolts. F3 uses an open tendon over several guide bearings into flexible finger joints, with distal anchors and unloaded rest-shape. Shared tensioned-drive assembly is acknowledged; novelty is not guaranteed."
+        }
+      ],
+      "feasibility": {
+        "verified": [
+          "CompletePDFread",
+          "ActualF3CADparts inspected",
+          "Source license read"
+        ],
+        "planning_only": [
+          "Thin-lineYAM acquisition",
+          "Tendon-guide contact fidelity",
+          "Flexure rest/force calibration",
+          "Central#2203actual-code comparison"
+        ]
+      },
+      "hard_blockers": [],
+      "cheapest_falsifier": "One finger with genuineguides and sourcepulley: CPUcable routing plus thin-line grasp test under fullYAMpads. Wrongroute anddoubletension negativecontrols must fail. If can only grasp enlarged rigidcord, kill.",
+      "relative_effort": "Veryhigh5/5; sourcecomplete but continuouslyflexibleline+compliantfinger+tensioning costly.",
+      "adversarial_strongest_rejection": {
+        "objection": "The simulation may remove the central flexible-tendon routing skill or need nonstock hands.",
+        "resolved": false
+      },
+      "score_components": {
+        "importance": 19,
+        "semantic_novelty": 18,
+        "authentic_sources": 18,
+        "yam_fidelity": 8,
+        "scoring_economy": 11
+      },
+      "score": 74,
+      "classification": "HIGH-RISK RESERVE",
+      "recommendation": "Do not spend next sprint here while a rigid source-complete reducer exists."
+    },
+    {
+      "id": "RB05",
+      "title": "Close the two four-bar jaw loops of a real Moveo robot gripper",
+      "category": "Impact on AI timelines",
+      "importance": {
+        "worker": "BCN3D Moveo robot assembler",
+        "workflow": "Designer PDF tool assembly steps 1–4: genuine gears, pivot arms and left/right jaws form two parallelizing linkages.",
+        "consequence": "Makes an actual robot gripper functional; importance is direct robot construction."
+      },
+      "source_provenance": [
+        {
+          "url": "https://github.com/BCN3D/BCN3D-Moveo/blob/0866a92501277636f76000a195d8a16d44b5b476/USER%20MANUAL/User%20Manual%20BCN3D%20Moveo.pdf",
+          "quote": "Tool assembly ... Step4 ... Left gripper ... Right gripper ... M3x16mm screw8 ... M3nut4",
+          "local": "robot_build/evidence/moveo.pdf",
+          "sha256": "f5ae170a18c9cdba55f9fdeb8745cfe1ffc9726db8f2a984e4aabc6f500fc857"
+        }
+      ],
+      "hardware": {
+        "product": "Original BCN3D Moveo gripper",
+        "inventory": "Left/right jaw 71.535 × 18 × 20.989 mm; pivot arm 48 × 6 × 7.996 mm; servo/idler gears about 59 × 6 × 30 mm; plates 60 × 21 × 49 and 63.249 × 21 × 49 mm. Eight M3 × 16 screws and four M3 nuts in manual step 4; Futaba S3003 servo.",
+        "state": "Gears, pivot arms and top/bottom plates assembled per steps 1–3; loose jaws and ordinary fasteners at step 4. No gear-meshing subtask.",
+        "tools_support": "Ordinary Phillips driver and nut counterhold; body mounted to an ordinary bench support. The fixture must not align the loose jaw linkages.",
+        "materials": "Printed polymer and ordinary metal fasteners. The source polymer was not verified; a chosen print material must be declared.",
+        "unknown": "Source meshes are complete but not yet registered; jaw closure and fastener-stack tool clearance remain untested."
+      },
+      "instruction": "Fit both gripper jaws onto their pivoting links, secure all hinge screws and nuts, and leave both jaws moving parallel when the servo turns.",
+      "essential_skill": "Close paired four-bar linkages on the correct branch, align both hinge axes and retain free pivot motion.",
+      "bimanual_challenge": "Support one jaw and its floating links while the other hand aligns and fastens its second hinge; mirror this without forcing the first loop.",
+      "physical_scoring": {
+        "partial": "0.25 per jaw correctly attached at both hinges; 0.75 for both retained without binding.",
+        "full": "After release, the actual servo opens and closes both jaws; faces stay parallel within 3 degrees and opening changes at least 20 mm with no detached hardware. These are proposed benchmark tolerances, not manufacturer specifications.",
+        "measurement": "Overhead photo/angle measurement and a ruler during real drivetrain motion.",
+        "invalid": "Crossed linkage, jaw held by robot, loose hinge or stripped printed part.",
+        "reset": "Undo real jaw hinges and restore jaws/fasteners; gears remain assembled."
+      },
+      "wrong_solutions": [
+        {
+          "solution": "Fastenonehingeonly",
+          "prevention": "Bothhingesvisibleandmotiontestfailsloosejaw."
+        },
+        {
+          "solution": "Clampjawsthroughbothfacesbuthingesbind",
+          "prevention": "Opening/closingthroughrangeafterrelease."
+        },
+        {
+          "solution": "Wrongcrossedbranch",
+          "prevention": "Parallelfaceangleandopeningtest."
+        },
+        {
+          "solution": "Holdjawfaceparallelbyhand",
+          "prevention": "Armsclearrequirementandrealservofunctionalproof."
+        }
+      ],
+      "closest_official_tasks": [
+        {
+          "pr": 1376,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1376",
+          "current_status": "pullClosed",
+          "head": "44bec9b5b1a98e192461da5b5b9441de854f51fc",
+          "inspected_files": [
+            "pr1376/linkkit.py",
+            "pr1376/README.md",
+            "pr1376/linkdemo.py",
+            "pr1376/test_scoring.py",
+            "pr1376/task.json",
+            "pr1376/task.py"
+          ],
+          "semantic_comparison": "CLOSEDactualparallelrobotarmfourbar: chooseclosurebranchandretainlevelwrist. This is a serious samephysicalskillneighbor; actualOEMhardwaredoesnotbyitselfcreatenovelty."
+        },
+        {
+          "pr": 1898,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1898",
+          "current_status": "pullOpened",
+          "head": "710c0182af256c2ba3c69f280171a0358cc15b41",
+          "inspected_files": [
+            "pr1898/cablekit.py",
+            "pr1898/linkkit.py",
+            "pr1898/adhoc_c23125b9.json",
+            "pr1898/README.md",
+            "pr1898/result.json",
+            "pr1898/linkdemo.py",
+            "pr1898/test_scoring.py",
+            "pr1898/cabledemo.py",
+            "pr1898/task.json",
+            "pr1898/task.py"
+          ],
+          "semantic_comparison": "OPENparallelgripperassembly withsymmetricfunctionaljawtest; differentrack/pinionvsfourbartransmissionbutcloselyrelatedobject/outcome."
+        },
+        {
+          "pr": 893,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/893",
+          "current_status": "pullMerged",
+          "head": "010e1d8f838e0c2d68826a422d4d6c2e883edb86",
+          "inspected_files": [
+            "pr893/README.md",
+            "pr893/arm_watch.py",
+            "pr893/test_gear_train.py",
+            "pr893/gear_train.py",
+            "pr893/task.json"
+          ],
+          "semantic_comparison": "MERGEDgeartrain: irrelevantifgearsstartpreassembled; do notclaimaddedgearpartsarenovelty."
+        }
+      ],
+      "feasibility": {
+        "verified": [
+          "Exact manual and source STLs",
+          "Actual part bounds",
+          "Current close PR task/README/central code and outcomes"
+        ],
+        "planning_only": [
+          "Fastener tool acquisition",
+          "Loop closure grasps and collision clearance",
+          "Servo-driven contact simulation"
+        ]
+      },
+      "hard_blockers": [
+        "Semantic novelty remains weak against #1376 plus #1898; do not fill the portfolio using authenticity alone."
+      ],
+      "cheapest_falsifier": "Test the free-link closure geometry: if correct branch prepositioning leaves only ordinary screw placement, retire the candidate. A different gripper brand does not resolve novelty.",
+      "relative_effort": "Medium, about 3/5 mechanically; novelty risk dominates.",
+      "adversarial_strongest_rejection": {
+        "objection": "Existing four-bar branch closure plus parallel gripper assembly already cover the claimed ability.",
+        "resolved": false
+      },
+      "score_components": {
+        "importance": 18,
+        "semantic_novelty": 10,
+        "authentic_sources": 19,
+        "yam_fidelity": 14,
+        "scoring_economy": 12
+      },
+      "score": 73,
+      "classification": "HIGH-RISK RESERVE",
+      "recommendation": "Do not select without evidence of a different essential physical capability."
+    }
+  ],
+  "selected_for_cpu_preflight": [
+    "RB25",
+    "RB01"
+  ],
+  "not_claimed": [
+    "NoYAMfullhullcollisiontest",
+    "Noexecutedcontactphysics",
+    "NoDream1/nativeevaluation",
+    "Noofficialacceptance",
+    "Noexhaustiveliveboardaccess"
+  ],
+  "important_findings": [
+    "Toyota YUBI passive spring loop is a new source-complete direct teleoperation-hardware operation; source-registered CAD and finger pivot/hook face extracted, contact/YAM feasibility still unverified.",
+    "Faze4wholepairedcycloidalclosureisthestrongestnewrigidsource-completeoperation.",
+    "T-MotorSTEPfilenameismisleading:shaft-only,notrotor.",
+    "Retaincriticnoveltyobjectionsandallsourcegates;donotpromoteweaktaskstofillquota."
+  ],
+  "source_pin_faze4": "a482f3993457fd5b4071d740f0bc826ffc0d7b32"
+}

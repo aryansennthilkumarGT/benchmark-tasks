@@ -1,0 +1,911 @@
+{
+  "task_2_open_planning.json": {
+    "hash": "99ad6b0a7f2b3c642affd0cd70c5e0b843ea879860c99a3b853ff1cca28f8509",
+    "rows": [
+      {
+        "id": "039_microwave_en_plans_0",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave and sausage on the table, please plan how to put sausage in the microwave"
+          },
+          {
+            "from": "gpt",
+            "value": "open(door)\npick(sausage)\nmove(sausage, table, turntable)\nplace(sausage, turntable)\nclose(door)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_0.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_1",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave, please plan how to set the crispy grill power"
+          },
+          {
+            "from": "gpt",
+            "value": "press(microwave button, crispy grill, 1)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_1.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_2",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave, please plan how to set the 30min time"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(knob, 30min, clockwise to 35min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_2.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_3",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave, please plan how to start the microwave"
+          },
+          {
+            "from": "gpt",
+            "value": "press(start/+30s button, start, 1)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_3.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_4",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave and popcorn on the table, please plan how to heat the popcorn by microwave function, set the time to 5min and the crispy grill"
+          },
+          {
+            "from": "gpt",
+            "value": "open(door)\npick(popcorn)\nmove(popcorn, table, turntable)\nplace(popcorn, turntable)\nclose(door)\npress(microwave button, crispy grill, 1)\nrotate(knob, 5min, clockwise to 6min)\npress(start/+30s button, start, 1)\nwait(5min)\nopen(door)\npick(popcorn)\nmove(popcorn, turntable, table)\nplace(popcorn, table)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_4.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_5",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave and pizza on the table, please plan how to heat the pizza by microwave function, set the time to 4min and the air fry"
+          },
+          {
+            "from": "gpt",
+            "value": "open(door)\npick(pizza)\nmove(pizza, table, turntable)\nplace(pizza, turntable)\nclose(door)\npress(microwave button, air fry, 1)\nrotate(knob, 4min, clockwise to 5min)\npress(start/+30s button, start, 1)\nwait(4min)\nopen(door)\npick(pizza)\nmove(pizza, turntable, table)\nplace(pizza, table)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_5.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_6",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave and hot soy pizza on the table, please plan how to heat the hot soy pizza by microwave function, set the time to 6min and the low temp"
+          },
+          {
+            "from": "gpt",
+            "value": "open(door)\npick(hot soy pizza)\nmove(hot soy pizza, table, turntable)\nplace(hot soy pizza, turntable)\nclose(door)\npress(microwave button, low temp, 1)\nrotate(knob, 6min, clockwise to 7min)\npress(start/+30s button, start, 1)\nwait(6min)\nopen(door)\npick(hot soy pizza)\nmove(hot soy pizza, turntable, table)\nplace(hot soy pizza, table)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_6.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_7",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave and spinach on the table, please plan how to heat the spinach by microwave function, set the time to 2min and the low temp"
+          },
+          {
+            "from": "gpt",
+            "value": "open(door)\npick(spinach)\nmove(spinach, table, turntable)\nplace(spinach, turntable)\nclose(door)\npress(microwave button, low temp, 1)\nrotate(knob, 2min, clockwise to 3min)\npress(start/+30s button, start, 1)\nwait(2min)\nopen(door)\npick(spinach)\nmove(spinach, turntable, table)\nplace(spinach, table)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_7.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_8",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave and mashed potatoes on the table, please plan how to heat the mashed potatoes by microwave function, set the time to 20min and the combi menu"
+          },
+          {
+            "from": "gpt",
+            "value": "open(door)\npick(mashed potatoes)\nmove(mashed potatoes, table, turntable)\nplace(mashed potatoes, turntable)\nclose(door)\npress(microwave button, combi menu, 1)\nrotate(knob, 20min, clockwise to 25min)\npress(start/+30s button, start, 1)\nwait(20min)\nopen(door)\npick(mashed potatoes)\nmove(mashed potatoes, turntable, table)\nplace(mashed potatoes, table)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_8.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      },
+      {
+        "id": "039_microwave_en_plans_9",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:now there is a microwave and bacon on the table, please plan how to heat the bacon by microwave function, set the time to 10min and the crispy grill"
+          },
+          {
+            "from": "gpt",
+            "value": "open(door)\npick(bacon)\nmove(bacon, table, turntable)\nplace(bacon, turntable)\nclose(door)\npress(microwave button, crispy grill, 1)\nrotate(knob, 10min, clockwise to 15min)\npress(start/+30s button, start, 1)\nwait(10min)\nopen(door)\npick(bacon)\nmove(bacon, turntable, table)\nplace(bacon, table)"
+          }
+        ],
+        "image": [
+          "image/open_planning/039/039_microwave_en_plans_9.png"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039_EN.pdf"
+      }
+    ]
+  },
+  "task_4_closeloop.json": {
+    "hash": "c8da3b547577f6d4724c9e024f455c7ecbbbcf4a637a2bddc7541dfb250e9082",
+    "rows": [
+      {
+        "id": "039_microwave_en_closeloop_0",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and popcorn on the table, please plan how to heat the popcorn by microwave function, set the time to 5min and the crispy grill.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "press(microwave button, crispy grill, 1)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, table, turntable)",
+          "place(popcorn, turntable)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, table, turntable)",
+          "place(popcorn, turntable)",
+          "close(door)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, table, turntable)",
+          "place(popcorn, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 5min, clockwise to 6min)",
+          "press(start/+30s button, start, 1)",
+          "wait(5min)",
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, turntable, table)",
+          "place(popcorn, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_1",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and popcorn on the table, please plan how to heat the popcorn by microwave function, set the time to 5min and the crispy grill.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "wait(5min)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, table, turntable)",
+          "place(popcorn, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 5min, clockwise to 6min)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, table, turntable)",
+          "place(popcorn, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 5min, clockwise to 6min)",
+          "press(start/+30s button,  start, 1)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, table, turntable)",
+          "place(popcorn, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 5min, clockwise to 6min)",
+          "press(start/+30s button, start, 1)",
+          "wait(5min)",
+          "open(door)",
+          "pick(popcorn)",
+          "move(popcorn, turntable, table)",
+          "place(popcorn, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_2",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and milk on the table, please plan how to heat the milk by microwave function, set the time to 4min and the air fry.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "press(microwave button, air fry, 1)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)",
+          "press(microwave button, air fry, 1)",
+          "rotate(knob, 4min, clockwise to 5min)",
+          "press(start/+30s button, start, 1)",
+          "wait(4min)",
+          "open(door)",
+          "pick(milk)",
+          "move(milk, turntable, table)",
+          "place(milk, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_3",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and milk on the table, please plan how to heat the milk by microwave function, set the time to 4min and the air fry.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(knob, 4min, clockwise to 5min)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)",
+          "press(microwave button,  air fry, 1)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)",
+          "press(microwave button, air fry, 1)",
+          "rotate(knob, 4min, clockwise to 5min)",
+          "press(start/+30s button, start, 1)",
+          "wait(4min)",
+          "open(door)",
+          "pick(milk)",
+          "move(milk, turntable, table)",
+          "place(milk, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_4",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and milk on the table, please plan how to heat the milk by microwave function, set the time to 4min and the air fry.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "pick(milk)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)",
+          "press(microwave button, air fry, 1)",
+          "rotate(knob, 4min, clockwise to 5min)",
+          "press(start/+30s button, start, 1)",
+          "wait(4min)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)",
+          "press(microwave button, air fry, 1)",
+          "rotate(knob, 4min, clockwise to 5min)",
+          "press(start/+30s button, start, 1)",
+          "wait(4min)",
+          "open(door)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(milk)",
+          "move(milk, table, turntable)",
+          "place(milk, turntable)",
+          "close(door)",
+          "press(microwave button, air fry, 1)",
+          "rotate(knob, 4min, clockwise to 5min)",
+          "press(start/+30s button, start, 1)",
+          "wait(4min)",
+          "open(door)",
+          "pick(milk)",
+          "move(milk, turntable, table)",
+          "place(milk, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_5",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and hot soy milk on the table, please plan how to heat the hot soy milk by microwave function, set the time to 6min and the low temp.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "press(start/+30s button, start, 1)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, table, turntable)",
+          "place(hot soy milk, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, table, turntable)",
+          "place(hot soy milk, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "knob, 6min, clockwise to 7min"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, table, turntable)",
+          "place(hot soy milk, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "rotate(knob, 6min, clockwise to 7min)",
+          "press(start/+30s button, start, 1)",
+          "wait(6min)",
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, turntable, table)",
+          "place(hot soy milk, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_6",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and hot soy milk on the table, please plan how to heat the hot soy milk by microwave function, set the time to 6min and the low temp.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "press(microwave button, correcting mistake, 1)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, table, turntable)",
+          "place(hot soy milk, turntable)",
+          "close(door)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, table, turntable)",
+          "place(hot soy milk, turntable)",
+          "close(door)",
+          "press(microwave button,  low temp, 0)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, table, turntable)",
+          "place(hot soy milk, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "rotate(knob, 6min, clockwise to 7min)",
+          "press(start/+30s button, start, 1)",
+          "wait(6min)",
+          "open(door)",
+          "pick(hot soy milk)",
+          "move(hot soy milk, turntable, table)",
+          "place(hot soy milk, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_7",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and spinach on the table, please plan how to heat the spinach by microwave function, set the time to 2min and the low temp.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "press(start/+30s button, start, 1)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "knob, 2min, clockwise to 3min"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "rotate(knob, 2min, clockwise to 3min)",
+          "press(start/+30s button, start, 1)",
+          "wait(2min)",
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, turntable, table)",
+          "place(spinach, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_8",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and spinach on the table, please plan how to heat the spinach by microwave function, set the time to 2min and the low temp.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(knob, 2min, clockwise to 3min)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button,  low temp, 1)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "rotate(knob, 2min, clockwise to 3min)",
+          "press(start/+30s button, start, 1)",
+          "wait(2min)",
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, turntable, table)",
+          "place(spinach, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_9",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and spinach on the table, please plan how to heat the spinach by microwave function, set the time to 2min and the low temp.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "pick(spinach)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "rotate(knob, 2min, clockwise to 3min)",
+          "press(start/+30s button, start, 1)",
+          "wait(2min)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "rotate(knob, 2min, clockwise to 3min)",
+          "press(start/+30s button, start, 1)",
+          "wait(2min)",
+          "open(door)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, table, turntable)",
+          "place(spinach, turntable)",
+          "close(door)",
+          "press(microwave button, low temp, 1)",
+          "rotate(knob, 2min, clockwise to 3min)",
+          "press(start/+30s button, start, 1)",
+          "wait(2min)",
+          "open(door)",
+          "pick(spinach)",
+          "move(spinach, turntable, table)",
+          "place(spinach, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_10",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and mashed potatoes on the table, please plan how to heat the mashed potatoes by microwave function, set the time to 20min and the combi menu.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(knob, 20min, clockwise to 25min)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)",
+          "press(microwave button,  combi menu, 1)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)",
+          "press(microwave button, combi menu, 1)",
+          "rotate(knob, 20min, clockwise to 25min)",
+          "press(start/+30s button, start, 1)",
+          "wait(20min)",
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, turntable, table)",
+          "place(mashed potatoes, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_11",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and mashed potatoes on the table, please plan how to heat the mashed potatoes by microwave function, set the time to 20min and the combi menu.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(knob, 20min, clockwise to 25min)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)",
+          "press(microwave button,  combi menu, 1)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)",
+          "press(microwave button, combi menu, 1)",
+          "rotate(knob, 20min, clockwise to 25min)",
+          "press(start/+30s button, start, 1)",
+          "wait(20min)",
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, turntable, table)",
+          "place(mashed potatoes, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_12",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and mashed potatoes on the table, please plan how to heat the mashed potatoes by microwave function, set the time to 20min and the combi menu.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(knob, correcting mistake, clockwise to 20\u00b0)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)",
+          "press(microwave button, combi menu, 1)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)",
+          "press(microwave button, combi menu, 1)",
+          "rotate(knob,  20min, clockwise to 5)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, table, turntable)",
+          "place(mashed potatoes, turntable)",
+          "close(door)",
+          "press(microwave button, combi menu, 1)",
+          "rotate(knob, 20min, clockwise to 25min)",
+          "press(start/+30s button, start, 1)",
+          "wait(20min)",
+          "open(door)",
+          "pick(mashed potatoes)",
+          "move(mashed potatoes, turntable, table)",
+          "place(mashed potatoes, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_13",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and bacon on the table, please plan how to heat the bacon by microwave function, set the time to 10min and the crispy grill.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "wait(10min)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, table, turntable)",
+          "place(bacon, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 10min, clockwise to 15min)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, table, turntable)",
+          "place(bacon, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 10min, clockwise to 15min)",
+          "press(start/+30s button,  start, 1)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, table, turntable)",
+          "place(bacon, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 10min, clockwise to 15min)",
+          "press(start/+30s button, start, 1)",
+          "wait(10min)",
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, turntable, table)",
+          "place(bacon, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      },
+      {
+        "id": "039_microwave_en_closeloop_14",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task now there is a microwave and bacon on the table, please plan how to heat the bacon by microwave function, set the time to 10min and the crispy grill.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "press(start/+30s button, correcting mistake, 1)"
+          }
+        ],
+        "history": [
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, table, turntable)",
+          "place(bacon, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 10min, clockwise to 15min)"
+        ],
+        "conduct": [
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, table, turntable)",
+          "place(bacon, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 10min, clockwise to 15min)",
+          "press(start/+30s button,  start, 0)"
+        ],
+        "gt_planning": [
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, table, turntable)",
+          "place(bacon, turntable)",
+          "close(door)",
+          "press(microwave button, crispy grill, 1)",
+          "rotate(knob, 10min, clockwise to 15min)",
+          "press(start/+30s button, start, 1)",
+          "wait(10min)",
+          "open(door)",
+          "pick(bacon)",
+          "move(bacon, turntable, table)",
+          "place(bacon, table)"
+        ],
+        "pdf": "manuals_pdfs_only\\039_microwave_en\\039.pdf"
+      }
+    ]
+  },
+  "gt_part.json": {
+    "door": "part_00",
+    "microwave button": "part_05",
+    "air fry": "part_09",
+    "broil": "part_06",
+    "convection button": "part_10",
+    "combi. button": "part_07",
+    "pro defrost button": "part_02",
+    "kit. timer clock button": "part_08",
+    "sound on/off lock 3s button": "part_11",
+    "stop/cancel button": "part_14",
+    "knob": "part_04",
+    "start/+30s button": "part_04"
+  }
+}

@@ -1,0 +1,514 @@
+{
+  "task_2_open_planning.json": {
+    "source_sha256": "99ad6b0a7f2b3c642affd0cd70c5e0b843ea879860c99a3b853ff1cca28f8509",
+    "model080_count": 10,
+    "handle_mentions": [],
+    "samples": [
+      {
+        "id": "080_deepfryer_en_plans_0",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and rice ball on the table now; please plan how to put rice ball in the deep fryer"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(rice ball)\nmove(rice ball, table, fryingbasket)\nplace(rice ball, fryingbasket)\nclose(lid)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_0.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_1",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and rice ball on the table now; please plan how to set the 115\u00b0C temperature"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_1.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_2",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried chicken on the table now; please plan how to set the 30min time"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_2.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_3",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried vegetables on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 30min to possess fried vegetables"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(fried vegetables)\nmove(fried vegetables, table, fryingbasket)\nplace(fried vegetables, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)\nrotate(timer control knob, 30min, rotate clockwise 180\u00b0)\nwait(30min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_3.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_4",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried chicken on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 40min to possess fried chicken"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(fried chicken)\nmove(fried chicken, table, fryingbasket)\nplace(fried chicken, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)\nrotate(timer control knob, 40min, rotate clockwise 240\u00b0)\nwait(40min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_4.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_5",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and sausage on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to possess sausage"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(sausage)\nmove(sausage, table, fryingbasket)\nplace(sausage, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)\nrotate(timer control knob, 10min, rotate clockwise 60\u00b0)\nwait(10min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_5.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_6",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried mushrooms on the table now; please plan how to set the temperature to 130\u00b0C and set the time to 30min to possess fried mushrooms"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(fried mushrooms)\nmove(fried mushrooms, table, fryingbasket)\nplace(fried mushrooms, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)\nrotate(timer control knob, 30min, rotate clockwise 180\u00b0)\nwait(30min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_6.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_7",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and rice ball on the table now; please plan how to set the temperature to 130\u00b0C and set the time to 20min to possess rice ball"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(rice ball)\nmove(rice ball, table, fryingbasket)\nplace(rice ball, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)\nrotate(timer control knob, 20min, rotate clockwise 120\u00b0)\nwait(20min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_7.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_8",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and sausage on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 20min to possess sausage"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(sausage)\nmove(sausage, table, fryingbasket)\nplace(sausage, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)\nrotate(timer control knob, 20min, rotate clockwise 120\u00b0)\nwait(20min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_8.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_plans_9",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried dumplings on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 50min to possess fried dumplings"
+          },
+          {
+            "from": "gpt",
+            "value": "open(lid)\npick(fried dumplings)\nmove(fried dumplings, table, fryingbasket)\nplace(fried dumplings, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)\nrotate(timer control knob, 50min, rotate clockwise 300\u00b0)\nwait(50min)"
+          }
+        ],
+        "image": [
+          "image/open_planning/080/080_deepfryer_en_plans_9.png"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+      }
+    ]
+  },
+  "task_4_closeloop.json": {
+    "source_sha256": "c8da3b547577f6d4724c9e024f455c7ecbbbcf4a637a2bddc7541dfb250e9082",
+    "model080_count": 8,
+    "handle_mentions": [],
+    "samples": [
+      {
+        "id": "080_deepfryer_en_closeloop_0",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried vegetables on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 30min to make fried vegetables.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried vegetables)",
+          "move(fried vegetables, table, fryingbasket)",
+          "place(fried vegetables, fryingbasket)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried vegetables)",
+          "move(fried vegetables, table, fryingbasket)",
+          "place(fried vegetables, fryingbasket)",
+          "close(lid)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried vegetables)",
+          "move(fried vegetables, table, fryingbasket)",
+          "place(fried vegetables, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)",
+          "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)",
+          "wait(30min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_closeloop_1",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried vegetables on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 30min to make fried vegetables.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(temperature control knob, correcting mistake, clockwise to 100\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried vegetables)",
+          "move(fried vegetables, table, fryingbasket)",
+          "place(fried vegetables, fryingbasket)",
+          "close(lid)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried vegetables)",
+          "move(fried vegetables, table, fryingbasket)",
+          "place(fried vegetables, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob,  160\u00b0C, clockwise to 215)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried vegetables)",
+          "move(fried vegetables, table, fryingbasket)",
+          "place(fried vegetables, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)",
+          "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)",
+          "wait(30min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_closeloop_2",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried xiaolongbao on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to make fried xiaolongbao.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob, 10min, rotate clockwise 60\u00b0)",
+          "wait(10min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_closeloop_3",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried xiaolongbao on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to make fried xiaolongbao.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(timer control knob, correcting mistake, clockwise to 50\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob,  10min, clockwise to 10)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob, 10min, rotate clockwise 60\u00b0)",
+          "wait(10min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_closeloop_4",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried xiaolongbao on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to make fried xiaolongbao.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(timer control knob, correcting mistake, clockwise to 20\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob,  10min, clockwise to 40)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried xiaolongbao)",
+          "move(fried xiaolongbao, table, fryingbasket)",
+          "place(fried xiaolongbao, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob, 10min, rotate clockwise 60\u00b0)",
+          "wait(10min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_closeloop_5",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried mushrooms on the table now; please plan how to set the temperature to 130\u00b0C and set the time to 30min to make fried mushrooms.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried mushrooms)",
+          "move(fried mushrooms, table, fryingbasket)",
+          "place(fried mushrooms, fryingbasket)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried mushrooms)",
+          "move(fried mushrooms, table, fryingbasket)",
+          "place(fried mushrooms, fryingbasket)",
+          "close(lid)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried mushrooms)",
+          "move(fried mushrooms, table, fryingbasket)",
+          "place(fried mushrooms, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)",
+          "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)",
+          "wait(30min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_closeloop_6",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried dumplings on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 50min to make fried dumplings.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried dumplings)",
+          "move(fried dumplings, table, fryingbasket)",
+          "place(fried dumplings, fryingbasket)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried dumplings)",
+          "move(fried dumplings, table, fryingbasket)",
+          "place(fried dumplings, fryingbasket)",
+          "close(lid)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried dumplings)",
+          "move(fried dumplings, table, fryingbasket)",
+          "place(fried dumplings, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob, 50min, rotate clockwise 300\u00b0)",
+          "wait(50min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      },
+      {
+        "id": "080_deepfryer_en_closeloop_7",
+        "task": "Instruction_QA",
+        "conversations": [
+          {
+            "from": "human",
+            "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried dumplings on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 50min to make fried dumplings.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+          },
+          {
+            "from": "gpt",
+            "value": "rotate(timer control knob, correcting mistake, clockwise to 70\u00b0)"
+          }
+        ],
+        "history": [
+          "open(lid)",
+          "pick(fried dumplings)",
+          "move(fried dumplings, table, fryingbasket)",
+          "place(fried dumplings, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+        ],
+        "conduct": [
+          "open(lid)",
+          "pick(fried dumplings)",
+          "move(fried dumplings, table, fryingbasket)",
+          "place(fried dumplings, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob,  50min, clockwise to 230)"
+        ],
+        "gt_planning": [
+          "open(lid)",
+          "pick(fried dumplings)",
+          "move(fried dumplings, table, fryingbasket)",
+          "place(fried dumplings, fryingbasket)",
+          "close(lid)",
+          "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+          "rotate(timer control knob, 50min, rotate clockwise 300\u00b0)",
+          "wait(50min)"
+        ],
+        "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+      }
+    ]
+  }
+}

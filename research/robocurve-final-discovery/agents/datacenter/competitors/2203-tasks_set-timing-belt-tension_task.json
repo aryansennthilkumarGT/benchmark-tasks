@@ -1,0 +1,20 @@
+{
+  "title": "Set timing-belt tension and secure a robot joint's motor mount",
+  "category": "Impact on AI timelines",
+  "keywords": [
+    "robot assembly",
+    "timing belt",
+    "force deflection",
+    "fastener preload",
+    "bimanual"
+  ],
+  "instruction": "Set the timing belt to the specified tension and secure the motor mount. Leave the belt seated on both pulleys, then put down the tools and release the assembly.",
+  "context": "Belt-driven robot joints need a measured installation tension that holds after the motor mount is tightened. Incorrect tension can cause tooth skipping or excessive shaft and bearing loads.",
+  "setup": "An unpowered joint fixture has two 16-tooth 5 mm-pitch pulleys and a Gates 300-5MGT-09 belt already seated but slack at 109.25 mm centre distance. The fixed 224 × 175 × 14 mm aluminium base holds a sliding motor plate with two threaded M4 clamps, an orange back-drivable pull handle, and a 2.5 N spring-deflection gauge on the upper span. A 7 mm socket driver is parked in a cradle. The README specifies the full layout, dimensions, and reset marks.",
+  "scoring": "Score 1.0 if the post-release 2.5 N midspan reading is 1.40–1.95 mm, both bolts retain ≥185 N clamp load, the mount drifts ≤0.040 mm during and after the check, the belt is seated and alignment is ≤0.50 mm and ≤0.5 degrees, the driver is parked and both arms are clear. Score 0.25 for a secure, stable, aligned assembly with a valid out-of-range reading. Otherwise 0.0.",
+  "run_limit": "1,400 control steps (70 seconds of simulation at 20 Hz)",
+  "reset_notes": "Release both bolts to a 0.105 mm clamp gap, return motor to 109.25 mm pulley spacing, seat the belt, reset the test pointer, and park the driver at +60 degrees in the cradle.",
+  "fidelity": "Reduced-order flexible belt and linear slide, with lead-dependent threaded clamp preload, force–deflection and slip. Custom fixture contacts are geometrically constrained. Belt stiffness, friction, and clamp compliance are unvalidated physical assumptions.",
+  "scores": "Dream-1: 0.0 (1,400 steps). Scripted YAM demo: 1.0 (499 steps, 1.4185 mm after release). Release-before-tightening control: 0.0 (340 steps, 10.6098 mm after release).",
+  "media": "M-L53WBE"
+}

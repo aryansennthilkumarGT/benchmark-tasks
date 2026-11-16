@@ -1,0 +1,2134 @@
+{
+  "repo": "https://github.com/gaoyz1235/RealAppliance",
+  "commit": "fb7bd3c6ad7e26472d89719efe55d281cff8c528",
+  "sources": {
+    "task_2_open_planning.json": {
+      "sha256": "99ad6b0a7f2b3c642affd0cd70c5e0b843ea879860c99a3b853ff1cca28f8509",
+      "rows": [
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to put the dough into the bread maker"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_0.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to set crust color to light"
+            },
+            {
+              "from": "gpt",
+              "value": "press(crust color button, light, 1)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_1.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make white bread ,weight 1lb, setting crust color to medium"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, whole grain, 11)\npress(loaf size button, 1lb, 1)\npress(crust color button, medium, 2)\npress(start/pause button, start, 1)\nwait(174min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_2.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_3",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the basic bread cycle to make rye bread ,weight 1lb, setting crust color to medium"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, basic bread, 1)\npress(loaf size button, 1lb, 1)\npress(crust color button, medium, 2)\npress(start/pause button, start, 1)\nwait(175min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_3.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_4",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the basic bread cycle to make toast ,weight 1lb, setting crust color to light"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, basic bread, 1)\npress(loaf size button, 1lb, 1)\npress(crust color button, light, 1)\npress(start/pause button, start, 1)\nwait(175min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_4.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_5",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the french bread cycle to make honey bread ,weight 1lb, setting crust color to medium"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, french bread, 2)\npress(loaf size button, 1lb, 1)\npress(crust color button, medium, 2)\npress(start/pause button, start, 1)\nwait(234min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_5.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_6",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the french bread cycle to make sweet bread ,weight 1lb, setting crust color to light"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, french bread, 2)\npress(loaf size button, 1lb, 1)\npress(crust color button, light, 1)\npress(start/pause button, start, 1)\nwait(234min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_6.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_7",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make cinnamon bread ,weight 1lb, setting crust color to dark"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, whole grain, 11)\npress(loaf size button, 1lb, 1)\npress(crust color button, dark, 3)\npress(start/pause button, start, 1)\nwait(174min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_7.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_8",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the sweet bread cycle to make white bread ,weight 1lb, setting crust color to light"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, sweet bread, 5)\npress(loaf size button, 1lb, 1)\npress(crust color button, light, 1)\npress(start/pause button, start, 1)\nwait(167min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_8.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_plans_9",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image> <image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nassume \"cycle\" is set to none before pressing the menu button, and therefore pressing it once sets it to the first cycle (basic bread).\n\"loaf size\" and \"shade\" are also set to none before pressing the buttons, and pressing it once sets them to the lightest weight of the menu and light.\nanswer the question:there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make cream bread ,weight 1lb, setting crust color to light"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(dough)\nmove(dough, table, nonstick bread pan)\nplace(dough, nonstick bread pan)\nclose(lid)\npress(menu button, whole grain, 11)\npress(loaf size button, 1lb, 1)\npress(crust color button, light, 1)\npress(start/pause button, start, 1)\nwait(174min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/006/006_breadmachine_en_fr_sp_plans_9.png"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a apple on the table, plan how to put the apple into the blender"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(apple)\nmove(apple, table, jar)\nplace(apple, jar)\nclose(lid)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_0.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a garlic on the table, plan how to set the 2 speed"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, 2, rotate clockwise 60\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_1.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a garlic on the table, plan how to possess garlic for 1min using speed 3"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(garlic)\nmove(garlic, table, jar)\nplace(garlic, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)\nwait(1min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 90\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_2.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_3",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a garlic for 1min using speed 3 on the table, plan how to possess apple for 4min using speed 1"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(apple)\nmove(apple, table, jar)\nplace(apple, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)\nwait(4min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_3.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_4",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a pear on the table, plan how to possess pear for 1min using speed 1"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(pear)\nmove(pear, table, jar)\nplace(pear, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)\nwait(1min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_4.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_5",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a garlic on the table, plan how to possess garlic for 4min using speed 3"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(garlic)\nmove(garlic, table, jar)\nplace(garlic, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)\nwait(4min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 90\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_5.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_6",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a strawberry on the table, plan how to possess strawberry for 9min using speed 1"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(strawberry)\nmove(strawberry, table, jar)\nplace(strawberry, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)\nwait(9min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_6.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_7",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and an oats on the table, plan how to possess oats for 8min using speed 1"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(oats)\nmove(oats, table, jar)\nplace(oats, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)\nwait(8min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_7.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_8",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and an pear on the table, plan how to possess pear for 5min using speed 3"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(pear)\nmove(pear, table, jar)\nplace(pear, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)\nwait(5min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 90\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_8.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "008_blender_en_plans_9",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image> <image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a blender and a pear on the table, plan how to possess pear for 5min using speed 1"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(pear)\nmove(pear, table, jar)\nplace(pear, jar)\nclose(lid)\nrotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)\nwait(5min)\nrotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/008/008_blender_en_plans_9.png"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to put the coffeemachine cup on the coffeemachine"
+            },
+            {
+              "from": "gpt",
+              "value": "pick(coffeemachine cup)\nmove(coffeemachine cup, table, coffeemachine)\nplace(coffeemachine cup, coffeemachine)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_0.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to start the coffeemachine"
+            },
+            {
+              "from": "gpt",
+              "value": "press(power button, on, 1)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_1.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and coffee beans on the table. plan how to put the coffee beans on the coffeemachine"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npour(coffee beans, coffeemachine)\nclose(lid)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_2.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_3",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to set the size 2 filter size of the coffeemachine"
+            },
+            {
+              "from": "gpt",
+              "value": "press(filter size button, size 2, 2)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_3.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_4",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to make coffee, use size 2 filter size, use 1 cup, wait 1min to complete"
+            },
+            {
+              "from": "gpt",
+              "value": "pick(coffeemachine cup)\nmove(coffeemachine cup, table, coffeemachine)\nplace(coffeemachine cup, coffeemachine)\npress(power button, on, 1)\npress(filter size button, size 2, 2)\npress(1 cup button, 1 cup, 1)\nwait(1min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_4.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_5",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to make coffee, use size 1 filter size, use 1 cup, wait 1min to complete"
+            },
+            {
+              "from": "gpt",
+              "value": "pick(coffeemachine cup)\nmove(coffeemachine cup, table, coffeemachine)\nplace(coffeemachine cup, coffeemachine)\npress(power button, on, 1)\npress(filter size button, size 1, 1)\npress(1 cup button, 1 cup, 1)\nwait(1min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_5.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_6",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to make coffee, use size 2 filter size, use 2 cup, wait 1min to complete"
+            },
+            {
+              "from": "gpt",
+              "value": "pick(coffeemachine cup)\nmove(coffeemachine cup, table, coffeemachine)\nplace(coffeemachine cup, coffeemachine)\npress(power button, on, 1)\npress(filter size button, size 2, 2)\npress(2 cup button, 2 cup, 1)\nwait(1min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_6.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_7",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to make coffee, use size 1 filter size, use 1 cup, wait 3min to complete"
+            },
+            {
+              "from": "gpt",
+              "value": "pick(coffeemachine cup)\nmove(coffeemachine cup, table, coffeemachine)\nplace(coffeemachine cup, coffeemachine)\npress(power button, on, 1)\npress(filter size button, size 1, 1)\npress(1 cup button, 1 cup, 1)\nwait(3min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_7.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_8",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffeemachine cup on the table. plan how to make coffee, use size 2 filter size, use 2 cup, wait 3min to complete"
+            },
+            {
+              "from": "gpt",
+              "value": "pick(coffeemachine cup)\nmove(coffeemachine cup, table, coffeemachine)\nplace(coffeemachine cup, coffeemachine)\npress(power button, on, 1)\npress(filter size button, size 2, 2)\npress(2 cup button, 2 cup, 1)\nwait(3min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_8.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_plans_9",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\nanswer the question:there is a coffeemachine and a coffee on the table. plan how to make coffee, use size 1 filter size, use 2 cup, wait 3min to complete"
+            },
+            {
+              "from": "gpt",
+              "value": "pick(coffeemachine cup)\nmove(coffeemachine cup, table, coffeemachine)\nplace(coffeemachine cup, coffeemachine)\npress(power button, on, 1)\npress(filter size button, size 1, 1)\npress(2 cup button, 2 cup, 1)\nwait(3min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/069/069_coffeemachine_en_fr_plans_9.png"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and rice ball on the table now; please plan how to put rice ball in the deep fryer"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(rice ball)\nmove(rice ball, table, fryingbasket)\nplace(rice ball, fryingbasket)\nclose(lid)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_0.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and rice ball on the table now; please plan how to set the 115\u00b0C temperature"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_1.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried chicken on the table now; please plan how to set the 30min time"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_2.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_3",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried vegetables on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 30min to possess fried vegetables"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(fried vegetables)\nmove(fried vegetables, table, fryingbasket)\nplace(fried vegetables, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)\nrotate(timer control knob, 30min, rotate clockwise 180\u00b0)\nwait(30min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_3.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_4",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried chicken on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 40min to possess fried chicken"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(fried chicken)\nmove(fried chicken, table, fryingbasket)\nplace(fried chicken, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)\nrotate(timer control knob, 40min, rotate clockwise 240\u00b0)\nwait(40min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_4.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_5",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and sausage on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to possess sausage"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(sausage)\nmove(sausage, table, fryingbasket)\nplace(sausage, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)\nrotate(timer control knob, 10min, rotate clockwise 60\u00b0)\nwait(10min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_5.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_6",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried mushrooms on the table now; please plan how to set the temperature to 130\u00b0C and set the time to 30min to possess fried mushrooms"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(fried mushrooms)\nmove(fried mushrooms, table, fryingbasket)\nplace(fried mushrooms, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)\nrotate(timer control knob, 30min, rotate clockwise 180\u00b0)\nwait(30min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_6.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_7",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and rice ball on the table now; please plan how to set the temperature to 130\u00b0C and set the time to 20min to possess rice ball"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(rice ball)\nmove(rice ball, table, fryingbasket)\nplace(rice ball, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)\nrotate(timer control knob, 20min, rotate clockwise 120\u00b0)\nwait(20min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_7.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_8",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and sausage on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 20min to possess sausage"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(sausage)\nmove(sausage, table, fryingbasket)\nplace(sausage, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)\nrotate(timer control knob, 20min, rotate clockwise 120\u00b0)\nwait(20min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_8.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_plans_9",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "<image>\nyou are a professional document analysis and embodied planning assistant. based on the manual images, plan robot manipulation steps using only the following atomic actions: pick(obj), place(obj, pos), move(obj, start_pos, end_pos), open(obj), close(obj), rotate(obj, target, rotation_degrees), press(obj, target, num_of_press_times), wait(time), push(obj, num_of_push_times), set(obj, mode), hold(obj, num_of_hold_times),lift(obj),pour(obj). all operations must strictly follow the device's manual. do not fabricate actions or objects. output only the sequence of atomic actions.\n\n\u3010manual additional content\u3011\nthe temperature range is 115\u00b0C-160\u00b0C, and each 45\u00b0 rotation of the temperature control knob increases the temperature by 15\u00b0C.\nthe time range is 0min-60min, and each 1min increase requires a 6\u00b0 rotation of the timer control knob.\nanswer the question:there is a deep fryer and fried dumplings on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 50min to possess fried dumplings"
+            },
+            {
+              "from": "gpt",
+              "value": "open(lid)\npick(fried dumplings)\nmove(fried dumplings, table, fryingbasket)\nplace(fried dumplings, fryingbasket)\nclose(lid)\nrotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)\nrotate(timer control knob, 50min, rotate clockwise 300\u00b0)\nwait(50min)"
+            }
+          ],
+          "image": [
+            "image/open_planning/080/080_deepfryer_en_plans_9.png"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080_EN.pdf"
+        }
+      ]
+    },
+    "task_4_closeloop.json": {
+      "sha256": "c8da3b547577f6d4724c9e024f455c7ecbbbcf4a637a2bddc7541dfb250e9082",
+      "rows": [
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make water ,weight 1lb, setting crust color to medium.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(start/pause button, correcting mistake, 1)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, whole grain, 11)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, whole grain, 11)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)",
+            "press(start/pause button,  start, 0)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, whole grain, 11)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)",
+            "press(start/pause button, start, 1)",
+            "wait(174min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make water ,weight 1lb, setting crust color to medium.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, whole grain, 11)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)",
+            "press(start/pause button, start, 1)",
+            "wait(174min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the basic bread cycle to make rye bread ,weight 1lb, setting crust color to medium.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, basic bread, 1)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)",
+            "press(start/pause button, start, 1)",
+            "wait(175min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_3",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the basic bread cycle to make rye bread ,weight 1lb, setting crust color to medium.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(loaf size button, 1lb, 1)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button,  basic bread, 1)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, basic bread, 1)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)",
+            "press(start/pause button, start, 1)",
+            "wait(175min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_4",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the basic bread cycle to make toast ,weight 1lb, setting crust color to light.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, basic bread, 1)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button, start, 1)",
+            "wait(175min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_5",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the basic bread cycle to make toast ,weight 1lb, setting crust color to light.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "wait(175min)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, basic bread, 1)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, basic bread, 1)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button,  start, 1)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, basic bread, 1)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button, start, 1)",
+            "wait(175min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_6",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the french bread cycle to make honey ,weight 1lb, setting crust color to medium.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, french bread, 2)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)",
+            "press(start/pause button, start, 1)",
+            "wait(234min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_7",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the french bread cycle to make honey ,weight 1lb, setting crust color to medium.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(menu button, correcting mistake, 1)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button,  french bread, 0)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, french bread, 2)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, medium, 2)",
+            "press(start/pause button, start, 1)",
+            "wait(234min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_8",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the french bread cycle to make sugar ,weight 1lb, setting crust color to light.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, french bread, 2)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button, start, 1)",
+            "wait(234min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_9",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the french bread cycle to make sugar ,weight 1lb, setting crust color to light.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(loaf size button, correcting mistake, 1)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, french bread, 2)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, french bread, 2)",
+            "press(loaf size button,  1lb, 0)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, french bread, 2)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button, start, 1)",
+            "wait(234min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_10",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make cinnamon ,weight 1lb, setting crust color to dark.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, whole grain, 11)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, dark, 3)",
+            "press(start/pause button, start, 1)",
+            "wait(174min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_11",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the sweet bread cycle to make yeast ,weight 1lb, setting crust color to light.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, sweet bread, 5)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button, start, 1)",
+            "wait(167min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_12",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make milk ,weight 1lb, setting crust color to light.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(menu button, whole grain, 11)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, whole grain, 11)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button, start, 1)",
+            "wait(174min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "006_breadmachine_en_fr_sp_closeloop_13",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there are a bread maker and dough on the table, please plan how to use the whole grain cycle to make milk ,weight 1lb, setting crust color to light.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(menu button, correcting mistake, 5)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button,  whole grain, 6)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(dough)",
+            "move(dough, table, nonstick bread pan)",
+            "place(dough, nonstick bread pan)",
+            "close(lid)",
+            "press(menu button, whole grain, 11)",
+            "press(loaf size button, 1lb, 1)",
+            "press(crust color button, light, 1)",
+            "press(start/pause button, start, 1)",
+            "wait(174min)"
+          ],
+          "pdf": "manuals_pdfs_only\\006_breadmachine_en_fr_sp\\006.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to put the pistachios into the blender.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(pistachios)",
+            "move(pistachios, table, jar)",
+            "place(pistachios, jar)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(pistachios)",
+            "move(pistachios, table, jar)",
+            "place(pistachios, jar)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(pistachios)",
+            "move(pistachios, table, jar)",
+            "place(pistachios, jar)",
+            "close(lid)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess garlic for 1min using speed 3.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)",
+            "wait(1min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 90\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess apple for 4min using speed 1.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, correcting mistake, clockwise to 30\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(apple)",
+            "move(apple, table, jar)",
+            "place(apple, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(4min)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(apple)",
+            "move(apple, table, jar)",
+            "place(apple, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(4min)",
+            "rotate(rotary dial with 3 speeds,  0, clockwise to 0)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(apple)",
+            "move(apple, table, jar)",
+            "place(apple, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(4min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_3",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess pear for 1min using speed 1.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, correcting mistake, clockwise to 30\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(pear)",
+            "move(pear, table, jar)",
+            "place(pear, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(1min)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(pear)",
+            "move(pear, table, jar)",
+            "place(pear, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(1min)",
+            "rotate(rotary dial with 3 speeds,  0, clockwise to 0)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(pear)",
+            "move(pear, table, jar)",
+            "place(pear, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(1min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_4",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess garlic for 4min using speed 3.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, correcting mistake, clockwise to 80\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)",
+            "close(lid)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds,  3, clockwise to 10)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)",
+            "wait(4min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 90\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_5",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess garlic for 4min using speed 3.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(garlic)",
+            "move(garlic, table, jar)",
+            "place(garlic, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 3, rotate clockwise 90\u00b0)",
+            "wait(4min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 90\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_6",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess strawberry for 9min using speed 1.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(strawberry)",
+            "move(strawberry, table, jar)",
+            "place(strawberry, jar)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(strawberry)",
+            "move(strawberry, table, jar)",
+            "place(strawberry, jar)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(strawberry)",
+            "move(strawberry, table, jar)",
+            "place(strawberry, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(9min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_7",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess oats for 8min using speed 1.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, correcting mistake, clockwise to 20\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(oats)",
+            "move(oats, table, jar)",
+            "place(oats, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(8min)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(oats)",
+            "move(oats, table, jar)",
+            "place(oats, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(8min)",
+            "rotate(rotary dial with 3 speeds,  0, clockwise to 10)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(oats)",
+            "move(oats, table, jar)",
+            "place(oats, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(8min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "008_blender_en_closeloop_8",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a blender on the table, plan how to possess honey for 5min using speed 1.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(honey)",
+            "move(honey, table, jar)",
+            "place(honey, jar)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(honey)",
+            "move(honey, table, jar)",
+            "place(honey, jar)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(honey)",
+            "move(honey, table, jar)",
+            "place(honey, jar)",
+            "close(lid)",
+            "rotate(rotary dial with 3 speeds, 1, rotate clockwise 30\u00b0)",
+            "wait(5min)",
+            "rotate(rotary dial with 3 speeds, 0, rotate counterclockwise 30\u00b0)"
+          ],
+          "pdf": "manuals_pdfs_only\\008_blender_en\\008.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_closeloop_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a coffeemachine on the table. plan how to put the coffee beans on the coffeemachine.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "close(lid)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "place(coffee beans, coffeemachine)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "place(coffee beans, coffeemachine)",
+            "open(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "place(coffee beans, coffeemachine)",
+            "close(lid)"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_closeloop_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a coffeemachine on the table. plan how to make coffee, use size 1 filter size, use 1 cup, wait 1min to complete.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(filter size button, correcting mistake, 1)"
+            }
+          ],
+          "history": [
+            "pick(coffeemachine cup)",
+            "move(coffeemachine cup, table, coffeemachine)",
+            "place(coffeemachine cup, coffeemachine)",
+            "press(power button, on, 1)"
+          ],
+          "conduct": [
+            "pick(coffeemachine cup)",
+            "move(coffeemachine cup, table, coffeemachine)",
+            "place(coffeemachine cup, coffeemachine)",
+            "press(power button, on, 1)",
+            "press(filter size button,  size 1, 0)"
+          ],
+          "gt_planning": [
+            "pick(coffeemachine cup)",
+            "move(coffeemachine cup, table, coffeemachine)",
+            "place(coffeemachine cup, coffeemachine)",
+            "press(power button, on, 1)",
+            "press(filter size button, size 1, 1)",
+            "press(1 cup button, 1 cup, 1)",
+            "wait(1min)"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069.pdf"
+        },
+        {
+          "id": "069_coffeemachine_en_fr_closeloop_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a coffeemachine on the table. plan how to make coffee, use size 2 filter size, use 2 cup, wait 1min to complete.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "press(2 cup button, 2 cup, 1)"
+            }
+          ],
+          "history": [
+            "pick(coffeemachine cup)",
+            "move(coffeemachine cup, table, coffeemachine)",
+            "place(coffeemachine cup, coffeemachine)",
+            "press(power button, on, 1)"
+          ],
+          "conduct": [
+            "pick(coffeemachine cup)",
+            "move(coffeemachine cup, table, coffeemachine)",
+            "place(coffeemachine cup, coffeemachine)",
+            "press(power button, on, 1)",
+            "press(filter size button,  size 2, 1)"
+          ],
+          "gt_planning": [
+            "pick(coffeemachine cup)",
+            "move(coffeemachine cup, table, coffeemachine)",
+            "place(coffeemachine cup, coffeemachine)",
+            "press(power button, on, 1)",
+            "press(filter size button, size 2, 2)",
+            "press(2 cup button, 2 cup, 1)",
+            "wait(1min)"
+          ],
+          "pdf": "manuals_pdfs_only\\069_coffeemachine_en_fr\\069.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_0",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried vegetables on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 30min to make fried vegetables.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried vegetables)",
+            "move(fried vegetables, table, fryingbasket)",
+            "place(fried vegetables, fryingbasket)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried vegetables)",
+            "move(fried vegetables, table, fryingbasket)",
+            "place(fried vegetables, fryingbasket)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried vegetables)",
+            "move(fried vegetables, table, fryingbasket)",
+            "place(fried vegetables, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)",
+            "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)",
+            "wait(30min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_1",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried vegetables on the table now; please plan how to set the temperature to 160\u00b0C and set the time to 30min to make fried vegetables.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(temperature control knob, correcting mistake, clockwise to 100\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried vegetables)",
+            "move(fried vegetables, table, fryingbasket)",
+            "place(fried vegetables, fryingbasket)",
+            "close(lid)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried vegetables)",
+            "move(fried vegetables, table, fryingbasket)",
+            "place(fried vegetables, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob,  160\u00b0C, clockwise to 215)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried vegetables)",
+            "move(fried vegetables, table, fryingbasket)",
+            "place(fried vegetables, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 160\u00b0C, rotate clockwise 315\u00b0)",
+            "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)",
+            "wait(30min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_2",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried xiaolongbao on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to make fried xiaolongbao.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob, 10min, rotate clockwise 60\u00b0)",
+            "wait(10min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_3",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried xiaolongbao on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to make fried xiaolongbao.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(timer control knob, correcting mistake, clockwise to 50\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob,  10min, clockwise to 10)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob, 10min, rotate clockwise 60\u00b0)",
+            "wait(10min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_4",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried xiaolongbao on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 10min to make fried xiaolongbao.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(timer control knob, correcting mistake, clockwise to 20\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob,  10min, clockwise to 40)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried xiaolongbao)",
+            "move(fried xiaolongbao, table, fryingbasket)",
+            "place(fried xiaolongbao, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob, 10min, rotate clockwise 60\u00b0)",
+            "wait(10min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_5",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried mushrooms on the table now; please plan how to set the temperature to 130\u00b0C and set the time to 30min to make fried mushrooms.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried mushrooms)",
+            "move(fried mushrooms, table, fryingbasket)",
+            "place(fried mushrooms, fryingbasket)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried mushrooms)",
+            "move(fried mushrooms, table, fryingbasket)",
+            "place(fried mushrooms, fryingbasket)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried mushrooms)",
+            "move(fried mushrooms, table, fryingbasket)",
+            "place(fried mushrooms, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 130\u00b0C, rotate clockwise 225\u00b0)",
+            "rotate(timer control knob, 30min, rotate clockwise 180\u00b0)",
+            "wait(30min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_6",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried dumplings on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 50min to make fried dumplings.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried dumplings)",
+            "move(fried dumplings, table, fryingbasket)",
+            "place(fried dumplings, fryingbasket)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried dumplings)",
+            "move(fried dumplings, table, fryingbasket)",
+            "place(fried dumplings, fryingbasket)",
+            "close(lid)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried dumplings)",
+            "move(fried dumplings, table, fryingbasket)",
+            "place(fried dumplings, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob, 50min, rotate clockwise 300\u00b0)",
+            "wait(50min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        },
+        {
+          "id": "080_deepfryer_en_closeloop_7",
+          "task": "Instruction_QA",
+          "conversations": [
+            {
+              "from": "human",
+              "value": "[Task]\nGive the next step to use the appliance complete the task there is a deep fryer and fried dumplings on the table now; please plan how to set the temperature to 115\u00b0C and set the time to 50min to make fried dumplings.\nYou are provided with the full planning result in segmentation Complete Conduction, and steps already conducted before in segmentation Conduct History.\nYou are also providen with a picture of the current status of the appliance\nBe aware there may be error in conduct, so use the picture to judge how to act ultimately\nYou can only use the steps in provided format as below.\nReturn one and only one step.\n\n[Available steps]\nthe word in <> marks the parameter to fit in the steps\n\nopen(<part>)\nclose(<part>)\npick(<object>)\nplace(<object>,<dest_part>)\nmove(<object>,<start_part>,<dest_part>)\nwait(<time>)\nrotate(<part>,<state>,<degrees>)\npress(<part>,<times>)\nSet(<part>,<position>)\n\nThe object could be anything like water, bread, etc.\nThe start_part and dest_part could be appliance part or table\nThe part could only be appliance part described in the manual\u3002"
+            },
+            {
+              "from": "gpt",
+              "value": "rotate(timer control knob, correcting mistake, clockwise to 70\u00b0)"
+            }
+          ],
+          "history": [
+            "open(lid)",
+            "pick(fried dumplings)",
+            "move(fried dumplings, table, fryingbasket)",
+            "place(fried dumplings, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)"
+          ],
+          "conduct": [
+            "open(lid)",
+            "pick(fried dumplings)",
+            "move(fried dumplings, table, fryingbasket)",
+            "place(fried dumplings, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob,  50min, clockwise to 230)"
+          ],
+          "gt_planning": [
+            "open(lid)",
+            "pick(fried dumplings)",
+            "move(fried dumplings, table, fryingbasket)",
+            "place(fried dumplings, fryingbasket)",
+            "close(lid)",
+            "rotate(temperature control knob, 115\u00b0C, rotate clockwise 180\u00b0)",
+            "rotate(timer control knob, 50min, rotate clockwise 300\u00b0)",
+            "wait(50min)"
+          ],
+          "pdf": "manuals_pdfs_only\\080_deepfryer_en\\080.pdf"
+        }
+      ]
+    },
+    "model/006/gt_part.json": {
+      "sha256": "b3a2bc224dac8561b1d61950720c0ee358a9d58269612b08bb5e1a5e6f84207c",
+      "bytes": 245
+    },
+    "model/006/utils.py": {
+      "sha256": "2e307db60da6ecf8b5a4b643a0cb7c8a5f15e3e8e180f0d1370687b20a9651d0",
+      "bytes": 6980
+    },
+    "model/008/gt_part.json": {
+      "sha256": "84fca53413727d2fccce95d0c95c781ad0083b1f622fa2821ecb2951395a4e2a",
+      "bytes": 58
+    },
+    "model/008/utils.py": {
+      "sha256": "7c03b4a83890c935c3757f9908fd5710eec598da91fbb2c7b5d1d2314de353f1",
+      "bytes": 824
+    },
+    "model/069/gt_part.json": {
+      "sha256": "cd1e121b078ea82a2bda8962b37f54cead4e90b9dfa0c5d2ad94efb4fc6eada3",
+      "bytes": 240
+    },
+    "model/069/utils.py": {
+      "sha256": "e8a9b173928e9b47a8318bfd7e0feb8087f54be28565e154bbf0f9e8503c972a",
+      "bytes": 1823
+    },
+    "model/080/gt_part.json": {
+      "sha256": "2af6238993dc63816ac3e59775bca394900a33745817733c01c4053a0d070929",
+      "bytes": 129
+    },
+    "model/080/utils.py": {
+      "sha256": "c8f438676d9d8490324715125363432af9d9ccfcf8e83a83707b8518044f1804",
+      "bytes": 955
+    }
+  }
+}

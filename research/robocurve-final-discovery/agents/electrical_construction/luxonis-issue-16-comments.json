@@ -1,0 +1,20 @@
+[
+  {
+    "author": "Luxonis-Brandon",
+    "body": "### Start with the `why`:\r\n\r\nAs Katherine_Scott (of ROS) mentioned [here](https://discourse.ros.org/t/opencv-ai-kit-oak/15406/16?u=luxonis-brandon) there is a huge diversity of M12 lenses available to suit all sorts of problems.  These also come in options for various filtering of specific spectra (opening up things like NDVI and others).  \r\n\r\nSo having an M12-supporting version of of the IMX477 (low-CRA version of IMX378 on megaAI and DepthAI would open up all sorts of applications.\r\n\r\n### Move to the `how`:\r\n\r\nArduCam has offered to make an IMX477 M12-compatible camera module for megaAI and DepthAI ecosystem use.  Our existing driver can be easily adapted to use this version.\r\n\r\n### Move to the `what`:\r\n\r\nSupport the ArduCam IMX477 M12-compatible camera module.\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/16",
+    "createdAt": "2020-08-05T02:16:02Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "More prototypes from ArduCam for M12 mount OV9281 are on the way now to our firmware engineers for testing/integration:\r\n![image](https://user-images.githubusercontent.com/32992551/93721244-d1406a00-fb4b-11ea-879e-fca299a6fe01.png)\r\n \r\n(Cross-post from #17 )",
+    "url": "https://github.com/luxonis/oak-hardware/issues/16#issuecomment-695831198",
+    "createdAt": "2020-09-20T20:17:41Z"
+  },
+  {
+    "author": "Luxonis-Brandon",
+    "body": "This is now supported.  All ArduCam IMX477 can now be used with DepthAI using either an adapter cable or adapter board.  And with the DM1090FFC, no adapter board will be needed.\r\n\r\nThe DM1090FFC with adapter cables is shown below with the IMX477 motorized focus module from ArduCam, for example:\r\n![image](https://user-images.githubusercontent.com/32992551/113065455-29e56500-9176-11eb-8e75-b4a636a3a58c.png)\r\n",
+    "url": "https://github.com/luxonis/oak-hardware/issues/16#issuecomment-810623789",
+    "createdAt": "2021-03-30T22:36:19Z"
+  }
+]

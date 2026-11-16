@@ -1,0 +1,579 @@
+{
+  "generated_utc": "2026-11-16T19:27:37.019528+00:00",
+  "scope": "12source-richrobot/labextensionoperations; CE03alreadyotheragentlead; no inflatedclaim12allnewindependentfinalists.",
+  "initial_extension_candidates": [
+    {
+      "id": "CE01",
+      "title": "Install the18W2G11 bulb in the Flex HEPA/UV robot module: axial4pins plus remote retainingclip",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/hepa-uv/docs/installation.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "3fe438bf14388fec39b9e0448e469da060a84fee0ed57e1b9968c447b6051e2e",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "FINALIST: bounded CPU preflight justified",
+      "reason": "Real robot accessory, original manufacturer procedure/figure and bulb-interface standard verified. Distinct axial insertion+remote snap support; critical dimensions and force ranges declared approximate."
+    },
+    {
+      "id": "CE02",
+      "title": "Replace Flex1/8channel pipette nozzle O-ring using supplied removal and roll-on tools",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/flex/docs/maintenance/cleaning.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "fab9200f8dd97121f27cca3d218cfa87c20e6e3bf7132fcfab54efd2c2b0ff34",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "DEMOTE_NOVELTY",
+      "reason": "Actual source-rich procedure, but accepted#1576 already seats an elastomeric seal over a shaft into a groove; different tool/scale alone is insufficient. Manufacturer prohibits applying procedure to96channel pipettes."
+    },
+    {
+      "id": "CE03",
+      "title": "Preload an OpenFlexure motorized scanning-stage actuator with a30\u00d72mmViton loop on two hidden hooks",
+      "source": {
+        "url": "https://github.com/rwb27/openflexure_microscope/blob/0cedf45238bb1cf8185f4ad92d366eb36f44efc3/docs/1_actuator_assembly.md",
+        "pin": "0cedf45238bb1cf8185f4ad92d366eb36f44efc3",
+        "read_status": "READ original author hardware instructions; motorization purpose in docs/5_motors.md"
+      },
+      "disposition": "CROSS_AGENT_EXISTING_LEAD; NOT COUNTED AS NEW FINALIST",
+      "reason": "Complete tool/hook/foot source CAD and exact ring size; genuine fork-tool insertion and dual catch preload. Root notes already in datacenter initial bank, and AI importance of microscope needs robot-workflow argument."
+    },
+    {
+      "id": "CE04",
+      "title": "Install a Heater-Shaker thermal adapter with its genuine T10 Torx screw and verify flush seating",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/heater-shaker/docs/adapters.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "9ffb9637aba3caf5c260948df1c9332bc9454366af38dddefb1fc1b07d48bfd9",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "DEMOTE; ROOT EXCLUDES ANCHOR FAMILY",
+      "reason": "Source gives exact tool/screw, flush/rocking test; essentially ordinary adapter bolting and too close to already considered module anchors."
+    },
+    {
+      "id": "CE05",
+      "title": "Attach Flex96channel pipette mounting plate after disconnecting right z-axis carriage",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/flex/docs/installation/instruments.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "67fcdc89c0785282079292bff4d05153cea58f3570ea75862ce6b5e362870cde",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "PROMISING_BUT_SOURCE_GATED",
+      "reason": "Real unlike single-pipette mount; only high-level sequence read, no carriage disconnect mechanism. Cannot invent a coupling from screenshots or generic screw attachment."
+    },
+    {
+      "id": "CE06",
+      "title": "Load a Flex Stacker with labware supported by its two internal latches",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/stacker/docs/loading-labware.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "119a57f9a6a20cca856c7816bffbdadd38f978579b619c47ad3540bb4d53a92d",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "DEMOTE",
+      "reason": "Real protocol preparation, but placing a plate onto supports without a further documented retention action is not yet a distinctive ability."
+    },
+    {
+      "id": "CE07",
+      "title": "Dock the Flex Absorbance Plate Reader illumination lid after a plate exchange",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/flex/docs/modules/absorbance-plate-reader.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "69eb3f47b22009ba847320f9ce5f1b8f77b0ba68036dc1f29551f2daefdde77a",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "RESERVE; DOCK-GEOMETRY GATED",
+      "reason": "Original automated-lid role,155\u00d795.5\u00d757mm envelope,21Ngrip schema and grip48mm above base verified. Precise receiving/retention interface absent;95.5mm body also slightly exceeds94mm stock aperture. Do not fake magnetic/proximity retention."
+    },
+    {
+      "id": "CE08",
+      "title": "Press the OpenFlexure condenser lens into its housing using its prescribed insertion tool",
+      "source": {
+        "url": "https://github.com/rwb27/openflexure_microscope/blob/0cedf45238bb1cf8185f4ad92d366eb36f44efc3/docs/3_illumination.md",
+        "pin": "0cedf45238bb1cf8185f4ad92d366eb36f44efc3",
+        "read_status": "READ original author assembly instructions"
+      },
+      "disposition": "DEMOTE",
+      "reason": "Actual lens flat-side-down tool support and vertical housing press described, but microscope AI importance and small lens acquisition unresolved; not automatically novel versus other press-fit seats."
+    },
+    {
+      "id": "CE09",
+      "title": "Press the keyed pinion onto an OpenFlexure stepper motor then mount it",
+      "source": {
+        "url": "https://github.com/rwb27/openflexure_microscope/blob/0cedf45238bb1cf8185f4ad92d366eb36f44efc3/docs/5_motors.md",
+        "pin": "0cedf45238bb1cf8185f4ad92d366eb36f44efc3",
+        "read_status": "READ original author motorization procedure"
+      },
+      "disposition": "ELIMINATE_ABILITY_OVERLAP",
+      "reason": "D-flat shaft alignment and pinion press fit are existing keyed shaft/pulley family; no source-completeness bonus can make this a different ability."
+    },
+    {
+      "id": "CE10",
+      "title": "Replace a Flex deck slot with a staging-area extension plate",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/flex/docs/system-description/robot.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "e43b7625c0382b008394d159ecb615aadd16e9a19132e0ec88f2f09416337a92",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "DEMOTE",
+      "reason": "Actual robot-equipping procedure and column-specific geometry documented, but two-screw plate exchange provides weak novelty."
+    },
+    {
+      "id": "CE11",
+      "title": "Replace the Flex HEPA filter and refit its prefilter with airflow arrows correct",
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/hepa-uv/docs/maintenance.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "a578d812e2df79375d9502e783255c75b4f256a1e547c8d4c31424220f50196b",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "disposition": "DEMOTE_ABILITY_OVERLAP",
+      "reason": "Source-complete robot accessory maintenance, but generic filter/cartridge replacement is already crowded; arrow selection does not create a different physical skill."
+    },
+    {
+      "id": "CE12",
+      "title": "Install an OT.One model-specific pipette clamp and stabilizer",
+      "source": {
+        "url": "https://github.com/Opentrons/otone_hardware/blob/5488af883a50c170301a0c1845abd50a51b9dfb3/README.md",
+        "pin": "5488af883a50c170301a0c1845abd50a51b9dfb3",
+        "read_status": "READ manufacturer hardware repository README and actual CAD tree; no assembly procedure claimed"
+      },
+      "disposition": "SOURCE_GATED; NOT FINALIST",
+      "reason": "Manufacturer publishes all CAD/BOM for independent robot construction, including many real pipette clamps, but no matched clamp assembly operation was recovered. CAD inventory alone is not a procedure."
+    }
+  ],
+  "finalists": [
+    {
+      "id": "CE01",
+      "title": "Install a four-pin UV lamp and capture its free end in the Flex robot\u2019s retaining clip",
+      "category": "Impact on AI timelines",
+      "classification": "BUILD-READY FOR CPU PREFLIGHT",
+      "weighted_score": 84,
+      "score_components": {
+        "importance20": 19,
+        "novelty25": 22,
+        "authentic_source20": 18,
+        "YAM_fidelity20": 12,
+        "scoring_economy15": 13
+      },
+      "classification_meaning": "Original robot-equipping operation and essential contact topology are verified; a small CPU mechanism/clearance study is justified using explicitly approximate dimensions. This is not a YAM clearance certificate, native demonstration, source-perfect CAD claim, or acceptance prediction.",
+      "importance": {
+        "real_person": "Technician assembling or maintaining the Opentrons Flex laboratory automation robot\u2019s purpose-built HEPA/UV enclosure accessory.",
+        "real_work": "Install manufacturer-supplied18W2G11 bulbs in the robot enclosure module; these provide controlled enclosure decontamination as part of the actual automated pipetting workcell.",
+        "source_chain": "Manufacturer Flex hardware/manual describes the robot, purpose-built roof module, supplied bulbs and installation step7; UV specification names exact lamp-base standard. No generic room lamp is relabelled as a robot component.",
+        "occupation_count": "Not required for direct robot equipping category; no laboratory-worker or janitor total is borrowed.",
+        "strongest_objection": "UV enclosure equipment might be interpreted as general lab infrastructure rather than direct robot equipping.",
+        "response": "The documented module mounts onto the actual Flex robot, uses attachment/door interlocks and is sold/instructed as its dedicated enclosure; installation is literal physical equipment of the robot. This resolves the generic-lab-infrastructure objection at the specified task scope."
+      },
+      "real_procedure": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/hepa-uv/docs/installation.md",
+        "exact_steps": "After the module is attached, unbox supplied bulbs; each has4prongs that fit a recessed underside power receptacle. Push prongs into receptacle, then gently press the free end until retaining clips snap around it. Manufacturer installation.md step7.",
+        "source_read": "Original Markdown and the corresponding installation figure were read/viewed. uv-specs.md and product-specs.md also read.",
+        "sources": [
+          {
+            "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/hepa-uv/docs/installation.md",
+            "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+            "sha256": "3fe438bf14388fec39b9e0448e469da060a84fee0ed57e1b9968c447b6051e2e",
+            "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+          },
+          {
+            "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/hepa-uv/docs/uv-specs.md",
+            "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+            "sha256": "254e1e428ae1a10b1b48d66e8b2b83a8322829ea6caf31f11d53dd2f662895e9",
+            "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+          },
+          {
+            "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/hepa-uv/docs/product-specs.md",
+            "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+            "sha256": "bbfb1145407e24d8bc7a207692c587b5529c3656293137cb9437230a4db26a0b",
+            "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+          },
+          {
+            "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/hepa-uv/docs/images/instructions/7-insert-bulbs.png",
+            "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+            "sha256": "e6b1bb7206489c36b8bad13ba5fe7e01547c1c606112dcd2b78c9e139a92c7b8",
+            "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+          },
+          {
+            "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/flex/docs/system-description/robot.md",
+            "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+            "sha256": "e43b7625c0382b008394d159ecb615aadd16e9a19132e0ec88f2f09416337a92",
+            "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+          }
+        ]
+      },
+      "verified_hardware_inventory": [
+        {
+          "component": "One supplied18W actinic compact fluorescent UV-C bulb",
+          "known": "Single-cap2G11 base,4pins;18W,0.375A,58V nominal; twin long glass tubes on an insulating base in maker installation figure.",
+          "material": "Glass light-emitting tubes; metal pins; insulating base material not published.",
+          "size": "Exact bulb dimensions/mass not published in the inspected robot manual. For bounded CPU screening only, parameterize roughly200\u2013250mm total length,35\u201345mm width,15\u201325mm depth and50\u2013150g. These ranges are engineering estimates, not manufacturer specifications.",
+          "starting_state": "Unwrapped spare bulb in ordinary protective cradle, base exposed for acquisition."
+        },
+        {
+          "component": "Original2G11 receptacle",
+          "known": "Recessed receptacle on module underside receives all4bulb pins by axial push. No screw/bayonet turn is specified.",
+          "unknown": "Pin pitch/diameter, keyed base shape, engagement depth and contact/friction forces are not dimensioned. Use a compatible actual2G11 standard pattern and explicitly estimate dimensions for CPU screening; dimension it before native hardware reproduction.",
+          "essential": "All4physical pin/channel alignments and base shoulder seating must remain explicit; no proximity attach or invisible socket weld."
+        },
+        {
+          "component": "Remote bulb retaining clip",
+          "known": "Separate clip supports the free glass end after plug insertion; original image and text explicitly show a snap-capture action.",
+          "unknown": "Exact clip dimensions, material and force curve not specified. Topology is documented; spring compliance can be parameterized.",
+          "essential": "Clip lips must physically open/displace and close past bulb section, providing retention after release; a scripted latch triggered by nearness erases the skill."
+        },
+        {
+          "component": "Flex HEPA/UV roof module",
+          "known": "87\u00d764\u00d714cm,~20kg. Robot frame is sheet metal/aluminum. Module remains fixed throughout task, so YAM does not lift20kg.",
+          "support": "Full-size roof module or original full-size lamp bay supported at a documented service height in its original downward-facing orientation; an ordinary rigid service stand may react insertion forces. Retain all surrounding geometry that can block the hands.",
+          "approximation": "Other lamp bay, filters, fan internals and wiring may be omitted only where they do not affect the manipulation corridor. Do not shrink lamp, socket or remote support span."
+        },
+        {
+          "component": "Test tools/support",
+          "known": "No handheld installation tool is specified.",
+          "proposal": "Ruler/feeler gauge, photographs, low-voltage continuity tester and a light spring-scale retention check after robot releases. Functional UV illumination is outside this physical installation task; module remains unpowered."
+        }
+      ],
+      "initial_configuration": "A fixed, unpowered, cool module lamp bay has its original recessed2G11socket and remote retainingclip empty. One correct supplied lamp lies in a protective cradle within reach, with its plastic base exposed. Other lamp is already installed and is an obstacle only if source geometry places it in the approach. Whole module remains supported; no fictitious enlarged grip tabs or reduced-scale roof.",
+      "instruction": "Fit the supplied lamp into the module\u2019s four-pin socket, press its free end securely into the retaining clip, and let go with both hands.",
+      "central_physical_ability": "Register an extended fragile part into a multipin socket and complete a second, separated compliant capture without pulling or levering its seated terminal end out. This is coupled two-interface assembly, not screwing a bulb into one socket.",
+      "bimanual_or_horizon": "One normal hand grasps/stabilizes the insulating base and guides axial pin entry. The other supports the long twin-tube section as its free end is brought to the remote clip, controlling pitch and bending load. The exact handoff/press sequence is to be established by CPU study; bimanual necessity is not claimed as proven. A single-arm success remains valid if physically possible.",
+      "physical_scoring": {
+        "partial": "0.25: all4pins are physically engaged in their actual channels and base shoulder is seated to proposed\u22641mm gap, but free end is not captured.0.5: base is seated and clip lips have physically closed past the glass section, but the robot is touching either interface or they have not settled.0.75: both interfaces retained and hands clear, but independent completion test has not passed.",
+        "full": "1.0: base shoulder seated, all4pins engaged, glass end retained by original clip, hands at least30mm clear for2s; assembly remains in original support geometry after a gentle independent proposed1N withdrawal/downward test. On real hardware, continuity across both lamp-electrode circuits verifies actual4pin socket contact without powering the UV ballast. No electronic hidden success flag is needed.",
+        "measurement": "Front/side photos with ruler show base shoulder gap and glass behind clip lips; feeler gauge verifies\u22641mm gap; light spring scale tests retention; optional low-voltage ohmmeter checks the two filament contact circuits. Pin depth/gaps/force margins above are benchmark proposals, not OEM tolerances.",
+        "invalid": "Broken/cracked glass, visibly bent pins, broken clip/socket, bulb not matching2G11standard, or movement/damage of original support that changes the task. Simulation may treat glass as rigid and separately track visible excessive deformation/contact hazards; do not claim calibrated fracture physics.",
+        "reset": "Gently release actual remote clip, withdraw base axially, inspect pins/glass/clip, and return the same unpowered lamp to its protective cradle. No intended consumable, though damaged lamps or fatigued clips must be replaced."
+      },
+      "incorrect_solutions_caught": [
+        {
+          "wrong": "Balance free end on top of clip or wedge bulb against frame",
+          "catch": "Must be behind actual clip lips and survive hands-clear independent withdrawal test."
+        },
+        {
+          "wrong": "Snap free end first while4pins remain outside socket",
+          "catch": "Full score needs4individual channel engagements and base shoulder seat/continuity, not only bulb pose."
+        },
+        {
+          "wrong": "Push4pins partly into holder then release with remote end dangling",
+          "catch": "Only0.25; remote positive capture and retained final orientation required."
+        },
+        {
+          "wrong": "Support bulb with one hand to make it look retained",
+          "catch": "Both hands\u226530mm clear,2ssettle and independent test after release."
+        },
+        {
+          "wrong": "Twist like an Edison/bayonet bulb or force misaligned pins",
+          "catch": "Explicit4channel geometry causes collision; bent pins/broken parts invalidate outcome, no rotation-to-success rule."
+        }
+      ],
+      "closest_official_prs": [
+        {
+          "pr": 2312,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2312",
+          "status": "OPEN",
+          "head": "efcb22e078b27f2f782b0c9c1965e6e65aa2d9ee",
+          "created": "2026-11-16T13:52:42Z",
+          "closed": null,
+          "files": [
+            {
+              "file": "run.py",
+              "sha256": "f27a730c82bc8b9fff37bb2cb40065032191eb49524f3f95c6c05a5b59598cf9"
+            },
+            {
+              "file": "scoring.py",
+              "sha256": "7f41fdef086251fe4873885277a9c7fbdb31163f14a05512349bada75b8d09c0"
+            },
+            {
+              "file": "simkit.py",
+              "sha256": "3c25406055a6a3c3cec70b4184cbefb6d868863d54683c3435c70f26f5b253f3"
+            },
+            {
+              "file": "headlamp.py",
+              "sha256": "d3d716374453f159886fdb49d41a585b6e608bd18cf7a77cdd608c64ae14deda"
+            },
+            {
+              "file": "meshlib.py",
+              "sha256": "55f5b98c4cb23c35970795ebc25234524c43b0bc7c675ac15fb58c2dbc5ddbd7"
+            },
+            {
+              "file": "prepare.py",
+              "sha256": "b42ec929c7adc9ae799f4410a186750beb782ae1835fdb43cad01383d9b8cb05"
+            },
+            {
+              "file": "dream_runner.py",
+              "sha256": "f42683ac76027cbb353a500373d9c5d2d76d8faffc84f27d59e43cdc8a192ee0"
+            },
+            {
+              "file": "visuals.py",
+              "sha256": "59ba10306ef0826c5d802f1882c13bca7ece9e4fdd6da6344707405c5d20933a"
+            },
+            {
+              "file": "README.md",
+              "sha256": "cada4ef6a00fdea2519fc9559e02a46d3b6fe0524ca79fe7b15e04449b82e3a2"
+            },
+            {
+              "file": "source.json",
+              "sha256": "2da65077b385024d75a38e681a348bd6597de7623df06252017195bd4cb0cddf"
+            },
+            {
+              "file": "build_image.py",
+              "sha256": "2dc36e8d3963a9ea4a89cb8b5d2933dd66ded976009df2d0795d4dfb838508f2"
+            },
+            {
+              "file": "dream_budget.py",
+              "sha256": "51b17687349ac872b002f066f205ccb28e426de9c3f30f85e410b3dfdf8bce66"
+            },
+            {
+              "file": "run_task.py",
+              "sha256": "c8ba194fd99bab3448ea1985480a7a03ec4c5634a6e8719db0c7fcb065e7de9f"
+            },
+            {
+              "file": "rescore.py",
+              "sha256": "c7c07444c4c92658483ce74295f801970e8bc500286bbee4111d1d963bd7fa23"
+            },
+            {
+              "file": "task.json",
+              "sha256": "34b24ae3bad5a75321f1ac76bd8a0e5bff488679c7cd34fc7d3a0b5193422338"
+            },
+            {
+              "file": "task.py",
+              "sha256": "1a58de51146b400d469411e8a4a298dbf0437110b0d3071f46df1af0bcd0e51b"
+            },
+            {
+              "file": "arena_overrides.py",
+              "sha256": "ab04ae2c30f1103d1858fc2099faf07caa6dda009b376ebb4017b3908b676cd3"
+            }
+          ],
+          "comparison": "OPEN current H11headlamp swap. Actualtask.json/README/headlamp.py/scoring.py read:3lugPGJ19bayonet quarterturn, separate tab-latched2blade pigtail, glass-touch cap. CE01requires axial4pin2G11registration plus remote free-end clip supporting long glass tubes, with no bulb-axis locking turn or pigtail release. Same general bulb replacement label is not equivalent skill/interface."
+        },
+        {
+          "pr": 2135,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/2135",
+          "status": "CLOSED",
+          "head": "6a5ed06d0714a845f39194ce67c33fecd59971f2",
+          "created": "2026-11-15T12:14:29Z",
+          "closed": "2026-11-15T22:55:30Z",
+          "files": [
+            {
+              "file": "README.md",
+              "sha256": "c041ce1cd4608c0bd1784ea9c7381644cc3e32f87492245b0175c32330db5458"
+            },
+            {
+              "file": "jointkit.py",
+              "sha256": "80f0454154666d0ddb3a4dc1cf5501fc1d78ac86093f06f52512c711ed1d10bd"
+            },
+            {
+              "file": "test_e27_bulb_swap.py",
+              "sha256": "0dbbf62b442fe7c761b866aa58a38d9bf24267667911441ac7970caa7b671aab"
+            },
+            {
+              "file": "task.json",
+              "sha256": "42cfd36dd7ce7d397acd390828563030165bcb553875d489b21ede147f6a02c2"
+            },
+            {
+              "file": "task.py",
+              "sha256": "417b8e50a582d0be4b8db571ecb4ff8ab2bded5ff5eea09db224dd11143bb1e8"
+            }
+          ],
+          "comparison": "CLOSED E27tablelamp swap, actualtask.json/README/task.py read: continuous3.63mmpitch thread,3.5turns and regrasping free lamp. CE01has no helical thread or torque-following motion and needs a separated snap support."
+        },
+        {
+          "pr": 695,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/695",
+          "status": "CLOSED",
+          "head": "f1aaedfc26ce057485083ef93bd46857a74835c5",
+          "created": "2026-11-06T06:15:53Z",
+          "closed": "2026-11-12T08:15:37Z",
+          "files": [
+            {
+              "file": "README.md",
+              "sha256": "e5bccda000f6a3943127a018eed9e4f68f413c31f371c75ac516d1adcc61d4aa"
+            },
+            {
+              "file": "screw_a_bulb_into_a_hanging_bowl_lamp.py",
+              "sha256": "8633f3581428a8493b97678c1bb6c3ca51add25c27b329089879defe49249ca9"
+            },
+            {
+              "file": "bodykit.py",
+              "sha256": "4ce4445c1893050e3dd48d0d0b6295e666589d95895476526b898c9985c21b42"
+            },
+            {
+              "file": "task.json",
+              "sha256": "25b9a55f80934c21323b1169ae0100546b76bfaa5957e92a1033ea24fd27c5a9"
+            }
+          ],
+          "comparison": "CLOSED hanginglamp bulb installation. ActualREADME/task.json/centralcode read: counterhold swinging shade while threading small bulb. CE01counterholds an extended part during dual-interface insertion, rather than resisting a rotating free fixture."
+        },
+        {
+          "pr": 1986,
+          "url": "https://github.com/robocurve/benchmark-tasks/pull/1986",
+          "status": "OPEN",
+          "head": "e8ecd21da83c33bfe2107962a4d1a28495b1e336",
+          "created": "2026-11-14T07:29:22Z",
+          "closed": null,
+          "files": [
+            {
+              "file": "README.md",
+              "sha256": "73e7e2b756327918b1807860eaa0f96053bd717228e649e17e851b9d335d50e9",
+              "bytes": 6818
+            },
+            {
+              "file": "mechanism.py",
+              "sha256": "88de819ad6dfdc16625f8ccf9863653eb92f5ed047f262d7ba9e0b402db1bebf",
+              "bytes": 24886
+            },
+            {
+              "file": "parts.py",
+              "sha256": "80d9e945e33e25c5fddcbd59f9f264735e8ff0505a18498f780c6aedddd62e52",
+              "bytes": 6108
+            },
+            {
+              "file": "task.json",
+              "sha256": "beef3fd96059ab8c5dc4914988d3ae83bf2b619957ca4f0a93559578d2229397",
+              "bytes": 4265
+            },
+            {
+              "file": "test_trim_clip.py",
+              "sha256": "29128a6a4ea497b88b0787e7a7c16d54776ad3dd7d56ce72f5bfdbcc0626e7c4",
+              "bytes": 6832
+            },
+            {
+              "file": "trim_clip.py",
+              "sha256": "b4cae0c89aec8ef84c6f4c4fbb63cb215295961b9204c218ed58219b4141d474",
+              "bytes": 16648
+            }
+          ],
+          "comparison": "OPEN splash-shield pushclip. Actualtask.json/README/trim_clip.py inspected in main care audit: align2sheet holes then push one retainer. CE01uses4pin electrical socket and remote compliant glass support; not a relabelled coaxial fastener through2sheets."
+        }
+      ],
+      "current_search_coverage": "OfficialHTML queries fluorescent,UVbulb,lampclip,bulb,Opentrons,longtube,illuminationunit all returned200 and saved results. No fluorescent/UVbulb/Opentrons exact family result found. Semantic comparators above still read. This is not exhaustive internal-board or pending PR clearance.",
+      "YAM_screen": {
+        "object_scale_mass": "Single estimated50\u2013150g/200\u2013250mmlamp is within likely payload range; exact mass not verified. No need to handle fixed20kgmodule.",
+        "normal_grasps": "Plastic base estimated35\u201345mm cross-section is below nominal94mmaperture; real pad contact width, exposed base length and stable support on glass must be tested, not inferred from aperture alone. Normal second hand may support tube pair gently instead of pinching individual pins.",
+        "palm_wrist": "Recessed socket and roof lip may block palm/wrist even with reachable pins. Preserve module lip and other bulb in source-correct positions; screen full315collisionhulls perarm, not tip reach.",
+        "tools": "No installation tool or tool-wrench requirement. Test gauges are external scoring instruments, not robot substitutions.",
+        "fixture_reaction": "Original module casing/socket mount and service stand react axial insertion and clip snap. Fixture must not artificially guide bulb or open the clip for it.",
+        "critical_path": "Acquire base, carry long body clear, align4pins, enter axially, support free end during clip press, release bothhands, retract. Exact small angular motion follows actual compatible socket/clip geometry; do not invent a large hinging motion that would bend seated pins.",
+        "verified_status": "PLANNING PLAUSIBILITY ONLY; noYAMIK/collision/grasp-force/path execution or full-score demo ran."
+      },
+      "faithful_fidelity_plan": {
+        "core": "Rigid longglassbody with actual base/pins;4socket channels and shoulder; spring-contact/friction retention at socket; remote actual clip represented with explicit compliant lips and physical contact. Both interfaces remain mechanically meaningful afterrelease.",
+        "allowed_approximation": "Noncritical housing details and ballast internals omitted; dimensions within declared source-unpublished ranges used for bounded screening; clip flex can be rigid spring-loaded jaws matching actual snapcapture rather than continuum elasticity. Glass can be rigid with fracture omitted if explicitly disclosed.",
+        "forbidden": "Invisible weld after bulb enters a radius; base rotates to lock despite source axialpush; giant dummygrip; shortened span; holdingclip artificially open; count alone from object proximity."
+      },
+      "remaining_uncertainty": [
+        {
+          "issue": "Exact2G11pin/base standard dimensions, bulb length/mass, socket depth and clip contactshape not supplied by inspected robotmanual.",
+          "treatment": "Declare approximate geometry/ranges for CPUpreflight, source-compatible standard dimensions before nativebuild; do not represent exactparameters as verifiedOEMCAD."
+        },
+        {
+          "issue": "Socket/clip insertion and retention forces unknown.",
+          "treatment": "Parameter sweep with ordinary lowforces; meaningful forcefailures can kill investment. No claim calibrated nativewrench/force capacity."
+        },
+        {
+          "issue": "Fullrobot roof mounting height could be beyond stockbenchYAMreach.",
+          "treatment": "Test originalfull-size module bay on stable service stand at reachableheight, retain original undersideorientation and blockinggeometry; if actual taskrequires omittedframe/gantry clearances,include them rather than shrinking."
+        }
+      ],
+      "hard_blockers": "No known fatal operation/authenticity/semantic blocker from reviewed sources. Build remains conditional on CPU finding ordinary-hand access and a source-compatible standard/socket/clip representation. Unresolved tolerances are declared engineering inputs, not evidence of a passed test.",
+      "cheapest_falsifier": "Bounded CPUonly study of one full-size2G11bulb/socket/remoteclip bay, sweeping declared source-unpublished length and plausible clip/socketforce parameters. Overlay stockYAMall-hull palm/wrist/arm geometry at base-entry and remoteclip-press poses. Negativecontrols: basepins offset by halfpitch, remoteclip captured butbaseunseated, and posedbulb besideholder must allfail mechanicalretention. Kill if normalbasegrasp/palm cannot approach or if fullscore requires fictitious clip/attachment.",
+      "relative_effort": "Medium, cheaper than flexible band/tendon and multistage geartrain: one extendedrigidpart,two contactinterfaces,one small compliantclip,no threadedfastener or fluids. Actual CPU setupnotimplemented.",
+      "adversarial_review": {
+        "strongest_rejection": "A lampreplacement variant, or genericlabinfrastructure, with guessedsocket/clips and servicefixture easier than realrobot.",
+        "resolved": "Importance and mechanism distinction supported by exactrobotmanufacturerworkflow plus actualclosestPRcode. Dimensional fidelity and installedroof clearance remain boundedCPU questions. This supports research investment, not a completed submission.",
+        "critic_status": "Independentcritic requested; root may incorporate pending response. No unreceivedcriticapproval claimed."
+      },
+      "optional_minimal_build_plan": {
+        "configuration": "One originalfull-size lampbay, actual2G11lamp envelope, recessed4pinholder and remoteclip, casinglip and anysecondlamp obstacle. Fixturefixed; lampstarts inprotectivecradle.",
+        "modules": [
+          "source_parameters.json with verifiedversusestimatedfields",
+          "bulb_socket_geometry.py with4pinentryandshoulder",
+          "remote_clip_mechanism.py withphysicalelasticcapture",
+          "cpu_yam_corridor_screen.py usingvalidated315hullsperarm",
+          "physical_score_spec.json andnegativecontrols"
+        ],
+        "CPU_goal": "Verify ordinarygrasp/socketentry/clippress geometry and partial/fullretentionstates without GPU or scriptedstateattachment.",
+        "finite_path": "Fix sourcecompatibleparameters\u2192CPUnegativecontrols/clearance\u2192smallphysicalcontactprototype\u2192eventualnative scripteddemo and paidpolicydecision handledlater.",
+        "kill_conditions": [
+          "Requires alteredYAMhands or enlargedbase.",
+          "Originalclip cannot capture usingordinarytool-freepath.",
+          "Needsreplacingphysicalpin/clipretention withproximityflags.",
+          "A currentearlierofficialtask withsame4pin+remoteclipskill isfound."
+        ]
+      }
+    }
+  ],
+  "secondary_reserves": [
+    {
+      "id": "CE07",
+      "title": "Dock the removable illumination unit on the Flex Absorbance Plate Reader",
+      "category": "Impact on AI timelines",
+      "classification": "PROMISING BUT SOURCE-GATED",
+      "weighted_score": 65,
+      "score_components": {
+        "importance20": 18,
+        "novelty25": 16,
+        "authentic_source20": 17,
+        "YAM_fidelity20": 5,
+        "scoring_economy15": 9
+      },
+      "source": {
+        "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/docs/flex/docs/modules/absorbance-plate-reader.md",
+        "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+        "sha256": "69eb3f47b22009ba847320f9ce5f1b8f77b0ba68036dc1f29551f2daefdde77a",
+        "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+      },
+      "verified_geometry": {
+        "lid_schema": {
+          "url": "https://github.com/Opentrons/opentrons/blob/95ac66dea217cd169fbf98ac4573844bd65d01b3/shared-data/labware/definitions/2/opentrons_flex_lid_absorbance_plate_reader_module/1.json",
+          "pin": "95ac66dea217cd169fbf98ac4573844bd65d01b3",
+          "sha256": "0f375998e9f4bc3a679afb57f8a9495b872836083912203e324d985e97a4d33f",
+          "read_status": "READ original manufacturer GitHub source; image additionally viewed if PNG"
+        },
+        "dimensions_mm": [
+          155,
+          95.5,
+          57
+        ],
+        "manufacturer_gripForce_N": 21.0,
+        "gripHeightFromLabwareBottom_mm": 48,
+        "pickup_drop_offset_x_mm": 9,
+        "module_dimensions_mm": [
+          155.3,
+          95.5,
+          57
+        ],
+        "whole_module_mass_g": 790,
+        "clarification": "21N is manufacturerFlexgripper setting, not proofYAMwrench/grasp capacity.95.5mm bodywidth exceeds nominal94mmYAMaperture; unknown inset/ledge may permit anotherordinary grasp."
+      },
+      "instruction": "Return the reader\u2019s illumination unit to its receiving dock and leave it seated and ready for a plate read.",
+      "actual_work": "Manufacturer requiresFlexgripper to remove/replace lid during automatedspectrophotometry; robotworkcellpreparation is source-backed.",
+      "partial_full_scoring": "Proposed0.25lid pickedup;0.5originalregistrationfeatures engaged;1.0source-defineddock/retention and physicalconnector contactafterhandsrelease. These cannot be finalized withoutactualdockinterface.",
+      "wrongsolutions": [
+        "Lid merelybalanced overreader mustfaildockinterfacecheck.",
+        "Lidheldinhands cannotcountfull.",
+        "Wrongrotation cannotcountfullifactualdockiskeyed."
+      ],
+      "blocker": "Essentialdockregistration/retentionandanycontactgeometry is absent fromreadmanual/schema. Cannotinventmagneticdockorhiddenweld. NormalYAM95.5mmwidthgraspalsounresolved.",
+      "cheapest_falsifier": "Readoriginalundersidelid/dockphoto ormanufacturer drawing, then stockpad/palm checksideledge. Killifonlyproximityrectangleplacement or no normalgrasp.",
+      "effort": "Medium ifactualdockfeatures obtained; lower prioritythanCE01.",
+      "recommendation": "Do not counttoward15untilspecificdockinterfaceisverified; sourcecompleteenvelopealoneisnotbuildready."
+    }
+  ],
+  "source_manifest": "care_cleaning/extension/extension-source-manifest.json",
+  "official_searches": [
+    "care_cleaning/extension/official-searches.json",
+    "care_cleaning/extension/official-searches2.json"
+  ],
+  "competitor_ledger": "care_cleaning/extension/competitor-ledger.json",
+  "checks_executed": [
+    "ReadoriginalmanufacturerOpentronsprocedure/specifications andviewedbulbinstallfigure",
+    "Currentofficialsemanticqueries returnedactual200results;6additionalPRheads fetchedunique refs/final-discovery/care/prNN",
+    "Actual#2312/#2135/#695/#1576task.json,README andcentralcodeinspected; maincare#1986reusedwithsameexactpin",
+    "OriginalOpenFlexureauthorinstructions,manufacturerOT.OneREADME/CADtree andOT2hardwaretreeinspected",
+    "NoGPU,paidwork,procurement,submission,taskimplementation orYAMCPUpreflight"
+  ],
+  "root_instruction": "Stopped furtherdiscovery and finalizedCE01asrootrequested. FarmBot repositorytree waslocated but no operationresearched/promoted; omittedfromnewfinalistcount."
+}
