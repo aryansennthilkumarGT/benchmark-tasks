@@ -1,0 +1,117 @@
+{
+  "method": "static source reading and AST parse only",
+  "locators": [
+    {
+      "file": "task.py",
+      "needle": "BOARD_Z =",
+      "hits": [
+        {
+          "line": 27,
+          "text": "BOARD_Z = MAGNET_TOP + 0.0015"
+        }
+      ]
+    },
+    {
+      "file": "task.py",
+      "needle": "def update(self, hands",
+      "hits": [
+        {
+          "line": 125,
+          "text": "def update(self, hands, excluded, locked, blocker):"
+        }
+      ]
+    },
+    {
+      "file": "task.py",
+      "needle": "def advance(self, hands",
+      "hits": [
+        {
+          "line": 163,
+          "text": "def advance(self, hands, dt):"
+        }
+      ]
+    },
+    {
+      "file": "task.py",
+      "needle": "self.test_result = bool",
+      "hits": [
+        {
+          "line": 184,
+          "text": "self.test_result = bool(self.carrier.seated and self.head.seated and self.latch"
+        }
+      ]
+    },
+    {
+      "file": "task.py",
+      "needle": "\"air_gap_mm\"",
+      "hits": [
+        {
+          "line": 200,
+          "text": "\"air_gap_mm\": 1.5 if self.carrier.seated and self.head.seated else None,"
+        }
+      ]
+    },
+    {
+      "file": "task.py",
+      "needle": "score = 1.0",
+      "hits": [
+        {
+          "line": 195,
+          "text": "score = 1.0"
+        }
+      ]
+    },
+    {
+      "file": "run_task.py",
+      "needle": "def step(self):",
+      "hits": [
+        {
+          "line": 55,
+          "text": "def step(self):"
+        }
+      ]
+    },
+    {
+      "file": "run_task.py",
+      "needle": "xyz, rotation =",
+      "hits": [
+        {
+          "line": 66,
+          "text": "xyz, rotation = ik.tcp_pose(joints[joint_ids].cpu().numpy(), self.rig.bases[arm])"
+        }
+      ]
+    },
+    {
+      "file": "run_task.py",
+      "needle": "info = state.advance",
+      "hits": [
+        {
+          "line": 73,
+          "text": "info = state.advance(hands, self._base.step_dt)"
+        }
+      ]
+    },
+    {
+      "file": "run_task.py",
+      "needle": "success = self._fixture_passes",
+      "hits": [
+        {
+          "line": 76,
+          "text": "success = self._fixture_passes >= 5"
+        }
+      ]
+    },
+    {
+      "file": "geom.py",
+      "needle": "def move(self, path",
+      "hits": [
+        {
+          "line": 27,
+          "text": "def move(self, path, xyz, yaw=0.0):"
+        }
+      ]
+    }
+  ],
+  "legitimate_operation": "Fit shaft-end magnet carrier, locate sensor bracket over it with fixed gap, retain, perform installation check, release.",
+  "implementation_limits": "Hand-pose-driven part/state and geometric diagnostics; no magnetic flux, motor motion or angle calibration. These limits are not used to disregard the pending legitimate task."
+}
