@@ -1,6 +1,6 @@
 # Implementation-planning queue
 
-> **Current allocation update:** [N077 is PARKED](N077_NOVELTY_AND_MATCHED_HARDWARE_GATE.md): its on-axis encoder registration/retention overlaps official #2212, and no essential distinct documented manipulation was established. KER remains parked and was not reopened. New source-backed family leads are PAROL6 uninstalled toothed-belt fitting and structural dowel/epoxy splicing; publisher manuals/BOM were read, but #2203/#2003 create immediate comparison gates. Neither replacement is cleared for implementation or a CPU prototype. N022/N040 stay parked; N013/N006 excluded. The older queue below is historical.
+> **Current allocation update:** [PAROL6 J4 belt gate](PAROL6_BELT_FINAL_GATE.md): **HOLD FOR ONE SPECIFIC RECOVERABLE INPUT**—a dimensioned installation-stage J4 axial section registering the commercial12T pulley, printed output pulley, motor face and open elbow, including whether the motor pulley is loose during fitting. CPU source-mesh audit recovered52.5mm axis spacing and48 output-pulley periods; no assembled access or flexible-contact pass. N077/KER/N022/N040 remain parked; N013/N006 excluded. No automatic adhesive-splicing promotion. Older queue below is historical.
 
 **Recommended first two: N040 door-trim service access and N044 rear crankshaft seal installation. Backups: N047 valve keepers, N022 robot-harness spiral sleeve and source-gated N042 tapered-joint separation.** Keep all five open as a pipeline rather than committing the sprint to a pair until both fail.
 
