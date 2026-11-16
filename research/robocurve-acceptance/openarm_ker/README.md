@@ -1,6 +1,6 @@
 # OpenArm KER: actual-CAD CPU gate
 
-**Decision: [HOLD](GO_NO_GO.md).** Actual official CAD/BOM were downloaded and used; static geometric diagnostics ran. No causal snap-fit/loaded assembly trial or complete robot-access path ran.
+**Current decision: [PARK AND MOVE TO ANOTHER CANDIDATE](FINAL_KER_DECISION.md).** The final bounded articulation gate recovered exact-fitting crossed-arm core hypotheses but did not verify the complete ready assembly. [Reconstruction](ARTICULATED_KER_RECONSTRUCTION.md), [registered-pose findings](REGISTERED_READY_POSE.md), and new CPU diagnostics are preserved. The prior HOLD reports and isolated-pipe results below remain historical evidence. No causal mechanism or whole-assembly YAM path passed.
 
 Required reports:
 
