@@ -1,0 +1,473 @@
+{
+  "base_research_commit": "3c0a99a80408e6f80c6a6c7cbd01ea827af12e34",
+  "scope": "Checkpoint integrity, not hardware validation; original Toshiba PDF hash/provenance is recorded in SOURCE_AND_ASSUMPTIONS.md",
+  "checkpoint_files": [
+    {
+      "path": ".gitignore",
+      "bytes": 19,
+      "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793"
+    },
+    {
+      "path": "CANDIDATE_DECISION.md",
+      "bytes": 2092,
+      "sha256": "be324953a4dd0fa31dbe530837802af813b8c9ea3f403f9951f3463231e12eda"
+    },
+    {
+      "path": "ENVIRONMENT.json",
+      "bytes": 227,
+      "sha256": "f3c7330d024f1229528856f1d2f4b8cf4915f6e12fcbcd45f8a5d1ec66d63aed"
+    },
+    {
+      "path": "EXECUTED_TEST_RESULTS.md",
+      "bytes": 5574,
+      "sha256": "f283e236f6a0ba199decaa0afade2f55482a14ee68812e9613ba02ab4ee137c8"
+    },
+    {
+      "path": "IMPLEMENTATION_README.md",
+      "bytes": 3700,
+      "sha256": "a4481ed4dde822d3df3f68b26cd27ae994dd98fac723d44b4d37c851b59794d0"
+    },
+    {
+      "path": "NEGATIVE_CONTROLS.md",
+      "bytes": 2698,
+      "sha256": "497c8a015198c8a26827fcec008309ef50101ec1da4f84b68bca7386840da212"
+    },
+    {
+      "path": "NEXT_NATIVE_MILESTONE.md",
+      "bytes": 1582,
+      "sha256": "8b1953ff9f12deec21bfe376f0ebd2e3425f7640db7db360208d583d96b2a9c0"
+    },
+    {
+      "path": "PHYSICAL_SCORING.md",
+      "bytes": 3464,
+      "sha256": "1d7424de1e021922a4f9876e11d851ee39d1d72ad354ba7e531b6c6700c56e24"
+    },
+    {
+      "path": "REPORT_GENERATION_OUTPUT.txt",
+      "bytes": 27,
+      "sha256": "af986a4ff5c993ee64578b935caa020c9c6669fca0adb7fc752236d581ff10af"
+    },
+    {
+      "path": "SOURCE_AND_ASSUMPTIONS.md",
+      "bytes": 6383,
+      "sha256": "375ef3911d8752980a122fc9a163ac8d957fb8fa89953c5b3f494f05cb40d26b"
+    },
+    {
+      "path": "VERIFICATION_OUTPUT.txt",
+      "bytes": 345,
+      "sha256": "e85ebcaf0047d610e3fb93633b28ab36b3b355111602ea77166127d1c76be08e"
+    },
+    {
+      "path": "common/access.py",
+      "bytes": 4195,
+      "sha256": "744ba0a608e9cf92e3a802c878a220de87f681234d29811994ca883fd5bc6e97"
+    },
+    {
+      "path": "common/cad.py",
+      "bytes": 2080,
+      "sha256": "5d3d876e5c4b19f810619da5b3309c576e1e9a186931f418c5884602cd168a72"
+    },
+    {
+      "path": "debug/ACCESS_EXECUTION.txt",
+      "bytes": 4469,
+      "sha256": "ce94322513f627f337577302d6b72ef0d6806198729eaeecf7b09f58be0ace2f"
+    },
+    {
+      "path": "debug/ACCESS_FIRST_BOUNDED_VARIATION.json",
+      "bytes": 84227,
+      "sha256": "1ca1eda8e9ea72d0c0d8eb9b3a68826602a10bcdbf46b9ede528c6a24631c8e1"
+    },
+    {
+      "path": "debug/ACCESS_GATE.json",
+      "bytes": 59336,
+      "sha256": "183c120c326ff57c8dd6d2128f10112e4a2ca13ea8a1879a74b9370536b9a28d"
+    },
+    {
+      "path": "debug/INITIAL_DEBUG_EXECUTION.txt",
+      "bytes": 2779,
+      "sha256": "0b1eb194d212bcb4ef0799d5807997b68156ee4f8a5594a21a05ad2a7b3f9a1e"
+    },
+    {
+      "path": "debug/README.md",
+      "bytes": 956,
+      "sha256": "31cbe478dd7649b7900d780cbbda078ecab68094c4cabb473e91b45e5cc9f901"
+    },
+    {
+      "path": "debug/YAM_INVALID_DOOR_SIGN_DEBUG.json",
+      "bytes": 49956,
+      "sha256": "1d8f91ccd70d3521696b338a8c4b259783dfdaca2e756b6c808600c0e6ced5f0"
+    },
+    {
+      "path": "faze4/closure_gate.py",
+      "bytes": 4349,
+      "sha256": "a0ef4adbfee3ab3259cf30f5b2a14c318588bf6e2802ae8f3b90b25186a2e449"
+    },
+    {
+      "path": "faze4/independent_checks.py",
+      "bytes": 6272,
+      "sha256": "69680cc85b45e0fb42353b1110c55ef216a43b14fed55190d4e9c6780ab1a7cf"
+    },
+    {
+      "path": "faze4/register_profile.py",
+      "bytes": 1901,
+      "sha256": "dc5afec7f5392de9542151e5f7198e57c3ea26ed1ac5a444180159f3fa7be23f"
+    },
+    {
+      "path": "faze4/results/CLOSURE_EXECUTION.txt",
+      "bytes": 476,
+      "sha256": "195316a863e91c9da4cab94e50be4a32e70e57419836a81efdb28b365e3a3c1e"
+    },
+    {
+      "path": "faze4/results/CLOSURE_GATE.json",
+      "bytes": 18047,
+      "sha256": "ab08668ec4dad74816036df75805927c3c27ea2f283ec2cbcf77487776562597"
+    },
+    {
+      "path": "faze4/results/INDEPENDENT_CHECKS.json",
+      "bytes": 9280,
+      "sha256": "2283c4b23c0dece06eb8266444589250884d297dd3a493eb776920a033f5a781"
+    },
+    {
+      "path": "faze4/results/INDEPENDENT_EXECUTION.txt",
+      "bytes": 934,
+      "sha256": "e3b3dda0d52318fd1f4bb295bfde4d729c25afc521ed782841453ca4cee90c53"
+    },
+    {
+      "path": "faze4/results/REGISTRATION_EXECUTION.txt",
+      "bytes": 2564,
+      "sha256": "0631e9adda5aa034080dea78527682d59eefb154f567449c30b0e2f72e12a817"
+    },
+    {
+      "path": "faze4/results/SOURCE_SECTIONS.json",
+      "bytes": 1876154,
+      "sha256": "edf887991a679b3554a1edf9ed5dc3529b498f04016f04fce479e2d62996ee34"
+    },
+    {
+      "path": "hash_manifest.py",
+      "bytes": 3374,
+      "sha256": "dd6aa06f4a2c1994334ef1d3a49fea6f31422784bf3259c80ca83b69731ab85b"
+    },
+    {
+      "path": "requirements-cpu.txt",
+      "bytes": 154,
+      "sha256": "5ded143d281ca5c1c66cfb4e5b69996081e1a22ab7d9f061ae95a4ed4ea8071d"
+    },
+    {
+      "path": "run_all.py",
+      "bytes": 1436,
+      "sha256": "065972bffcb0cc5e5b48841e51b0b89704b4c3bde7fa3a0d9e86d921f34c1162"
+    },
+    {
+      "path": "sources/NOVELTY_BOUNDARY.md",
+      "bytes": 1532,
+      "sha256": "9ce87d400345b8f85960608f9bbeaeb868adb395c643f47107f17461696a0492"
+    },
+    {
+      "path": "sources/OFFICIAL_SNAPSHOT.json",
+      "bytes": 4465,
+      "sha256": "94b1a2128532a08c9684b07ee7cc65af48d786d55a2ea618a90538afb6dafd70"
+    },
+    {
+      "path": "sources/capture_current.py",
+      "bytes": 1795,
+      "sha256": "17ae0856dcf8cfb303472a96321f3f1c47e1d44c72ad3920182fd2a1d71b04b7"
+    },
+    {
+      "path": "sources/official/faze-neighbor/tasks/gear-train/README.md",
+      "bytes": 16085,
+      "sha256": "81d7d9766b3fa2696fd5e77f2af90b3dea423d056aa325bf8cda206645f76ef3"
+    },
+    {
+      "path": "sources/official/faze-neighbor/tasks/gear-train/gear_train.py",
+      "bytes": 19375,
+      "sha256": "e6ba6e6c447035ce637e57d247e9dbd0c25d4b99f1801ddfa1c0e5499eaaba13"
+    },
+    {
+      "path": "sources/official/faze-neighbor/tasks/gear-train/task.json",
+      "bytes": 3679,
+      "sha256": "5ed4e1071637b338a27e2592ade359e33dbfefbc4d156e0032e9b4ae0bf20e22"
+    },
+    {
+      "path": "sources/official/faze-neighbor/tasks/gear-train/test_gear_train.py",
+      "bytes": 25281,
+      "sha256": "607aa1791063e16b8c44fa8701ec826e20c3eaa77fed092a27dd6da654882658"
+    },
+    {
+      "path": "sources/official/toshiba-neighbor/tasks/refit-a-gas-burner-head-and-cap/README.md",
+      "bytes": 8689,
+      "sha256": "6d6b200fc450c027dd8b171221f460b570b2543bd2f65a75ad7c9aae236bad9d"
+    },
+    {
+      "path": "sources/official/toshiba-neighbor/tasks/refit-a-gas-burner-head-and-cap/refit_a_gas_burner_head_and_cap.py",
+      "bytes": 21106,
+      "sha256": "726db2738a42fdd003388f9b0a8ba460af9bb150204065199f9b4badd8460316"
+    },
+    {
+      "path": "sources/official/toshiba-neighbor/tasks/refit-a-gas-burner-head-and-cap/task.json",
+      "bytes": 3825,
+      "sha256": "fc4c2a1afca1dea96efbd9b3ab32219644e7fbd2057c2acac766bf793681ce9e"
+    },
+    {
+      "path": "sources/official/yubi-neighbor/tasks/hang-cable-between-hooks/README.md",
+      "bytes": 4110,
+      "sha256": "f45c0bdab54cb84b35778ed9606f725913d930db12ff8383ab14a041a24239ff"
+    },
+    {
+      "path": "sources/official/yubi-neighbor/tasks/hang-cable-between-hooks/task.json",
+      "bytes": 3795,
+      "sha256": "cd30005f93c5ea38b3f4b538c523ace7b4c7c30c191598a7a36c76c9c5343656"
+    },
+    {
+      "path": "sources/official/yubi-neighbor/tasks/hang-cable-between-hooks/task.py",
+      "bytes": 14260,
+      "sha256": "2c3831672833a6ab05d44605dba5f4a683c35379bf24da0cb7a51b797bb0b16c"
+    },
+    {
+      "path": "sources/official/yubi-neighbor/tasks/luggage-cart-bungee/README.md",
+      "bytes": 12764,
+      "sha256": "bec3781590a93110bd3d197da6f34557005acdc381624b062cce8c2450340be6"
+    },
+    {
+      "path": "sources/official/yubi-neighbor/tasks/luggage-cart-bungee/task.json",
+      "bytes": 5358,
+      "sha256": "8205a88e7ed3c6f316079ea92e7f3b49179ce281a85ad3e9c7674497bb1394db"
+    },
+    {
+      "path": "sources/official/yubi-neighbor/tasks/luggage-cart-bungee/task.py",
+      "bytes": 28093,
+      "sha256": "da2916d42a5ff6d892a3c9c3b4dc49dcea17ea8851139b7bedf4473fc5eeab2e"
+    },
+    {
+      "path": "toshiba/contact_coupon.py",
+      "bytes": 9680,
+      "sha256": "07cdc6a440bbcb8f8cf738f66ff1dd21274d4770964251d84a5b15cbcf78ff80"
+    },
+    {
+      "path": "toshiba/parameters.json",
+      "bytes": 1333,
+      "sha256": "f57560043622631cf0194dc292ece7eb1da9f2bb4db81fcd050eda3802e9ca92"
+    },
+    {
+      "path": "toshiba/results/CONTACT_EXECUTION.txt",
+      "bytes": 939,
+      "sha256": "42f0e6ebe324d5ad5216ea3e8212301a623dd371e8ecd0d29fd7a4871cfd27e1"
+    },
+    {
+      "path": "toshiba/results/CONTACT_RESULTS.json",
+      "bytes": 2729891,
+      "sha256": "7dd2f655d7fde67f58755fa4fb7494c25a3eb06bbe99aae46785c48a76731d61"
+    },
+    {
+      "path": "toshiba/results/YAM_ACCESS.json",
+      "bytes": 68557,
+      "sha256": "e909cd7678cc9f3a50347d1563457d5ba1a608858c531cb0598c0c4efd39b888"
+    },
+    {
+      "path": "toshiba/results/YAM_EXECUTION.txt",
+      "bytes": 422,
+      "sha256": "1c1e3a6abab81d506470ace164e6c2c1da08330d0761c00b39644ca1cc2d8474"
+    },
+    {
+      "path": "toshiba/results/correct.xml",
+      "bytes": 39571,
+      "sha256": "6da3245e4da9ff80ae6b5ab8837f7be174a612d315ca1ac9b9b14d43d780cba0"
+    },
+    {
+      "path": "toshiba/results/displaced_carrier.xml",
+      "bytes": 39575,
+      "sha256": "17191c2f70e668d89420dbfb33defc80a63c236d1321f535be7eb075310f1dcc"
+    },
+    {
+      "path": "toshiba/results/held_proud.xml",
+      "bytes": 39808,
+      "sha256": "695050ddb9d61ba00754399fab0b3eb1d3bc22588e4c6dfd32175562eba21fd2"
+    },
+    {
+      "path": "toshiba/results/inverted_tray.xml",
+      "bytes": 39587,
+      "sha256": "2fb134958856f5df0b6e7a8bb24339311a37818a47b1285fc112ae9468d09637"
+    },
+    {
+      "path": "toshiba/results/missing_carrier.xml",
+      "bytes": 28660,
+      "sha256": "621bb096cf49cde55acc01f4a01ad76cbed4e393b86c6bdd5ad85211977fa985"
+    },
+    {
+      "path": "toshiba/results/missing_drive.xml",
+      "bytes": 34895,
+      "sha256": "4f8c4a42194b4467c18670d921b289de1271ca92c16ddd589a8a0e7e98021949"
+    },
+    {
+      "path": "toshiba/results/missing_wheel.xml",
+      "bytes": 39319,
+      "sha256": "11e12707bbf63d94a1e5cf493659b9a6220b2c70a152938b870618a7be3e1366"
+    },
+    {
+      "path": "toshiba/results/seized_wheels.xml",
+      "bytes": 39289,
+      "sha256": "71aa114c29c605973d8e2bab5824e2e8d1614a3a1ad8eda03be72811aa6f7dc9"
+    },
+    {
+      "path": "toshiba/results/wrong_phase.xml",
+      "bytes": 39588,
+      "sha256": "d22ec366fddeddf3f2bff9fb9ee869f29d64247b0c4e03903b7d28347b35bca6"
+    },
+    {
+      "path": "toshiba/scoring.py",
+      "bytes": 1086,
+      "sha256": "b4daada585cc1f23e265c8e5b6928aff57d4787cd0cbe43e9e89ddda0e62a11e"
+    },
+    {
+      "path": "toshiba/yam_access.py",
+      "bytes": 8376,
+      "sha256": "728eb59d0c4ef830b90d09230639cd0c30acc494bce7787f5a7998ed8e94988d"
+    },
+    {
+      "path": "verify_results.py",
+      "bytes": 2733,
+      "sha256": "e78c2c68e7cc8b83aeb1587c071dbd4e2725c2b038bc9214fdf24247f71d1e87"
+    },
+    {
+      "path": "write_result_reports.py",
+      "bytes": 9557,
+      "sha256": "9f887912e6b347f3e048c2e827ce7b3757dd710702d302649f6aef7f849fc40b"
+    },
+    {
+      "path": "yubi/access_gate.py",
+      "bytes": 6083,
+      "sha256": "cf28f44b86120e632a4d9a7c8714503c1f88e2b5579ecded9991aa06a8dfe12e"
+    },
+    {
+      "path": "yubi/inspect_saddle.py",
+      "bytes": 2130,
+      "sha256": "eabfa7b594ca18f4b98dd5f866996f368627ee3de4c84b738ee346caf831e0df"
+    },
+    {
+      "path": "yubi/results/ACCESS_DIRECT.json",
+      "bytes": 84239,
+      "sha256": "a509fb66988afd21fb9db2dee0c08f42031d9cf1e14fbd3683be8da3127ece7e"
+    },
+    {
+      "path": "yubi/results/ACCESS_DIRECT_EXECUTION.txt",
+      "bytes": 4469,
+      "sha256": "ce94322513f627f337577302d6b72ef0d6806198729eaeecf7b09f58be0ace2f"
+    },
+    {
+      "path": "yubi/results/ACCESS_RAISED_TRANSIT.json",
+      "bytes": 59356,
+      "sha256": "dc8573fd9ac10ae6f2f6d18053d8820f21bdf8576435badecbffd8b9ea853dd8"
+    },
+    {
+      "path": "yubi/results/ACCESS_RAISED_TRANSIT_EXECUTION.txt",
+      "bytes": 4469,
+      "sha256": "ce94322513f627f337577302d6b72ef0d6806198729eaeecf7b09f58be0ace2f"
+    },
+    {
+      "path": "yubi/results/SADDLE_EXECUTION.txt",
+      "bytes": 282,
+      "sha256": "1f323924314aba7b4339b8ccbe830aedb7d45518f07fed261cb99444e9af724e"
+    },
+    {
+      "path": "yubi/results/SADDLE_OCCUPANCY_PROBES.json",
+      "bytes": 681,
+      "sha256": "3a084d01076f8c89a07f33231e9c826ab6fe02bfc87da9d88566579d472c61be"
+    },
+    {
+      "path": "yubi/results/loose_band_nodes.npy",
+      "bytes": 1664,
+      "sha256": "01fc302e78ef794489df3a6e2fa8a8298e591083a292021d1c35529d0a03e192"
+    },
+    {
+      "path": "yubi/results/saddle_candidate_faces.json",
+      "bytes": 41564,
+      "sha256": "ab2613ce7ac792442f3804698c9c428369132692de521dfee634e054439bd087"
+    },
+    {
+      "path": "yubi/results/saddle_sections.png",
+      "bytes": 826302,
+      "sha256": "f9731b2782175ac9da08fb3eb82f7b3e528fb23493389e548a544b98d85aaf50"
+    }
+  ],
+  "reused_source_inputs": [
+    {
+      "path": "research/robocurve-acceptance/preflight/access_core.py",
+      "bytes": 25043,
+      "sha256": "3e41c7a4a98ab3a1889452c46c9da5bd5386c01a5f34fc1fbc106f867e31a233"
+    },
+    {
+      "path": "research/robocurve-acceptance/preflight/assets/YAM_REFERENCE.json.gz",
+      "bytes": 676925,
+      "sha256": "f02631ba507361c82444704bee9604cb060cf9d4d155127c77c62941773f6625"
+    },
+    {
+      "path": "research/robocurve-acceptance/preflight/assets/YAM_SOURCE_MANIFEST.json",
+      "bytes": 60492,
+      "sha256": "8172c23a24a24a6a36e486215b4ec709f7f58251cc0784a9cb09f6b7f3899795"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/fetch_yubi_pinned.py",
+      "bytes": 1262,
+      "sha256": "537edd4574b31bcadd609e6dc89d84c35578c97fa8502f164150e9c8ad256408"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/yubi/docs/AssemblyInstruction/YUBI Glove Assy_AssemblyGuide.pdf",
+      "bytes": 2390464,
+      "sha256": "f9b185b67fc36b57850055642f609768529ef9f736bef15e2f24bd1921efb069"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/yubi/docs/BOM/YUBI Glove Assy_BOM.md",
+      "bytes": 8853,
+      "sha256": "3741ed6d8960176a654d462283b274fc71fe7d6f3be6589a6d0fbf1c15d8ad24"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/faze4/assembly.txt",
+      "bytes": 41865,
+      "sha256": "f1fd8fd077de6c29577f300f303850dcd76e09168cf94f73a91e1d81aafb4903"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/faze4/Assembly instructions 3.1.pdf",
+      "bytes": 16037592,
+      "sha256": "a19999af7c7e0c326ea6bffc4303d7018cc24792f0c912c751302e6207c637a9"
+    },
+    {
+      "path": "research/robocurve-final-discovery/evidence/household/039.txt",
+      "bytes": 34095,
+      "sha256": "1d8f9a7fd016cbb99aaa7dcaaf084d4a123bea41cd255387920b0ecf9ffcef06"
+    },
+    {
+      "path": "research/robocurve-final-discovery/evidence/household/microwave-turntable.png",
+      "bytes": 210556,
+      "sha256": "8969dea65837a6500b82356c5863f9f42a68ea183d34aa5b669999dca91aa00b"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/faze4/STL_V2/STL_V2/STL/Elbow/J4 cyclo/11_1 cyclo disc.STL",
+      "bytes": 74084,
+      "sha256": "91e30439e9b2b5668dd47fdf17b838a0244676cb1156815827f8c7574b1d99e5"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/faze4/STL_V2/STL_V2/STL/Elbow/J4 cyclo/Joint 4 motor case.STL",
+      "bytes": 233384,
+      "sha256": "b839259adacdffb5a164673cece06656f8b8f73f406220821a26848ada67f11c"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/faze4/STL_V2/STL_V2/STL/Elbow/J4 cyclo/Joint 4 Output shaft.STL",
+      "bytes": 80684,
+      "sha256": "48f069266ebb2f1f96977a268838f9160725586724696c6007606c7eba6ed5e9"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/faze4/STL_V2/STL_V2/STL/Elbow/J4 cyclo/Eccentric shaft J4.STL",
+      "bytes": 25084,
+      "sha256": "9446b5dfdebe16d3f1be310dd7e38420203be381072030963ae39593a01760b3"
+    },
+    {
+      "path": "research/robocurve-final-discovery/agents/robot_build/evidence/faze4/STL_V2/STL_V2/STL/Elbow/J4 cyclo/Joint 4 top cover.STL",
+      "bytes": 154484,
+      "sha256": "2cea0b7270df648487291180c74b19ca45874c10a66df6f264deae79735b2991"
+    },
+    {
+      "path": "reacquired YUBI Glove Assy_ver2_R.STEP",
+      "bytes": 16885516,
+      "sha256": "7cffdf898a1cf54b897e95c116aa9dea6ac4307c06964d551001ecf938f321dd"
+    }
+  ]
+}

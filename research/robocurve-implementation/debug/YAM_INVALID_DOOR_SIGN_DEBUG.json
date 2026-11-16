@@ -1,0 +1,1657 @@
+{
+  "scope": "Actual stock YAM geometry on explicitly representative apparatus dimensions; sampled kinematic hypothesis only",
+  "robot_hulls_per_arm": 315,
+  "total_hulls": 630,
+  "ik": [
+    {
+      "stage": "acquire",
+      "side": "left",
+      "position_error_mm": 8.187131576728502e-09,
+      "orientation_error_deg": 1.2222893647097042e-09,
+      "valid": true
+    },
+    {
+      "stage": "acquire",
+      "side": "right",
+      "position_error_mm": 6.938893903907228e-14,
+      "orientation_error_deg": 3.37744017068182e-14,
+      "valid": true
+    },
+    {
+      "stage": "lift",
+      "side": "left",
+      "position_error_mm": 6.012462478564703e-13,
+      "orientation_error_deg": 1.268258017153275e-13,
+      "valid": true
+    },
+    {
+      "stage": "lift",
+      "side": "right",
+      "position_error_mm": 1.0554640813383005e-07,
+      "orientation_error_deg": 1.259092668465446e-07,
+      "valid": true
+    },
+    {
+      "stage": "insert",
+      "side": "left",
+      "position_error_mm": 8.049117718598155e-08,
+      "orientation_error_deg": 2.3379016129464025e-08,
+      "valid": true
+    },
+    {
+      "stage": "insert",
+      "side": "right",
+      "position_error_mm": 8.132886511564259e-08,
+      "orientation_error_deg": 1.733538648494275e-08,
+      "valid": true
+    },
+    {
+      "stage": "lower",
+      "side": "left",
+      "position_error_mm": 6.037495438614419e-07,
+      "orientation_error_deg": 4.802867891834429e-07,
+      "valid": true
+    },
+    {
+      "stage": "lower",
+      "side": "right",
+      "position_error_mm": 7.024733785757032e-07,
+      "orientation_error_deg": 5.582947767431054e-07,
+      "valid": true
+    },
+    {
+      "stage": "withdraw",
+      "side": "left",
+      "position_error_mm": 1.1400877956135444e-08,
+      "orientation_error_deg": 5.8150937498466965e-09,
+      "valid": true
+    },
+    {
+      "stage": "withdraw",
+      "side": "right",
+      "position_error_mm": 7.529813670416619e-09,
+      "orientation_error_deg": 2.6432717496853958e-09,
+      "valid": true
+    }
+  ],
+  "keyframes": [
+    {
+      "label": "acquire",
+      "left": [
+        -1.482343148357034,
+        1.4909764247384232,
+        0.3566875562091353,
+        1.1342795954647753,
+        -1.4823331568050317,
+        -1.570805310500992,
+        -0.00245,
+        -0.00245
+      ],
+      "right": [
+        1.482317642307402,
+        1.4909513067883753,
+        0.356696051034539,
+        1.134181379202081,
+        1.4823276336118227,
+        -1.5707224860258573,
+        -0.00245,
+        -0.00245
+      ],
+      "tray_center_m": [
+        0.3,
+        0.0,
+        0.93
+      ]
+    },
+    {
+      "label": "lift",
+      "left": [
+        -1.482343189462126,
+        1.2039312983108643,
+        0.5564004229740007,
+        0.647529948379455,
+        -1.4823333660420608,
+        -1.5707969316330095,
+        -0.00245,
+        -0.00245
+      ],
+      "right": [
+        1.4823150658767967,
+        1.2039186682341358,
+        0.5564189403482066,
+        0.6474174840693996,
+        1.4823248889927063,
+        -1.5707140860903965,
+        -0.00245,
+        -0.00245
+      ],
+      "tray_center_m": [
+        0.3,
+        0.0,
+        1.01
+      ]
+    },
+    {
+      "label": "insert",
+      "left": [
+        -0.8067203422920135,
+        1.5759240018481289,
+        0.8511901032408404,
+        0.7247313451208991,
+        -0.8067103422993844,
+        -1.57079634383377,
+        -0.00245,
+        -0.00245
+      ],
+      "right": [
+        0.8066951082069128,
+        1.57592319102455,
+        0.8511911142659703,
+        0.7247240132385673,
+        0.8067051081376959,
+        -1.5707886783101794,
+        -0.00245,
+        -0.00245
+      ],
+      "tray_center_m": [
+        0.5,
+        0.0,
+        1.01
+      ]
+    },
+    {
+      "label": "lower",
+      "left": [
+        -0.8067200491932293,
+        2.063023377553856,
+        0.6587968802097426,
+        1.404222636803029,
+        -0.806710365384151,
+        -1.570798145839461,
+        -0.00245,
+        -0.00245
+      ],
+      "right": [
+        0.8066978249988875,
+        2.063022414861992,
+        0.6587968845169723,
+        1.404218746890864,
+        0.8067075113109033,
+        -1.570790460832593,
+        -0.00245,
+        -0.00245
+      ],
+      "tray_center_m": [
+        0.5,
+        0.0,
+        0.8645
+      ]
+    },
+    {
+      "label": "release",
+      "left": [
+        -0.8067200491932293,
+        2.063023377553856,
+        0.6587968802097426,
+        1.404222636803029,
+        -0.806710365384151,
+        -1.570798145839461,
+        -0.012,
+        -0.012
+      ],
+      "right": [
+        0.8066978249988875,
+        2.063022414861992,
+        0.6587968845169723,
+        1.404218746890864,
+        0.8067075113109033,
+        -1.570790460832593,
+        -0.012,
+        -0.012
+      ],
+      "tray_center_m": [
+        0.5,
+        0.0,
+        0.8645
+      ]
+    },
+    {
+      "label": "withdraw",
+      "left": [
+        -1.1963122866452103,
+        1.779687894390869,
+        0.36938746871067824,
+        1.4102957357683308,
+        -1.1963023443492267,
+        -1.5707999223014883,
+        -0.012,
+        -0.012
+      ],
+      "right": [
+        1.1962883331344265,
+        1.7796830694052537,
+        0.3693880088511751,
+        1.4102796679641483,
+        1.1962982754191722,
+        -1.5707812316605805,
+        -0.012,
+        -0.012
+      ],
+      "tray_center_m": [
+        0.5,
+        0.0,
+        0.8645
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "door_angle_deg": 90,
+      "samples": [
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.25,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.5,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.75,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 1.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.25,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.5,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.75,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 1.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.25,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "tip_right",
+            "hull": "tip_right:13",
+            "obstacle": "rack-rod1",
+            "penetration_mm": 0.9643477277744552
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "tip_right",
+            "hull": "tip_right:13",
+            "obstacle": "rack-rod1",
+            "penetration_mm": 2.786855056542724
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 6.817601485724774
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.5,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 6.673122020003782
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:1",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 6.268438945782493
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:1",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 56.022534948518235
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.75,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:1",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 3.136947331010733
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:4",
+            "obstacle": "recesslip21",
+            "penetration_mm": 11.201799535932707
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 3.3431417048381773
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 1.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.9862932881179046
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.25,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.9862932881178352
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.5,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.75,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.9862932881179278
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 1.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:6",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 1.9461160421631865
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "tip_left",
+            "hull": "tip_left:3",
+            "obstacle": "recesslip19",
+            "penetration_mm": 32.87815057864474
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.25,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:4",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 0.09514024993762331
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:24",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 1.0534957943535947
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.5,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.75,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 1.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        }
+      ],
+      "summary": {
+        "sampled_poses": 65,
+        "obstacle_collision_poses": 28,
+        "self_collision_poses": 0,
+        "unintended_tray_collision_poses": 0
+      },
+      "undersized_aperture_negative_detected": true
+    },
+    {
+      "door_angle_deg": 110,
+      "samples": [
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.25,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.5,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.75,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 5
+        },
+        {
+          "segment": "acquire->lift",
+          "fraction": 1.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.25,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.5,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.75,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "lift->insert",
+          "fraction": 1.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 6
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.25,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "tip_right",
+            "hull": "tip_right:13",
+            "obstacle": "rack-rod1",
+            "penetration_mm": 0.9643477277744552
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "tip_right",
+            "hull": "tip_right:13",
+            "obstacle": "rack-rod1",
+            "penetration_mm": 2.786855056542724
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 6.817601485724774
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.5,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 6.673122020003782
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:1",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 6.268438945782493
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:1",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 56.022534948518235
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.75,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:1",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 3.136947331010733
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 8
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:4",
+            "obstacle": "recesslip21",
+            "penetration_mm": 11.201799535932707
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 3.3431417048381773
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 7
+        },
+        {
+          "segment": "insert->lower",
+          "fraction": 1.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 11
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.9862932881179046
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.25,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.9862932881178352
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.5,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.75,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.9862932881179278
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "lower->release",
+          "fraction": 1.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.0,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:0",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 0.986293288117923
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.08333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:6",
+            "obstacle": "oven-bottom",
+            "penetration_mm": 1.9461160421631865
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.16666666666666666,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "tip_left",
+            "hull": "tip_left:3",
+            "obstacle": "recesslip19",
+            "penetration_mm": 32.87815057864474
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.25,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:4",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 0.09514024993762331
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.3333333333333333,
+          "obstacle_collision": {
+            "side": "left",
+            "link": "gripper",
+            "hull": "gripper:24",
+            "obstacle": "rack-rod0",
+            "penetration_mm": 1.0534957943535947
+          },
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.41666666666666663,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.5,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.5833333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.6666666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.75,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.8333333333333333,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 0.9166666666666666,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        },
+        {
+          "segment": "release->withdraw",
+          "fraction": 1.0,
+          "obstacle_collision": null,
+          "self_collision": null,
+          "unintended_tray_collision": [],
+          "intended_tip_contact_hulls": 0
+        }
+      ],
+      "summary": {
+        "sampled_poses": 65,
+        "obstacle_collision_poses": 28,
+        "self_collision_poses": 0,
+        "unintended_tray_collision_poses": 0
+      },
+      "undersized_aperture_negative_detected": true
+    }
+  ],
+  "not_demonstrated": [
+    "No dynamic acquisition or weight-bearing pinch proof",
+    "No actualToshiba scale/door geometry validated",
+    "No continuous collision certificate between samples",
+    "No complete ready-to-pregrasp motion",
+    "Held-tray relationship is a planning hypothesis, never a simulator weld"
+  ],
+  "source_body_pin": "0059d02a1a91bc6834c1d0846022891df0c78730"
+}

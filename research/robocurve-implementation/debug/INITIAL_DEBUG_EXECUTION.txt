@@ -1,0 +1,41 @@
+correct 0.25 0.01435382259987359 6.0852920812107225 -0.10607973830536022
+wrong_phase 0.0 0.01649985791138998 6.99719190731115 -0.021225639204498492
+missing_carrier 0.0 0.012499821896167189 6.997163942727592 -0.021253026554703958
+missing_drive 0.25 0.014353807717242584 3.661751142186422e-08 -7.188018268982883
+missing_wheel 0.0 0.012968276882501668 6.217338679081112 -0.070340775481184
+inverted_tray 0.25 0.014353807717228401 3.918142734486745e-08 -7.187986326405869
+held_proud 0.0 0.022416920870820742 4.184589800249384e-05 -6.963005562620887
+displaced_carrier 0.0 0.018477534230264426 6.969775036006318 -0.04233077914654704
+sensitivity 0.2 0.5 0.25
+sensitivity 0.2 0.9 0.25
+sensitivity 0.6 0.5 0.25
+sensitivity 0.6 0.9 0.25
+Traceback (most recent call last):
+  File "/workspace/benchmark-tasks/research/robocurve-implementation/toshiba/contact_coupon.py", line 110, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/benchmark-tasks/research/robocurve-implementation/toshiba/contact_coupon.py", line 105, in main
+    (D/'results/CONTACT_RESULTS.json').write_text(json.dumps(out,indent=2)+'\n')
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool is not JSON serializable

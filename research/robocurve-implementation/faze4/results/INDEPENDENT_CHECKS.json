@@ -1,0 +1,289 @@
+{
+  "independent_ring_fits": [
+    {
+      "eccentric_side": -1,
+      "ring_only_minima": [
+        {
+          "angle_rad": -3.1422760037008826,
+          "worst_ring_gap_mm": -0.17295103595963823,
+          "penalty_mm2": 0.1558842757940227
+        },
+        {
+          "angle_rad": -2.5698089076154322,
+          "worst_ring_gap_mm": -0.1898902693492608,
+          "penalty_mm2": 0.18293365198399128
+        },
+        {
+          "angle_rad": -1.9986356882636382,
+          "worst_ring_gap_mm": -0.17947423640537696,
+          "penalty_mm2": 0.19028995880979652
+        },
+        {
+          "angle_rad": -1.427984760543997,
+          "worst_ring_gap_mm": -0.18461054082310202,
+          "penalty_mm2": 0.1764890833074509
+        },
+        {
+          "angle_rad": -0.8574629271070994,
+          "worst_ring_gap_mm": -0.1877526705676691,
+          "penalty_mm2": 0.173927235877973
+        },
+        {
+          "angle_rad": -0.2855457708228329,
+          "worst_ring_gap_mm": -0.1787236604422131,
+          "penalty_mm2": 0.15703508965564558
+        },
+        {
+          "angle_rad": 0.28626908867866163,
+          "worst_ring_gap_mm": -0.17223273506606418,
+          "penalty_mm2": 0.1736956052338439
+        },
+        {
+          "angle_rad": 0.8572985314365851,
+          "worst_ring_gap_mm": -0.18391198941279185,
+          "penalty_mm2": 0.17001189935697578
+        },
+        {
+          "angle_rad": 1.427835536123835,
+          "worst_ring_gap_mm": -0.17793767473467792,
+          "penalty_mm2": 0.1822285852212867
+        },
+        {
+          "angle_rad": 1.9979691712382461,
+          "worst_ring_gap_mm": -0.18196923205370563,
+          "penalty_mm2": 0.18549645519656488
+        },
+        {
+          "angle_rad": 2.569631187050471,
+          "worst_ring_gap_mm": -0.17328470097222093,
+          "penalty_mm2": 0.16429994991570404
+        }
+      ]
+    },
+    {
+      "eccentric_side": 1,
+      "ring_only_minima": [
+        {
+          "angle_rad": -2.855323517506501,
+          "worst_ring_gap_mm": -0.17223525749064272,
+          "penalty_mm2": 0.17369642795761298
+        },
+        {
+          "angle_rad": -2.284294054857235,
+          "worst_ring_gap_mm": -0.1839146697729941,
+          "penalty_mm2": 0.1700125655513052
+        },
+        {
+          "angle_rad": -1.713757073139597,
+          "worst_ring_gap_mm": -0.177940170340376,
+          "penalty_mm2": 0.18222944806317737
+        },
+        {
+          "angle_rad": -1.1436234345818619,
+          "worst_ring_gap_mm": -0.18197083282172288,
+          "penalty_mm2": 0.1854968225425716
+        },
+        {
+          "angle_rad": -0.5719615257881806,
+          "worst_ring_gap_mm": -0.17328641877419626,
+          "penalty_mm2": 0.16430077371274626
+        },
+        {
+          "angle_rad": -0.0006833105975592593,
+          "worst_ring_gap_mm": -0.17295334556920317,
+          "penalty_mm2": 0.1558853105532029
+        },
+        {
+          "angle_rad": 0.5717837873393445,
+          "worst_ring_gap_mm": -0.18989275030780606,
+          "penalty_mm2": 0.1829342424606299
+        },
+        {
+          "angle_rad": 1.1429570012296013,
+          "worst_ring_gap_mm": -0.17947661235732948,
+          "penalty_mm2": 0.19029073970348967
+        },
+        {
+          "angle_rad": 1.7136079356462073,
+          "worst_ring_gap_mm": -0.18461243630212198,
+          "penalty_mm2": 0.17648939666210423
+        },
+        {
+          "angle_rad": 2.284129759995596,
+          "worst_ring_gap_mm": -0.18775482099902874,
+          "penalty_mm2": 0.1739279064506493
+        },
+        {
+          "angle_rad": 2.856046916054681,
+          "worst_ring_gap_mm": -0.17872589873450995,
+          "penalty_mm2": 0.15703571392025567
+        }
+      ]
+    }
+  ],
+  "number_of_ring_phase_pairs": 121,
+  "best_shared_carrier_at_ring_fits": {
+    "lower_angle_rad": 0.28626908867866163,
+    "upper_angle_rad": 2.856046916054681,
+    "carrier_angle_rad": 0.314526869931434,
+    "minimum_hole_clearance_mm": -0.4601337074412215
+  },
+  "cover_checks": [
+    {
+      "cover_lower_face_z_mm": 25.0,
+      "triangle_contact_count": 100,
+      "maximum_contact_depth_mm": 0.7379066935286824,
+      "interior_z_overlap_mm": 0.0,
+      "fcl_depth_warning": "Triangle contact depth at coplanar mesh faces is NOT solid penetration; nominalz25 has disjointinteriors byZ bounds",
+      "source_axis_registration": "central mesh axes only; screw-axis compatibility not yet proved"
+    },
+    {
+      "cover_lower_face_z_mm": 24.0,
+      "triangle_contact_count": 100,
+      "maximum_contact_depth_mm": 1.0000000000000009,
+      "interior_z_overlap_mm": 1.0,
+      "fcl_depth_warning": "Triangle contact depth at coplanar mesh faces is NOT solid penetration; nominalz25 has disjointinteriors byZ bounds",
+      "source_axis_registration": "central mesh axes only; screw-axis compatibility not yet proved"
+    }
+  ],
+  "negative_states": [
+    {
+      "case": "nominal",
+      "visible_disk_count": 2,
+      "visible_output_pair_count": 5,
+      "measured_layers": [
+        {
+          "disk_index": 0,
+          "output_centres_inside_holes": 2,
+          "minimum_hole_gap_mm": -0.39790883924573084,
+          "minimum_ring_gap_mm": -0.24314746802315312
+        },
+        {
+          "disk_index": 1,
+          "output_centres_inside_holes": 2,
+          "minimum_hole_gap_mm": -0.3983211724570237,
+          "minimum_ring_gap_mm": -0.26156429738227516
+        }
+      ],
+      "minimum_clearance_mm": -0.3983211724570237,
+      "physical_inventory_gate": true,
+      "contact_gate_pass": false,
+      "full_planar_gate": false,
+      "proposed_mesh_guard_mm": 0.05
+    },
+    {
+      "case": "missing_disk",
+      "visible_disk_count": 1,
+      "visible_output_pair_count": 5,
+      "measured_layers": [
+        {
+          "disk_index": 0,
+          "output_centres_inside_holes": 2,
+          "minimum_hole_gap_mm": -0.39790883924573084,
+          "minimum_ring_gap_mm": -0.24314746802315312
+        }
+      ],
+      "minimum_clearance_mm": -0.39790883924573084,
+      "physical_inventory_gate": false,
+      "contact_gate_pass": false,
+      "full_planar_gate": false,
+      "proposed_mesh_guard_mm": 0.05
+    },
+    {
+      "case": "missing_roller_pair",
+      "visible_disk_count": 2,
+      "visible_output_pair_count": 4,
+      "measured_layers": [
+        {
+          "disk_index": 0,
+          "output_centres_inside_holes": 1,
+          "minimum_hole_gap_mm": -0.39790883924573084,
+          "minimum_ring_gap_mm": -0.24314746802315312
+        },
+        {
+          "disk_index": 1,
+          "output_centres_inside_holes": 1,
+          "minimum_hole_gap_mm": -0.3983211724570237,
+          "minimum_ring_gap_mm": -0.26156429738227516
+        }
+      ],
+      "minimum_clearance_mm": -0.3983211724570237,
+      "physical_inventory_gate": false,
+      "contact_gate_pass": false,
+      "full_planar_gate": false,
+      "proposed_mesh_guard_mm": 0.05
+    },
+    {
+      "case": "carrier_one_plane_only",
+      "visible_disk_count": 2,
+      "visible_output_pair_count": 5,
+      "measured_layers": [
+        {
+          "disk_index": 0,
+          "output_centres_inside_holes": 5,
+          "minimum_hole_gap_mm": 1.5030293333333304,
+          "minimum_ring_gap_mm": -0.24314746802315312
+        },
+        {
+          "disk_index": 1,
+          "output_centres_inside_holes": 0,
+          "minimum_hole_gap_mm": -2.2992496429399227,
+          "minimum_ring_gap_mm": -0.26156429738227516
+        }
+      ],
+      "minimum_clearance_mm": -2.2992496429399227,
+      "physical_inventory_gate": true,
+      "contact_gate_pass": false,
+      "full_planar_gate": false,
+      "proposed_mesh_guard_mm": 0.05
+    },
+    {
+      "case": "wrong_upper_phase_5deg",
+      "visible_disk_count": 2,
+      "visible_output_pair_count": 5,
+      "measured_layers": [
+        {
+          "disk_index": 0,
+          "output_centres_inside_holes": 2,
+          "minimum_hole_gap_mm": -0.39790883924573084,
+          "minimum_ring_gap_mm": -0.24314746802315312
+        },
+        {
+          "disk_index": 1,
+          "output_centres_inside_holes": 1,
+          "minimum_hole_gap_mm": -1.1548502798998421,
+          "minimum_ring_gap_mm": -1.5559990802426356
+        }
+      ],
+      "minimum_clearance_mm": -1.5559990802426356,
+      "physical_inventory_gate": true,
+      "contact_gate_pass": false,
+      "full_planar_gate": false,
+      "proposed_mesh_guard_mm": 0.05
+    }
+  ],
+  "phase_controls": [
+    {
+      "case": "nominal",
+      "minimum_gap_mm": -0.3983211724570279,
+      "interfering_constraints": 25
+    },
+    {
+      "case": "wrong_upper_phase_5deg",
+      "minimum_gap_mm": -1.5559990802426356,
+      "interfering_constraints": 23
+    },
+    {
+      "case": "wrong_upper_phase_20deg",
+      "minimum_gap_mm": -6.100390327737201,
+      "interfering_constraints": 24
+    }
+  ],
+  "decision": "STOP FAZE4: no demonstrated nominal source closure; numerical11:1-like motion under penalty penetration does not validate assembly",
+  "scope": "Finite mesh/analytic registration screen; not a global theorem or material-deflection model",
+  "not_executed": [
+    "ActualYAMinsertion: nominalsourceclosurefailed first",
+    "Dynamicbearing/force validation",
+    "Completeaxialstackandcoverfastenerregistration"
+  ]
+}
