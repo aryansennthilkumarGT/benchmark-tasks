@@ -1,0 +1,181 @@
+# ROBOCURVE — FIX THE FEASIBILITY BOTTLENECK, NOT ANOTHER PHYSICS DEMO
+
+Continue from commit:
+2530bbf2cc86f5b68c6f2e2de0c2ee15a1867ba6
+
+Repository:
+aryansennthilkumarGT/benchmark-tasks
+
+Branch:
+research/robocurve-acceptance-2026-11-14
+
+## MISSION
+
+We have now built several legitimate CPU mechanism studies, but no candidate has passed complete stock-YAM manipulation feasibility.
+
+THIS IS OUR MAIN BOTTLENECK.
+
+Stop optimizing contact simulations before we know that the actual robot can physically perform the task.
+
+Do not begin another broad brainstorming or 100-candidate research cycle.
+
+Work autonomously through the bounded gates below. Do not ask for intermediate permission.
+
+## PHASE 1 — DIAGNOSE THE ODRI ACCESS FAILURE
+
+Read:
+
+research/robocurve-next-prototype/odri/yam_access.py
+
+research/robocurve-next-prototype/odri/results/YAM_ACCESS.json
+
+research/robocurve-next-prototype/NEXT_GATE.md
+
+Important independently reviewed finding:
+
+ALL eight layouts record right-hand `tip_right` collision with `lower_leg_structure_base.STL`.
+
+The tool also intersects the supporting arm, with arm–arm collisions.
+
+This means the present SUPPORT GRASP hypothesis is invalid. It does not establish global ODRI infeasibility.
+
+Your job:
+
+1. Inspect the actual registered source geometry, collision pairs and right-hand support pose.
+2. Determine whether the base collision is genuine, an incorrect placement transform, or an unjustified contact assumption.
+3. Do not exempt a collision merely to get a clean result.
+4. Test source-compatible foot-rim support alternatives, including bounded axial shifts and roll orientations identified in NEXT_GATE.md.
+5. Include BOTH stock YAM arms, all collision hulls, source base, open-bank foot, tool and realistic workcell support.
+6. Separate each collision cause and identify the first blocking stage, rather than reporting only total blocked samples.
+7. Check approach, acquisition, one real annulus placement, release and withdrawal—not only target IK.
+8. If no defensible source-scale approach survives, PARK ODRI immediately.
+
+Do not rerun the silicone stiffness sweep. That calculation is already complete.
+
+If one full access route survives, test actual tool purchase and ONE source-size annulus installation with causal contact. Do not start all twelve elements until that first real manipulation passes.
+
+No larger pockets, hidden clamps, custom fingertips or removal of genuine obstructions.
+
+## PHASE 2 — AUTOMATICALLY CHANGE CANDIDATES IF ODRI FAILS
+
+If ODRI fails the bounded support/access gate, stop.
+
+Use the existing completed 15-task discovery portfolio.
+
+Do NOT return to YUBI, Faze4, Toshiba, KER, N040, N022 or N077.
+
+Evaluate surviving independent candidates using a NEW selection rule:
+
+FIRST, actual-scale stock-YAM access and plausible grasp.
+
+SECOND, source-authentic physical operation and observable endpoint.
+
+THIRD, independent semantic novelty and importance.
+
+FOURTH, modeling cost.
+
+Do not select a task just because its CAD is beautiful or because its equilibrium model is easy.
+
+Prioritize physically accessible manipulation with genuine hardware and no tiny confined tool corridor.
+
+Use manufacturer-supplied CAD or source-bound dimensions whenever available.
+
+Bound the screening to the THREE strongest remaining plausible candidates, selected from the existing portfolio. Explain each choice.
+
+For each, execute a cheap CPU access test BEFORE developing a new contact mechanism.
+
+If the necessary physical geometry isn't supported, reject that candidate from implementation selection rather than inventing it.
+
+If a candidate yields a genuinely plausible acquisition, manipulation and release path, perform the smallest meaningful CPU mechanism experiment with negative controls.
+
+Do not keep switching indefinitely. Three serious access screens is the limit for this assignment.
+
+## CRITICAL ROBOT FEASIBILITY STANDARD
+
+An acceptable access result must demonstrate:
+
+- Real source-scale object geometry.
+- Original stock YAM collision bodies.
+- Both arms and their interaction.
+- Realistic gripper or ordinary tool geometry.
+- A support strategy that does not already collide.
+- Required acquisition and release.
+- A credible continuous path or a conservative swept-path certificate.
+- No deletion of essential task obstacles.
+- No fictitious grasp or externally prescribed carried-object attachment.
+
+Numerical IK success is not grasp success.
+
+Collision-free endpoints are not a swept-path certificate.
+
+A tool that is attached to the gripper by assumption has not demonstrated physical purchase.
+
+Do not fabricate a passing result.
+
+## PHYSICAL SCORING STANDARD
+
+The chosen task must produce an externally inspectable, persistent physical outcome.
+
+Execute meaningful wrong cases before calling a mechanism successful.
+
+Distinguish:
+
+- Physical failures.
+- Numerical solver failures.
+- Incomplete but physically valid states.
+- Invalid or damaging states.
+
+A negative-control run that fails numerically cannot be called a validated physical failure.
+
+## IMPLEMENTATION DELIVERABLE
+
+Create:
+
+research/robocurve-access-first/
+
+Include:
+
+- ODRI_COLLISION_ROOT_CAUSE.md
+- ACCESS_SCREEN_RESULTS.md
+- SELECTED_TASK.md
+- CPU_IMPLEMENTATION_RESULTS.md, if implementation is justified
+- NEGATIVE_CONTROLS.md, if executed
+- FINAL_DECISION.md
+- Reproducible CPU scripts and actual outputs
+
+Keep the previous portfolio and results intact.
+
+## HARD STOP
+
+Finish with ONE of these outcomes:
+
+A. A source-faithful manipulation with an executed, credible YAM access path and CPU physical mechanism evidence. Recommend the next full-implementation step.
+
+B. No surviving candidate from the bounded evaluation. Explain exactly which observed blockers prevent implementation and identify what source measurement, hardware input or scope change would be necessary.
+
+Do not manufacture outcome A.
+
+Do not return another vague HOLD.
+
+## RESOURCE RESTRICTIONS
+
+No GPU, Brev, Dream, paid evaluation, hardware purchases or official PR submission.
+
+Commit and push all executed work.
+
+## FINAL ANSWER
+
+Report:
+
+- Whether ODRI's support collision was corrected or confirmed.
+- Which candidates actually underwent CPU access checks.
+- Whether any COMPLETE feasible manipulation path was established.
+- Whether tool/gripper acquisition was proven or merely hypothesized.
+- Which contact and negative-control tests actually ran.
+- Source and novelty risks.
+- Exact new commit.
+- Clear recommendation: ADVANCE or STOP.
+
+No further brainstorm list.
+
+BEGIN BY DIAGNOSING THE COLLISION IN THE CURRENT ODRI SUPPORT GRASP.

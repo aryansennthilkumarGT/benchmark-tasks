@@ -1,0 +1,159 @@
+[
+  {
+    "id": "055",
+    "name": "Hamilton Beach loaded rotisserie",
+    "manufacturer_dimensions": {
+      "loaded_mass_kg": 1.4,
+      "food_to_heater_clearance_m": 0.025
+    },
+    "missing": [
+      "matched donor/SKU",
+      "spit length and pointed/square end sections",
+      "drive socket/cradle depth and registration",
+      "loaded roast envelope",
+      "matched cavity/door/heater geometry"
+    ],
+    "asset_sha256": "4bf74b8f6b64406fc313dcb984320ea5c738efa9fe5f84b3ba5ff4cdba57f854",
+    "asset_geometry": [
+      {
+        "name": "body",
+        "vertices": 104,
+        "faces": 92,
+        "bounds_asset_coordinates": [
+          [
+            -0.2133,
+            -0.2092,
+            0.09
+          ],
+          [
+            0.1427,
+            -0.2018,
+            0.25
+          ]
+        ],
+        "watertight": false
+      },
+      {
+        "name": "body_1",
+        "vertices": 35470,
+        "faces": 55452,
+        "bounds_asset_coordinates": [
+          [
+            -0.2622,
+            -0.1894,
+            -0.1675
+          ],
+          [
+            0.2622,
+            0.2306,
+            0.2392
+          ]
+        ],
+        "watertight": false
+      }
+    ],
+    "provided_part_labels": {
+      "door": "part_03",
+      "oven racks": "part_02",
+      "on/off oven control/timer": "part_01",
+      "function dial": "part_05",
+      "temperature dial": "part_04"
+    },
+    "audited_model_code_has_handle_linkage_identifier": false,
+    "real_scale_manufacturer_calibration": false,
+    "source_gate": "REJECT FROM IMPLEMENTATION SELECTION",
+    "access_stages": {
+      "acquisition": "NOT RUN: cannot bind real contact region/scale",
+      "manipulation": "NOT RUN: essential matching interface geometry unsupported",
+      "release": "NOT RUN",
+      "continuous_certificate": "NOT RUN",
+      "physical_purchase": "NOT PROVEN"
+    },
+    "source_scope": "Input package audit; absence of labels is not proof that no mesh contains a visual feature. No identified, dimensioned, articulated matching interface was recovered. No unsupported asset was rescaled into a passing scene.",
+    "robot_reference": {
+      "hulls_per_arm": 315,
+      "total_hulls": 630,
+      "nominal_opening_m": 0.0939,
+      "necessary_TCP_radius_m": 0.941268730424485
+    },
+    "complete_access": false
+  },
+  {
+    "id": "091",
+    "name": "Ninja BL61030 locking lid",
+    "manufacturer_dimensions": {
+      "pitcher_capacity_L": 2.1
+    },
+    "missing": [
+      "manufacturer-calibrated pitcher/lid dimensions",
+      "handle section, hinge and motion",
+      "handle-to-catch linkage and under-tab sections",
+      "original blade-to-lid clearance"
+    ],
+    "asset_sha256": "a6e251216dd9822a4b5d658cf93331390b80eae47389f4c139ed90d0a7bfd7e5",
+    "asset_geometry": [
+      {
+        "name": "part_00",
+        "vertices": 1252,
+        "faces": 1880,
+        "bounds_asset_coordinates": [
+          [
+            -0.0872,
+            -0.0841,
+            -0.0359
+          ],
+          [
+            0.0963,
+            0.0997,
+            0.2068
+          ]
+        ],
+        "watertight": false
+      },
+      {
+        "name": "part_1",
+        "vertices": 15692,
+        "faces": 22152,
+        "bounds_asset_coordinates": [
+          [
+            -0.0984,
+            -0.1138,
+            -0.2234
+          ],
+          [
+            0.0984,
+            0.1138,
+            0.2234
+          ]
+        ],
+        "watertight": false
+      }
+    ],
+    "provided_part_labels": {
+      "lid": "part_08",
+      "power button": "part_00",
+      "low button": "part_02",
+      "medium button": "part_04",
+      "high button": "part_01",
+      "pulse button": "part_03"
+    },
+    "audited_model_code_has_handle_linkage_identifier": false,
+    "real_scale_manufacturer_calibration": false,
+    "source_gate": "REJECT FROM IMPLEMENTATION SELECTION",
+    "access_stages": {
+      "acquisition": "NOT RUN: cannot bind real contact region/scale",
+      "manipulation": "NOT RUN: essential matching interface geometry unsupported",
+      "release": "NOT RUN",
+      "continuous_certificate": "NOT RUN",
+      "physical_purchase": "NOT PROVEN"
+    },
+    "source_scope": "Input package audit; absence of labels is not proof that no mesh contains a visual feature. No identified, dimensioned, articulated matching interface was recovered. No unsupported asset was rescaled into a passing scene.",
+    "robot_reference": {
+      "hulls_per_arm": 315,
+      "total_hulls": 630,
+      "nominal_opening_m": 0.0939,
+      "necessary_TCP_radius_m": 0.941268730424485
+    },
+    "complete_access": false
+  }
+]

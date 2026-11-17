@@ -1,0 +1,3587 @@
+{
+  "name": "Opentrons Flex HEPA/UV two-interface lamp installation",
+  "source_dimensions": {
+    "Flex_m": [
+      0.87,
+      0.69,
+      0.84
+    ],
+    "module_m": [
+      0.87,
+      0.64,
+      0.14
+    ]
+  },
+  "roof_on_standard_bench_m": 1.5875,
+  "scope": "Optimistic free-space point region below a source-sized installed roof; not manufacturer socket anchors. Both stock arms, their interaction and nonadjacent self pairs are checked against the known table; full enclosure/gantry, lamp, socket and clip geometry are not supplied.",
+  "survey_summary": {
+    "OUTSIDE NECESSARY TCP SPHERE": 168,
+    "IK SOLVED": 5,
+    "IK UNRESOLVED": 43
+  },
+  "cases": [
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.9447387204936609
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.9447387204936609
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.9447387204936609
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 28.1124795318707,
+        "orientation_error_deg": 10.017326969771096,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.484200235476516,
+        1.46311787265603,
+        2.901414772317335,
+        -1.2414259693251737,
+        0.5094745893304337,
+        -1.6648740137004965,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 43.389711305730955,
+        "orientation_error_deg": 21.362890698640864,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.6296601726540925,
+        2.161545767287406,
+        3.074150711553834,
+        1.5707999999999998,
+        -0.989635800947069,
+        1.0231143131996785,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK SOLVED",
+      "IK": {
+        "position_error_mm": 1.1018045154566682e-08,
+        "orientation_error_deg": 1.1523915634613105e-09,
+        "valid": true
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.02497569992889189,
+        1.348645612756894,
+        1.443302268477233,
+        1.4761359990027911,
+        3.3299907261780666e-06,
+        1.5458106920878663,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0523455943747757
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0523455943747757
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0523455943747757
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 93.46775939021684,
+        "orientation_error_deg": 25.047440756453508,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.947038407726336,
+        1.5216400622241413,
+        2.901421539442906,
+        -0.6445920953136102,
+        0.9241072875562751,
+        -2.094399991138477,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 100.92431479809167,
+        "orientation_error_deg": 33.72896141969076,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.5194687876922941,
+        1.9306378219780518,
+        2.901421575736142,
+        0.9917913457336526,
+        -0.996111006713082,
+        0.5324801667842634,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK SOLVED",
+      "IK": {
+        "position_error_mm": 1.1872555918607909e-09,
+        "orientation_error_deg": 4.085335155030925e-11,
+        "valid": true
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.02497682244787992,
+        1.8205112675797357,
+        2.6785186886328045,
+        0.7127852336879177,
+        2.0895590082011752e-06,
+        1.545809586661239,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 36.037018209320365,
+        "orientation_error_deg": 9.145317031764769,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.4821622982989908,
+        2.0234083420996476,
+        2.9014098885550164,
+        0.09157929477548707,
+        -1.3785328983153768,
+        -0.6082492932658893,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 106.69865475832538,
+        "orientation_error_deg": 49.03663286708918,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.1755499381015706,
+        2.523839721052261,
+        3.140964550020625,
+        1.5707999999999998,
+        -0.5319170969676308,
+        1.1157227120935802,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 33.74018651747425,
+        "orientation_error_deg": 19.366215186607132,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.8294948814693016,
+        2.0267017087233574,
+        2.216888538674618,
+        1.4031717028376398,
+        0.14613049608096532,
+        2.0943999999999994,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 43.75901567995931,
+        "orientation_error_deg": 10.154997947000922,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        1.4459698084995267,
+        1.9552333825001853,
+        2.9014254301879414,
+        -0.3584396498522972,
+        1.3130260483654936,
+        -2.094399998143093,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 31.768807008374292,
+        "orientation_error_deg": 11.300293716197606,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.5903109916348692,
+        1.8554149637667579,
+        2.901431826873122,
+        -0.7010280639385057,
+        -0.9527802899449106,
+        -1.285939090052667,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK SOLVED",
+      "IK": {
+        "position_error_mm": 2.627121111375243e-07,
+        "orientation_error_deg": 1.5211106932154283e-08,
+        "valid": true
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.9903815768215276,
+        2.0181408700617065,
+        2.1959063104471928,
+        1.3930288718777841,
+        4.57738725123835e-06,
+        0.5804050110955822,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 118.27445446001805,
+        "orientation_error_deg": 25.232391550071505,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.4350680763250951,
+        1.949656113297986,
+        2.9014060010211287,
+        0.11292260672625497,
+        -1.0795634795692308,
+        -0.5356807244899254,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 168.16934301668118,
+        "orientation_error_deg": 56.76641207788446,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.1609857200581666,
+        2.2695568101761987,
+        2.9014022661929575,
+        1.4025289052762504,
+        -0.48172592067007813,
+        1.0495914907712751,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 69.628648041239,
+        "orientation_error_deg": 20.425329237615127,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.8253197872705157,
+        2.1382949328723004,
+        2.9014228774228705,
+        0.6775530756752548,
+        0.12098995966126326,
+        2.0943999999554705,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 124.14640497013922,
+        "orientation_error_deg": 28.14085630435759,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        1.3340660501672608,
+        1.885773395573787,
+        2.9014408331143153,
+        -0.26839721668793665,
+        0.9627745988055674,
+        -2.0943999982786248,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 108.76006463295458,
+        "orientation_error_deg": 26.667057492515646,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.5955560774447414,
+        1.8602909339801594,
+        2.9014062044833873,
+        -0.30346560002803286,
+        -0.8403764207793878,
+        -0.9781240783487548,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 57.447709771719275,
+        "orientation_error_deg": 8.277609858226832,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.9903797705057938,
+        2.1409583512415176,
+        2.901424082793989,
+        0.6658570347502698,
+        3.313258303374043e-06,
+        0.5804075280755796,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 28.11139231666415,
+        "orientation_error_deg": 10.017327880260689,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.4849191586587961,
+        1.4630982244847808,
+        2.901370567275191,
+        -1.2413277198212072,
+        -0.5102124935378785,
+        -1.4765534601944204,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 44.72590032132466,
+        "orientation_error_deg": 22.245033976459688,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.6618402653620933,
+        2.1829472565384616,
+        3.0978522522608247,
+        1.5707999999999998,
+        -0.9601641163238529,
+        1.036390250866451,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK SOLVED",
+      "IK": {
+        "position_error_mm": 2.6324478001605777e-08,
+        "orientation_error_deg": 1.8608773320818345e-09,
+        "valid": true
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.025013465249846538,
+        1.3486456127029518,
+        1.4433022683802044,
+        1.4761359990365037,
+        3.146389387866832e-06,
+        1.5957998572662666,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.9447387204936609
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.9447387204936609
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.9447387204936609
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 92.44969628814934,
+        "orientation_error_deg": 16.975102383901827,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.554771363178333,
+        1.551408388412502,
+        2.901428163902987,
+        0.2219542767930793,
+        -1.2749662452356714,
+        -0.0012075633098172988,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 102.12064854033812,
+        "orientation_error_deg": 34.63817735662491,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.5599391888238582,
+        1.9450726120767194,
+        2.9014329589788335,
+        1.045822878758211,
+        -0.9642829991662349,
+        0.5885805779609606,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK SOLVED",
+      "IK": {
+        "position_error_mm": 7.538574121836066e-09,
+        "orientation_error_deg": 2.489355522130247e-10,
+        "valid": true
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.025012214251488904,
+        1.8205112674640853,
+        2.6785186884020633,
+        0.7127852338021538,
+        1.9059581421682928e-06,
+        1.595798623360271,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0523455943747757
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0523455943747757
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.2,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0523455943747757
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0721736100091253
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0721736100091253
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0721736100091253
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 72.93616992183544,
+        "orientation_error_deg": 17.32714622335113,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.012591886519323534,
+        2.090285148304756,
+        2.9014185051131687,
+        -0.508705597371166,
+        0.010821100099525862,
+        -1.5743640014632596,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 123.91523689820258,
+        "orientation_error_deg": 31.42547907472365,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.2664148996983351,
+        2.3186273393365746,
+        2.901410274325864,
+        0.444873132895931,
+        -1.207315428782892,
+        -0.500439968606255,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 64.6696687807903,
+        "orientation_error_deg": 14.20447765054146,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.009163718343628294,
+        2.499593554910062,
+        2.901419420590753,
+        0.9210518845380427,
+        4.052112895130088e-07,
+        1.561623722251317,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.168099417857915
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.168099417857915
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.168099417857915
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.999227826874332
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.999227826874332
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.999227826874332
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 115.03531304753159,
+        "orientation_error_deg": 22.13183102161031,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.6398867497214258,
+        2.2457251229032194,
+        2.9013965421641403,
+        -0.23704375806947353,
+        -0.48271240360312123,
+        -1.3449141625930818,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 182.2893865997564,
+        "orientation_error_deg": 55.38375661526016,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.7128649535259399,
+        2.4470016396233105,
+        2.9014145148632693,
+        0.7278363984651249,
+        -1.1111720499422628,
+        -0.22223667299609698,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 110.82834962229553,
+        "orientation_error_deg": 21.49337254924253,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.5102051291416759,
+        2.535207597153233,
+        2.9013107651351175,
+        0.8295598446022376,
+        6.865921520585003e-06,
+        2.0809089642943954,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 115.03601978630655,
+        "orientation_error_deg": 22.131556747193898,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.6398601237312024,
+        2.2457263221789856,
+        2.901405167441227,
+        -0.23706290268453797,
+        0.4827017147426488,
+        -1.7966619496712177,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 136.03092989344145,
+        "orientation_error_deg": 26.88068410387252,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.29146653520765337,
+        2.3216975527872354,
+        2.901439618600435,
+        0.057869500876995356,
+        -0.8955114680676733,
+        -0.992071952707857,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 110.82839718744245,
+        "orientation_error_deg": 21.493351486759863,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.5101965756383569,
+        2.5352599604071364,
+        2.901416538310202,
+        0.8295067927549117,
+        -1.3690441539103312e-07,
+        1.0605913793674657,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0447278353714904
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0447278353714904
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0447278353714904
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0447278353714904
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0447278353714904
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0447278353714904
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 72.93590882699183,
+        "orientation_error_deg": 17.32723559046382,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.012617770331524742,
+        2.090285659663621,
+        2.9014183770816606,
+        -0.5087033455229992,
+        -0.01082707801865538,
+        -1.5672240754312972,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 124.7449979113975,
+        "orientation_error_deg": 32.015614378211794,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.2834405400247658,
+        2.3209061813545464,
+        2.9014315570027738,
+        0.457636064956883,
+        -1.209467817176029,
+        -0.48714970666674023,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 64.66984307741495,
+        "orientation_error_deg": 14.204412525859485,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.009184281964840307,
+        2.499597849797127,
+        2.9014275585414615,
+        0.9210491781151003,
+        4.6082600780993936e-07,
+        1.5799716399520545,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0721736100091253
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0721736100091253
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0721736100091253
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.999227826874332
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.999227826874332
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 0.999227826874332
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.168099417857915
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.168099417857915
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.545,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.168099417857915
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2824317720643075
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2824317720643075
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2824317720643075
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1307657803453375
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1307657803453375
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1307657803453375
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3636463067819309
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3636463067819309
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3636463067819309
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.222101161933823
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.222101161933823
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.222101161933823
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1711666192305858
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1711666192305858
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1711666192305858
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1711666192305858
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1711666192305858
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1711666192305858
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2595758214573667
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2595758214573667
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2595758214573667
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2595758214573667
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2595758214573667
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.0,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2595758214573667
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1307657803453375
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1307657803453375
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1307657803453375
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2824317720643075
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2824317720643075
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.4474999999999998
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2824317720643075
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.222101161933823
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.222101161933823
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.5875
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.222101161933823
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3636463067819309
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3636463067819309
+    },
+    {
+      "bench_m": 0.7475,
+      "point_m": [
+        0.89,
+        0.3,
+        1.5875
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3636463067819309
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0623205730851681
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0623205730851681
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0623205730851681
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 100.37899714960388,
+        "orientation_error_deg": 26.641762173501903,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.9200431077851563,
+        1.5272744932855427,
+        2.9014547364943053,
+        -0.6217764446612568,
+        0.8911265578957277,
+        -2.0943999975305982,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 107.3900944187712,
+        "orientation_error_deg": 34.825109484860036,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.5093761922585158,
+        1.9181474454637453,
+        2.9014199520163584,
+        0.9382635248770096,
+        -0.9872741232925853,
+        0.49352134719119944,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 7.346647945862489,
+        "orientation_error_deg": 0.8293085512855052,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.024977344015343305,
+        1.9147097165820879,
+        2.901419319830357,
+        0.5696088867582966,
+        1.7757120882691704e-06,
+        1.5458091644564635,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1773380992731017
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1773380992731017
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1773380992731017
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0100123761617974
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0100123761617974
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0100123761617974
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 126.41472312675567,
+        "orientation_error_deg": 26.57485134383016,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.4293633278903537,
+        1.9442567752597912,
+        2.90141345819284,
+        0.1126278674037574,
+        -1.0543989485654315,
+        -0.5335322377174633,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 173.5648827226255,
+        "orientation_error_deg": 57.79034407128268,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.158113147066776,
+        2.2556631992260407,
+        2.9013757126684587,
+        1.3678376142551254,
+        -0.47828088348267606,
+        1.0382924079610656,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 77.74286479348665,
+        "orientation_error_deg": 20.65897027312207,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.8247771136665775,
+        2.121752953132287,
+        2.9014326538468342,
+        0.6477347034981513,
+        0.11805792075841463,
+        2.0943999999867793,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 131.76349218464887,
+        "orientation_error_deg": 29.65671431825552,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        1.3227550378693094,
+        1.8820511124441741,
+        2.901407657259559,
+        -0.2579835741281755,
+        0.9331011100224161,
+        -2.0943999999244403,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 117.05014541597069,
+        "orientation_error_deg": 27.888134759290768,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.5997641469192436,
+        1.859291941188653,
+        2.901418066824992,
+        -0.28322206088505897,
+        -0.8234888102795891,
+        -0.9649387967649844,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 66.79271495849126,
+        "orientation_error_deg": 9.003239104744166,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        0.9903798470085409,
+        2.1245499029908683,
+        2.901419179494974,
+        0.6367888702981964,
+        3.605147082662327e-06,
+        0.5804068131614717,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0550473923004595
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0550473923004595
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0550473923004595
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0550473923004595
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0550473923004595
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0550473923004595
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 100.66252911690523,
+        "orientation_error_deg": 18.43298549641454,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -1.5528891677750223,
+        1.551925357590445,
+        2.9014173365487594,
+        0.22071632358951593,
+        -1.2495524768966393,
+        -0.003490392113086012,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 108.48507085228484,
+        "orientation_error_deg": 35.7459925823308,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.5491184660527233,
+        1.9321806885283064,
+        2.9014544503912325,
+        0.9909671988182404,
+        -0.9575648764662769,
+        0.5487098545871872,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "IK UNRESOLVED",
+      "IK": {
+        "position_error_mm": 7.3466488056327925,
+        "orientation_error_deg": 0.8293079262281814,
+        "valid": false
+      },
+      "known_geometry_collision_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "q": [
+        -0.02501168247239143,
+        1.9147102991211946,
+        2.901420515736622,
+        0.5696082843031391,
+        1.5932106549397673e-06,
+        1.595798187586607,
+        -0.02,
+        -0.02
+      ]
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0623205730851681
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0623205730851681
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0623205730851681
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0100123761617974
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0100123761617974
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0100123761617974
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1773380992731017
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1773380992731017
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.2,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1773380992731017
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.177093879008807
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.177093879008807
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.177093879008807
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0097276860619402
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0097276860619402
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0097276860619402
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2818541258661222
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2818541258661222
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2818541258661222
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.130110614055102
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.130110614055102
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.130110614055102
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0547748574932947
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0547748574932947
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0547748574932947
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0547748574932947
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0547748574932947
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0547748574932947
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1705340661424597
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1705340661424597
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1705340661424597
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1705340661424597
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1705340661424597
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.1705340661424597
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0097276860619402
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0097276860619402
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.0097276860619402
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.177093879008807
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.177093879008807
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.177093879008807
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.130110614055102
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.130110614055102
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.130110614055102
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2818541258661222
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2818541258661222
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.545,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2818541258661222
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3713588151902478
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3713588151902478
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3713588151902478
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2307010197444384
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2307010197444384
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2307010197444384
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.4622670754687737
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.4622670754687737
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.4622670754687737
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3312494131454107
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3312494131454107
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        -0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3312494131454107
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2679215275402498
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2679215275402498
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2679215275402498
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2679215275402498
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2679215275402498
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2679215275402498
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3657324042432324
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3657324042432324
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3657324042432324
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3657324042432324
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3657324042432324
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.0,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3657324042432324
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2307010197444384
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2307010197444384
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.6
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.2307010197444384
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3713588151902478
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3713588151902478
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.6
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3713588151902478
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3312494131454107
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3312494131454107
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.74
+      ],
+      "side": "left",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.3312494131454107
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-front",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.4622670754687737
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "horizontal-side",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.4622670754687737
+    },
+    {
+      "bench_m": 0.9,
+      "point_m": [
+        0.89,
+        0.3,
+        1.74
+      ],
+      "side": "right",
+      "orientation": "upward",
+      "status": "OUTSIDE NECESSARY TCP SPHERE",
+      "distance_m": 1.4622670754687737
+    }
+  ],
+  "hulls_per_arm": 315,
+  "missing": [
+    "matched bulb/base geometry",
+    "four pin/socket channel sections and insertion direction/location",
+    "remote clip throat and retention geometry",
+    "registered full Flex/gantry/lamp-bay corridor"
+  ],
+  "access_gate": "REJECT FROM IMPLEMENTATION SELECTION: no complete source geometry/purchase/path",
+  "complete_access": false,
+  "physical_purchase": "NOT PROVEN",
+  "continuous_certificate": "NOT RUN"
+}

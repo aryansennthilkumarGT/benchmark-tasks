@@ -1,0 +1,707 @@
+{
+  "cases": [
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 90,
+      "support_sampled_clear": true,
+      "acquisition_endpoint_checks": [
+        {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_contact",
+          "IK": {
+            "position_error_mm": 20.834772958909305,
+            "orientation_error_deg": 7.7378245775960215,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_release",
+          "IK": {
+            "position_error_mm": 20.821338164809003,
+            "orientation_error_deg": 7.584871840792717,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_withdraw",
+          "IK": {
+            "position_error_mm": 9.852403485929212,
+            "orientation_error_deg": 3.1309588642415984,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      ],
+      "first_blocking_stage": {
+        "stage": "tool_pregrasp",
+        "reason": "IK not solved",
+        "detail": {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      },
+      "placement_required_configuration": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "physical_tool_purchase": "NOT PROVEN",
+      "physical_annulus_installation": "NOT RUN",
+      "release_and_withdrawal_of_installed_annulus": "NOT RUN",
+      "continuous_motion_certificate": "NONE: rejection precedes a free-path/grasp certificate",
+      "complete_manipulation": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 90,
+      "support_sampled_clear": true,
+      "acquisition_endpoint_checks": [
+        {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_contact",
+          "IK": {
+            "position_error_mm": 20.834772958909305,
+            "orientation_error_deg": 7.7378245775960215,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_release",
+          "IK": {
+            "position_error_mm": 20.821338164809003,
+            "orientation_error_deg": 7.584871840792717,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_withdraw",
+          "IK": {
+            "position_error_mm": 9.852403485929212,
+            "orientation_error_deg": 3.1309588642415984,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      ],
+      "first_blocking_stage": {
+        "stage": "tool_pregrasp",
+        "reason": "IK not solved",
+        "detail": {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      },
+      "placement_required_configuration": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "physical_tool_purchase": "NOT PROVEN",
+      "physical_annulus_installation": "NOT RUN",
+      "release_and_withdrawal_of_installed_annulus": "NOT RUN",
+      "continuous_motion_certificate": "NONE: rejection precedes a free-path/grasp certificate",
+      "complete_manipulation": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 90,
+      "support_sampled_clear": true,
+      "acquisition_endpoint_checks": [
+        {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_contact",
+          "IK": {
+            "position_error_mm": 20.834772958909305,
+            "orientation_error_deg": 7.7378245775960215,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_release",
+          "IK": {
+            "position_error_mm": 20.821338164809003,
+            "orientation_error_deg": 7.584871840792717,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_withdraw",
+          "IK": {
+            "position_error_mm": 9.852403485929212,
+            "orientation_error_deg": 3.1309588642415984,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      ],
+      "first_blocking_stage": {
+        "stage": "tool_pregrasp",
+        "reason": "IK not solved",
+        "detail": {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      },
+      "placement_required_configuration": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "physical_tool_purchase": "NOT PROVEN",
+      "physical_annulus_installation": "NOT RUN",
+      "release_and_withdrawal_of_installed_annulus": "NOT RUN",
+      "continuous_motion_certificate": "NONE: rejection precedes a free-path/grasp certificate",
+      "complete_manipulation": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 90,
+      "support_sampled_clear": true,
+      "acquisition_endpoint_checks": [
+        {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_contact",
+          "IK": {
+            "position_error_mm": 20.834772958909305,
+            "orientation_error_deg": 7.7378245775960215,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_release",
+          "IK": {
+            "position_error_mm": 20.821338164809003,
+            "orientation_error_deg": 7.584871840792717,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [],
+            "allowed_original_rim_contacts": 0
+          }
+        },
+        {
+          "stage": "tool_withdraw",
+          "IK": {
+            "position_error_mm": 9.852403485929212,
+            "orientation_error_deg": 3.1309588642415984,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      ],
+      "first_blocking_stage": {
+        "stage": "tool_pregrasp",
+        "reason": "IK not solved",
+        "detail": {
+          "stage": "tool_pregrasp",
+          "IK": {
+            "position_error_mm": 9.852410074691832,
+            "orientation_error_deg": 3.130957162646997,
+            "valid": false
+          },
+          "geometric_check": {
+            "robot_source_pairs": [],
+            "arm_arm_pair": [],
+            "self_collision_pairs": [
+              [
+                "left",
+                "gripper",
+                "link2"
+              ],
+              [
+                "left",
+                "link2",
+                "link4"
+              ],
+              [
+                "left",
+                "link2",
+                "link5"
+              ]
+            ],
+            "allowed_original_rim_contacts": 0
+          }
+        }
+      },
+      "placement_required_configuration": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "physical_tool_purchase": "NOT PROVEN",
+      "physical_annulus_installation": "NOT RUN",
+      "release_and_withdrawal_of_installed_annulus": "NOT RUN",
+      "continuous_motion_certificate": "NONE: rejection precedes a free-path/grasp certificate",
+      "complete_manipulation": false
+    }
+  ],
+  "source_scale_complete": false,
+  "missing_input": "Matched bonded tread/contact profile, exact ordinary tool purchase response and actual source part retention during first bank assembly",
+  "decision": "PARK ODRI; do not start another contact simulation"
+}

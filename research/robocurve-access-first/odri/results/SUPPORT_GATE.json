@@ -1,0 +1,4129 @@
+{
+  "ready_self_collision_pairs": [],
+  "self_exemptions": "same-link and direct source-URDF adjacent links only; no sibling-finger exemption",
+  "hulls_per_arm": 315,
+  "tested_support_templates": 32,
+  "cases": [
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 0,
+      "support_q": [
+        0.8698215786821266,
+        1.918564624936768,
+        1.1290663351748806,
+        0.789490521768828,
+        0.8698314198064367,
+        -1.570789262175421,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.9963695501407411,
+        1.7996834652261668,
+        0.9681759337673679,
+        0.8314976013820805,
+        0.9963794809062475,
+        -1.5707868757484162,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 9.466119722180267e-14,
+          "orientation_error_deg": 1.6856765139887908e-14,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.3720159045008695e-10,
+          "orientation_error_deg": 5.7858757545701326e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:5",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:5",
+              "source-size-guide-pin"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "source-size-guide-pin"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 45,
+      "support_q": [
+        0.8698215786821173,
+        1.9185646249368862,
+        1.1290663351748762,
+        0.7894905217689729,
+        0.8698314198064245,
+        -0.7853910987779943,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.9963695501677177,
+        1.7996834647500686,
+        0.9681759338215763,
+        0.8314976002156229,
+        0.9963794810272025,
+        -0.7853887118352881,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 6.997847404917378e-08,
+          "orientation_error_deg": 2.0550147273079517e-08,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.255088970877598e-10,
+          "orientation_error_deg": 5.871075225381133e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 90,
+      "support_q": [
+        0.8698215786821414,
+        1.9185646249367911,
+        1.1290663351748844,
+        0.7894905217688838,
+        0.8698314198064456,
+        7.0646194303795305e-06,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.9963695501407414,
+        1.7996834652261646,
+        0.9681759337673684,
+        0.8314976013820761,
+        0.9963794809062482,
+        9.4510464817234e-06,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 5.016648100755936e-13,
+          "orientation_error_deg": 6.86595428486888e-14,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.3331604331220466e-10,
+          "orientation_error_deg": 5.934904515220954e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": null,
+      "sampled_configs": 45,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 135,
+      "support_q": [
+        0.8698215786821213,
+        1.9185646249368868,
+        1.1290663351748167,
+        0.7894905217691215,
+        0.8698314198064349,
+        0.7854052280167851,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.9963695501407408,
+        1.799683465226162,
+        0.9681759337673712,
+        0.831497601382064,
+        0.9963794809062482,
+        0.7854076144439357,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 5.107890396041126e-13,
+          "orientation_error_deg": 2.828511440518486e-13,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.337183218140712e-10,
+          "orientation_error_deg": 6.195437581129075e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 1.0,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 18,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 180,
+      "support_q": [
+        0.8698215786821153,
+        1.9185646249369053,
+        1.1290663351747916,
+        0.7894905217694048,
+        0.8698314198064319,
+        1.5708033914139288,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.9963695497287712,
+        1.799683464275272,
+        0.9681759318835136,
+        0.8314976036501027,
+        0.9963794790669541,
+        1.5708057764970254,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 1.9242097378788578e-07,
+          "orientation_error_deg": 9.262500893101523e-08,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.3381800403763377e-10,
+          "orientation_error_deg": 7.142238383891601e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:14",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:14",
+              "source-size-guide-pin"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "source-size-guide-pin"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 225,
+      "support_q": [
+        0.8849222537262087,
+        2.021780760152432,
+        1.1078664552867523,
+        1.1190869824160796,
+        0.9105652601975278,
+        2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0110353096907412,
+        1.9121152256636678,
+        0.943342323550406,
+        1.1925384095842508,
+        1.0337694265799415,
+        2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.3188038591490203,
+          "orientation_error_deg": 7.9099157386921775,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.31639179193616,
+          "orientation_error_deg": 9.447676499273184,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.3188038591490203,
+          "orientation_error_deg": 7.9099157386921775,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 270,
+      "support_q": [
+        1.0079285501113877,
+        2.1655145902865223,
+        1.9101382099580553,
+        -0.7266070775147074,
+        1.3067994832253738,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.1198474249401726,
+        1.9840322056386783,
+        1.61218975339345,
+        -0.6342927720164627,
+        1.3623284749720468,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 31.46483354113791,
+          "orientation_error_deg": 22.23329433183564,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 34.65535926400774,
+          "orientation_error_deg": 27.618479166910916,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 31.46483354113791,
+          "orientation_error_deg": 22.23329433183564,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "link4",
+          "link4:0",
+          "link3",
+          "link3:8"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:21"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "tip_left",
+            "tip_left:34"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "tip_left",
+            "tip_left:34"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 315,
+      "support_q": [
+        0.8849218175510908,
+        1.8790597015164996,
+        1.236462549164226,
+        0.43742042440655604,
+        0.9105637197445529,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0110340820639387,
+        1.7548598153465509,
+        1.0749940944589305,
+        0.45609662019215164,
+        1.0337656604759762,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.318667920008673,
+          "orientation_error_deg": 7.909361939813114,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.3164402735370357,
+          "orientation_error_deg": 9.44717584319121,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.318667920008673,
+          "orientation_error_deg": 7.909361939813114,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:1",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 0,
+      "support_q": [
+        0.8755940807726161,
+        1.9122057178115222,
+        1.120069294187277,
+        0.7921285728284571,
+        0.8756039275968451,
+        -1.5707891673299388,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0033329027792623,
+        1.7942263496199413,
+        0.9611754387439715,
+        0.8330408360512149,
+        1.003342836791404,
+        -1.570786720752772,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 1.5864541785529675e-13,
+          "orientation_error_deg": 2.7014582770138694e-14,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.194063830312499e-10,
+          "orientation_error_deg": 5.7696152585625185e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:5",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 45,
+      "support_q": [
+        0.8755940807726187,
+        1.9122057178114766,
+        1.1200692941872534,
+        0.7921285728284585,
+        0.8756039275968476,
+        -0.7853910039325085,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0033329028064002,
+        1.7942263491270052,
+        0.9611754388034035,
+        0.8330408348338944,
+        1.003342836915501,
+        -0.785388556813307,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 7.179367973631977e-08,
+          "orientation_error_deg": 2.1244885954368746e-08,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.275429510746031e-10,
+          "orientation_error_deg": 5.85068524427383e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 1.0,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 18,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 90,
+      "support_q": [
+        0.8755940807726255,
+        1.9122057178115397,
+        1.1200692941872796,
+        0.7921285728285018,
+        0.8756039275968404,
+        7.159464900853875e-06,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0033329027792626,
+        1.7942263496199389,
+        0.9611754387439718,
+        0.833040836051209,
+        1.0033428367914048,
+        9.606042126628221e-06,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 4.0436488930592915e-13,
+          "orientation_error_deg": 1.3276375274923925e-13,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.1528439045417906e-10,
+          "orientation_error_deg": 5.923616925907674e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": null,
+      "sampled_configs": 45,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 135,
+      "support_q": [
+        0.8755940807726291,
+        1.9122057178115002,
+        1.120069294187287,
+        0.7921285728285137,
+        0.8756039275968504,
+        0.7854053228622827,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0033329027792643,
+        1.794226349619931,
+        0.9611754387439722,
+        0.8330408360511926,
+        1.003342836791408,
+        0.7854077694395828,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 1.6631708028082056e-12,
+          "orientation_error_deg": 3.915777752699154e-13,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.197429829914754e-10,
+          "orientation_error_deg": 6.128958245919348e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 1.0,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 18,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 180,
+      "support_q": [
+        0.8755940807725997,
+        1.9122057178116887,
+        1.1200692941871608,
+        0.792128572829085,
+        0.875603927596824,
+        1.5708034862594156,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0033329022733295,
+        1.794226348485099,
+        0.9611754365031688,
+        0.8330408387552718,
+        1.0033428345534834,
+        1.5708059312266724,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 2.2483136150315295e-07,
+          "orientation_error_deg": 1.1178703695212403e-07,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 3.1560662041692896e-10,
+          "orientation_error_deg": 7.13013715369645e-11,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:14",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 225,
+      "support_q": [
+        0.8907116284296583,
+        2.016006896962655,
+        1.0987103794768065,
+        1.1233986012235702,
+        0.9162631418826258,
+        2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0179273649872522,
+        1.9069367600704439,
+        0.9361415649361166,
+        1.195475369493736,
+        1.0404517775011084,
+        2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.309945474454292,
+          "orientation_error_deg": 7.822121977584496,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.3231476597972525,
+          "orientation_error_deg": 9.380129637771846,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.309945474454292,
+          "orientation_error_deg": 7.822121977584496,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 270,
+      "support_q": [
+        1.013196859538149,
+        2.155346753970038,
+        1.8929135320624637,
+        -0.720843324801891,
+        1.309527794470267,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.1258054763941698,
+        1.9759303052006427,
+        1.5993493429270151,
+        -0.6306567180704429,
+        1.3651639464391079,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 31.243106961556308,
+          "orientation_error_deg": 21.944116811933505,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 34.54620939820618,
+          "orientation_error_deg": 27.367255593766554,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 31.243106961556308,
+          "orientation_error_deg": 21.944116811933505,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "link4",
+          "link4:0",
+          "link3",
+          "link3:8"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:21"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "tip_left",
+            "tip_left:39"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 315,
+      "support_q": [
+        0.8907111673495366,
+        1.8723751393789891,
+        1.2275174957378712,
+        0.4387515283578147,
+        0.9162615260981068,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.017926113329198,
+        1.749207374985669,
+        1.0678383788807302,
+        0.45668529637800837,
+        1.040447945666458,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.309803000516751,
+          "orientation_error_deg": 7.821565587981357,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.3231907178269036,
+          "orientation_error_deg": 9.379626094370874,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.309803000516751,
+          "orientation_error_deg": 7.821565587981357,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 5.774831659302306e-13,
+          "orientation_error_deg": 5.794363534957832e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:1",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 0,
+      "support_q": [
+        0.729810616875443,
+        1.882247702734808,
+        1.2992055999419687,
+        0.5830355278432673,
+        0.7298204891914436,
+        -1.5707905714082981,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8381684191547258,
+        1.730190419051107,
+        1.1074805211838816,
+        0.6227019243458652,
+        0.838178385496051,
+        -1.5707889060152507,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 2.2534342325098287e-09,
+          "orientation_error_deg": 1.5682477989570617e-10,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.8390251733572416e-09,
+          "orientation_error_deg": 3.4594643901894083e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:5",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:5",
+              "source-size-guide-pin"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "source-size-guide-pin"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 45,
+      "support_q": [
+        0.7298106168754097,
+        1.8822477027346491,
+        1.2992055999424283,
+        0.5830355278426786,
+        0.7298204891913734,
+        -0.7853924080109532,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8381684191542542,
+        1.7301904190593813,
+        1.1074805211903596,
+        0.6227019243503935,
+        0.8381783854938842,
+        -0.7853907426206477,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.772317800756188e-11,
+          "orientation_error_deg": 8.334486843538408e-12,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.795542400862988e-09,
+          "orientation_error_deg": 3.487165889311271e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 90,
+      "support_q": [
+        0.7298106168754099,
+        1.882247702734769,
+        1.2992055999419823,
+        0.5830355278433453,
+        0.7298204891913855,
+        5.755386347881328e-06,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8381684191547307,
+        1.730190419052906,
+        1.1074805211918635,
+        0.6227019243345371,
+        0.8381783854957955,
+        7.420782251081109e-06,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 1.3350981120156116e-09,
+          "orientation_error_deg": 3.220248192863946e-10,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.833588494583781e-09,
+          "orientation_error_deg": 3.529560664807229e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": null,
+      "sampled_configs": 45,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 135,
+      "support_q": [
+        0.7298106168754304,
+        1.8822477027347986,
+        1.2992055999419887,
+        0.5830355278435667,
+        0.7298204891913871,
+        0.7854039187834273,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8381684191546533,
+        1.7301904190552762,
+        1.1074805211940664,
+        0.6227019243342977,
+        0.8381783854954624,
+        0.7854055841803285,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 6.91951238597219e-10,
+          "orientation_error_deg": 3.328520494582411e-10,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.820934970564139e-09,
+          "orientation_error_deg": 3.6338822831239454e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 1.0,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 18,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 180,
+      "support_q": [
+        0.7298106168754258,
+        1.8822477027351139,
+        1.299205599941309,
+        0.5830355278455643,
+        0.7298204891913896,
+        1.5708020821794262,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8381684191543483,
+        1.7301904190536403,
+        1.1074805211544156,
+        0.6227019244166003,
+        0.8381783854899079,
+        1.5708037475365664,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.8957038227595524e-09,
+          "orientation_error_deg": 1.471613294448327e-09,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.8373618894039036e-09,
+          "orientation_error_deg": 4.119022658193991e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:14",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:14",
+              "source-size-guide-pin"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "source-size-guide-pin"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 225,
+      "support_q": [
+        0.7459753523320493,
+        1.956787797047101,
+        1.2511368115818267,
+        0.8865055084678318,
+        0.77340622644927,
+        2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8559197973566796,
+        1.816882006399769,
+        1.0548879644809679,
+        0.9624822298246865,
+        0.8828789740326031,
+        2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.6167521738194237,
+          "orientation_error_deg": 9.784224567360313,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.295098816808403,
+          "orientation_error_deg": 10.972733266333263,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.6167521738194237,
+          "orientation_error_deg": 9.784224567360313,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 270,
+      "support_q": [
+        0.8938769728391138,
+        2.312117987823473,
+        2.377328470765972,
+        -1.0158503657292737,
+        1.2475477433055657,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.9975505343997871,
+        2.045611034630002,
+        1.92571084579329,
+        -0.8602026390502955,
+        1.3042569825676,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 37.585631714053314,
+          "orientation_error_deg": 28.126224262821133,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 38.75571816460312,
+          "orientation_error_deg": 33.00455628539228,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 37.585631714053314,
+          "orientation_error_deg": 28.126224262821133,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "link4",
+          "link4:0",
+          "link3",
+          "link3:3"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "tip_left",
+            "tip_left:9"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "tip_left",
+            "tip_left:9"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -3.0,
+      "roll_deg": 315,
+      "support_q": [
+        0.7459749266694722,
+        1.8695201965824975,
+        1.4270838786162523,
+        0.26157614718987493,
+        0.773404590297999,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8559189342082965,
+        1.7138946771476344,
+        1.2391721134763758,
+        0.2742296527231328,
+        0.8828761009002486,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.6167153430353056,
+          "orientation_error_deg": 9.783682356415827,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.2951452911848893,
+          "orientation_error_deg": 10.972258399955404,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.6167153430353056,
+          "orientation_error_deg": 9.783682356415827,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:1",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 0,
+      "support_q": [
+        0.7346864971249852,
+        1.8742872224740823,
+        1.2885665011241751,
+        0.5857140903340565,
+        0.7346963758341578,
+        -1.5707905010424357,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8442304887785318,
+        1.7229794620966823,
+        1.099007075751843,
+        0.6239643237339132,
+        0.8442404580885673,
+        -1.5707888047355876,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 2.3929611688061364e-09,
+          "orientation_error_deg": 1.6175939454302393e-10,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.526242194746424e-09,
+          "orientation_error_deg": 3.1984638316442585e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:5",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 45,
+      "support_q": [
+        0.7346864971249902,
+        1.874287222474127,
+        1.2885665011240452,
+        0.5857140903342449,
+        0.7346963758341694,
+        -0.7853923376450793,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8442304887779498,
+        1.7229794621052266,
+        1.0990070757591819,
+        0.6239643237378345,
+        0.8442404580861778,
+        -0.7853906413410308,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 5.273523028952538e-11,
+          "orientation_error_deg": 9.42098059638183e-12,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.5375478085584717e-09,
+          "orientation_error_deg": 3.2095059392054877e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 1.0,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_right",
+              "tip_right:8",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 18,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_right",
+            "tip_right:8",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 90,
+      "support_q": [
+        0.7346864971249539,
+        1.8742872224742395,
+        1.288566501123876,
+        0.5857140903346694,
+        0.7346963758341377,
+        5.8257522291350946e-06,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8442304887785599,
+        1.7229794620971333,
+        1.0990070757609958,
+        0.623964323717829,
+        0.8442404580886022,
+        7.522063449787572e-06,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 1.6490062638139354e-09,
+          "orientation_error_deg": 4.086697362104687e-10,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.541884155409539e-09,
+          "orientation_error_deg": 3.266734759960914e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": null,
+      "sampled_configs": 45,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 135,
+      "support_q": [
+        0.7346864971249595,
+        1.8742872224741995,
+        1.288566501123959,
+        0.5857140903347153,
+        0.7346963758341338,
+        0.7854039891493213,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8442304887784313,
+        1.7229794621001788,
+        1.0990070757636816,
+        0.6239643237178916,
+        0.8442404580881051,
+        0.7854056854615776,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 8.293762478005242e-10,
+          "orientation_error_deg": 4.136011155735406e-10,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.528981924506935e-09,
+          "orientation_error_deg": 3.3589180093477863e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 1.0,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 18,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 180,
+      "support_q": [
+        0.7346864971249977,
+        1.874287222474466,
+        1.2885665011230516,
+        0.5857140903367622,
+        0.7346963758341606,
+        1.5708021525454212,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8442304887781573,
+        1.72297946209874,
+        1.099007075714267,
+        0.6239643238217829,
+        0.8442404580815703,
+        1.57080384880699,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 4.7996204922162046e-09,
+          "orientation_error_deg": 1.84255324554926e-09,
+          "valid": true
+        },
+        "acquisition": {
+          "position_error_mm": 2.5836130291593086e-09,
+          "orientation_error_deg": 3.80141562154695e-10,
+          "valid": true
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_precontact",
+        "fraction": 0.875,
+        "reason": "observed stock-hull collision",
+        "detail": {
+          "robot_source_pairs": [
+            [
+              "right",
+              "tip_left",
+              "tip_left:14",
+              "lower_leg_structure_base.STL"
+            ],
+            [
+              "right",
+              "tip_left",
+              "tip_left:15",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "arm_arm_pair": [],
+          "self_collision_pairs": [],
+          "allowed_original_rim_contacts": 0
+        }
+      },
+      "sampled_configs": 17,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 225,
+      "support_q": [
+        0.7509515285243628,
+        1.9494836447580193,
+        1.2403107766825847,
+        0.8909690925286907,
+        0.7783995680593804,
+        2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8620287023802603,
+        1.810195342734757,
+        1.0461566207349697,
+        0.9655442092558535,
+        0.8889104200232115,
+        2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.6281498962465326,
+          "orientation_error_deg": 9.714609093643288,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.314082715226242,
+          "orientation_error_deg": 10.921685077134487,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.6281498962465326,
+          "orientation_error_deg": 9.714609093643288,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "lower_leg_structure_base.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "source-size-guide-pin"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:0",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 1,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 270,
+      "support_q": [
+        0.8987114396344256,
+        2.294543932871859,
+        2.3458394170003976,
+        -1.0034757966190426,
+        1.2503431827371547,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        1.0031317560974058,
+        2.034864117233758,
+        1.9086406064696055,
+        -0.8552675610810643,
+        1.3071395352558957,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 37.47666610645676,
+          "orientation_error_deg": 27.860384454179474,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 38.73665480501227,
+          "orientation_error_deg": 32.779883916064,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 37.47666610645676,
+          "orientation_error_deg": 27.860384454179474,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [],
+        "arm_arm_pair": [
+          "link4",
+          "link4:0",
+          "link3",
+          "link3:3"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "tip_left",
+            "tip_left:9"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "tip_left",
+            "tip_left:9"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    },
+    {
+      "origin_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "axial_shift_mm": -6.0,
+      "roll_deg": 315,
+      "support_q": [
+        0.7509510870461742,
+        1.8613081250927186,
+        1.4166219270399452,
+        0.26288436036120644,
+        0.7783978857102887,
+        -2.0943999999999994,
+        -0.0135,
+        -0.0135
+      ],
+      "support_pre_q": [
+        0.8620278126164411,
+        1.7065805056406302,
+        1.2308557445858026,
+        0.2742146076570144,
+        0.8889074749175012,
+        -2.0943999999999994,
+        -0.0175,
+        -0.0175
+      ],
+      "IK": {
+        "approach": {
+          "position_error_mm": 3.628107624387061,
+          "orientation_error_deg": 9.71406361366405,
+          "valid": false
+        },
+        "acquisition": {
+          "position_error_mm": 3.314126339558716,
+          "orientation_error_deg": 10.921206772939145,
+          "valid": false
+        }
+      },
+      "target_check": {
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0
+      },
+      "first_blocking_stage": {
+        "stage": "support_approach_IK",
+        "reason": "numerical IK did not solve",
+        "detail": {
+          "position_error_mm": 3.628107624387061,
+          "orientation_error_deg": 9.71406361366405,
+          "valid": false
+        }
+      },
+      "sampled_configs": 0,
+      "simultaneous_counterexample": {
+        "tool_IK": {
+          "position_error_mm": 2.612012026770126e-13,
+          "orientation_error_deg": 5.5397418580108323e-14,
+          "valid": true
+        },
+        "robot_source_pairs": [
+          [
+            "right",
+            "tip_left",
+            "tip_left:14",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_left",
+            "tip_left:15",
+            "foot_structure.STL"
+          ],
+          [
+            "right",
+            "tip_right",
+            "tip_right:5",
+            "lower_leg_structure_base.STL"
+          ]
+        ],
+        "arm_arm_pair": [
+          "gripper",
+          "gripper:1",
+          "link3",
+          "link3:1"
+        ],
+        "self_collision_pairs": [],
+        "allowed_original_rim_contacts": 0,
+        "tool_pairs": [
+          [
+            "tweezer-handle",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch0",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ],
+          [
+            "tweezer-branch1",
+            "support-arm",
+            "gripper",
+            "gripper:0"
+          ]
+        ]
+      },
+      "tool_acquisition": "NOT RUN: source/purchase/access gate did not pass",
+      "annulus_placement": "NOT RUN",
+      "annulus_release": "NOT RUN",
+      "continuous_certificate": "NOT ESTABLISHED",
+      "accepted_complete_access": false
+    }
+  ],
+  "geometry_limit": "Actual three STEP solids are retained, along with both complete stock arms, table, stand, unheld tool and tray. Bonded tread profile is not specified by these STEP parts; the publisher drawing shows it, but no decoded matching tread solid is available. These necessary-condition bare-rim tests cannot establish a purchase on the complete assembled foot.",
+  "pose_scope": "Counterexample configurations, not object transport or loaded manipulation.",
+  "decision": "PARK ODRI: no accepted complete source-scale access/purchase route in the bounded pass"
+}
