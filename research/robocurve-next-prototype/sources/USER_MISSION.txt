@@ -1,0 +1,159 @@
+# ROBOCURVE — NEXT EXECUTABLE PROTOTYPE, NO MORE BRAINSTORMING
+
+Continue on branch research/robocurve-acceptance-2026-11-14 from the latest pushed commit, at least:
+
+851a4bb2c2d9edc649c64b75b4babd0a487ba943
+
+The previous autonomous implementation assignment is COMPLETE.
+
+It produced:
+- A passing representative Toshiba CPU contact mechanism.
+- Eight negative-control rejections.
+- Blocked sampled YAM door access.
+- Executed failures/limitations for YUBI and Faze4.
+
+Preserve every result. Do not keep trying to force those candidates to pass.
+
+## PRIMARY TASK: CELLO ROTARY-BRAKE ADJUSTMENT
+
+Use the source-backed candidate ranked #6 in:
+
+research/robocurve-final-discovery/TOP_15_VERIFIED_TASKS.md
+
+Original publisher:
+https://github.com/pilcsimo/cello_mechanical
+
+Pinned commit:
+f4b572107fcd4c2d59bb563462e21ba39d878fa6
+
+Actual documented task:
+Adjust the two M3×25 screws of the CELLO leader-arm's passive rotary brake so that the downstream robotic arm holds its own weight after release but can still move smoothly.
+
+This is genuine robot teleoperation hardware preparation, not the previously rejected generic service arm.
+
+## STEP 1 — EARLIEST PHYSICAL KILL TEST
+
+Load the genuine CELLO brake and relevant downstream arm CAD.
+
+Resolve the correct link registration, joint axis, authentic mass and center-of-mass assumptions.
+
+Establish:
+
+- Actual gravity torque at two plausible arm poses.
+- Loose-brake arm movement.
+- Available contact radius and pad geometry.
+- Whether a finite brake-friction window could retain the genuine arm while permitting controlled manual motion.
+
+Do NOT add an arbitrary counterweight or fictitious load to create a challenge.
+
+If the genuine loose arm does not exhibit consequential sag, or the intended torque window cannot exist, STOP this candidate and switch automatically to the next source-backed option.
+
+## STEP 2 — BUILD CAUSAL CPU BRAKE MECHANICS
+
+If the baseline is viable, implement a CPU-only model using:
+
+- Actual split-shell brake geometry.
+- The genuine inner drum.
+- Both TPU pads.
+- Two independent preload screws.
+- Coupled normal force and rotary friction.
+- The actual gravity-loaded downstream link.
+- Declared parameter ranges for unknown friction, compression and print-material properties.
+
+Screw adjustment must produce physical changes in brake drag through the implemented mechanism.
+
+No hidden hold-state flag, commanded brake torque, scripted joint lock or artificial success latch.
+
+## STEP 3 — EXECUTE NEGATIVE CONTROLS
+
+Test:
+
+- Both screws loose: arm sags.
+- Proper symmetric adjustment: arm holds and still moves.
+- Excessive tightening: arm locks or exceeds the allowed movement resistance.
+- Only one screw tightened.
+- Uneven preload.
+- Missing or displaced pad.
+- Hand still supporting the arm.
+- Gravity-neutral pose that disguises a loose brake.
+- Loss of retention after a full motion/release cycle.
+
+Success must require BOTH gravity holding and smooth reversible movement, at the same screw setting, after the robot releases support.
+
+Use externally measurable physical outcomes.
+
+## STEP 4 — REAL YAM ACCESS
+
+Reuse the existing 315-hull-per-arm collision infrastructure.
+
+Use original-scale brake, arm and an actual plausible hex-driver geometry.
+
+Check:
+- Genuine arm support.
+- Access to both M3 screws.
+- Full gripper/palm/wrist clearance.
+- Actual tool purchase and support reaction.
+- Necessary continuous approach and withdrawal motions.
+
+Do not claim an IK endpoint proves a valid grasp or a loaded tool motion.
+
+## STEP 5 — NOVELTY AND REVIEW
+
+Refresh current official tasks involving adjustable joint friction, rotary brakes, robot commissioning, gravity holding and clamp adjustment.
+
+Judge the actual central operation, not the title.
+
+If a legitimate earlier task already owns the same physical operation, PARK CELLO before investing further.
+
+## AUTOMATIC FALLBACK
+
+If CELLO fails a decisive gate, move to the already researched Chefman detachable spring-wire fryer handle, ranked #4.
+
+Use its genuine documented procedure: squeeze the handle bars, insert both prongs through the basket holes, release them into the retaining cuffs, and verify the basket can be supported by the installed handle.
+
+Perform source and stock-YAM feasibility checks before building its contact mechanism.
+
+Do not invent easier replacement handles, enlarged holes, rigid snap-to connections or arbitrary spring properties.
+
+If Chefman also fails, use the existing portfolio to select the strongest remaining source-backed candidate. Do not generate another 100 ideas.
+
+## WORK AUTONOMOUSLY
+
+Write and execute meaningful CPU code, not just research reports.
+
+Debug code failures.
+
+Run actual mechanism checks and wrong-case controls.
+
+Record all numerical results and source assumptions.
+
+Switch candidates yourself when an essential gate fails.
+
+Do not ask for approval between CPU-only alternatives.
+
+Commit and push reproducible code and results.
+
+## STOP CONDITION
+
+Stop when ONE task has:
+
+1. A source-faithful mechanism.
+2. A successful executed CPU physical test.
+3. Executed meaningful negative controls.
+4. A plausible demonstrated route for stock YAM manipulation, or a precisely bounded remaining access test.
+5. A defensible novelty and importance argument.
+6. A practical physical score.
+
+If all remaining candidates fail decisive gates, report that result without inventing positive evidence.
+
+NO GPU, Brev, Dream, paid compute, purchases or official competition submission.
+
+## FINAL RESPONSE
+
+Provide the implemented task, actual test results, failed controls, YAM access status, source limitations, official novelty risks and new commit.
+
+End with one explicit decision:
+
+READY FOR FULL IMPLEMENTATION: YES or NO.
+
+BEGIN EXECUTABLE CPU WORK NOW. DO NOT RESTART DISCOVERY.

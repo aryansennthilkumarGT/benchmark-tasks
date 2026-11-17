@@ -1,0 +1,1248 @@
+{
+  "robot_pin": "0059d02a1a91bc6834c1d0846022891df0c78730",
+  "hulls_per_arm": 315,
+  "cases": [
+    {
+      "foot_center_m": [
+        0.43,
+        0.0,
+        0.98
+      ],
+      "support_IK": {
+        "position_error_mm": 73.9524448486489,
+        "orientation_error_deg": 15.449040467383325,
+        "valid": false
+      },
+      "tool_IK": [
+        {
+          "stage": "approach",
+          "position_error_mm": 1.270502106169367e-11,
+          "orientation_error_deg": 1.2242915176809998e-12,
+          "valid": true
+        },
+        {
+          "stage": "preinsert",
+          "position_error_mm": 2.827764123195732e-10,
+          "orientation_error_deg": 5.401330317007163e-11,
+          "valid": true
+        },
+        {
+          "stage": "pocket",
+          "position_error_mm": 1.7105879677306426e-08,
+          "orientation_error_deg": 1.0115511018128817e-08,
+          "valid": true
+        },
+        {
+          "stage": "withdraw",
+          "position_error_mm": 6.353435565376845e-12,
+          "orientation_error_deg": 1.7052510435209061e-12,
+          "valid": true
+        }
+      ],
+      "left_keyframes": [
+        {
+          "stage": "approach",
+          "q": [
+            -1.3761998957596215,
+            1.5811473346228875,
+            0.7164529700498682,
+            0.8646886936165117,
+            -1.3761898958999412,
+            -1.570801382898646,
+            -0.0025,
+            -0.0025
+          ]
+        },
+        {
+          "stage": "preinsert",
+          "q": [
+            -1.1902742706844178,
+            1.6440649445075852,
+            0.7827569394281728,
+            0.8613042632051972,
+            -1.1902642778041321,
+            -1.5707988876012067,
+            -0.0025,
+            -0.0025
+          ]
+        },
+        {
+          "stage": "pocket",
+          "q": [
+            -1.1333533286131265,
+            1.6725402949889987,
+            0.814430956481263,
+            0.8581057659440323,
+            -1.1333433423107444,
+            -1.5707985529973498,
+            -0.0025,
+            -0.0025
+          ]
+        },
+        {
+          "stage": "withdraw",
+          "q": [
+            -1.3761998957596198,
+            1.5811473346229183,
+            0.7164529700498936,
+            0.8646886936164764,
+            -1.3761898958999432,
+            -1.5708013828986895,
+            -0.0025,
+            -0.0025
+          ]
+        }
+      ],
+      "right_support_q": [
+        0.616934412417617,
+        3.4112332917085495,
+        3.1415899999999994,
+        1.5707999999999998,
+        2.876553287254574e-06,
+        0.9538560226247056,
+        -0.0135,
+        -0.0135
+      ],
+      "samples": [
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.08333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.16666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.25,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.3333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.41666666666666663,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.5,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.5833333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.6666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.75,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.8333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.9166666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 1.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.08333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.16666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.25,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.3333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.41666666666666663,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.5,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.5833333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.6666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.75,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.8333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.9166666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 1.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.08333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.16666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.25,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.3333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.41666666666666663,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.5,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.5833333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.6666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.75,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.8333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.9166666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 1.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        }
+      ],
+      "summary": {
+        "sampled_poses": 39,
+        "robot_obstacle_poses": 39,
+        "self_collision_poses": 0,
+        "tool_obstacle_poses": 0
+      }
+    },
+    {
+      "foot_center_m": [
+        0.48,
+        -0.03,
+        1.03
+      ],
+      "support_IK": {
+        "position_error_mm": 35.78855224027029,
+        "orientation_error_deg": 11.674106776343715,
+        "valid": false
+      },
+      "tool_IK": [
+        {
+          "stage": "approach",
+          "position_error_mm": 1.137830504453853e-12,
+          "orientation_error_deg": 1.8716478580965704e-13,
+          "valid": true
+        },
+        {
+          "stage": "preinsert",
+          "position_error_mm": 2.4885284061828743e-10,
+          "orientation_error_deg": 5.83644286754973e-11,
+          "valid": true
+        },
+        {
+          "stage": "pocket",
+          "position_error_mm": 4.043303536765305e-08,
+          "orientation_error_deg": 1.2219601780620164e-08,
+          "valid": true
+        },
+        {
+          "stage": "withdraw",
+          "position_error_mm": 1.072396012241012e-08,
+          "orientation_error_deg": 1.138381413438455e-08,
+          "valid": true
+        }
+      ],
+      "left_keyframes": [
+        {
+          "stage": "approach",
+          "q": [
+            -1.2498291915778814,
+            1.6327850036436917,
+            0.9979118250118513,
+            0.6348690228311478,
+            -1.2498191966739585,
+            -1.5707994850538851,
+            -0.0025,
+            -0.0025
+          ]
+        },
+        {
+          "stage": "preinsert",
+          "q": [
+            -1.093880458134445,
+            1.7181701326277086,
+            1.093387370480527,
+            0.6247791418491725,
+            -1.0938704868994353,
+            -1.5707985038779884,
+            -0.0025,
+            -0.0025
+          ]
+        },
+        {
+          "stage": "pocket",
+          "q": [
+            -1.0466292439416722,
+            1.7527344269792011,
+            1.1343398229112742,
+            0.6183910249511207,
+            -1.0466192876996636,
+            -1.5707983375627417,
+            -0.0025,
+            -0.0025
+          ]
+        },
+        {
+          "stage": "withdraw",
+          "q": [
+            -1.2498291915765949,
+            1.63278500347744,
+            0.997911825187131,
+            0.6348690218599037,
+            -1.249819196671791,
+            -1.5707994856538923,
+            -0.0025,
+            -0.0025
+          ]
+        }
+      ],
+      "right_support_q": [
+        0.5202593312814268,
+        3.3453484608881117,
+        3.1415899999999994,
+        1.5707999999999998,
+        2.0757362727834705e-06,
+        1.050530584242488,
+        -0.0135,
+        -0.0135
+      ],
+      "samples": [
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.08333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.16666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.25,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.3333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.41666666666666663,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.5,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.5833333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.6666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.75,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.8333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 0.9166666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "approach->preinsert",
+          "fraction": 1.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.08333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.16666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.25,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.3333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.41666666666666663,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.5,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.5833333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.6666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.75,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.8333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 0.9166666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "preinsert->pocket",
+          "fraction": 1.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.08333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.16666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.25,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.3333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.41666666666666663,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.5,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.5833333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.6666666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.75,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.8333333333333333,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 0.9166666666666666,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        },
+        {
+          "segment": "pocket->withdraw",
+          "fraction": 1.0,
+          "robot_obstacle": [
+            [
+              "right",
+              "tip_left",
+              "lower_leg_structure_base.STL"
+            ]
+          ],
+          "self_collision": [],
+          "tool_obstacle": []
+        }
+      ],
+      "summary": {
+        "sampled_poses": 39,
+        "robot_obstacle_poses": 39,
+        "self_collision_poses": 0,
+        "tool_obstacle_poses": 0
+      }
+    }
+  ],
+  "scope": "One pocket approach/withdrawal with original source geometry and full stock hands. Static support and held-tool hypotheses, not continuous collision or loaded acquisition proof.",
+  "unknown": [
+    "Tool jaw-force/elastic response and stock-pad gripping wrench",
+    "Ring seating/release while squeezed; capture of both banks without extra support",
+    "Actual PCB axial registration and wire routing",
+    "Continuous sweeps between finite samples",
+    "Whole twelve-element assembly, fork closure and optical output"
+  ]
+}

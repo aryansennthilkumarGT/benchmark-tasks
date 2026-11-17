@@ -1,0 +1,707 @@
+{
+  "base_commit": "851a4bb2c2d9edc649c64b75b4babd0a487ba943",
+  "source_pins": {
+    "cello": "f4b572107fcd4c2d59bb563462e21ba39d878fa6",
+    "chefman_attributed_mirror": "fb7bd3c6ad7e26472d89719efe55d281cff8c528",
+    "ODRI": "66af1522b4fba0ec4a1d7790e66f5e4652208d30"
+  },
+  "checkpoint_files": [
+    {
+      "path": ".gitignore",
+      "bytes": 19,
+      "sha256": "862263fa1f46c20f0d1e4dac5ffcc75abd55c08211b2c3864c5f8764b9d87793"
+    },
+    {
+      "path": "CANDIDATE_DECISIONS.md",
+      "bytes": 2391,
+      "sha256": "d0fa3a58fee90bfba3041fd32000d54512a409ceed4d305270c78c516108c1bf"
+    },
+    {
+      "path": "ENVIRONMENT.json",
+      "bytes": 399,
+      "sha256": "79b23a2f71bb1749d2089351ae2c5a3adb6a55821289440bdcc77515208676c6"
+    },
+    {
+      "path": "EXECUTED_TEST_RESULTS.md",
+      "bytes": 6228,
+      "sha256": "2ac5a1ac8827328a4796379ad0d2d91ee94c2cf2653d2819579c116e4f45a7ba"
+    },
+    {
+      "path": "NEXT_GATE.md",
+      "bytes": 1895,
+      "sha256": "cc907063a9f9dd8e9b52a56618bcb3c922163a7881982466a9d67c48aa6ba1ab"
+    },
+    {
+      "path": "PHYSICAL_SCORING.md",
+      "bytes": 2101,
+      "sha256": "787c2231417df1980e4a3ff8daad5f387011bec67cbaa4d15330abdcdd5d4a89"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2770,
+      "sha256": "4b0a02aff486b81b6afcf1c1b18dfbe68aaf5969e92ba5e77d97e27daa39b8a8"
+    },
+    {
+      "path": "REPORT_OUTPUT.txt",
+      "bytes": 58,
+      "sha256": "65ab36bf094e2d5cb7392f4c393f8e9e6c5cb9aa349bfb6495e93b91445623fe"
+    },
+    {
+      "path": "RESCORE_OUTPUT.txt",
+      "bytes": 351,
+      "sha256": "d2823748ce5244afbc02b9688a91ccdc1eb631eb946101d58d000de58ab499f9"
+    },
+    {
+      "path": "SOURCE_AND_ASSUMPTIONS.md",
+      "bytes": 7727,
+      "sha256": "22e00cb7652f6fa4ed3a3ce853ba548c12adb36d0cb745248ea8d845fdbec8c8"
+    },
+    {
+      "path": "VERIFICATION.json",
+      "bytes": 414,
+      "sha256": "fb1160099d54abbce6b98714c10ccee07c61a8787a5405cb90c62ebb0f6e2281"
+    },
+    {
+      "path": "VERIFICATION_OUTPUT.txt",
+      "bytes": 414,
+      "sha256": "fb1160099d54abbce6b98714c10ccee07c61a8787a5405cb90c62ebb0f6e2281"
+    },
+    {
+      "path": "cello/inspect_source.py",
+      "bytes": 1729,
+      "sha256": "47b2f824fabd3b304a053106b2e955cfc827cc9c1171e097b61b8bf2e61eb6b2"
+    },
+    {
+      "path": "cello/load_gate.py",
+      "bytes": 1317,
+      "sha256": "5ced8ede095ccfda556b816d5ccb4b4e7fd79569924de12bfc91a8587a76231d"
+    },
+    {
+      "path": "cello/results/INSPECTION_EXECUTION.txt",
+      "bytes": 1781,
+      "sha256": "0f7950c166d544d8759fb10a6b837fd6bb88e5ca676054935292bb86355d4d68"
+    },
+    {
+      "path": "cello/results/LOAD_EXECUTION.txt",
+      "bytes": 95,
+      "sha256": "3358cf4701271565c0e9ab85f7cdbca5aa332b6b9144df86109a38fe87640575"
+    },
+    {
+      "path": "cello/results/LOAD_GATE.json",
+      "bytes": 1021,
+      "sha256": "dad59f4bf90c546a7c96aaac6b707a0501bbda344d235fc006ffe0fe5fdbbaba"
+    },
+    {
+      "path": "cello/results/SOURCE_INSPECTION.json",
+      "bytes": 159714,
+      "sha256": "5b1b6f7cbfd1a7729d2422a037b5974e2896a8ba769c86da4c55525907620638"
+    },
+    {
+      "path": "chefman/inspect_mesh.py",
+      "bytes": 837,
+      "sha256": "703da115f508c5fd69e998269f36a3fee1a8e77a8ec3d1ad816fb42bc980e3ae"
+    },
+    {
+      "path": "chefman/results/DATASET_MESH_AUDIT.json",
+      "bytes": 744,
+      "sha256": "90c40bdb268e926f2812ea179001917ebbb658b149150fd97462067e4d80d9df"
+    },
+    {
+      "path": "chefman/results/MESH_EXECUTION.txt",
+      "bytes": 149,
+      "sha256": "e3f8da349f882577504c6f5f26f7cd5f8be49540e8b315cab8bf7ebf0c6396e4"
+    },
+    {
+      "path": "debug/BILINEAR_CONTROLS.json",
+      "bytes": 915862,
+      "sha256": "311c241679e3ad89e6d4a518b48f8c1c8e6cef93d7ae73e3b77d2e83d2534081"
+    },
+    {
+      "path": "debug/CONTACT_TRIAL.json",
+      "bytes": 7814,
+      "sha256": "8a8b22056f252a1ccbcdb78f20acbac5547e3ae6b426f308113f57f33556ec16"
+    },
+    {
+      "path": "debug/CONTACT_TRIAL_EXECUTION.txt",
+      "bytes": 4900,
+      "sha256": "5c6f8660ca9cee78da5d9f100f27bb1ef5a62c2f94473df5f470b959673b75a2"
+    },
+    {
+      "path": "debug/DEFORMED_RING_NODES.npy",
+      "bytes": 3200,
+      "sha256": "a62507bdef5ec2666a3e0103dc0e284830573952e50d6f95b3301b85e23baa2b"
+    },
+    {
+      "path": "debug/FREE_FOOT_EXECUTION.txt",
+      "bytes": 2929,
+      "sha256": "8268d28b5b9c90b0af1fd274b339f8176742b97b454fa67665b70126605aab43"
+    },
+    {
+      "path": "debug/FREE_FOOT_NODES.npy",
+      "bytes": 6272,
+      "sha256": "80bd93ad03a34e6e2619bf66f705106c217e14fd1e3eb0caeadbf343b6624237"
+    },
+    {
+      "path": "debug/FREE_FOOT_TRIAL.json",
+      "bytes": 3639,
+      "sha256": "855186d542cfe659627025f56cceea423b49c992d5aba16ed8fb93d610ffc0aa"
+    },
+    {
+      "path": "debug/INVALID_REVERSE_GRIP_IK_ACCESS.json",
+      "bytes": 21258,
+      "sha256": "ebbff41491466c782d20259310557476c34f231d3ea74ee952c20754ad6b83b0"
+    },
+    {
+      "path": "debug/INVALID_STL_FRAME_SECTIONS.png",
+      "bytes": 59877,
+      "sha256": "4b3d44d165e0ad8c92b01f2fab63be5b5c2a09954dba41072688312556a5415d"
+    },
+    {
+      "path": "debug/INVALID_SUPPORT_IK_ACCESS.json",
+      "bytes": 31639,
+      "sha256": "8bacdab3dfb50683b09757c64e968c762aadde888d60e53f7d7e715706a572f9"
+    },
+    {
+      "path": "debug/PIN_OMITTED_CUBIC_CONTROLS_PARTIAL.txt",
+      "bytes": 2493,
+      "sha256": "f5ee84b57dedd72f4f8647a6022551e472a3406b5ac55b8bcb1e451754fcd73e"
+    },
+    {
+      "path": "debug/PIN_OMITTED_CUBIC_SENSITIVITY_PARTIAL.txt",
+      "bytes": 546,
+      "sha256": "668020eee638bd16e66fd0030eafb23890b3c5ae67daa061bbc6de3120a42b39"
+    },
+    {
+      "path": "debug/PIN_OMITTED_elastic_ring.py.txt",
+      "bytes": 5314,
+      "sha256": "4f33c65c4f99f2008b6a2f1060ee40460b108ca57fdcd01b8eaaf7bf8b84cf11"
+    },
+    {
+      "path": "debug/README.md",
+      "bytes": 1658,
+      "sha256": "1acf16d51608606bd8a00040b005e53158bc9b1e805b716ff2917eb07a3714b5"
+    },
+    {
+      "path": "debug/UNCONVERGED_BILINEAR_SENSITIVITY.json",
+      "bytes": 208292,
+      "sha256": "aa6b924d557d09398a5c9c4675dbaab26bb8bd9076505b423025774b02a693d1"
+    },
+    {
+      "path": "hash_manifest.py",
+      "bytes": 2158,
+      "sha256": "360ac93485afe312f32e10577ec884314ab1f52d413d170bc1802a79d23dad0f"
+    },
+    {
+      "path": "odri/contact_coupon.py",
+      "bytes": 1734,
+      "sha256": "bf51bad0ee0505993559b5dbb5997b4eb48705a812983014bb52cd5ed1abb780"
+    },
+    {
+      "path": "odri/elastic_ring.py",
+      "bytes": 6200,
+      "sha256": "ca46054de7ec5ea225716059f5ee89ccfead878b05814ade8c8e2ee33b09bfe5"
+    },
+    {
+      "path": "odri/free_foot_trial.py",
+      "bytes": 1107,
+      "sha256": "a71b3cede1d764941360c495012eb38b4fed3126d3bee5d629f6d364f61c1243"
+    },
+    {
+      "path": "odri/inspect_source.py",
+      "bytes": 954,
+      "sha256": "65074b380b73456960599d8b54e5a617cbf04db0b718e0ee1e537a46b5a1efd9"
+    },
+    {
+      "path": "odri/mechanism_tests.py",
+      "bytes": 3603,
+      "sha256": "36b5585dcec3a07661a97628598e568b8c2ad2a846ba31230c02862baa8cd235"
+    },
+    {
+      "path": "odri/pose_audit.py",
+      "bytes": 1531,
+      "sha256": "cc2ea506766b85df421f2470a1a9e544d45d26aac87496bc13ec48bc95091f16"
+    },
+    {
+      "path": "odri/results/CONTACT_STATES.png",
+      "bytes": 185210,
+      "sha256": "40efc2c2f32ffb56ea0ae2651a7db1f7d89bf215eaf743e35a00095b86c45c65"
+    },
+    {
+      "path": "odri/results/CONTROLS.json",
+      "bytes": 918221,
+      "sha256": "6807d23922883efdccf1464dcb9b7bb0a271348bfa5fc75cdb645a745972ec26"
+    },
+    {
+      "path": "odri/results/CONTROLS_EXECUTION.txt",
+      "bytes": 4818,
+      "sha256": "c646bf66c9f9a9e105379514b3d5d90f156eb87ef4475952b2fa0ae69cda2a58"
+    },
+    {
+      "path": "odri/results/GEOMETRY.json",
+      "bytes": 75234,
+      "sha256": "701d9144a96707ef19b3cafd3f9fe10803ca467139b864aa3922b09c33d04142"
+    },
+    {
+      "path": "odri/results/GUIDE_GEOMETRY.json",
+      "bytes": 2408,
+      "sha256": "332d4a90774f1ef605b91dec4327ce023689587903f5afad4e202c3d863debba"
+    },
+    {
+      "path": "odri/results/INSPECTION_EXECUTION.txt",
+      "bytes": 18071,
+      "sha256": "d10ea4c3b7fc25afd8554c7619505ba5235e997d5e5df845542a138d50fa26a3"
+    },
+    {
+      "path": "odri/results/POSE_AUDIT.json",
+      "bytes": 2484,
+      "sha256": "2ebea6db4132f9bd9de5ee5edbe4926a2e62922fd730085db0f285f95c6e784e"
+    },
+    {
+      "path": "odri/results/POSE_AUDIT_EXECUTION.txt",
+      "bytes": 1970,
+      "sha256": "a8f8fb85c17437cd45b21dc37bf91bdce250b15866dfa9bed8299c7a5fb41097"
+    },
+    {
+      "path": "odri/results/REGISTERED_SECTIONS.png",
+      "bytes": 186105,
+      "sha256": "9b7a47f1e6d1b6000a8d5f958800c3752a96cff807285945daf40387446cdcba"
+    },
+    {
+      "path": "odri/results/SECTIONS.json",
+      "bytes": 6271252,
+      "sha256": "26bfaf6779c09b246360ce406268e79698012e5215feb8b41ef99931a6ac61bd"
+    },
+    {
+      "path": "odri/results/SECTIONS_EXECUTION.txt",
+      "bytes": 117,
+      "sha256": "2a71174fac33a44b7541851ce6cfc6fe4dc4286a5be8fdbdf5393a0b070f9463"
+    },
+    {
+      "path": "odri/results/SENSITIVITY.json",
+      "bytes": 208903,
+      "sha256": "bb865560310123ccefe0659b3ad0b03b087143e0f22ab93880707c6078dd9636"
+    },
+    {
+      "path": "odri/results/SENSITIVITY_EXECUTION.txt",
+      "bytes": 970,
+      "sha256": "c8aa291a4b0b85974b26ef0ba84489492720c7422240282b09309a8c03b13338"
+    },
+    {
+      "path": "odri/results/SOURCE_AUDIT.json",
+      "bytes": 1474,
+      "sha256": "8d35750f2f29dbb24f872be6d702be2e81f9ce426a4d1de0653296626a6fc797"
+    },
+    {
+      "path": "odri/results/SOURCE_AUDIT_EXECUTION.txt",
+      "bytes": 1280,
+      "sha256": "f44a0b2b7b924b9579b2003bea7b06b7fb93b054930e37b102d7f0f6b60ed15a"
+    },
+    {
+      "path": "odri/results/YAM_ACCESS.json",
+      "bytes": 208605,
+      "sha256": "8782e1b9aa20170304dc598a7d1e1ddf5ace22b6c98a06dadb77b78817f5a6b3"
+    },
+    {
+      "path": "odri/results/YAM_EXECUTION.txt",
+      "bytes": 1203,
+      "sha256": "31d84466d74656f38bd9a887ca64406bb47d00b014d02c8d291b4b1262768a8e"
+    },
+    {
+      "path": "odri/scoring.py",
+      "bytes": 1682,
+      "sha256": "270633b9eca2171dc64786051cdafd3f2ac9cb141efc36a1153db1b80816e710"
+    },
+    {
+      "path": "odri/sections.py",
+      "bytes": 2629,
+      "sha256": "d5ab2ef6caa7f2563d3d8d56b7683912497638c4d30441e3bc281503ebf409af"
+    },
+    {
+      "path": "odri/source_audit.py",
+      "bytes": 3478,
+      "sha256": "1856accfd40506c05613df1b2f8600b977a7af9f643d586f4bce84ac789dff66"
+    },
+    {
+      "path": "odri/yam_access.py",
+      "bytes": 6153,
+      "sha256": "31bbfdd9dd21c31dc4823c73a4e5612846072d137fc2ab31f92996ed1f2ad088"
+    },
+    {
+      "path": "requirements-cpu.txt",
+      "bytes": 140,
+      "sha256": "b7fef27c78f3f0b722d9824a4fbfb6726542d3056351282305ddd81f7b12116f"
+    },
+    {
+      "path": "rescore_results.py",
+      "bytes": 892,
+      "sha256": "81eda62afa265b7a8b00ba02cc291f51e8ae484a789601649c3c28d27e1c29e3"
+    },
+    {
+      "path": "run_all.py",
+      "bytes": 1611,
+      "sha256": "5a905b1c4a6508f782d9f9fa3594e832d010e9a775f8cd344bc97bca69e0e68e"
+    },
+    {
+      "path": "sources/CURRENT_SEARCH.json",
+      "bytes": 14960,
+      "sha256": "549a84ccb7c607248cd85ee143759b801c786731978f1d3c92c083cd505e72b1"
+    },
+    {
+      "path": "sources/Chefman_080_EN.pdf",
+      "bytes": 711733,
+      "sha256": "1ee57440306dcd603a532bbe9937d3156ebc84f2c3f348de3af77fdf6286b6a3"
+    },
+    {
+      "path": "sources/Chefman_080_OBJ.obj.gz",
+      "bytes": 3104776,
+      "sha256": "49f6fbc565f8340a803b912646be169a74642788a00b6d6507ee6217eeea7e10"
+    },
+    {
+      "path": "sources/Chefman_gt_part.json",
+      "bytes": 129,
+      "sha256": "2af6238993dc63816ac3e59775bca394900a33745817733c01c4053a0d070929"
+    },
+    {
+      "path": "sources/Chefman_manual.txt",
+      "bytes": 18644,
+      "sha256": "af64fd6273597266288f775f0e11e80472ab5d4870c345c696b0489a0f80ced2"
+    },
+    {
+      "path": "sources/NOVELTY_AND_IMPORTANCE.md",
+      "bytes": 3456,
+      "sha256": "41cfc3538ee17ecd290ef53c9e031c70fc3981436d3467264e44d39d7cf65692"
+    },
+    {
+      "path": "sources/ODRI_INPUTS.json",
+      "bytes": 3023,
+      "sha256": "f671de06c45d2732fe3758164ec130116833bbbbd032598ea2b35289a26cd05b"
+    },
+    {
+      "path": "sources/OFFICIAL_FILES.json",
+      "bytes": 9599,
+      "sha256": "876412d89b9ffa8794c2799d746e5c51a164f6431f922066ccf787a7a7fef0ea"
+    },
+    {
+      "path": "sources/SEARCH_EXECUTION.txt",
+      "bytes": 92,
+      "sha256": "ba7b50686989bb83158c3fa959cd3800b451213356d92eef4f9cd6e1e81faf17"
+    },
+    {
+      "path": "sources/USER_MISSION.txt",
+      "bytes": 5778,
+      "sha256": "a924f708cf5caaa2410389b7e4be81bb85bdd000b650304841f7461162d4c2c0"
+    },
+    {
+      "path": "sources/capture_implementations.py",
+      "bytes": 2456,
+      "sha256": "b66497060d26aee4be41a8393de98d62d987235baa8434e1f69c5eec14b43436"
+    },
+    {
+      "path": "sources/cello/LICENSE",
+      "bytes": 1067,
+      "sha256": "8fe53aa951edd682d125326668c7463b5bd2eaeb0b23fc53d3c25bb4af45801b"
+    },
+    {
+      "path": "sources/cello/README.md",
+      "bytes": 2757,
+      "sha256": "a2d42a5d03c60bc18e4d214c3e917351813e90f2fffcfe65ef99b94cd9d4eef6"
+    },
+    {
+      "path": "sources/cello/step/Base.step",
+      "bytes": 732166,
+      "sha256": "f353eab872fefe1348800b28bb618394f35b223029ab3c739a0b8711d3a03a63"
+    },
+    {
+      "path": "sources/cello/step/Brake Axial.step",
+      "bytes": 750124,
+      "sha256": "e0b19be853888558be3de9aa1db65e0717b2d36b2c7c3746be8155f525fcb6c7"
+    },
+    {
+      "path": "sources/cello/step/Brake Radial.step",
+      "bytes": 734124,
+      "sha256": "31342509e3be41b5cfdb8b2dad93f224486278ca31a6a5f9774d5d401de0401f"
+    },
+    {
+      "path": "sources/cello/step/L1.step",
+      "bytes": 971160,
+      "sha256": "4a7ec6eca12c4a59c9f42bc8d2af198eccdaebbd0f940fea42c39aefc2c43c70"
+    },
+    {
+      "path": "sources/cello/step/L2.step",
+      "bytes": 383826,
+      "sha256": "141093b6fa38c2af1a82781c67957c068543cf255902a3642d8e38b0ac426e4f"
+    },
+    {
+      "path": "sources/cello/step/L3.step",
+      "bytes": 382881,
+      "sha256": "8f70994f9e409a1ba4dea94b114c35115d64941a542bd3e46982157e34834d82"
+    },
+    {
+      "path": "sources/cello/step/L4.step",
+      "bytes": 274211,
+      "sha256": "9c10fcfe908c57a1a369dcdada09cd3d807c109e71c6b41bf2a2188008c5b87c"
+    },
+    {
+      "path": "sources/cello/step/L5.step",
+      "bytes": 970997,
+      "sha256": "192963546e61515232e3707cb8ab75c8941e79eb512951c2dc870575c4af266e"
+    },
+    {
+      "path": "sources/cello/step/L6.step",
+      "bytes": 695468,
+      "sha256": "22afb597f67e3b8498e8181e012ec2abe04dd179485ab47bfe5227c8b7dde6cc"
+    },
+    {
+      "path": "sources/cello/step/Lobe.step",
+      "bytes": 91152,
+      "sha256": "b4845fdfae6c076d702c8a1c7da2639ad35d65e224496222009210d77044c2e5"
+    },
+    {
+      "path": "sources/cello/step/Mount Back.step",
+      "bytes": 264175,
+      "sha256": "cd97bc4efe0aa4099d4edee0e12b2191d748061bfe4b487d3a17de21d3029149"
+    },
+    {
+      "path": "sources/cello/step/Mount Front.step",
+      "bytes": 240109,
+      "sha256": "3984b572b5cb629cb2d46656e3b2a8e18a25d1495189636149b258606a786014"
+    },
+    {
+      "path": "sources/cello/step/Mount Spacer.step",
+      "bytes": 45655,
+      "sha256": "9b038380f414c9917cdb1110d5607bd3b99eab6610b07dfb1d723b50be8e13f5"
+    },
+    {
+      "path": "sources/odri/README.md",
+      "bytes": 7825,
+      "sha256": "afc66e8f04c16340f9503544836a33ec7f5bb1f65441590ace549896156848b6"
+    },
+    {
+      "path": "sources/odri/images/foot_sensor_principle_1.jpg",
+      "bytes": 108590,
+      "sha256": "c4a7b5b35330d3e0a664b2df0a62c962be17b1a5b4430a3236a83271ad782168"
+    },
+    {
+      "path": "sources/odri/images/lower_leg_1.jpg",
+      "bytes": 169302,
+      "sha256": "2dcdedf4a81b87f7099dd340fa6c076f85c16784860732cf9daadee1880a7ca2"
+    },
+    {
+      "path": "sources/odri/images/measurement_foot_contact_sensor.png",
+      "bytes": 97095,
+      "sha256": "92ba6f16ee5d093e5648b13e88c104c4f58eef685f15af01314cf2e7ddbb62a7"
+    },
+    {
+      "path": "sources/odri/lower_leg.PDF",
+      "bytes": 603882,
+      "sha256": "c2321937d9a30961422127364e0915dd4384c67a3308afa22b454df9afc55fb7"
+    },
+    {
+      "path": "sources/odri/step_files/foot_structure.STEP",
+      "bytes": 649414,
+      "sha256": "0a8abaa627806dccb68e760d76ef90f5469534658a8ad612c6cd83d373e9550c"
+    },
+    {
+      "path": "sources/odri/step_files/lower_leg_structure_base.STEP",
+      "bytes": 1043403,
+      "sha256": "47a20c48fa1434f470af34d0187ee32686e892d595b03198785f6f2a9b14f11c"
+    },
+    {
+      "path": "sources/odri/step_files/lower_leg_structure_fork.STEP",
+      "bytes": 367528,
+      "sha256": "8a2c115de859c8407c759848b42bf4e9b4c9e6f5f9d71d48755f544def5add27"
+    },
+    {
+      "path": "sources/official/CELLO-1204/tasks/helping-hands-cross-wires/README.md",
+      "bytes": 7542,
+      "sha256": "169d417be9dcca4bbe3c41281d88a08290e704360b8517927ea00c257f97b076"
+    },
+    {
+      "path": "sources/official/CELLO-1204/tasks/helping-hands-cross-wires/helping_hands_cross_wires.py",
+      "bytes": 21497,
+      "sha256": "dd363061f126e1cb64ab90054e15d07de3aed6b1c335c5efb53a9417f8569735"
+    },
+    {
+      "path": "sources/official/CELLO-1204/tasks/helping-hands-cross-wires/task.json",
+      "bytes": 4396,
+      "sha256": "04d2a40b0f02dae355aac4e6f29f2aef3036c3472e9521d540d4df0483e7f858"
+    },
+    {
+      "path": "sources/official/CELLO-1315/tasks/monitor-portrait-locks/README.md",
+      "bytes": 10898,
+      "sha256": "c37e2214704b7dcb35dac7b1111995e63445cbcbab94176163edbc12ab55a424"
+    },
+    {
+      "path": "sources/official/CELLO-1315/tasks/monitor-portrait-locks/contract.py",
+      "bytes": 844,
+      "sha256": "52d8920516dad51213e04aa88aef594dae1fdfa1a4a5e334e82e9b68ca627cb1"
+    },
+    {
+      "path": "sources/official/CELLO-1315/tasks/monitor-portrait-locks/numeric_score.py",
+      "bytes": 7444,
+      "sha256": "bc5b49ece9139b99c9afef478bb35687ccb25bc62fb1af54d769beecd0bf81c5"
+    },
+    {
+      "path": "sources/official/CELLO-1315/tasks/monitor-portrait-locks/task.json",
+      "bytes": 3781,
+      "sha256": "b42b34bb43532672d6542256f449c51f2a91a11310bb3d3fd6227b469179a417"
+    },
+    {
+      "path": "sources/official/CELLO-2203/tasks/set-timing-belt-tension/README.md",
+      "bytes": 7334,
+      "sha256": "caf7f8a9a6aac7b8ffdb9630ca2136d797043a456970a1c993596473c7ff98b7"
+    },
+    {
+      "path": "sources/official/CELLO-2203/tasks/set-timing-belt-tension/belt_task.py",
+      "bytes": 4647,
+      "sha256": "1807c48c92f2c6e9557f427f0ff6762723adc61a3d9e58e6eb65b4b85980e821"
+    },
+    {
+      "path": "sources/official/CELLO-2203/tasks/set-timing-belt-tension/mechanics.py",
+      "bytes": 6276,
+      "sha256": "6d197c38c5b731a252521aee0d52aab985ed686d6f0a2aa079e1ad1612956c40"
+    },
+    {
+      "path": "sources/official/CELLO-2203/tasks/set-timing-belt-tension/task.json",
+      "bytes": 2245,
+      "sha256": "67db969b70f5098fb86cf59e7ca55e390fc261e9d2085f262164c8c3175e5910"
+    },
+    {
+      "path": "sources/official/CELLO-2396/tasks/aim-a-desk-lamp-onto-an-open-book/README.md",
+      "bytes": 14016,
+      "sha256": "c797a9bff4c2d92299e814c6df9688b00298c09f1533e0c961962125d5dec714"
+    },
+    {
+      "path": "sources/official/CELLO-2396/tasks/aim-a-desk-lamp-onto-an-open-book/desk_lamp/mech.py",
+      "bytes": 20014,
+      "sha256": "6d702955dc2f51ff3fa6ebe1ae97646515505c7e5a366ffb7e762e0d8c17b751"
+    },
+    {
+      "path": "sources/official/CELLO-2396/tasks/aim-a-desk-lamp-onto-an-open-book/task.json",
+      "bytes": 4590,
+      "sha256": "1ba1276ca15f0c077c30ff0e35bf63ba06ff31f8ac3c8b4fe0210f2afff312c5"
+    },
+    {
+      "path": "sources/official/CELLO-2396/tasks/aim-a-desk-lamp-onto-an-open-book/task.py",
+      "bytes": 19218,
+      "sha256": "e50c364b608d062bd4066e5c334ef598b37c5062b4a5e9701bf0b221ca6ce378"
+    },
+    {
+      "path": "sources/official/CELLO-813/tasks/v-wheel-preload/README.md",
+      "bytes": 1575,
+      "sha256": "65da252f1e02c61a1382245ef0edbe06b88a522dfa3118621857935a18a82169"
+    },
+    {
+      "path": "sources/official/CELLO-813/tasks/v-wheel-preload/parts.py",
+      "bytes": 43130,
+      "sha256": "5f77bd5c742121aee810cd34761e0e86c867cd28ce42f6bfd8866cca78b479f8"
+    },
+    {
+      "path": "sources/official/CELLO-813/tasks/v-wheel-preload/task.json",
+      "bytes": 1780,
+      "sha256": "2afd37e6e0076ce27699532a158fd0bc7ea8bedea9b5bc7452743539519ad9fd"
+    },
+    {
+      "path": "sources/official/CELLO-813/tasks/v-wheel-preload/task.py",
+      "bytes": 7530,
+      "sha256": "59d714a3590e1d0b020a08cdc121229dbba121c2fc9c7a165dca7d1d25577265"
+    },
+    {
+      "path": "sources/official/ODRI-1576/tasks/o-ring-into-groove/README.md",
+      "bytes": 13530,
+      "sha256": "fba9bd1f9316bc488ad4d6c24ad73ac741fbed878dba22bf13a3c08f8d0e6911"
+    },
+    {
+      "path": "sources/official/ODRI-1576/tasks/o-ring-into-groove/ringkit.py",
+      "bytes": 53330,
+      "sha256": "e03dcf84d8b9a96ab8e4c6f85fff0205ac862e6e023ef686cee79d32970f1acf"
+    },
+    {
+      "path": "sources/official/ODRI-1576/tasks/o-ring-into-groove/task.json",
+      "bytes": 7202,
+      "sha256": "9b95bc95a99a659eaa665b7712066360b7bb305874289049bb1b3c3c3c810bd7"
+    },
+    {
+      "path": "sources/official/ODRI-1576/tasks/o-ring-into-groove/task.py",
+      "bytes": 11521,
+      "sha256": "ba352db903c0e9ef15b89ed4eda918e3494269c490fe1ff3e52202c3e2824a7b"
+    },
+    {
+      "path": "sources/official/ODRI-2014/tasks/fr3-guide-swap/README.md",
+      "bytes": 8275,
+      "sha256": "b86e413801fc20c49e1c7d7c0ee0c968ea3bcede5340fb19c2cf6b531dcdd95a"
+    },
+    {
+      "path": "sources/official/ODRI-2014/tasks/fr3-guide-swap/mechkit.py",
+      "bytes": 41023,
+      "sha256": "1aa5306e8b5fedece5509dc662a302197617ffcdc1703aa063010328360773c0"
+    },
+    {
+      "path": "sources/official/ODRI-2014/tasks/fr3-guide-swap/task.json",
+      "bytes": 3840,
+      "sha256": "ac41a646a70cb05e8bd57071e0b1164e060c833577b03feac14a0928e7344e14"
+    },
+    {
+      "path": "sources/official/ODRI-2014/tasks/fr3-guide-swap/task.py",
+      "bytes": 28776,
+      "sha256": "176ad5a2fee51a55c2c1cbd97b4f1e5ecc1074f5557e18c9b5c589da830044d5"
+    },
+    {
+      "path": "sources/official/ODRI-2212/tasks/install-a-motor-shaft-encoder/README.md",
+      "bytes": 3632,
+      "sha256": "4b2dda8385eaeca6fc538d234ae1e1d713b74773950dceefae432679661d8c94"
+    },
+    {
+      "path": "sources/official/ODRI-2212/tasks/install-a-motor-shaft-encoder/geom.py",
+      "bytes": 2770,
+      "sha256": "814a1d764e8495c98333ba6fec8b7b93685d0a10fd8d534ea2d15d50c435caab"
+    },
+    {
+      "path": "sources/official/ODRI-2212/tasks/install-a-motor-shaft-encoder/task.json",
+      "bytes": 1621,
+      "sha256": "093107ee2b88801609e48d992a53cba49ce5cb1e78914ee63cab3ef19b9eaaf0"
+    },
+    {
+      "path": "sources/official/ODRI-2212/tasks/install-a-motor-shaft-encoder/task.py",
+      "bytes": 11784,
+      "sha256": "3c4d9cdc495e3718c0186ec4996c71493f900afee69e4b4fdc95abc7f3b3061b"
+    },
+    {
+      "path": "sources/refresh_official.py",
+      "bytes": 1678,
+      "sha256": "2e48f244af4f95002c7e07ef581d30b460e328959eeb2eef7c781e4126507089"
+    },
+    {
+      "path": "verify_results.py",
+      "bytes": 2916,
+      "sha256": "c037bd8c754e77716e32011c30d34f07a93417aa47919b63d8b55dbefd7e7784"
+    },
+    {
+      "path": "write_reports.py",
+      "bytes": 7828,
+      "sha256": "e47847630c7d2387c8bb3fd44d46be3258d40e65edab658edf6f531984aa948b"
+    }
+  ],
+  "reused_source_inputs": [
+    {
+      "path": "research/robocurve-acceptance/preflight/access_core.py",
+      "bytes": 25043,
+      "sha256": "3e41c7a4a98ab3a1889452c46c9da5bd5386c01a5f34fc1fbc106f867e31a233"
+    },
+    {
+      "path": "research/robocurve-acceptance/preflight/assets/YAM_REFERENCE.json.gz",
+      "bytes": 676925,
+      "sha256": "f02631ba507361c82444704bee9604cb060cf9d4d155127c77c62941773f6625"
+    },
+    {
+      "path": "research/robocurve-acceptance/preflight/assets/YAM_SOURCE_MANIFEST.json",
+      "bytes": 60492,
+      "sha256": "8172c23a24a24a6a36e486215b4ec709f7f58251cc0784a9cb09f6b7f3899795"
+    },
+    {
+      "path": "research/robocurve-implementation/common/access.py",
+      "bytes": 4195,
+      "sha256": "744ba0a608e9cf92e3a802c878a220de87f681234d29811994ca883fd5bc6e97"
+    }
+  ]
+}

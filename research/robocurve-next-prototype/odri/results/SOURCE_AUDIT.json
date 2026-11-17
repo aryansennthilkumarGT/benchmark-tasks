@@ -1,0 +1,60 @@
+{
+  "guide_pin_lateral_clearance_mm": 0.40000000000000124,
+  "guide_channel_z_relative_foot_mm": [
+    16,
+    18
+  ],
+  "pin_embed_depth_not_measured_mm": [
+    0,
+    3.6
+  ],
+  "source_STEP_overlap_tests": [
+    {
+      "file": "lower_leg_structure_base.STEP",
+      "intersection_volume_mm3": 0.0
+    },
+    {
+      "file": "lower_leg_structure_fork.STEP",
+      "intersection_volume_mm3": 0.0
+    }
+  ],
+  "registration": {
+    "foot_rotation_about_X_deg": 90,
+    "foot_translation_mm": [
+      0,
+      0,
+      -160
+    ],
+    "basis": "Foot pin +Y aligned with leg +Z and coincident optical X axes; zero-overlap alone is not full hardware assembly validation"
+  },
+  "beam_gradient_max_error_N": 1.3586609615146017e-10,
+  "energy_translation_error_Nmm": 3.469446951953614e-16,
+  "energy_rotation_error_Nmm": 6.245004513516506e-16,
+  "SDF_checks": [
+    {
+      "x_mm": 2.123,
+      "body": "foot",
+      "max_error_mm": 0.007283622135156431,
+      "p99_error_mm": 0.0022819889160900072
+    },
+    {
+      "x_mm": 2.123,
+      "body": "fixed",
+      "max_error_mm": 0.007978786080266365,
+      "p99_error_mm": 0.0009498952892564148
+    },
+    {
+      "x_mm": -2.123,
+      "body": "foot",
+      "max_error_mm": 0.010459494405526293,
+      "p99_error_mm": 0.0024183731474775785
+    },
+    {
+      "x_mm": -2.123,
+      "body": "fixed",
+      "max_error_mm": 0.01057004607054246,
+      "p99_error_mm": 0.0010430578006174406
+    }
+  ],
+  "material_calibrated": false
+}
